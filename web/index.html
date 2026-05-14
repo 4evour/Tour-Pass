@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tour Pass 演示台</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-labelledby="app-title">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">C++ AI Trip Planner</p>
+            <h1 id="app-title">Tour Pass 演示台</h1>
+          </div>
+          <div class="status" id="serviceStatus">连接中</div>
+        </header>
+
+        <section class="planner-layout">
+          <form id="planForm" class="control-panel" aria-label="行程偏好">
+            <div class="field-row">
+              <label for="city">城市</label>
+              <input id="city" name="city" value="长沙" />
+            </div>
+
+            <div class="two-col">
+              <div class="field-row">
+                <label for="days">天数</label>
+                <input id="days" name="days" type="number" min="1" max="7" value="2" />
+              </div>
+              <div class="field-row">
+                <label for="candidateCount">候选数</label>
+                <input id="candidateCount" name="candidateCount" type="number" min="1" max="5" value="3" />
+              </div>
+            </div>
+
+            <div class="two-col">
+              <div class="field-row">
+                <label for="startTime">开始时间</label>
+                <input id="startTime" name="startTime" value="09:30" />
+              </div>
+              <div class="field-row">
+                <label for="endTime">结束时间</label>
+                <input id="endTime" name="endTime" value="21:30" />
+              </div>
+            </div>
+
+            <div class="field-row">
+              <label for="hotelLocation">酒店位置</label>
+              <input id="hotelLocation" name="hotelLocation" value="五一广场酒店" />
+            </div>
+
+            <div class="field-row">
+              <label for="interests">兴趣偏好</label>
+              <input id="interests" name="interests" value="历史文化, 美食, 夜景" />
+            </div>
+
+            <div class="field-row">
+              <label for="mustVisit">必去地点</label>
+              <input id="mustVisit" name="mustVisit" value="橘子洲, 湖南博物院" />
+            </div>
+
+            <div class="field-row">
+              <label for="pace">节奏</label>
+              <select id="pace" name="pace">
+                <option>轻松</option>
+                <option selected>标准</option>
+                <option>紧凑</option>
+              </select>
+            </div>
+
+            <div class="action-row">
+              <button class="primary-action" type="submit">生成行程</button>
+              <button id="loadExampleButton" class="secondary-action" type="button">加载示例</button>
+            </div>
+          </form>
+
+          <section class="result-panel" aria-live="polite">
+            <div class="result-header">
+              <div>
+                <p class="eyebrow">Plan Output</p>
+                <h2>候选行程</h2>
+              </div>
+              <button id="explainButton" class="secondary-action" type="button">生成解释</button>
+            </div>
+            <div id="candidateTabs" class="tabs" role="tablist"></div>
+            <div id="planOutput" class="plan-output empty-state">
+              选择偏好后生成行程。
+            </div>
+          </section>
+        </section>
+      </section>
+
+      <aside class="inspector" aria-label="辅助工具">
+        <section>
+          <h2>路径查询</h2>
+          <div class="two-col">
+            <div class="field-row">
+              <label for="routeFrom">起点</label>
+              <input id="routeFrom" value="hotel_wuyi" />
+            </div>
+            <div class="field-row">
+              <label for="routeTo">终点</label>
+              <input id="routeTo" value="yuelu_academy" />
+            </div>
+          </div>
+          <button id="routeButton" class="secondary-action" type="button">查询 A*</button>
+          <pre id="routeOutput" class="compact-output"></pre>
+        </section>
+
+        <section>
+          <h2>替换方案</h2>
+          <div class="field-row">
+            <label for="scenario">场景</label>
+            <select id="scenario">
+              <option>下雨</option>
+              <option>闭馆</option>
+              <option>太累</option>
+              <option>预算降低</option>
+            </select>
+          </div>
+          <button id="alternativeButton" class="secondary-action" type="button">获取替换</button>
+          <div id="alternativeOutput" class="mini-list"></div>
+        </section>
+
+        <section>
+          <h2>行程解释</h2>
+          <div id="explainOutput" class="explain-box">暂无解释。</div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

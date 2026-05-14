@@ -1,0 +1,13 @@
+bin/
+build/
+*.exe
+*.o
+*.obj
+*.dll
+*.a
+*.lib
+*.log
+.env
+config/llm.local.json
+.vscode/
+.idea/
