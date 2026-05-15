@@ -14,6 +14,8 @@ struct SearchResult {
     std::string area;
     double score = 0.0;
     std::string description;
+    std::vector<std::string> matchedTerms;
+    std::string scoreExplanation;
 };
 
 class SearchEngine {

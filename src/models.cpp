@@ -80,7 +80,34 @@ bool containsText(const std::vector<std::string>& values, const std::string& val
     return std::find(values.begin(), values.end(), value) != values.end();
 }
 
+nlohmann::json scoreComponentToJson(const ScoreComponent& component) {
+    return {
+        {"label", component.label},
+        {"value", component.value},
+        {"reason", component.reason}
+    };
+}
+
+nlohmann::json comparisonMetricsToJson(const ComparisonMetrics& metrics) {
+    return {
+        {"total_stops", metrics.totalStops},
+        {"total_travel_minutes", metrics.totalTravelMinutes},
+        {"total_visit_minutes", metrics.totalVisitMinutes},
+        {"must_visit_covered", metrics.mustVisitCovered},
+        {"open_time_risks", metrics.openTimeRisks},
+        {"unscheduled_count", metrics.unscheduledCount},
+        {"total_score", metrics.totalScore},
+        {"pareto_rank", metrics.paretoRank},
+        {"dominated", metrics.dominated},
+        {"tradeoff_summary", metrics.tradeoffSummary}
+    };
+}
+
 nlohmann::json stopToJson(const Stop& stop) {
+    nlohmann::json breakdown = nlohmann::json::array();
+    for (const auto& component : stop.scoreBreakdown) {
+        breakdown.push_back(scoreComponentToJson(component));
+    }
     return {
         {"slot", stop.slot},
         {"poi_id", stop.poiId},
@@ -93,6 +120,7 @@ nlohmann::json stopToJson(const Stop& stop) {
         {"travel_minutes_from_previous", stop.travelMinutesFromPrevious},
         {"open_time_matched", stop.openTimeMatched},
         {"score", stop.score},
+        {"score_breakdown", breakdown},
         {"reason", stop.reason}
     };
 }
@@ -125,7 +153,9 @@ nlohmann::json itineraryToJson(const Itinerary& itinerary) {
     return {
         {"city", itinerary.city},
         {"variant_name", itinerary.variantName},
+        {"strategy", itinerary.strategy},
         {"total_score", itinerary.totalScore},
+        {"comparison", comparisonMetricsToJson(itinerary.comparison)},
         {"days", days},
         {"alternatives", itinerary.alternatives}
     };
@@ -147,6 +177,7 @@ TripRequest tripRequestFromJson(const nlohmann::json& input) {
     request.mustVisit = optionalStringArray(input, "must_visit");
     request.avoid = optionalStringArray(input, "avoid");
     request.candidateCount = input.value("candidate_count", 1);
+    request.strategy = input.value("strategy", "balanced");
 
     if (request.days < 1 || request.days > 7) {
         throw std::runtime_error("days must be between 1 and 7");

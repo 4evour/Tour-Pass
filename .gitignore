@@ -9,5 +9,7 @@ build/
 *.log
 .env
 config/llm.local.json
+test-results/
+playwright-report/
 .vscode/
 .idea/

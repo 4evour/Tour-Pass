@@ -2,6 +2,8 @@
 
 #include <algorithm>
 #include <cctype>
+#include <cmath>
+#include <set>
 #include <sstream>
 #include <unordered_map>
 
@@ -29,6 +31,28 @@ std::vector<std::string> splitQuery(const std::string& query) {
     return tokens;
 }
 
+double fieldTermFrequency(const std::string& field, const std::string& token, double weight) {
+    if (field.empty() || token.empty()) {
+        return 0.0;
+    }
+    double frequency = 0.0;
+    size_t pos = field.find(token);
+    while (pos != std::string::npos) {
+        frequency += weight;
+        pos = field.find(token, pos + token.size());
+    }
+    return frequency;
+}
+
+std::string joinTerms(const std::vector<std::string>& terms) {
+    std::ostringstream out;
+    for (size_t i = 0; i < terms.size(); ++i) {
+        if (i > 0) out << "、";
+        out << terms[i];
+    }
+    return out.str();
+}
+
 }  // namespace
 
 SearchEngine::SearchEngine(const PoiGraph& graph) : graph_(graph) {}
@@ -37,34 +61,79 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
     std::vector<SearchResult> results;
     if (limit <= 0) limit = 10;
     const auto tokens = splitQuery(query);
+    const auto& pois = graph_.pois();
 
-    for (const auto& poi : graph_.pois()) {
+    std::unordered_map<std::string, int> documentFrequency;
+    for (const auto& token : tokens) {
+        int count = 0;
+        for (const auto& poi : pois) {
+            std::string text = lowerAscii(poi.name + " " + poi.area + " " + poi.description);
+            for (const auto& tag : poi.tags) {
+                text += " " + lowerAscii(tag);
+            }
+            if (text.find(token) != std::string::npos) {
+                ++count;
+            }
+        }
+        documentFrequency[token] = std::max(1, count);
+    }
+
+    double totalLength = 0.0;
+    for (const auto& poi : pois) {
+        totalLength += 2.0 + poi.tags.size() + std::max<size_t>(1, poi.description.size() / 6);
+    }
+    const double averageLength = pois.empty() ? 1.0 : totalLength / static_cast<double>(pois.size());
+
+    for (const auto& poi : pois) {
         if (!type.empty() && poiTypeToString(poi.type) != type) {
             continue;
         }
-        std::string text = lowerAscii(poi.name + " " + poi.area + " " + poi.description);
-        for (const auto& tag : poi.tags) {
-            text += " " + lowerAscii(tag);
-        }
 
         double score = 0.0;
+        std::vector<std::string> matchedTerms;
+        std::string tagsText;
+        for (const auto& tag : poi.tags) {
+            tagsText += lowerAscii(tag) + " ";
+        }
+        const std::string name = lowerAscii(poi.name);
+        const std::string area = lowerAscii(poi.area);
+        const std::string description = lowerAscii(poi.description);
+        const double docLength = 2.0 + poi.tags.size() + std::max<size_t>(1, poi.description.size() / 6);
+        const double k1 = 1.35;
+        const double b = 0.72;
+
         for (const auto& token : tokens) {
-            if (text.find(token) != std::string::npos) {
-                score += 10.0;
-            }
-            for (const auto& tag : poi.tags) {
-                if (lowerAscii(tag).find(token) != std::string::npos) {
-                    score += 8.0;
-                }
+            double tf = 0.0;
+            tf += fieldTermFrequency(name, token, 3.0);
+            tf += fieldTermFrequency(tagsText, token, 2.4);
+            tf += fieldTermFrequency(area, token, 1.5);
+            tf += fieldTermFrequency(description, token, 1.0);
+            if (tf > 0.0) {
+                matchedTerms.push_back(token);
+                double idf = std::log(1.0 + (static_cast<double>(pois.size()) - documentFrequency[token] + 0.5) / (documentFrequency[token] + 0.5));
+                double normalized = (tf * (k1 + 1.0)) / (tf + k1 * (1.0 - b + b * docLength / averageLength));
+                score += idf * normalized * 10.0;
             }
         }
         if (tokens.empty()) {
             score = poi.popularity;
+            matchedTerms.push_back("热度");
         }
         score += poi.popularity;
 
         if (score > 0.0) {
-            results.push_back({poi.id, poi.name, poiTypeToString(poi.type), poi.area, score, poi.description});
+            SearchResult result;
+            result.id = poi.id;
+            result.name = poi.name;
+            result.type = poiTypeToString(poi.type);
+            result.area = poi.area;
+            result.score = std::round(score * 10.0) / 10.0;
+            result.description = poi.description;
+            result.matchedTerms = matchedTerms;
+            result.scoreExplanation = tokens.empty()
+                ? "空查询按 POI 热度排序。"
+                : "BM25 + 字段权重：名称、标签、区域和描述共同贡献，匹配词为「" + joinTerms(matchedTerms) + "」。";
+            results.push_back(result);
         }
     }
 
@@ -84,7 +153,9 @@ nlohmann::json searchResultToJson(const SearchResult& result) {
         {"type", result.type},
         {"area", result.area},
         {"score", result.score},
-        {"description", result.description}
+        {"description", result.description},
+        {"matched_terms", result.matchedTerms},
+        {"score_explanation", result.scoreExplanation}
     };
 }
 

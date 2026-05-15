@@ -21,7 +21,7 @@ http://127.0.0.1:8080
 
 ## POST /trip/plan
 
-根据用户偏好生成结构化行程。`candidate_count` 大于 1 时返回 `candidates` 数组。
+根据用户偏好生成结构化行程。规划器使用 Beam Search 在每个时间槽保留 Top-K 局部状态，综合站点评分、通勤成本、开放时间和必去覆盖选择路线。`candidate_count` 大于 1 时返回 `candidates` 数组，候选方案会体现轻松少走路、紧凑多覆盖、文化优先、美食优先、雨天室内等真实评分策略差异。
 
 请求示例：
 
@@ -43,10 +43,40 @@ http://127.0.0.1:8080
 关键响应字段：
 
 - `variant_name`：候选方案名称。
-- `optimization_summary`：日内局部交换优化结果。
+- `strategy`：候选策略标识，例如 `low_travel`、`compact`、`culture`、`food`、`rainy`。
+- `comparison`：候选方案对比指标，包含总站点数、总通勤、游玩时长、必去覆盖、开放时间风险、未安排数量、总评分、Pareto 层级和取舍说明。
+- `summary`：每日安排摘要，包含 Beam Search 选择过程、节奏、兴趣优先级和演示重点。
+- `stops[].reason`：站点级决策依据，说明兴趣匹配、通勤、评分、开放时间等因素。
+- `stops[].score_breakdown`：站点评分拆解，包含热度、兴趣匹配、必去加权、通勤惩罚、价格惩罚和时间窗惩罚等组件。
+- `optimization_summary`：日内局部交换优化结果，说明优化前后通勤变化。
 - `original_travel_minutes` / `optimized_travel_minutes`：优化前后通勤时间。
-- `constraint_explanations`：开放时间、餐饮窗口、必去点、通勤成本等解释。
-- `unscheduled_reasons`：未安排原因或必去点覆盖说明。
+- `constraint_explanations`：开放时间约束、餐饮窗口、必去点、通勤成本等解释。
+- `unscheduled_reasons`：未安排原因、必去点覆盖说明或约束取舍说明。
+
+多候选响应示意：
+
+```json
+{
+  "city": "长沙",
+  "candidates": [
+    {
+      "variant_name": "平衡推荐方案",
+      "strategy": "balanced",
+      "total_score": 712.4,
+      "comparison": {
+        "total_stops": 10,
+        "total_travel_minutes": 188,
+        "must_visit_covered": 2,
+        "open_time_risks": 0,
+        "pareto_rank": 1,
+        "dominated": false,
+        "tradeoff_summary": "Pareto 第 1 层：在评分、通勤、风险和必去覆盖之间没有被其他候选完全支配。"
+      },
+      "days": []
+    }
+  ]
+}
+```
 
 ## GET /route/shortest
 
@@ -66,13 +96,18 @@ curl.exe "http://127.0.0.1:8080/route/shortest?from=hotel_wuyi&to=yuelu_academy&
 
 ## GET /poi/search
 
-检索 POI、餐厅或注意事项。
+检索 POI、餐厅或注意事项。服务端使用轻量 BM25 饱和项、字段权重和热度加权排序，字段权重覆盖名称、标签、区域和描述。
 
 参数：
 
 - `q`：关键词。
 - `type`：可选，`attraction`、`restaurant`、`hotel`、`nightlife`。
 - `limit`：返回数量，默认 10。
+
+响应字段除基础 POI 信息外，还包含：
+
+- `matched_terms`：命中的查询词。
+- `score_explanation`：排序解释，说明 BM25 和字段权重如何影响结果。
 
 ## POST /trip/alternatives
 
@@ -89,7 +124,7 @@ curl.exe "http://127.0.0.1:8080/route/shortest?from=hotel_wuyi&to=yuelu_academy&
 
 输入结构化行程或行程偏好，返回 LLM 或模板生成的中文解释。
 
-未配置 `OPENAI_API_KEY` 时自动回退到本地模板。
+远程 LLM 使用内置 HTTP client 调用 OpenAI 兼容 `chat/completions` 接口。未配置 `OPENAI_API_KEY`、设置 `LLM_DISABLED=1` 或远程调用失败时自动回退到本地模板。
 
 ## 错误格式
 

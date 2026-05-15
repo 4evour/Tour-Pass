@@ -14,8 +14,17 @@
             <p class="eyebrow">C++ AI Trip Planner</p>
             <h1 id="app-title">Tour Pass 演示台</h1>
           </div>
-          <div class="status" id="serviceStatus">连接中</div>
+          <div class="status" id="serviceStatus" role="status">连接中</div>
         </header>
+
+        <section class="demo-rail" aria-label="演示链路">
+          <span>偏好输入</span>
+          <span>候选行程</span>
+          <span>约束解释</span>
+          <span>路径查询</span>
+          <span>替换方案</span>
+          <span>自然语言说明</span>
+        </section>
 
         <section class="planner-layout">
           <form id="planForm" class="control-panel" aria-label="行程偏好">
@@ -31,7 +40,7 @@
               </div>
               <div class="field-row">
                 <label for="candidateCount">候选数</label>
-                <input id="candidateCount" name="candidateCount" type="number" min="1" max="5" value="3" />
+                <input id="candidateCount" name="candidateCount" type="number" min="1" max="5" value="5" />
               </div>
             </div>
 
@@ -84,6 +93,7 @@
               </div>
               <button id="explainButton" class="secondary-action" type="button">生成解释</button>
             </div>
+            <div id="candidateSummary" class="candidate-summary"></div>
             <div id="candidateTabs" class="tabs" role="tablist"></div>
             <div id="planOutput" class="plan-output empty-state">
               选择偏好后生成行程。

@@ -51,6 +51,13 @@ struct TripRequest {
     std::vector<std::string> mustVisit;
     std::vector<std::string> avoid;
     int candidateCount = 1;
+    std::string strategy = "balanced";
+};
+
+struct ScoreComponent {
+    std::string label;
+    double value = 0.0;
+    std::string reason;
 };
 
 struct Stop {
@@ -66,6 +73,20 @@ struct Stop {
     bool openTimeMatched = true;
     double score = 0.0;
     std::string reason;
+    std::vector<ScoreComponent> scoreBreakdown;
+};
+
+struct ComparisonMetrics {
+    int totalStops = 0;
+    int totalTravelMinutes = 0;
+    int totalVisitMinutes = 0;
+    int mustVisitCovered = 0;
+    int openTimeRisks = 0;
+    int unscheduledCount = 0;
+    double totalScore = 0.0;
+    int paretoRank = 0;
+    bool dominated = false;
+    std::string tradeoffSummary;
 };
 
 struct DayPlan {
@@ -85,9 +106,11 @@ struct DayPlan {
 struct Itinerary {
     std::string city;
     std::string variantName = "推荐方案";
+    std::string strategy = "balanced";
     std::vector<DayPlan> days;
     double totalScore = 0.0;
     std::vector<std::string> alternatives;
+    ComparisonMetrics comparison;
 };
 
 struct RouteResult {
@@ -105,6 +128,8 @@ std::string formatMinutes(int minutes);
 bool containsText(const std::vector<std::string>& values, const std::string& value);
 
 nlohmann::json stopToJson(const Stop& stop);
+nlohmann::json scoreComponentToJson(const ScoreComponent& component);
+nlohmann::json comparisonMetricsToJson(const ComparisonMetrics& metrics);
 nlohmann::json dayPlanToJson(const DayPlan& day);
 nlohmann::json itineraryToJson(const Itinerary& itinerary);
 nlohmann::json routeResultToJson(const RouteResult& route);

@@ -1,5 +1,7 @@
 CXX := g++
 CXXFLAGS := -std=c++17 -Wall -Wextra -pedantic -Iinclude -Ithird_party
+OPENSSL_CXXFLAGS ?=
+OPENSSL_LDFLAGS ?=
 LDFLAGS := -lws2_32
 SHELL := cmd.exe
 .SHELLFLAGS := /C
@@ -17,11 +19,11 @@ build: $(APP)
 
 $(APP): $(APP_SRC)
 	@if not exist bin mkdir bin
-	$(CXX) $(CXXFLAGS) $(APP_SRC) -o $(APP) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(OPENSSL_CXXFLAGS) $(APP_SRC) -o $(APP) $(LDFLAGS) $(OPENSSL_LDFLAGS)
 
 $(TEST_APP): $(TEST_SRC)
 	@if not exist bin mkdir bin
-	$(CXX) $(CXXFLAGS) $(TEST_SRC) -o $(TEST_APP) $(LDFLAGS)
+	$(CXX) $(CXXFLAGS) $(OPENSSL_CXXFLAGS) $(TEST_SRC) -o $(TEST_APP) $(LDFLAGS) $(OPENSSL_LDFLAGS)
 
 run: build
 	$(APP)

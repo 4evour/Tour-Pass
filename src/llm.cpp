@@ -1,11 +1,10 @@
 #include "tourpass/llm.h"
 
-#include <array>
-#include <cstdio>
 #include <cstdlib>
 #include <fstream>
 #include <sstream>
-#include <process.h>
+
+#include "httplib.h"
 
 namespace tourpass {
 
@@ -16,35 +15,30 @@ std::string getenvString(const char* key) {
     return value ? std::string(value) : std::string();
 }
 
-std::string escapeForCommand(const std::string& value) {
-    std::string escaped;
-    for (char ch : value) {
-        if (ch == '"') escaped += "\\\"";
-        else if (ch == '\n' || ch == '\r') escaped += ' ';
-        else escaped += ch;
-    }
-    return escaped;
+bool envFlagEnabled(const char* key) {
+    std::string value = getenvString(key);
+    return value == "1" || value == "true" || value == "TRUE" || value == "yes" || value == "YES";
 }
 
-std::string runCommandCapture(const std::string& command) {
-    std::array<char, 256> buffer{};
-    std::string result;
-    FILE* pipe = _popen(command.c_str(), "r");
-    if (!pipe) return "";
-    while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe) != nullptr) {
-        result += buffer.data();
-    }
-    int exitCode = _pclose(pipe);
-    if (exitCode != 0) return "";
-    return result;
-}
+struct Endpoint {
+    std::string origin;
+    std::string pathPrefix;
+};
 
-std::string tempRequestPath() {
-    std::string dir = getenvString("TEMP");
-    if (dir.empty()) dir = ".";
-    char last = dir.empty() ? '\0' : dir.back();
-    if (last != '\\' && last != '/') dir += "\\";
-    return dir + "tourpass_llm_request_" + std::to_string(_getpid()) + ".json";
+Endpoint parseEndpoint(std::string baseUrl) {
+    while (!baseUrl.empty() && baseUrl.back() == '/') {
+        baseUrl.pop_back();
+    }
+    size_t hostStart = 0;
+    size_t scheme = baseUrl.find("://");
+    if (scheme != std::string::npos) {
+        hostStart = scheme + 3;
+    }
+    size_t pathStart = baseUrl.find('/', hostStart);
+    if (pathStart == std::string::npos) {
+        return {baseUrl, ""};
+    }
+    return {baseUrl.substr(0, pathStart), baseUrl.substr(pathStart)};
 }
 
 }  // namespace
@@ -61,6 +55,11 @@ LlmClient::LlmClient(const std::string& configPath) {
         } catch (...) {
             config_ = LlmConfig{};
         }
+    }
+
+    if (envFlagEnabled("LLM_DISABLED")) {
+        config_.apiKey.clear();
+        return;
     }
 
     std::string envKey = getenvString("OPENAI_API_KEY");
@@ -117,28 +116,25 @@ std::string LlmClient::explainWithRemote(const Itinerary& itinerary) const {
         {"temperature", 0.4}
     };
 
-    std::string url = config_.baseUrl;
-    if (!url.empty() && url.back() == '/') {
-        url.pop_back();
-    }
-    url += "/chat/completions";
-
-    std::string requestPath = tempRequestPath();
-    {
-        std::ofstream requestFile(requestPath, std::ios::binary);
-        if (!requestFile) return "";
-        requestFile << body.dump();
-    }
-
-    std::string command = "curl.exe -sS --max-time 20 -X POST \"" + escapeForCommand(url) +
-        "\" -H \"Content-Type: application/json\" -H \"Authorization: Bearer " + escapeForCommand(config_.apiKey) +
-        "\" --data-binary \"@" + escapeForCommand(requestPath) + "\" 2>NUL";
-    std::string response = runCommandCapture(command);
-    std::remove(requestPath.c_str());
-    if (response.empty()) return "";
-
     try {
-        auto json = nlohmann::json::parse(response);
+        Endpoint endpoint = parseEndpoint(config_.baseUrl);
+        httplib::Client client(endpoint.origin);
+        if (!client.is_valid()) {
+            return "";
+        }
+        client.set_connection_timeout(5);
+        client.set_read_timeout(20);
+        client.set_write_timeout(20);
+
+        httplib::Headers headers = {
+            {"Authorization", "Bearer " + config_.apiKey}
+        };
+        std::string path = endpoint.pathPrefix + "/chat/completions";
+        auto result = client.Post(path, headers, body.dump(), "application/json");
+        if (!result || result->status < 200 || result->status >= 300) {
+            return "";
+        }
+        auto json = nlohmann::json::parse(result->body);
         return json.at("choices").at(0).at("message").at("content").get<std::string>();
     } catch (...) {
         return "";
