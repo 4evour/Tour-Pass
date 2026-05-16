@@ -2,7 +2,7 @@
 
 Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用长沙本地样例数据，将景点、餐厅、酒店和夜间活动点建模为 POI 图，结合 Dijkstra/A* 最短路、兴趣评分、时间窗调度、餐饮插入、POI 检索和 LLM/模板解释生成多日旅行计划。
 
-当前演示链路围绕面试展示优化：输入偏好后生成多候选行程，页面展示真实策略差异、候选对比指标、Pareto 非支配层级、站点评分拆解、每日通勤优化、约束命中、未安排原因、路径查询、场景替换和自然语言说明。未配置 LLM 时仍会使用本地中文模板兜底，保证离线演示可运行。
+当前演示链路围绕面试展示优化：输入偏好后生成多候选行程，页面展示真实策略差异、候选对比指标、候选多样性指标、Pareto 非支配层级、站点评分拆解、每日通勤优化、严格时间窗复核、约束命中、未安排原因、路径查询、场景替换和自然语言说明。未配置 LLM 时仍会使用本地中文模板兜底，保证离线演示可运行。
 
 ## 环境要求
 
@@ -83,7 +83,7 @@ mingw32-make run
 
 ## API 示例
 
-完整 API 文档见 [docs/api.md](docs/api.md)，架构与面试演示路径见 [docs/architecture.md](docs/architecture.md)。
+完整 API 文档见 [docs/api.md](docs/api.md)，架构与面试演示路径见 [docs/architecture.md](docs/architecture.md)，算法细节与面试讲解路径见 [docs/algorithm.md](docs/algorithm.md)。
 
 健康检查：
 
@@ -115,8 +115,9 @@ curl.exe -X POST http://127.0.0.1:8080/trip/plan `
   --data-binary "@docs/sample_candidate_request.json"
 ```
 
-候选方案会通过 `variant_name`、`strategy`、`comparison` 和每日 `summary` 说明差异，例如轻松少走路、紧凑多覆盖、文化优先、美食优先和雨天室内。每个站点的 `reason` 和 `score_breakdown` 字段会解释兴趣匹配、通勤成本、策略加权、评分和开放时间等决策依据。
+候选方案会通过 `variant_name`、`strategy`、`comparison` 和每日 `summary` 说明差异，例如轻松少走路、紧凑多覆盖、文化优先、美食优先和雨天室内。`comparison` 还包含相对基线的 POI 重合率、区域重合率、独有 POI 和多样性标签，用于量化候选之间到底有多不同。每个站点的 `reason` 和 `score_breakdown` 字段会解释兴趣匹配、通勤成本、策略加权、评分和开放时间等决策依据。
 日内路线由 Beam Search 在上午、午餐、下午、晚餐、晚上等时间槽中保留 Top-K 局部状态，综合评分、通勤、开放时间和必去覆盖选择路线。
+最终路线会输出 `time_window_feasible`、`time_window_diagnostics`、`stops[].time_window_status` 和 `stops[].time_window_reason`，统一复核站点顺序、开放时间、餐饮窗口和当日结束时间。
 `docs/sample_candidate_request.json` 默认请求 5 个候选，适合一次展示完整策略矩阵。
 `comparison.pareto_rank` 会标记多目标非支配层级，用于说明候选方案在评分、通勤、风险和必去覆盖之间的取舍。
 
@@ -165,10 +166,13 @@ powershell -ExecutionPolicy Bypass -File scripts/demo.ps1
 仓库提供 GitHub Actions 工作流 `.github/workflows/ci.yml`，在 PR 和 main push 时执行 Ubuntu/Windows CMake 构建与 CTest，并在 Windows 上启动服务运行核心 API 冒烟测试。本地也可以运行：
 
 ```powershell
+mingw32-make validate-data
 node scripts/validate_data.js
 powershell -ExecutionPolicy Bypass -File scripts/api_smoke.ps1 -AppPath bin/tourpass.exe -Port 8091
 node scripts/benchmark.js --app bin/tourpass.exe --port 8092 --iterations 20 --warmup 3 --report docs/performance_report.md
 ```
+
+数据质量校验会检查 POI 字段、坐标、时间窗、类型覆盖、边引用、边权合法性和图连通性；CI 与本地 `validate-data` 使用同一脚本。
 
 如果本机已安装 Playwright 浏览器运行时，也可以启动服务后运行 UI 验证脚本：
 

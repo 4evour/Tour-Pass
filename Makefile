@@ -13,7 +13,7 @@ TEST_SRC := tests/test_main.cpp $(SRC)
 APP := bin\tourpass.exe
 TEST_APP := bin\tourpass_tests.exe
 
-.PHONY: build run test clean
+.PHONY: build run test validate-data clean
 
 build: $(APP)
 
@@ -30,6 +30,9 @@ run: build
 
 test: $(TEST_APP)
 	$(TEST_APP)
+
+validate-data:
+	node scripts\validate_data.js
 
 clean:
 	@if exist bin rmdir /S /Q bin

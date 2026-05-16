@@ -60,6 +60,15 @@ struct ScoreComponent {
     std::string reason;
 };
 
+struct BeamTraceEntry {
+    std::string slot;
+    int inputStates = 0;
+    int expandedStates = 0;
+    int keptStates = 0;
+    std::vector<std::string> keptStateSummaries;
+    std::string decision;
+};
+
 struct Stop {
     std::string slot;
     std::string poiId;
@@ -71,6 +80,8 @@ struct Stop {
     int visitDurationMinutes = 0;
     int travelMinutesFromPrevious = 0;
     bool openTimeMatched = true;
+    std::string timeWindowStatus = "ok";
+    std::string timeWindowReason;
     double score = 0.0;
     std::string reason;
     std::vector<ScoreComponent> scoreBreakdown;
@@ -87,6 +98,13 @@ struct ComparisonMetrics {
     int paretoRank = 0;
     bool dominated = false;
     std::string tradeoffSummary;
+    std::vector<std::string> paretoDebug;
+    double poiOverlapWithBaseline = 1.0;
+    double areaOverlapWithBaseline = 1.0;
+    int uniquePoiCount = 0;
+    std::vector<std::string> uniquePois;
+    std::vector<std::string> diversityTags;
+    std::string diversitySummary;
 };
 
 struct DayPlan {
@@ -97,10 +115,13 @@ struct DayPlan {
     int optimizedTravelMinutes = 0;
     int totalVisitMinutes = 0;
     double interestScore = 0.0;
+    bool timeWindowFeasible = true;
     std::string summary;
     std::string optimizationSummary;
     std::vector<std::string> constraintExplanations;
     std::vector<std::string> unscheduledReasons;
+    std::vector<std::string> timeWindowDiagnostics;
+    std::vector<BeamTraceEntry> beamTrace;
 };
 
 struct Itinerary {
@@ -129,6 +150,7 @@ bool containsText(const std::vector<std::string>& values, const std::string& val
 
 nlohmann::json stopToJson(const Stop& stop);
 nlohmann::json scoreComponentToJson(const ScoreComponent& component);
+nlohmann::json beamTraceEntryToJson(const BeamTraceEntry& entry);
 nlohmann::json comparisonMetricsToJson(const ComparisonMetrics& metrics);
 nlohmann::json dayPlanToJson(const DayPlan& day);
 nlohmann::json itineraryToJson(const Itinerary& itinerary);

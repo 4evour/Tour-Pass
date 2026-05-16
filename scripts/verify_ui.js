@@ -18,6 +18,10 @@ async function main() {
   const routeNodes = await page.locator(".route-node").count();
   const timelineStops = await page.locator(".timeline-stop").count();
   const comparisonCards = await page.locator(".comparison-card").count();
+  const beamSteps = await page.locator(".beam-step").count();
+  const paretoDebugItems = await page.locator(".pareto-debug span").count();
+  const diversityMetrics = await page.locator(".diversity-metrics span").count();
+  const searchContributionItems = await page.locator("#searchOutput .score-breakdown span").count();
 
   await browser.close();
 
@@ -33,7 +37,19 @@ async function main() {
   if (comparisonCards < 2) {
     throw new Error(`Expected candidate comparison cards, got ${comparisonCards}`);
   }
-  console.log(`UI verification passed: ${routeNodes} route nodes, ${timelineStops} timeline stops, ${comparisonCards} comparison cards.`);
+  if (beamSteps < 3) {
+    throw new Error(`Expected Beam Search debug steps, got ${beamSteps}`);
+  }
+  if (paretoDebugItems < 1) {
+    throw new Error(`Expected Pareto debug evidence, got ${paretoDebugItems}`);
+  }
+  if (diversityMetrics < 3) {
+    throw new Error(`Expected diversity metrics, got ${diversityMetrics}`);
+  }
+  if (searchContributionItems < 1) {
+    throw new Error(`Expected BM25 contribution chips, got ${searchContributionItems}`);
+  }
+  console.log(`UI verification passed: ${routeNodes} route nodes, ${timelineStops} timeline stops, ${comparisonCards} comparison cards, ${beamSteps} beam steps, ${diversityMetrics} diversity metrics, ${searchContributionItems} search contributions.`);
 }
 
 main().catch((error) => {

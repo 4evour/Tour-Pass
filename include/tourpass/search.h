@@ -16,6 +16,7 @@ struct SearchResult {
     std::string description;
     std::vector<std::string> matchedTerms;
     std::string scoreExplanation;
+    std::vector<ScoreComponent> scoreContributions;
 };
 
 class SearchEngine {

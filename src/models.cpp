@@ -88,6 +88,17 @@ nlohmann::json scoreComponentToJson(const ScoreComponent& component) {
     };
 }
 
+nlohmann::json beamTraceEntryToJson(const BeamTraceEntry& entry) {
+    return {
+        {"slot", entry.slot},
+        {"input_states", entry.inputStates},
+        {"expanded_states", entry.expandedStates},
+        {"kept_states", entry.keptStates},
+        {"kept_state_summaries", entry.keptStateSummaries},
+        {"decision", entry.decision}
+    };
+}
+
 nlohmann::json comparisonMetricsToJson(const ComparisonMetrics& metrics) {
     return {
         {"total_stops", metrics.totalStops},
@@ -99,7 +110,14 @@ nlohmann::json comparisonMetricsToJson(const ComparisonMetrics& metrics) {
         {"total_score", metrics.totalScore},
         {"pareto_rank", metrics.paretoRank},
         {"dominated", metrics.dominated},
-        {"tradeoff_summary", metrics.tradeoffSummary}
+        {"tradeoff_summary", metrics.tradeoffSummary},
+        {"pareto_debug", metrics.paretoDebug},
+        {"poi_overlap_with_baseline", metrics.poiOverlapWithBaseline},
+        {"area_overlap_with_baseline", metrics.areaOverlapWithBaseline},
+        {"unique_poi_count", metrics.uniquePoiCount},
+        {"unique_pois", metrics.uniquePois},
+        {"diversity_tags", metrics.diversityTags},
+        {"diversity_summary", metrics.diversitySummary}
     };
 }
 
@@ -119,6 +137,8 @@ nlohmann::json stopToJson(const Stop& stop) {
         {"visit_duration_minutes", stop.visitDurationMinutes},
         {"travel_minutes_from_previous", stop.travelMinutesFromPrevious},
         {"open_time_matched", stop.openTimeMatched},
+        {"time_window_status", stop.timeWindowStatus},
+        {"time_window_reason", stop.timeWindowReason},
         {"score", stop.score},
         {"score_breakdown", breakdown},
         {"reason", stop.reason}
@@ -130,6 +150,10 @@ nlohmann::json dayPlanToJson(const DayPlan& day) {
     for (const auto& stop : day.stops) {
         stops.push_back(stopToJson(stop));
     }
+    nlohmann::json beamTrace = nlohmann::json::array();
+    for (const auto& entry : day.beamTrace) {
+        beamTrace.push_back(beamTraceEntryToJson(entry));
+    }
     return {
         {"day", day.day},
         {"summary", day.summary},
@@ -139,8 +163,11 @@ nlohmann::json dayPlanToJson(const DayPlan& day) {
         {"optimized_travel_minutes", day.optimizedTravelMinutes},
         {"total_visit_minutes", day.totalVisitMinutes},
         {"interest_score", day.interestScore},
+        {"time_window_feasible", day.timeWindowFeasible},
+        {"time_window_diagnostics", day.timeWindowDiagnostics},
         {"constraint_explanations", day.constraintExplanations},
         {"unscheduled_reasons", day.unscheduledReasons},
+        {"beam_trace", beamTrace},
         {"stops", stops}
     };
 }

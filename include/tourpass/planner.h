@@ -27,10 +27,13 @@ private:
     DayPlan planDayWithBeamSearch(const TripRequest& request, int day, const std::string& hotelId, std::set<std::string>& used) const;
     int paceExtraBreakMinutes(const std::string& pace) const;
     int routeTravelMinutes(const std::string& startId, const std::vector<Stop>& stops) const;
+    bool routeOrderFeasible(const std::string& startId, const std::vector<Stop>& stops) const;
+    void validateDayTimeWindows(const TripRequest& request, DayPlan& day) const;
     void optimizeDayOrder(const std::string& startId, DayPlan& day) const;
     void explainDayConstraints(const TripRequest& request, const std::set<std::string>& used, DayPlan& day) const;
     ComparisonMetrics buildComparisonMetrics(const TripRequest& request, const Itinerary& itinerary) const;
     void assignParetoRanks(std::vector<Itinerary>& candidates) const;
+    void assignDiversityMetrics(std::vector<Itinerary>& candidates) const;
 };
 
 }  // namespace tourpass

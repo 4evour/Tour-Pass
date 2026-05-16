@@ -112,10 +112,69 @@ function renderPlan() {
       <div><strong>${candidate.days.length}</strong><span>行程天数</span></div>
       <div><strong>${totalTravel(candidate)}</strong><span>总通勤分钟</span></div>
     </div>
+    ${renderAlgorithmDebug(candidate)}
     ${renderRouteVisual(candidate)}
     ${candidate.days.map(renderDay).join("")}
   `;
   bindComparisonCards();
+}
+
+function renderAlgorithmDebug(candidate) {
+  const comparison = candidate.comparison || {};
+  const firstDay = candidate.days?.[0] || {};
+  const beamTrace = firstDay.beam_trace || [];
+  return `
+    <section class="debug-panel" aria-label="算法调试输出">
+      <div class="section-heading">
+        <h2>算法调试</h2>
+        <span>展示 Beam Search、Pareto 和候选多样性的可解释中间结果</span>
+      </div>
+      <div class="debug-grid">
+        <div>
+          <h3>Beam Search 保留状态</h3>
+          <div class="beam-steps">
+            ${beamTrace.length ? beamTrace.map(renderBeamStep).join("") : `<div class="debug-empty">暂无 Beam Trace</div>`}
+          </div>
+        </div>
+        <div>
+          <h3>Pareto 分层依据</h3>
+          <div class="pareto-debug">
+            <strong>L${comparison.pareto_rank || 1} · ${comparison.dominated ? "被支配候选" : "非支配前沿"}</strong>
+            <p>${comparison.tradeoff_summary || "暂无多目标解释。"}</p>
+            ${(comparison.pareto_debug || []).map((item) => `<span>${item}</span>`).join("")}
+          </div>
+          <h3>多样性指标</h3>
+          <div class="diversity-debug">
+            <div class="diversity-metrics">
+              <span><strong>${formatPercent(comparison.poi_overlap_with_baseline)}</strong>POI 重合</span>
+              <span><strong>${formatPercent(comparison.area_overlap_with_baseline)}</strong>区域重合</span>
+              <span><strong>${comparison.unique_poi_count ?? 0}</strong>独有 POI</span>
+            </div>
+            <p>${comparison.diversity_summary || "暂无候选多样性说明。"}</p>
+            <div class="diversity-tags">
+              ${(comparison.diversity_tags || []).map((tag) => `<span>${tag}</span>`).join("")}
+            </div>
+            ${(comparison.unique_pois || []).length ? `<div class="unique-pois">${comparison.unique_pois.slice(0, 4).map((poi) => `<code>${poi}</code>`).join("")}</div>` : ""}
+          </div>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderBeamStep(step) {
+  return `
+    <article class="beam-step">
+      <div>
+        <strong>${step.slot}</strong>
+        <span>${step.input_states} 入 · ${step.expanded_states} 展开 · ${step.kept_states} 留</span>
+      </div>
+      <p>${step.decision}</p>
+      <div class="beam-state-list">
+        ${(step.kept_state_summaries || []).map((item) => `<code>${item}</code>`).join("")}
+      </div>
+    </article>
+  `;
 }
 
 function renderRouteVisual(candidate) {
@@ -205,6 +264,8 @@ function renderComparisonCard(candidate, index) {
       <span>Pareto L${metrics.pareto_rank || 1}${metrics.dominated ? " · 被支配" : " · 前沿"}</span>
       <span>评分 ${metrics.total_score ?? candidate.total_score ?? 0}</span>
       <span>通勤 ${metrics.total_travel_minutes ?? totalTravel(candidate)} 分钟</span>
+      <span>POI 重合 ${formatPercent(metrics.poi_overlap_with_baseline)}</span>
+      <span>独有 ${metrics.unique_poi_count ?? 0} 个</span>
       <span>必去 ${metrics.must_visit_covered ?? 0}/${state.lastPayload?.must_visit?.length || 0}</span>
       <span>风险 ${metrics.open_time_risks ?? 0} · 未安排 ${metrics.unscheduled_count ?? 0}</span>
       <em>${metrics.tradeoff_summary || "多目标指标用于解释方案取舍。"}</em>
@@ -222,6 +283,13 @@ function strategyLabel(strategy) {
     balanced: "平衡",
   };
   return labels[strategy] || strategy || "平衡";
+}
+
+function formatPercent(value) {
+  if (typeof value !== "number") {
+    return "--";
+  }
+  return `${Math.round(value * 100)}%`;
 }
 
 function bindComparisonCards() {
@@ -242,6 +310,7 @@ function renderDay(day) {
         <span>通勤 ${day.total_travel_minutes} 分钟</span>
         <span>游玩 ${day.total_visit_minutes} 分钟</span>
         <span>兴趣分 ${Math.round(day.interest_score || 0)}</span>
+        <span class="${day.time_window_feasible ? "ok-chip" : "risk-chip"}">${day.time_window_feasible ? "时间窗可行" : "时间窗风险"}</span>
       </div>
       <div class="insight-strip">
         <strong>${day.optimization_summary || "暂无优化摘要"}</strong>
@@ -252,6 +321,12 @@ function renderDay(day) {
           <h3>约束命中</h3>
           <div class="explain-list">
             ${(day.constraint_explanations || []).slice(0, 5).map((item) => `<span>${item}</span>`).join("")}
+          </div>
+        </div>
+        <div>
+          <h3>时间窗复核</h3>
+          <div class="explain-list ${day.time_window_feasible ? "" : "warn-list"}">
+            ${(day.time_window_diagnostics || []).slice(0, 5).map((item) => `<span>${item}</span>`).join("")}
           </div>
         </div>
         <div>
@@ -270,17 +345,31 @@ function renderDay(day) {
 
 function renderStop(stop) {
   return `
-    <article class="stop">
+    <article class="stop ${stop.time_window_status && stop.time_window_status !== "ok" ? "stop-risk" : ""}">
       <div class="slot">${stop.slot}</div>
       <div>
         <div class="stop-title">${stop.poi_name}</div>
         <div class="time">${stop.start_time}-${stop.end_time} · ${stop.area} · 通勤 ${stop.travel_minutes_from_previous} 分钟</div>
+        <div class="time-window-note">${timeWindowLabel(stop.time_window_status)} · ${stop.time_window_reason || "时间窗复核通过。"}</div>
         <div class="stop-reason">${stop.reason}</div>
         ${renderScoreBreakdown(stop.score_breakdown || [])}
       </div>
       <div class="score">${stop.score}</div>
     </article>
   `;
+}
+
+function timeWindowLabel(status) {
+  const labels = {
+    ok: "可行",
+    wait: "需等待",
+    closed: "闭馆风险",
+    meal_window: "餐饮窗口风险",
+    sequence: "顺序风险",
+    day_end: "超出当日",
+    missing_poi: "数据缺失",
+  };
+  return labels[status] || "时间窗";
 }
 
 function renderScoreBreakdown(breakdown) {
@@ -365,6 +454,35 @@ async function queryAlternatives() {
   }
 }
 
+async function querySearch() {
+  $("searchOutput").textContent = "检索中...";
+  try {
+    const query = encodeURIComponent($("searchQuery").value.trim());
+    const type = encodeURIComponent($("searchType").value);
+    const data = await api(`/poi/search?q=${query}&type=${type}&limit=4`);
+    $("searchOutput").innerHTML = data.data.length
+      ? data.data.map(renderSearchResult).join("")
+      : `<div class="mini-item"><strong>暂无结果</strong><span>可以换一个关键词或类型。</span></div>`;
+  } catch (error) {
+    $("searchOutput").textContent = `检索失败：${error.message}`;
+  }
+}
+
+function renderSearchResult(item) {
+  const contributions = (item.score_contributions || [])
+    .filter((part) => Math.abs(Number(part.value || 0)) > 0.01)
+    .slice(0, 4);
+  return `
+    <div class="mini-item search-item">
+      <strong>${item.name} <small>${Number(item.score || 0).toFixed(1)}</small></strong>
+      <span>${item.area} · ${item.score_explanation}</span>
+      <div class="score-breakdown">
+        ${contributions.map((part) => `<span title="${part.reason || ""}">${part.label} ${Number(part.value).toFixed(1)}</span>`).join("")}
+      </div>
+    </div>
+  `;
+}
+
 async function explainPlan() {
   const candidate = state.candidates[state.selectedIndex];
   if (!candidate) {
@@ -387,8 +505,10 @@ $("planForm").addEventListener("submit", generatePlan);
 $("loadExampleButton").addEventListener("click", loadExample);
 $("routeButton").addEventListener("click", queryRoute);
 $("alternativeButton").addEventListener("click", queryAlternatives);
+$("searchButton").addEventListener("click", querySearch);
 $("explainButton").addEventListener("click", explainPlan);
 
 loadHealth();
 queryRoute();
 queryAlternatives();
+querySearch();

@@ -135,6 +135,27 @@
         </section>
 
         <section>
+          <h2>POI 检索</h2>
+          <div class="two-col">
+            <div class="field-row">
+              <label for="searchQuery">关键词</label>
+              <input id="searchQuery" value="室内 艺术" />
+            </div>
+            <div class="field-row">
+              <label for="searchType">类型</label>
+              <select id="searchType">
+                <option value="">全部</option>
+                <option value="attraction" selected>景点</option>
+                <option value="restaurant">餐厅</option>
+                <option value="nightlife">夜间</option>
+              </select>
+            </div>
+          </div>
+          <button id="searchButton" class="secondary-action" type="button">检索 BM25</button>
+          <div id="searchOutput" class="mini-list"></div>
+        </section>
+
+        <section>
           <h2>行程解释</h2>
           <div id="explainOutput" class="explain-box">暂无解释。</div>
         </section>

@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cmath>
 #include <limits>
+#include <set>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -78,6 +79,129 @@ bool dominates(const ComparisonMetrics& left, const ComparisonMetrics& right) {
     return betterOrEqualOnAllObjectives(left, right) && strictlyBetterOnAnyObjective(left, right);
 }
 
+std::set<std::string> collectPoiIds(const Itinerary& itinerary) {
+    std::set<std::string> values;
+    for (const auto& day : itinerary.days) {
+        for (const auto& stop : day.stops) {
+            values.insert(stop.poiId);
+        }
+    }
+    return values;
+}
+
+std::set<std::string> collectAreas(const Itinerary& itinerary) {
+    std::set<std::string> values;
+    for (const auto& day : itinerary.days) {
+        for (const auto& stop : day.stops) {
+            if (!stop.area.empty()) {
+                values.insert(stop.area);
+            }
+        }
+    }
+    return values;
+}
+
+std::vector<std::string> collectUniquePoiNames(const Itinerary& itinerary, const std::set<std::string>& baselinePoiIds) {
+    std::vector<std::string> values;
+    std::set<std::string> seen;
+    for (const auto& day : itinerary.days) {
+        for (const auto& stop : day.stops) {
+            if (baselinePoiIds.count(stop.poiId) == 0 && seen.insert(stop.poiId).second) {
+                values.push_back(stop.poiName);
+            }
+        }
+    }
+    return values;
+}
+
+double overlapRatio(const std::set<std::string>& left, const std::set<std::string>& right) {
+    if (left.empty() && right.empty()) {
+        return 1.0;
+    }
+    std::vector<std::string> intersection;
+    std::vector<std::string> unionValues;
+    std::set_intersection(left.begin(), left.end(), right.begin(), right.end(), std::back_inserter(intersection));
+    std::set_union(left.begin(), left.end(), right.begin(), right.end(), std::back_inserter(unionValues));
+    if (unionValues.empty()) {
+        return 1.0;
+    }
+    return rounded(static_cast<double>(intersection.size()) / static_cast<double>(unionValues.size()));
+}
+
+std::string diversityLevel(double poiOverlap, int uniquePoiCount) {
+    if (poiOverlap <= 0.35 || uniquePoiCount >= 4) return "高差异";
+    if (poiOverlap <= 0.65 || uniquePoiCount >= 2) return "中差异";
+    return "低差异";
+}
+
+std::string strategyDiversityTag(const std::string& strategy) {
+    if (strategy == "low_travel") return "体力友好差异";
+    if (strategy == "compact") return "覆盖密度差异";
+    if (strategy == "culture") return "文化主题差异";
+    if (strategy == "food") return "美食主题差异";
+    if (strategy == "rainy") return "雨天场景差异";
+    return "时间偏移差异";
+}
+
+int mealWindowStart(const std::string& slot) {
+    if (slot == "午餐") return 11 * 60 + 30;
+    if (slot == "晚餐") return 17 * 60 + 30;
+    return -1;
+}
+
+int mealWindowEnd(const std::string& slot) {
+    if (slot == "午餐") return 13 * 60 + 30;
+    if (slot == "晚餐") return 19 * 60 + 30;
+    return -1;
+}
+
+bool isMealSlot(const std::string& slot) {
+    return slot == "午餐" || slot == "晚餐";
+}
+
+std::string timeWindowIssueStatus(const Stop& stop, const Poi* poi, int previousEnd, int requestEndMinutes) {
+    if (stop.startMinutes < previousEnd) return "sequence";
+    if (stop.endMinutes > requestEndMinutes) return "day_end";
+    if (isMealSlot(stop.slot) && (stop.startMinutes < mealWindowStart(stop.slot) || stop.endMinutes > mealWindowEnd(stop.slot))) {
+        return "meal_window";
+    }
+    if (!poi) return "missing_poi";
+    if (stop.startMinutes < poi->openMinutes) return "wait";
+    if (stop.endMinutes > poi->closeMinutes) return "closed";
+    return "ok";
+}
+
+std::string timeWindowIssueReason(const Stop& stop, const Poi* poi, int previousEnd, int requestEndMinutes) {
+    if (stop.startMinutes < previousEnd) {
+        return stop.poiName + " 开始时间 " + formatMinutes(stop.startMinutes) +
+               " 早于上一站结束/休息后时间 " + formatMinutes(previousEnd) + "，最终顺序不可行。";
+    }
+    if (stop.endMinutes > requestEndMinutes) {
+        return stop.poiName + " 预计 " + formatMinutes(stop.endMinutes) +
+               " 结束，超出当日结束时间 " + formatMinutes(requestEndMinutes) + "。";
+    }
+    if (isMealSlot(stop.slot) && (stop.startMinutes < mealWindowStart(stop.slot) || stop.endMinutes > mealWindowEnd(stop.slot))) {
+        return stop.poiName + " 的" + stop.slot + "安排为 " + formatMinutes(stop.startMinutes) + "-" +
+               formatMinutes(stop.endMinutes) + "，未完整落在 " + formatMinutes(mealWindowStart(stop.slot)) +
+               "-" + formatMinutes(mealWindowEnd(stop.slot)) + " 餐饮窗口内。";
+    }
+    if (!poi) {
+        return stop.poiName + " 在 POI 图中缺失，无法复核开放时间。";
+    }
+    if (stop.startMinutes < poi->openMinutes) {
+        return stop.poiName + " 预计 " + formatMinutes(stop.startMinutes) +
+               " 到达，早于开放时间 " + formatMinutes(poi->openMinutes) +
+               "，需要等待 " + std::to_string(poi->openMinutes - stop.startMinutes) + " 分钟。";
+    }
+    if (stop.endMinutes > poi->closeMinutes) {
+        return stop.poiName + " 预计 " + formatMinutes(stop.endMinutes) +
+               " 离开，但 " + formatMinutes(poi->closeMinutes) + " 关闭，超出 " +
+               std::to_string(stop.endMinutes - poi->closeMinutes) + " 分钟。";
+    }
+    return stop.poiName + " 时间窗复核通过：" + formatMinutes(stop.startMinutes) + "-" +
+           formatMinutes(stop.endMinutes) + " 位于开放与行程约束内。";
+}
+
 struct BeamState {
     std::vector<Stop> stops;
     std::set<std::string> used;
@@ -94,6 +218,23 @@ double beamStateScore(const TripRequest& request, const BeamState& state) {
         travelPenalty = 0.12;
     }
     return state.interestScore - state.totalTravelMinutes * travelPenalty + state.stops.size() * 8.0;
+}
+
+std::string summarizeBeamState(const TripRequest& request, const BeamState& state) {
+    std::ostringstream summary;
+    summary << "score=" << rounded(beamStateScore(request, state))
+            << " travel=" << state.totalTravelMinutes
+            << " stops=" << state.stops.size();
+    if (!state.stops.empty()) {
+        summary << " path=";
+        for (size_t i = 0; i < state.stops.size(); ++i) {
+            if (i > 0) summary << " -> ";
+            summary << state.stops[i].poiName;
+        }
+    } else {
+        summary << " path=起点";
+    }
+    return summary.str();
 }
 
 }  // namespace
@@ -306,6 +447,8 @@ Stop TripPlanner::makeStop(const std::string& slot, const Poi& poi, int startMin
     stop.visitDurationMinutes = poi.visitDurationMinutes;
     stop.travelMinutesFromPrevious = travelMinutes;
     stop.openTimeMatched = actualStart >= poi.openMinutes && stop.endMinutes <= poi.closeMinutes;
+    stop.timeWindowStatus = stop.openTimeMatched ? "ok" : (actualStart < poi.openMinutes ? "wait" : "closed");
+    stop.timeWindowReason = timeWindowIssueReason(stop, &poi, 0, request.endMinutes);
     stop.score = std::round(score * 10.0) / 10.0;
 
     std::ostringstream reason;
@@ -333,6 +476,56 @@ Stop TripPlanner::makeStop(const std::string& slot, const Poi& poi, int startMin
     return stop;
 }
 
+bool TripPlanner::routeOrderFeasible(const std::string& startId, const std::vector<Stop>& stops) const {
+    std::string currentId = startId;
+    int previousEnd = 0;
+    for (const auto& stop : stops) {
+        const Poi* poi = graph_.findPoi(stop.poiId);
+        int travel = graph_.shortestMinutes(currentId, stop.poiId);
+        if (!poi || travel == std::numeric_limits<int>::max()) {
+            return false;
+        }
+        if (previousEnd > 0 && stop.startMinutes < previousEnd + travel) {
+            return false;
+        }
+        if (isMealSlot(stop.slot) && (stop.startMinutes < mealWindowStart(stop.slot) || stop.endMinutes > mealWindowEnd(stop.slot))) {
+            return false;
+        }
+        if (stop.startMinutes < poi->openMinutes || stop.endMinutes > poi->closeMinutes) {
+            return false;
+        }
+        previousEnd = stop.endMinutes;
+        currentId = stop.poiId;
+    }
+    return true;
+}
+
+void TripPlanner::validateDayTimeWindows(const TripRequest& request, DayPlan& day) const {
+    day.timeWindowDiagnostics.clear();
+    day.timeWindowFeasible = true;
+    int previousEnd = request.startMinutes;
+
+    for (auto& stop : day.stops) {
+        const Poi* poi = graph_.findPoi(stop.poiId);
+        std::string status = timeWindowIssueStatus(stop, poi, previousEnd, request.endMinutes);
+        std::string reason = timeWindowIssueReason(stop, poi, previousEnd, request.endMinutes);
+        stop.timeWindowStatus = status;
+        stop.timeWindowReason = reason;
+        stop.openTimeMatched = status == "ok";
+        day.timeWindowDiagnostics.push_back(reason);
+        if (status != "ok") {
+            day.timeWindowFeasible = false;
+        }
+        previousEnd = std::max(previousEnd, stop.endMinutes);
+    }
+
+    if (day.stops.empty()) {
+        day.timeWindowDiagnostics.push_back("当日没有可安排站点，时间窗复核无可检查对象。");
+    } else if (day.timeWindowFeasible) {
+        day.timeWindowDiagnostics.push_back("最终顺序已通过统一时间窗复核：站点顺序、开放时间、餐饮窗口和当日结束时间均可行。");
+    }
+}
+
 DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, const std::string& hotelId, std::set<std::string>& used) const {
     const int beamWidth = 5;
     const int breakMinutes = paceExtraBreakMinutes(request.pace);
@@ -344,7 +537,13 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
     initial.currentTime = request.startMinutes;
     std::vector<BeamState> beam = {initial};
 
+    DayPlan dayPlan;
+    dayPlan.day = day;
+
     for (const auto& slot : slots) {
+        BeamTraceEntry trace;
+        trace.slot = slot;
+        trace.inputStates = static_cast<int>(beam.size());
         std::vector<BeamState> expanded;
         for (const auto& state : beam) {
             int slotStart = state.currentTime;
@@ -358,6 +557,7 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
                 Stop stop = makeStop(slot, *poi, slotStart + travel, travel, score, request);
                 stop.scoreBreakdown = buildScoreBreakdown(request, *poi, state.currentId, slotStart, state.used);
                 if (stop.endMinutes > request.endMinutes) continue;
+                if (isMealSlot(slot) && (stop.startMinutes < mealWindowStart(slot) || stop.endMinutes > mealWindowEnd(slot))) continue;
 
                 BeamState next = state;
                 next.stops.push_back(stop);
@@ -371,7 +571,14 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
             }
         }
 
+        trace.expandedStates = static_cast<int>(expanded.size());
         if (expanded.empty()) {
+            trace.keptStates = static_cast<int>(beam.size());
+            trace.decision = "该时间槽没有可行扩展，保留上一轮 Beam 状态继续后续时间槽。";
+            for (size_t i = 0; i < beam.size() && i < 3; ++i) {
+                trace.keptStateSummaries.push_back(summarizeBeamState(request, beam[i]));
+            }
+            dayPlan.beamTrace.push_back(trace);
             continue;
         }
         std::sort(expanded.begin(), expanded.end(), [&](const BeamState& left, const BeamState& right) {
@@ -385,14 +592,19 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
         if (static_cast<int>(expanded.size()) > beamWidth) {
             expanded.resize(static_cast<size_t>(beamWidth));
         }
+        trace.keptStates = static_cast<int>(expanded.size());
+        trace.decision = "按 Beam 状态评分保留 Top-" + std::to_string(trace.keptStates) +
+                         "，评分综合兴趣、通勤惩罚和站点覆盖。";
+        for (size_t i = 0; i < expanded.size() && i < 3; ++i) {
+            trace.keptStateSummaries.push_back(summarizeBeamState(request, expanded[i]));
+        }
+        dayPlan.beamTrace.push_back(trace);
         beam = expanded;
     }
 
     const BeamState& best = beam.front();
     used = best.used;
 
-    DayPlan dayPlan;
-    dayPlan.day = day;
     dayPlan.stops = best.stops;
     dayPlan.totalTravelMinutes = best.totalTravelMinutes;
     dayPlan.totalVisitMinutes = best.totalVisitMinutes;
@@ -416,6 +628,7 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
 
     optimizeDayOrder(hotelId, dayPlan);
     dayPlan.optimizationSummary = "Beam Search 已先完成 Top-K 局部路径选择；" + dayPlan.optimizationSummary;
+    validateDayTimeWindows(request, dayPlan);
     explainDayConstraints(request, used, dayPlan);
     return dayPlan;
 }
@@ -438,7 +651,7 @@ void TripPlanner::optimizeDayOrder(const std::string& startId, DayPlan& day) con
                 if (candidateStops[j].slot == "午餐" || candidateStops[j].slot == "晚餐") continue;
                 std::swap(candidateStops[i], candidateStops[j]);
                 int candidateTravel = routeTravelMinutes(startId, candidateStops);
-                if (candidateTravel < day.optimizedTravelMinutes) {
+                if (candidateTravel < day.optimizedTravelMinutes && routeOrderFeasible(startId, candidateStops)) {
                     day.optimizedTravelMinutes = candidateTravel;
                     improved = true;
                 } else {
@@ -452,7 +665,7 @@ void TripPlanner::optimizeDayOrder(const std::string& startId, DayPlan& day) con
     std::ostringstream summary;
     summary << "算法用日内局部交换评估通勤潜力：当前时间轴通勤 " << day.originalTravelMinutes
             << " 分钟，理论更优顺序 " << day.optimizedTravelMinutes
-            << " 分钟，可节省 " << saved << " 分钟；展示层保持时间顺序。";
+            << " 分钟，可节省 " << saved << " 分钟；只有同时满足开放时间、餐饮窗口和站点顺序的交换才计入收益。";
     day.optimizationSummary = summary.str();
 }
 
@@ -560,11 +773,75 @@ void TripPlanner::assignParetoRanks(std::vector<Itinerary>& candidates) const {
         std::ostringstream summary;
         if (!candidate.comparison.dominated) {
             summary << "标准非支配分层 Pareto 第 1 层：在评分、通勤、风险和必去覆盖之间没有被其他候选完全支配。";
+            candidate.comparison.paretoDebug.push_back("未发现其他候选在总分、必去覆盖、通勤、开放时间风险和未安排数量上同时不差且至少一项更优。");
         } else {
             summary << "标准非支配分层 Pareto 第 " << candidate.comparison.paretoRank
                     << " 层：移除更优前沿后进入下一层，说明该方案在至少一个目标上有取舍成本。";
+            candidate.comparison.paretoDebug.push_back("存在更高层候选在多目标指标上形成支配或近似支配关系。");
         }
+        std::ostringstream metrics;
+        metrics << "指标向量：score=" << candidate.comparison.totalScore
+                << ", must=" << candidate.comparison.mustVisitCovered
+                << ", travel=" << candidate.comparison.totalTravelMinutes
+                << ", risk=" << candidate.comparison.openTimeRisks
+                << ", unscheduled=" << candidate.comparison.unscheduledCount;
+        candidate.comparison.paretoDebug.push_back(metrics.str());
         candidate.comparison.tradeoffSummary = summary.str();
+    }
+}
+
+void TripPlanner::assignDiversityMetrics(std::vector<Itinerary>& candidates) const {
+    if (candidates.empty()) {
+        return;
+    }
+
+    const std::set<std::string> baselinePoiIds = collectPoiIds(candidates.front());
+    const std::set<std::string> baselineAreas = collectAreas(candidates.front());
+
+    for (size_t index = 0; index < candidates.size(); ++index) {
+        auto& candidate = candidates[index];
+        const std::set<std::string> poiIds = collectPoiIds(candidate);
+        const std::set<std::string> areas = collectAreas(candidate);
+        std::vector<std::string> uniqueNames = collectUniquePoiNames(candidate, baselinePoiIds);
+
+        candidate.comparison.poiOverlapWithBaseline = overlapRatio(poiIds, baselinePoiIds);
+        candidate.comparison.areaOverlapWithBaseline = overlapRatio(areas, baselineAreas);
+        candidate.comparison.uniquePoiCount = static_cast<int>(uniqueNames.size());
+        candidate.comparison.uniquePois = uniqueNames;
+        candidate.comparison.diversityTags.clear();
+
+        if (index == 0) {
+            candidate.comparison.poiOverlapWithBaseline = 1.0;
+            candidate.comparison.areaOverlapWithBaseline = 1.0;
+            candidate.comparison.uniquePoiCount = 0;
+            candidate.comparison.uniquePois.clear();
+            candidate.comparison.diversityTags.push_back("基线方案");
+            candidate.comparison.diversitySummary = "作为候选对比基线，其他方案会计算相对它的 POI 和区域差异。";
+            continue;
+        }
+
+        candidate.comparison.diversityTags.push_back(diversityLevel(candidate.comparison.poiOverlapWithBaseline, candidate.comparison.uniquePoiCount));
+        candidate.comparison.diversityTags.push_back(strategyDiversityTag(candidate.strategy));
+        if (candidate.comparison.areaOverlapWithBaseline <= 0.6) {
+            candidate.comparison.diversityTags.push_back("区域路径差异");
+        }
+        if (candidate.comparison.uniquePoiCount > 0) {
+            candidate.comparison.diversityTags.push_back("包含独有 POI");
+        }
+
+        std::ostringstream summary;
+        summary << "相对基线 POI 重合率 " << static_cast<int>(std::round(candidate.comparison.poiOverlapWithBaseline * 100))
+                << "%，区域重合率 " << static_cast<int>(std::round(candidate.comparison.areaOverlapWithBaseline * 100))
+                << "%，独有 POI " << candidate.comparison.uniquePoiCount << " 个";
+        if (!candidate.comparison.uniquePois.empty()) {
+            summary << "：";
+            for (size_t i = 0; i < candidate.comparison.uniquePois.size() && i < 3; ++i) {
+                if (i > 0) summary << "、";
+                summary << candidate.comparison.uniquePois[i];
+            }
+        }
+        summary << "。";
+        candidate.comparison.diversitySummary = summary.str();
     }
 }
 
@@ -669,6 +946,7 @@ std::vector<Itinerary> TripPlanner::planCandidates(const TripRequest& request) c
         annotateVariantFocus(itinerary, "延后出发 " + std::to_string(offsetMinutes) + " 分钟，展示时间窗变化对安排结果的影响。");
         candidates.push_back(itinerary);
     }
+    assignDiversityMetrics(candidates);
     assignParetoRanks(candidates);
     return candidates;
 }

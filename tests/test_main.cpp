@@ -90,6 +90,8 @@ void testPlanner() {
         expectTrue(!day.optimizationSummary.empty(), "planner returns optimization summary");
         expectTrue(!day.constraintExplanations.empty(), "planner explains constraints");
         expectTrue(!day.unscheduledReasons.empty(), "planner returns unscheduled reasons");
+        expectTrue(day.timeWindowFeasible, "sample itinerary passes strict time-window feasibility");
+        expectTrue(!day.timeWindowDiagnostics.empty(), "planner returns day-level time-window diagnostics");
         int previousStart = 0;
         for (const auto& stop : day.stops) {
             if (stop.slot == "午餐") hasLunch = true;
@@ -99,12 +101,53 @@ void testPlanner() {
             expectTrue(stop.startMinutes >= previousStart, "planner keeps stops in chronological order");
             previousStart = stop.startMinutes;
             expectTrue(stop.endMinutes <= sampleRequest().endMinutes, "stop stays within day end time");
+            expectTrue(!stop.timeWindowStatus.empty(), "stop exposes time-window status");
+            expectTrue(!stop.timeWindowReason.empty(), "stop exposes precise time-window reason");
+            if (stop.slot == "午餐") {
+                expectTrue(stop.startMinutes >= tourpass::parseTimeToMinutes("11:30"), "lunch starts inside lunch window");
+                expectTrue(stop.endMinutes <= tourpass::parseTimeToMinutes("13:30"), "lunch ends inside lunch window");
+            }
+            if (stop.slot == "晚餐") {
+                expectTrue(stop.startMinutes >= tourpass::parseTimeToMinutes("17:30"), "dinner starts inside dinner window");
+                expectTrue(stop.endMinutes <= tourpass::parseTimeToMinutes("19:30"), "dinner ends inside dinner window");
+            }
         }
     }
     expectTrue(hasLunch, "planner inserts lunch");
     expectTrue(hasDinner, "planner inserts dinner");
     expectTrue(hasHunanMuseum, "planner prioritizes Hunan Museum must visit");
     expectTrue(hasJuzizhou, "planner prioritizes Juzizhou must visit");
+}
+
+void testStrictTimeWindowDiagnosticsForTightDay() {
+    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    tourpass::PoiGraph graph(data.pois, data.edges);
+    tourpass::TripPlanner planner(graph);
+    tourpass::TripRequest request = sampleRequest();
+    request.days = 1;
+    request.startMinutes = tourpass::parseTimeToMinutes("16:20");
+    request.endMinutes = tourpass::parseTimeToMinutes("19:00");
+    request.mustVisit = {"湖南博物院"};
+
+    tourpass::Itinerary itinerary = planner.plan(request);
+    expectTrue(!itinerary.days.empty(), "tight day still returns a day plan");
+    const auto& day = itinerary.days.front();
+    expectTrue(!day.timeWindowDiagnostics.empty(), "tight day returns time-window diagnostics");
+
+    bool explainsSpecificIssue = false;
+    for (const auto& diagnostic : day.timeWindowDiagnostics) {
+        if (diagnostic.find("晚于关闭时间") != std::string::npos ||
+            diagnostic.find("超出") != std::string::npos ||
+            diagnostic.find("餐饮窗口") != std::string::npos) {
+            explainsSpecificIssue = true;
+        }
+    }
+    for (const auto& stop : day.stops) {
+        if (stop.timeWindowStatus != "ok" && !stop.timeWindowReason.empty()) {
+            explainsSpecificIssue = true;
+        }
+    }
+    expectTrue(explainsSpecificIssue, "time-window diagnostics explain precise feasibility issues");
 }
 
 void testUnscheduledReasonForUnknownMustVisit() {
@@ -298,6 +341,42 @@ void testCandidateParetoRanking() {
     expectTrue(mentionsNonDominatedSorting, "pareto explanation states standard non-dominated sorting");
 }
 
+void testCandidateDiversityMetrics() {
+    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    tourpass::PoiGraph graph(data.pois, data.edges);
+    tourpass::TripPlanner planner(graph);
+    tourpass::TripRequest request = sampleRequest();
+    request.candidateCount = 5;
+    auto candidates = planner.planCandidates(request);
+
+    expectTrue(candidates.size() >= 2, "planner returns multiple candidates for diversity metrics");
+    expectTrue(candidates.front().comparison.poiOverlapWithBaseline == 1.0, "baseline has full poi overlap with itself");
+    expectTrue(candidates.front().comparison.areaOverlapWithBaseline == 1.0, "baseline has full area overlap with itself");
+    expectTrue(candidates.front().comparison.uniquePoiCount == 0, "baseline has no unique pois relative to itself");
+    expectTrue(!candidates.front().comparison.diversityTags.empty(), "baseline exposes diversity tag");
+
+    bool hasNonBaselineDiversity = false;
+    for (size_t i = 1; i < candidates.size(); ++i) {
+        const auto& metrics = candidates[i].comparison;
+        expectTrue(metrics.poiOverlapWithBaseline >= 0.0 && metrics.poiOverlapWithBaseline <= 1.0, "poi overlap ratio stays in range");
+        expectTrue(metrics.areaOverlapWithBaseline >= 0.0 && metrics.areaOverlapWithBaseline <= 1.0, "area overlap ratio stays in range");
+        expectTrue(metrics.uniquePoiCount >= 0, "unique poi count is non-negative");
+        expectTrue(!metrics.diversityTags.empty(), "candidate exposes diversity tags");
+        expectTrue(!metrics.diversitySummary.empty(), "candidate explains diversity summary");
+        if (metrics.uniquePoiCount > 0 || metrics.poiOverlapWithBaseline < 1.0) {
+            hasNonBaselineDiversity = true;
+        }
+    }
+    expectTrue(hasNonBaselineDiversity, "at least one candidate differs from the baseline");
+
+    nlohmann::json serialized = tourpass::itineraryToJson(candidates[1]);
+    expectTrue(serialized["comparison"]["poi_overlap_with_baseline"].is_number(), "json includes poi overlap");
+    expectTrue(serialized["comparison"]["area_overlap_with_baseline"].is_number(), "json includes area overlap");
+    expectTrue(serialized["comparison"]["unique_poi_count"].is_number_integer(), "json includes unique poi count");
+    expectTrue(serialized["comparison"]["diversity_tags"].is_array(), "json includes diversity tags");
+    expectTrue(serialized["comparison"]["diversity_summary"].is_string(), "json includes diversity summary");
+}
+
 std::string itinerarySignature(const tourpass::Itinerary& itinerary) {
     std::string signature;
     for (const auto& day : itinerary.days) {
@@ -330,6 +409,26 @@ void testPlannerUsesBeamSearchForTopKChoices() {
 
     expectTrue(explainsBeamSearch, "planner exposes Beam Search in explanations");
     expectTrue(signatures.size() >= 2, "top-k candidates contain different stop sequences");
+}
+
+void testPlannerExposesAlgorithmDebugTrace() {
+    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    tourpass::PoiGraph graph(data.pois, data.edges);
+    tourpass::TripPlanner planner(graph);
+    tourpass::TripRequest request = sampleRequest();
+    request.candidateCount = 5;
+    auto candidates = planner.planCandidates(request);
+
+    expectTrue(!candidates.empty(), "planner returns candidates for debug trace");
+    expectTrue(!candidates.front().days.empty(), "candidate has days for debug trace");
+    expectTrue(!candidates.front().days.front().beamTrace.empty(), "day exposes beam trace entries");
+    expectTrue(candidates.front().days.front().beamTrace.front().inputStates >= 1, "beam trace records input state count");
+    expectTrue(!candidates.front().days.front().beamTrace.front().decision.empty(), "beam trace explains retention decision");
+    expectTrue(!candidates.front().comparison.paretoDebug.empty(), "comparison exposes pareto debug evidence");
+
+    nlohmann::json serialized = tourpass::itineraryToJson(candidates.front());
+    expectTrue(serialized["days"][0]["beam_trace"].is_array(), "itinerary json includes beam_trace");
+    expectTrue(serialized["comparison"]["pareto_debug"].is_array(), "itinerary json includes pareto_debug");
 }
 
 void testTripRequestCandidateValidation() {
@@ -370,6 +469,10 @@ void testSearchExplainsBm25Matches() {
     expectTrue(results.front().id == "xie_zilong" || results.front().id == "li_zijian", "field-weighted search ranks indoor art venues first");
     expectTrue(!results.front().matchedTerms.empty(), "search result exposes matched terms");
     expectTrue(results.front().scoreExplanation.find("BM25") != std::string::npos, "search result explains BM25 scoring");
+    expectTrue(!results.front().scoreContributions.empty(), "search result exposes BM25 score contributions");
+
+    nlohmann::json serialized = tourpass::searchResultToJson(results.front());
+    expectTrue(serialized["score_contributions"].is_array(), "search json includes score contributions");
 }
 
 void testLlmTemplateFallback() {
@@ -463,13 +566,16 @@ int main() {
         testDataLoading();
         testGraphShortestPath();
         testPlanner();
+        testStrictTimeWindowDiagnosticsForTightDay();
         testUnscheduledReasonForUnknownMustVisit();
         testCandidatePlans();
         testPlannerExplanationsAreInterviewFriendly();
         testPlannerStopScoreBreakdown();
         testCandidateStrategiesHaveRealWeights();
         testCandidateParetoRanking();
+        testCandidateDiversityMetrics();
         testPlannerUsesBeamSearchForTopKChoices();
+        testPlannerExposesAlgorithmDebugTrace();
         testTripRequestCandidateValidation();
         testSearch();
         testSearchExplainsBm25Matches();

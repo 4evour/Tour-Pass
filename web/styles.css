@@ -260,6 +260,16 @@ button:focus {
   padding: 5px 8px;
 }
 
+.day-metrics .ok-chip {
+  background: var(--soft);
+  color: var(--accent-dark);
+}
+
+.day-metrics .risk-chip {
+  background: #fff7ec;
+  color: var(--warn);
+}
+
 .tab {
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -343,6 +353,145 @@ button:focus {
   border-radius: 8px;
   padding: 12px;
   background: #fff;
+}
+
+.debug-panel {
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: #fff;
+}
+
+.debug-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.75fr);
+  gap: 12px;
+}
+
+.debug-grid h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.beam-steps {
+  display: grid;
+  gap: 8px;
+}
+
+.beam-step,
+.pareto-debug,
+.diversity-debug {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f9fbfa;
+  padding: 10px;
+}
+
+.beam-step > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.beam-step span,
+.pareto-debug span,
+.debug-empty {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.beam-step p,
+.pareto-debug p,
+.diversity-debug p {
+  margin: 6px 0 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.beam-state-list {
+  display: grid;
+  gap: 5px;
+}
+
+.beam-state-list code {
+  display: block;
+  overflow-wrap: anywhere;
+  border-radius: 6px;
+  background: #eef5f3;
+  color: var(--accent-dark);
+  font-family: Consolas, "Cascadia Mono", monospace;
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+.pareto-debug {
+  display: grid;
+  gap: 7px;
+}
+
+.pareto-debug strong {
+  color: var(--accent-dark);
+}
+
+.pareto-debug span {
+  display: block;
+  border-left: 3px solid var(--line);
+  padding-left: 8px;
+  line-height: 1.45;
+}
+
+.diversity-debug {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.diversity-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.diversity-metrics span {
+  display: block;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 11px;
+  padding: 7px;
+}
+
+.diversity-metrics strong {
+  display: block;
+  color: var(--accent-dark);
+  font-size: 16px;
+}
+
+.diversity-tags,
+.unique-pois {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.diversity-tags span,
+.unique-pois code {
+  border-radius: 999px;
+  background: #eef5f3;
+  color: var(--accent-dark);
+  font-size: 12px;
+  padding: 4px 7px;
+}
+
+.unique-pois code {
+  font-family: inherit;
+  background: #fff7ec;
+  color: #704108;
 }
 
 .route-strip {
@@ -572,6 +721,13 @@ button:focus {
   border-top: 1px solid #ece8dd;
 }
 
+.stop-risk {
+  background: #fffaf2;
+  border-radius: 6px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 .slot {
   color: var(--accent-dark);
   font-weight: 700;
@@ -582,9 +738,19 @@ button:focus {
 }
 
 .stop-reason,
-.time {
+.time,
+.time-window-note {
   color: var(--muted);
   font-size: 13px;
+}
+
+.time-window-note {
+  margin-top: 3px;
+  color: var(--accent-dark);
+}
+
+.stop-risk .time-window-note {
+  color: var(--warn);
 }
 
 .score-breakdown {
@@ -634,6 +800,11 @@ button:focus {
   display: block;
 }
 
+.mini-item small {
+  color: var(--warn);
+  font-size: 12px;
+}
+
 .mini-item span {
   color: var(--muted);
   font-size: 13px;
@@ -664,6 +835,7 @@ button:focus {
   .section-heading,
   .two-col,
   .candidate-summary,
+  .debug-grid,
   .explain-grid,
   .plan-kpis,
   .timeline-day {
