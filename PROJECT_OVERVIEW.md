@@ -9,10 +9,11 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用�
 - 语言：C++17
 - 构建：Makefile + MinGW `g++` + `mingw32-make`
 - CMake：已提供 `CMakeLists.txt`，本机使用 MinGW generator 验证通过；检测到 OpenSSL 时自动启用 HTTPS LLM 调用
-- HTTP：`cpp-httplib` 单头文件，位于 `third_party/httplib.h`，服务端和 LLM client 复用同一依赖
+- HTTP：`cpp-httplib` 单头文件，位于 `third_party/httplib.h`，服务端和 LLM client 复用同一依赖；Windows Makefile 构建在未启用 OpenSSL 时通过系统 WinHTTP 兜底发起 HTTPS LLM 请求
 - JSON：`nlohmann/json` 单头文件，位于 `third_party/json.hpp`
 - 数据：本地 JSON 文件，`data/pois.json` 和 `data/edges.json`
 - 测试：轻量 C++ 测试运行器，命令为 `mingw32-make test`；CMake 可选启用 GoogleTest 目标
+- 前端验证：本地 npm 开发依赖 `playwright`；`npm.cmd run verify:ui -- http://127.0.0.1:8080/` 可在服务启动后运行 UI 冒烟验证，脚本会优先使用 Playwright 浏览器，缺失时自动尝试本机 Chrome/Edge
 
 ## 目录结构
 
@@ -32,6 +33,7 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用�
 - 运行：`mingw32-make run`
 - 测试：`mingw32-make test`
 - 数据校验：`mingw32-make validate-data` 或 `node scripts/validate_data.js`
+- UI 验证：服务启动后执行 `npm.cmd run verify:ui -- http://127.0.0.1:8080/`
 - 清理：`mingw32-make clean`
 
 默认监听 `127.0.0.1:8080`，可通过环境变量 `PORT` 修改端口。
@@ -46,12 +48,12 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用�
 5. `/route/shortest` 使用 Dijkstra 或 A* 返回 POI 间最短通勤路径。
 6. `/trip/alternatives` 按下雨、闭馆、太累、预算降低等场景召回替换方案。
 7. `/itinerary/explain` 使用内置 `cpp-httplib` client 调用 OpenAI/DeepSeek 兼容接口，失败或无密钥时返回本地中文模板。
-8. `web/` 演示台展示偏好输入、候选方案概览、路线与时间轴可视化、候选对比指标、候选多样性指标、Pareto 非支配层级、Beam Search 调试轨迹、BM25 排序贡献、站点评分拆解、严格时间窗复核、每日 KPI、约束命中、未安排原因、路径查询、替换方案和自然语言说明。
+8. `web/` 演示台按规划概览、候选对比、路线明细、算法解释和工具箱分阶段展示；覆盖偏好输入、候选方案概览、路线与时间轴可视化、候选对比指标、候选多样性指标、Pareto 非支配层级、Beam Search 调试轨迹、BM25 排序贡献、站点评分拆解、严格时间窗复核、每日 KPI、约束命中、未安排原因、路径查询、替换方案和自然语言说明。
 
 ## 关键约定
 
 - GitHub 仓库地址：`https://github.com/4evour/Tour-Pass`。
-- 环境变量优先于本地配置：`OPENAI_API_KEY`、`LLM_BASE_URL`、`LLM_MODEL`。
+- LLM 默认读取 `config/llm.local.json`；本地配置存在密钥时不会被单独残留的 `OPENAI_API_KEY` 覆盖，只有未配置本地密钥或显式设置 `LLM_BASE_URL` / `LLM_MODEL` 切换提供商时，环境变量才会覆盖。
 - `LLM_DISABLED=1` 可在面试或离线演示时强制禁用远程 LLM，使用本地中文模板兜底。
 - GitHub Actions 工作流 `.github/workflows/ci.yml` 在 Ubuntu/Windows 上运行数据验证、CMake 构建和 CTest，并在 Windows 上执行 `scripts/api_smoke.ps1`。
 - 本地配置文件为 `config/llm.local.json`，不得提交真实密钥。
@@ -62,7 +64,7 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用�
 
 ## 已知风险
 
-- Makefile 默认不链接 OpenSSL；如需 HTTPS LLM 可通过 CMake 自动检测 OpenSSL，或在 Makefile 中显式传入 `OPENSSL_CXXFLAGS=-DCPPHTTPLIB_OPENSSL_SUPPORT` 与对应链接参数。
+- Makefile 默认链接 `winhttp`，Windows 本地演示可在无 OpenSSL 时调用 DeepSeek/OpenAI 兼容 HTTPS LLM；CMake 检测到 OpenSSL 时仍使用 `cpp-httplib` HTTPS 支持。
 - 样例数据为演示级人工整理数据，不代表实时营业、拥堵或闭馆状态。
 - Makefile 默认使用轻量测试运行器；CMake 可选启用 GoogleTest 目标。
 - CMake 可通过 `-DTOURPASS_USE_GTEST=ON` 构建 GoogleTest 测试；当前已验证默认 CTest 目标。
@@ -82,3 +84,4 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用�
 - v1.4 增加算法可视化/调试输出：`days[].beam_trace`、`comparison.pareto_debug` 和 `/poi/search` 的 `score_contributions`，Web 演示台展示 Beam Search 保留状态、Pareto 分层依据和 BM25 排序贡献。
 - v1.5 增加候选多样性指标：相对基线方案计算 POI 重合率、区域重合率、独有 POI、差异标签和多样性摘要，Web 演示台展示候选是否真正不同。
 - v1.6 增加严格时间窗可行性复核：最终顺序统一检查站点顺序、开放时间、餐饮窗口和当日结束时间；理论通勤优化只有在交换顺序仍可行时才计入收益。
+- v1.7 优化 Web 演示台信息架构：新增阶段导航，将首页默认收束为规划概览，并把候选对比、路线明细、算法解释和路径/检索/替换/LLM 工具拆到独立演示视图。

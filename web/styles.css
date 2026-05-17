@@ -16,6 +16,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -31,10 +35,9 @@ select {
 }
 
 .app-shell {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 24px;
+  max-width: 1280px;
   min-height: 100vh;
+  margin: 0 auto;
   padding: 24px;
 }
 
@@ -50,15 +53,23 @@ select {
 }
 
 .inspector {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+  padding: 0;
+  background: transparent;
+  border: 0;
 }
 
-.inspector section + section {
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
+.inspector section {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 16px;
 }
 
 .topbar,
@@ -83,6 +94,37 @@ select {
   color: var(--muted);
   font-size: 13px;
   padding: 6px 10px;
+}
+
+.stage-nav {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 18px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f9fbfa;
+}
+
+.stage-tab {
+  min-height: 42px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.stage-tab.active {
+  background: var(--surface);
+  color: var(--accent-dark);
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.stage-tab:hover {
+  color: var(--accent-dark);
 }
 
 .eyebrow {
@@ -127,7 +169,7 @@ h2 {
 
 .planner-layout {
   display: grid;
-  grid-template-columns: 340px minmax(0, 1fr);
+  grid-template-columns: 320px minmax(0, 1fr);
   gap: 24px;
   margin-top: 24px;
 }
@@ -136,6 +178,23 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 14px;
+  align-self: start;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f9fbfa;
+  padding: 16px;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.panel-heading span {
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .field-row {
@@ -207,6 +266,10 @@ button:focus {
 
 .result-panel {
   min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 16px;
 }
 
 .tabs {
@@ -288,6 +351,102 @@ button:focus {
 .plan-output {
   display: grid;
   gap: 16px;
+}
+
+.stage-section {
+  display: none;
+}
+
+body[data-active-stage="overview"] [data-plan-section="overview"],
+body[data-active-stage="compare"] [data-plan-section="compare"],
+body[data-active-stage="itinerary"] [data-plan-section="itinerary"],
+body[data-active-stage="debug"] [data-plan-section="debug"] {
+  display: grid;
+  gap: 16px;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 16px;
+}
+
+.overview-hero,
+.overview-list,
+.overview-stops {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f9fbfa;
+  padding: 16px;
+}
+
+.overview-hero {
+  display: grid;
+  gap: 14px;
+}
+
+.overview-hero p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.talk-track {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.talk-track span {
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+  padding-left: 10px;
+}
+
+.route-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.route-preview article {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 4px 10px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 10px;
+}
+
+.route-preview article > span {
+  display: grid;
+  grid-row: span 2;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.route-preview strong,
+.route-preview small {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.route-preview small {
+  color: var(--muted);
 }
 
 .comparison-panel {
@@ -644,6 +803,10 @@ button:focus {
   border-radius: 8px;
 }
 
+.compact-empty {
+  min-height: 180px;
+}
+
 .error-state {
   color: var(--warn);
   background: #fff7ec;
@@ -811,11 +974,9 @@ button:focus {
 }
 
 @media (max-width: 1080px) {
-  .app-shell {
-    grid-template-columns: 1fr;
-  }
-
-  .planner-layout {
+  .planner-layout,
+  .overview-grid,
+  .inspector {
     grid-template-columns: 1fr;
   }
 }
@@ -833,6 +994,7 @@ button:focus {
   .topbar,
   .result-header,
   .section-heading,
+  .panel-heading,
   .two-col,
   .candidate-summary,
   .debug-grid,
@@ -842,6 +1004,10 @@ button:focus {
     grid-template-columns: 1fr;
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .stage-nav {
+    grid-template-columns: 1fr;
   }
 
   .stop {

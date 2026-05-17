@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tour Pass 演示台</title>
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
@@ -18,16 +19,28 @@
         </header>
 
         <section class="demo-rail" aria-label="演示链路">
-          <span>偏好输入</span>
-          <span>候选行程</span>
-          <span>约束解释</span>
-          <span>路径查询</span>
-          <span>替换方案</span>
-          <span>自然语言说明</span>
+          <span>输入偏好</span>
+          <span>候选对比</span>
+          <span>路线明细</span>
+          <span>算法解释</span>
+          <span>工具联动</span>
         </section>
 
-        <section class="planner-layout">
+        <section class="stage-nav" aria-label="演示阶段">
+          <button class="stage-tab active" type="button" data-stage="overview">规划概览</button>
+          <button class="stage-tab" type="button" data-stage="compare">候选对比</button>
+          <button class="stage-tab" type="button" data-stage="itinerary">路线明细</button>
+          <button class="stage-tab" type="button" data-stage="debug">算法解释</button>
+          <button class="stage-tab" type="button" data-stage="tools">工具箱</button>
+        </section>
+
+        <section class="planner-layout" data-stage-panel="main">
           <form id="planForm" class="control-panel" aria-label="行程偏好">
+            <div class="panel-heading">
+              <h2>演示输入</h2>
+              <span>保留一组可复现的长沙样例</span>
+            </div>
+
             <div class="field-row">
               <label for="city">城市</label>
               <input id="city" name="city" value="长沙" />
@@ -100,66 +113,79 @@
             </div>
           </section>
         </section>
-      </section>
 
-      <aside class="inspector" aria-label="辅助工具">
-        <section>
-          <h2>路径查询</h2>
-          <div class="two-col">
-            <div class="field-row">
-              <label for="routeFrom">起点</label>
-              <input id="routeFrom" value="hotel_wuyi" />
+        <aside class="inspector stage-panel" data-stage-panel="tools" aria-label="辅助工具" hidden>
+          <section>
+            <div class="panel-heading">
+              <h2>路径查询</h2>
+              <span>单独演示 A* 最短路能力</span>
+            </div>
+            <div class="two-col">
+              <div class="field-row">
+                <label for="routeFrom">起点</label>
+                <input id="routeFrom" value="hotel_wuyi" />
+              </div>
+              <div class="field-row">
+                <label for="routeTo">终点</label>
+                <input id="routeTo" value="yuelu_academy" />
+              </div>
+            </div>
+            <button id="routeButton" class="secondary-action" type="button">查询 A*</button>
+            <pre id="routeOutput" class="compact-output"></pre>
+          </section>
+
+          <section>
+            <div class="panel-heading">
+              <h2>替换方案</h2>
+              <span>按演示场景召回备选 POI</span>
             </div>
             <div class="field-row">
-              <label for="routeTo">终点</label>
-              <input id="routeTo" value="yuelu_academy" />
-            </div>
-          </div>
-          <button id="routeButton" class="secondary-action" type="button">查询 A*</button>
-          <pre id="routeOutput" class="compact-output"></pre>
-        </section>
-
-        <section>
-          <h2>替换方案</h2>
-          <div class="field-row">
-            <label for="scenario">场景</label>
-            <select id="scenario">
-              <option>下雨</option>
-              <option>闭馆</option>
-              <option>太累</option>
-              <option>预算降低</option>
-            </select>
-          </div>
-          <button id="alternativeButton" class="secondary-action" type="button">获取替换</button>
-          <div id="alternativeOutput" class="mini-list"></div>
-        </section>
-
-        <section>
-          <h2>POI 检索</h2>
-          <div class="two-col">
-            <div class="field-row">
-              <label for="searchQuery">关键词</label>
-              <input id="searchQuery" value="室内 艺术" />
-            </div>
-            <div class="field-row">
-              <label for="searchType">类型</label>
-              <select id="searchType">
-                <option value="">全部</option>
-                <option value="attraction" selected>景点</option>
-                <option value="restaurant">餐厅</option>
-                <option value="nightlife">夜间</option>
+              <label for="scenario">场景</label>
+              <select id="scenario">
+                <option>下雨</option>
+                <option>闭馆</option>
+                <option>太累</option>
+                <option>预算降低</option>
               </select>
             </div>
-          </div>
-          <button id="searchButton" class="secondary-action" type="button">检索 BM25</button>
-          <div id="searchOutput" class="mini-list"></div>
-        </section>
+            <button id="alternativeButton" class="secondary-action" type="button">获取替换</button>
+            <div id="alternativeOutput" class="mini-list"></div>
+          </section>
 
-        <section>
-          <h2>行程解释</h2>
-          <div id="explainOutput" class="explain-box">暂无解释。</div>
-        </section>
-      </aside>
+          <section>
+            <div class="panel-heading">
+              <h2>POI 检索</h2>
+              <span>展示 BM25 与字段贡献拆解</span>
+            </div>
+            <div class="two-col">
+              <div class="field-row">
+                <label for="searchQuery">关键词</label>
+                <input id="searchQuery" value="室内 艺术" />
+              </div>
+              <div class="field-row">
+                <label for="searchType">类型</label>
+                <select id="searchType">
+                  <option value="">全部</option>
+                  <option value="attraction" selected>景点</option>
+                  <option value="restaurant">餐厅</option>
+                  <option value="nightlife">夜间</option>
+                </select>
+              </div>
+            </div>
+            <button id="searchButton" class="secondary-action" type="button">检索 BM25</button>
+            <div id="searchOutput" class="mini-list"></div>
+          </section>
+
+          <section>
+            <div class="panel-heading">
+              <h2>行程解释</h2>
+              <span>调用 LLM 或本地模板生成讲解稿</span>
+            </div>
+            <button id="explainToolButton" class="secondary-action" type="button">生成解释</button>
+            <div id="explainOutput" class="explain-box">暂无解释。</div>
+          </section>
+        </aside>
+      </section>
     </main>
 
     <script src="/app.js"></script>

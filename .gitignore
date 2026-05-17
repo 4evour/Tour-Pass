@@ -1,5 +1,6 @@
 bin/
 build/
+node_modules/
 *.exe
 *.o
 *.obj
@@ -7,6 +8,7 @@ build/
 *.a
 *.lib
 *.log
+llm-debug-*.log
 .env
 config/llm.local.json
 test-results/

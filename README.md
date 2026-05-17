@@ -63,7 +63,7 @@ mingw32-make run
 
 ## LLM 配置
 
-环境变量优先：
+默认读取 `config/llm.local.json`。如果同时存在本地配置和一个残留的 `OPENAI_API_KEY`，本地配置优先；只有未配置本地密钥，或显式设置 `LLM_BASE_URL` / `LLM_MODEL` 切换提供商时，环境变量才会覆盖：
 
 ```powershell
 $env:OPENAI_API_KEY="sk-..."
@@ -72,8 +72,10 @@ $env:LLM_MODEL="gpt-4o-mini"
 ```
 
 也可以复制 `config/llm.example.json` 为 `config/llm.local.json` 后填写本地配置。`config/llm.local.json` 已被 `.gitignore` 排除。
+DeepSeek 可使用 OpenAI 兼容配置，例如 `base_url` 为 `https://api.deepseek.com`，`model` 为 `deepseek-v4-flash`。
 
 远程调用使用内置 `cpp-httplib` HTTP client 发起 OpenAI 兼容 `chat/completions` 请求，不再通过 `curl.exe` 子进程拼接命令。未配置密钥或远程调用失败时，`/itinerary/explain` 会自动使用本地中文模板。
+Windows Makefile 构建在未启用 OpenSSL 时会通过系统 WinHTTP 兜底发起 HTTPS LLM 请求；CMake 检测到 OpenSSL 时仍优先使用 `cpp-httplib` HTTPS 支持。
 面试或离线演示时可显式禁用远程 LLM，强制使用模板兜底：
 
 ```powershell

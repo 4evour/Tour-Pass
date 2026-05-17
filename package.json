@@ -1,0 +1,28 @@
+{
+  "name": "tour-pass",
+  "version": "1.0.0",
+  "description": "Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用长沙本地样例数据，将景点、餐厅、酒店和夜间活动点建模为 POI 图，结合 Dijkstra/A* 最短路、兴趣评分、时间窗调度、餐饮插入、POI 检索和 LLM/模板解释生成多日旅行计划。",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "validate:data": "node scripts/validate_data.js",
+    "verify:ui": "node scripts/verify_ui.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4evour/Tour-Pass.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/4evour/Tour-Pass/issues"
+  },
+  "homepage": "https://github.com/4evour/Tour-Pass#readme",
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}

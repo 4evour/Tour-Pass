@@ -498,6 +498,30 @@ void testLlmCanBeDisabledForDemo() {
     setEnvVar("OPENAI_API_KEY", "");
 }
 
+void testLlmLocalConfigIsNotOverriddenByStaleEnvKey() {
+    const std::string configPath = "tourpass_llm_local_config_priority.json";
+    {
+        std::ofstream config(configPath);
+        config << "{"
+               << "\"api_key\":\"local-config-key\","
+               << "\"base_url\":\"https://api.deepseek.com\","
+               << "\"model\":\"deepseek-v4-flash\""
+               << "}";
+    }
+
+    setEnvVar("LLM_DISABLED", "");
+    setEnvVar("OPENAI_API_KEY", "stale-env-key");
+    setEnvVar("LLM_BASE_URL", "");
+    setEnvVar("LLM_MODEL", "");
+    tourpass::LlmClient llm(configPath);
+    std::remove(configPath.c_str());
+
+    expectTrue(llm.config().apiKey == "local-config-key", "local llm config is not overridden by a stale standalone OPENAI_API_KEY");
+    expectTrue(llm.config().baseUrl == "https://api.deepseek.com", "local llm config keeps provider base url");
+    expectTrue(llm.config().model == "deepseek-v4-flash", "local llm config keeps provider model");
+    setEnvVar("OPENAI_API_KEY", "");
+}
+
 void testLlmUsesBuiltInHttpClient() {
     httplib::Server server;
     bool sawAuthorization = false;
@@ -581,6 +605,7 @@ int main() {
         testSearchExplainsBm25Matches();
         testLlmTemplateFallback();
         testLlmCanBeDisabledForDemo();
+        testLlmLocalConfigIsNotOverriddenByStaleEnvKey();
         testLlmUsesBuiltInHttpClient();
         testLlmRemoteErrorsFallBackToTemplate();
         std::cout << "All " << testsRun << " tests passed." << std::endl;

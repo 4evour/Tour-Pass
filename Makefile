@@ -2,7 +2,7 @@ CXX := g++
 CXXFLAGS := -std=c++17 -Wall -Wextra -pedantic -Iinclude -Ithird_party
 OPENSSL_CXXFLAGS ?=
 OPENSSL_LDFLAGS ?=
-LDFLAGS := -lws2_32
+LDFLAGS := -lws2_32 -lwinhttp
 SHELL := cmd.exe
 .SHELLFLAGS := /C
 

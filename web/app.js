@@ -2,6 +2,7 @@ const state = {
   candidates: [],
   selectedIndex: 0,
   lastPayload: null,
+  activeStage: "overview",
 };
 
 const $ = (id) => document.getElementById(id);
@@ -106,17 +107,69 @@ function renderPlan() {
 
   output.className = "plan-output";
   output.innerHTML = `
-    ${renderComparisonTable()}
-    <div class="plan-kpis" aria-label="方案关键指标">
-      <div><strong>${candidate.total_score}</strong><span>综合评分</span></div>
-      <div><strong>${candidate.days.length}</strong><span>行程天数</span></div>
-      <div><strong>${totalTravel(candidate)}</strong><span>总通勤分钟</span></div>
-    </div>
-    ${renderAlgorithmDebug(candidate)}
-    ${renderRouteVisual(candidate)}
-    ${candidate.days.map(renderDay).join("")}
+    <section class="stage-section overview-section" data-plan-section="overview">
+      ${renderOverview(candidate)}
+    </section>
+    <section class="stage-section" data-plan-section="compare">
+      ${renderComparisonTable()}
+    </section>
+    <section class="stage-section" data-plan-section="itinerary">
+      ${renderRouteVisual(candidate)}
+      ${candidate.days.map(renderDay).join("")}
+    </section>
+    <section class="stage-section" data-plan-section="debug">
+      ${renderAlgorithmDebug(candidate)}
+    </section>
   `;
   bindComparisonCards();
+}
+
+function renderOverview(candidate) {
+  const firstDay = candidate.days?.[0] || {};
+  const firstStops = (firstDay.stops || []).slice(0, 4);
+  const comparison = candidate.comparison || {};
+  return `
+    <div class="overview-grid">
+      <section class="overview-hero" aria-label="推荐方案概览">
+        <div class="panel-heading">
+          <h2>${candidate.variant_name || "推荐方案"}</h2>
+          <span>${strategyLabel(candidate.strategy)}策略 · Pareto L${comparison.pareto_rank || 1}</span>
+        </div>
+        <p>${firstDay.summary || "生成后这里会展示第一天的核心路线摘要。"}</p>
+        <div class="plan-kpis" aria-label="方案关键指标">
+          <div><strong>${candidate.total_score}</strong><span>综合评分</span></div>
+          <div><strong>${candidate.days.length}</strong><span>行程天数</span></div>
+          <div><strong>${totalTravel(candidate)}</strong><span>总通勤分钟</span></div>
+        </div>
+      </section>
+      <section class="overview-list" aria-label="讲解重点">
+        <div class="panel-heading">
+          <h2>演示重点</h2>
+          <span>先讲价值，再展开细节</span>
+        </div>
+        <div class="talk-track">
+          <span>候选方案不是简单排序，会解释评分、通勤、风险和必去覆盖之间的取舍。</span>
+          <span>路线明细单独展示，避免时间轴和站点列表挤在首页。</span>
+          <span>Beam Search、Pareto、BM25 等算法证据放到算法解释页，需要时再展开。</span>
+        </div>
+      </section>
+    </div>
+    <section class="overview-stops" aria-label="首日路线预览">
+      <div class="panel-heading">
+        <h2>首日路线预览</h2>
+        <span>${firstDay.total_travel_minutes || 0} 分钟通勤</span>
+      </div>
+      <div class="route-preview">
+        ${firstStops.length ? firstStops.map((stop, index) => `
+          <article>
+            <span>${index + 1}</span>
+            <strong>${stop.poi_name}</strong>
+            <small>${stop.start_time}-${stop.end_time} · ${stop.area}</small>
+          </article>
+        `).join("") : `<article><span>0</span><strong>暂无站点</strong><small>请先生成行程</small></article>`}
+      </div>
+    </section>
+  `;
 }
 
 function renderAlgorithmDebug(candidate) {
@@ -240,7 +293,7 @@ function renderTimelineStop(stop, start, span) {
 
 function renderComparisonTable() {
   if (state.candidates.length <= 1) {
-    return "";
+    return `<div class="empty-state compact-empty">生成多个候选后展示对比。</div>`;
   }
   return `
     <section class="comparison-panel" aria-label="候选方案对比">
@@ -402,6 +455,7 @@ async function generatePlan(event) {
     state.candidates = data.candidates || [data];
     state.selectedIndex = 0;
     renderPlan();
+    updateStageVisibility();
   } catch (error) {
     state.candidates = [];
     $("planOutput").className = "plan-output empty-state error-state";
@@ -507,7 +561,30 @@ $("routeButton").addEventListener("click", queryRoute);
 $("alternativeButton").addEventListener("click", queryAlternatives);
 $("searchButton").addEventListener("click", querySearch);
 $("explainButton").addEventListener("click", explainPlan);
+$("explainToolButton").addEventListener("click", explainPlan);
 
+function setStage(stage) {
+  state.activeStage = stage;
+  updateStageVisibility();
+}
+
+function updateStageVisibility() {
+  document.body.dataset.activeStage = state.activeStage;
+  document.querySelectorAll(".stage-tab").forEach((button) => {
+    const active = button.dataset.stage === state.activeStage;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-selected", active ? "true" : "false");
+  });
+  document.querySelectorAll("[data-stage-panel]").forEach((panel) => {
+    panel.hidden = panel.dataset.stagePanel === "tools" ? state.activeStage !== "tools" : state.activeStage === "tools";
+  });
+}
+
+document.querySelectorAll(".stage-tab").forEach((button) => {
+  button.addEventListener("click", () => setStage(button.dataset.stage));
+});
+
+updateStageVisibility();
 loadHealth();
 queryRoute();
 queryAlternatives();

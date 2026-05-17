@@ -1,8 +1,25 @@
 const { chromium } = require("playwright");
+const fs = require("fs");
+
+function existingChromiumExecutable() {
+  const candidates = [
+    process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE,
+    "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+    "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
+    "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  ].filter(Boolean);
+  return candidates.find((path) => fs.existsSync(path));
+}
 
 async function main() {
   const url = process.argv[2] || "http://127.0.0.1:8080/";
-  const browser = await chromium.launch();
+  const launchOptions = {};
+  const executablePath = existingChromiumExecutable();
+  if (executablePath) {
+    launchOptions.executablePath = executablePath;
+  }
+  const browser = await chromium.launch(launchOptions);
   const page = await browser.newPage({ viewport: { width: 1366, height: 900 } });
   const errors = [];
   page.on("console", (message) => {
@@ -13,7 +30,19 @@ async function main() {
   await page.goto(url, { waitUntil: "networkidle" });
   await page.click("#loadExampleButton");
   await page.click("button.primary-action");
+  await page.waitForSelector(".overview-section", { timeout: 10000 });
+
+  await page.click('[data-stage="compare"]');
+  await page.waitForSelector(".comparison-panel", { timeout: 10000 });
+
+  await page.click('[data-stage="itinerary"]');
   await page.waitForSelector(".visual-panel", { timeout: 10000 });
+
+  await page.click('[data-stage="debug"]');
+  await page.waitForSelector(".debug-panel", { timeout: 10000 });
+
+  await page.click('[data-stage="tools"]');
+  await page.waitForSelector(".inspector:not([hidden])", { timeout: 10000 });
 
   const routeNodes = await page.locator(".route-node").count();
   const timelineStops = await page.locator(".timeline-stop").count();
