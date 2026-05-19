@@ -61,6 +61,17 @@ $env:PORT="8090"
 mingw32-make run
 ```
 
+也可以调整服务端运行时参数：
+
+```powershell
+$env:TOURPASS_WORKERS="8"
+$env:TOURPASS_MAX_QUEUE="64"
+$env:TOURPASS_CACHE_ENTRIES="64"
+mingw32-make run
+```
+
+服务会为响应附加 `X-Request-Id` 和 `X-Response-Time-Ms`；`/route/shortest`、`/poi/search` 和 `/trip/plan` 支持进程内热点缓存，并通过 `X-Cache` 展示命中状态。
+
 ## LLM 配置
 
 默认读取 `config/llm.local.json`。如果同时存在本地配置和一个残留的 `OPENAI_API_KEY`，本地配置优先；只有未配置本地密钥，或显式设置 `LLM_BASE_URL` / `LLM_MODEL` 切换提供商时，环境变量才会覆盖：
@@ -145,6 +156,20 @@ curl.exe -X POST http://127.0.0.1:8080/itinerary/explain `
   --data-binary "@docs/sample_trip_request.json"
 ```
 
+提交异步规划任务：
+
+```powershell
+curl.exe -X POST http://127.0.0.1:8080/trip/jobs `
+  -H "Content-Type: application/json; charset=utf-8" `
+  --data-binary "@docs/sample_candidate_request.json"
+```
+
+查询服务指标：
+
+```powershell
+curl.exe http://127.0.0.1:8080/metrics
+```
+
 ## MVP 边界
 
 - 不接真实地图 API，通勤耗时来自 `data/edges.json`。
@@ -171,7 +196,7 @@ powershell -ExecutionPolicy Bypass -File scripts/demo.ps1
 mingw32-make validate-data
 node scripts/validate_data.js
 powershell -ExecutionPolicy Bypass -File scripts/api_smoke.ps1 -AppPath bin/tourpass.exe -Port 8091
-node scripts/benchmark.js --app bin/tourpass.exe --port 8092 --iterations 20 --warmup 3 --report docs/performance_report.md
+node scripts/benchmark.js --app bin/tourpass.exe --port 8092 --iterations 20 --warmup 3 --concurrency 8 --report docs/performance_report.md
 ```
 
 数据质量校验会检查 POI 字段、坐标、时间窗、类型覆盖、边引用、边权合法性和图连通性；CI 与本地 `validate-data` 使用同一脚本。

@@ -24,6 +24,7 @@ set(TOURPASS_SOURCES
     src/llm.cpp
     src/planner.cpp
     src/search.cpp
+    src/service_runtime.cpp
     src/data_loader.cpp
 )
 

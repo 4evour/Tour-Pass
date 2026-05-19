@@ -11,6 +11,7 @@
 #include "tourpass/llm.h"
 #include "tourpass/planner.h"
 #include "tourpass/search.h"
+#include "tourpass/service_runtime.h"
 
 namespace {
 
@@ -475,6 +476,64 @@ void testSearchExplainsBm25Matches() {
     expectTrue(serialized["score_contributions"].is_array(), "search json includes score contributions");
 }
 
+void testResponseCacheTracksHitsAndEvictsLeastRecentEntry() {
+    tourpass::ResponseCache cache(2, std::chrono::seconds(60));
+    cache.put("a", nlohmann::json{{"value", 1}});
+    cache.put("b", nlohmann::json{{"value", 2}});
+
+    nlohmann::json cached;
+    expectTrue(cache.get("a", cached), "cache returns stored response");
+    expectTrue(cached["value"] == 1, "cache returns the expected JSON body");
+
+    cache.put("c", nlohmann::json{{"value", 3}});
+    expectTrue(cache.get("a", cached), "recently used cache entry is kept");
+    expectTrue(!cache.get("b", cached), "least recently used cache entry is evicted");
+    expectTrue(cache.stats().hits == 2, "cache records hits");
+    expectTrue(cache.stats().misses == 1, "cache records misses");
+}
+
+void testServiceMetricsRecordsStatusAndLatency() {
+    tourpass::ServiceMetrics metrics;
+    metrics.beginRequest();
+    metrics.recordRequest("GET /health", 200, std::chrono::milliseconds(12), true);
+    metrics.endRequest();
+
+    nlohmann::json snapshot = metrics.toJson();
+    expectTrue(snapshot["total_requests"] == 1, "metrics records total request count");
+    expectTrue(snapshot["in_flight_requests"] == 0, "metrics tracks in-flight requests");
+    expectTrue(snapshot["status_codes"]["200"] == 1, "metrics records status code buckets");
+    expectTrue(snapshot["routes"]["GET /health"]["count"] == 1, "metrics records per-route count");
+    expectTrue(snapshot["routes"]["GET /health"]["p95_ms"].get<double>() >= 12.0, "metrics records route latency");
+}
+
+void testTripJobStoreRunsPlannerJobsAsynchronously() {
+    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    tourpass::PoiGraph graph(data.pois, data.edges);
+    tourpass::TripPlanner planner(graph);
+    tourpass::TripJobStore jobs(4);
+
+    std::string id = jobs.submit(sampleRequest(), [&](const tourpass::TripRequest& request) {
+        return tourpass::itineraryToJson(planner.plan(request));
+    });
+
+    tourpass::TripJobSnapshot snapshot;
+    bool finished = false;
+    for (int i = 0; i < 50; ++i) {
+        expectTrue(jobs.get(id, snapshot), "submitted job can be fetched");
+        if (snapshot.status == "SUCCEEDED") {
+            finished = true;
+            break;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(20));
+    }
+
+    expectTrue(finished, "background job eventually succeeds");
+    expectTrue(snapshot.result.is_object(), "successful job stores JSON result");
+    expectTrue(snapshot.result["city"] == "长沙", "job result contains itinerary payload");
+    expectTrue(jobs.cancel(id), "completed job can be marked cancelled for cleanup");
+    expectTrue(jobs.get(id, snapshot) && snapshot.status == "CANCELLED", "cancelled job exposes cancelled status");
+}
+
 void testLlmTemplateFallback() {
     auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
@@ -603,6 +662,9 @@ int main() {
         testTripRequestCandidateValidation();
         testSearch();
         testSearchExplainsBm25Matches();
+        testResponseCacheTracksHitsAndEvictsLeastRecentEntry();
+        testServiceMetricsRecordsStatusAndLatency();
+        testTripJobStoreRunsPlannerJobsAsynchronously();
         testLlmTemplateFallback();
         testLlmCanBeDisabledForDemo();
         testLlmLocalConfigIsNotOverriddenByStaleEnvKey();

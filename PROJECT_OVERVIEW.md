@@ -10,6 +10,7 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用�
 - 构建：Makefile + MinGW `g++` + `mingw32-make`
 - CMake：已提供 `CMakeLists.txt`，本机使用 MinGW generator 验证通过；检测到 OpenSSL 时自动启用 HTTPS LLM 调用
 - HTTP：`cpp-httplib` 单头文件，位于 `third_party/httplib.h`，服务端和 LLM client 复用同一依赖；Windows Makefile 构建在未启用 OpenSSL 时通过系统 WinHTTP 兜底发起 HTTPS LLM 请求
+- 服务运行时：基于 `cpp-httplib` 线程池、中间件 hook、进程内 LRU/TTL 缓存、JSON 指标和异步规划任务仓库实现请求治理与并发演示
 - JSON：`nlohmann/json` 单头文件，位于 `third_party/json.hpp`
 - 数据：本地 JSON 文件，`data/pois.json` 和 `data/edges.json`
 - 测试：轻量 C++ 测试运行器，命令为 `mingw32-make test`；CMake 可选启用 GoogleTest 目标
@@ -24,6 +25,8 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用�
 - `third_party/`：第三方单头文件依赖
 - `config/`：LLM 配置示例，真实本地配置不提交
 - `docs/`：简历表达、API、架构、算法说明和项目说明材料
+- `docs/project_explainer_for_interview.md`：面向面试复习的项目解释文档，串联业务目标、技术结构、核心算法、接口链路和可讲亮点。
+- `docs/interview_questions_answers.md`：面试高频问题与标准答案，覆盖项目介绍、算法取舍、工程质量、局限与迭代方向。
 - `scripts/`：本地演示和 API 冒烟验证脚本
 - `web/`：本地静态演示页面，由 C++ 服务直接托管
 
@@ -55,6 +58,7 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用�
 - GitHub 仓库地址：`https://github.com/4evour/Tour-Pass`。
 - LLM 默认读取 `config/llm.local.json`；本地配置存在密钥时不会被单独残留的 `OPENAI_API_KEY` 覆盖，只有未配置本地密钥或显式设置 `LLM_BASE_URL` / `LLM_MODEL` 切换提供商时，环境变量才会覆盖。
 - `LLM_DISABLED=1` 可在面试或离线演示时强制禁用远程 LLM，使用本地中文模板兜底。
+- `TOURPASS_WORKERS`、`TOURPASS_MAX_QUEUE`、`TOURPASS_MAX_BODY_BYTES`、`TOURPASS_CACHE_ENTRIES`、`TOURPASS_CACHE_TTL_SECONDS` 和 `TOURPASS_MAX_TRIP_JOBS` 可调整 HTTP 线程池、队列、请求体限制、缓存和异步任务容量。
 - GitHub Actions 工作流 `.github/workflows/ci.yml` 在 Ubuntu/Windows 上运行数据验证、CMake 构建和 CTest，并在 Windows 上执行 `scripts/api_smoke.ps1`。
 - 本地配置文件为 `config/llm.local.json`，不得提交真实密钥。
 - 统一 API 错误格式为 `{ "error": { "code", "message", "details" } }`。
@@ -85,3 +89,5 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务。MVP 使用�
 - v1.5 增加候选多样性指标：相对基线方案计算 POI 重合率、区域重合率、独有 POI、差异标签和多样性摘要，Web 演示台展示候选是否真正不同。
 - v1.6 增加严格时间窗可行性复核：最终顺序统一检查站点顺序、开放时间、餐饮窗口和当日结束时间；理论通勤优化只有在交换顺序仍可行时才计入收益。
 - v1.7 优化 Web 演示台信息架构：新增阶段导航，将首页默认收束为规划概览，并把候选对比、路线明细、算法解释和路径/检索/替换/LLM 工具拆到独立演示视图。
+- v1.8 补充面试复习材料：新增项目解释文档和面试高频问答文档，用于将架构、算法、API、工程质量与项目边界转化为可讲述的面试表达。
+- v1.9 增加后端工程运行时：请求 ID/耗时/安全头/异常兜底中间件、显式线程池、热点缓存、`/trip/jobs` 异步规划任务、`/metrics` JSON 指标、并发 benchmark 和增强 API 冒烟验证。

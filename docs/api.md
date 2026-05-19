@@ -15,9 +15,15 @@ http://127.0.0.1:8080
   "status": "ok",
   "data_loaded": true,
   "poi_count": 25,
-  "llm_configured": false
+  "llm_configured": false,
+  "workers": 8,
+  "max_queue": 64,
+  "in_flight_requests": 1,
+  "cache_enabled": true
 }
 ```
+
+所有响应都会附带 `X-Request-Id` 和 `X-Response-Time-Ms`。支持缓存的接口还会返回 `X-Cache: HIT` 或 `X-Cache: MISS`。
 
 ## POST /trip/plan
 
@@ -162,6 +168,59 @@ curl.exe "http://127.0.0.1:8080/route/shortest?from=hotel_wuyi&to=yuelu_academy&
 
 远程 LLM 使用内置 HTTP client 调用 OpenAI 兼容 `chat/completions` 接口。未配置 `OPENAI_API_KEY`、设置 `LLM_DISABLED=1` 或远程调用失败时自动回退到本地模板。
 
+## POST /trip/jobs
+
+异步提交行程规划任务。请求体与 `/trip/plan` 相同，适合候选方案较多或希望演示削峰链路的场景。
+
+响应：
+
+```json
+{
+  "job_id": "req-18b0f1-1",
+  "status": "QUEUED",
+  "status_url": "/trip/jobs/req-18b0f1-1"
+}
+```
+
+## GET /trip/jobs/{id}
+
+查询异步任务状态。`status` 可能为 `QUEUED`、`RUNNING`、`SUCCEEDED`、`FAILED`、`CANCELLED`。成功后返回 `result`，其结构与 `/trip/plan` 同步响应一致。
+
+## DELETE /trip/jobs/{id}
+
+取消尚未运行或已完成的任务，并返回：
+
+```json
+{
+  "job_id": "req-18b0f1-1",
+  "status": "CANCELLED"
+}
+```
+
+## GET /metrics
+
+返回 JSON 指标快照，用于本地演示、压测和面试说明：
+
+```json
+{
+  "total_requests": 12,
+  "in_flight_requests": 1,
+  "status_codes": { "200": 10, "202": 1 },
+  "cache": { "hits": 4, "misses": 3, "hit_rate": 0.57, "entries": 3, "evictions": 0 },
+  "jobs": { "QUEUED": 0, "RUNNING": 0, "SUCCEEDED": 1, "FAILED": 0, "CANCELLED": 0, "total": 1, "queue_depth": 0 },
+  "runtime": { "workers": 8, "max_queue": 64, "max_body_bytes": 65536 }
+}
+```
+
+## 运行时环境变量
+
+- `TOURPASS_WORKERS`：HTTP 线程池 worker 数，默认按 CPU 核心数保守设置。
+- `TOURPASS_MAX_QUEUE`：HTTP 请求队列上限。
+- `TOURPASS_MAX_BODY_BYTES`：JSON 请求体大小限制。
+- `TOURPASS_CACHE_ENTRIES`：进程内响应缓存容量。
+- `TOURPASS_CACHE_TTL_SECONDS`：缓存 TTL。
+- `TOURPASS_MAX_TRIP_JOBS`：异步任务仓库保留数量。
+
 ## 错误格式
 
 ```json
@@ -175,3 +234,5 @@ curl.exe "http://127.0.0.1:8080/route/shortest?from=hotel_wuyi&to=yuelu_academy&
   }
 }
 ```
+
+新增错误码包括 `PAYLOAD_TOO_LARGE`、`JOB_NOT_FOUND`、`JOB_FAILED` 和 `INTERNAL_ERROR`，仍保持统一错误结构。
