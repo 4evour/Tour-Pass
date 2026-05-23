@@ -7,7 +7,17 @@
     "test": "tests"
   },
   "scripts": {
+    "container:smoke": "node scripts/container_smoke.js",
+    "fetch:amap": "node scripts/fetch_amap_pois.js --config config/amap.changsha.json --out-dir output/amap-changsha",
+    "build:amap-edges": "node scripts/build_commute_edges.js --pois output/amap-changsha/pois.json --out-dir output/amap-changsha --neighbors 6",
+    "real:pipeline": "node scripts/run_real_data_pipeline.js",
+    "real:retry-geo": "node scripts/retry_geo_edges.js",
+    "real:smoke": "node scripts/real_data_smoke.js",
+    "quality:algorithm": "node scripts/algorithm_quality_check.js",
+    "load:test": "node scripts/load_test.js",
     "validate:data": "node scripts/validate_data.js",
+    "test:amap-pipeline": "node tests/test_amap_pipeline.js",
+    "test:import-real-pois": "node tests/test_import_real_pois.js",
     "verify:ui": "node scripts/verify_ui.js"
   },
   "repository": {

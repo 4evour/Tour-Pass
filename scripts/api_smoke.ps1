@@ -18,6 +18,10 @@ if (-not (Test-Path $AppPath)) {
 
 $env:PORT = "$Port"
 $env:LLM_DISABLED = "1"
+$env:TOURPASS_DB_PATH = Join-Path $root "output\api-smoke-tourpass.sqlite"
+Remove-Item -LiteralPath $env:TOURPASS_DB_PATH -Force -ErrorAction SilentlyContinue
+Remove-Item -LiteralPath "$($env:TOURPASS_DB_PATH)-wal" -Force -ErrorAction SilentlyContinue
+Remove-Item -LiteralPath "$($env:TOURPASS_DB_PATH)-shm" -Force -ErrorAction SilentlyContinue
 
 $process = $null
 try {
@@ -49,7 +53,7 @@ try {
     if ([string]::IsNullOrWhiteSpace($healthResponse.Headers["X-Response-Time-Ms"])) {
         throw "Missing X-Response-Time-Ms response header."
     }
-    if ($health.workers -lt 1 -or $health.max_queue -lt 1 -or $health.cache_enabled -ne $true) {
+    if ($health.workers -lt 1 -or $health.job_workers -lt 1 -or $health.max_queue -lt 1 -or $health.max_in_flight -lt 1 -or $health.cache_enabled -ne $true -or $health.poi_count -ne 25 -or $health.edge_count -ne 46 -or $health.db_enabled -ne $true) {
         throw "Runtime health fields are missing."
     }
 
@@ -86,14 +90,25 @@ try {
         }
         Start-Sleep -Milliseconds 250
     }
-    if ($null -eq $job -or $job.status -ne "SUCCEEDED" -or $null -eq $job.result) {
+    if ($null -eq $job -or $job.status -ne "SUCCEEDED" -or $null -eq $job.result -or $job.execution_ms -lt 0 -or $job.queue_wait_ms -lt 0) {
         throw "Trip job completion smoke check failed."
     }
 
     $metricsResponse = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/metrics" -Method Get -UseBasicParsing
     $metrics = $metricsResponse.Content | ConvertFrom-Json
-    if ($metrics.total_requests -lt 1 -or $null -eq $metrics.cache -or $null -eq $metrics.jobs) {
+    if ($metrics.total_requests -lt 1 -or $null -eq $metrics.cache -or $null -eq $metrics.jobs -or $null -eq $metrics.db -or $metrics.max_in_flight -lt 1) {
         throw "Metrics smoke check failed."
+    }
+
+    $history = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/history/jobs?limit=5" -Method Get
+    if ($null -eq $history.data) {
+        throw "Job history smoke check failed."
+    }
+
+    $benchmarkBody = '{"started_at":"2026-05-22T00:00:00Z","duration_seconds":1,"concurrency_steps_json":"[1]","summary_json":"{}","report_path":"docs/performance_report.md"}'
+    $benchmark = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/benchmark/runs" -Method Post -ContentType "application/json; charset=utf-8" -Body $benchmarkBody
+    if ($benchmark.status -ne "recorded") {
+        throw "Benchmark run record smoke check failed."
     }
 
     $alternatives = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/trip/alternatives" -Method Post -ContentType "application/json; charset=utf-8" -Body '{"scenario":"下雨","limit":3}'

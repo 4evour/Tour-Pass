@@ -2,10 +2,12 @@
 
 #include <chrono>
 #include <cstdlib>
+#include <functional>
 #include <iostream>
 #include <limits>
 #include <memory>
 #include <sstream>
+#include <thread>
 #include <unordered_map>
 
 #include "httplib.h"
@@ -33,15 +35,17 @@ struct ApiContext {
     ResponseCache cache;
     ServiceMetrics metrics;
     TripJobStore jobs;
+    SQLiteStore* store;
 
-    ApiContext(const PoiGraph& graphRef, TripPlanner& plannerRef, SearchEngine& searchRef, LlmClient& llmRef, const RuntimeConfig& runtimeConfig)
+    ApiContext(const PoiGraph& graphRef, TripPlanner& plannerRef, SearchEngine& searchRef, LlmClient& llmRef, const RuntimeConfig& runtimeConfig, SQLiteStore* sqliteStore)
         : graph(graphRef),
           planner(plannerRef),
           search(searchRef),
           llm(llmRef),
           config(runtimeConfig),
           cache(runtimeConfig.cacheEntries, std::chrono::seconds(runtimeConfig.cacheTtlSeconds)),
-          jobs(runtimeConfig.maxTripJobs) {}
+          jobs(runtimeConfig.maxTripJobs, runtimeConfig.jobWorkerCount),
+          store(sqliteStore) {}
 };
 
 struct RequestMeta {
@@ -75,6 +79,8 @@ std::string queryString(const httplib::Request& req) {
 std::string routeName(const httplib::Request& req) {
     if (req.method == "GET" && req.path == "/health") return "GET /health";
     if (req.method == "GET" && req.path == "/metrics") return "GET /metrics";
+    if (req.method == "GET" && req.path == "/history/jobs") return "GET /history/jobs";
+    if (req.method == "POST" && req.path == "/benchmark/runs") return "POST /benchmark/runs";
     if (req.method == "POST" && req.path == "/trip/plan") return "POST /trip/plan";
     if (req.method == "POST" && req.path == "/trip/jobs") return "POST /trip/jobs";
     if (req.method == "GET" && req.path.find("/trip/jobs/") == 0) return "GET /trip/jobs/{id}";
@@ -116,17 +122,33 @@ bool serveFromCache(ApiContext& context, httplib::Response& res, const std::stri
     return false;
 }
 
+void recordDbWrite(ApiContext& context, const std::function<void(SQLiteStore&)>& writer) {
+    if (!context.store || !context.store->enabled()) return;
+    try {
+        writer(*context.store);
+        context.metrics.recordDbWrite(true);
+    } catch (...) {
+        context.metrics.recordDbWrite(false);
+    }
+}
+
 void installMiddleware(httplib::Server& server, ApiContext& context) {
     server.set_payload_max_length(context.config.maxBodyBytes);
     server.set_pre_routing_handler([&](const httplib::Request& req, httplib::Response& res) {
         std::string requestId = req.get_header_value("X-Request-Id");
         if (requestId.empty()) requestId = makeRequestId();
         context.metrics.beginRequest();
+        setCommonHeaders(res, requestId);
         {
             std::lock_guard<std::mutex> lock(metaMutex);
             requestMeta[&req] = RequestMeta{requestId, std::chrono::steady_clock::now()};
         }
-        setCommonHeaders(res, requestId);
+        if (context.config.maxInFlightRequests > 0 &&
+            context.metrics.inFlightRequests() > static_cast<int64_t>(context.config.maxInFlightRequests)) {
+            context.metrics.recordRejectedRequest();
+            setJson(res, errorJson("TOO_MANY_REQUESTS", "当前进行中的请求过多", {{"max_in_flight", context.config.maxInFlightRequests}}), 429);
+            return httplib::Server::HandlerResponse::Handled;
+        }
 
         if (req.method == "OPTIONS") {
             res.status = 204;
@@ -154,6 +176,12 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - meta.startedAt);
         res.set_header("X-Request-Id", meta.id);
         res.set_header("X-Response-Time-Ms", std::to_string(elapsed.count()));
+        if (req.method == "POST" && req.path == "/trip/plan") {
+            std::string cacheStatus = res.has_header("X-Cache") ? res.get_header_value("X-Cache") : "NONE";
+            recordDbWrite(context, [&](SQLiteStore& store) {
+                store.recordPlanningRequest(meta.id, "POST /trip/plan", cacheStatus, req.body, res.status, elapsed.count());
+            });
+        }
         context.metrics.recordRequest(routeName(req), res.status, elapsed, res.has_header("X-Cache"));
         context.metrics.endRequest();
     });
@@ -210,7 +238,15 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
 }
 
 int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, int port, const RuntimeConfig& config) {
-    ApiContext context(graph, planner, search, llm, config);
+    return runServer(graph, planner, search, llm, port, config, nullptr);
+}
+
+int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, int port, const RuntimeConfig& config, SQLiteStore* store) {
+    return runServer(graph, planner, search, llm, "127.0.0.1", port, config, store);
+}
+
+int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, const std::string& host, int port, const RuntimeConfig& config, SQLiteStore* store) {
+    ApiContext context(graph, planner, search, llm, config, store);
     httplib::Server server;
     server.new_task_queue = [workers = config.workerCount, maxQueue = config.maxQueuedRequests]() {
         return new httplib::ThreadPool(workers, maxQueue);
@@ -219,15 +255,32 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
     installMiddleware(server, context);
 
     server.Get("/health", [&](const httplib::Request&, httplib::Response& res) {
+        DistanceCacheStats distanceCache = context.graph.distanceCacheStats();
         setJson(res, {
             {"status", "ok"},
             {"data_loaded", !context.graph.empty()},
             {"poi_count", context.graph.pois().size()},
+            {"edge_count", context.graph.edgeCount()},
+            {"distance_cache", {
+                {"enabled", distanceCache.enabled},
+                {"mode", distanceCache.mode},
+                {"poi_count", distanceCache.poiCount},
+                {"entries", distanceCache.entries},
+                {"max_entries", distanceCache.maxEntries},
+                {"hits", distanceCache.hits},
+                {"misses", distanceCache.misses},
+                {"evictions", distanceCache.evictions},
+                {"startup_ms", distanceCache.startupMs}
+            }},
             {"llm_configured", context.llm.isConfigured()},
             {"workers", context.config.workerCount},
+            {"job_workers", context.config.jobWorkerCount},
             {"max_queue", context.config.maxQueuedRequests},
+            {"max_in_flight", context.config.maxInFlightRequests},
             {"in_flight_requests", context.metrics.toJson()["in_flight_requests"]},
-            {"cache_enabled", context.config.cacheEntries > 0}
+            {"cache_enabled", context.config.cacheEntries > 0},
+            {"db_enabled", context.store && context.store->enabled()},
+            {"db_path", context.store ? context.store->path() : ""}
         });
     });
 
@@ -236,19 +289,29 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
         CacheStats cacheStats = context.cache.stats();
         body["runtime"] = {
             {"workers", context.config.workerCount},
+            {"job_workers", context.config.jobWorkerCount},
             {"max_queue", context.config.maxQueuedRequests},
+            {"max_in_flight", context.config.maxInFlightRequests},
             {"max_body_bytes", context.config.maxBodyBytes}
         };
         body["cache"]["entries"] = cacheStats.entries;
         body["cache"]["evictions"] = cacheStats.evictions;
         body["jobs"] = context.jobs.stats();
+        body["max_in_flight"] = context.config.maxInFlightRequests;
+        if (context.store) {
+            body["db"] = context.store->stats();
+        } else {
+            body["db"].update({{"enabled", false}, {"path", ""}});
+        }
         setJson(res, body);
     });
 
     server.Post("/trip/plan", [&](const httplib::Request& req, httplib::Response& res) {
         try {
             std::string key = requestCacheKey(req.method, req.path, queryString(req), req.body);
-            if (serveFromCache(context, res, key)) return;
+            if (serveFromCache(context, res, key)) {
+                return;
+            }
             auto body = nlohmann::json::parse(req.body);
             TripRequest tripRequest = tripRequestFromJson(body);
             nlohmann::json result = planJson(context, tripRequest);
@@ -263,14 +326,24 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
         try {
             auto body = nlohmann::json::parse(req.body);
             TripRequest tripRequest = tripRequestFromJson(body);
-            std::string id = context.jobs.submit(tripRequest, [&](const TripRequest& request) {
-                return planJson(context, request);
+            std::string id = makeRequestId();
+            context.jobs.submitWithId(id, tripRequest, [&, id, requestBody = req.body](const TripRequest& request) {
+                nlohmann::json result = planJson(context, request);
+                recordDbWrite(context, [&](SQLiteStore& store) {
+                    store.recordTripJob(id, "SUCCEEDED", requestBody, result.dump(), "", 0, 0);
+                });
+                return result;
+            });
+            recordDbWrite(context, [&](SQLiteStore& store) {
+                store.recordTripJob(id, "QUEUED", req.body, "", "", 0, 0);
             });
             setJson(res, {
                 {"job_id", id},
                 {"status", "QUEUED"},
                 {"status_url", "/trip/jobs/" + id}
             }, 202);
+        } catch (const QueueFullError& ex) {
+            setJson(res, errorJson("QUEUE_FULL", "异步任务队列已满", {{"reason", ex.what()}, {"max_trip_jobs", context.config.maxTripJobs}}), 429);
         } catch (const std::exception& ex) {
             setJson(res, errorJson("VALIDATION_ERROR", "请求参数不合法", {{"reason", ex.what()}}), 400);
         }
@@ -289,6 +362,19 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
         };
         if (snapshot.status == "SUCCEEDED") body["result"] = snapshot.result;
         if (snapshot.status == "FAILED") body["error"] = errorJson("JOB_FAILED", "异步任务执行失败", {{"reason", snapshot.error}})["error"];
+        body["queue_wait_ms"] = snapshot.queueWaitMs;
+        body["execution_ms"] = snapshot.executionMs;
+        if (snapshot.status == "SUCCEEDED" || snapshot.status == "FAILED" || snapshot.status == "CANCELLED") {
+            recordDbWrite(context, [&](SQLiteStore& store) {
+                store.recordTripJob(snapshot.id,
+                                    snapshot.status,
+                                    "",
+                                    snapshot.result.is_null() ? "" : snapshot.result.dump(),
+                                    snapshot.error,
+                                    snapshot.queueWaitMs,
+                                    snapshot.executionMs);
+            });
+        }
         setJson(res, body);
     });
 
@@ -298,7 +384,53 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             setJson(res, errorJson("JOB_NOT_FOUND", "异步任务不存在或正在运行", {{"job_id", id}}), 404);
             return;
         }
+        recordDbWrite(context, [&](SQLiteStore& store) {
+            store.recordTripJob(id, "CANCELLED", "", "", "", 0, 0);
+        });
         setJson(res, {{"job_id", id}, {"status", "CANCELLED"}});
+    });
+
+    server.Get("/history/jobs", [&](const httplib::Request& req, httplib::Response& res) {
+        if (!context.store || !context.store->enabled()) {
+            setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用", nlohmann::json::object()), 503);
+            return;
+        }
+        int limit = 20;
+        if (req.has_param("limit")) {
+            try {
+                limit = std::stoi(req.get_param_value("limit"));
+            } catch (...) {
+                setJson(res, errorJson("VALIDATION_ERROR", "limit 必须是数字"), 400);
+                return;
+            }
+        }
+        try {
+            setJson(res, {{"data", context.store->recentJobs(limit)}});
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("DB_UNAVAILABLE", "读取任务历史失败", {{"reason", ex.what()}}), 503);
+        }
+    });
+
+    server.Post("/benchmark/runs", [&](const httplib::Request& req, httplib::Response& res) {
+        if (!context.store || !context.store->enabled()) {
+            setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用", nlohmann::json::object()), 503);
+            return;
+        }
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            context.store->recordBenchmarkRun(
+                body.value("started_at", ""),
+                body.value("duration_seconds", 0),
+                body.value("concurrency_steps_json", "[]"),
+                body.value("summary_json", "{}"),
+                body.value("report_path", "")
+            );
+            context.metrics.recordDbWrite(true);
+            setJson(res, {{"status", "recorded"}}, 201);
+        } catch (const std::exception& ex) {
+            context.metrics.recordDbWrite(false);
+            setJson(res, errorJson("DB_UNAVAILABLE", "记录 benchmark 失败", {{"reason", ex.what()}}), 503);
+        }
     });
 
     server.Get("/route/shortest", [&](const httplib::Request& req, httplib::Response& res) {
@@ -416,11 +548,11 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
         }
     });
 
-    std::cout << "Tour Pass server listening on http://127.0.0.1:" << port << std::endl;
-    std::cout << "Demo UI available at http://127.0.0.1:" << port << "/" << std::endl;
-    std::cout << "Runtime workers=" << config.workerCount << " max_queue=" << config.maxQueuedRequests << std::endl;
-    if (!server.listen("127.0.0.1", port)) {
-        std::cerr << "failed to listen on port " << port << std::endl;
+    std::cout << "Tour Pass server listening on http://" << host << ":" << port << std::endl;
+    std::cout << "Demo UI available at http://" << host << ":" << port << "/" << std::endl;
+    std::cout << "Runtime workers=" << config.workerCount << " job_workers=" << config.jobWorkerCount << " max_queue=" << config.maxQueuedRequests << std::endl;
+    if (!server.listen(host, port)) {
+        std::cerr << "failed to listen on " << host << ":" << port << std::endl;
         return 1;
     }
     return 0;

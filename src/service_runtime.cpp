@@ -48,6 +48,12 @@ RuntimeConfig runtimeConfigFromEnv() {
     config.cacheEntries = envSize("TOURPASS_CACHE_ENTRIES", 64, 1, 4096);
     config.cacheTtlSeconds = static_cast<int>(envSize("TOURPASS_CACHE_TTL_SECONDS", 120, 1, 3600));
     config.maxTripJobs = envSize("TOURPASS_MAX_TRIP_JOBS", 32, 1, 1024);
+    config.jobWorkerCount = envSize("TOURPASS_JOB_WORKERS", 1, 1, 64);
+    config.maxInFlightRequests = envSize("TOURPASS_MAX_IN_FLIGHT", config.workerCount * 4, 1, 4096);
+    const char* dbDisabled = std::getenv("TOURPASS_DB_DISABLED");
+    config.dbEnabled = !(dbDisabled && std::string(dbDisabled) == "1");
+    const char* dbPath = std::getenv("TOURPASS_DB_PATH");
+    if (dbPath && *dbPath) config.dbPath = dbPath;
     return config;
 }
 
@@ -142,6 +148,20 @@ void ServiceMetrics::recordCacheMiss() {
     ++cacheMisses_;
 }
 
+void ServiceMetrics::recordRejectedRequest() {
+    std::lock_guard<std::mutex> lock(mutex_);
+    ++rejectedRequests_;
+}
+
+void ServiceMetrics::recordDbWrite(bool ok) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (ok) {
+        ++dbWrites_;
+    } else {
+        ++dbWriteFailures_;
+    }
+}
+
 void ServiceMetrics::recordJobStatus(const std::string& status, int delta) {
     std::lock_guard<std::mutex> lock(mutex_);
     jobStatuses_[status] += delta;
@@ -171,6 +191,7 @@ nlohmann::json ServiceMetrics::toJson() const {
     return {
         {"total_requests", totalRequests_.load()},
         {"in_flight_requests", inFlightRequests_.load()},
+        {"rejected_requests", rejectedRequests_},
         {"status_codes", statusJson},
         {"routes", routeJson},
         {"cache", {
@@ -178,11 +199,20 @@ nlohmann::json ServiceMetrics::toJson() const {
             {"misses", cacheMisses_},
             {"hit_rate", totalCache == 0 ? 0.0 : static_cast<double>(cacheHits_) / static_cast<double>(totalCache)}
         }},
+        {"db", {
+            {"write_count", dbWrites_},
+            {"write_failures", dbWriteFailures_}
+        }},
         {"jobs", jobJson}
     };
 }
 
-TripJobStore::TripJobStore(size_t maxJobs) : maxJobs_(std::max<size_t>(1, maxJobs)), worker_([this]() { workerLoop(); }) {}
+TripJobStore::TripJobStore(size_t maxJobs, size_t workerCount)
+    : maxJobs_(std::max<size_t>(1, maxJobs)), workerCount_(std::max<size_t>(1, workerCount)) {
+    for (size_t i = 0; i < workerCount_; ++i) {
+        workers_.emplace_back([this]() { workerLoop(); });
+    }
+}
 
 TripJobStore::~TripJobStore() {
     {
@@ -190,17 +220,29 @@ TripJobStore::~TripJobStore() {
         stopping_ = true;
     }
     condition_.notify_all();
-    if (worker_.joinable()) worker_.join();
+    for (auto& worker : workers_) {
+        if (worker.joinable()) worker.join();
+    }
 }
 
 std::string TripJobStore::submit(const TripRequest& request, PlannerFn planner) {
+    return submitWithId(makeRequestId(), request, std::move(planner));
+}
+
+std::string TripJobStore::submitWithId(const std::string& id, const TripRequest& request, PlannerFn planner) {
     if (!planner) {
         throw std::runtime_error("planner callback is required");
     }
-    std::string id = makeRequestId();
     auto now = std::chrono::system_clock::now();
     {
         std::lock_guard<std::mutex> lock(mutex_);
+        size_t active = 0;
+        for (const auto& item : jobs_) {
+            if (item.second.status == "QUEUED" || item.second.status == "RUNNING") ++active;
+        }
+        if (active >= maxJobs_) {
+            throw QueueFullError("trip job queue is full");
+        }
         trimLocked();
         Job job;
         job.id = id;
@@ -221,7 +263,7 @@ bool TripJobStore::get(const std::string& id, TripJobSnapshot& snapshot) const {
     auto found = jobs_.find(id);
     if (found == jobs_.end()) return false;
     const auto& job = found->second;
-    snapshot = TripJobSnapshot{job.id, job.status, job.result, job.error, job.createdAt, job.updatedAt};
+    snapshot = TripJobSnapshot{job.id, job.status, job.result, job.error, job.queueWaitMs, job.executionMs, job.createdAt, job.updatedAt};
     return true;
 }
 
@@ -249,6 +291,15 @@ nlohmann::json TripJobStore::stats() const {
     }
     counts["total"] = jobs_.size();
     counts["queue_depth"] = queue_.size();
+    counts["worker_count"] = workerCount_;
+    counts["completed_jobs"] = completedJobs_;
+    counts["failed_jobs"] = failedJobs_;
+    counts["avg_queue_wait_ms"] = completedJobs_ + failedJobs_ == 0
+        ? 0.0
+        : static_cast<double>(totalQueueWaitMs_) / static_cast<double>(completedJobs_ + failedJobs_);
+    counts["avg_execution_ms"] = completedJobs_ + failedJobs_ == 0
+        ? 0.0
+        : static_cast<double>(totalExecutionMs_) / static_cast<double>(completedJobs_ + failedJobs_);
     return counts;
 }
 
@@ -270,25 +321,37 @@ void TripJobStore::workerLoop() {
             planner = std::move(found->second.planner);
             found->second.status = "RUNNING";
             found->second.updatedAt = std::chrono::system_clock::now();
+            found->second.queueWaitMs = std::chrono::duration_cast<std::chrono::milliseconds>(found->second.updatedAt - found->second.createdAt).count();
             request = found->second.request;
         }
 
+        auto executionStart = std::chrono::steady_clock::now();
         try {
             nlohmann::json result = planner(request);
+            auto executionMs = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - executionStart).count();
             std::lock_guard<std::mutex> lock(mutex_);
             auto found = jobs_.find(id);
             if (found != jobs_.end() && found->second.status != "CANCELLED") {
                 found->second.result = result;
                 found->second.status = "SUCCEEDED";
+                found->second.executionMs = executionMs;
                 found->second.updatedAt = std::chrono::system_clock::now();
+                ++completedJobs_;
+                totalQueueWaitMs_ += static_cast<uint64_t>(std::max<int64_t>(0, found->second.queueWaitMs));
+                totalExecutionMs_ += static_cast<uint64_t>(std::max<int64_t>(0, executionMs));
             }
         } catch (const std::exception& ex) {
+            auto executionMs = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - executionStart).count();
             std::lock_guard<std::mutex> lock(mutex_);
             auto found = jobs_.find(id);
             if (found != jobs_.end() && found->second.status != "CANCELLED") {
                 found->second.error = ex.what();
                 found->second.status = "FAILED";
+                found->second.executionMs = executionMs;
                 found->second.updatedAt = std::chrono::system_clock::now();
+                ++failedJobs_;
+                totalQueueWaitMs_ += static_cast<uint64_t>(std::max<int64_t>(0, found->second.queueWaitMs));
+                totalExecutionMs_ += static_cast<uint64_t>(std::max<int64_t>(0, executionMs));
             }
         }
     }
@@ -298,7 +361,7 @@ void TripJobStore::trimLocked() {
     while (jobs_.size() >= maxJobs_) {
         auto oldest = jobs_.end();
         for (auto it = jobs_.begin(); it != jobs_.end(); ++it) {
-            if (it->second.status == "RUNNING") continue;
+            if (it->second.status == "RUNNING" || it->second.status == "QUEUED") continue;
             if (oldest == jobs_.end() || it->second.updatedAt < oldest->second.updatedAt) {
                 oldest = it;
             }

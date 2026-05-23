@@ -12,6 +12,7 @@
 #include <thread>
 #include <unordered_map>
 #include <vector>
+#include <stdexcept>
 
 #include "tourpass/models.h"
 
@@ -24,6 +25,10 @@ struct RuntimeConfig {
     size_t cacheEntries = 64;
     int cacheTtlSeconds = 120;
     size_t maxTripJobs = 32;
+    size_t jobWorkerCount = 1;
+    size_t maxInFlightRequests = 0;
+    bool dbEnabled = true;
+    std::string dbPath = "storage/tourpass.sqlite";
 };
 
 RuntimeConfig runtimeConfigFromEnv();
@@ -66,9 +71,12 @@ class ServiceMetrics {
 public:
     void beginRequest();
     void endRequest();
+    int64_t inFlightRequests() const { return inFlightRequests_.load(); }
     void recordRequest(const std::string& route, int status, std::chrono::milliseconds latency, bool cacheable);
     void recordCacheHit();
     void recordCacheMiss();
+    void recordRejectedRequest();
+    void recordDbWrite(bool ok);
     void recordJobStatus(const std::string& status, int delta);
     nlohmann::json toJson() const;
 
@@ -82,11 +90,19 @@ private:
     mutable std::mutex mutex_;
     std::atomic<uint64_t> totalRequests_{0};
     std::atomic<int64_t> inFlightRequests_{0};
+    uint64_t rejectedRequests_ = 0;
     uint64_t cacheHits_ = 0;
     uint64_t cacheMisses_ = 0;
+    uint64_t dbWrites_ = 0;
+    uint64_t dbWriteFailures_ = 0;
     std::unordered_map<int, uint64_t> statusCodes_;
     std::unordered_map<std::string, RouteStats> routes_;
     std::unordered_map<std::string, int> jobStatuses_;
+};
+
+class QueueFullError : public std::runtime_error {
+public:
+    explicit QueueFullError(const std::string& message) : std::runtime_error(message) {}
 };
 
 struct TripJobSnapshot {
@@ -94,17 +110,20 @@ struct TripJobSnapshot {
     std::string status;
     nlohmann::json result;
     std::string error;
+    int64_t queueWaitMs = 0;
+    int64_t executionMs = 0;
     std::chrono::system_clock::time_point createdAt;
     std::chrono::system_clock::time_point updatedAt;
 };
 
 class TripJobStore {
 public:
-    explicit TripJobStore(size_t maxJobs = 32);
+    explicit TripJobStore(size_t maxJobs = 32, size_t workerCount = 1);
     ~TripJobStore();
 
     using PlannerFn = std::function<nlohmann::json(const TripRequest&)>;
     std::string submit(const TripRequest& request, PlannerFn planner);
+    std::string submitWithId(const std::string& id, const TripRequest& request, PlannerFn planner);
     bool get(const std::string& id, TripJobSnapshot& snapshot) const;
     bool cancel(const std::string& id);
     nlohmann::json stats() const;
@@ -117,6 +136,8 @@ private:
         PlannerFn planner;
         nlohmann::json result;
         std::string error;
+        int64_t queueWaitMs = 0;
+        int64_t executionMs = 0;
         std::chrono::system_clock::time_point createdAt;
         std::chrono::system_clock::time_point updatedAt;
     };
@@ -125,12 +146,17 @@ private:
     void trimLocked();
 
     size_t maxJobs_;
+    size_t workerCount_;
     mutable std::mutex mutex_;
     std::condition_variable condition_;
     std::unordered_map<std::string, Job> jobs_;
     std::queue<std::string> queue_;
     bool stopping_ = false;
-    std::thread worker_;
+    uint64_t completedJobs_ = 0;
+    uint64_t failedJobs_ = 0;
+    uint64_t totalQueueWaitMs_ = 0;
+    uint64_t totalExecutionMs_ = 0;
+    std::vector<std::thread> workers_;
 };
 
 }  // namespace tourpass

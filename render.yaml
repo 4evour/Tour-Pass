@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: tour-pass
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: LLM_DISABLED
+        value: "1"
+      - key: TOURPASS_DISTANCE_CACHE_MODE
+        value: auto
+      - key: TOURPASS_DB_PATH
+        value: /app/storage/tourpass.sqlite

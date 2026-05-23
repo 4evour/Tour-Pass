@@ -1,0 +1,25 @@
+{
+  "status": "1",
+  "info": "OK",
+  "count": "2",
+  "pois": [
+    {
+      "id": "B001",
+      "name": "岳麓山风景名胜区",
+      "type": "风景名胜;风景名胜;国家级景点",
+      "location": "112.943121,28.186728",
+      "adname": "岳麓区",
+      "business_area": "岳麓山",
+      "biz_ext": { "rating": "4.8", "cost": "0" }
+    },
+    {
+      "id": "B002",
+      "name": "橘子洲景区",
+      "type": "风景名胜;公园广场",
+      "location": "112.958778,28.178151",
+      "adname": "岳麓区",
+      "business_area": "橘子洲",
+      "biz_ext": { "rating": "4.7", "cost": "0" }
+    }
+  ]
+}

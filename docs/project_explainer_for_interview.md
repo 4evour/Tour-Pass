@@ -25,13 +25,13 @@ Tour Pass 的解法是把城市 POI 抽象成图，把通勤时间作为边权�
 ## 3. 技术栈与模块
 
 - 后端语言：C++17
-- HTTP 服务：`cpp-httplib`
+- HTTP 服务：`cpp-httplib`，用于本地演示 API 和静态页面托管，不包装成生产级 C++ Web 框架经验
 - JSON：`nlohmann/json`
 - 构建：Makefile + MinGW，也支持 CMake
-- 数据：本地 `data/pois.json` 和 `data/edges.json`
+- 数据：本地 `data/pois.json` 和 `data/edges.json`，当前长沙样例为 `25 POI / 46 edges`
 - 前端：`web/` 静态演示台，由 C++ 服务直接托管
 - LLM：OpenAI/DeepSeek 兼容接口；无密钥或禁用时用本地中文模板兜底
-- 质量保障：C++ 测试、数据校验脚本、API 冒烟脚本、UI 验证脚本、性能基准脚本、GitHub Actions
+- 质量保障：C++ 测试、数据校验脚本、API 冒烟脚本、UI 验证脚本、性能回归基准、synthetic 规模实验脚本、GitHub Actions
 
 主要目录：
 
@@ -46,6 +46,8 @@ Tour Pass 的解法是把城市 POI 抽象成图，把通勤时间作为边权�
 ## 4. 数据模型怎么理解
 
 项目里有两类核心数据。
+
+必须先把规模说清楚：当前默认长沙样例图只有 `25` 个 POI 节点和 `46` 条通勤边。它适合展示数据建模、接口闭环和可解释规划链路，不适合用来证明大规模图搜索性能。Dijkstra/A*、Beam Search、Pareto 分层这些算法价值，要通过可解释建模、约束处理和 synthetic 规模趋势实验来讲，不能靠 25 个节点的样例图硬吹性能。
 
 第一类是 POI 节点，来自 `data/pois.json`。一个 POI 代表酒店、景点、餐厅、夜间活动或交通点，包含：
 
@@ -97,7 +99,7 @@ Dijkstra: O((V + E) log V)
 A*: 最坏仍是 O((V + E) log V)，启发式有效时实际扩展节点更少
 ```
 
-在当前样例数据较小的情况下，二者都很快；保留 A* 主要是为了展示工程扩展性和算法完整性。
+在当前 `25 POI / 46 edges` 样例图上，二者都很快；保留 A* 主要是为了展示工程扩展性和算法完整性。讲性能时不能把这个样例当成大规模图搜索证据，应结合 `scripts/generate_synthetic_data.js` 和 `scripts/scale_experiment.js` 说明规模增长下的趋势与瓶颈。
 
 ### 6.2 Beam Search 行程规划
 
@@ -157,7 +159,7 @@ Beam Search 的做法是：
 
 核心接口：
 
-- `GET /health`：健康检查，返回数据与 LLM 状态。
+- `GET /health`：健康检查，返回数据规模、LLM 状态、HTTP worker 和异步任务 worker 等信息。
 - `POST /trip/plan`：生成单个或多个候选行程。
 - `GET /route/shortest`：查询两个 POI 之间的 Dijkstra 或 A* 最短路。
 - `GET /poi/search`：按关键词检索 POI。
@@ -185,10 +187,11 @@ Beam Search 的做法是：
 - `tests/test_main.cpp` 覆盖数据加载、最短路、规划、候选方案、评分拆解、Pareto、多样性、BM25、LLM 兜底等核心行为。
 - `scripts/validate_data.js` 校验 POI 字段、坐标、时间窗、类型覆盖、边引用、边权合法性和图连通性。
 - `scripts/api_smoke.ps1` 可启动服务并验证核心 API。
-- `scripts/benchmark.js` 输出接口 avg/p50/p95 性能基准。
+- `scripts/benchmark.js` 支持持续时长、梯度并发、冷缓存/热缓存/绕过缓存、吞吐量、错误率、p50/p95/p99 等性能回归指标。
+- `scripts/generate_synthetic_data.js` 和 `scripts/scale_experiment.js` 可生成 100/500/1000/5000 POI synthetic 图并观察规划耗时趋势。
 - `.github/workflows/ci.yml` 做跨平台 CMake/CTest 和 Windows API 冒烟验证。
 
-面试中可以强调：这个项目的质量门禁覆盖了“代码能跑、数据可信、接口可用、性能不明显回退”四件事。
+面试中可以强调：这个项目的质量门禁覆盖了“代码能跑、数据可信、接口可用、性能不明显回退、规模瓶颈可被量化”几件事。但性能报告只能叫本地回归基准，不能叫生产压测。
 
 ## 9. LLM 在项目里的位置
 
@@ -214,17 +217,21 @@ LLM 不是核心规划算法，而是解释层增强。核心行程由 C++ 结�
 - 用 BM25 + 字段权重做 POI 检索并返回排序贡献。
 - 用 LLM/模板生成自然语言解释，但核心算法不依赖 LLM。
 - 提供 Web 演示台、API 文档、性能基准、CI 和数据质量门禁。
+- 明确公开样例数据规模，并用 synthetic 数据做扩展趋势实验，不把小样例包装成大规模能力。
 
 ## 11. 当前边界与可优化方向
 
 当前项目是面向面试展示的 MVP，有明确边界：
 
 - 数据是长沙样例数据，不接真实地图、天气、拥堵或闭馆 API。
+- 默认样例图只有 `25 POI / 46 edges`，不能证明大规模图搜索性能。
 - 通勤边来自人工样例，不代表实时路况。
+- `cpp-httplib` 是本地演示服务承载，不等于生产级 HTTP 框架；异步任务是进程内 worker pool + 轮询，不等于分布式任务调度。
+- benchmark 默认使用本地数据和 `LLM_DISABLED=1` 口径，适合回归检查；可以记录到 SQLite，但仍不包含外部 LLM 网络延迟、真实地图 API 或真实流量分布。
 - Beam Search 不保证全局最优，但在当前规模和可解释目标下更合适。
 - 中文检索主要依赖空格切分和子串匹配，后续可接中文分词、拼音召回或向量检索。
 - 评分权重是规则设计，后续可根据用户点击、收藏、停留、跳过等行为学习权重。
-- 后续可接真实地图服务、天气服务、数据库、多城市数据和用户系统。
+- 后续可接真实地图服务、天气服务、多城市数据和用户系统；当前 SQLite 只保存规划历史、异步任务结果、benchmark 记录和数据版本，不把数据库放进规划热路径。
 
 面试收尾可以这样讲：
 

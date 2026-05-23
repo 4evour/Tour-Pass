@@ -1,0 +1,5 @@
+name,type,lat,lng,area,tags,open_time,close_time,visit_duration_minutes,popularity,price_level,description
+五一广场酒店,hotel,28.1969,112.9764,五一商圈,酒店|交通便利,00:00,23:59,30,7.5,3,样例酒店起点
+湖南博物院,attraction,28.2133,112.9916,开福区,历史文化|室内|博物馆,09:00,17:00,120,9.8,1,真实 POI 导入样例
+坡子街,restaurant,28.1909,112.9751,五一商圈,美食|小吃|街区,10:00,22:00,60,8.8,2,真实 POI 导入样例
+湘江夜游,nightlife,28.1901,112.9652,湘江沿线,夜景|休闲,18:00,23:00,90,8.2,3,真实 POI 导入样例

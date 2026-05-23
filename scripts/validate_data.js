@@ -3,6 +3,26 @@ const fs = require("fs");
 const errors = [];
 const warnings = [];
 
+function parseArgs(argv) {
+  const args = {
+    poisPath: "data/pois.json",
+    edgesPath: "data/edges.json",
+    minPois: 1,
+    requireEdgeSource: false,
+  };
+  for (let i = 2; i < argv.length; i += 1) {
+    const key = argv[i];
+    const value = argv[i + 1];
+    if (key === "--pois") args.poisPath = value;
+    if (key === "--edges") args.edgesPath = value;
+    if (key === "--min-pois") args.minPois = Number(value);
+    if (key === "--require-edge-source") args.requireEdgeSource = true;
+    if (key.startsWith("--") && key !== "--require-edge-source") i += 1;
+  }
+  if (!Number.isFinite(args.minPois) || args.minPois < 1) args.minPois = 1;
+  return args;
+}
+
 function addError(message) {
   errors.push(message);
 }
@@ -65,7 +85,7 @@ function isObject(value) {
   return value !== null && typeof value === "object" && !Array.isArray(value);
 }
 
-function printSummary(pois, edges, typeCounts) {
+function printSummary(pois, edges, typeCounts, edgeSourceCounts = new Map(), isolatedIds = []) {
   for (const warning of warnings) {
     console.warn(`Data validation warning: ${warning}`);
   }
@@ -82,19 +102,29 @@ function printSummary(pois, edges, typeCounts) {
     .map(([type, count]) => `${type}=${count}`)
     .join(", ");
   const warningSuffix = warnings.length > 0 ? `, ${warnings.length} warning(s)` : "";
-  console.log(`Data validation passed: ${pois.length} POIs, ${edges.length} edges, connected graph, ${typeSummary}${warningSuffix}.`);
+  const sourceSummary = [...edgeSourceCounts.entries()]
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([source, count]) => `${source}=${count}`)
+    .join(", ");
+  const sourceSuffix = sourceSummary ? `, edge_sources: ${sourceSummary}` : "";
+  const isolatedSuffix = isolatedIds.length > 0 ? `, isolated=${isolatedIds.length}` : "";
+  console.log(`Data validation passed: ${pois.length} POIs, ${edges.length} edges, connected graph, ${typeSummary}${sourceSuffix}${isolatedSuffix}${warningSuffix}.`);
 }
 
-const pois = readJson("data/pois.json");
-const edges = readJson("data/edges.json");
+const args = parseArgs(process.argv);
+const pois = readJson(args.poisPath);
+const edges = readJson(args.edgesPath);
 if (!Array.isArray(pois)) {
-  addError("data/pois.json must be an array");
+  addError(`${args.poisPath} must be an array`);
 }
 if (!Array.isArray(edges)) {
-  addError("data/edges.json must be an array");
+  addError(`${args.edgesPath} must be an array`);
 }
 if (errors.length > 0) {
   printSummary(Array.isArray(pois) ? pois : [], Array.isArray(edges) ? edges : [], new Map());
+}
+if (pois.length < args.minPois) {
+  addError(`${args.poisPath} must contain at least ${args.minPois} POIs`);
 }
 
 const ids = new Set();
@@ -171,13 +201,14 @@ pois.forEach((poi, index) => {
 });
 for (const type of requiredTypes) {
   if ((typeCounts.get(type) || 0) < 1) {
-    addError(`data/pois.json must contain at least one ${type} POI`);
+    addError(`${args.poisPath} must contain at least one ${type} POI`);
   }
 }
 
 const adjacency = new Map();
 for (const id of ids) adjacency.set(id, []);
 const edgeKeys = new Set();
+const edgeSourceCounts = new Map();
 edges.forEach((edge, index) => {
   if (!isObject(edge)) {
     addError(`edge at index ${index} must be an object`);
@@ -209,6 +240,15 @@ edges.forEach((edge, index) => {
   if (usableTravelFields.length === 0) {
     addError(`${context} has no usable travel minutes`);
   }
+  if ("source" in edge) {
+    if (typeof edge.source !== "string" || edge.source.trim() === "") {
+      addError(`${context} source must be a non-empty string when present`);
+    } else {
+      edgeSourceCounts.set(edge.source, (edgeSourceCounts.get(edge.source) || 0) + 1);
+    }
+  } else if (args.requireEdgeSource) {
+    addError(`${context} missing source field`);
+  }
   if (hasFrom && hasTo && ids.has(edge.from) && ids.has(edge.to)) {
     const edgeKey = [edge.from, edge.to].sort().join("<->");
     if (edgeKeys.has(edgeKey)) {
@@ -219,6 +259,13 @@ edges.forEach((edge, index) => {
     adjacency.get(edge.to).push(edge.from);
   }
 });
+
+const isolatedIds = [...adjacency.entries()]
+  .filter(([, neighbors]) => neighbors.length === 0)
+  .map(([id]) => id);
+for (const id of isolatedIds) {
+  addWarning(`poi ${id} is isolated`);
+}
 
 if (errors.length === 0 && pois.length > 0) {
   const visited = new Set();
@@ -239,4 +286,4 @@ if (errors.length === 0 && pois.length > 0) {
   }
 }
 
-printSummary(pois, edges, typeCounts);
+printSummary(pois, edges, typeCounts, edgeSourceCounts, isolatedIds);

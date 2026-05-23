@@ -1,6 +1,7 @@
 #include "tourpass/planner.h"
 
 #include <algorithm>
+#include <cstdlib>
 #include <cmath>
 #include <limits>
 #include <set>
@@ -159,6 +160,74 @@ bool isMealSlot(const std::string& slot) {
     return slot == "午餐" || slot == "晚餐";
 }
 
+bool slotAcceptsPoi(const std::string& slot, const Poi& poi) {
+    if (slot == "午餐" || slot == "晚餐") {
+        return poi.type == PoiType::Restaurant;
+    }
+    if (slot == "晚上") {
+        return poi.type == PoiType::Nightlife;
+    }
+    return poi.type == PoiType::Attraction || poi.type == PoiType::Nightlife;
+}
+
+bool isMustVisitPoi(const TripRequest& request, const Poi& poi) {
+    return containsText(request.mustVisit, poi.name) || containsText(request.mustVisit, poi.id);
+}
+
+bool isHardAvoidedPoi(const TripRequest& request, const Poi& poi) {
+    for (const auto& avoid : request.avoid) {
+        if (avoid == poi.name || avoid == poi.id) {
+            return true;
+        }
+    }
+    return false;
+}
+
+double strategyTagBonus(const TripRequest& request, const Poi& poi) {
+    if (request.strategy == "culture" && hasAnyTag(poi, {"历史文化", "博物馆", "古建筑", "书院", "寺庙"})) {
+        return 80.0;
+    }
+    if (request.strategy == "food" && hasAnyTag(poi, {"美食", "小吃", "湘菜", "夜市", "茶饮", "街区"})) {
+        return 75.0;
+    }
+    if (request.strategy == "rainy") {
+        double bonus = hasTag(poi, "室内") ? 90.0 : -30.0;
+        if (hasTag(poi, "户外")) bonus -= 90.0;
+        return bonus;
+    }
+    if (request.strategy == "low_travel") {
+        return 25.0;
+    }
+    if (request.strategy == "compact") {
+        return 35.0;
+    }
+    return 0.0;
+}
+
+double coarseCandidateScore(const TripRequest& request, const Poi& poi, int travelMinutes, int currentTime) {
+    double score = poi.popularity * 10.0 - poi.priceLevel * 3.0;
+    for (const auto& interest : request.interests) {
+        if (containsText(poi.tags, interest)) {
+            score += 45.0;
+        }
+    }
+    if (isMustVisitPoi(request, poi)) {
+        score += 10000.0;
+    }
+    score += strategyTagBonus(request, poi);
+    double travelPenalty = request.strategy == "low_travel" ? 2.0 : 1.0;
+    if (request.strategy == "compact") travelPenalty = 0.55;
+    score -= travelMinutes * travelPenalty;
+    int arrival = currentTime + travelMinutes;
+    if (arrival < poi.openMinutes) {
+        score -= (poi.openMinutes - arrival) * 0.35;
+    }
+    if (arrival + poi.visitDurationMinutes > poi.closeMinutes) {
+        score -= 900.0;
+    }
+    return score;
+}
+
 std::string timeWindowIssueStatus(const Stop& stop, const Poi* poi, int previousEnd, int requestEndMinutes) {
     if (stop.startMinutes < previousEnd) return "sequence";
     if (stop.endMinutes > requestEndMinutes) return "day_end";
@@ -211,6 +280,33 @@ struct BeamState {
     int totalVisitMinutes = 0;
     double interestScore = 0.0;
 };
+
+struct RankedPoiCandidate {
+    const Poi* poi = nullptr;
+    double score = -100000.0;
+    int travelMinutes = std::numeric_limits<int>::max();
+    double coarseScore = -100000.0;
+    bool mustVisit = false;
+};
+
+int envInt(const char* key, int fallback, int minValue, int maxValue) {
+    const char* value = std::getenv(key);
+    if (!value || !*value) return fallback;
+    try {
+        int parsed = std::stoi(value);
+        return std::max(minValue, std::min(maxValue, parsed));
+    } catch (...) {
+        return fallback;
+    }
+}
+
+int plannerBeamWidth() {
+    return envInt("TOURPASS_BEAM_WIDTH", 5, 1, 50);
+}
+
+int plannerBranchFactor() {
+    return envInt("TOURPASS_BRANCH_FACTOR", 6, 1, 50);
+}
 
 double beamStateScore(const TripRequest& request, const BeamState& state) {
     double travelPenalty = request.strategy == "low_travel" ? 0.55 : 0.25;
@@ -275,6 +371,10 @@ std::vector<ScoreComponent> TripPlanner::buildScoreBreakdown(const TripRequest& 
     std::vector<ScoreComponent> breakdown;
     if (used.count(poi.id) > 0) {
         breakdown.push_back({"重复排除", -100000.0, "该 POI 已在当前行程中使用。"});
+        return breakdown;
+    }
+    if (isHardAvoidedPoi(request, poi)) {
+        breakdown.push_back({"避免项硬排除", -100000.0, "该 POI 被请求的 avoid 名称或 id 明确排除。"});
         return breakdown;
     }
     if (poi.type == PoiType::Hotel || poi.type == PoiType::Transit) {
@@ -352,6 +452,7 @@ const Poi* TripPlanner::chooseBestPoi(const TripRequest& request, const std::str
     for (const auto& poi : graph_.pois()) {
         if (nightOnly && poi.type != PoiType::Nightlife) continue;
         if (!nightOnly && poi.type != PoiType::Attraction && poi.type != PoiType::Nightlife) continue;
+        if (isHardAvoidedPoi(request, poi)) continue;
         double score = scorePoi(request, poi, currentPoiId, currentTime, used);
         if (score > bestScore) {
             bestScore = score;
@@ -383,6 +484,7 @@ const Poi* TripPlanner::chooseRestaurant(const TripRequest& request, const std::
     double bestScore = -100000.0;
     for (const auto& poi : graph_.pois()) {
         if (poi.type != PoiType::Restaurant || used.count(poi.id) > 0) continue;
+        if (isHardAvoidedPoi(request, poi)) continue;
         int travel = graph_.shortestMinutes(currentPoiId, poi.id);
         if (travel == std::numeric_limits<int>::max()) continue;
         double score = poi.popularity * 10.0 - travel * 1.5 - poi.priceLevel * 2.0;
@@ -402,34 +504,62 @@ const Poi* TripPlanner::chooseRestaurant(const TripRequest& request, const std::
 }
 
 std::vector<const Poi*> TripPlanner::rankedPoisForSlot(const TripRequest& request, const std::string& slot, const std::string& currentPoiId, int currentTime, const std::set<std::string>& used) const {
-    std::vector<const Poi*> candidates;
+    std::vector<RankedPoiCandidate> coarseCandidates;
     for (const auto& poi : graph_.pois()) {
         if (used.count(poi.id) > 0) continue;
-        if (slot == "午餐" || slot == "晚餐") {
-            if (poi.type != PoiType::Restaurant) continue;
-        } else if (slot == "晚上") {
-            if (poi.type != PoiType::Nightlife) continue;
-        } else {
-            if (poi.type != PoiType::Attraction && poi.type != PoiType::Nightlife) continue;
-        }
-        double score = scorePoi(request, poi, currentPoiId, currentTime, used);
-        if (score > -999.0) {
-            candidates.push_back(&poi);
+        if (isHardAvoidedPoi(request, poi)) continue;
+        if (!slotAcceptsPoi(slot, poi)) continue;
+        int travel = graph_.shortestMinutes(currentPoiId, poi.id);
+        if (travel == std::numeric_limits<int>::max()) continue;
+        int arrival = currentTime + travel;
+        if (arrival + poi.visitDurationMinutes > poi.closeMinutes && !isMustVisitPoi(request, poi)) continue;
+        double coarseScore = coarseCandidateScore(request, poi, travel, currentTime);
+        if (coarseScore > -999.0 || isMustVisitPoi(request, poi)) {
+            coarseCandidates.push_back({&poi, -100000.0, travel, coarseScore, isMustVisitPoi(request, poi)});
         }
     }
 
-    std::sort(candidates.begin(), candidates.end(), [&](const Poi* left, const Poi* right) {
-        double leftScore = scorePoi(request, *left, currentPoiId, currentTime, used);
-        double rightScore = scorePoi(request, *right, currentPoiId, currentTime, used);
-        if (std::abs(leftScore - rightScore) > 0.01) {
-            return leftScore > rightScore;
+    std::stable_sort(coarseCandidates.begin(), coarseCandidates.end(), [](const RankedPoiCandidate& left, const RankedPoiCandidate& right) {
+        if (left.mustVisit != right.mustVisit) {
+            return left.mustVisit;
         }
-        return graph_.shortestMinutes(currentPoiId, left->id) < graph_.shortestMinutes(currentPoiId, right->id);
+        return left.coarseScore > right.coarseScore;
     });
 
-    const size_t maxBranching = 6;
-    if (candidates.size() > maxBranching) {
-        candidates.resize(maxBranching);
+    const size_t maxScoredPool = 80;
+    std::vector<RankedPoiCandidate> scoredCandidates;
+    scoredCandidates.reserve(std::min(coarseCandidates.size(), maxScoredPool));
+    size_t ordinaryKept = 0;
+    for (const auto& candidate : coarseCandidates) {
+        if (!candidate.mustVisit && ordinaryKept >= maxScoredPool) {
+            continue;
+        }
+        RankedPoiCandidate scored = candidate;
+        scored.score = scorePoi(request, *candidate.poi, currentPoiId, currentTime, used);
+        if (scored.score > -999.0 || scored.mustVisit) {
+            scoredCandidates.push_back(scored);
+            if (!scored.mustVisit) {
+                ++ordinaryKept;
+            }
+        }
+    }
+
+    std::sort(scoredCandidates.begin(), scoredCandidates.end(), [](const RankedPoiCandidate& left, const RankedPoiCandidate& right) {
+        if (std::abs(left.score - right.score) > 0.01) {
+            return left.score > right.score;
+        }
+        return left.travelMinutes < right.travelMinutes;
+    });
+
+    const size_t maxBranching = static_cast<size_t>(plannerBranchFactor());
+    if (scoredCandidates.size() > maxBranching) {
+        scoredCandidates.resize(maxBranching);
+    }
+
+    std::vector<const Poi*> candidates;
+    candidates.reserve(scoredCandidates.size());
+    for (const auto& candidate : scoredCandidates) {
+        candidates.push_back(candidate.poi);
     }
     return candidates;
 }
@@ -527,7 +657,7 @@ void TripPlanner::validateDayTimeWindows(const TripRequest& request, DayPlan& da
 }
 
 DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, const std::string& hotelId, std::set<std::string>& used) const {
-    const int beamWidth = 5;
+    const int beamWidth = plannerBeamWidth();
     const int breakMinutes = paceExtraBreakMinutes(request.pace);
     const std::vector<std::string> slots = {"上午", "午餐", "下午", "晚餐", "晚上"};
 
@@ -594,7 +724,7 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
         }
         trace.keptStates = static_cast<int>(expanded.size());
         trace.decision = "按 Beam 状态评分保留 Top-" + std::to_string(trace.keptStates) +
-                         "，评分综合兴趣、通勤惩罚和站点覆盖。";
+                         "；每个状态先做候选池召回与粗筛，保留必去点并裁剪普通候选后再评分，最终综合兴趣、通勤惩罚和站点覆盖。";
         for (size_t i = 0; i < expanded.size() && i < 3; ++i) {
             trace.keptStateSummaries.push_back(summarizeBeamState(request, expanded[i]));
         }

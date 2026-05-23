@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(TourPass LANGUAGES CXX)
+project(TourPass LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -25,8 +25,12 @@ set(TOURPASS_SOURCES
     src/planner.cpp
     src/search.cpp
     src/service_runtime.cpp
+    src/sqlite_store.cpp
     src/data_loader.cpp
 )
+
+add_library(sqlite3 STATIC third_party/sqlite3.c)
+target_compile_definitions(sqlite3 PRIVATE SQLITE_THREADSAFE=1 SQLITE_DEFAULT_MEMSTATUS=0)
 
 add_executable(tourpass
     src/main.cpp
@@ -44,6 +48,8 @@ if (WIN32)
 endif()
 target_link_libraries(tourpass PRIVATE Threads::Threads)
 target_link_libraries(tourpass_tests PRIVATE Threads::Threads)
+target_link_libraries(tourpass PRIVATE sqlite3)
+target_link_libraries(tourpass_tests PRIVATE sqlite3)
 if (OpenSSL_FOUND)
     target_compile_definitions(tourpass PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
     target_compile_definitions(tourpass_tests PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
@@ -71,6 +77,7 @@ if (TOURPASS_USE_GTEST)
     )
     target_link_libraries(tourpass_gtests PRIVATE GTest::gtest_main)
     target_link_libraries(tourpass_gtests PRIVATE Threads::Threads)
+    target_link_libraries(tourpass_gtests PRIVATE sqlite3)
     if (OpenSSL_FOUND)
         target_compile_definitions(tourpass_gtests PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
         target_link_libraries(tourpass_gtests PRIVATE OpenSSL::SSL OpenSSL::Crypto)

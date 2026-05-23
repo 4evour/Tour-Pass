@@ -7,6 +7,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   cmake:
     name: CMake (${{ matrix.os }})
@@ -19,6 +23,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
 
       - name: Validate sample data
         run: node scripts/validate_data.js
@@ -36,3 +45,55 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: ./scripts/api_smoke.ps1 -AppPath "$PWD/build/Release/tourpass.exe" -Port 8091
+
+  docker:
+    name: Docker image and smoke
+    runs-on: ubuntu-latest
+    needs: cmake
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build image
+        run: docker build -t tour-pass:ci .
+
+      - name: Run container
+        run: |
+          docker run -d --rm \
+            --name tour-pass-ci \
+            -p 8080:8080 \
+            -e LLM_DISABLED=1 \
+            tour-pass:ci
+
+      - name: Container API smoke
+        run: node scripts/container_smoke.js http://127.0.0.1:8080
+
+      - name: Container logs on failure
+        if: failure()
+        run: docker logs tour-pass-ci || true
+
+      - name: Stop container
+        if: always()
+        run: docker stop tour-pass-ci || true
+
+      - name: Login to GHCR
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Tag and push image
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          OWNER="${GITHUB_REPOSITORY_OWNER,,}"
+          IMAGE="ghcr.io/${OWNER}/tour-pass:latest"
+          docker tag tour-pass:ci "$IMAGE"
+          docker push "$IMAGE"

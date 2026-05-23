@@ -1,0 +1,25 @@
+{
+  "status": "1",
+  "info": "OK",
+  "count": "2",
+  "pois": [
+    {
+      "id": "B003",
+      "name": "湖南博物院",
+      "type": "科教文化服务;博物馆",
+      "location": "112.991602,28.213312",
+      "adname": "开福区",
+      "business_area": "烈士公园",
+      "biz_ext": { "rating": "4.9", "cost": "0" }
+    },
+    {
+      "id": "B001",
+      "name": "岳麓山风景名胜区",
+      "type": "风景名胜;风景名胜;国家级景点",
+      "location": "112.943121,28.186728",
+      "adname": "岳麓区",
+      "business_area": "岳麓山",
+      "biz_ext": { "rating": "4.8", "cost": "0" }
+    }
+  ]
+}

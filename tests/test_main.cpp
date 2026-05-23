@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <fstream>
+#include <atomic>
 #include <thread>
 
 #include "httplib.h"
@@ -12,6 +13,7 @@
 #include "tourpass/planner.h"
 #include "tourpass/search.h"
 #include "tourpass/service_runtime.h"
+#include "tourpass/sqlite_store.h"
 
 namespace {
 
@@ -71,6 +73,65 @@ void testGraphShortestPath() {
     tourpass::RouteResult astar = graph.aStarRoute("hotel_wuyi", "yuelu_academy");
     expectTrue(astar.algorithm == "astar", "astar route reports algorithm");
     expectTrue(astar.travelMinutes == route.travelMinutes, "astar route matches dijkstra cost on sample graph");
+}
+
+void testGraphPrecomputesShortestMinuteCache() {
+    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    tourpass::PoiGraph graph(data.pois, data.edges);
+
+    auto stats = graph.distanceCacheStats();
+    expectTrue(stats.enabled, "graph precomputes shortest-minute cache");
+    expectTrue(stats.mode == "all_pairs", "small default graph uses all-pairs cache");
+    expectTrue(stats.poiCount == data.pois.size(), "distance cache reports poi count");
+    expectTrue(stats.entries >= data.pois.size() * data.pois.size(), "distance cache stores all-pairs minute entries");
+    expectTrue(graph.shortestMinutes("hotel_wuyi", "yuelu_academy") == graph.shortestRoute("hotel_wuyi", "yuelu_academy").travelMinutes,
+               "cached shortest minutes match dijkstra route cost");
+}
+
+void testGraphDistanceCacheModesReturnSameShortestMinutes() {
+    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    tourpass::DistanceCacheConfig allPairsConfig;
+    allPairsConfig.mode = tourpass::DistanceCacheMode::AllPairs;
+    tourpass::DistanceCacheConfig onDemandConfig;
+    onDemandConfig.mode = tourpass::DistanceCacheMode::OnDemand;
+    onDemandConfig.onDemandEntries = 2;
+    tourpass::DistanceCacheConfig disabledConfig;
+    disabledConfig.mode = tourpass::DistanceCacheMode::Disabled;
+
+    tourpass::PoiGraph allPairs(data.pois, data.edges, allPairsConfig);
+    tourpass::PoiGraph onDemand(data.pois, data.edges, onDemandConfig);
+    tourpass::PoiGraph disabled(data.pois, data.edges, disabledConfig);
+
+    int expected = allPairs.shortestRoute("hotel_wuyi", "yuelu_academy").travelMinutes;
+    expectTrue(allPairs.shortestMinutes("hotel_wuyi", "yuelu_academy") == expected, "all-pairs mode matches route cost");
+    expectTrue(onDemand.shortestMinutes("hotel_wuyi", "yuelu_academy") == expected, "on-demand mode matches route cost");
+    expectTrue(disabled.shortestMinutes("hotel_wuyi", "yuelu_academy") == expected, "disabled cache mode matches route cost");
+
+    (void)onDemand.shortestMinutes("hotel_wuyi", "yuelu_academy");
+    (void)onDemand.shortestMinutes("hotel_wuyi", "hunan_museum");
+    (void)onDemand.shortestMinutes("hotel_wuyi", "juzizhou");
+    auto stats = onDemand.distanceCacheStats();
+    expectTrue(stats.mode == "on_demand", "on-demand cache reports active mode");
+    expectTrue(stats.entries <= 2, "on-demand cache respects configured capacity");
+    expectTrue(stats.hits >= 1, "on-demand cache records hits");
+    expectTrue(stats.misses >= 3, "on-demand cache records misses");
+    expectTrue(stats.evictions >= 1, "on-demand cache evicts least recently used distances");
+
+    auto disabledStats = disabled.distanceCacheStats();
+    expectTrue(!disabledStats.enabled, "disabled distance cache reports disabled");
+    expectTrue(disabledStats.mode == "disabled", "disabled cache reports active mode");
+}
+
+void testGraphAutoDistanceCacheChoosesOnDemandForLargeGraph() {
+    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    tourpass::DistanceCacheConfig config;
+    config.mode = tourpass::DistanceCacheMode::Auto;
+    config.maxAllPairsPois = 1;
+    config.onDemandEntries = 8;
+    tourpass::PoiGraph graph(data.pois, data.edges, config);
+    auto stats = graph.distanceCacheStats();
+    expectTrue(stats.mode == "on_demand", "auto cache switches to on-demand when POI count exceeds threshold");
+    expectTrue(stats.maxEntries == 8, "auto on-demand cache reports configured capacity");
 }
 
 void testPlanner() {
@@ -425,11 +486,53 @@ void testPlannerExposesAlgorithmDebugTrace() {
     expectTrue(!candidates.front().days.front().beamTrace.empty(), "day exposes beam trace entries");
     expectTrue(candidates.front().days.front().beamTrace.front().inputStates >= 1, "beam trace records input state count");
     expectTrue(!candidates.front().days.front().beamTrace.front().decision.empty(), "beam trace explains retention decision");
+    expectTrue(candidates.front().days.front().beamTrace.front().decision.find("候选池") != std::string::npos,
+               "beam trace explains candidate-pool pruning");
     expectTrue(!candidates.front().comparison.paretoDebug.empty(), "comparison exposes pareto debug evidence");
 
     nlohmann::json serialized = tourpass::itineraryToJson(candidates.front());
     expectTrue(serialized["days"][0]["beam_trace"].is_array(), "itinerary json includes beam_trace");
     expectTrue(serialized["comparison"]["pareto_debug"].is_array(), "itinerary json includes pareto_debug");
+}
+
+void testPlannerReadsBeamSearchParametersFromEnvironment() {
+    setEnvVar("TOURPASS_BEAM_WIDTH", "2");
+    setEnvVar("TOURPASS_BRANCH_FACTOR", "2");
+    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    tourpass::PoiGraph graph(data.pois, data.edges);
+    tourpass::TripPlanner planner(graph);
+    tourpass::TripRequest request = sampleRequest();
+    tourpass::Itinerary itinerary = planner.plan(request);
+    setEnvVar("TOURPASS_BEAM_WIDTH", "");
+    setEnvVar("TOURPASS_BRANCH_FACTOR", "");
+
+    expectTrue(!itinerary.days.empty(), "env-configured planner still returns days");
+    expectTrue(itinerary.days.front().summary.find("最多 2") != std::string::npos,
+               "planner summary reflects TOURPASS_BEAM_WIDTH");
+    for (const auto& trace : itinerary.days.front().beamTrace) {
+        expectTrue(trace.keptStates <= 2, "beam trace respects TOURPASS_BEAM_WIDTH");
+    }
+}
+
+void testPlannerAvoidCanHardExcludePoiByName() {
+    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    tourpass::PoiGraph graph(data.pois, data.edges);
+    tourpass::TripPlanner planner(graph);
+    tourpass::TripRequest request = sampleRequest();
+    request.days = 1;
+    request.mustVisit.clear();
+    request.avoid.push_back("太平老街");
+
+    tourpass::Itinerary itinerary = planner.plan(request);
+    bool hasAvoidedPoi = false;
+    for (const auto& day : itinerary.days) {
+        for (const auto& stop : day.stops) {
+            if (stop.poiName == "太平老街") {
+                hasAvoidedPoi = true;
+            }
+        }
+    }
+    expectTrue(!hasAvoidedPoi, "avoid can hard-exclude a POI by exact name");
 }
 
 void testTripRequestCandidateValidation() {
@@ -497,13 +600,42 @@ void testServiceMetricsRecordsStatusAndLatency() {
     metrics.beginRequest();
     metrics.recordRequest("GET /health", 200, std::chrono::milliseconds(12), true);
     metrics.endRequest();
+    metrics.recordRejectedRequest();
+    metrics.recordDbWrite(true);
+    metrics.recordDbWrite(false);
 
     nlohmann::json snapshot = metrics.toJson();
     expectTrue(snapshot["total_requests"] == 1, "metrics records total request count");
     expectTrue(snapshot["in_flight_requests"] == 0, "metrics tracks in-flight requests");
+    expectTrue(snapshot["rejected_requests"] == 1, "metrics tracks rejected requests");
+    expectTrue(snapshot["db"]["write_count"] == 1, "metrics tracks db writes");
+    expectTrue(snapshot["db"]["write_failures"] == 1, "metrics tracks db write failures");
     expectTrue(snapshot["status_codes"]["200"] == 1, "metrics records status code buckets");
     expectTrue(snapshot["routes"]["GET /health"]["count"] == 1, "metrics records per-route count");
     expectTrue(snapshot["routes"]["GET /health"]["p95_ms"].get<double>() >= 12.0, "metrics records route latency");
+}
+
+void testSQLiteStorePersistsOperationalRecords() {
+    std::remove("output/test-tourpass.sqlite");
+    {
+        tourpass::SQLiteStore store("output/test-tourpass.sqlite");
+        expectTrue(store.enabled(), "sqlite store opens database");
+
+        store.recordDataVersion(25, 46, "pois-hash", "edges-hash");
+        store.recordPlanningRequest("req-test", "POST /trip/plan", "MISS", "{\"city\":\"长沙\"}", 200, 12);
+        store.recordTripJob("job-test", "QUEUED", "{\"days\":2}", "", "", 0, 0);
+        store.recordTripJob("job-test", "SUCCEEDED", "{\"days\":2}", "{\"city\":\"长沙\"}", "", 3, 42);
+        store.recordBenchmarkRun("2026-05-22T00:00:00Z", 60, "[1,10,50,100,200]", "{\"ok\":true}", "docs/performance_report.md");
+
+        auto jobs = store.recentJobs(10);
+        expectTrue(!jobs.empty(), "sqlite store reads recent jobs");
+        expectTrue(jobs.front()["id"] == "job-test", "sqlite store returns job id");
+        expectTrue(jobs.front()["status"] == "SUCCEEDED", "sqlite store updates job status");
+        expectTrue(store.stats()["write_count"] >= 5, "sqlite store tracks writes");
+    }
+    std::remove("output/test-tourpass.sqlite");
+    std::remove("output/test-tourpass.sqlite-wal");
+    std::remove("output/test-tourpass.sqlite-shm");
 }
 
 void testTripJobStoreRunsPlannerJobsAsynchronously() {
@@ -532,6 +664,63 @@ void testTripJobStoreRunsPlannerJobsAsynchronously() {
     expectTrue(snapshot.result["city"] == "长沙", "job result contains itinerary payload");
     expectTrue(jobs.cancel(id), "completed job can be marked cancelled for cleanup");
     expectTrue(jobs.get(id, snapshot) && snapshot.status == "CANCELLED", "cancelled job exposes cancelled status");
+}
+
+void testTripJobStoreRunsMultipleWorkersAndReportsDurations() {
+    tourpass::TripJobStore jobs(8, 3);
+    std::atomic<int> running{0};
+    std::atomic<int> maxRunning{0};
+
+    for (int i = 0; i < 6; ++i) {
+        jobs.submit(sampleRequest(), [&](const tourpass::TripRequest&) {
+            int current = ++running;
+            int observed = maxRunning.load();
+            while (current > observed && !maxRunning.compare_exchange_weak(observed, current)) {}
+            std::this_thread::sleep_for(std::chrono::milliseconds(80));
+            --running;
+            return nlohmann::json{{"ok", true}};
+        });
+    }
+
+    bool allFinished = false;
+    for (int i = 0; i < 80; ++i) {
+        auto stats = jobs.stats();
+        if (stats["SUCCEEDED"] == 6) {
+            allFinished = true;
+            break;
+        }
+        std::this_thread::sleep_for(std::chrono::milliseconds(25));
+    }
+
+    auto stats = jobs.stats();
+    expectTrue(allFinished, "job worker pool finishes all submitted jobs");
+    expectTrue(maxRunning.load() >= 2, "job worker pool runs jobs concurrently");
+    expectTrue(stats["completed_jobs"] == 6, "job stats count completed jobs");
+    expectTrue(stats["failed_jobs"] == 0, "job stats count failed jobs");
+    expectTrue(stats["avg_execution_ms"].get<double>() > 0.0, "job stats expose execution time");
+    expectTrue(stats["avg_queue_wait_ms"].get<double>() >= 0.0, "job stats expose queue wait time");
+    expectTrue(stats["worker_count"] == 3, "job stats expose worker count");
+}
+
+void testTripJobStoreRejectsWhenQueueIsFull() {
+    tourpass::TripJobStore jobs(2, 1);
+    jobs.submit(sampleRequest(), [](const tourpass::TripRequest&) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(150));
+        return nlohmann::json{{"ok", true}};
+    });
+    jobs.submit(sampleRequest(), [](const tourpass::TripRequest&) {
+        std::this_thread::sleep_for(std::chrono::milliseconds(150));
+        return nlohmann::json{{"ok", true}};
+    });
+    bool rejected = false;
+    try {
+        jobs.submit(sampleRequest(), [](const tourpass::TripRequest&) {
+            return nlohmann::json{{"ok", true}};
+        });
+    } catch (const tourpass::QueueFullError&) {
+        rejected = true;
+    }
+    expectTrue(rejected, "job store rejects queued/running jobs beyond capacity");
 }
 
 void testLlmTemplateFallback() {
@@ -648,6 +837,9 @@ int main() {
     try {
         testDataLoading();
         testGraphShortestPath();
+        testGraphPrecomputesShortestMinuteCache();
+        testGraphDistanceCacheModesReturnSameShortestMinutes();
+        testGraphAutoDistanceCacheChoosesOnDemandForLargeGraph();
         testPlanner();
         testStrictTimeWindowDiagnosticsForTightDay();
         testUnscheduledReasonForUnknownMustVisit();
@@ -659,12 +851,17 @@ int main() {
         testCandidateDiversityMetrics();
         testPlannerUsesBeamSearchForTopKChoices();
         testPlannerExposesAlgorithmDebugTrace();
+        testPlannerReadsBeamSearchParametersFromEnvironment();
+        testPlannerAvoidCanHardExcludePoiByName();
         testTripRequestCandidateValidation();
         testSearch();
         testSearchExplainsBm25Matches();
         testResponseCacheTracksHitsAndEvictsLeastRecentEntry();
         testServiceMetricsRecordsStatusAndLatency();
+        testSQLiteStorePersistsOperationalRecords();
         testTripJobStoreRunsPlannerJobsAsynchronously();
+        testTripJobStoreRunsMultipleWorkersAndReportsDurations();
+        testTripJobStoreRejectsWhenQueueIsFull();
         testLlmTemplateFallback();
         testLlmCanBeDisabledForDemo();
         testLlmLocalConfigIsNotOverriddenByStaleEnvKey();

@@ -6,6 +6,8 @@
 http://127.0.0.1:8080
 ```
 
+OpenAPI/Swagger 规范见 [`docs/openapi.yaml`](openapi.yaml)。可以将该文件导入 Swagger Editor 或 Swagger UI 预览；当前服务不内置 Swagger UI，避免把文档展示功能耦合进 C++ 演示服务。
+
 ## GET /health
 
 返回服务、数据和 LLM 配置状态。
@@ -15,11 +17,27 @@ http://127.0.0.1:8080
   "status": "ok",
   "data_loaded": true,
   "poi_count": 25,
+  "edge_count": 46,
+  "distance_cache": {
+    "enabled": true,
+    "mode": "all_pairs",
+    "poi_count": 25,
+    "entries": 625,
+    "max_entries": 625,
+    "hits": 0,
+    "misses": 0,
+    "evictions": 0,
+    "startup_ms": 0
+  },
   "llm_configured": false,
   "workers": 8,
+  "job_workers": 2,
   "max_queue": 64,
+  "max_in_flight": 32,
   "in_flight_requests": 1,
-  "cache_enabled": true
+  "cache_enabled": true,
+  "db_enabled": true,
+  "db_path": "storage/tourpass.sqlite"
 }
 ```
 
@@ -184,7 +202,7 @@ curl.exe "http://127.0.0.1:8080/route/shortest?from=hotel_wuyi&to=yuelu_academy&
 
 ## GET /trip/jobs/{id}
 
-查询异步任务状态。`status` 可能为 `QUEUED`、`RUNNING`、`SUCCEEDED`、`FAILED`、`CANCELLED`。成功后返回 `result`，其结构与 `/trip/plan` 同步响应一致。
+查询异步任务状态。`status` 可能为 `QUEUED`、`RUNNING`、`SUCCEEDED`、`FAILED`、`CANCELLED`。成功后返回 `result`，其结构与 `/trip/plan` 同步响应一致。响应同时包含 `queue_wait_ms` 和 `execution_ms`，用于观察排队等待与实际规划耗时。
 
 ## DELETE /trip/jobs/{id}
 
@@ -205,21 +223,68 @@ curl.exe "http://127.0.0.1:8080/route/shortest?from=hotel_wuyi&to=yuelu_academy&
 {
   "total_requests": 12,
   "in_flight_requests": 1,
+  "rejected_requests": 0,
+  "max_in_flight": 32,
   "status_codes": { "200": 10, "202": 1 },
   "cache": { "hits": 4, "misses": 3, "hit_rate": 0.57, "entries": 3, "evictions": 0 },
-  "jobs": { "QUEUED": 0, "RUNNING": 0, "SUCCEEDED": 1, "FAILED": 0, "CANCELLED": 0, "total": 1, "queue_depth": 0 },
-  "runtime": { "workers": 8, "max_queue": 64, "max_body_bytes": 65536 }
+  "db": { "enabled": true, "path": "storage/tourpass.sqlite", "write_count": 5, "write_failures": 0 },
+  "jobs": { "QUEUED": 0, "RUNNING": 0, "SUCCEEDED": 1, "FAILED": 0, "CANCELLED": 0, "total": 1, "queue_depth": 0, "worker_count": 2, "completed_jobs": 1, "failed_jobs": 0, "avg_queue_wait_ms": 12.5, "avg_execution_ms": 430.0 },
+  "runtime": { "workers": 8, "job_workers": 2, "max_queue": 64, "max_in_flight": 32, "max_body_bytes": 65536 }
 }
 ```
+
+## GET /history/jobs
+
+返回最近异步任务摘要，供本地演示持久化能力使用；不返回完整行程结果。
+
+参数：
+
+- `limit`：默认 `20`，最大 `100`。
+
+```json
+{
+  "data": [
+    {
+      "id": "req-18b0f1-1",
+      "status": "SUCCEEDED",
+      "queue_wait_ms": 4,
+      "execution_ms": 430,
+      "created_at": "2026-05-22T00:00:00.000Z",
+      "updated_at": "2026-05-22T00:00:01.000Z"
+    }
+  ]
+}
+```
+
+## POST /benchmark/runs
+
+记录一次本地 benchmark 摘要到 SQLite。该接口面向本地压测脚本，不承诺 Prometheus 或商业 APM 格式。
+
+请求字段：
+
+- `started_at`
+- `duration_seconds`
+- `concurrency_steps_json`
+- `summary_json`
+- `report_path`
 
 ## 运行时环境变量
 
 - `TOURPASS_WORKERS`：HTTP 线程池 worker 数，默认按 CPU 核心数保守设置。
 - `TOURPASS_MAX_QUEUE`：HTTP 请求队列上限。
 - `TOURPASS_MAX_BODY_BYTES`：JSON 请求体大小限制。
+- `TOURPASS_MAX_IN_FLIGHT`：进行中请求上限，超过时返回 `TOO_MANY_REQUESTS`。
 - `TOURPASS_CACHE_ENTRIES`：进程内响应缓存容量。
 - `TOURPASS_CACHE_TTL_SECONDS`：缓存 TTL。
 - `TOURPASS_MAX_TRIP_JOBS`：异步任务仓库保留数量。
+- `TOURPASS_JOB_WORKERS`：异步规划任务 worker 数。
+- `TOURPASS_DB_PATH`：SQLite 数据库路径，默认 `storage/tourpass.sqlite`。
+- `TOURPASS_DB_DISABLED=1`：禁用 SQLite，服务退回纯内存演示模式。
+- `TOURPASS_POIS_PATH` / `TOURPASS_EDGES_PATH`：覆盖默认样例数据路径，主要用于 synthetic 规模实验。
+- `TOURPASS_DISTANCE_CACHE_MODE`：POI 最短路缓存模式，支持 `auto`、`all_pairs`、`on_demand`、`disabled`。
+- `TOURPASS_DISTANCE_CACHE_MAX_POIS`：`auto` 模式下允许全量两两缓存的最大 POI 数，默认 `300`。
+- `TOURPASS_DISTANCE_CACHE_ENTRIES`：`on_demand` 模式 LRU 缓存容量，默认 `10000`。
+- `TOURPASS_BEAM_WIDTH` / `TOURPASS_BRANCH_FACTOR`：Beam Search 保留状态数和每槽分支数，默认 `5` / `6`。
 
 ## 错误格式
 
@@ -235,4 +300,4 @@ curl.exe "http://127.0.0.1:8080/route/shortest?from=hotel_wuyi&to=yuelu_academy&
 }
 ```
 
-新增错误码包括 `PAYLOAD_TOO_LARGE`、`JOB_NOT_FOUND`、`JOB_FAILED` 和 `INTERNAL_ERROR`，仍保持统一错误结构。
+新增错误码包括 `PAYLOAD_TOO_LARGE`、`TOO_MANY_REQUESTS`、`QUEUE_FULL`、`DB_UNAVAILABLE`、`JOB_NOT_FOUND`、`JOB_FAILED` 和 `INTERNAL_ERROR`，仍保持统一错误结构。
