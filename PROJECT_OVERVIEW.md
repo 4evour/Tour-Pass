@@ -1,5 +1,9 @@
 # Tour Pass 项目说明
 
+## v2.9 CI Dependency Updates
+
+- 本地 `main` 已合并 GitHub 主线安全修复提交，并整合 Dependabot 的 GitHub Actions 升级分支：`actions/checkout` 升至 `v6.0.2`、`actions/setup-node` 升至 `v6.4.0`、`docker/login-action` 升至 `v4.2.0`；这些变更只影响 `.github/workflows/ci.yml` 的 CI action 版本锁定。
+
 ## v2.8 Real Data Ops
 
 - 新增 `scripts/run_real_data_pipeline.js`，可一键串联高德 POI 采集、通勤边生成、数据校验和真实规模实验；默认口径沿用本机已验证的 `500 POI`、`neighbors=6`、`mode=driving`、`fallback=geo_estimated`、`min_amap_ratio=0.7`、`sizes=100,200,500`。
