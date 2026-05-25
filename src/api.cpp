@@ -56,18 +56,55 @@ struct RequestMeta {
 std::mutex metaMutex;
 std::unordered_map<const httplib::Request*, RequestMeta> requestMeta;
 
+std::string requiredApiKey() {
+    static const std::string key = [] {
+        const char* env = std::getenv("TOURPASS_API_KEY");
+        return env ? std::string(env) : std::string();
+    }();
+    return key;
+}
+
+struct IpRateLimiter {
+    std::mutex mu;
+    std::unordered_map<std::string, std::deque<std::chrono::steady_clock::time_point>> hits;
+    int maxRequests;
+    std::chrono::seconds window;
+
+    IpRateLimiter(int max, int windowSec) : maxRequests(max), window(windowSec) {}
+
+    bool allow(const std::string& ip) {
+        std::lock_guard<std::mutex> lock(mu);
+        auto now = std::chrono::steady_clock::now();
+        auto& q = hits[ip];
+        while (!q.empty() && now - q.front() > window) q.pop_front();
+        if (static_cast<int>(q.size()) >= maxRequests) return false;
+        q.push_back(now);
+        return true;
+    }
+};
+
 void setJson(httplib::Response& res, const nlohmann::json& body, int status = 200) {
     res.status = status;
     res.set_content(body.dump(2), "application/json; charset=utf-8");
 }
 
+std::string corsOrigin() {
+    static const std::string origin = [] {
+        const char* env = std::getenv("TOURPASS_CORS_ORIGIN");
+        return env ? std::string(env) : std::string("*");
+    }();
+    return origin;
+}
+
 void setCommonHeaders(httplib::Response& res, const std::string& requestId) {
     res.set_header("X-Request-Id", requestId);
-    res.set_header("Access-Control-Allow-Origin", "*");
-    res.set_header("Access-Control-Allow-Headers", "Content-Type, X-Request-Id");
+    res.set_header("Access-Control-Allow-Origin", corsOrigin());
+    res.set_header("Access-Control-Allow-Headers", "Content-Type, X-Request-Id, Authorization");
     res.set_header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
     res.set_header("X-Content-Type-Options", "nosniff");
     res.set_header("Referrer-Policy", "no-referrer");
+    res.set_header("X-Frame-Options", "DENY");
+    res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'");
 }
 
 std::string queryString(const httplib::Request& req) {
@@ -127,12 +164,13 @@ void recordDbWrite(ApiContext& context, const std::function<void(SQLiteStore&)>&
     try {
         writer(*context.store);
         context.metrics.recordDbWrite(true);
-    } catch (...) {
+    } catch (const std::exception&) {
         context.metrics.recordDbWrite(false);
     }
 }
 
 void installMiddleware(httplib::Server& server, ApiContext& context) {
+    static IpRateLimiter rateLimiter(60, 60);
     server.set_payload_max_length(context.config.maxBodyBytes);
     server.set_pre_routing_handler([&](const httplib::Request& req, httplib::Response& res) {
         std::string requestId = req.get_header_value("X-Request-Id");
@@ -143,6 +181,31 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
             std::lock_guard<std::mutex> lock(metaMutex);
             requestMeta[&req] = RequestMeta{requestId, std::chrono::steady_clock::now()};
         }
+
+        if (req.method == "OPTIONS") {
+            res.status = 204;
+            return httplib::Server::HandlerResponse::Handled;
+        }
+
+        const std::string& apiKey = requiredApiKey();
+        if (!apiKey.empty()) {
+            std::string provided = req.get_header_value("Authorization");
+            if (provided == "Bearer " + apiKey || req.get_header_value("X-API-Key") == apiKey) {
+                // auth ok
+            } else {
+                context.metrics.recordRejectedRequest();
+                setJson(res, errorJson("UNAUTHORIZED", "需要有效的 API Key"), 401);
+                return httplib::Server::HandlerResponse::Handled;
+            }
+        }
+
+        std::string clientIp = req.remote_addr;
+        if (!rateLimiter.allow(clientIp)) {
+            context.metrics.recordRejectedRequest();
+            setJson(res, errorJson("TOO_MANY_REQUESTS", "请求过于频繁，请稍后重试", {{"retry_after_seconds", 60}}), 429);
+            return httplib::Server::HandlerResponse::Handled;
+        }
+
         if (context.config.maxInFlightRequests > 0 &&
             context.metrics.inFlightRequests() > static_cast<int64_t>(context.config.maxInFlightRequests)) {
             context.metrics.recordRejectedRequest();
@@ -150,10 +213,6 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
             return httplib::Server::HandlerResponse::Handled;
         }
 
-        if (req.method == "OPTIONS") {
-            res.status = 204;
-            return httplib::Server::HandlerResponse::Handled;
-        }
         if ((req.method == "POST" || req.method == "PUT" || req.method == "PATCH") && req.body.size() > context.config.maxBodyBytes) {
             setJson(res, errorJson("PAYLOAD_TOO_LARGE", "请求体超过服务限制", {{"max_body_bytes", context.config.maxBodyBytes}}), 413);
             return httplib::Server::HandlerResponse::Handled;
@@ -192,6 +251,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
             if (ep) std::rethrow_exception(ep);
         } catch (const std::exception& ex) {
             reason = ex.what();
+            std::cerr << "ERROR " << req.method << " " << req.path << ": " << reason << std::endl;
         }
         RequestMeta meta;
         {
@@ -205,7 +265,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
             }
         }
         setCommonHeaders(res, meta.id);
-        setJson(res, errorJson("INTERNAL_ERROR", "服务端处理失败", {{"reason", reason}}), 500);
+        setJson(res, errorJson("INTERNAL_ERROR", "服务端处理失败", nlohmann::json::object()), 500);
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - meta.startedAt);
         res.set_header("X-Response-Time-Ms", std::to_string(elapsed.count()));
         context.metrics.recordRequest(routeName(req), 500, elapsed, false);
@@ -255,32 +315,12 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
     installMiddleware(server, context);
 
     server.Get("/health", [&](const httplib::Request&, httplib::Response& res) {
-        DistanceCacheStats distanceCache = context.graph.distanceCacheStats();
         setJson(res, {
             {"status", "ok"},
             {"data_loaded", !context.graph.empty()},
             {"poi_count", context.graph.pois().size()},
             {"edge_count", context.graph.edgeCount()},
-            {"distance_cache", {
-                {"enabled", distanceCache.enabled},
-                {"mode", distanceCache.mode},
-                {"poi_count", distanceCache.poiCount},
-                {"entries", distanceCache.entries},
-                {"max_entries", distanceCache.maxEntries},
-                {"hits", distanceCache.hits},
-                {"misses", distanceCache.misses},
-                {"evictions", distanceCache.evictions},
-                {"startup_ms", distanceCache.startupMs}
-            }},
-            {"llm_configured", context.llm.isConfigured()},
-            {"workers", context.config.workerCount},
-            {"job_workers", context.config.jobWorkerCount},
-            {"max_queue", context.config.maxQueuedRequests},
-            {"max_in_flight", context.config.maxInFlightRequests},
-            {"in_flight_requests", context.metrics.toJson()["in_flight_requests"]},
-            {"cache_enabled", context.config.cacheEntries > 0},
-            {"db_enabled", context.store && context.store->enabled()},
-            {"db_path", context.store ? context.store->path() : ""}
+            {"llm_configured", context.llm.isConfigured()}
         });
     });
 
@@ -318,7 +358,8 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             context.cache.put(key, result);
             setJson(res, result);
         } catch (const std::exception& ex) {
-            setJson(res, errorJson("VALIDATION_ERROR", "请求参数不合法", {{"reason", ex.what()}}), 400);
+            std::cerr << "VALIDATION /trip/plan: " << ex.what() << std::endl;
+            setJson(res, errorJson("VALIDATION_ERROR", "请求参数不合法", nlohmann::json::object()), 400);
         }
     });
 
@@ -407,7 +448,8 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
         try {
             setJson(res, {{"data", context.store->recentJobs(limit)}});
         } catch (const std::exception& ex) {
-            setJson(res, errorJson("DB_UNAVAILABLE", "读取任务历史失败", {{"reason", ex.what()}}), 503);
+            std::cerr << "ERROR /history/jobs: " << ex.what() << std::endl;
+            setJson(res, errorJson("DB_UNAVAILABLE", "读取任务历史失败", nlohmann::json::object()), 503);
         }
     });
 
@@ -428,8 +470,9 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             context.metrics.recordDbWrite(true);
             setJson(res, {{"status", "recorded"}}, 201);
         } catch (const std::exception& ex) {
+            std::cerr << "ERROR /benchmark/runs: " << ex.what() << std::endl;
             context.metrics.recordDbWrite(false);
-            setJson(res, errorJson("DB_UNAVAILABLE", "记录 benchmark 失败", {{"reason", ex.what()}}), 503);
+            setJson(res, errorJson("DB_UNAVAILABLE", "记录 benchmark 失败", nlohmann::json::object()), 503);
         }
     });
 
@@ -480,7 +523,8 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
                 {"data", data}
             });
         } catch (const std::exception& ex) {
-            setJson(res, errorJson("VALIDATION_ERROR", "请求参数不合法", {{"reason", ex.what()}}), 400);
+            std::cerr << "VALIDATION /trip/alternatives: " << ex.what() << std::endl;
+            setJson(res, errorJson("VALIDATION_ERROR", "请求参数不合法", nlohmann::json::object()), 400);
         }
     });
 
@@ -496,6 +540,7 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
                 return;
             }
         }
+        limit = std::max(1, std::min(100, limit));
 
         std::string key = requestCacheKey(req.method, req.path, queryString(req), "");
         if (serveFromCache(context, res, key)) return;

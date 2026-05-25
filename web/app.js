@@ -7,6 +7,16 @@ const state = {
 
 const $ = (id) => document.getElementById(id);
 
+function escapeHtml(value) {
+  if (value == null) return "";
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function csv(value) {
   return value
     .split(",")
@@ -62,8 +72,8 @@ function renderTabs() {
   const selected = state.candidates[state.selectedIndex];
   $("candidateSummary").innerHTML = `
     <div>
-      <strong>${selected.variant_name || "推荐方案"}</strong>
-      <span>${selected.days?.[0]?.summary || "等待生成可解释摘要。"}</span>
+      <strong>${escapeHtml(selected.variant_name) || "推荐方案"}</strong>
+      <span>${escapeHtml(selected.days?.[0]?.summary) || "等待生成可解释摘要。"}</span>
     </div>
     <div class="metric-row">
       <span>评分 ${selected.total_score ?? 0}</span>
@@ -132,10 +142,10 @@ function renderOverview(candidate) {
     <div class="overview-grid">
       <section class="overview-hero" aria-label="推荐方案概览">
         <div class="panel-heading">
-          <h2>${candidate.variant_name || "推荐方案"}</h2>
-          <span>${strategyLabel(candidate.strategy)}策略 · Pareto L${comparison.pareto_rank || 1}</span>
+          <h2>${escapeHtml(candidate.variant_name) || "推荐方案"}</h2>
+          <span>${escapeHtml(strategyLabel(candidate.strategy))}策略 · Pareto L${comparison.pareto_rank || 1}</span>
         </div>
-        <p>${firstDay.summary || "生成后这里会展示第一天的核心路线摘要。"}</p>
+        <p>${escapeHtml(firstDay.summary) || "生成后这里会展示第一天的核心路线摘要。"}</p>
         <div class="plan-kpis" aria-label="方案关键指标">
           <div><strong>${candidate.total_score}</strong><span>综合评分</span></div>
           <div><strong>${candidate.days.length}</strong><span>行程天数</span></div>
@@ -163,8 +173,8 @@ function renderOverview(candidate) {
         ${firstStops.length ? firstStops.map((stop, index) => `
           <article>
             <span>${index + 1}</span>
-            <strong>${stop.poi_name}</strong>
-            <small>${stop.start_time}-${stop.end_time} · ${stop.area}</small>
+            <strong>${escapeHtml(stop.poi_name)}</strong>
+            <small>${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)} · ${escapeHtml(stop.area)}</small>
           </article>
         `).join("") : `<article><span>0</span><strong>暂无站点</strong><small>请先生成行程</small></article>`}
       </div>
@@ -193,8 +203,8 @@ function renderAlgorithmDebug(candidate) {
           <h3>Pareto 分层依据</h3>
           <div class="pareto-debug">
             <strong>L${comparison.pareto_rank || 1} · ${comparison.dominated ? "被支配候选" : "非支配前沿"}</strong>
-            <p>${comparison.tradeoff_summary || "暂无多目标解释。"}</p>
-            ${(comparison.pareto_debug || []).map((item) => `<span>${item}</span>`).join("")}
+            <p>${escapeHtml(comparison.tradeoff_summary) || "暂无多目标解释。"}</p>
+            ${(comparison.pareto_debug || []).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
           </div>
           <h3>多样性指标</h3>
           <div class="diversity-debug">
@@ -203,11 +213,11 @@ function renderAlgorithmDebug(candidate) {
               <span><strong>${formatPercent(comparison.area_overlap_with_baseline)}</strong>区域重合</span>
               <span><strong>${comparison.unique_poi_count ?? 0}</strong>独有 POI</span>
             </div>
-            <p>${comparison.diversity_summary || "暂无候选多样性说明。"}</p>
+            <p>${escapeHtml(comparison.diversity_summary) || "暂无候选多样性说明。"}</p>
             <div class="diversity-tags">
-              ${(comparison.diversity_tags || []).map((tag) => `<span>${tag}</span>`).join("")}
+              ${(comparison.diversity_tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
             </div>
-            ${(comparison.unique_pois || []).length ? `<div class="unique-pois">${comparison.unique_pois.slice(0, 4).map((poi) => `<code>${poi}</code>`).join("")}</div>` : ""}
+            ${(comparison.unique_pois || []).length ? `<div class="unique-pois">${comparison.unique_pois.slice(0, 4).map((poi) => `<code>${escapeHtml(poi)}</code>`).join("")}</div>` : ""}
           </div>
         </div>
       </div>
@@ -219,12 +229,12 @@ function renderBeamStep(step) {
   return `
     <article class="beam-step">
       <div>
-        <strong>${step.slot}</strong>
+        <strong>${escapeHtml(step.slot)}</strong>
         <span>${step.input_states} 入 · ${step.expanded_states} 展开 · ${step.kept_states} 留</span>
       </div>
-      <p>${step.decision}</p>
+      <p>${escapeHtml(step.decision)}</p>
       <div class="beam-state-list">
-        ${(step.kept_state_summaries || []).map((item) => `<code>${item}</code>`).join("")}
+        ${(step.kept_state_summaries || []).map((item) => `<code>${escapeHtml(item)}</code>`).join("")}
       </div>
     </article>
   `;
@@ -251,7 +261,7 @@ function renderRouteVisual(candidate) {
         ${routeAreas.length ? routeAreas.map((area, index) => `
           <div class="route-node">
             <span>${index + 1}</span>
-            <strong>${area}</strong>
+            <strong>${escapeHtml(area)}</strong>
           </div>
         `).join("") : `<div class="route-node"><span>0</span><strong>暂无路线</strong></div>`}
       </div>
@@ -284,9 +294,9 @@ function renderTimelineStop(stop, start, span) {
   const left = Math.max(0, ((timeToMinutes(stop.start_time) - start) / span) * 100);
   const width = Math.max(7, ((timeToMinutes(stop.end_time) - timeToMinutes(stop.start_time)) / span) * 100);
   return `
-    <div class="timeline-stop" style="left:${left.toFixed(2)}%;width:${Math.min(width, 100 - left).toFixed(2)}%;" title="${stop.start_time}-${stop.end_time} ${stop.poi_name}">
-      <span>${stop.slot}</span>
-      <strong>${stop.poi_name}</strong>
+    <div class="timeline-stop" style="left:${left.toFixed(2)}%;width:${Math.min(width, 100 - left).toFixed(2)}%;" title="${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)} ${escapeHtml(stop.poi_name)}">
+      <span>${escapeHtml(stop.slot)}</span>
+      <strong>${escapeHtml(stop.poi_name)}</strong>
     </div>
   `;
 }
@@ -312,8 +322,8 @@ function renderComparisonCard(candidate, index) {
   const metrics = candidate.comparison || {};
   return `
     <button class="comparison-card${index === state.selectedIndex ? " active" : ""}" type="button" data-candidate-index="${index}">
-      <strong>${candidate.variant_name || `候选 ${index + 1}`}</strong>
-      <span>策略 ${strategyLabel(candidate.strategy)}</span>
+      <strong>${escapeHtml(candidate.variant_name) || `候选 ${index + 1}`}</strong>
+      <span>策略 ${escapeHtml(strategyLabel(candidate.strategy))}</span>
       <span>Pareto L${metrics.pareto_rank || 1}${metrics.dominated ? " · 被支配" : " · 前沿"}</span>
       <span>评分 ${metrics.total_score ?? candidate.total_score ?? 0}</span>
       <span>通勤 ${metrics.total_travel_minutes ?? totalTravel(candidate)} 分钟</span>
@@ -321,7 +331,7 @@ function renderComparisonCard(candidate, index) {
       <span>独有 ${metrics.unique_poi_count ?? 0} 个</span>
       <span>必去 ${metrics.must_visit_covered ?? 0}/${state.lastPayload?.must_visit?.length || 0}</span>
       <span>风险 ${metrics.open_time_risks ?? 0} · 未安排 ${metrics.unscheduled_count ?? 0}</span>
-      <em>${metrics.tradeoff_summary || "多目标指标用于解释方案取舍。"}</em>
+      <em>${escapeHtml(metrics.tradeoff_summary) || "多目标指标用于解释方案取舍。"}</em>
     </button>
   `;
 }
@@ -358,7 +368,7 @@ function renderDay(day) {
   return `
     <section class="day-block">
       <h2>第 ${day.day} 天</h2>
-      <p class="day-meta">${day.summary}</p>
+      <p class="day-meta">${escapeHtml(day.summary)}</p>
       <div class="day-metrics" aria-label="当日指标">
         <span>通勤 ${day.total_travel_minutes} 分钟</span>
         <span>游玩 ${day.total_visit_minutes} 分钟</span>
@@ -366,26 +376,26 @@ function renderDay(day) {
         <span class="${day.time_window_feasible ? "ok-chip" : "risk-chip"}">${day.time_window_feasible ? "时间窗可行" : "时间窗风险"}</span>
       </div>
       <div class="insight-strip">
-        <strong>${day.optimization_summary || "暂无优化摘要"}</strong>
+        <strong>${escapeHtml(day.optimization_summary) || "暂无优化摘要"}</strong>
         <span>优化前 ${day.original_travel_minutes || 0} 分钟 · 优化后 ${day.optimized_travel_minutes || day.total_travel_minutes} 分钟</span>
       </div>
       <div class="explain-grid">
         <div>
           <h3>约束命中</h3>
           <div class="explain-list">
-            ${(day.constraint_explanations || []).slice(0, 5).map((item) => `<span>${item}</span>`).join("")}
+            ${(day.constraint_explanations || []).slice(0, 5).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
           </div>
         </div>
         <div>
           <h3>时间窗复核</h3>
           <div class="explain-list ${day.time_window_feasible ? "" : "warn-list"}">
-            ${(day.time_window_diagnostics || []).slice(0, 5).map((item) => `<span>${item}</span>`).join("")}
+            ${(day.time_window_diagnostics || []).slice(0, 5).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
           </div>
         </div>
         <div>
           <h3>未安排说明</h3>
           <div class="explain-list warn-list">
-            ${(day.unscheduled_reasons || []).slice(0, 3).map((item) => `<span>${item}</span>`).join("")}
+            ${(day.unscheduled_reasons || []).slice(0, 3).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
           </div>
         </div>
       </div>
@@ -399,12 +409,12 @@ function renderDay(day) {
 function renderStop(stop) {
   return `
     <article class="stop ${stop.time_window_status && stop.time_window_status !== "ok" ? "stop-risk" : ""}">
-      <div class="slot">${stop.slot}</div>
+      <div class="slot">${escapeHtml(stop.slot)}</div>
       <div>
-        <div class="stop-title">${stop.poi_name}</div>
-        <div class="time">${stop.start_time}-${stop.end_time} · ${stop.area} · 通勤 ${stop.travel_minutes_from_previous} 分钟</div>
-        <div class="time-window-note">${timeWindowLabel(stop.time_window_status)} · ${stop.time_window_reason || "时间窗复核通过。"}</div>
-        <div class="stop-reason">${stop.reason}</div>
+        <div class="stop-title">${escapeHtml(stop.poi_name)}</div>
+        <div class="time">${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)} · ${escapeHtml(stop.area)} · 通勤 ${stop.travel_minutes_from_previous} 分钟</div>
+        <div class="time-window-note">${escapeHtml(timeWindowLabel(stop.time_window_status))} · ${escapeHtml(stop.time_window_reason) || "时间窗复核通过。"}</div>
+        <div class="stop-reason">${escapeHtml(stop.reason)}</div>
         ${renderScoreBreakdown(stop.score_breakdown || [])}
       </div>
       <div class="score">${stop.score}</div>
@@ -434,7 +444,7 @@ function renderScoreBreakdown(breakdown) {
   }
   return `
     <div class="score-breakdown" aria-label="评分拆解">
-      ${useful.map((item) => `<span title="${item.reason || ""}">${item.label} ${Number(item.value).toFixed(1)}</span>`).join("")}
+      ${useful.map((item) => `<span title="${escapeHtml(item.reason)}">${escapeHtml(item.label)} ${Number(item.value).toFixed(1)}</span>`).join("")}
     </div>
   `;
 }
@@ -497,8 +507,8 @@ async function queryAlternatives() {
     $("alternativeOutput").innerHTML = data.data.length
       ? data.data.map((item) => `
         <div class="mini-item">
-          <strong>${item.name}</strong>
-          <span>${item.area} · ${item.description}</span>
+          <strong>${escapeHtml(item.name)}</strong>
+          <span>${escapeHtml(item.area)} · ${escapeHtml(item.description)}</span>
         </div>
       `)
       .join("")
@@ -528,10 +538,10 @@ function renderSearchResult(item) {
     .slice(0, 4);
   return `
     <div class="mini-item search-item">
-      <strong>${item.name} <small>${Number(item.score || 0).toFixed(1)}</small></strong>
-      <span>${item.area} · ${item.score_explanation}</span>
+      <strong>${escapeHtml(item.name)} <small>${Number(item.score || 0).toFixed(1)}</small></strong>
+      <span>${escapeHtml(item.area)} · ${escapeHtml(item.score_explanation)}</span>
       <div class="score-breakdown">
-        ${contributions.map((part) => `<span title="${part.reason || ""}">${part.label} ${Number(part.value).toFixed(1)}</span>`).join("")}
+        ${contributions.map((part) => `<span title="${escapeHtml(part.reason)}">${escapeHtml(part.label)} ${Number(part.value).toFixed(1)}</span>`).join("")}
       </div>
     </div>
   `;

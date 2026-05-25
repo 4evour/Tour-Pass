@@ -1,6 +1,15 @@
 const fs = require("fs");
 const path = require("path");
 
+function sanitizeAmapResponse(json) {
+  if (!json || typeof json !== "object") return json;
+  const copy = Array.isArray(json) ? [...json] : { ...json };
+  delete copy.key;
+  delete copy.sec_code;
+  delete copy.sec_code_debug;
+  return copy;
+}
+
 const AMAP_WALKING_URL = "https://restapi.amap.com/v3/direction/walking";
 const AMAP_DRIVING_URL = "https://restapi.amap.com/v3/direction/driving";
 const AMAP_DISTANCE_URL = "https://restapi.amap.com/v3/distance";
@@ -189,7 +198,7 @@ async function fetchAmapRoute({ from, to, mode, apiKey, mockDir, cacheDir }) {
   if (!response.ok) return null;
   const json = await response.json();
   fs.mkdirSync(cacheDir, { recursive: true });
-  fs.writeFileSync(path.join(cacheDir, `${mode}-${from.id}-${to.id}.json`), `${JSON.stringify(json, null, 2)}\n`, "utf8");
+  fs.writeFileSync(path.join(cacheDir, `${mode}-${from.id}-${to.id}.json`), `${JSON.stringify(sanitizeAmapResponse(json), null, 2)}\n`, "utf8");
   return parseAmapDuration(json);
 }
 
@@ -210,7 +219,7 @@ async function fetchAmapRouteMetrics({ from, to, mode, apiKey, mockDir, cacheDir
   if (!response.ok) return null;
   const json = await response.json();
   fs.mkdirSync(cacheDir, { recursive: true });
-  fs.writeFileSync(path.join(cacheDir, `${mode}-${from.id}-${to.id}.json`), `${JSON.stringify(json, null, 2)}\n`, "utf8");
+  fs.writeFileSync(path.join(cacheDir, `${mode}-${from.id}-${to.id}.json`), `${JSON.stringify(sanitizeAmapResponse(json), null, 2)}\n`, "utf8");
   return parseAmapRouteMetrics(json);
 }
 
@@ -242,7 +251,7 @@ async function fetchAmapDrivingDistanceBatch({ pairs, apiKey, cacheDir, batchSiz
       if (!response.ok) continue;
       const json = await response.json();
       fs.mkdirSync(cacheDir, { recursive: true });
-      fs.writeFileSync(path.join(cacheDir, `distance-${destination.id}-${i}.json`), `${JSON.stringify(json, null, 2)}\n`, "utf8");
+      fs.writeFileSync(path.join(cacheDir, `distance-${destination.id}-${i}.json`), `${JSON.stringify(sanitizeAmapResponse(json), null, 2)}\n`, "utf8");
       const results = parseAmapDistanceResults(json);
       results.forEach((result, index) => {
         if (!result) return;

@@ -222,7 +222,8 @@ std::string postJsonWithWinHttp(const Endpoint& endpoint, const std::string& pat
         response += chunk;
     }
     if (status < 200 || status >= 300) {
-        debugLlm("WinHTTP status " + std::to_string(status) + " body=" + response);
+        std::string truncated = response.substr(0, 200);
+        debugLlm("WinHTTP status " + std::to_string(status) + " body=" + truncated);
         return "";
     }
     return response;
@@ -241,7 +242,7 @@ LlmClient::LlmClient(const std::string& configPath) {
             config_.apiKey = json.value("api_key", "");
             config_.baseUrl = json.value("base_url", config_.baseUrl);
             config_.model = json.value("model", config_.model);
-        } catch (...) {
+        } catch (const std::exception&) {
             config_ = LlmConfig{};
         }
     }
@@ -339,7 +340,7 @@ std::string LlmClient::explainWithRemote(const Itinerary& itinerary) const {
             return "";
         }
         return parseChatCompletionContent(result->body);
-    } catch (...) {
+    } catch (const std::exception&) {
         return "";
     }
 }

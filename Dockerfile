@@ -9,12 +9,13 @@ RUN sed -i "s|http://archive.ubuntu.com/ubuntu/|${UBUNTU_APT_MIRROR}|g; s|http:/
         build-essential \
         ca-certificates \
         cmake \
+        libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /src
 COPY . .
 
-RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DTOURPASS_ENABLE_OPENSSL=OFF \
+RUN cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \
     && cmake --build build --config Release --target tourpass
 
 FROM ubuntu:24.04 AS runtime
@@ -28,7 +29,7 @@ ARG UBUNTU_APT_MIRROR=http://mirrors.tuna.tsinghua.edu.cn/ubuntu/
 
 RUN sed -i "s|http://archive.ubuntu.com/ubuntu/|${UBUNTU_APT_MIRROR}|g; s|http://security.ubuntu.com/ubuntu/|${UBUNTU_APT_MIRROR}|g" /etc/apt/sources.list.d/ubuntu.sources \
     && apt-get update \
-    && apt-get install -y --no-install-recommends ca-certificates \
+    && apt-get install -y --no-install-recommends ca-certificates libssl3 \
     && rm -rf /var/lib/apt/lists/* \
     && useradd --create-home --shell /usr/sbin/nologin tourpass
 
