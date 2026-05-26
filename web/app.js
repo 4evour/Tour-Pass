@@ -15,9 +15,17 @@ function typeIcon(type) {
   return icons[type] || "📍";
 }
 
+function leafletReady() {
+  return typeof window.L !== "undefined";
+}
+
 function renderMap(candidate) {
   const container = $("mapContainer");
   const mapDiv = $("map");
+  if (!leafletReady()) {
+    container.hidden = true;
+    return;
+  }
   if (!candidate || !candidate.days) {
     container.hidden = true;
     return;
@@ -73,6 +81,10 @@ function renderMap(candidate) {
 
 function renderRouteMap(route) {
   const mapDiv = $("routeMap");
+  if (!leafletReady()) {
+    mapDiv.innerHTML = "";
+    return;
+  }
   if (!route || !route.path_coords || route.path_coords.length === 0) {
     mapDiv.innerHTML = "";
     return;
