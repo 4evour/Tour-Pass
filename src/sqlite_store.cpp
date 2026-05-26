@@ -1,6 +1,8 @@
 #include "tourpass/sqlite_store.h"
 
+#include <chrono>
 #include <filesystem>
+#include <random>
 #include <stdexcept>
 
 #include "sqlite3.h"
@@ -118,6 +120,56 @@ void SQLiteStore::initializeSchema() {
          "created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))"
          ");");
     exec("INSERT OR IGNORE INTO schema_migrations(version, applied_at) VALUES (1, " + nowSql() + ");");
+
+    // Auth tables (schema v2)
+    exec("CREATE TABLE IF NOT EXISTS users ("
+         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+         "username TEXT NOT NULL UNIQUE COLLATE NOCASE,"
+         "password_hash TEXT NOT NULL,"
+         "role TEXT NOT NULL DEFAULT 'user',"
+         "bonus_queries INTEGER NOT NULL DEFAULT 0,"
+         "created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))"
+         ");");
+
+    exec("CREATE TABLE IF NOT EXISTS query_usage ("
+         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+         "user_id INTEGER NOT NULL REFERENCES users(id),"
+         "query_date TEXT NOT NULL,"
+         "query_count INTEGER NOT NULL DEFAULT 0,"
+         "UNIQUE(user_id, query_date)"
+         ");");
+
+    exec("CREATE TABLE IF NOT EXISTS easter_egg_log ("
+         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+         "user_id INTEGER NOT NULL REFERENCES users(id),"
+         "claimed_date TEXT NOT NULL,"
+         "UNIQUE(user_id, claimed_date)"
+         ");");
+
+    exec("CREATE TABLE IF NOT EXISTS saved_trips ("
+         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+         "user_id INTEGER NOT NULL REFERENCES users(id),"
+         "title TEXT NOT NULL DEFAULT '',"
+         "request_json TEXT NOT NULL,"
+         "response_json TEXT NOT NULL,"
+         "share_id TEXT UNIQUE,"
+         "created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))"
+         ");");
+
+    exec("CREATE TABLE IF NOT EXISTS feedback ("
+         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+         "user_id INTEGER NOT NULL REFERENCES users(id),"
+         "category TEXT NOT NULL DEFAULT 'other',"
+         "content TEXT NOT NULL,"
+         "contact TEXT NOT NULL DEFAULT '',"
+         "page_url TEXT NOT NULL DEFAULT '',"
+         "user_agent TEXT NOT NULL DEFAULT '',"
+         "status TEXT NOT NULL DEFAULT 'pending',"
+         "admin_reply TEXT NOT NULL DEFAULT '',"
+         "created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))"
+         ");");
+
+    exec("INSERT OR IGNORE INTO schema_migrations(version, applied_at) VALUES (2, " + nowSql() + ");");
 }
 
 void SQLiteStore::recordWrite(bool ok) {
@@ -239,6 +291,330 @@ nlohmann::json SQLiteStore::stats() const {
         {"write_count", writeCount_},
         {"write_failures", writeFailures_}
     };
+}
+
+// ---- Auth ----
+
+int64_t SQLiteStore::createUser(const std::string& username, const std::string& passwordHash) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "INSERT INTO users(username, password_hash) VALUES (?, ?);");
+    bindText(stmt.get(), 1, username);
+    bindText(stmt.get(), 2, passwordHash);
+    if (sqlite3_step(stmt.get()) != SQLITE_DONE) {
+        std::string err = sqlite3_errmsg(db_);
+        if (err.find("UNIQUE") != std::string::npos) {
+            throw std::runtime_error("USERNAME_TAKEN");
+        }
+        throw std::runtime_error(err);
+    }
+    return sqlite3_last_insert_rowid(db_);
+}
+
+std::optional<UserRecord> SQLiteStore::findUserByUsername(const std::string& username) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT id, username, password_hash, role, bonus_queries, created_at FROM users WHERE username = ?;");
+    bindText(stmt.get(), 1, username);
+    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        UserRecord u;
+        u.id = sqlite3_column_int64(stmt.get(), 0);
+        u.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1));
+        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
+        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
+        u.bonusQueries = sqlite3_column_int(stmt.get(), 4);
+        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 5));
+        return u;
+    }
+    return std::nullopt;
+}
+
+std::optional<UserRecord> SQLiteStore::findUserById(int64_t id) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT id, username, password_hash, role, bonus_queries, created_at FROM users WHERE id = ?;");
+    sqlite3_bind_int64(stmt.get(), 1, id);
+    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        UserRecord u;
+        u.id = sqlite3_column_int64(stmt.get(), 0);
+        u.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1));
+        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
+        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
+        u.bonusQueries = sqlite3_column_int(stmt.get(), 4);
+        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 5));
+        return u;
+    }
+    return std::nullopt;
+}
+
+// ---- Query usage ----
+
+static std::string todayDate() {
+    // Use UTC date
+    auto now = std::chrono::system_clock::now();
+    auto time = std::chrono::system_clock::to_time_t(now);
+    struct tm* utc = gmtime(&time);
+    char buf[11];
+    snprintf(buf, sizeof(buf), "%04d-%02d-%02d", utc->tm_year + 1900, utc->tm_mon + 1, utc->tm_mday);
+    return buf;
+}
+
+int SQLiteStore::getQueryCount(int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT COALESCE(query_count, 0) FROM query_usage WHERE user_id = ? AND query_date = ?;");
+    sqlite3_bind_int64(stmt.get(), 1, userId);
+    std::string today = todayDate();
+    bindText(stmt.get(), 2, today);
+    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        return sqlite3_column_int(stmt.get(), 0);
+    }
+    return 0;
+}
+
+int SQLiteStore::getBonusQueries(int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT COALESCE(bonus_queries, 0) FROM users WHERE id = ?;");
+    sqlite3_bind_int64(stmt.get(), 1, userId);
+    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        return sqlite3_column_int(stmt.get(), 0);
+    }
+    return 0;
+}
+
+void SQLiteStore::incrementQueryCount(int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string today = todayDate();
+    Statement stmt(db_, "INSERT INTO query_usage(user_id, query_date, query_count) VALUES (?, ?, 1) "
+                        "ON CONFLICT(user_id, query_date) DO UPDATE SET query_count = query_count + 1;");
+    sqlite3_bind_int64(stmt.get(), 1, userId);
+    bindText(stmt.get(), 2, today);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+}
+
+void SQLiteStore::addBonusQueries(int64_t userId, int amount) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "UPDATE users SET bonus_queries = bonus_queries + ? WHERE id = ?;");
+    sqlite3_bind_int(stmt.get(), 1, amount);
+    sqlite3_bind_int64(stmt.get(), 2, userId);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+}
+
+bool SQLiteStore::hasEasterEggToday(int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string today = todayDate();
+    Statement stmt(db_, "SELECT 1 FROM easter_egg_log WHERE user_id = ? AND claimed_date = ?;");
+    sqlite3_bind_int64(stmt.get(), 1, userId);
+    bindText(stmt.get(), 2, today);
+    return sqlite3_step(stmt.get()) == SQLITE_ROW;
+}
+
+void SQLiteStore::recordEasterEgg(int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string today = todayDate();
+    Statement stmt(db_, "INSERT OR IGNORE INTO easter_egg_log(user_id, claimed_date) VALUES (?, ?);");
+    sqlite3_bind_int64(stmt.get(), 1, userId);
+    bindText(stmt.get(), 2, today);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+}
+
+// ---- Saved trips ----
+
+void SQLiteStore::saveTrip(int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "INSERT INTO saved_trips(user_id, title, request_json, response_json) VALUES (?, ?, ?, ?);");
+    sqlite3_bind_int64(stmt.get(), 1, userId);
+    bindText(stmt.get(), 2, title);
+    bindText(stmt.get(), 3, requestJson);
+    bindText(stmt.get(), 4, responseJson);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+}
+
+nlohmann::json SQLiteStore::listTrips(int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT id, title, created_at, share_id FROM saved_trips WHERE user_id = ? ORDER BY created_at DESC LIMIT 50;");
+    sqlite3_bind_int64(stmt.get(), 1, userId);
+    nlohmann::json arr = nlohmann::json::array();
+    while (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        nlohmann::json item = {
+            {"id", sqlite3_column_int64(stmt.get(), 0)},
+            {"title", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1))},
+            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2))}
+        };
+        const char* shareId = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
+        item["share_id"] = shareId ? std::string(shareId) : "";
+        arr.push_back(item);
+    }
+    return arr;
+}
+
+std::optional<nlohmann::json> SQLiteStore::getTrip(int64_t tripId, int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT id, title, request_json, response_json, share_id, created_at FROM saved_trips WHERE id = ? AND user_id = ?;");
+    sqlite3_bind_int64(stmt.get(), 1, tripId);
+    sqlite3_bind_int64(stmt.get(), 2, userId);
+    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        nlohmann::json item = {
+            {"id", sqlite3_column_int64(stmt.get(), 0)},
+            {"title", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1))},
+            {"request_json", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2))},
+            {"response_json", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3))},
+            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 5))}
+        };
+        const char* shareId = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4));
+        item["share_id"] = shareId ? std::string(shareId) : "";
+        return item;
+    }
+    return std::nullopt;
+}
+
+std::string SQLiteStore::generateShareId(int64_t tripId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    // Generate a random 12-char share ID
+    static const char chars[] = "abcdefghijklmnopqrstuvwxyz0123456789";
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dist(0, sizeof(chars) - 2);
+    std::string shareId;
+    for (int i = 0; i < 12; ++i) shareId += chars[dist(gen)];
+
+    Statement stmt(db_, "UPDATE saved_trips SET share_id = ? WHERE id = ? AND share_id IS NULL;");
+    bindText(stmt.get(), 1, shareId);
+    sqlite3_bind_int64(stmt.get(), 2, tripId);
+    sqlite3_step(stmt.get());
+    return shareId;
+}
+
+std::optional<nlohmann::json> SQLiteStore::getTripByShareId(const std::string& shareId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT id, title, request_json, response_json, created_at FROM saved_trips WHERE share_id = ?;");
+    bindText(stmt.get(), 1, shareId);
+    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        return nlohmann::json{
+            {"id", sqlite3_column_int64(stmt.get(), 0)},
+            {"title", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1))},
+            {"request_json", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2))},
+            {"response_json", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3))},
+            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4))}
+        };
+    }
+    return std::nullopt;
+}
+
+// ---- Feedback ----
+
+void SQLiteStore::submitFeedback(int64_t userId, const std::string& category, const std::string& content,
+                                  const std::string& contact, const std::string& pageUrl, const std::string& userAgent) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "INSERT INTO feedback(user_id, category, content, contact, page_url, user_agent) VALUES (?, ?, ?, ?, ?, ?);");
+    sqlite3_bind_int64(stmt.get(), 1, userId);
+    bindText(stmt.get(), 2, category);
+    bindText(stmt.get(), 3, content);
+    bindText(stmt.get(), 4, contact);
+    bindText(stmt.get(), 5, pageUrl);
+    bindText(stmt.get(), 6, userAgent);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+}
+
+nlohmann::json SQLiteStore::listFeedback(const std::string& status, int limit) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string sql = "SELECT f.id, f.user_id, u.username, f.category, f.content, f.contact, f.status, f.admin_reply, f.created_at "
+                      "FROM feedback f LEFT JOIN users u ON f.user_id = u.id";
+    if (!status.empty()) sql += " WHERE f.status = ?";
+    sql += " ORDER BY f.created_at DESC LIMIT ?;";
+
+    Statement stmt(db_, sql);
+    int paramIdx = 1;
+    if (!status.empty()) bindText(stmt.get(), paramIdx++, status);
+    sqlite3_bind_int(stmt.get(), paramIdx, std::max(1, std::min(200, limit)));
+
+    nlohmann::json arr = nlohmann::json::array();
+    while (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        arr.push_back({
+            {"id", sqlite3_column_int64(stmt.get(), 0)},
+            {"user_id", sqlite3_column_int64(stmt.get(), 1)},
+            {"username", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2))},
+            {"category", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3))},
+            {"content", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4))},
+            {"contact", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 5))},
+            {"status", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 6))},
+            {"admin_reply", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 7))},
+            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 8))}
+        });
+    }
+    return arr;
+}
+
+void SQLiteStore::updateFeedbackStatus(int64_t feedbackId, const std::string& status, const std::string& adminReply) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "UPDATE feedback SET status = ?, admin_reply = ? WHERE id = ?;");
+    bindText(stmt.get(), 1, status);
+    bindText(stmt.get(), 2, adminReply);
+    sqlite3_bind_int64(stmt.get(), 3, feedbackId);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+}
+
+// ---- Admin ----
+
+nlohmann::json SQLiteStore::adminStats() {
+    std::lock_guard<std::mutex> lock(mutex_);
+    nlohmann::json result;
+
+    {
+        Statement stmt(db_, "SELECT COUNT(*) FROM users;");
+        if (sqlite3_step(stmt.get()) == SQLITE_ROW) result["total_users"] = sqlite3_column_int64(stmt.get(), 0);
+    }
+    {
+        std::string today = todayDate();
+        Statement stmt(db_, "SELECT COUNT(DISTINCT user_id) FROM query_usage WHERE query_date = ?;");
+        bindText(stmt.get(), 1, today);
+        if (sqlite3_step(stmt.get()) == SQLITE_ROW) result["today_active_users"] = sqlite3_column_int64(stmt.get(), 0);
+    }
+    {
+        Statement stmt(db_, "SELECT COUNT(*) FROM planning_requests;");
+        if (sqlite3_step(stmt.get()) == SQLITE_ROW) result["total_queries"] = sqlite3_column_int64(stmt.get(), 0);
+    }
+    {
+        Statement stmt(db_, "SELECT COUNT(*) FROM feedback WHERE status = 'pending';");
+        if (sqlite3_step(stmt.get()) == SQLITE_ROW) result["pending_feedback"] = sqlite3_column_int64(stmt.get(), 0);
+    }
+    return result;
+}
+
+nlohmann::json SQLiteStore::listUsers(int limit) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT u.id, u.username, u.role, u.created_at, "
+                        "COALESCE((SELECT SUM(query_count) FROM query_usage WHERE user_id = u.id), 0) as total_queries "
+                        "FROM users u ORDER BY u.created_at DESC LIMIT ?;");
+    sqlite3_bind_int(stmt.get(), 1, std::max(1, std::min(500, limit)));
+
+    nlohmann::json arr = nlohmann::json::array();
+    while (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        arr.push_back({
+            {"id", sqlite3_column_int64(stmt.get(), 0)},
+            {"username", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1))},
+            {"role", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2))},
+            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3))},
+            {"total_queries", sqlite3_column_int64(stmt.get(), 4)}
+        });
+    }
+    return arr;
+}
+
+nlohmann::json SQLiteStore::queryStatsByDay(int days) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    int boundedDays = std::max(1, std::min(90, days));
+    Statement stmt(db_, "SELECT query_date, SUM(query_count) as total, COUNT(DISTINCT user_id) as users "
+                        "FROM query_usage WHERE query_date >= date('now', ?) "
+                        "GROUP BY query_date ORDER BY query_date;");
+    std::string param = "-" + std::to_string(boundedDays) + " days";
+    bindText(stmt.get(), 1, param);
+
+    nlohmann::json arr = nlohmann::json::array();
+    while (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        arr.push_back({
+            {"date", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 0))},
+            {"total_queries", sqlite3_column_int64(stmt.get(), 1)},
+            {"active_users", sqlite3_column_int64(stmt.get(), 2)}
+        });
+    }
+    return arr;
 }
 
 }  // namespace tourpass

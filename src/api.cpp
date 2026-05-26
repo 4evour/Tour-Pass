@@ -11,6 +11,7 @@
 #include <unordered_map>
 
 #include "httplib.h"
+#include "tourpass/auth.h"
 
 namespace tourpass {
 
@@ -51,6 +52,8 @@ struct ApiContext {
 struct RequestMeta {
     std::string id;
     std::chrono::steady_clock::time_point startedAt;
+    int64_t userId = 0;
+    std::string role;
 };
 
 std::mutex metaMutex;
@@ -100,7 +103,8 @@ void setCommonHeaders(httplib::Response& res, const std::string& requestId) {
     res.set_header("X-Request-Id", requestId);
     res.set_header("Access-Control-Allow-Origin", corsOrigin());
     res.set_header("Access-Control-Allow-Headers", "Content-Type, X-Request-Id, Authorization");
-    res.set_header("Access-Control-Allow-Methods", "GET, POST, DELETE, OPTIONS");
+    res.set_header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE, OPTIONS");
+    res.set_header("Access-Control-Expose-Headers", "X-Request-Id, X-Response-Time-Ms, X-Cache, X-Query-Remaining");
     res.set_header("X-Content-Type-Options", "nosniff");
     res.set_header("Referrer-Policy", "no-referrer");
     res.set_header("X-Frame-Options", "DENY");
@@ -180,7 +184,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
         setCommonHeaders(res, requestId);
         {
             std::lock_guard<std::mutex> lock(metaMutex);
-            requestMeta[&req] = RequestMeta{requestId, std::chrono::steady_clock::now()};
+            requestMeta[&req] = RequestMeta{requestId, std::chrono::steady_clock::now(), 0, ""};
         }
 
         if (req.method == "OPTIONS") {
@@ -188,16 +192,69 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
             return httplib::Server::HandlerResponse::Handled;
         }
 
+        // --- JWT auth extraction (optional for most routes) ---
+        int64_t authUserId = 0;
+        std::string authRole;
+        std::string authHeader = req.get_header_value("Authorization");
+        if (authHeader.substr(0, 7) == "Bearer ") {
+            std::string token = authHeader.substr(7);
+            auto payload = verifyToken(token);
+            if (payload) {
+                authUserId = payload->userId;
+                authRole = payload->role;
+            }
+        }
+
+        // Paths that don't require auth at all
+        bool isPublicPath = req.path == "/health" || req.path == "/metrics"
+                         || req.path.find("/auth/") == 0
+                         || req.path.find("/s/") == 0
+                         || req.method == "OPTIONS";
+
+        // API key bypass (for programmatic access)
         const std::string& apiKey = requiredApiKey();
         if (!apiKey.empty()) {
             std::string provided = req.get_header_value("Authorization");
             if (provided == "Bearer " + apiKey || req.get_header_value("X-API-Key") == apiKey) {
-                // auth ok
-            } else {
+                authUserId = -1;  // API key auth, no user
+                authRole = "admin";
+            }
+        }
+
+        // Require auth for non-public paths
+        if (!isPublicPath && authUserId == 0) {
+            context.metrics.recordRejectedRequest();
+            setJson(res, errorJson("UNAUTHORIZED", "请先登录", {{"hint", "POST /auth/login 获取 token"}}), 401);
+            return httplib::Server::HandlerResponse::Handled;
+        }
+
+        // Admin-only paths
+        if (req.path.find("/admin/") == 0 && authRole != "admin") {
+            context.metrics.recordRejectedRequest();
+            setJson(res, errorJson("FORBIDDEN", "需要管理员权限"), 403);
+            return httplib::Server::HandlerResponse::Handled;
+        }
+
+        // Query rate limit for /trip/plan and /trip/chat
+        bool isQueryPath = req.path == "/trip/plan" || req.path == "/trip/chat";
+        if (isQueryPath && authUserId > 0 && context.store && context.store->enabled()) {
+            int used = context.store->getQueryCount(authUserId);
+            int bonus = context.store->getBonusQueries(authUserId);
+            int remaining = 10 + bonus - used;
+            res.set_header("X-Query-Remaining", std::to_string(std::max(0, remaining)));
+            if (remaining <= 0) {
                 context.metrics.recordRejectedRequest();
-                setJson(res, errorJson("UNAUTHORIZED", "需要有效的 API Key"), 401);
+                setJson(res, errorJson("DAILY_LIMIT_EXCEEDED", "今日查询次数已用完，明天再来或触发彩蛋获取额外次数", {{"remaining", 0}}), 429);
                 return httplib::Server::HandlerResponse::Handled;
             }
+        }
+
+        // Store auth info in response headers for route handlers to read via request
+        // We use a trick: store in a thread-local map keyed by request pointer
+        {
+            std::lock_guard<std::mutex> lock(metaMutex);
+            requestMeta[&req].userId = authUserId;
+            requestMeta[&req].role = authRole;
         }
 
         std::string clientIp = req.remote_addr;
@@ -230,7 +287,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                 meta = found->second;
                 requestMeta.erase(found);
             } else {
-                meta = RequestMeta{makeRequestId(), std::chrono::steady_clock::now()};
+                meta = RequestMeta{makeRequestId(), std::chrono::steady_clock::now(), 0, ""};
             }
         }
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - meta.startedAt);
@@ -241,6 +298,13 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
             recordDbWrite(context, [&](SQLiteStore& store) {
                 store.recordPlanningRequest(meta.id, "POST /trip/plan", cacheStatus, req.body, res.status, elapsed.count());
             });
+            // Track query usage on success
+            if (res.status == 200 && meta.userId > 0 && context.store && context.store->enabled()) {
+                context.store->incrementQueryCount(meta.userId);
+            }
+        }
+        if (req.method == "POST" && req.path == "/trip/chat" && res.status == 200 && meta.userId > 0 && context.store && context.store->enabled()) {
+            context.store->incrementQueryCount(meta.userId);
         }
         context.metrics.recordRequest(routeName(req), res.status, elapsed, res.has_header("X-Cache"));
         context.metrics.endRequest();
@@ -262,7 +326,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                 meta = found->second;
                 requestMeta.erase(found);
             } else {
-                meta = RequestMeta{makeRequestId(), std::chrono::steady_clock::now()};
+                meta = RequestMeta{makeRequestId(), std::chrono::steady_clock::now(), 0, ""};
             }
         }
         setCommonHeaders(res, meta.id);
@@ -692,6 +756,233 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             setJson(res, errorJson("INTERNAL_ERROR", "处理聊天请求失败", {{"reason", ex.what()}}), 500);
         }
     });
+
+    // Helper to get auth user from request metadata
+    auto getAuthUser = [&](const httplib::Request& req) -> std::pair<int64_t, std::string> {
+        std::lock_guard<std::mutex> lock(metaMutex);
+        auto found = requestMeta.find(&req);
+        if (found != requestMeta.end()) return {found->second.userId, found->second.role};
+        return {0, ""};
+    };
+
+    // ---- Auth routes ----
+
+    server.Post("/auth/register", [&](const httplib::Request& req, httplib::Response& res) {
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string username = body.value("username", "");
+            std::string password = body.value("password", "");
+            if (username.size() < 2 || username.size() > 20) {
+                setJson(res, errorJson("VALIDATION_ERROR", "用户名长度需 2-20 字符"), 400);
+                return;
+            }
+            if (password.size() < 4 || password.size() > 50) {
+                setJson(res, errorJson("VALIDATION_ERROR", "密码长度需 4-50 字符"), 400);
+                return;
+            }
+            if (!context.store || !context.store->enabled()) {
+                setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503);
+                return;
+            }
+            std::string hashed = hashPassword(password);
+            int64_t userId = context.store->createUser(username, hashed);
+            std::string token = createToken(userId, username, "user");
+            setJson(res, {{"token", token}, {"user", {{"id", userId}, {"username", username}, {"role", "user"}}}}, 201);
+        } catch (const std::exception& ex) {
+            std::string msg = ex.what();
+            if (msg.find("USERNAME_TAKEN") != std::string::npos) {
+                setJson(res, errorJson("USERNAME_TAKEN", "用户名已被注册"), 409);
+            } else {
+                setJson(res, errorJson("INTERNAL_ERROR", "注册失败", {{"reason", msg}}), 500);
+            }
+        }
+    });
+
+    server.Post("/auth/login", [&](const httplib::Request& req, httplib::Response& res) {
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string username = body.value("username", "");
+            std::string password = body.value("password", "");
+            if (!context.store || !context.store->enabled()) {
+                setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503);
+                return;
+            }
+            auto user = context.store->findUserByUsername(username);
+            if (!user || !verifyPassword(password, user->passwordHash)) {
+                setJson(res, errorJson("INVALID_CREDENTIALS", "用户名或密码错误"), 401);
+                return;
+            }
+            int queryUsed = context.store->getQueryCount(user->id);
+            int bonus = context.store->getBonusQueries(user->id);
+            std::string token = createToken(user->id, user->username, user->role);
+            setJson(res, {
+                {"token", token},
+                {"user", {
+                    {"id", user->id},
+                    {"username", user->username},
+                    {"role", user->role},
+                    {"query_remaining", std::max(0, 10 + bonus - queryUsed)}
+                }}
+            });
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", "登录失败", {{"reason", ex.what()}}), 500);
+        }
+    });
+
+    server.Get("/auth/me", [&](const httplib::Request& req, httplib::Response& res) {
+        auto [userId, role] = getAuthUser(req);
+        if (userId <= 0) {
+            setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401);
+            return;
+        }
+        auto user = context.store->findUserById(userId);
+        if (!user) {
+            setJson(res, errorJson("NOT_FOUND", "用户不存在"), 404);
+            return;
+        }
+        int queryUsed = context.store->getQueryCount(userId);
+        int bonus = context.store->getBonusQueries(userId);
+        setJson(res, {
+            {"id", user->id},
+            {"username", user->username},
+            {"role", user->role},
+            {"query_remaining", std::max(0, 10 + bonus - queryUsed)},
+            {"created_at", user->createdAt}
+        });
+    });
+
+    // ---- Saved trips ----
+
+    server.Post("/trips/save", [&](const httplib::Request& req, httplib::Response& res) {
+        auto [userId, role] = getAuthUser(req);
+        if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string title = body.value("title", "未命名行程");
+            std::string requestJson = body.contains("request") ? body["request"].dump() : "{}";
+            std::string responseJson = body.contains("response") ? body["response"].dump() : "{}";
+            context.store->saveTrip(userId, title, requestJson, responseJson);
+            setJson(res, {{"status", "saved"}}, 201);
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", "保存失败", {{"reason", ex.what()}}), 500);
+        }
+    });
+
+    server.Get("/trips/list", [&](const httplib::Request& req, httplib::Response& res) {
+        auto [userId, role] = getAuthUser(req);
+        if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
+        setJson(res, {{"data", context.store->listTrips(userId)}});
+    });
+
+    server.Get(R"(/trips/(\d+))", [&](const httplib::Request& req, httplib::Response& res) {
+        auto [userId, role] = getAuthUser(req);
+        if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
+        int64_t tripId = 0;
+        try { tripId = std::stoll(req.matches[1]); } catch (...) {}
+        auto trip = context.store->getTrip(tripId, userId);
+        if (!trip) { setJson(res, errorJson("NOT_FOUND", "行程不存在"), 404); return; }
+        setJson(res, *trip);
+    });
+
+    server.Post(R"(/trips/(\d+)/share)", [&](const httplib::Request& req, httplib::Response& res) {
+        auto [userId, role] = getAuthUser(req);
+        if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
+        int64_t tripId = 0;
+        try { tripId = std::stoll(req.matches[1]); } catch (...) {}
+        auto trip = context.store->getTrip(tripId, userId);
+        if (!trip) { setJson(res, errorJson("NOT_FOUND", "行程不存在"), 404); return; }
+        std::string shareId = context.store->generateShareId(tripId);
+        setJson(res, {{"share_id", shareId}, {"share_url", "/s/" + shareId}});
+    });
+
+    server.Get(R"(/s/([a-z0-9]+))", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string shareId = req.matches[1];
+        auto trip = context.store->getTripByShareId(shareId);
+        if (!trip) { setJson(res, errorJson("NOT_FOUND", "分享链接无效或已过期"), 404); return; }
+        setJson(res, *trip);
+    });
+
+    // ---- Feedback ----
+
+    server.Post("/feedback", [&](const httplib::Request& req, httplib::Response& res) {
+        auto [userId, role] = getAuthUser(req);
+        if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            context.store->submitFeedback(userId,
+                body.value("category", "other"),
+                body.value("content", ""),
+                body.value("contact", ""),
+                body.value("page_url", ""),
+                req.get_header_value("User-Agent"));
+            setJson(res, {{"status", "submitted"}}, 201);
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("VALIDATION_ERROR", "提交反馈失败", {{"reason", ex.what()}}), 400);
+        }
+    });
+
+    // ---- Easter egg ----
+
+    server.Get("/easter-egg", [&](const httplib::Request& req, httplib::Response& res) {
+        auto [userId, role] = getAuthUser(req);
+        if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
+        if (context.store->hasEasterEggToday(userId)) {
+            setJson(res, errorJson("ALREADY_CLAIMED", "今日彩蛋已领取，明天再来~"), 400);
+            return;
+        }
+        context.store->recordEasterEgg(userId);
+        context.store->addBonusQueries(userId, 5);
+        auto user = context.store->findUserById(userId);
+        std::string username = user ? user->username : "旅行者";
+        setJson(res, {{"status", "claimed"}, {"message", username + " 祝小 fi 天天开心！"}, {"bonus", 5}});
+    });
+
+    // ---- Admin routes ----
+
+    server.Get("/admin/stats", [&](const httplib::Request&, httplib::Response& res) {
+        setJson(res, context.store->adminStats());
+    });
+
+    server.Get("/admin/users", [&](const httplib::Request& req, httplib::Response& res) {
+        int limit = 50;
+        if (req.has_param("limit")) {
+            try { limit = std::stoi(req.get_param_value("limit")); } catch (...) {}
+        }
+        setJson(res, {{"data", context.store->listUsers(limit)}});
+    });
+
+    server.Get("/admin/feedback", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string status = req.has_param("status") ? req.get_param_value("status") : "";
+        int limit = 50;
+        if (req.has_param("limit")) {
+            try { limit = std::stoi(req.get_param_value("limit")); } catch (...) {}
+        }
+        setJson(res, {{"data", context.store->listFeedback(status, limit)}});
+    });
+
+    server.Patch(R"(/admin/feedback/(\d+))", [&](const httplib::Request& req, httplib::Response& res) {
+        int64_t feedbackId = 0;
+        try { feedbackId = std::stoll(req.matches[1]); } catch (...) {}
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            context.store->updateFeedbackStatus(feedbackId, body.value("status", "reviewed"), body.value("admin_reply", ""));
+            setJson(res, {{"status", "updated"}});
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", "更新失败", {{"reason", ex.what()}}), 500);
+        }
+    });
+
+    server.Get("/admin/query-stats", [&](const httplib::Request& req, httplib::Response& res) {
+        int days = 30;
+        if (req.has_param("days")) {
+            try { days = std::stoi(req.get_param_value("days")); } catch (...) {}
+        }
+        setJson(res, {{"data", context.store->queryStatsByDay(days)}});
+    });
+
+    // ---- Track query usage after successful trip/plan and trip/chat ----
+    // (We add a post-routing handler specifically for these)
+    // Note: This is handled by incrementing in the existing post-routing handler
 
     std::cout << "Tour Pass server listening on http://" << host << ":" << port << std::endl;
     std::cout << "Demo UI available at http://" << host << ":" << port << "/" << std::endl;

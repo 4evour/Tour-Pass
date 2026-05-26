@@ -9,14 +9,49 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   </head>
   <body>
-    <main class="app-shell">
+    <!-- Auth overlay -->
+    <div id="authOverlay" class="auth-overlay">
+      <div class="auth-card">
+        <h1 class="auth-title">Tour Pass</h1>
+        <p class="auth-subtitle">AI 旅行规划</p>
+        <div id="authLoginForm">
+          <div class="auth-field">
+            <input id="authUsername" type="text" placeholder="用户名" autocomplete="username" />
+          </div>
+          <div class="auth-field">
+            <input id="authPassword" type="password" placeholder="密码" autocomplete="current-password" />
+          </div>
+          <div id="authError" class="auth-error" hidden></div>
+          <button id="authLoginBtn" class="auth-btn primary" type="button">登录</button>
+          <p class="auth-switch">没有账号？<a href="#" id="authShowRegister">注册</a></p>
+        </div>
+        <div id="authRegisterForm" hidden>
+          <div class="auth-field">
+            <input id="regUsername" type="text" placeholder="用户名 (2-20字符)" autocomplete="username" />
+          </div>
+          <div class="auth-field">
+            <input id="regPassword" type="password" placeholder="密码 (4-50字符)" autocomplete="new-password" />
+          </div>
+          <div id="regError" class="auth-error" hidden></div>
+          <button id="authRegisterBtn" class="auth-btn primary" type="button">注册</button>
+          <p class="auth-switch">已有账号？<a href="#" id="authShowLogin">登录</a></p>
+        </div>
+      </div>
+    </div>
+
+    <main class="app-shell" id="mainApp" hidden>
       <section class="workspace" aria-labelledby="app-title">
         <header class="topbar">
           <div>
             <p class="eyebrow">C++ AI Trip Planner</p>
             <h1 id="app-title">Tour Pass 演示台</h1>
           </div>
-          <div class="status" id="serviceStatus" role="status">连接中</div>
+          <div class="topbar-right">
+            <span class="query-counter" id="queryCounter" title="今日剩余查询次数"></span>
+            <span class="user-badge" id="userBadge"></span>
+            <button class="secondary-action small" id="logoutBtn" type="button">退出</button>
+            <div class="status" id="serviceStatus" role="status">连接中</div>
+          </div>
         </header>
 
         <section class="demo-rail" aria-label="演示链路">
@@ -205,6 +240,42 @@
         </aside>
       </section>
     </main>
+
+    <!-- Feedback button -->
+    <div id="feedbackBtn" class="feedback-fab" title="反馈问题">💬</div>
+    <div id="feedbackModal" class="feedback-modal" hidden>
+      <div class="feedback-content">
+        <h3>反馈问题</h3>
+        <div class="auth-field">
+          <select id="fbCategory">
+            <option value="bug">Bug</option>
+            <option value="feature">功能建议</option>
+            <option value="experience">体验问题</option>
+            <option value="other">其他</option>
+          </select>
+        </div>
+        <div class="auth-field">
+          <textarea id="fbContent" placeholder="描述你遇到的问题或建议（10-500字）" rows="4"></textarea>
+        </div>
+        <div class="auth-field">
+          <input id="fbContact" placeholder="联系方式（选填）" />
+        </div>
+        <div id="fbError" class="auth-error" hidden></div>
+        <div id="fbSuccess" class="auth-success" hidden>感谢反馈！我们会尽快处理。</div>
+        <div class="feedback-actions">
+          <button id="fbSubmit" class="auth-btn primary" type="button">提交</button>
+          <button id="fbClose" class="auth-btn" type="button">关闭</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Easter egg -->
+    <footer class="app-footer">
+      <span>&copy; Tour Pass</span>
+      <span id="easterEgg" class="easter-egg" title="?">i</span>
+    </footer>
+    <canvas id="fireworksCanvas" class="fireworks-canvas" hidden></canvas>
+    <div id="easterMessage" class="easter-message" hidden></div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="/app.js"></script>

@@ -3,6 +3,8 @@ const state = {
   selectedIndex: 0,
   lastPayload: null,
   activeStage: "overview",
+  user: null,
+  token: localStorage.getItem("tp_token") || null,
 };
 
 let planMap = null;
@@ -152,15 +154,227 @@ function planPayload() {
 }
 
 async function api(path, options = {}) {
-  const response = await fetch(path, {
-    headers: { "Content-Type": "application/json; charset=utf-8" },
-    ...options,
-  });
+  const headers = { "Content-Type": "application/json; charset=utf-8" };
+  if (state.token) headers["Authorization"] = "Bearer " + state.token;
+  const response = await fetch(path, { headers, ...options });
   const data = await response.json();
+  // Update query remaining from response header
+  const remaining = response.headers.get("X-Query-Remaining");
+  if (remaining !== null) updateQueryCounter(parseInt(remaining));
   if (!response.ok) {
+    if (response.status === 401 && !path.startsWith("/auth")) {
+      logout();
+      throw new Error("登录已过期，请重新登录");
+    }
     throw new Error(data.error?.message || "请求失败");
   }
   return data;
+}
+
+// ---- Auth ----
+
+function updateQueryCounter(remaining) {
+  const el = $("queryCounter");
+  if (el) el.textContent = remaining !== undefined ? `今日剩余 ${remaining}/10` : "";
+}
+
+function showApp() {
+  $("authOverlay").hidden = true;
+  $("mainApp").hidden = false;
+  $("userBadge").textContent = state.user?.username || "";
+  updateQueryCounter(state.user?.query_remaining);
+  loadHealth();
+}
+
+function showAuth() {
+  $("authOverlay").hidden = false;
+  $("mainApp").hidden = true;
+  state.token = null;
+  state.user = null;
+  localStorage.removeItem("tp_token");
+}
+
+function logout() {
+  showAuth();
+}
+
+async function doLogin() {
+  const username = $("authUsername").value.trim();
+  const password = $("authPassword").value;
+  const errEl = $("authError");
+  errEl.hidden = true;
+  if (!username || !password) { errEl.textContent = "请输入用户名和密码"; errEl.hidden = false; return; }
+  try {
+    $("authLoginBtn").disabled = true;
+    const data = await api("/auth/login", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+    });
+    state.token = data.token;
+    state.user = data.user;
+    localStorage.setItem("tp_token", data.token);
+    showApp();
+  } catch (e) {
+    errEl.textContent = e.message;
+    errEl.hidden = false;
+  } finally {
+    $("authLoginBtn").disabled = false;
+  }
+}
+
+async function doRegister() {
+  const username = $("regUsername").value.trim();
+  const password = $("regPassword").value;
+  const errEl = $("regError");
+  errEl.hidden = true;
+  if (!username || !password) { errEl.textContent = "请输入用户名和密码"; errEl.hidden = false; return; }
+  try {
+    $("authRegisterBtn").disabled = true;
+    const data = await api("/auth/register", {
+      method: "POST",
+      body: JSON.stringify({ username, password }),
+    });
+    state.token = data.token;
+    state.user = data.user;
+    localStorage.setItem("tp_token", data.token);
+    showApp();
+  } catch (e) {
+    errEl.textContent = e.message;
+    errEl.hidden = false;
+  } finally {
+    $("authRegisterBtn").disabled = false;
+  }
+}
+
+async function checkAuth() {
+  if (!state.token) { showAuth(); return; }
+  try {
+    const data = await api("/auth/me");
+    state.user = data;
+    showApp();
+  } catch {
+    showAuth();
+  }
+}
+
+// ---- Feedback ----
+
+function initFeedback() {
+  $("feedbackBtn").addEventListener("click", () => {
+    $("feedbackModal").hidden = false;
+    $("fbSuccess").hidden = true;
+    $("fbError").hidden = true;
+  });
+  $("fbClose").addEventListener("click", () => { $("feedbackModal").hidden = true; });
+  $("fbSubmit").addEventListener("click", async () => {
+    const content = $("fbContent").value.trim();
+    if (content.length < 10) { $("fbError").textContent = "内容至少10个字"; $("fbError").hidden = false; return; }
+    try {
+      await api("/feedback", {
+        method: "POST",
+        body: JSON.stringify({
+          category: $("fbCategory").value,
+          content,
+          contact: $("fbContact").value.trim(),
+          page_url: location.href,
+        }),
+      });
+      $("fbSuccess").hidden = false;
+      $("fbError").hidden = true;
+      $("fbContent").value = "";
+      setTimeout(() => { $("feedbackModal").hidden = true; }, 2000);
+    } catch (e) {
+      $("fbError").textContent = e.message;
+      $("fbError").hidden = false;
+    }
+  });
+}
+
+// ---- Easter egg ----
+
+function initEasterEgg() {
+  $("easterEgg").addEventListener("click", async () => {
+    try {
+      const data = await api("/easter-egg");
+      showFireworks();
+      setTimeout(() => {
+        $("easterMessage").textContent = "🎉 " + data.message + " +5 次查询";
+        $("easterMessage").hidden = false;
+        if (state.user) {
+          state.user.query_remaining = (state.user.query_remaining || 0) + 5;
+          updateQueryCounter(state.user.query_remaining);
+        }
+      }, 1500);
+      setTimeout(() => {
+        $("easterMessage").hidden = true;
+        $("fireworksCanvas").hidden = true;
+      }, 5000);
+    } catch (e) {
+      if (e.message.includes("已领取")) {
+        $("easterMessage").textContent = "🎁 今日彩蛋已领取，明天再来~";
+        $("easterMessage").hidden = false;
+        setTimeout(() => { $("easterMessage").hidden = true; }, 3000);
+      }
+    }
+  });
+}
+
+function showFireworks() {
+  const canvas = $("fireworksCanvas");
+  canvas.hidden = false;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  const ctx = canvas.getContext("2d");
+  const particles = [];
+  const colors = ["#ff0", "#f0f", "#0ff", "#f00", "#0f0", "#ff6b35", "#146b5d"];
+
+  function burst(x, y) {
+    for (let i = 0; i < 40; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 2 + Math.random() * 4;
+      particles.push({
+        x, y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 60 + Math.random() * 40,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: 2 + Math.random() * 2,
+      });
+    }
+  }
+
+  // Launch several bursts
+  const bursts = [
+    { x: canvas.width * 0.3, y: canvas.height * 0.3, delay: 0 },
+    { x: canvas.width * 0.7, y: canvas.height * 0.25, delay: 300 },
+    { x: canvas.width * 0.5, y: canvas.height * 0.4, delay: 600 },
+    { x: canvas.width * 0.2, y: canvas.height * 0.5, delay: 900 },
+    { x: canvas.width * 0.8, y: canvas.height * 0.45, delay: 1200 },
+  ];
+  bursts.forEach(b => setTimeout(() => burst(b.x, b.y), b.delay));
+
+  let frame = 0;
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.05;
+      p.life--;
+      if (p.life <= 0) { particles.splice(i, 1); continue; }
+      ctx.globalAlpha = Math.min(1, p.life / 30);
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    frame++;
+    if (frame < 180 && particles.length > 0) requestAnimationFrame(animate);
+    else { ctx.clearRect(0, 0, canvas.width, canvas.height); canvas.hidden = true; }
+  }
+  requestAnimationFrame(animate);
 }
 
 async function loadHealth() {
@@ -761,7 +975,20 @@ document.querySelectorAll(".stage-tab").forEach((button) => {
 });
 
 updateStageVisibility();
-loadHealth();
+
+// Auth event listeners
+$("authLoginBtn").addEventListener("click", doLogin);
+$("authPassword").addEventListener("keydown", (e) => { if (e.key === "Enter") doLogin(); });
+$("authRegisterBtn").addEventListener("click", doRegister);
+$("authShowRegister").addEventListener("click", (e) => { e.preventDefault(); $("authLoginForm").hidden = true; $("authRegisterForm").hidden = false; });
+$("authShowLogin").addEventListener("click", (e) => { e.preventDefault(); $("authRegisterForm").hidden = true; $("authLoginForm").hidden = false; });
+$("logoutBtn").addEventListener("click", logout);
+
+initFeedback();
+initEasterEgg();
+checkAuth();
+
+// Load tools data (works without auth since these are read-only)
 queryRoute();
 queryAlternatives();
 querySearch();

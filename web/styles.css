@@ -1050,3 +1050,232 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
     height: 200px;
   }
 }
+
+/* ---- Auth overlay ---- */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0c4d43 0%, #146b5d 50%, #1a8f7a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.auth-card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 40px 36px;
+  width: 360px;
+  max-width: 90vw;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  text-align: center;
+}
+.auth-title {
+  font-size: 28px;
+  margin: 0 0 4px;
+  color: var(--accent);
+}
+.auth-subtitle {
+  color: var(--muted);
+  margin: 0 0 28px;
+  font-size: 14px;
+}
+.auth-field {
+  margin-bottom: 14px;
+}
+.auth-field input,
+.auth-field select,
+.auth-field textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 15px;
+  background: var(--bg);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.auth-field input:focus,
+.auth-field textarea:focus {
+  border-color: var(--accent);
+}
+.auth-btn {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  background: var(--surface);
+  color: var(--ink);
+  transition: all 0.2s;
+  margin-top: 4px;
+}
+.auth-btn.primary {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.auth-btn.primary:hover {
+  background: var(--accent-dark);
+}
+.auth-error {
+  color: #c0392b;
+  font-size: 13px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+.auth-success {
+  color: var(--accent);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.auth-switch {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.auth-switch a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ---- Topbar right ---- */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.query-counter {
+  font-size: 13px;
+  color: var(--muted);
+  background: var(--soft);
+  padding: 4px 10px;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+.user-badge {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+.secondary-action.small {
+  padding: 5px 12px;
+  font-size: 13px;
+}
+
+/* ---- Feedback FAB ---- */
+.feedback-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  z-index: 9000;
+  transition: transform 0.2s;
+}
+.feedback-fab:hover {
+  transform: scale(1.1);
+}
+.feedback-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9500;
+}
+.feedback-content {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 28px;
+  width: 400px;
+  max-width: 90vw;
+}
+.feedback-content h3 {
+  margin: 0 0 16px;
+}
+.feedback-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.feedback-actions .auth-btn {
+  width: auto;
+  flex: 1;
+}
+
+/* ---- Easter egg ---- */
+.app-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px;
+  font-size: 11px;
+  color: var(--muted);
+  opacity: 0.4;
+  z-index: 1;
+  transition: opacity 0.3s;
+}
+.app-footer:hover {
+  opacity: 0.8;
+}
+.easter-egg {
+  cursor: pointer;
+  font-style: italic;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+.easter-egg:hover {
+  color: #e74c3c;
+  text-shadow: 0 0 8px rgba(231,76,60,0.5);
+}
+.fireworks-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: none;
+}
+.easter-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--surface);
+  padding: 24px 40px;
+  border-radius: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--accent);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  z-index: 100000;
+  text-align: center;
+  animation: easterPopIn 0.4s ease-out;
+}
+@keyframes easterPopIn {
+  from { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+@media (max-width: 620px) {
+  .topbar-right { gap: 6px; }
+  .query-counter { font-size: 11px; padding: 2px 6px; }
+  .auth-card { padding: 24px 20px; }
+  .feedback-fab { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 18px; }
+}

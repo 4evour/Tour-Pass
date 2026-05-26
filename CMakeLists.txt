@@ -21,6 +21,7 @@ include_directories(
 set(TOURPASS_SOURCES
     src/models.cpp
     src/api.cpp
+    src/auth.cpp
     src/graph.cpp
     src/llm.cpp
     src/planner.cpp
