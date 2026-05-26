@@ -183,6 +183,19 @@
 
           <section>
             <div class="panel-heading">
+              <h2>自然语言规划</h2>
+              <span>用中文描述需求，LLM 解析 + Beam Search 规划</span>
+            </div>
+            <div class="field-row">
+              <label for="chatInput">需求</label>
+              <input id="chatInput" placeholder="帮我规划3天长沙之旅，想去橘子洲头，不要太累" />
+            </div>
+            <button id="chatButton" class="secondary-action" type="button">智能规划</button>
+            <div id="chatOutput" class="explain-box">输入自然语言旅行需求，系统会自动解析意图、匹配景点并生成行程。</div>
+          </section>
+
+          <section>
+            <div class="panel-heading">
               <h2>行程解释</h2>
               <span>调用 LLM 或本地模板生成讲解稿</span>
             </div>

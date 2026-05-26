@@ -688,6 +688,57 @@ $("searchButton").addEventListener("click", querySearch);
 $("explainButton").addEventListener("click", explainPlan);
 $("explainToolButton").addEventListener("click", explainPlan);
 
+async function chatPlan() {
+  const message = $("chatInput").value.trim();
+  if (!message) {
+    $("chatOutput").textContent = "请输入旅行需求。";
+    return;
+  }
+  $("chatOutput").textContent = "正在解析需求并规划行程...";
+  $("chatButton").disabled = true;
+  try {
+    const data = await api("/trip/chat", {
+      method: "POST",
+      body: JSON.stringify({ message, context: [] }),
+    });
+    let html = "";
+    if (data.reply) {
+      html += `<p><strong>AI 回复：</strong>${escHtml(data.reply)}</p>`;
+    }
+    if (data.poi_matching && data.poi_matching.length > 0) {
+      html += "<p><strong>景点匹配：</strong></p><ul>";
+      data.poi_matching.forEach((m) => {
+        const conf = m.confidence === "high" ? "✓" : m.confidence === "medium" ? "?" : "✗";
+        html += `<li>${conf} "${escHtml(m.query)}" → ${escHtml(m.matched_name || "未匹配")} (${m.score.toFixed(1)})</li>`;
+      });
+      html += "</ul>";
+    }
+    if (data.candidates && data.candidates.length > 0) {
+      state.candidates = data.candidates;
+      state.selectedIndex = 0;
+      state.lastPayload = { candidates: data.candidates };
+      html += `<p><strong>已生成 ${data.candidates.length} 个候选方案，</strong><a href="#" onclick="setStage('overview');return false;">点击查看</a></p>`;
+      renderCurrentCandidate();
+    }
+    $("chatOutput").innerHTML = html || "规划完成。";
+  } catch (error) {
+    $("chatOutput").textContent = `规划失败：${error.message}`;
+  } finally {
+    $("chatButton").disabled = false;
+  }
+}
+
+function escHtml(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+$("chatButton").addEventListener("click", chatPlan);
+$("chatInput").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") chatPlan();
+});
+
 function setStage(stage) {
   state.activeStage = stage;
   updateStageVisibility();
