@@ -5,6 +5,7 @@ project(TourPass LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
+option(TOURPASS_BUILD_TESTS "Build the tourpass_tests executable" OFF)
 option(TOURPASS_USE_GTEST "Build GoogleTest-based tests with FetchContent" OFF)
 option(TOURPASS_ENABLE_OPENSSL "Enable HTTPS LLM calls when OpenSSL is available" ON)
 find_package(Threads REQUIRED)
@@ -38,29 +39,34 @@ add_executable(tourpass
     ${TOURPASS_SOURCES}
 )
 
-add_executable(tourpass_tests
-    tests/test_main.cpp
-    ${TOURPASS_SOURCES}
-)
-
 if (WIN32)
     target_link_libraries(tourpass PRIVATE ws2_32 winhttp)
-    target_link_libraries(tourpass_tests PRIVATE ws2_32 winhttp)
 endif()
 target_link_libraries(tourpass PRIVATE Threads::Threads)
-target_link_libraries(tourpass_tests PRIVATE Threads::Threads)
 target_link_libraries(tourpass PRIVATE sqlite3)
-target_link_libraries(tourpass_tests PRIVATE sqlite3)
 if (OpenSSL_FOUND)
     target_compile_definitions(tourpass PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
-    target_compile_definitions(tourpass_tests PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
     target_link_libraries(tourpass PRIVATE OpenSSL::SSL OpenSSL::Crypto)
-    target_link_libraries(tourpass_tests PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 endif()
 
-enable_testing()
-add_test(NAME tourpass_tests COMMAND tourpass_tests)
-set_tests_properties(tourpass_tests PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+if(TOURPASS_BUILD_TESTS)
+    add_executable(tourpass_tests
+        tests/test_main.cpp
+        ${TOURPASS_SOURCES}
+    )
+    if (WIN32)
+        target_link_libraries(tourpass_tests PRIVATE ws2_32 winhttp)
+    endif()
+    target_link_libraries(tourpass_tests PRIVATE Threads::Threads)
+    target_link_libraries(tourpass_tests PRIVATE sqlite3)
+    if (OpenSSL_FOUND)
+        target_compile_definitions(tourpass_tests PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
+        target_link_libraries(tourpass_tests PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+    endif()
+    enable_testing()
+    add_test(NAME tourpass_tests COMMAND tourpass_tests)
+    set_tests_properties(tourpass_tests PROPERTIES WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+endif()
 
 if (TOURPASS_USE_GTEST)
     include(FetchContent)
