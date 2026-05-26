@@ -1,6 +1,8 @@
 # Tour Pass
 
-C++17 城市旅行行程规划算法服务。基于长沙 **500 个真实高德 POI** 和 **1937 条通勤边**，通过 Dijkstra/A* 最短路、Beam Search 时间槽规划、BM25 文本检索、Pareto 多目标排序生成多候选多日行程。前端集成 Leaflet 地图可视化，路线直接展示在 OpenStreetMap 上。
+> **线上演示**：https://tour-pass.onrender.com
+
+C++17 城市旅行行程规划算法服务。基于 **500+ 真实高德 POI** 和 **1800+ 条通勤边**，通过 Dijkstra/A* 最短路、Beam Search 时间槽规划、BM25 文本检索、Pareto 多目标排序生成多候选多日行程。前端集成 Leaflet 地图可视化，路线直接展示在 OpenStreetMap 上。已部署至 Render，支持 Docker 一键构建。
 
 核心能力：
 - **LLM 自然语言规划**：`POST /trip/chat` 接收中文自然语言输入，LLM 提取意图、BM25 匹配 POI、Beam Search 生成行程、LLM 生成自然语言回复——Hybrid AI 架构
@@ -10,16 +12,21 @@ C++17 城市旅行行程规划算法服务。基于长沙 **500 个真实高德 
 - **严格时间窗复核**：开放时间、餐饮窗口、站点顺序、当日结束时间
 - **BM25 检索**：字段权重 + 匹配词解释
 - **Leaflet 地图**：每日路线 polyline + marker popup 展示站点详情，A* 路径查询结果地图绘制
-- **多城市支持**：`TOURPASS_CITY` 选择加载不同城市数据集
+- **多城市支持**：`TOURPASS_CITY` 选择加载不同城市数据集，已采集长沙、武汉两城数据
 
-数据规模：500 POI（240 景点 / 160 餐饮 / 65 酒店 / 35 夜生活），覆盖长沙 9 个区。
+数据规模：
+- **长沙**：500 POI（240 景点 / 160 餐饮 / 65 酒店 / 35 夜生活）+ 1937 条通勤边，覆盖 9 个区
+- **武汉**：470 POI + 1840 条通勤边，`TOURPASS_CITY=wuhan` 加载
 
 ## 环境要求
 
-- Windows
-- MinGW `g++`
-- `mingw32-make`
+**本地开发（Windows）**：
+- MinGW `g++` + `mingw32-make`，或 CMake 3.16+
 - 可选 OpenSSL，仅在需要通过 CMake 直接请求 HTTPS LLM 接口时使用
+
+**Docker / 线上部署**：
+- Docker（本地验证）
+- Render / 任意支持 Docker 的 PaaS（线上部署，见下方 Docker 与部署章节）
 
 ## 常用命令
 
@@ -32,20 +39,27 @@ mingw32-make run
 mingw32-make clean
 ```
 
-CMake 构建：
+CMake 构建（默认跳过测试目标，适合 Docker 和生产环境）：
 
 ```powershell
 cmake -S . -B build
 cmake --build build
-ctest --test-dir build
 ```
 
 CMake 会在检测到 OpenSSL 时自动为 `cpp-httplib` 启用 HTTPS LLM 调用；没有 OpenSSL 时仍可构建和使用模板兜底、本地 HTTP mock 或离线演示。
 
+启用内置测试目标：
+
+```powershell
+cmake -S . -B build -DTOURPASS_BUILD_TESTS=ON
+cmake --build build
+ctest --test-dir build
+```
+
 启用 GoogleTest 版本测试：
 
 ```powershell
-cmake -S . -B build -DTOURPASS_USE_GTEST=ON
+cmake -S . -B build -DTOURPASS_BUILD_TESTS=ON -DTOURPASS_USE_GTEST=ON
 cmake --build build
 ctest --test-dir build
 ```
@@ -213,9 +227,11 @@ curl.exe "http://127.0.0.1:8080/history/jobs?limit=20"
 - 规划热路径使用启动时加载的内存图，SQLite 仅用于请求记录、异步任务和 benchmark，不参与规划计算。
 - 前端由 C++ 服务直接托管，集成 Leaflet + OpenStreetMap 地图可视化。
 - 并发目标为单机背压、结构化错误和指标可观察，不做分布式。
-- CMake 可通过 `-DTOURPASS_USE_GTEST=ON` 构建 GoogleTest 测试目标。
+- CMake 可通过 `-DTOURPASS_BUILD_TESTS=ON` 启用内置测试目标，`-DTOURPASS_USE_GTEST=ON` 启用 GoogleTest 测试。Docker 构建默认关闭测试目标。
 
 ## Docker 与部署
+
+**线上地址**：https://tour-pass.onrender.com（Render free tier，自动部署 main 分支）
 
 本地构建镜像：
 
@@ -225,7 +241,7 @@ docker run --rm -p 8080:8080 -e LLM_DISABLED=1 tour-pass:local
 node scripts/container_smoke.js http://127.0.0.1:8080
 ```
 
-Docker 镜像默认监听 `0.0.0.0:8080`，并将 `LLM_DISABLED=1` 作为演示安全默认值。部署细节、GHCR 镜像、Render/Fly/Railway 风格配置、SQLite 持久化和健康检查说明见 [docs/deployment.md](docs/deployment.md)。
+Docker 镜像默认监听 `0.0.0.0:8080`，并将 `LLM_DISABLED=1` 作为演示安全默认值。Render 部署使用多阶段 Dockerfile：build 阶段用 Ubuntu 24.04 + GCC 13 编译，runtime 阶段仅包含二进制和静态资源，镜像体积精简。部署细节、GHCR 镜像、SQLite 持久化和健康检查说明见 [docs/deployment.md](docs/deployment.md)。
 
 ## 一键演示
 
