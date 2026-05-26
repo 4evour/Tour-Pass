@@ -1,5 +1,12 @@
 # Tour Pass 项目说明
 
+## v3.0 Real POI Map Demo
+
+- 默认数据集已切换为长沙 `500` 个高德 POI 与 `1937` 条通勤边；原 `25` POI 样例数据保留为 `data/pois_sample.json` 与 `data/edges_sample.json`，测试改用样例数据以保持快速稳定。
+- 规划停靠点 JSON 新增 `lat` / `lng`，`/route/shortest` 响应新增 `path_coords`，用于前端地图绘制。
+- `web/` 演示台新增 Leaflet + OpenStreetMap 地图：规划结果按每日路线绘制 marker/polyline，A* 路径查询也会绘制路径点。
+- 一批面试/报告类 `docs/*.md` 文档已从项目中删除；README 收敛为当前真实 POI 数据、地图演示和核心能力说明。
+
 ## v2.9 CI Dependency Updates
 
 - 本地 `main` 已合并 GitHub 主线安全修复提交，并整合 Dependabot 的 GitHub Actions 升级分支：`actions/checkout` 升至 `v6.0.2`、`actions/setup-node` 升至 `v6.4.0`、`docker/login-action` 升至 `v4.2.0`；这些变更只影响 `.github/workflows/ci.yml` 的 CI action 版本锁定。
