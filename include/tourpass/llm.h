@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 #include "tourpass/models.h"
 
@@ -12,6 +13,18 @@ struct LlmConfig {
     std::string model = "gpt-4o-mini";
 };
 
+struct ChatMessage {
+    std::string role;
+    std::string content;
+};
+
+struct LlmParsedRequest {
+    TripRequest request;
+    std::vector<std::string> unmatchedNames;
+    std::string parseNote;
+    bool parsed = false;
+};
+
 class LlmClient {
 public:
     explicit LlmClient(const std::string& configPath = "config/llm.local.json");
@@ -19,6 +32,11 @@ public:
     bool isConfigured() const;
     std::string explain(const Itinerary& itinerary) const;
     const LlmConfig& config() const { return config_; }
+
+    LlmParsedRequest parseNaturalLanguageRequest(const std::string& message, const std::vector<ChatMessage>& context) const;
+    std::string generateItineraryReply(const std::string& userMessage, const TripRequest& request, const Itinerary& itinerary) const;
+
+    std::string chatCompletion(const std::vector<ChatMessage>& messages, double temperature = 0.4) const;
 
 private:
     LlmConfig config_;

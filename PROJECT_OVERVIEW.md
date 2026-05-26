@@ -1,5 +1,14 @@
 # Tour Pass 项目说明
 
+## v4.0 Hybrid AI Architecture
+
+- 新增 `POST /trip/chat` 自然语言行程规划端点：LLM 从用户中文输入中提取结构化 TripRequest，通过 BM25 模糊匹配 POI 名称，调用 Beam Search 生成多候选行程，再由 LLM 生成自然语言回复。这是 LLM + 传统算法 Hybrid 架构的核心端点。
+- 新增 `TravelTimeProvider` 抽象接口：支持 `local`（本地 edges.json）和 `amap`（高德实时路线 API）两种数据源，通过 `TOURPASS_TRAVEL_TIME_PROVIDER` 环境变量切换；`AmapLiveProvider` 实现 LRU 缓存和 API 失败时自动 fallback 到本地数据。
+- 新增多城市数据管理：`TOURPASS_CITY` 环境变量选择加载 `data/{city}/` 目录下的数据集；新增 `config/amap.wuhan.json` 武汉 POI 采集配置。
+- `/health` 端点新增 `travel_provider` 字段，展示当前通勤时间数据源。
+- `LlmClient` 重构：提取通用 `chatCompletion()` 方法，支持多轮对话上下文。
+- 恢复 worktree 中的面试文档（interview Q&A、简历亮点、性能报告等 13 个文件）。
+
 ## v3.0 Real POI Map Demo
 
 - 默认数据集已切换为长沙 `500` 个高德 POI 与 `1937` 条通勤边；原 `25` POI 样例数据保留为 `data/pois_sample.json` 与 `data/edges_sample.json`，测试改用样例数据以保持快速稳定。

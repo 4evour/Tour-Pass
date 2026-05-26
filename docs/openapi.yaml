@@ -167,6 +167,67 @@ paths:
                 properties:
                   explanation: { type: string }
                   llm_configured: { type: boolean }
+  /trip/chat:
+    post:
+      summary: Natural language trip planning
+      description: |
+        LLM + Beam Search hybrid endpoint. Accepts natural language input,
+        parses intent via LLM, matches POIs via BM25, plans via Beam Search,
+        and returns structured candidates with a natural language reply.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [message]
+              properties:
+                message:
+                  type: string
+                  description: Natural language trip request
+                  example: "帮我规划3天长沙之旅，想去橘子洲头和岳麓山"
+                context:
+                  type: array
+                  description: Multi-turn conversation history
+                  items:
+                    type: object
+                    properties:
+                      role: { type: string, enum: [user, assistant] }
+                      content: { type: string }
+      responses:
+        "200":
+          description: Trip planning result with natural language reply.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reply: { type: string, description: Natural language itinerary summary }
+                  parsed_request:
+                    $ref: "#/components/schemas/TripRequest"
+                  poi_matching:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        query: { type: string }
+                        matched_id: { type: string, nullable: true }
+                        matched_name: { type: string, nullable: true }
+                        score: { type: number }
+                        confidence: { type: string, enum: [high, medium, none] }
+                  candidates:
+                    type: array
+                    items:
+                      type: object
+                  suggestions:
+                    type: array
+                    items: { type: string }
+        "400":
+          description: Empty message.
+        "422":
+          description: LLM failed to parse the request.
+        "503":
+          description: LLM not configured.
   /trip/jobs:
     post:
       summary: Submit asynchronous trip planning job

@@ -29,6 +29,7 @@ struct RuntimeConfig {
     size_t maxInFlightRequests = 0;
     bool dbEnabled = true;
     std::string dbPath = "storage/tourpass.sqlite";
+    std::string travelProviderName = "local";
 };
 
 RuntimeConfig runtimeConfigFromEnv();

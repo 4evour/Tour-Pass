@@ -3,12 +3,14 @@
 C++17 城市旅行行程规划算法服务。基于长沙 **500 个真实高德 POI** 和 **1937 条通勤边**，通过 Dijkstra/A* 最短路、Beam Search 时间槽规划、BM25 文本检索、Pareto 多目标排序生成多候选多日行程。前端集成 Leaflet 地图可视化，路线直接展示在 OpenStreetMap 上。
 
 核心能力：
+- **LLM 自然语言规划**：`POST /trip/chat` 接收中文自然语言输入，LLM 提取意图、BM25 匹配 POI、Beam Search 生成行程、LLM 生成自然语言回复——Hybrid AI 架构
 - **Beam Search** 在上午/午餐/下午/晚餐/晚上时间槽中保留 Top-K 状态，综合评分、通勤和时间窗约束规划路线
 - **5 种策略候选**：少走路、紧凑、文化优先、美食优先、雨天室内，Pareto 非支配排序量化取舍
+- **TravelTimeProvider**：可插拔通勤时间数据源，支持本地 edges.json 和高德实时路线 API 无缝切换
 - **严格时间窗复核**：开放时间、餐饮窗口、站点顺序、当日结束时间
 - **BM25 检索**：字段权重 + 匹配词解释
 - **Leaflet 地图**：每日路线 polyline + marker popup 展示站点详情，A* 路径查询结果地图绘制
-- **LLM 解释**：OpenAI/DeepSeek 兼容接口，无密钥时自动使用本地中文模板兜底
+- **多城市支持**：`TOURPASS_CITY` 选择加载不同城市数据集
 
 数据规模：500 POI（240 景点 / 160 餐饮 / 65 酒店 / 35 夜生活），覆盖长沙 9 个区。
 
@@ -83,6 +85,8 @@ $env:TOURPASS_DISTANCE_CACHE_ENTRIES="10000"
 $env:TOURPASS_BEAM_WIDTH="5"
 $env:TOURPASS_BRANCH_FACTOR="6"
 $env:TOURPASS_DB_PATH="storage/tourpass.sqlite"
+$env:TOURPASS_TRAVEL_TIME_PROVIDER="local"
+$env:TOURPASS_CITY="changsha"
 mingw32-make run
 ```
 
@@ -118,6 +122,14 @@ mingw32-make run
 
 ```powershell
 curl.exe http://127.0.0.1:8080/health
+```
+
+自然语言行程规划（需要配置 LLM API Key）：
+
+```powershell
+curl.exe -X POST http://127.0.0.1:8080/trip/chat `
+  -H "Content-Type: application/json; charset=utf-8" `
+  -d '{"message":"帮我规划3天长沙之旅，带老人同行，想去橘子洲头和岳麓山，不要太累"}'
 ```
 
 生成行程：
@@ -195,6 +207,9 @@ curl.exe "http://127.0.0.1:8080/history/jobs?limit=20"
 ## 项目边界
 
 - 默认数据为高德采集的 500 个长沙真实 POI + 1937 条通勤边，测试使用 25-POI 样本数据。
+- `POST /trip/chat` 为 LLM + 传统算法 Hybrid 架构：LLM 负责意图理解和文案生成，Beam Search 负责约束求解。
+- TravelTimeProvider 支持 `local`（默认）和 `amap`（实时高德路线 API）两种数据源，通过环境变量切换。
+- 多城市数据通过 `TOURPASS_CITY` 选择，数据文件放在 `data/{city}/` 目录下。
 - 规划热路径使用启动时加载的内存图，SQLite 仅用于请求记录、异步任务和 benchmark，不参与规划计算。
 - 前端由 C++ 服务直接托管，集成 Leaflet + OpenStreetMap 地图可视化。
 - 并发目标为单机背压、结构化错误和指标可观察，不做分布式。

@@ -27,6 +27,7 @@ set(TOURPASS_SOURCES
     src/service_runtime.cpp
     src/sqlite_store.cpp
     src/data_loader.cpp
+    src/travel_time_provider.cpp
 )
 
 add_library(sqlite3 STATIC third_party/sqlite3.c)

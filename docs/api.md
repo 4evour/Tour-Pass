@@ -186,6 +186,73 @@ curl.exe "http://127.0.0.1:8080/route/shortest?from=hotel_wuyi&to=yuelu_academy&
 
 远程 LLM 使用内置 HTTP client 调用 OpenAI 兼容 `chat/completions` 接口。未配置 `OPENAI_API_KEY`、设置 `LLM_DISABLED=1` 或远程调用失败时自动回退到本地模板。
 
+## POST /trip/chat
+
+自然语言行程规划接口。用户用中文描述旅行需求，系统自动解析意图、匹配 POI、规划行程并生成自然语言回复。
+
+这是 LLM + 传统算法 Hybrid 架构的核心端点：LLM 负责理解意图和生成文案，Beam Search 负责约束求解。
+
+请求示例：
+
+```json
+{
+  "message": "帮我规划3天长沙之旅，带老人同行，想去橘子洲头和岳麓山，不要太累",
+  "context": [
+    {"role": "user", "content": "之前聊过，我对历史文化比较感兴趣"}
+  ]
+}
+```
+
+- `message`：用户自然语言输入，必填。
+- `context`：可选，多轮对话历史数组，每项含 `role` 和 `content`。
+
+响应示例：
+
+```json
+{
+  "reply": "为您规划了一条轻松的3天长沙文化之旅！第一天...",
+  "parsed_request": {
+    "city": "长沙",
+    "days": 3,
+    "interests": ["历史文化", "休闲"],
+    "must_visit": ["poi_juzizhou"],
+    "pace": "轻松"
+  },
+  "poi_matching": [
+    {
+      "query": "橘子洲头",
+      "matched_id": "poi_juzizhou",
+      "matched_name": "橘子洲头景区",
+      "score": 8.5,
+      "confidence": "high"
+    }
+  ],
+  "candidates": [ ... ],
+  "suggestions": []
+}
+```
+
+关键流程：
+
+1. LLM 从自然语言中提取结构化参数（天数、兴趣、必去景点、节奏等）。
+2. 通过 BM25 搜索引擎模糊匹配 POI 名称，解决"岳麓山"→"岳麓山风景名胜区"的名称不一致问题。
+3. 调用 Beam Search 引擎生成 5 个策略候选方案。
+4. LLM 根据最佳候选生成自然语言行程摘要。
+
+错误码：
+
+- `400 VALIDATION_ERROR`：message 为空。
+- `422 PARSE_FAILED`：LLM 无法理解用户意图。
+- `503 LLM_NOT_CONFIGURED`：未配置 LLM API Key。
+
+需要配置 LLM 环境变量才能使用此端点：
+
+```bash
+export LLM_BASE_URL=https://api.deepseek.com
+export OPENAI_API_KEY=your-key
+export LLM_MODEL=deepseek-chat
+```
+
 ## POST /trip/jobs
 
 异步提交行程规划任务。请求体与 `/trip/plan` 相同，适合候选方案较多或希望演示削峰链路的场景。
@@ -285,6 +352,9 @@ curl.exe "http://127.0.0.1:8080/route/shortest?from=hotel_wuyi&to=yuelu_academy&
 - `TOURPASS_DISTANCE_CACHE_MAX_POIS`：`auto` 模式下允许全量两两缓存的最大 POI 数，默认 `300`。
 - `TOURPASS_DISTANCE_CACHE_ENTRIES`：`on_demand` 模式 LRU 缓存容量，默认 `10000`。
 - `TOURPASS_BEAM_WIDTH` / `TOURPASS_BRANCH_FACTOR`：Beam Search 保留状态数和每槽分支数，默认 `5` / `6`。
+- `TOURPASS_TRAVEL_TIME_PROVIDER`：通勤时间数据源，`local`（默认，使用本地 edges.json）或 `amap`（实时高德路线 API）。
+- `TOURPASS_AMAP_API_KEY` / `AMAP_API_KEY`：高德 API Key，`amap` provider 需要。
+- `TOURPASS_CITY`：选择加载哪个城市的数据（如 `changsha`、`wuhan`），对应 `data/{city}/` 目录。
 
 ## 错误格式
 

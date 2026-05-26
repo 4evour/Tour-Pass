@@ -291,21 +291,17 @@ std::string LlmClient::explainWithTemplate(const Itinerary& itinerary) const {
     return out.str();
 }
 
-std::string LlmClient::explainWithRemote(const Itinerary& itinerary) const {
-    nlohmann::json messages = nlohmann::json::array({
-        {
-            {"role", "system"},
-            {"content", "你是中文旅行规划助手。根据结构化行程，输出简洁、可信、适合演示的中文解释。"}
-        },
-        {
-            {"role", "user"},
-            {"content", itineraryToJson(itinerary).dump()}
-        }
-    });
+std::string LlmClient::chatCompletion(const std::vector<ChatMessage>& messages, double temperature) const {
+    if (!isConfigured()) return "";
+
+    nlohmann::json messagesJson = nlohmann::json::array();
+    for (const auto& msg : messages) {
+        messagesJson.push_back({{"role", msg.role}, {"content", msg.content}});
+    }
     nlohmann::json body = {
         {"model", config_.model},
-        {"messages", messages},
-        {"temperature", 0.4}
+        {"messages", messagesJson},
+        {"temperature", temperature}
     };
 
     try {
@@ -329,20 +325,149 @@ std::string LlmClient::explainWithRemote(const Itinerary& itinerary) const {
             return "";
         }
         client.set_connection_timeout(5);
-        client.set_read_timeout(20);
-        client.set_write_timeout(20);
+        client.set_read_timeout(30);
+        client.set_write_timeout(30);
 
         httplib::Headers headers = {
             {"Authorization", "Bearer " + config_.apiKey}
         };
         auto result = client.Post(path, headers, body.dump(), "application/json");
         if (!result || result->status < 200 || result->status >= 300) {
+            debugLlm("chatCompletion HTTP status=" + std::to_string(result ? result->status : 0));
             return "";
         }
         return parseChatCompletionContent(result->body);
-    } catch (const std::exception&) {
+    } catch (const std::exception& ex) {
+        debugLlm(std::string("chatCompletion exception: ") + ex.what());
         return "";
     }
+}
+
+std::string LlmClient::explainWithRemote(const Itinerary& itinerary) const {
+    std::vector<ChatMessage> messages = {
+        {"system", "你是中文旅行规划助手。根据结构化行程，输出简洁、可信、适合演示的中文解释。"},
+        {"user", itineraryToJson(itinerary).dump()}
+    };
+    return chatCompletion(messages, 0.4);
+}
+
+LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& message, const std::vector<ChatMessage>& context) const {
+    LlmParsedRequest result;
+
+    std::string systemPrompt = R"(你是一个旅行规划意图解析器。用户会用自然语言描述旅行需求，你需要从中提取结构化参数。
+
+请严格按照以下 JSON 格式输出，不要输出任何其他内容：
+{
+  "days": 3,
+  "city": "长沙",
+  "interests": ["历史文化", "美食"],
+  "must_visit": ["橘子洲头", "岳麓山"],
+  "avoid": [],
+  "pace": "标准",
+  "start_minutes": 540,
+  "end_minutes": 1260,
+  "notes": "用户提到的特殊需求"
+}
+
+字段说明：
+- days: 旅行天数（1-7），如果用户没说默认为 3
+- city: 城市名，默认"长沙"
+- interests: 兴趣标签数组，从以下选取：历史文化、美食、自然风光、博物馆、古建筑、夜景、购物、休闲、户外、室内、亲子、文艺、小吃、网红打卡
+- must_visit: 用户明确提到想去的景点名称数组
+- avoid: 用户不想去的类型或景点
+- pace: 行程节奏，"轻松"(relaxed)/"标准"(standard)/"紧凑"(compact)，默认"标准"
+- start_minutes: 每日出发时间（分钟数，如 540=9:00），默认 540
+- end_minutes: 每日结束时间（分钟数，如 1260=21:00），默认 1260
+- notes: 用户提到的任何特殊需求或约束)";
+
+    std::vector<ChatMessage> messages = {{"system", systemPrompt}};
+    for (const auto& msg : context) {
+        messages.push_back(msg);
+    }
+    messages.push_back({"user", message});
+
+    std::string response = chatCompletion(messages, 0.1);
+    if (response.empty()) {
+        result.parseNote = "LLM 服务不可用，无法解析自然语言请求";
+        return result;
+    }
+
+    try {
+        size_t start = response.find('{');
+        size_t end = response.rfind('}');
+        if (start == std::string::npos || end == std::string::npos || end <= start) {
+            result.parseNote = "LLM 返回的内容不是有效 JSON: " + response.substr(0, 200);
+            return result;
+        }
+        std::string jsonStr = response.substr(start, end - start + 1);
+        auto parsed = nlohmann::json::parse(jsonStr);
+
+        TripRequest req;
+        req.city = parsed.value("city", "长沙");
+        req.days = parsed.value("days", 3);
+        req.days = std::max(1, std::min(7, req.days));
+        req.pace = parsed.value("pace", "标准");
+        req.startMinutes = parsed.value("start_minutes", 540);
+        req.endMinutes = parsed.value("end_minutes", 1260);
+        req.candidateCount = 5;
+        req.strategy = "balanced";
+
+        if (parsed.contains("interests") && parsed["interests"].is_array()) {
+            for (const auto& interest : parsed["interests"]) {
+                req.interests.push_back(interest.get<std::string>());
+            }
+        }
+        if (parsed.contains("must_visit") && parsed["must_visit"].is_array()) {
+            for (const auto& name : parsed["must_visit"]) {
+                req.mustVisit.push_back(name.get<std::string>());
+                result.unmatchedNames.push_back(name.get<std::string>());
+            }
+        }
+        if (parsed.contains("avoid") && parsed["avoid"].is_array()) {
+            for (const auto& a : parsed["avoid"]) {
+                req.avoid.push_back(a.get<std::string>());
+            }
+        }
+
+        result.request = req;
+        result.parseNote = parsed.value("notes", "");
+        result.parsed = true;
+    } catch (const std::exception& ex) {
+        result.parseNote = std::string("解析 LLM 响应失败: ") + ex.what();
+    }
+    return result;
+}
+
+std::string LlmClient::generateItineraryReply(const std::string& userMessage, const TripRequest& /*request*/, const Itinerary& itinerary) const {
+    std::string systemPrompt = R"(你是中文旅行规划助手。用户用自然语言提出了旅行需求，系统已经生成了行程规划。
+
+请用自然、亲切的中文回复用户：
+1. 简要总结行程亮点（每天主题、必去景点是否覆盖）
+2. 指出行程中的特别推荐
+3. 如有实用建议可以补充（如天气、交通提示）
+4. 保持在 200 字以内
+
+不要输出 JSON，只输出纯文本回复。)";
+
+    std::string itinerarySummary = "用户需求：" + userMessage + "\n\n规划结果：\n";
+    itinerarySummary += "城市：" + itinerary.city + "，天数：" + std::to_string(itinerary.days.size()) + "\n";
+    for (const auto& day : itinerary.days) {
+        itinerarySummary += "第" + std::to_string(day.day) + "天：" + day.summary + "\n";
+        for (const auto& stop : day.stops) {
+            itinerarySummary += "  " + stop.slot + " " + stop.poiName + "（" + formatMinutes(stop.startMinutes) + "-" + formatMinutes(stop.endMinutes) + "）\n";
+        }
+    }
+
+    std::vector<ChatMessage> messages = {
+        {"system", systemPrompt},
+        {"user", itinerarySummary}
+    };
+
+    std::string reply = chatCompletion(messages, 0.6);
+    if (reply.empty()) {
+        return explainWithTemplate(itinerary);
+    }
+    return reply;
 }
 
 }  // namespace tourpass

@@ -126,6 +126,7 @@ std::string routeName(const httplib::Request& req) {
     if (req.method == "POST" && req.path == "/trip/alternatives") return "POST /trip/alternatives";
     if (req.method == "GET" && req.path == "/poi/search") return "GET /poi/search";
     if (req.method == "POST" && req.path == "/itinerary/explain") return "POST /itinerary/explain";
+    if (req.method == "POST" && req.path == "/trip/chat") return "POST /trip/chat";
     return req.method + " " + req.path;
 }
 
@@ -320,7 +321,8 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             {"data_loaded", !context.graph.empty()},
             {"poi_count", context.graph.pois().size()},
             {"edge_count", context.graph.edgeCount()},
-            {"llm_configured", context.llm.isConfigured()}
+            {"llm_configured", context.llm.isConfigured()},
+            {"travel_provider", context.config.travelProviderName}
         });
     });
 
@@ -590,6 +592,104 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             setJson(res, {{"explanation", context.llm.explain(itinerary)}, {"llm_configured", context.llm.isConfigured()}});
         } catch (const std::exception& ex) {
             setJson(res, errorJson("VALIDATION_ERROR", "请求参数不合法", {{"reason", ex.what()}}), 400);
+        }
+    });
+
+    server.Post("/trip/chat", [&](const httplib::Request& req, httplib::Response& res) {
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string message = body.value("message", "");
+            if (message.empty()) {
+                setJson(res, errorJson("VALIDATION_ERROR", "message 不能为空"), 400);
+                return;
+            }
+
+            if (!context.llm.isConfigured()) {
+                setJson(res, errorJson("LLM_NOT_CONFIGURED", "自然语言规划需要配置 LLM API Key", {{"hint", "设置 LLM_BASE_URL 和 OPENAI_API_KEY 环境变量"}}), 503);
+                return;
+            }
+
+            std::vector<ChatMessage> context_messages;
+            if (body.contains("context") && body["context"].is_array()) {
+                for (const auto& msg : body["context"]) {
+                    ChatMessage cm;
+                    cm.role = msg.value("role", "user");
+                    cm.content = msg.value("content", "");
+                    if (!cm.content.empty()) {
+                        context_messages.push_back(cm);
+                    }
+                }
+            }
+
+            // Step 1: Parse natural language to TripRequest
+            LlmParsedRequest parsed = context.llm.parseNaturalLanguageRequest(message, context_messages);
+            if (!parsed.parsed) {
+                setJson(res, errorJson("PARSE_FAILED", "无法理解您的旅行需求", {{"detail", parsed.parseNote}}), 422);
+                return;
+            }
+
+            // Step 2: Fuzzy match POI names via BM25 search
+            nlohmann::json matchedPois = nlohmann::json::array();
+            nlohmann::json suggestions = nlohmann::json::array();
+            std::vector<std::string> resolvedMustVisit;
+
+            for (const auto& name : parsed.unmatchedNames) {
+                auto searchResults = context.search.search(name, "", 3);
+                if (!searchResults.empty() && searchResults[0].score > 2.0) {
+                    resolvedMustVisit.push_back(searchResults[0].id);
+                    matchedPois.push_back({
+                        {"query", name},
+                        {"matched_id", searchResults[0].id},
+                        {"matched_name", searchResults[0].name},
+                        {"score", searchResults[0].score},
+                        {"confidence", searchResults[0].score > 5.0 ? "high" : "medium"}
+                    });
+                } else {
+                    suggestions.push_back("未找到与\"" + name + "\"匹配的景点，已忽略该需求");
+                    matchedPois.push_back({
+                        {"query", name},
+                        {"matched_id", nullptr},
+                        {"matched_name", nullptr},
+                        {"score", 0},
+                        {"confidence", "none"}
+                    });
+                }
+            }
+            parsed.request.mustVisit = resolvedMustVisit;
+
+            // Step 3: Plan itinerary
+            nlohmann::json candidates = nlohmann::json::array();
+            std::vector<Itinerary> itineraries = context.planner.planCandidates(parsed.request);
+            for (const auto& it : itineraries) {
+                candidates.push_back(itineraryToJson(it));
+            }
+
+            // Step 4: Generate natural language reply
+            Itinerary bestItinerary = itineraries.empty() ? Itinerary{} : itineraries[0];
+            std::string reply = context.llm.generateItineraryReply(message, parsed.request, bestItinerary);
+
+            nlohmann::json result = {
+                {"reply", reply},
+                {"parsed_request", {
+                    {"city", parsed.request.city},
+                    {"days", parsed.request.days},
+                    {"interests", parsed.request.interests},
+                    {"must_visit", parsed.request.mustVisit},
+                    {"avoid", parsed.request.avoid},
+                    {"pace", parsed.request.pace}
+                }},
+                {"poi_matching", matchedPois},
+                {"candidates", candidates},
+                {"suggestions", suggestions}
+            };
+            if (!parsed.parseNote.empty()) {
+                result["parse_note"] = parsed.parseNote;
+            }
+
+            setJson(res, result);
+        } catch (const std::exception& ex) {
+            std::cerr << "ERROR /trip/chat: " << ex.what() << std::endl;
+            setJson(res, errorJson("INTERNAL_ERROR", "处理聊天请求失败", {{"reason", ex.what()}}), 500);
         }
     });
 
