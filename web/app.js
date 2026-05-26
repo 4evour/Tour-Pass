@@ -718,7 +718,7 @@ async function chatPlan() {
       state.selectedIndex = 0;
       state.lastPayload = { candidates: data.candidates };
       html += `<p><strong>已生成 ${data.candidates.length} 个候选方案，</strong><a href="#" onclick="setStage('overview');return false;">点击查看</a></p>`;
-      renderCurrentCandidate();
+      renderPlan();
     }
     $("chatOutput").innerHTML = html || "规划完成。";
   } catch (error) {
