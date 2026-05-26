@@ -6,6 +6,7 @@
     <title>Tour Pass 演示台</title>
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   </head>
   <body>
     <main class="app-shell">
@@ -70,7 +71,7 @@
 
             <div class="field-row">
               <label for="hotelLocation">酒店位置</label>
-              <input id="hotelLocation" name="hotelLocation" value="五一广场酒店" />
+              <input id="hotelLocation" name="hotelLocation" value="7天优品酒店(长沙橘子洲五一广场地铁站店)" />
             </div>
 
             <div class="field-row">
@@ -80,7 +81,7 @@
 
             <div class="field-row">
               <label for="mustVisit">必去地点</label>
-              <input id="mustVisit" name="mustVisit" value="橘子洲, 湖南博物院" />
+              <input id="mustVisit" name="mustVisit" value="橘子洲风景名胜区, 湖南省博物馆" />
             </div>
 
             <div class="field-row">
@@ -108,6 +109,9 @@
             </div>
             <div id="candidateSummary" class="candidate-summary"></div>
             <div id="candidateTabs" class="tabs" role="tablist"></div>
+            <div id="mapContainer" class="map-container" hidden>
+              <div id="map"></div>
+            </div>
             <div id="planOutput" class="plan-output empty-state">
               选择偏好后生成行程。
             </div>
@@ -123,15 +127,16 @@
             <div class="two-col">
               <div class="field-row">
                 <label for="routeFrom">起点</label>
-                <input id="routeFrom" value="hotel_wuyi" />
+                <input id="routeFrom" value="amap_d0197c46" />
               </div>
               <div class="field-row">
                 <label for="routeTo">终点</label>
-                <input id="routeTo" value="yuelu_academy" />
+                <input id="routeTo" value="amap_f3d362be" />
               </div>
             </div>
             <button id="routeButton" class="secondary-action" type="button">查询 A*</button>
             <pre id="routeOutput" class="compact-output"></pre>
+            <div id="routeMap" class="route-map-container"></div>
           </section>
 
           <section>
@@ -188,6 +193,7 @@
       </section>
     </main>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="/app.js"></script>
   </body>
 </html>

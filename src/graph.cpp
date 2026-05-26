@@ -192,6 +192,14 @@ RouteResult PoiGraph::findRoute(const std::string& from, const std::string& to, 
         cursor = prevIt->second;
     }
     std::reverse(route.path.begin(), route.path.end());
+    for (const auto& pid : route.path) {
+        const Poi* p = findPoi(pid);
+        if (p) {
+            route.pathCoords.push_back({p->lat, p->lng});
+        } else {
+            route.pathCoords.push_back({0.0, 0.0});
+        }
+    }
     return route;
 }
 

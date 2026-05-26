@@ -572,6 +572,8 @@ Stop TripPlanner::makeStop(const std::string& slot, const Poi& poi, int startMin
     stop.poiName = poi.name;
     stop.poiType = poiTypeToString(poi.type);
     stop.area = poi.area;
+    stop.lat = poi.lat;
+    stop.lng = poi.lng;
     stop.startMinutes = actualStart;
     stop.endMinutes = actualStart + poi.visitDurationMinutes;
     stop.visitDurationMinutes = poi.visitDurationMinutes;

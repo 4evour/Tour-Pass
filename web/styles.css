@@ -1018,3 +1018,35 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
     text-align: left;
   }
 }
+
+/* Map */
+.map-container {
+  margin-bottom: 1rem;
+}
+
+#map {
+  height: 380px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  z-index: 0;
+}
+
+.route-map-container {
+  margin-top: 0.75rem;
+}
+
+#routeMap {
+  height: 260px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  z-index: 0;
+}
+
+@media (max-width: 620px) {
+  #map {
+    height: 280px;
+  }
+  #routeMap {
+    height: 200px;
+  }
+}

@@ -5,6 +5,106 @@ const state = {
   activeStage: "overview",
 };
 
+let planMap = null;
+let routeMap = null;
+
+const DAY_COLORS = ["#146b5d", "#c25b1e", "#2563eb", "#9333ea", "#dc2626", "#0d9488", "#d97706"];
+
+function typeIcon(type) {
+  const icons = { attraction: "🏛", restaurant: "🍜", hotel: "🏨", nightlife: "🌙", transit: "🚇" };
+  return icons[type] || "📍";
+}
+
+function renderMap(candidate) {
+  const container = $("mapContainer");
+  const mapDiv = $("map");
+  if (!candidate || !candidate.days) {
+    container.hidden = true;
+    return;
+  }
+  const allCoords = [];
+  for (const day of candidate.days) {
+    for (const stop of day.stops || []) {
+      if (stop.lat && stop.lng) allCoords.push([stop.lat, stop.lng]);
+    }
+  }
+  if (allCoords.length === 0) {
+    container.hidden = true;
+    return;
+  }
+  container.hidden = false;
+  if (planMap) {
+    planMap.remove();
+    planMap = null;
+  }
+  planMap = L.map(mapDiv);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>',
+    maxZoom: 18,
+  }).addTo(planMap);
+
+  const bounds = [];
+  candidate.days.forEach((day, dayIndex) => {
+    const color = DAY_COLORS[dayIndex % DAY_COLORS.length];
+    const dayCoords = [];
+    for (const stop of day.stops || []) {
+      if (!stop.lat || !stop.lng) continue;
+      const coord = [stop.lat, stop.lng];
+      bounds.push(coord);
+      dayCoords.push(coord);
+      const marker = L.circleMarker(coord, {
+        radius: 7, fillColor: color, color: "#fff", weight: 2, fillOpacity: 0.9,
+      }).addTo(planMap);
+      marker.bindPopup(
+        `<strong>${escapeHtml(stop.poi_name)}</strong><br>` +
+        `${typeIcon(stop.poi_type)} ${escapeHtml(stop.slot)} ${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)}<br>` +
+        `${escapeHtml(stop.area)} · 评分 ${stop.score}`
+      );
+    }
+    if (dayCoords.length > 1) {
+      L.polyline(dayCoords, { color, weight: 3, opacity: 0.7, dashArray: dayIndex > 0 ? "6 4" : null }).addTo(planMap);
+    }
+  });
+  if (bounds.length > 0) {
+    planMap.fitBounds(bounds, { padding: [30, 30] });
+  }
+  setTimeout(() => planMap.invalidateSize(), 50);
+}
+
+function renderRouteMap(route) {
+  const mapDiv = $("routeMap");
+  if (!route || !route.path_coords || route.path_coords.length === 0) {
+    mapDiv.innerHTML = "";
+    return;
+  }
+  if (routeMap) {
+    routeMap.remove();
+    routeMap = null;
+  }
+  routeMap = L.map(mapDiv);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>',
+    maxZoom: 18,
+  }).addTo(routeMap);
+  const coords = route.path_coords.map((c) => [c.lat, c.lng]);
+  const bounds = [];
+  coords.forEach((coord, i) => {
+    bounds.push(coord);
+    L.circleMarker(coord, {
+      radius: i === 0 || i === coords.length - 1 ? 8 : 5,
+      fillColor: i === 0 ? "#146b5d" : i === coords.length - 1 ? "#dc2626" : "#65706d",
+      color: "#fff", weight: 2, fillOpacity: 0.9,
+    }).addTo(routeMap).bindPopup(route.path[i] || `节点 ${i + 1}`);
+  });
+  if (coords.length > 1) {
+    L.polyline(coords, { color: "#146b5d", weight: 3, opacity: 0.8 }).addTo(routeMap);
+  }
+  if (bounds.length > 0) {
+    routeMap.fitBounds(bounds, { padding: [20, 20] });
+  }
+  setTimeout(() => routeMap.invalidateSize(), 50);
+}
+
 const $ = (id) => document.getElementById(id);
 
 function escapeHtml(value) {
@@ -30,7 +130,7 @@ function planPayload() {
     days: Number($("days").value || 2),
     start_time: $("startTime").value.trim() || "09:30",
     end_time: $("endTime").value.trim() || "21:30",
-    hotel_location: $("hotelLocation").value.trim() || "五一广场酒店",
+    hotel_location: $("hotelLocation").value.trim() || "7天优品酒店(长沙橘子洲五一广场地铁站店)",
     interests: csv($("interests").value),
     pace: $("pace").value,
     must_visit: csv($("mustVisit").value),
@@ -132,6 +232,7 @@ function renderPlan() {
     </section>
   `;
   bindComparisonCards();
+  renderMap(candidate);
 }
 
 function renderOverview(candidate) {
@@ -479,9 +580,9 @@ function loadExample() {
   $("candidateCount").value = "5";
   $("startTime").value = "09:30";
   $("endTime").value = "21:30";
-  $("hotelLocation").value = "五一广场酒店";
+  $("hotelLocation").value = "7天优品酒店(长沙橘子洲五一广场地铁站店)";
   $("interests").value = "历史文化, 美食, 夜景";
-  $("mustVisit").value = "橘子洲, 湖南博物院";
+  $("mustVisit").value = "橘子洲风景名胜区, 湖南省博物馆";
   $("pace").value = "轻松";
 }
 
@@ -492,8 +593,10 @@ async function queryRoute() {
     const to = encodeURIComponent($("routeTo").value.trim());
     const route = await api(`/route/shortest?from=${from}&to=${to}&algorithm=astar`);
     $("routeOutput").textContent = `${route.algorithm.toUpperCase()} · ${route.travel_minutes} 分钟\n${route.path.join(" -> ")}`;
+    renderRouteMap(route);
   } catch (error) {
     $("routeOutput").textContent = `查询失败：${error.message}`;
+    renderRouteMap(null);
   }
 }
 

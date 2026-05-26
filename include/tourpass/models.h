@@ -75,6 +75,8 @@ struct Stop {
     std::string poiName;
     std::string poiType;
     std::string area;
+    double lat = 0.0;
+    double lng = 0.0;
     int startMinutes = 0;
     int endMinutes = 0;
     int visitDurationMinutes = 0;
@@ -139,6 +141,7 @@ struct RouteResult {
     std::string to;
     int travelMinutes = 0;
     std::vector<std::string> path;
+    std::vector<std::pair<double,double>> pathCoords;
     std::string algorithm;
 };
 

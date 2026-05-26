@@ -53,13 +53,13 @@ tourpass::TripRequest sampleRequest() {
 }
 
 void testDataLoading() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     expectTrue(data.pois.size() >= 10, "loads changsha pois");
     expectTrue(data.edges.size() >= 10, "loads commute edges");
 }
 
 void testGraphShortestPath() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     int minutes = graph.shortestMinutes("hotel_wuyi", "hunan_museum");
     expectTrue(minutes == 22, "uses transit minutes for direct shortest path");
@@ -76,7 +76,7 @@ void testGraphShortestPath() {
 }
 
 void testGraphPrecomputesShortestMinuteCache() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
 
     auto stats = graph.distanceCacheStats();
@@ -89,7 +89,7 @@ void testGraphPrecomputesShortestMinuteCache() {
 }
 
 void testGraphDistanceCacheModesReturnSameShortestMinutes() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::DistanceCacheConfig allPairsConfig;
     allPairsConfig.mode = tourpass::DistanceCacheMode::AllPairs;
     tourpass::DistanceCacheConfig onDemandConfig;
@@ -123,7 +123,7 @@ void testGraphDistanceCacheModesReturnSameShortestMinutes() {
 }
 
 void testGraphAutoDistanceCacheChoosesOnDemandForLargeGraph() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::DistanceCacheConfig config;
     config.mode = tourpass::DistanceCacheMode::Auto;
     config.maxAllPairsPois = 1;
@@ -135,7 +135,7 @@ void testGraphAutoDistanceCacheChoosesOnDemandForLargeGraph() {
 }
 
 void testPlanner() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::Itinerary itinerary = planner.plan(sampleRequest());
@@ -182,7 +182,7 @@ void testPlanner() {
 }
 
 void testStrictTimeWindowDiagnosticsForTightDay() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripRequest request = sampleRequest();
@@ -213,7 +213,7 @@ void testStrictTimeWindowDiagnosticsForTightDay() {
 }
 
 void testUnscheduledReasonForUnknownMustVisit() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripRequest request = sampleRequest();
@@ -232,7 +232,7 @@ void testUnscheduledReasonForUnknownMustVisit() {
 }
 
 void testCandidatePlans() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripRequest request = sampleRequest();
@@ -264,7 +264,7 @@ void testCandidatePlans() {
 }
 
 void testPlannerExplanationsAreInterviewFriendly() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::Itinerary itinerary = planner.plan(sampleRequest());
@@ -290,7 +290,7 @@ void testPlannerExplanationsAreInterviewFriendly() {
 }
 
 void testPlannerStopScoreBreakdown() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::Itinerary itinerary = planner.plan(sampleRequest());
@@ -330,7 +330,7 @@ bool itineraryHasScoreComponent(const tourpass::Itinerary& itinerary, const std:
 }
 
 void testCandidateStrategiesHaveRealWeights() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripRequest request = sampleRequest();
@@ -368,7 +368,7 @@ void testCandidateStrategiesHaveRealWeights() {
 }
 
 void testCandidateParetoRanking() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripRequest request = sampleRequest();
@@ -404,7 +404,7 @@ void testCandidateParetoRanking() {
 }
 
 void testCandidateDiversityMetrics() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripRequest request = sampleRequest();
@@ -450,7 +450,7 @@ std::string itinerarySignature(const tourpass::Itinerary& itinerary) {
 }
 
 void testPlannerUsesBeamSearchForTopKChoices() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripRequest request = sampleRequest();
@@ -474,7 +474,7 @@ void testPlannerUsesBeamSearchForTopKChoices() {
 }
 
 void testPlannerExposesAlgorithmDebugTrace() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripRequest request = sampleRequest();
@@ -498,7 +498,7 @@ void testPlannerExposesAlgorithmDebugTrace() {
 void testPlannerReadsBeamSearchParametersFromEnvironment() {
     setEnvVar("TOURPASS_BEAM_WIDTH", "2");
     setEnvVar("TOURPASS_BRANCH_FACTOR", "2");
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripRequest request = sampleRequest();
@@ -515,7 +515,7 @@ void testPlannerReadsBeamSearchParametersFromEnvironment() {
 }
 
 void testPlannerAvoidCanHardExcludePoiByName() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripRequest request = sampleRequest();
@@ -555,7 +555,7 @@ void testTripRequestCandidateValidation() {
 }
 
 void testSearch() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::SearchEngine search(graph);
     auto results = search.search("历史文化", "", 5);
@@ -564,7 +564,7 @@ void testSearch() {
 }
 
 void testSearchExplainsBm25Matches() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::SearchEngine search(graph);
     auto results = search.search("室内 艺术", "attraction", 5);
@@ -639,7 +639,7 @@ void testSQLiteStorePersistsOperationalRecords() {
 }
 
 void testTripJobStoreRunsPlannerJobsAsynchronously() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     tourpass::TripJobStore jobs(4);
@@ -724,7 +724,7 @@ void testTripJobStoreRejectsWhenQueueIsFull() {
 }
 
 void testLlmTemplateFallback() {
-    auto data = tourpass::loadDataSet("data/pois.json", "data/edges.json");
+    auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
     tourpass::TripPlanner planner(graph);
     setEnvVar("LLM_DISABLED", "");

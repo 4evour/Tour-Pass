@@ -1,10 +1,16 @@
 # Tour Pass
 
-Tour Pass 是一个 C++17 城市自由行行程规划算法服务作品集项目。当前使用长沙本地样例数据：`25` 个 POI 节点、`46` 条通勤边，其中包含酒店、景点、餐厅和夜间活动点。项目将样例 POI 建模为带时间窗约束的图，结合 Dijkstra/A* 最短路、兴趣评分、时间窗调度、餐饮插入、POI 检索和 LLM/模板解释生成多日旅行计划。
+C++17 城市旅行行程规划算法服务。基于长沙 **500 个真实高德 POI** 和 **1937 条通勤边**，通过 Dijkstra/A* 最短路、Beam Search 时间槽规划、BM25 文本检索、Pareto 多目标排序生成多候选多日行程。前端集成 Leaflet 地图可视化，路线直接展示在 OpenStreetMap 上。
 
-当前演示链路围绕面试展示优化：输入偏好后生成多候选行程，页面展示真实策略差异、候选对比指标、候选多样性指标、Pareto 非支配层级、站点评分拆解、每日通勤优化、严格时间窗复核、约束命中、未安排原因、路径查询、场景替换和自然语言说明。未配置 LLM 时仍会使用本地中文模板兜底，保证离线演示可运行。
+核心能力：
+- **Beam Search** 在上午/午餐/下午/晚餐/晚上时间槽中保留 Top-K 状态，综合评分、通勤和时间窗约束规划路线
+- **5 种策略候选**：少走路、紧凑、文化优先、美食优先、雨天室内，Pareto 非支配排序量化取舍
+- **严格时间窗复核**：开放时间、餐饮窗口、站点顺序、当日结束时间
+- **BM25 检索**：字段权重 + 匹配词解释
+- **Leaflet 地图**：每日路线 polyline + marker popup 展示站点详情，A* 路径查询结果地图绘制
+- **LLM 解释**：OpenAI/DeepSeek 兼容接口，无密钥时自动使用本地中文模板兜底
 
-边界说明：当前默认样例图规模很小，Dijkstra/A* 在这里不是用来证明大规模图搜索性能，而是展示建模方式、接口链路和后续扩展位置。项目新增高德 Web 服务采集流水线，可在本地用 `AMAP_API_KEY` 生成长沙几百个真实 POI；synthetic 数据只作为压力测试/复杂度趋势口径。`cpp-httplib` 用于本地演示 HTTP 服务，不包装成生产级 C++ Web 框架经验。
+数据规模：500 POI（240 景点 / 160 餐饮 / 65 酒店 / 35 夜生活），覆盖长沙 9 个区。
 
 ## 环境要求
 
@@ -147,7 +153,7 @@ curl.exe -X POST http://127.0.0.1:8080/trip/plan `
 查询最短路径：
 
 ```powershell
-curl.exe "http://127.0.0.1:8080/route/shortest?from=hotel_wuyi&to=yuelu_academy&algorithm=astar"
+curl.exe "http://127.0.0.1:8080/route/shortest?from=amap_d0197c46&to=amap_f3d362be&algorithm=astar"
 ```
 
 获取替换方案：
@@ -186,16 +192,12 @@ curl.exe http://127.0.0.1:8080/metrics
 curl.exe "http://127.0.0.1:8080/history/jobs?limit=20"
 ```
 
-## MVP 边界
+## 项目边界
 
-- 默认样例通勤耗时来自 `data/edges.json`。
-- 可通过高德 Web 服务脚本采集 `200+` 长沙真实 POI，并用距离测量/路径规划生成带来源标记的通勤边；正式真实数据报告建议使用 `--fallback fail --min-amap-ratio 0.8`，如果边来源是 `geo_estimated`，仍只能视为估算通勤图。
-- 已提供 `web/` 本地演示台，由 C++ 服务直接托管，面向面试现场展示候选方案、约束解释、路径查询、替换方案和模板/LLM 说明。
-- 已实现 A* 路径查询、Top-K 候选行程和场景替换方案。
-- 已实现日内局部交换优化、优化摘要、约束解释、未安排原因、候选对比指标和站点级评分拆解。
-- 已接入 SQLite 持久化规划请求、异步任务、benchmark 记录和数据版本，但不把 SQLite 放进规划热路径；POI/edge 仍在启动时加载到内存图。
-- 当前并发目标是单机 200 并发挑战下的背压、结构化错误和指标可观察，不包装成分布式高并发系统。
-- 当前 CMake 配置可构建现有轻量测试，并可选启用 GoogleTest。
+- 默认数据为高德采集的 500 个长沙真实 POI + 1937 条通勤边，测试使用 25-POI 样本数据。
+- 规划热路径使用启动时加载的内存图，SQLite 仅用于请求记录、异步任务和 benchmark，不参与规划计算。
+- 前端由 C++ 服务直接托管，集成 Leaflet + OpenStreetMap 地图可视化。
+- 并发目标为单机背压、结构化错误和指标可观察，不做分布式。
 - CMake 可通过 `-DTOURPASS_USE_GTEST=ON` 构建 GoogleTest 测试目标。
 
 ## Docker 与部署
@@ -226,26 +228,12 @@ powershell -ExecutionPolicy Bypass -File scripts/demo.ps1
 mingw32-make validate-data
 node scripts/validate_data.js
 powershell -ExecutionPolicy Bypass -File scripts/api_smoke.ps1 -AppPath bin/tourpass.exe -Port 8091
-node scripts/benchmark.js --app bin/tourpass.exe --port 8092 --duration 60 --warmup 5 --concurrency-steps 1,10,50,100,200 --job-iterations 20 --record-db --report docs/performance_report.md
-node scripts/benchmark.js --app bin/tourpass.exe --port 8093 --duration 60 --warmup 5 --concurrency-steps 1,10,50,100 --job-iterations 10 --bypass-cache --report docs/performance_report_bypass_cache.md
+node scripts/benchmark.js --app bin/tourpass.exe --port 8092 --duration 60 --warmup 5 --concurrency-steps 1,10,50,100,200 --job-iterations 20 --record-db
 node scripts/import_real_pois.js --input tests/fixtures/real_pois_sample.csv --out-dir output/real-import --neighbors 4
-node scripts/validate_data.js --pois output/real-import/pois.json --edges output/real-import/edges.json
-node scripts/fetch_amap_pois.js --config config/amap.changsha.json --out-dir output/amap-changsha --min-pois 200
-node scripts/build_commute_edges.js --pois output/amap-changsha/pois.json --out-dir output/amap-changsha --neighbors 6 --fallback fail --min-amap-ratio 0.8 --mode mixed --batch-size 100
-node scripts/validate_data.js --pois output/amap-changsha/pois.json --edges output/amap-changsha/edges.json --min-pois 200 --require-edge-source
-node scripts/generate_synthetic_data.js --pois 1000 --out-dir output/synthetic-1000
-node scripts/scale_experiment.js --app bin/tourpass.exe --port 8100 --sizes 100,500,1000 --iterations 3 --report docs/scale_experiment_report.md
-node scripts/scale_experiment.js --app bin/tourpass.exe --port 8100 --dataset real --pois output/amap-changsha/pois.json --edges output/amap-changsha/edges.json --sizes 100,200 --iterations 5 --cache-mode auto --report docs/scale_experiment_report.md --json-report output/scale_experiment_report.json
-node scripts/algorithm_quality_check.js --app bin/tourpass.exe --port 8110 --subset 9 --report docs/algorithm_quality_report.md
-node scripts/load_test.js --url http://127.0.0.1:8080/health --concurrency 100 --duration 30 --report docs/load_test_report.md
-powershell -ExecutionPolicy Bypass -File scripts/run_hey.ps1 -Url http://127.0.0.1:8080/health -Concurrency 100 -Duration 30s
+node scripts/validate_data.js --pois data/pois.json --edges data/edges.json --min-pois 200
 ```
 
-`scripts/import_real_pois.js` 用于把 CSV/JSON 形式的真实 POI 清单标准化为项目 `pois.json`，并按地理距离生成近邻通勤边；它适合接入人工整理、公开数据或后续地图 API 导出的 POI 列表。数据质量校验会检查 POI 字段、坐标、时间窗、类型覆盖、边引用、边权合法性和图连通性；CI 与本地 `validate-data` 使用同一脚本，`--pois` / `--edges` 可校验导入后的临时数据集。
-
-`scripts/fetch_amap_pois.js` 和 `scripts/build_commute_edges.js` 是真实规模数据主入口，详见 [docs/real_data_pipeline.md](docs/real_data_pipeline.md) 和 [docs/real_data_runbook.md](docs/real_data_runbook.md)。前者需要本地 `AMAP_API_KEY`，后者会在高德距离/路径不可用时按参数决定失败或退回地理估算并标记边来源；真实数据报告见 [docs/real_data_report.md](docs/real_data_report.md)。
-
-性能报告只用于本地性能回归检查，不代表生产压测。`scripts/load_test.js` 提供无额外依赖的 HTTP 压测口径，可记录 QPS、avg、p95、p99 和错误率；`scripts/run_hey.ps1` 可在已安装 `hey` 时运行标准工具口径。正式生产压测仍需要真实部署、真实流量分布、资源监控，并明确 worker、队列、in-flight、是否绕过缓存、是否调用外部 LLM、是否包含真实地图 API 或数据库 IO。
+数据质量校验检查 POI 字段、坐标、时间窗、类型覆盖、边引用、边权合法性和图连通性。
 
 如果本机已安装 Playwright 浏览器运行时，也可以启动服务后运行 UI 验证脚本：
 

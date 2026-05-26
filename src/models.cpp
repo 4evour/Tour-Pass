@@ -132,6 +132,8 @@ nlohmann::json stopToJson(const Stop& stop) {
         {"poi_name", stop.poiName},
         {"poi_type", stop.poiType},
         {"area", stop.area},
+        {"lat", stop.lat},
+        {"lng", stop.lng},
         {"start_time", formatMinutes(stop.startMinutes)},
         {"end_time", formatMinutes(stop.endMinutes)},
         {"visit_duration_minutes", stop.visitDurationMinutes},
@@ -222,11 +224,16 @@ TripRequest tripRequestFromJson(const nlohmann::json& input) {
 }
 
 nlohmann::json routeResultToJson(const RouteResult& route) {
+    nlohmann::json coords = nlohmann::json::array();
+    for (const auto& [lat, lng] : route.pathCoords) {
+        coords.push_back({{"lat", lat}, {"lng", lng}});
+    }
     return {
         {"from", route.from},
         {"to", route.to},
         {"travel_minutes", route.travelMinutes},
         {"path", route.path},
+        {"path_coords", coords},
         {"algorithm", route.algorithm}
     };
 }
