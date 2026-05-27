@@ -848,6 +848,16 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
                     role = "admin";
                 }
             }
+            // Auto-promote first user to admin if no admin exists yet
+            if (role == "user") {
+                auto existingAdmin = context.store->findUserByUsername("admin");
+                if (!existingAdmin || existingAdmin->role != "admin") {
+                    auto stats = context.store->adminStats();
+                    if (stats.value("total_users", 0) == 0) {
+                        role = "admin";
+                    }
+                }
+            }
             int64_t userId = context.store->createUser(username, hashed, role);
             std::string token = createToken(userId, username, role);
             setJson(res, {{"token", token}, {"user", {{"id", userId}, {"username", username}, {"role", role}}}}, 201);
@@ -993,6 +1003,13 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             const char* adminEmails = std::getenv("TOURPASS_ADMIN_USERS");
             if (adminEmails && std::string(adminEmails).find(email) != std::string::npos) {
                 role = "admin";
+            }
+            // Auto-promote first user to admin if no admin exists
+            if (role == "user") {
+                auto stats = context.store->adminStats();
+                if (stats.value("total_users", 0) == 0) {
+                    role = "admin";
+                }
             }
             int64_t userId = context.store->createUser(username, hashed, role, email);
             std::string token = createToken(userId, username, role);
@@ -1155,6 +1172,22 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             try { days = std::stoi(req.get_param_value("days")); } catch (...) {}
         }
         setJson(res, {{"data", context.store->queryStatsByDay(days)}});
+    });
+
+    server.Patch(R"(/admin/users/(\d+)/role)", [&](const httplib::Request& req, httplib::Response& res) {
+        int64_t targetUserId = 0;
+        try { targetUserId = std::stoll(req.matches[1]); } catch (...) {}
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string newRole = body.value("role", "");
+            if (newRole != "user" && newRole != "admin" && newRole != "guest") {
+                setJson(res, errorJson("VALIDATION_ERROR", "角色只能是 user/admin/guest"), 400); return;
+            }
+            context.store->updateRole(targetUserId, newRole);
+            setJson(res, {{"status", "updated"}, {"user_id", targetUserId}, {"role", newRole}});
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", "更新角色失败", {{"reason", ex.what()}}), 500);
+        }
     });
 
     // ---- Track query usage after successful trip/plan and trip/chat ----

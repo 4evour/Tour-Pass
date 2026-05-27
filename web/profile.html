@@ -7,59 +7,113 @@
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="/styles.css" />
     <style>
+      body { background: var(--bg); margin: 0; font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif; color: var(--ink); }
       .profile-shell { max-width: 700px; margin: 0 auto; padding: 20px; }
       .profile-topbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
       .profile-topbar h1 { font-size: 20px; margin: 0; }
+      .profile-topbar a { font-size: 13px; color: var(--muted); text-decoration: none; }
+      .profile-topbar a:hover { color: var(--accent); }
       .profile-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
       .profile-card h2 { font-size: 16px; margin: 0 0 14px; }
-      .info-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+      .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+      .info-row { display: flex; justify-content: space-between; padding: 10px 12px; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
       .info-row .label { color: var(--muted); }
-      .change-pwd-form { display: flex; flex-direction: column; gap: 10px; }
+      .role-badge { padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+      .role-badge.admin { background: #e8f4f0; color: var(--accent); }
+      .role-badge.user { background: var(--blue-soft); color: #2563eb; }
+      .role-badge.guest { background: #f5f5f5; color: var(--muted); }
+      .usage-section { display: flex; align-items: center; gap: 16px; }
+      .usage-circle { width: 64px; height: 64px; position: relative; }
+      .usage-circle svg { transform: rotate(-90deg); }
+      .usage-circle .label { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; }
+      .usage-detail { font-size: 14px; line-height: 1.6; }
+      .usage-detail strong { color: var(--accent); }
+      .usage-detail .warn { color: #c0392b; }
+      .change-pwd-form { display: flex; flex-direction: column; gap: 10px; max-width: 400px; }
       .change-pwd-form input { padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; }
       .change-pwd-form button { padding: 10px; border-radius: 8px; border: none; cursor: pointer; font-size: 14px; }
-      .btn-primary { background: var(--accent); color: #fff; }
+      .btn-primary { background: var(--accent); color: #fff; cursor: pointer; }
       .btn-primary:hover { background: var(--accent-dark); }
-      .msg-ok { color: var(--accent); font-size: 13px; }
-      .msg-err { color: #c0392b; font-size: 13px; }
-      .trip-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
-      .trip-item .trip-title { font-weight: 500; }
-      .trip-item .trip-date { color: var(--muted); font-size: 12px; }
-      .trip-item .trip-actions { display: flex; gap: 6px; }
-      .trip-item button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); cursor: pointer; font-size: 12px; }
-      .trip-item button:hover { border-color: var(--accent); }
-      .usage-bar { height: 8px; background: #eee; border-radius: 4px; overflow: hidden; margin-top: 6px; }
-      .usage-fill { height: 100%; background: var(--accent); border-radius: 4px; transition: width 0.3s; }
-      .usage-fill.warn { background: #c0392b; }
-      .empty-text { color: var(--muted); font-size: 13px; text-align: center; padding: 20px; }
+      .msg-ok { color: var(--accent); font-size: 13px; margin-top: 4px; }
+      .msg-err { color: #c0392b; font-size: 13px; margin-top: 4px; }
+      .trip-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
+      .trip-title { font-weight: 500; font-size: 14px; }
+      .trip-date { color: var(--muted); font-size: 12px; }
+      .trip-actions { display: flex; gap: 6px; }
+      .trip-actions button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); cursor: pointer; font-size: 12px; }
+      .trip-actions button:hover { border-color: var(--accent); }
+      .empty-state-box { text-align: center; padding: 30px 20px; color: var(--muted); }
+      .empty-state-box .emoji { font-size: 36px; margin-bottom: 8px; }
+      .empty-state-box p { margin: 4px 0; font-size: 14px; }
+      .empty-state-box a { color: var(--accent); text-decoration: none; font-weight: 600; }
+      .guest-banner { background: linear-gradient(135deg, #f0f9f7, #e8f4f0); border: 1px solid var(--accent); border-radius: 10px; padding: 16px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+      .guest-banner .emoji { font-size: 28px; }
+      .guest-banner .text { flex: 1; }
+      .guest-banner .text strong { display: block; margin-bottom: 2px; }
+      .guest-banner .text span { font-size: 13px; color: var(--muted); }
+      .guest-banner a { padding: 8px 16px; background: var(--accent); color: #fff; border-radius: 8px; text-decoration: none; font-size: 13px; font-weight: 600; white-space: nowrap; }
+      .quick-links { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+      .quick-links a { padding: 6px 14px; border: 1px solid var(--line); border-radius: 8px; text-decoration: none; font-size: 13px; color: var(--ink); transition: all 0.2s; }
+      .quick-links a:hover { border-color: var(--accent); color: var(--accent); }
     </style>
   </head>
   <body>
     <div class="profile-shell">
       <div class="profile-topbar">
         <h1>👤 个人中心</h1>
-        <a href="/" style="font-size:13px;color:var(--muted);">返回首页</a>
+        <div>
+          <a href="/">← 返回首页</a>
+          <a href="#" id="logoutLink" style="margin-left:16px;">退出登录</a>
+        </div>
       </div>
 
-      <div id="profileError" class="admin-error" hidden>
-        <p>请先登录。</p><p><a href="/">返回首页登录</a></p>
+      <div id="profileError" class="empty-state-box" hidden>
+        <div class="emoji">🔒</div>
+        <p><strong>请先登录</strong></p>
+        <p>你需要登录才能查看个人中心</p>
+        <p style="margin-top:12px;"><a href="/">返回首页登录</a></p>
       </div>
 
       <div id="profileContent" hidden>
-        <!-- User info -->
-        <div class="profile-card">
-          <h2>📋 账户信息</h2>
-          <div class="info-row"><span class="label">用户名</span><span id="pUsername"></span></div>
-          <div class="info-row"><span class="label">邮箱</span><span id="pEmail"></span></div>
-          <div class="info-row"><span class="label">角色</span><span id="pRole"></span></div>
-          <div class="info-row"><span class="label">注册时间</span><span id="pCreated"></span></div>
+        <!-- Guest upgrade banner -->
+        <div id="guestBanner" class="guest-banner" hidden>
+          <span class="emoji">🚶</span>
+          <div class="text">
+            <strong>你当前是游客身份</strong>
+            <span>注册账号可获得每日 10 次查询、保存行程、分享等更多功能</span>
+          </div>
+          <a href="/">去注册</a>
         </div>
 
-        <!-- Query usage -->
+        <!-- User info card -->
         <div class="profile-card">
-          <h2>📊 今日使用</h2>
-          <div id="usageInfo">
-            <span id="usageText"></span>
-            <div class="usage-bar"><div class="usage-fill" id="usageFill"></div></div>
+          <h2>📋 账户信息</h2>
+          <div class="info-grid">
+            <div class="info-row"><span class="label">用户名</span><span id="pUsername"></span></div>
+            <div class="info-row"><span class="label">邮箱</span><span id="pEmail"></span></div>
+            <div class="info-row"><span class="label">角色</span><span id="pRole"></span></div>
+            <div class="info-row"><span class="label">注册时间</span><span id="pCreated"></span></div>
+            <div class="info-row"><span class="label">用户 ID</span><span id="pId"></span></div>
+          </div>
+        </div>
+
+        <!-- Usage card -->
+        <div class="profile-card">
+          <h2>📊 今日使用情况</h2>
+          <div class="usage-section">
+            <div class="usage-circle">
+              <svg width="64" height="64" viewBox="0 0 64 64">
+                <circle cx="32" cy="32" r="28" fill="none" stroke="#eee" stroke-width="6"/>
+                <circle id="usageRing" cx="32" cy="32" r="28" fill="none" stroke="var(--accent)" stroke-width="6"
+                  stroke-dasharray="176" stroke-dashoffset="176" stroke-linecap="round"/>
+              </svg>
+              <div class="label" id="usageNum">0</div>
+            </div>
+            <div class="usage-detail" id="usageDetail"></div>
+          </div>
+          <div class="quick-links">
+            <a href="/">🎯 去规划行程</a>
+            <a href="/admin.html" id="adminQuickLink" hidden>⚙️ 管理后台</a>
           </div>
         </div>
 
@@ -78,7 +132,20 @@
         <!-- My trips -->
         <div class="profile-card">
           <h2>🧳 我的行程</h2>
-          <div id="tripList"><div class="empty-text">暂无保存的行程</div></div>
+          <div id="tripList">
+            <div class="empty-state-box">
+              <div class="emoji">🗺️</div>
+              <p><strong>还没有保存的行程</strong></p>
+              <p>在首页用 AI 规划旅行后，点击"保存行程"即可在这里查看</p>
+              <p style="margin-top:10px;"><a href="/">去规划行程 →</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Danger zone (guest only) -->
+        <div id="dangerZone" class="profile-card" hidden>
+          <h2>⚠️ 账户操作</h2>
+          <p style="font-size:13px;color:var(--muted);margin:0 0 12px;">游客账号数据不会持久保存，建议注册正式账号。</p>
         </div>
       </div>
     </div>
@@ -100,38 +167,60 @@
         try {
           const me = await api("/auth/me");
           document.getElementById("profileContent").hidden = false;
+
+          // Fill user info
           document.getElementById("pUsername").textContent = me.username;
           document.getElementById("pEmail").textContent = me.email || "未绑定";
-          document.getElementById("pRole").textContent = {user:"普通用户",guest:"游客",admin:"管理员"}[me.role] || me.role;
-          document.getElementById("pCreated").textContent = (me.created_at || "").slice(0, 16);
+          document.getElementById("pId").textContent = me.id;
+          const roleLabels = {user:"普通用户", guest:"游客", admin:"管理员"};
+          const roleEl = document.getElementById("pRole");
+          roleEl.innerHTML = `<span class="role-badge ${me.role}">${roleLabels[me.role] || me.role}</span>`;
+          document.getElementById("pCreated").textContent = (me.created_at || "").replace("T", " ").slice(0, 19);
 
+          // Usage ring
           const limit = me.role === "guest" ? 3 : me.role === "admin" ? 999 : 10;
           const remaining = me.query_remaining || 0;
-          const used = limit - remaining;
-          const pct = Math.min(100, (used / limit) * 100);
-          document.getElementById("usageText").textContent = `今日已用 ${used}/${limit}，剩余 ${remaining} 次`;
-          const fill = document.getElementById("usageFill");
-          fill.style.width = pct + "%";
-          fill.classList.toggle("warn", remaining <= 3);
+          const used = Math.max(0, limit - remaining);
+          const pct = limit < 100 ? Math.min(100, (used / limit) * 100) : 0;
+          const circumference = 176; // 2 * PI * 28
+          const offset = circumference - (pct / 100) * circumference;
+          const ring = document.getElementById("usageRing");
+          ring.style.strokeDashoffset = offset;
+          ring.style.stroke = remaining <= 3 ? "#c0392b" : "var(--accent)";
+          document.getElementById("usageNum").textContent = remaining;
+          const detail = document.getElementById("usageDetail");
+          detail.innerHTML = me.role === "admin"
+            ? `<strong>管理员</strong>，查询次数无限制`
+            : `今日已用 <strong>${used}</strong> / ${limit} 次<br>剩余 <strong class="${remaining <= 3 ? 'warn' : ''}">${remaining}</strong> 次${remaining <= 3 ? ' ⚠️ 快用完了' : ''}`;
 
+          // Guest-specific
           if (me.role === "guest") {
+            document.getElementById("guestBanner").hidden = false;
             document.getElementById("changePwdCard").hidden = true;
+            document.getElementById("dangerZone").hidden = false;
           }
-        } catch { document.getElementById("profileError").hidden = false; }
+
+          // Admin link
+          if (me.role === "admin") {
+            document.getElementById("adminQuickLink").hidden = false;
+          }
+        } catch (e) {
+          document.getElementById("profileError").hidden = false;
+          console.error("Profile load error:", e);
+        }
 
         // Load trips
         try {
           const trips = await api("/trips/list");
-          const list = document.getElementById("tripList");
           if (trips.data && trips.data.length > 0) {
-            list.innerHTML = trips.data.map(t => `
+            document.getElementById("tripList").innerHTML = trips.data.map(t => `
               <div class="trip-item">
                 <div>
-                  <span class="trip-title">${esc(t.title)}</span>
-                  <span class="trip-date">${(t.created_at||"").slice(0,16)}</span>
+                  <div class="trip-title">${esc(t.title)}</div>
+                  <div class="trip-date">${(t.created_at||"").replace("T"," ").slice(0,19)}</div>
                 </div>
                 <div class="trip-actions">
-                  ${t.share_id ? `<button onclick="navigator.clipboard.writeText(location.origin+'/s/${t.share_id}');alert('链接已复制')">复制分享链接</button>` : ""}
+                  ${t.share_id ? `<button onclick="navigator.clipboard.writeText(location.origin+'/s/${t.share_id}');this.textContent='已复制!';setTimeout(()=>this.textContent='复制链接',2000)">复制链接</button>` : `<button onclick="shareTrip(${t.id})">分享</button>`}
                 </div>
               </div>
             `).join("");
@@ -139,7 +228,16 @@
         } catch {}
       }
 
-      // Change password
+      async function shareTrip(tripId) {
+        try {
+          const data = await api(`/trips/${tripId}/share`, { method: "POST" });
+          const url = location.origin + data.share_url;
+          await navigator.clipboard.writeText(url);
+          alert("分享链接已复制：" + url);
+          init(); // Refresh
+        } catch (e) { alert("分享失败：" + e.message); }
+      }
+
       document.getElementById("changePwdBtn").addEventListener("click", async () => {
         const oldPwd = document.getElementById("oldPwd").value;
         const newPwd = document.getElementById("newPwd").value;
@@ -150,11 +248,17 @@
         if (newPwd.length < 6) { msg.textContent = "新密码至少6位"; msg.className = "msg-err"; msg.hidden = false; return; }
         try {
           await api("/auth/password", { method: "PATCH", body: JSON.stringify({ old_password: oldPwd, new_password: newPwd }) });
-          msg.textContent = "密码修改成功！"; msg.className = "msg-ok"; msg.hidden = false;
+          msg.textContent = "✅ 密码修改成功！"; msg.className = "msg-ok"; msg.hidden = false;
           document.getElementById("oldPwd").value = "";
           document.getElementById("newPwd").value = "";
           document.getElementById("confirmPwd").value = "";
         } catch (e) { msg.textContent = e.message; msg.className = "msg-err"; msg.hidden = false; }
+      });
+
+      document.getElementById("logoutLink").addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("tp_token");
+        location.href = "/";
       });
 
       init();

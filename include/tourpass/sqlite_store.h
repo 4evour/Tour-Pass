@@ -63,6 +63,7 @@ public:
     std::optional<UserRecord> findUserByEmail(const std::string& email);
     std::optional<UserRecord> findUserById(int64_t id);
     void updatePassword(int64_t userId, const std::string& newHash);
+    void updateRole(int64_t userId, const std::string& role);
 
     // --- email verification ---
     void storeVerificationCode(const std::string& email, const std::string& code, const std::string& purpose, int ttlSeconds);

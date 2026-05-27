@@ -388,6 +388,14 @@ void SQLiteStore::updatePassword(int64_t userId, const std::string& newHash) {
     recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
 }
 
+void SQLiteStore::updateRole(int64_t userId, const std::string& role) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "UPDATE users SET role = ? WHERE id = ?;");
+    bindText(stmt.get(), 1, role);
+    sqlite3_bind_int64(stmt.get(), 2, userId);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+}
+
 void SQLiteStore::storeVerificationCode(const std::string& email, const std::string& code, const std::string& purpose, int ttlSeconds) {
     std::lock_guard<std::mutex> lock(mutex_);
     Statement stmt(db_, "INSERT INTO verification_codes(email, code, purpose, expires_at) VALUES (?, ?, ?, strftime('%Y-%m-%dT%H:%M:%fZ','now',?));");

@@ -126,14 +126,25 @@ async function loadUsers() {
       <tr>
         <td>${u.id}</td>
         <td>${escHtml(u.username)}</td>
-        <td>${u.role}</td>
+        <td><span class="fb-badge ${u.role === 'admin' ? 'reviewed' : u.role === 'guest' ? '' : 'resolved'}">${u.role}</span></td>
         <td>${u.total_queries || 0}</td>
-        <td>${(u.created_at || "").slice(0, 16)}</td>
+        <td>${(u.created_at || "").replace("T"," ").slice(0, 16)}</td>
+        <td>
+          ${u.role !== 'admin' ? `<button onclick="promoteUser(${u.id},'admin')" style="padding:3px 8px;border:1px solid var(--accent);border-radius:4px;background:transparent;cursor:pointer;font-size:11px;color:var(--accent);">设为管理员</button>` : `<button onclick="promoteUser(${u.id},'user')" style="padding:3px 8px;border:1px solid #c0392b;border-radius:4px;background:transparent;cursor:pointer;font-size:11px;color:#c0392b;">取消管理员</button>`}
+        </td>
       </tr>
-    `).join("") || '<tr><td colspan="5" style="text-align:center;color:var(--muted);">暂无用户</td></tr>';
+    `).join("") || '<tr><td colspan="6" style="text-align:center;color:var(--muted);">暂无用户</td></tr>';
   } catch (e) {
-    document.getElementById("usersTable").innerHTML = `<tr><td colspan="5">加载失败：${e.message}</td></tr>`;
+    document.getElementById("usersTable").innerHTML = `<tr><td colspan="6">加载失败：${e.message}</td></tr>`;
   }
+}
+
+async function promoteUser(userId, newRole) {
+  if (!confirm(`确定要将用户 #${userId} 的角色改为 ${newRole} 吗？`)) return;
+  try {
+    await api(`/admin/users/${userId}/role`, { method: "PATCH", body: JSON.stringify({ role: newRole }) });
+    loadUsers();
+  } catch (e) { alert("操作失败：" + e.message); }
 }
 
 // ---- Feedback ----
