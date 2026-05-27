@@ -19,6 +19,8 @@ if (-not (Test-Path $AppPath)) {
 $env:PORT = "$Port"
 $env:LLM_DISABLED = "1"
 $env:TOURPASS_DB_PATH = Join-Path $root "output\api-smoke-tourpass.sqlite"
+$expectedPoiCount = 500
+$expectedEdgeCount = 1937
 Remove-Item -LiteralPath $env:TOURPASS_DB_PATH -Force -ErrorAction SilentlyContinue
 Remove-Item -LiteralPath "$($env:TOURPASS_DB_PATH)-wal" -Force -ErrorAction SilentlyContinue
 Remove-Item -LiteralPath "$($env:TOURPASS_DB_PATH)-shm" -Force -ErrorAction SilentlyContinue
@@ -53,12 +55,25 @@ try {
     if ([string]::IsNullOrWhiteSpace($healthResponse.Headers["X-Response-Time-Ms"])) {
         throw "Missing X-Response-Time-Ms response header."
     }
-    if ($health.workers -lt 1 -or $health.job_workers -lt 1 -or $health.max_queue -lt 1 -or $health.max_in_flight -lt 1 -or $health.cache_enabled -ne $true -or $health.poi_count -ne 25 -or $health.edge_count -ne 46 -or $health.db_enabled -ne $true) {
-        throw "Runtime health fields are missing."
+    $healthProblems = @()
+    if ($health.data_loaded -ne $true) { $healthProblems += "data_loaded=$($health.data_loaded)" }
+    if ($health.poi_count -ne $expectedPoiCount) { $healthProblems += "poi_count=$($health.poi_count), expected=$expectedPoiCount" }
+    if ($health.edge_count -ne $expectedEdgeCount) { $healthProblems += "edge_count=$($health.edge_count), expected=$expectedEdgeCount" }
+    if ([string]::IsNullOrWhiteSpace($health.travel_provider)) { $healthProblems += "travel_provider=$($health.travel_provider)" }
+    if ($healthProblems.Count -gt 0) {
+        $healthJson = $health | ConvertTo-Json -Depth 8 -Compress
+        throw "Runtime health check failed: $($healthProblems -join '; '). Health: $healthJson"
     }
 
+    $authBody = '{"username":"ci_smoke_user","password":"ci_smoke_password"}'
+    $auth = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/auth/register" -Method Post -ContentType "application/json; charset=utf-8" -Body $authBody
+    if ([string]::IsNullOrWhiteSpace($auth.token)) {
+        throw "Auth smoke check failed: register did not return a token."
+    }
+    $authHeaders = @{ Authorization = "Bearer $($auth.token)" }
+
     $candidateBody = Get-Content -Raw -Encoding UTF8 "docs/sample_candidate_request.json"
-    $planResponse = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/trip/plan" -Method Post -ContentType "application/json; charset=utf-8" -Body $candidateBody -UseBasicParsing
+    $planResponse = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/trip/plan" -Method Post -ContentType "application/json; charset=utf-8" -Headers $authHeaders -Body $candidateBody -UseBasicParsing
     $plan = $planResponse.Content | ConvertFrom-Json
     if ($null -eq $plan.candidates -or $plan.candidates.Count -lt 2) {
         throw "Candidate plan smoke check failed."
@@ -67,24 +82,30 @@ try {
         throw "Candidate plan summary is empty."
     }
 
-    $routeUrl = "http://127.0.0.1:$Port/route/shortest?from=hotel_wuyi&to=yuelu_academy&algorithm=astar"
-    $routeResponse = Invoke-WebRequest -Uri $routeUrl -Method Get -UseBasicParsing
+    $sampleEdge = (Get-Content -Raw -Encoding UTF8 "data/edges.json" | ConvertFrom-Json)[0]
+    if ([string]::IsNullOrWhiteSpace($sampleEdge.from) -or [string]::IsNullOrWhiteSpace($sampleEdge.to)) {
+        throw "Route smoke setup failed: data/edges.json does not contain a usable sample edge."
+    }
+    $routeFrom = [System.Uri]::EscapeDataString($sampleEdge.from)
+    $routeTo = [System.Uri]::EscapeDataString($sampleEdge.to)
+    $routeUrl = "http://127.0.0.1:$Port/route/shortest?from=$routeFrom&to=$routeTo&algorithm=astar"
+    $routeResponse = Invoke-WebRequest -Uri $routeUrl -Method Get -Headers $authHeaders -UseBasicParsing
     $route = $routeResponse.Content | ConvertFrom-Json
     if ($route.travel_minutes -le 0 -or $route.algorithm -ne "astar") {
         throw "Route smoke check failed."
     }
-    $routeCachedResponse = Invoke-WebRequest -Uri $routeUrl -Method Get -UseBasicParsing
+    $routeCachedResponse = Invoke-WebRequest -Uri $routeUrl -Method Get -Headers $authHeaders -UseBasicParsing
     if ($routeCachedResponse.Headers["X-Cache"] -ne "HIT") {
         throw "Route cache smoke check failed."
     }
 
-    $jobResponse = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/trip/jobs" -Method Post -ContentType "application/json; charset=utf-8" -Body $candidateBody
+    $jobResponse = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/trip/jobs" -Method Post -ContentType "application/json; charset=utf-8" -Headers $authHeaders -Body $candidateBody
     if ([string]::IsNullOrWhiteSpace($jobResponse.job_id) -or $jobResponse.status -ne "QUEUED") {
         throw "Trip job submit smoke check failed."
     }
     $job = $null
     for ($i = 0; $i -lt 40; $i++) {
-        $job = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/trip/jobs/$($jobResponse.job_id)" -Method Get
+        $job = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/trip/jobs/$($jobResponse.job_id)" -Method Get -Headers $authHeaders
         if ($job.status -eq "SUCCEEDED") {
             break
         }
@@ -100,18 +121,18 @@ try {
         throw "Metrics smoke check failed."
     }
 
-    $history = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/history/jobs?limit=5" -Method Get
+    $history = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/history/jobs?limit=5" -Method Get -Headers $authHeaders
     if ($null -eq $history.data) {
         throw "Job history smoke check failed."
     }
 
     $benchmarkBody = '{"started_at":"2026-05-22T00:00:00Z","duration_seconds":1,"concurrency_steps_json":"[1]","summary_json":"{}","report_path":"docs/performance_report.md"}'
-    $benchmark = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/benchmark/runs" -Method Post -ContentType "application/json; charset=utf-8" -Body $benchmarkBody
+    $benchmark = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/benchmark/runs" -Method Post -ContentType "application/json; charset=utf-8" -Headers $authHeaders -Body $benchmarkBody
     if ($benchmark.status -ne "recorded") {
         throw "Benchmark run record smoke check failed."
     }
 
-    $alternatives = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/trip/alternatives" -Method Post -ContentType "application/json; charset=utf-8" -Body '{"scenario":"下雨","limit":3}'
+    $alternatives = Invoke-RestMethod -Uri "http://127.0.0.1:$Port/trip/alternatives" -Method Post -ContentType "application/json; charset=utf-8" -Headers $authHeaders -Body '{"scenario":"下雨","limit":3}'
     if ($null -eq $alternatives.data) {
         throw "Alternatives smoke check failed."
     }

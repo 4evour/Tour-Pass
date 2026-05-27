@@ -1,5 +1,9 @@
 # Tour Pass 项目说明
 
+## v4.1 CI Smoke Alignment
+
+- Windows GitHub Actions 的 `scripts/api_smoke.ps1` 现在按默认真实数据集校验 `/health`：期望 `500` 个 POI 与 `1937` 条通勤边，并检查 `data_loaded` 与 `travel_provider`；旧 `25` POI / `46` 边只作为 `data/pois_sample.json` 与 `data/edges_sample.json` 的快速样例口径保留。冒烟失败时脚本会输出不匹配字段和压缩后的 health JSON，避免只看到笼统的运行时字段错误。脚本会在独立 SQLite smoke DB 中注册临时用户并携带 Bearer token 调用受保护 API；路线冒烟从当前 `data/edges.json` 读取样本边，避免依赖旧样例 POI id；运行时容量、缓存和 DB 字段由后续 `/metrics` 冒烟覆盖。
+
 ## v4.0 Hybrid AI Architecture
 
 - 新增 `POST /trip/chat` 自然语言行程规划端点：LLM 从用户中文输入中提取结构化 TripRequest，通过 BM25 模糊匹配 POI 名称，调用 Beam Search 生成多候选行程，再由 LLM 生成自然语言回复。这是 LLM + 传统算法 Hybrid 架构的核心端点。
@@ -41,7 +45,7 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务作品集项目
 - HTTP：`cpp-httplib` 单头文件，位于 `third_party/httplib.h`，用于本地演示服务和 LLM client 复用；Windows Makefile 构建在未启用 OpenSSL 时通过系统 WinHTTP 兜底发起 HTTPS LLM 请求。它适合轻量嵌入和面试演示，不按生产级 C++ Web 框架包装。
 - 服务运行时：基于 `cpp-httplib` 线程池、中间件 hook、进程内 LRU/TTL 缓存、JSON 指标、异步规划任务仓库、in-flight 背压和 SQLite 持久化实现单机生产化雏形演示；HTTP 层仅按本地演示服务表达，不包装为生产级 C++ Web 框架经验
 - JSON：`nlohmann/json` 单头文件，位于 `third_party/json.hpp`
-- 数据：本地 JSON 文件，`data/pois.json` 和 `data/edges.json`；当前长沙样例为 `25` 个 POI 节点、`46` 条通勤边
+- 数据：本地 JSON 文件，`data/pois.json` 和 `data/edges.json`；默认长沙真实数据为 `500` 个 POI 节点、`1937` 条通勤边，旧 `25` POI / `46` 边样例保留在 `data/pois_sample.json` 与 `data/edges_sample.json`
 - 测试：轻量 C++ 测试运行器，命令为 `mingw32-make test`；CMake 可选启用 GoogleTest 目标
 - 前端验证：本地 npm 开发依赖 `playwright`；`npm.cmd run verify:ui -- http://127.0.0.1:8080/` 可在服务启动后运行 UI 冒烟验证，脚本会优先使用 Playwright 浏览器，缺失时自动尝试本机 Chrome/Edge
 
