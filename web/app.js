@@ -1330,32 +1330,60 @@ async function shareTrip() {
   } catch (e) { alert("分享失败：" + e.message); }
 }
 
-// Hot recommendations (shown when no results)
+// ---- Itinerary templates ----
+const TEMPLATES = [
+  { city: "长沙", days: 2, icon: "🏙️", name: "长沙文化之旅", theme: "历史文化",
+    msg: "2天长沙行，想去橘子洲和岳麓山，喜欢历史文化", spots: "橘子洲 · 岳麓山 · 湖南省博物馆" },
+  { city: "长沙", days: 2, icon: "🍜", name: "长沙美食探索", theme: "美食",
+    msg: "2天长沙行，主要吃美食，不要太累", spots: "坡子街 · 太平街 · 文和友" },
+  { city: "长沙", days: 3, icon: "🌙", name: "长沙深度游", theme: "文化+美食+夜景",
+    msg: "3天长沙行，想去橘子洲、岳麓山、湖南省博物馆，也要吃地道美食，看夜景", spots: "橘子洲 · 岳麓山 · 博物馆 · 解放西" },
+  { city: "武汉", days: 2, icon: "🌉", name: "武汉经典游", theme: "历史文化+美食",
+    msg: "2天武汉行，想去黄鹤楼和户部巷，尝热干面", spots: "黄鹤楼 · 户部巷 · 东湖" },
+  { city: "大理", days: 3, icon: "🏔️", name: "大理风光游", theme: "自然风光+文化",
+    msg: "3天大理行，想去洱海和古城，喜欢自然风光", spots: "洱海 · 大理古城 · 崇圣寺三塔" },
+  { city: "丽江", days: 3, icon: "🏘️", name: "丽江古城游", theme: "古镇+自然",
+    msg: "3天丽江行，想去古城和玉龙雪山", spots: "丽江古城 · 玉龙雪山 · 束河古镇" },
+  { city: "南京", days: 2, icon: "🏛️", name: "南京历史游", theme: "历史文化",
+    msg: "2天南京行，想去中山陵和夫子庙，喜欢历史文化", spots: "中山陵 · 夫子庙 · 明孝陵" },
+  { city: "苏州", days: 2, icon: "🏡", name: "苏州园林游", theme: "园林+古镇",
+    msg: "2天苏州行，想去拙政园和虎丘，看看江南园林", spots: "拙政园 · 虎丘 · 平江路" },
+];
+
 function renderHotRecommendations() {
   const output = $("planOutput");
   output.className = "plan-output";
   output.innerHTML = `
     <div class="hot-recs">
-      <h3>🔥 热门行程推荐</h3>
-      <div class="hot-rec-cards">
-        <button class="hot-rec-card" type="button" data-msg="2天长沙行，想去橘子洲和岳麓山，喜欢历史文化">
-          <strong>🏙️ 长沙 2日文化之旅</strong>
-          <span>橘子洲 · 岳麓山 · 湖南省博物馆</span>
-        </button>
-        <button class="hot-rec-card" type="button" data-msg="2天长沙行，主要吃美食，不要太累">
-          <strong>🍜 长沙 2日美食探索</strong>
-          <span>坡子街 · 太平街 · 文和友</span>
-        </button>
-        <button class="hot-rec-card" type="button" data-msg="2天武汉行，想去黄鹤楼和户部巷，尝热干面">
-          <strong>🌉 武汉 2日经典游</strong>
-          <span>黄鹤楼 · 户部巷 · 东湖</span>
-        </button>
+      <h3>🔥 热门行程模板</h3>
+      <p class="hot-rec-subtitle">选择一个模板快速开始，或在上方聊天框描述你的旅行计划</p>
+      <div class="hot-rec-grid">
+        ${TEMPLATES.map((t, i) => `
+          <button class="hot-rec-card" type="button" data-index="${i}">
+            <div class="hot-rec-icon">${t.icon}</div>
+            <div class="hot-rec-info">
+              <strong>${t.city} ${t.days}日 · ${t.name}</strong>
+              <span class="hot-rec-theme">${t.theme}</span>
+              <span class="hot-rec-spots">${t.spots}</span>
+            </div>
+          </button>
+        `).join("")}
       </div>
     </div>
   `;
   document.querySelectorAll(".hot-rec-card").forEach(card => {
     card.addEventListener("click", () => {
-      $("chatInput").value = card.dataset.msg;
+      const tpl = TEMPLATES[parseInt(card.dataset.index)];
+      if (!tpl) return;
+      // Auto-fill form
+      $("city").value = tpl.city;
+      $("days").value = tpl.days;
+      // Update city cards
+      document.querySelectorAll(".city-card").forEach(c => {
+        c.classList.toggle("active", c.dataset.city === tpl.city);
+      });
+      // Set chat input and trigger
+      $("chatInput").value = tpl.msg;
       chatPlan();
     });
   });
