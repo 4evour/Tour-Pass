@@ -1467,6 +1467,33 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   border-top: 1px solid var(--line);
 }
 
+/* ---- Guidebook ---- */
+.guidebook-panel {
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+}
+.guidebook-panel summary {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  list-style: none;
+}
+.guidebook-panel summary::-webkit-details-marker { display: none; }
+.guidebook-panel summary small { font-weight: 400; color: var(--muted); font-size: 12px; }
+.guidebook-content {
+  padding: 0 14px 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.guidebook-section h4 { margin: 0 0 4px; font-size: 13px; }
+.guidebook-section p { font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0; }
+@media (max-width: 600px) { .guidebook-content { grid-template-columns: 1fr; } }
+
 /* ---- Overview top stats ---- */
 .overview-top-bar {
   display: flex;
@@ -1689,6 +1716,15 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .stop-reason {
   font-size: 13px;
   color: var(--ink);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.stop-tip {
+  font-size: 12px;
+  color: var(--accent-dark);
+  background: var(--soft);
+  padding: 4px 8px;
+  border-radius: 6px;
   margin-top: 4px;
   line-height: 1.4;
 }

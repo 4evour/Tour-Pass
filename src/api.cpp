@@ -84,9 +84,9 @@ struct ApiContext {
     ResponseCache cache;
     ServiceMetrics metrics;
     TripJobStore jobs;
-    SQLiteStore* store;
+    DataStore* store;
 
-    ApiContext(const PoiGraph& graphRef, TripPlanner& plannerRef, SearchEngine& searchRef, LlmClient& llmRef, const RuntimeConfig& runtimeConfig, SQLiteStore* sqliteStore)
+    ApiContext(const PoiGraph& graphRef, TripPlanner& plannerRef, SearchEngine& searchRef, LlmClient& llmRef, const RuntimeConfig& runtimeConfig, DataStore* sqliteStore)
         : graph(graphRef),
           planner(plannerRef),
           search(searchRef),
@@ -212,7 +212,7 @@ bool serveFromCache(ApiContext& context, httplib::Response& res, const std::stri
     return false;
 }
 
-void recordDbWrite(ApiContext& context, const std::function<void(SQLiteStore&)>& writer) {
+void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& writer) {
     if (!context.store || !context.store->enabled()) return;
     try {
         writer(*context.store);
@@ -263,7 +263,8 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                          || req.path == "/favicon.ico" || req.path == "/admin.html"
                          || req.path == "/admin.js" || req.path == "/profile.html"
                          || req.path.find("/assets/") == 0
-                         || req.path.find("/images/") == 0;
+                         || req.path.find("/images/") == 0
+                         || req.path.find("/city/") == 0;
 
         // API key bypass (for programmatic access)
         const std::string& apiKey = requiredApiKey();
@@ -350,7 +351,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
         res.set_header("X-Response-Time-Ms", std::to_string(elapsed.count()));
         if (req.method == "POST" && req.path == "/trip/plan") {
             std::string cacheStatus = res.has_header("X-Cache") ? res.get_header_value("X-Cache") : "NONE";
-            recordDbWrite(context, [&](SQLiteStore& store) {
+            recordDbWrite(context, [&](DataStore& store) {
                 store.recordPlanningRequest(meta.id, "POST /trip/plan", cacheStatus, req.body, res.status, elapsed.count());
             });
             // Track query usage on success
@@ -421,11 +422,11 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
     return runServer(graph, planner, search, llm, port, config, nullptr);
 }
 
-int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, int port, const RuntimeConfig& config, SQLiteStore* store) {
+int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, int port, const RuntimeConfig& config, DataStore* store) {
     return runServer(graph, planner, search, llm, "127.0.0.1", port, config, store);
 }
 
-int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, const std::string& host, int port, const RuntimeConfig& config, SQLiteStore* store) {
+int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, const std::string& host, int port, const RuntimeConfig& config, DataStore* store) {
     ApiContext context(graph, planner, search, llm, config, store);
     httplib::Server server;
     server.new_task_queue = [workers = config.workerCount, maxQueue = config.maxQueuedRequests]() {
@@ -491,12 +492,12 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             std::string id = makeRequestId();
             context.jobs.submitWithId(id, tripRequest, [&, id, requestBody = req.body](const TripRequest& request) {
                 nlohmann::json result = planJson(context, request);
-                recordDbWrite(context, [&](SQLiteStore& store) {
+                recordDbWrite(context, [&](DataStore& store) {
                     store.recordTripJob(id, "SUCCEEDED", requestBody, result.dump(), "", 0, 0);
                 });
                 return result;
             });
-            recordDbWrite(context, [&](SQLiteStore& store) {
+            recordDbWrite(context, [&](DataStore& store) {
                 store.recordTripJob(id, "QUEUED", req.body, "", "", 0, 0);
             });
             setJson(res, {
@@ -527,7 +528,7 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
         body["queue_wait_ms"] = snapshot.queueWaitMs;
         body["execution_ms"] = snapshot.executionMs;
         if (snapshot.status == "SUCCEEDED" || snapshot.status == "FAILED" || snapshot.status == "CANCELLED") {
-            recordDbWrite(context, [&](SQLiteStore& store) {
+            recordDbWrite(context, [&](DataStore& store) {
                 store.recordTripJob(snapshot.id,
                                     snapshot.status,
                                     "",
@@ -546,7 +547,7 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             setJson(res, errorJson("JOB_NOT_FOUND", "异步任务不存在或正在运行", {{"job_id", id}}), 404);
             return;
         }
-        recordDbWrite(context, [&](SQLiteStore& store) {
+        recordDbWrite(context, [&](DataStore& store) {
             store.recordTripJob(id, "CANCELLED", "", "", "", 0, 0);
         });
         setJson(res, {{"job_id", id}, {"status", "CANCELLED"}});
@@ -672,6 +673,23 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
         nlohmann::json result = {{"data", data}};
         context.cache.put(key, result);
         setJson(res, result);
+    });
+
+    // City guidebook (from Wikivoyage data)
+    server.Get(R"(/city/([a-z]+)/guidebook)", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string city = req.matches[1];
+        std::string path = "data/" + city + "/guidebook.json";
+        std::ifstream file(path);
+        if (!file.is_open()) {
+            setJson(res, errorJson("NOT_FOUND", "暂无该城市攻略", {{"city", city}}), 404);
+            return;
+        }
+        std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+        try {
+            setJson(res, nlohmann::json::parse(content));
+        } catch (...) {
+            setJson(res, errorJson("PARSE_ERROR", "攻略数据格式错误"), 500);
+        }
     });
 
     server.Post("/itinerary/explain", [&](const httplib::Request& req, httplib::Response& res) {

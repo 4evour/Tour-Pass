@@ -29,6 +29,8 @@ struct Poi {
     int priceLevel = 1;
     std::string description;
     std::string area;
+    std::string mealType = "main";  // main | snack | drink (only for Restaurant type)
+    std::string recommendation;     // user-friendly tip, e.g. "傍晚去橘子洲看日落"
 };
 
 struct Edge {
@@ -74,6 +76,8 @@ struct Stop {
     std::string poiId;
     std::string poiName;
     std::string poiType;
+    std::string mealType;
+    std::string recommendation;
     std::string area;
     double lat = 0.0;
     double lng = 0.0;

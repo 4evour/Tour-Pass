@@ -131,6 +131,8 @@ nlohmann::json stopToJson(const Stop& stop) {
         {"poi_id", stop.poiId},
         {"poi_name", stop.poiName},
         {"poi_type", stop.poiType},
+        {"meal_type", stop.mealType},
+        {"recommendation", stop.recommendation},
         {"area", stop.area},
         {"lat", stop.lat},
         {"lng", stop.lng},

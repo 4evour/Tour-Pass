@@ -518,6 +518,8 @@ function renderPlan() {
     const bar = $("weatherBar");
     if (bar && weather) bar.innerHTML = renderWeatherBar(weather, candidate.days || []);
   });
+  // Fetch guidebook
+  loadGuidebook(city);
 }
 
 // ---- Drag & Drop itinerary editing ----
@@ -665,6 +667,7 @@ function renderOverview(candidate) {
 
   return `
     <div id="weatherBar"></div>
+    <div id="guidebookSection"></div>
     <div class="overview-top-bar">
       <div class="overview-stat"><strong>${days.length}</strong><span>天</span></div>
       <div class="overview-stat"><strong>${totalStops}</strong><span>站</span></div>
@@ -974,6 +977,7 @@ function renderStop(stop) {
           </div>
           <div class="stop-meta">${escapeHtml(stop.area)}${hasRisk ? ` · ⚠️ ${escapeHtml(timeWindowLabel(stop.time_window_status))}` : ""}</div>
           <div class="stop-reason">${escapeHtml(stop.reason) || ""}</div>
+          ${stop.recommendation ? `<div class="stop-tip">💡 ${escapeHtml(stop.recommendation)}</div>` : ""}
         </div>
       </div>
     </article>
@@ -1450,6 +1454,46 @@ async function fetchWeather(city) {
       rainProb: daily.precipitation_probability_max?.[i] || 0,
     }));
   } catch { return null; }
+}
+
+// ---- City guidebook ----
+const CITY_KEY_MAP = { "长沙": "changsha", "武汉": "wuhan", "大理": "dali", "丽江": "lijiang", "南京": "nanjing", "苏州": "suzhou",
+  "changsha": "changsha", "wuhan": "wuhan", "dali": "dali", "lijiang": "lijiang", "nanjing": "nanjing", "suzhou": "suzhou" };
+
+async function loadGuidebook(city) {
+  const key = CITY_KEY_MAP[city] || city?.toLowerCase();
+  if (!key) return;
+  try {
+    const data = await fetch(`/city/${key}/guidebook`).then(r => r.ok ? r.json() : null);
+    if (!data) return;
+    const el = $("guidebookSection");
+    if (el) el.innerHTML = renderGuidebook(data);
+  } catch {}
+}
+
+function renderGuidebook(data) {
+  const sections = data.sections || {};
+  const items = [
+    { key: "overview", icon: "📖", title: "城市简介" },
+    { key: "activities", icon: "🎯", title: "推荐活动" },
+    { key: "nightlife", icon: "🌙", title: "夜生活" },
+    { key: "accommodation", icon: "🏨", title: "住宿建议" },
+    { key: "safety", icon: "🛡️", title: "安全提示" },
+  ].filter(s => sections[s.key]);
+  if (!items.length) return "";
+  return `
+    <details class="guidebook-panel">
+      <summary>📘 ${data.city || ""} 旅行攻略 <small>（来源 Wikivoyage）</small></summary>
+      <div class="guidebook-content">
+        ${items.map(s => `
+          <div class="guidebook-section">
+            <h4>${s.icon} ${s.title}</h4>
+            <p>${escapeHtml(sections[s.key]).substring(0, 300)}${sections[s.key].length > 300 ? "..." : ""}</p>
+          </div>
+        `).join("")}
+      </div>
+    </details>
+  `;
 }
 
 function renderWeatherBar(weather, days) {

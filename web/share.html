@@ -32,6 +32,7 @@
     .stop-time{display:inline-block;font-size:12px;color:var(--muted);background:var(--soft);padding:2px 8px;border-radius:999px;margin-left:8px;}
     .stop-meta{font-size:12px;color:var(--muted);margin-top:2px;}
     .stop-reason{font-size:13px;margin-top:4px;line-height:1.4;}
+    .stop-tip{font-size:12px;color:var(--accent-dark);background:var(--soft);padding:4px 8px;border-radius:6px;margin-top:4px;line-height:1.4;}
     .cost-bar{background:var(--soft);border-radius:10px;padding:12px 20px;text-align:center;font-size:14px;margin-top:20px;}
     .cost-bar strong{color:var(--accent);}
     .share-footer{text-align:center;padding:30px 0;color:var(--muted);font-size:13px;}
@@ -102,6 +103,7 @@
                 <div><span class="stop-name">${esc(stop.poi_name)}</span><span class="stop-time">${esc(stop.start_time||"")}-${esc(stop.end_time||"")}</span></div>
                 <div class="stop-meta">${esc(stop.area||"")}</div>
                 <div class="stop-reason">${esc(stop.reason||"")}</div>
+                ${stop.recommendation?`<div class="stop-tip">💡 ${esc(stop.recommendation)}</div>`:""}
               </div>
             </div>
           </div>`;

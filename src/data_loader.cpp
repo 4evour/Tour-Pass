@@ -73,6 +73,8 @@ std::vector<Poi> loadPois(const std::string& path) {
         poi.priceLevel = static_cast<int>(requiredNumber(item, "price_level"));
         poi.description = requiredString(item, "description");
         poi.area = requiredString(item, "area");
+        poi.mealType = item.value("meal_type", "main");
+        poi.recommendation = item.value("recommendation", "");
 
         if (!ids.insert(poi.id).second) {
             throw std::runtime_error("duplicate poi id: " + poi.id);

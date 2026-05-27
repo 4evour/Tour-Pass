@@ -146,26 +146,36 @@ std::string strategyDiversityTag(const std::string& strategy) {
 
 int mealWindowStart(const std::string& slot) {
     if (slot == "午餐") return 11 * 60 + 30;
+    if (slot == "下午茶") return 14 * 60 + 30;
     if (slot == "晚餐") return 17 * 60 + 30;
     return -1;
 }
 
 int mealWindowEnd(const std::string& slot) {
     if (slot == "午餐") return 13 * 60 + 30;
+    if (slot == "下午茶") return 16 * 60 + 30;
     if (slot == "晚餐") return 19 * 60 + 30;
     return -1;
 }
 
 bool isMealSlot(const std::string& slot) {
-    return slot == "午餐" || slot == "晚餐";
+    return slot == "午餐" || slot == "晚餐" || slot == "下午茶";
 }
 
 bool slotAcceptsPoi(const std::string& slot, const Poi& poi) {
     if (slot == "午餐" || slot == "晚餐") {
-        return poi.type == PoiType::Restaurant;
+        // Lunch/dinner only accept main restaurants (not drinks/snacks)
+        return poi.type == PoiType::Restaurant && poi.mealType == "main";
+    }
+    if (slot == "下午茶") {
+        return poi.type == PoiType::Restaurant && poi.mealType == "drink";
     }
     if (slot == "晚上") {
         return poi.type == PoiType::Nightlife;
+    }
+    // Activity slots accept attractions + nightlife + drink/snack restaurants
+    if (poi.type == PoiType::Restaurant && (poi.mealType == "drink" || poi.mealType == "snack")) {
+        return true;
     }
     return poi.type == PoiType::Attraction || poi.type == PoiType::Nightlife;
 }
@@ -484,6 +494,8 @@ const Poi* TripPlanner::chooseRestaurant(const TripRequest& request, const std::
     double bestScore = -100000.0;
     for (const auto& poi : graph_.pois()) {
         if (poi.type != PoiType::Restaurant || used.count(poi.id) > 0) continue;
+        // For meal slots, only pick main restaurants (not drinks/snacks)
+        if (poi.mealType != "main") continue;
         if (isHardAvoidedPoi(request, poi)) continue;
         int travel = graph_.shortestMinutes(currentPoiId, poi.id);
         if (travel == std::numeric_limits<int>::max()) continue;
@@ -571,6 +583,8 @@ Stop TripPlanner::makeStop(const std::string& slot, const Poi& poi, int startMin
     stop.poiId = poi.id;
     stop.poiName = poi.name;
     stop.poiType = poiTypeToString(poi.type);
+    stop.mealType = poi.mealType;
+    stop.recommendation = poi.recommendation;
     stop.area = poi.area;
     stop.lat = poi.lat;
     stop.lng = poi.lng;
@@ -661,7 +675,7 @@ void TripPlanner::validateDayTimeWindows(const TripRequest& request, DayPlan& da
 DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, const std::string& hotelId, std::set<std::string>& used) const {
     const int beamWidth = plannerBeamWidth();
     const int breakMinutes = paceExtraBreakMinutes(request.pace);
-    const std::vector<std::string> slots = {"上午", "午餐", "下午", "晚餐", "晚上"};
+    const std::vector<std::string> slots = {"上午", "午餐", "下午", "下午茶", "晚餐", "晚上"};
 
     BeamState initial;
     initial.used = used;
@@ -680,6 +694,7 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
         for (const auto& state : beam) {
             int slotStart = state.currentTime;
             if (slot == "午餐" && slotStart < 11 * 60 + 30) slotStart = 11 * 60 + 30;
+            if (slot == "下午茶" && slotStart < 14 * 60 + 30) slotStart = 14 * 60 + 30;
             if (slot == "晚餐" && slotStart < 17 * 60 + 30) slotStart = 17 * 60 + 30;
 
             for (const Poi* poi : rankedPoisForSlot(request, slot, state.currentId, slotStart, state.used)) {
@@ -778,9 +793,9 @@ void TripPlanner::optimizeDayOrder(const std::string& startId, DayPlan& day) con
     while (improved) {
         improved = false;
         for (size_t i = 0; i < candidateStops.size(); ++i) {
-            if (candidateStops[i].slot == "午餐" || candidateStops[i].slot == "晚餐") continue;
+            if (candidateStops[i].slot == "午餐" || candidateStops[i].slot == "晚餐" || candidateStops[i].slot == "下午茶") continue;
             for (size_t j = i + 1; j < candidateStops.size(); ++j) {
-                if (candidateStops[j].slot == "午餐" || candidateStops[j].slot == "晚餐") continue;
+                if (candidateStops[j].slot == "午餐" || candidateStops[j].slot == "晚餐" || candidateStops[j].slot == "下午茶") continue;
                 std::swap(candidateStops[i], candidateStops[j]);
                 int candidateTravel = routeTravelMinutes(startId, candidateStops);
                 if (candidateTravel < day.optimizedTravelMinutes && routeOrderFeasible(startId, candidateStops)) {
@@ -804,6 +819,7 @@ void TripPlanner::optimizeDayOrder(const std::string& startId, DayPlan& day) con
 void TripPlanner::explainDayConstraints(const TripRequest& request, const std::set<std::string>& used, DayPlan& day) const {
     int lunchCount = 0;
     int dinnerCount = 0;
+    int teaCount = 0;
     for (const auto& stop : day.stops) {
         if (stop.openTimeMatched) {
             day.constraintExplanations.push_back(stop.poiName + " 命中开放时间约束。");
@@ -812,11 +828,13 @@ void TripPlanner::explainDayConstraints(const TripRequest& request, const std::s
         }
         if (stop.slot == "午餐") ++lunchCount;
         if (stop.slot == "晚餐") ++dinnerCount;
+        if (stop.slot == "下午茶") ++teaCount;
         if (containsText(request.mustVisit, stop.poiName) || containsText(request.mustVisit, stop.poiId)) {
             day.constraintExplanations.push_back(stop.poiName + " 属于必去点，已优先安排。");
         }
     }
     if (lunchCount > 0) day.constraintExplanations.push_back("午餐已按 11:30-13:30 时间窗插入。");
+    if (teaCount > 0) day.constraintExplanations.push_back("下午茶已按 14:30-16:30 时间窗插入。");
     if (dinnerCount > 0) day.constraintExplanations.push_back("晚餐已按 17:30-19:30 时间窗插入。");
     day.constraintExplanations.push_back("算法约束：当日通勤成本来自本地 POI 图最短路计算。");
 
