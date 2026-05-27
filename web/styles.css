@@ -1367,35 +1367,70 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   margin-top: 16px;
 }
 
-/* ---- Overview map ---- */
+/* ---- Overview top stats ---- */
+.overview-top-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.overview-stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 18px;
+  text-align: center;
+  flex: 1;
+  min-width: 80px;
+}
+.overview-stat strong { display: block; font-size: 22px; color: var(--ink); }
+.overview-stat span { font-size: 12px; color: var(--muted); }
+.overview-stat.accent strong { color: var(--accent); }
+
+/* ---- Overview dual layout ---- */
+.overview-dual {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.overview-map-col { min-height: 0; }
 .overview-map-wrap {
-  height: 350px;
+  height: 400px;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--line);
-  margin-bottom: 16px;
 }
-.overview-map-wrap #map {
-  height: 100%;
-  width: 100%;
-}
-.numbered-marker {
-  background: none !important;
-  border: none !important;
-}
-.overview-summary {
-  font-size: 14px;
+.overview-map-wrap #map { height: 100%; width: 100%; }
+.numbered-marker { background: none !important; border: none !important; }
+.map-legend {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 12px;
   color: var(--muted);
-  margin-bottom: 16px;
-  line-height: 1.6;
 }
+.map-legend span { display: flex; align-items: center; gap: 4px; }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+.overview-cards-col { overflow-y: auto; max-height: 450px; }
+.overview-highlights {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  padding: 10px;
+  background: var(--soft);
+  border-radius: 8px;
+}
+.overview-highlights p { margin: 0 0 4px; }
+.overview-highlights strong { color: var(--accent); }
 
 /* ---- Day cards (overview) ---- */
 .day-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 12px;
-  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 .day-card {
   background: var(--surface);
@@ -1610,6 +1645,51 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 }
 .day-block h2 { margin: 0 0 8px; }
 .day-meta { font-size: 13px; color: var(--muted); line-height: 1.5; margin: 0 0 12px; }
+
+/* ---- Overview actions ---- */
+.overview-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.primary-action.small, .secondary-action.small {
+  padding: 8px 16px;
+  font-size: 13px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.primary-action.small { background: var(--accent); color: #fff; border-color: var(--accent); }
+.primary-action.small:hover { background: var(--accent-dark); }
+.secondary-action.small { background: var(--surface); color: var(--ink); }
+.secondary-action.small:hover { background: var(--soft); }
+
+/* ---- Enhanced candidate tabs ---- */
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+.tab {
+  padding: 6px 14px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.tab.active { border-color: var(--accent); background: var(--soft); color: var(--accent-dark); font-weight: 600; }
+.tab:hover { border-color: var(--accent); }
+
+/* ---- Query counter warning ---- */
+.query-counter.warning {
+  background: #fce4e4;
+  color: #c0392b;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .overview-dual { grid-template-columns: 1fr; }
+  .overview-map-wrap { height: 280px; }
+}
 
 /* ---- Feedback FAB ---- */
 .feedback-fab {

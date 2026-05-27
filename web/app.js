@@ -499,9 +499,11 @@ function renderPlan() {
     </section>
   `;
   bindComparisonCards();
-  // Map is now inside overview, render it there
-  $("mapContainer").hidden = true; // hide old map container
+  $("mapContainer").hidden = true;
   renderOverviewMap(candidate);
+  // Bind save/share buttons
+  $("saveTripBtn")?.addEventListener("click", saveTrip);
+  $("shareTripBtn")?.addEventListener("click", shareTrip);
 }
 
 function transportIcon(minutes) {
@@ -534,41 +536,63 @@ function estimateDayCost(stops) {
 
 function renderOverview(candidate) {
   const days = candidate.days || [];
+  const totalLo = days.reduce((s, d) => s + estimateDayCost(d.stops || []).lo, 0);
+  const totalHi = days.reduce((s, d) => s + estimateDayCost(d.stops || []).hi, 0);
+  const totalStops = days.reduce((s, d) => s + (d.stops || []).length, 0);
+  const totalTravel = days.reduce((s, d) => s + (d.total_travel_minutes || 0), 0);
+
+  // Build multi-day summary
+  const summaries = days.map(d => d.summary).filter(Boolean);
+  const highlights = summaries.length > 1
+    ? summaries.map((s, i) => `<p><strong>Day ${i + 1}：</strong>${escapeHtml(s.substring(0, 80))}${s.length > 80 ? "..." : ""}</p>`).join("")
+    : `<p>${escapeHtml(summaries[0] || "")}</p>`;
+
   return `
-    <div id="overviewMapWrap" class="overview-map-wrap">
-      <div id="map"></div>
+    <div class="overview-top-bar">
+      <div class="overview-stat"><strong>${days.length}</strong><span>天</span></div>
+      <div class="overview-stat"><strong>${totalStops}</strong><span>站</span></div>
+      <div class="overview-stat"><strong>${totalTravel}</strong><span>分钟通勤</span></div>
+      <div class="overview-stat accent"><strong>¥${totalLo}-${totalHi}</strong><span>预估花费</span></div>
     </div>
-    <div class="overview-summary">
-      <p>${escapeHtml(days[0]?.summary) || ""}</p>
-    </div>
-    <div class="day-cards">
-      ${days.map((day, i) => {
-        const stops = day.stops || [];
-        const cost = estimateDayCost(stops);
-        return `
-        <div class="day-card">
-          <div class="day-card-header">
-            <strong>Day ${day.day}</strong>
-            <span class="day-card-stats">
-              ${stops.length} 站 · ${day.total_travel_minutes || 0}min 通勤 · ≈¥${cost.lo}-${cost.hi}
-            </span>
-          </div>
-          <div class="day-card-timeline">
-            ${stops.map((stop, j) => `
-              <div class="day-card-stop">
-                <span class="stop-icon">${typeIcon(stop.poi_type)}</span>
-                <span class="stop-time">${stop.start_time || ""}</span>
-                <span class="stop-name">${escapeHtml(stop.poi_name)}</span>
-                ${j > 0 && stop.travel_minutes_from_previous ? `<span class="stop-transport">${transportIcon(stop.travel_minutes_from_previous)} ${stop.travel_minutes_from_previous}min</span>` : ""}
+    <div class="overview-dual">
+      <div class="overview-map-col">
+        <div id="overviewMapWrap" class="overview-map-wrap">
+          <div id="map"></div>
+        </div>
+        <div class="map-legend">
+          ${days.map((d, i) => `<span><span class="legend-dot" style="background:${DAY_COLORS[i % DAY_COLORS.length]}"></span>Day ${d.day}</span>`).join("")}
+        </div>
+      </div>
+      <div class="overview-cards-col">
+        <div class="overview-highlights">${highlights}</div>
+        <div class="day-cards">
+          ${days.map((day) => {
+            const stops = day.stops || [];
+            const cost = estimateDayCost(stops);
+            return `
+            <div class="day-card">
+              <div class="day-card-header">
+                <strong>Day ${day.day}</strong>
+                <span class="day-card-stats">${stops.length} 站 · ≈¥${cost.lo}-${cost.hi}</span>
               </div>
-            `).join("")}
-          </div>
-        </div>`;
-      }).join("")}
+              <div class="day-card-timeline">
+                ${stops.map((stop, j) => `
+                  <div class="day-card-stop">
+                    <span class="stop-icon">${typeIcon(stop.poi_type)}</span>
+                    <span class="stop-time">${stop.start_time || ""}</span>
+                    <span class="stop-name">${escapeHtml(stop.poi_name)}</span>
+                    ${j > 0 && stop.travel_minutes_from_previous ? `<span class="stop-transport">${transportIcon(stop.travel_minutes_from_previous)} ${stop.travel_minutes_from_previous}min</span>` : ""}
+                  </div>
+                `).join("")}
+              </div>
+            </div>`;
+          }).join("")}
+        </div>
+      </div>
     </div>
-    <div class="total-cost-bar">
-      全程预估花费：<strong>¥${days.reduce((s, d) => s + estimateDayCost(d.stops || []).lo, 0)}-${days.reduce((s, d) => s + estimateDayCost(d.stops || []).hi, 0)}</strong>
-      <span>（含门票、餐饮、交通估算）</span>
+    <div class="overview-actions">
+      <button class="primary-action small" id="saveTripBtn" type="button">💾 保存行程</button>
+      <button class="secondary-action small" id="shareTripBtn" type="button">🔗 分享</button>
     </div>
   `;
 }
@@ -1129,6 +1153,47 @@ $("hotelSearch")?.addEventListener("input", (e) => {
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".hotel-picker-wrap")) $("hotelDropdown").hidden = true;
 });
+
+// Save / Share trip
+async function saveTrip() {
+  const candidate = state.candidates[state.selectedIndex];
+  if (!candidate) return;
+  try {
+    await api("/trips/save", {
+      method: "POST",
+      body: JSON.stringify({
+        title: `${candidate.variant_name || "行程"} ${candidate.days?.length || 0}天`,
+        request: state.lastPayload,
+        response: candidate,
+      }),
+    });
+    alert("行程已保存！");
+  } catch (e) { alert("保存失败：" + e.message); }
+}
+async function shareTrip() {
+  const candidate = state.candidates[state.selectedIndex];
+  if (!candidate) return;
+  try {
+    // Save first, then share
+    await api("/trips/save", {
+      method: "POST",
+      body: JSON.stringify({
+        title: `${candidate.variant_name || "行程"} ${candidate.days?.length || 0}天`,
+        request: state.lastPayload,
+        response: candidate,
+      }),
+    });
+    // Get the latest trip and share it
+    const trips = await api("/trips/list");
+    if (trips.data && trips.data.length > 0) {
+      const tripId = trips.data[0].id;
+      const shareData = await api(`/trips/${tripId}/share`, { method: "POST" });
+      const url = location.origin + shareData.share_url;
+      await navigator.clipboard.writeText(url);
+      alert("分享链接已复制到剪贴板：\n" + url);
+    }
+  } catch (e) { alert("分享失败：" + e.message); }
+}
 
 // Hot recommendations (shown when no results)
 function renderHotRecommendations() {
