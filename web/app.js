@@ -21,6 +21,49 @@ function leafletReady() {
   return typeof window.L !== "undefined";
 }
 
+function renderOverviewMap(candidate) {
+  const mapDiv = $("map");
+  if (!leafletReady() || !mapDiv || !candidate?.days) return;
+  const allCoords = [];
+  for (const day of candidate.days) {
+    for (const stop of day.stops || []) {
+      if (stop.lat && stop.lng) allCoords.push([stop.lat, stop.lng]);
+    }
+  }
+  if (allCoords.length === 0) return;
+  if (planMap) { planMap.remove(); planMap = null; }
+  planMap = L.map(mapDiv);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; OSM', maxZoom: 18,
+  }).addTo(planMap);
+  const bounds = [];
+  let stopIndex = 0;
+  candidate.days.forEach((day, dayIndex) => {
+    const color = DAY_COLORS[dayIndex % DAY_COLORS.length];
+    const dayCoords = [];
+    for (const stop of day.stops || []) {
+      if (!stop.lat || !stop.lng) continue;
+      stopIndex++;
+      const coord = [stop.lat, stop.lng];
+      bounds.push(coord);
+      dayCoords.push(coord);
+      // Numbered marker
+      const icon = L.divIcon({
+        className: "numbered-marker",
+        html: `<div style="background:${color};color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);">${stopIndex}</div>`,
+        iconSize: [24, 24],
+        iconAnchor: [12, 12],
+      });
+      L.marker(coord, { icon }).addTo(planMap)
+        .bindPopup(`<strong>${escapeHtml(stop.poi_name)}</strong><br>${typeIcon(stop.poi_type)} ${stop.start_time}-${stop.end_time}<br>${escapeHtml(stop.area)}`);
+    }
+    if (dayCoords.length > 1) {
+      L.polyline(dayCoords, { color, weight: 3, opacity: 0.7, dashArray: dayIndex > 0 ? "6 4" : null }).addTo(planMap);
+    }
+  });
+  if (bounds.length > 0) planMap.fitBounds(bounds, { padding: [30, 30] });
+}
+
 function renderMap(candidate) {
   const container = $("mapContainer");
   const mapDiv = $("map");
@@ -446,66 +489,86 @@ function renderPlan() {
     <section class="stage-section overview-section" data-plan-section="overview">
       ${renderOverview(candidate)}
     </section>
-    <section class="stage-section" data-plan-section="compare">
-      ${renderComparisonTable()}
-    </section>
     <section class="stage-section" data-plan-section="itinerary">
-      ${renderRouteVisual(candidate)}
       ${candidate.days.map(renderDay).join("")}
     </section>
     <section class="stage-section" data-plan-section="debug">
+      ${renderComparisonTable()}
       ${renderAlgorithmDebug(candidate)}
     </section>
   `;
   bindComparisonCards();
-  renderMap(candidate);
+  // Map is now inside overview, render it there
+  $("mapContainer").hidden = true; // hide old map container
+  renderOverviewMap(candidate);
+}
+
+function transportIcon(minutes) {
+  if (minutes <= 0) return "";
+  if (minutes <= 15) return "🚶";
+  if (minutes <= 30) return "🚌";
+  return "🚕";
+}
+
+function estimateCost(priceLevel) {
+  const map = { 1: [30, 80], 2: [60, 150], 3: [120, 300] };
+  const [lo, hi] = map[priceLevel] || [30, 80];
+  return { lo, hi };
+}
+
+function estimateDayCost(stops) {
+  let totalLo = 0, totalHi = 0;
+  for (const stop of stops) {
+    const type = stop.poi_type || "";
+    if (type === "attraction") { totalLo += 20; totalHi += 80; }
+    else if (type === "restaurant") { totalLo += 30; totalHi += 100; }
+    else if (type === "nightlife") { totalLo += 50; totalHi += 150; }
+  }
+  // Add transport estimate
+  const travelMin = stops.reduce((s, st) => s + (st.travel_minutes_from_previous || 0), 0);
+  totalLo += Math.round(travelMin * 0.5);
+  totalHi += Math.round(travelMin * 2);
+  return { lo: totalLo, hi: totalHi };
 }
 
 function renderOverview(candidate) {
-  const firstDay = candidate.days?.[0] || {};
-  const firstStops = (firstDay.stops || []).slice(0, 4);
-  const comparison = candidate.comparison || {};
+  const days = candidate.days || [];
   return `
-    <div class="overview-grid">
-      <section class="overview-hero" aria-label="推荐方案概览">
-        <div class="panel-heading">
-          <h2>${escapeHtml(candidate.variant_name) || "推荐方案"}</h2>
-          <span>${escapeHtml(strategyLabel(candidate.strategy))}策略 · Pareto L${comparison.pareto_rank || 1}</span>
-        </div>
-        <p>${escapeHtml(firstDay.summary) || "生成后这里会展示第一天的核心路线摘要。"}</p>
-        <div class="plan-kpis" aria-label="方案关键指标">
-          <div><strong>${candidate.total_score}</strong><span>综合评分</span></div>
-          <div><strong>${candidate.days.length}</strong><span>行程天数</span></div>
-          <div><strong>${totalTravel(candidate)}</strong><span>总通勤分钟</span></div>
-        </div>
-      </section>
-      <section class="overview-list" aria-label="讲解重点">
-        <div class="panel-heading">
-          <h2>演示重点</h2>
-          <span>先讲价值，再展开细节</span>
-        </div>
-        <div class="talk-track">
-          <span>候选方案不是简单排序，会解释评分、通勤、风险和必去覆盖之间的取舍。</span>
-          <span>路线明细单独展示，避免时间轴和站点列表挤在首页。</span>
-          <span>Beam Search、Pareto、BM25 等算法证据放到算法解释页，需要时再展开。</span>
-        </div>
-      </section>
+    <div id="overviewMapWrap" class="overview-map-wrap">
+      <div id="map"></div>
     </div>
-    <section class="overview-stops" aria-label="首日路线预览">
-      <div class="panel-heading">
-        <h2>首日路线预览</h2>
-        <span>${firstDay.total_travel_minutes || 0} 分钟通勤</span>
-      </div>
-      <div class="route-preview">
-        ${firstStops.length ? firstStops.map((stop, index) => `
-          <article>
-            <span>${index + 1}</span>
-            <strong>${escapeHtml(stop.poi_name)}</strong>
-            <small>${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)} · ${escapeHtml(stop.area)}</small>
-          </article>
-        `).join("") : `<article><span>0</span><strong>暂无站点</strong><small>请先生成行程</small></article>`}
-      </div>
-    </section>
+    <div class="overview-summary">
+      <p>${escapeHtml(days[0]?.summary) || ""}</p>
+    </div>
+    <div class="day-cards">
+      ${days.map((day, i) => {
+        const stops = day.stops || [];
+        const cost = estimateDayCost(stops);
+        return `
+        <div class="day-card">
+          <div class="day-card-header">
+            <strong>Day ${day.day}</strong>
+            <span class="day-card-stats">
+              ${stops.length} 站 · ${day.total_travel_minutes || 0}min 通勤 · ≈¥${cost.lo}-${cost.hi}
+            </span>
+          </div>
+          <div class="day-card-timeline">
+            ${stops.map((stop, j) => `
+              <div class="day-card-stop">
+                <span class="stop-icon">${typeIcon(stop.poi_type)}</span>
+                <span class="stop-time">${stop.start_time || ""}</span>
+                <span class="stop-name">${escapeHtml(stop.poi_name)}</span>
+                ${j > 0 && stop.travel_minutes_from_previous ? `<span class="stop-transport">${transportIcon(stop.travel_minutes_from_previous)} ${stop.travel_minutes_from_previous}min</span>` : ""}
+              </div>
+            `).join("")}
+          </div>
+        </div>`;
+      }).join("")}
+    </div>
+    <div class="total-cost-bar">
+      全程预估花费：<strong>¥${days.reduce((s, d) => s + estimateDayCost(d.stops || []).lo, 0)}-${days.reduce((s, d) => s + estimateDayCost(d.stops || []).hi, 0)}</strong>
+      <span>（含门票、餐饮、交通估算）</span>
+    </div>
   `;
 }
 
@@ -692,59 +755,71 @@ function bindComparisonCards() {
 }
 
 function renderDay(day) {
+  const cost = estimateDayCost(day.stops || []);
   return `
     <section class="day-block">
-      <h2>第 ${day.day} 天</h2>
+      <div class="day-header">
+        <h2>第 ${day.day} 天</h2>
+        <div class="day-stats">
+          <span>🚶 ${day.total_travel_minutes || 0}min 通勤</span>
+          <span>⏱️ ${day.total_visit_minutes || 0}min 游玩</span>
+          <span>💰 ≈¥${cost.lo}-${cost.hi}</span>
+          <span class="${day.time_window_feasible ? "ok-chip" : "risk-chip"}">${day.time_window_feasible ? "✅ 可行" : "⚠️ 注意"}</span>
+        </div>
+      </div>
       <p class="day-meta">${escapeHtml(day.summary)}</p>
-      <div class="day-metrics" aria-label="当日指标">
-        <span>通勤 ${day.total_travel_minutes} 分钟</span>
-        <span>游玩 ${day.total_visit_minutes} 分钟</span>
-        <span>兴趣分 ${Math.round(day.interest_score || 0)}</span>
-        <span class="${day.time_window_feasible ? "ok-chip" : "risk-chip"}">${day.time_window_feasible ? "时间窗可行" : "时间窗风险"}</span>
-      </div>
-      <div class="insight-strip">
-        <strong>${escapeHtml(day.optimization_summary) || "暂无优化摘要"}</strong>
-        <span>优化前 ${day.original_travel_minutes || 0} 分钟 · 优化后 ${day.optimized_travel_minutes || day.total_travel_minutes} 分钟</span>
-      </div>
-      <div class="explain-grid">
-        <div>
-          <h3>约束命中</h3>
-          <div class="explain-list">
-            ${(day.constraint_explanations || []).slice(0, 5).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
-          </div>
-        </div>
-        <div>
-          <h3>时间窗复核</h3>
-          <div class="explain-list ${day.time_window_feasible ? "" : "warn-list"}">
-            ${(day.time_window_diagnostics || []).slice(0, 5).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
-          </div>
-        </div>
-        <div>
-          <h3>未安排说明</h3>
-          <div class="explain-list warn-list">
-            ${(day.unscheduled_reasons || []).slice(0, 3).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
-          </div>
-        </div>
-      </div>
       <div class="stop-list">
         ${day.stops.map(renderStop).join("")}
       </div>
+      <!-- Technical details (collapsed) -->
+      <details class="day-tech-details">
+        <summary>🔧 算法详情</summary>
+        <div class="insight-strip">
+          <strong>${escapeHtml(day.optimization_summary) || "暂无优化摘要"}</strong>
+          <span>优化前 ${day.original_travel_minutes || 0} 分钟 · 优化后 ${day.optimized_travel_minutes || day.total_travel_minutes} 分钟</span>
+        </div>
+        <div class="explain-grid">
+          <div>
+            <h3>约束命中</h3>
+            <div class="explain-list">
+              ${(day.constraint_explanations || []).slice(0, 5).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+            </div>
+          </div>
+          <div>
+            <h3>时间窗复核</h3>
+            <div class="explain-list ${day.time_window_feasible ? "" : "warn-list"}">
+              ${(day.time_window_diagnostics || []).slice(0, 5).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+            </div>
+          </div>
+          <div>
+            <h3>未安排说明</h3>
+            <div class="explain-list warn-list">
+              ${(day.unscheduled_reasons || []).slice(0, 3).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+            </div>
+          </div>
+        </div>
+      </details>
     </section>
   `;
 }
 
 function renderStop(stop) {
+  const travel = stop.travel_minutes_from_previous || 0;
+  const hasRisk = stop.time_window_status && stop.time_window_status !== "ok";
   return `
-    <article class="stop ${stop.time_window_status && stop.time_window_status !== "ok" ? "stop-risk" : ""}">
-      <div class="slot">${escapeHtml(stop.slot)}</div>
-      <div>
-        <div class="stop-title">${escapeHtml(stop.poi_name)}</div>
-        <div class="time">${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)} · ${escapeHtml(stop.area)} · 通勤 ${stop.travel_minutes_from_previous} 分钟</div>
-        <div class="time-window-note">${escapeHtml(timeWindowLabel(stop.time_window_status))} · ${escapeHtml(stop.time_window_reason) || "时间窗复核通过。"}</div>
-        <div class="stop-reason">${escapeHtml(stop.reason)}</div>
-        ${renderScoreBreakdown(stop.score_breakdown || [])}
+    <article class="stop-card ${hasRisk ? "stop-risk" : ""}">
+      ${travel > 0 ? `<div class="stop-transport-bar">${transportIcon(travel)} ${travel} 分钟</div>` : ""}
+      <div class="stop-main">
+        <span class="stop-type-icon">${typeIcon(stop.poi_type)}</span>
+        <div class="stop-info">
+          <div class="stop-name-line">
+            <strong>${escapeHtml(stop.poi_name)}</strong>
+            <span class="stop-time-badge">${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)}</span>
+          </div>
+          <div class="stop-meta">${escapeHtml(stop.area)}${hasRisk ? ` · ⚠️ ${escapeHtml(timeWindowLabel(stop.time_window_status))}` : ""}</div>
+          <div class="stop-reason">${escapeHtml(stop.reason) || ""}</div>
+        </div>
       </div>
-      <div class="score">${stop.score}</div>
     </article>
   `;
 }
