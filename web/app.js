@@ -703,6 +703,7 @@ function renderOverview(candidate) {
     <div class="overview-actions">
       <button class="primary-action small" id="saveTripBtn" type="button">💾 保存行程</button>
       <button class="secondary-action small" id="shareTripBtn" type="button">🔗 分享</button>
+      <button class="secondary-action small" id="exportBtn" type="button">🖨️ 导出/打印</button>
     </div>
   `;
 }
@@ -1369,7 +1370,14 @@ initTheme();
 document.addEventListener("click", (e) => {
   if (e.target.id === "saveTripBtn" || e.target.closest?.("#saveTripBtn")) saveTrip();
   if (e.target.id === "shareTripBtn" || e.target.closest?.("#shareTripBtn")) shareTrip();
+  if (e.target.id === "exportBtn" || e.target.closest?.("#exportBtn")) exportTrip();
 });
+
+function exportTrip() {
+  // Switch to overview tab for best print layout
+  setStage("overview");
+  setTimeout(() => window.print(), 300);
+}
 
 // ---- Guest mode ----
 async function doGuestLogin() {

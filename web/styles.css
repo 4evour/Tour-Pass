@@ -1886,3 +1886,27 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   .auth-card { padding: 24px 20px; }
   .feedback-fab { bottom: 16px; right: 16px; width: 40px; height: 40px; font-size: 18px; }
 }
+
+/* ---- Print / Export ---- */
+@media print {
+  body { background: #fff !important; color: #000 !important; font-size: 12pt; }
+  .auth-overlay, .topbar, .stage-nav, .chat-hero, .form-collapsible,
+  .feedback-fab, .feedback-modal, .app-footer, .overview-actions,
+  #fireworksCanvas, #easterMessage, .tabs, .candidate-summary,
+  .day-tech-details { display: none !important; }
+  .app-shell { max-width: 100%; padding: 0; }
+  .workspace { border: none; padding: 0; }
+  .overview-dual { grid-template-columns: 1fr; }
+  .overview-map-wrap { height: 300px; break-inside: avoid; }
+  .day-cards { break-inside: avoid; }
+  .day-card { break-inside: avoid; border: 1px solid #ddd; }
+  .day-block { break-inside: avoid; border: 1px solid #ddd; page-break-inside: avoid; }
+  .stop-card { border: 1px solid #ddd; break-inside: avoid; }
+  .stop-poi-img { width: 40px; height: 40px; }
+  .overview-stat { border: 1px solid #ddd; }
+  .total-cost-bar { border: 1px solid #ddd; }
+  #map { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .map-legend { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  a { color: #000; text-decoration: none; }
+  .stop-transport-bar { background: #f5f5f5; }
+}
