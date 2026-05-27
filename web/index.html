@@ -14,17 +14,39 @@
       <div class="auth-card">
         <h1 class="auth-title">Tour Pass</h1>
         <p class="auth-subtitle">AI 旅行规划</p>
+
+        <!-- Login form -->
         <div id="authLoginForm">
           <div class="auth-field">
-            <input id="authUsername" type="text" placeholder="用户名" autocomplete="username" />
+            <input id="authUsername" type="text" placeholder="用户名或邮箱" autocomplete="username" />
           </div>
           <div class="auth-field">
             <input id="authPassword" type="password" placeholder="密码" autocomplete="current-password" />
           </div>
           <div id="authError" class="auth-error" hidden></div>
           <button id="authLoginBtn" class="auth-btn primary" type="button">登录</button>
-          <p class="auth-switch">没有账号？<a href="#" id="authShowRegister">注册</a></p>
+          <p class="auth-switch">没有账号？<a href="#" id="authShowRegister">邮箱注册</a></p>
+          <button id="guestBtn" class="auth-btn guest" type="button">🚶 游客体验（无需注册）</button>
         </div>
+
+        <!-- Email registration form -->
+        <div id="authEmailForm" hidden>
+          <div class="auth-field">
+            <input id="regEmail" type="email" placeholder="邮箱地址" autocomplete="email" />
+          </div>
+          <div class="auth-field auth-field-row">
+            <input id="regCode" type="text" placeholder="6位验证码" maxlength="6" />
+            <button id="sendCodeBtn" class="auth-btn code-btn" type="button">发送验证码</button>
+          </div>
+          <div class="auth-field">
+            <input id="regEmailPassword" type="password" placeholder="设置密码（至少6位）" autocomplete="new-password" />
+          </div>
+          <div id="regEmailError" class="auth-error" hidden></div>
+          <button id="authEmailRegisterBtn" class="auth-btn primary" type="button">注册</button>
+          <p class="auth-switch">已有账号？<a href="#" id="authShowLogin">登录</a></p>
+        </div>
+
+        <!-- Legacy username register (hidden) -->
         <div id="authRegisterForm" hidden>
           <div class="auth-field">
             <input id="regUsername" type="text" placeholder="用户名 (2-20字符)" autocomplete="username" />
@@ -48,6 +70,7 @@
           <div class="topbar-right">
             <span class="query-counter" id="queryCounter" title="今日剩余查询次数"></span>
             <span class="user-badge" id="userBadge"></span>
+            <a href="/profile.html" class="secondary-action small" style="text-decoration:none;">个人中心</a>
             <a href="/admin.html" id="adminLink" class="secondary-action small" hidden style="text-decoration:none;">管理</a>
             <button class="secondary-action small" id="logoutBtn" type="button">退出</button>
           </div>

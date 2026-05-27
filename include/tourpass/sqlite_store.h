@@ -15,6 +15,7 @@ namespace tourpass {
 struct UserRecord {
     int64_t id = 0;
     std::string username;
+    std::string email;
     std::string passwordHash;
     std::string role;
     int bonusQueries = 0;
@@ -57,9 +58,16 @@ public:
     nlohmann::json stats() const;
 
     // --- auth ---
-    int64_t createUser(const std::string& username, const std::string& passwordHash, const std::string& role = "user");
+    int64_t createUser(const std::string& username, const std::string& passwordHash, const std::string& role = "user", const std::string& email = "");
     std::optional<UserRecord> findUserByUsername(const std::string& username);
+    std::optional<UserRecord> findUserByEmail(const std::string& email);
     std::optional<UserRecord> findUserById(int64_t id);
+    void updatePassword(int64_t userId, const std::string& newHash);
+
+    // --- email verification ---
+    void storeVerificationCode(const std::string& email, const std::string& code, const std::string& purpose, int ttlSeconds);
+    std::optional<std::string> getValidVerificationCode(const std::string& email, const std::string& code, const std::string& purpose);
+    void markCodeUsed(int64_t codeId);
 
     // --- query usage ---
     int getQueryCount(int64_t userId);               // today's count

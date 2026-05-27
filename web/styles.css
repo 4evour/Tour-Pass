@@ -1141,6 +1141,28 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   text-decoration: none;
   font-weight: 600;
 }
+.auth-btn.guest {
+  background: transparent;
+  border: 1px dashed var(--line);
+  color: var(--muted);
+  margin-top: 8px;
+  font-size: 13px;
+}
+.auth-btn.guest:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.auth-field-row {
+  display: flex;
+  gap: 8px;
+}
+.auth-field-row input { flex: 1; }
+.code-btn {
+  width: auto !important;
+  white-space: nowrap;
+  padding: 10px 14px !important;
+  font-size: 13px !important;
+}
 
 /* ---- Topbar right ---- */
 .topbar-right {

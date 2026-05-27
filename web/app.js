@@ -511,9 +511,6 @@ function renderPlan() {
   bindComparisonCards();
   $("mapContainer").hidden = true;
   renderOverviewMap(candidate);
-  // Bind save/share buttons
-  $("saveTripBtn")?.addEventListener("click", saveTrip);
-  $("shareTripBtn")?.addEventListener("click", shareTrip);
 }
 
 function transportIcon(minutes) {
@@ -1236,12 +1233,86 @@ function renderHotRecommendations() {
   });
 }
 
+// Event delegation for dynamically rendered buttons
+document.addEventListener("click", (e) => {
+  if (e.target.id === "saveTripBtn" || e.target.closest?.("#saveTripBtn")) saveTrip();
+  if (e.target.id === "shareTripBtn" || e.target.closest?.("#shareTripBtn")) shareTrip();
+});
+
+// ---- Guest mode ----
+async function doGuestLogin() {
+  try {
+    const data = await api("/auth/guest", { method: "POST" });
+    state.token = data.token;
+    state.user = data.user;
+    localStorage.setItem("tp_token", data.token);
+    showApp();
+  } catch (e) {
+    $("authError").textContent = e.message;
+    $("authError").hidden = false;
+  }
+}
+
+// ---- Email registration ----
+async function sendCode() {
+  const email = $("regEmail").value.trim();
+  const errEl = $("regEmailError");
+  errEl.hidden = true;
+  if (!email || !email.includes("@")) { errEl.textContent = "请输入有效的邮箱地址"; errEl.hidden = false; return; }
+  try {
+    $("sendCodeBtn").disabled = true;
+    $("sendCodeBtn").textContent = "发送中...";
+    await api("/auth/send-code", { method: "POST", body: JSON.stringify({ email }) });
+    $("sendCodeBtn").textContent = "已发送 (60s)";
+    let countdown = 60;
+    const timer = setInterval(() => {
+      countdown--;
+      if (countdown <= 0) { clearInterval(timer); $("sendCodeBtn").textContent = "发送验证码"; $("sendCodeBtn").disabled = false; }
+      else $("sendCodeBtn").textContent = `${countdown}s 后重发`;
+    }, 1000);
+  } catch (e) {
+    errEl.textContent = e.message;
+    errEl.hidden = false;
+    $("sendCodeBtn").textContent = "发送验证码";
+    $("sendCodeBtn").disabled = false;
+  }
+}
+
+async function doEmailRegister() {
+  const email = $("regEmail").value.trim();
+  const code = $("regCode").value.trim();
+  const password = $("regEmailPassword").value;
+  const errEl = $("regEmailError");
+  errEl.hidden = true;
+  if (!email || !code || !password) { errEl.textContent = "请填写完整信息"; errEl.hidden = false; return; }
+  if (password.length < 6) { errEl.textContent = "密码至少 6 位"; errEl.hidden = false; return; }
+  try {
+    $("authEmailRegisterBtn").disabled = true;
+    const data = await api("/auth/register-email", {
+      method: "POST",
+      body: JSON.stringify({ email, code, password }),
+    });
+    state.token = data.token;
+    state.user = data.user;
+    localStorage.setItem("tp_token", data.token);
+    showApp();
+  } catch (e) {
+    errEl.textContent = e.message;
+    errEl.hidden = false;
+  } finally {
+    $("authEmailRegisterBtn").disabled = false;
+  }
+}
+
 // Auth event listeners
 $("authLoginBtn").addEventListener("click", doLogin);
 $("authPassword").addEventListener("keydown", (e) => { if (e.key === "Enter") doLogin(); });
 $("authRegisterBtn").addEventListener("click", doRegister);
-$("authShowRegister").addEventListener("click", (e) => { e.preventDefault(); $("authLoginForm").hidden = true; $("authRegisterForm").hidden = false; });
-$("authShowLogin").addEventListener("click", (e) => { e.preventDefault(); $("authRegisterForm").hidden = true; $("authLoginForm").hidden = false; });
+$("authShowRegister").addEventListener("click", (e) => { e.preventDefault(); $("authLoginForm").hidden = true; $("authRegisterForm").hidden = true; $("authEmailForm").hidden = false; });
+$("authShowLogin").addEventListener("click", (e) => { e.preventDefault(); $("authRegisterForm").hidden = true; $("authEmailForm").hidden = true; $("authLoginForm").hidden = false; });
+$("guestBtn")?.addEventListener("click", doGuestLogin);
+$("sendCodeBtn")?.addEventListener("click", sendCode);
+$("authEmailRegisterBtn")?.addEventListener("click", doEmailRegister);
 $("logoutBtn").addEventListener("click", logout);
 
 initFeedback();

@@ -170,6 +170,20 @@ void SQLiteStore::initializeSchema() {
          ");");
 
     exec("INSERT OR IGNORE INTO schema_migrations(version, applied_at) VALUES (2, " + nowSql() + ");");
+
+    // Schema v3: email verification, guest mode
+    exec("CREATE TABLE IF NOT EXISTS verification_codes ("
+         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+         "email TEXT NOT NULL,"
+         "code TEXT NOT NULL,"
+         "purpose TEXT NOT NULL DEFAULT 'register',"
+         "expires_at TEXT NOT NULL,"
+         "used INTEGER NOT NULL DEFAULT 0,"
+         "created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))"
+         ");");
+    // Add email column to users if not exists (ignore error if already exists)
+    try { exec("ALTER TABLE users ADD COLUMN email TEXT NOT NULL DEFAULT '';"); } catch (...) {}
+    exec("INSERT OR IGNORE INTO schema_migrations(version, applied_at) VALUES (3, " + nowSql() + ");");
 }
 
 void SQLiteStore::recordWrite(bool ok) {
@@ -295,12 +309,13 @@ nlohmann::json SQLiteStore::stats() const {
 
 // ---- Auth ----
 
-int64_t SQLiteStore::createUser(const std::string& username, const std::string& passwordHash, const std::string& role) {
+int64_t SQLiteStore::createUser(const std::string& username, const std::string& passwordHash, const std::string& role, const std::string& email) {
     std::lock_guard<std::mutex> lock(mutex_);
-    Statement stmt(db_, "INSERT INTO users(username, password_hash, role) VALUES (?, ?, ?);");
+    Statement stmt(db_, "INSERT INTO users(username, password_hash, role, email) VALUES (?, ?, ?, ?);");
     bindText(stmt.get(), 1, username);
     bindText(stmt.get(), 2, passwordHash);
     bindText(stmt.get(), 3, role);
+    bindText(stmt.get(), 4, email);
     if (sqlite3_step(stmt.get()) != SQLITE_DONE) {
         std::string err = sqlite3_errmsg(db_);
         if (err.find("UNIQUE") != std::string::npos) {
@@ -313,16 +328,35 @@ int64_t SQLiteStore::createUser(const std::string& username, const std::string& 
 
 std::optional<UserRecord> SQLiteStore::findUserByUsername(const std::string& username) {
     std::lock_guard<std::mutex> lock(mutex_);
-    Statement stmt(db_, "SELECT id, username, password_hash, role, bonus_queries, created_at FROM users WHERE username = ?;");
+    Statement stmt(db_, "SELECT id, username, COALESCE(email,''), password_hash, role, bonus_queries, created_at FROM users WHERE username = ?;");
     bindText(stmt.get(), 1, username);
     if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         UserRecord u;
         u.id = sqlite3_column_int64(stmt.get(), 0);
         u.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1));
-        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
-        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
-        u.bonusQueries = sqlite3_column_int(stmt.get(), 4);
-        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 5));
+        u.email = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
+        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
+        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4));
+        u.bonusQueries = sqlite3_column_int(stmt.get(), 5);
+        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 6));
+        return u;
+    }
+    return std::nullopt;
+}
+
+std::optional<UserRecord> SQLiteStore::findUserByEmail(const std::string& email) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT id, username, COALESCE(email,''), password_hash, role, bonus_queries, created_at FROM users WHERE email = ?;");
+    bindText(stmt.get(), 1, email);
+    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        UserRecord u;
+        u.id = sqlite3_column_int64(stmt.get(), 0);
+        u.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1));
+        u.email = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
+        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
+        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4));
+        u.bonusQueries = sqlite3_column_int(stmt.get(), 5);
+        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 6));
         return u;
     }
     return std::nullopt;
@@ -330,19 +364,58 @@ std::optional<UserRecord> SQLiteStore::findUserByUsername(const std::string& use
 
 std::optional<UserRecord> SQLiteStore::findUserById(int64_t id) {
     std::lock_guard<std::mutex> lock(mutex_);
-    Statement stmt(db_, "SELECT id, username, password_hash, role, bonus_queries, created_at FROM users WHERE id = ?;");
+    Statement stmt(db_, "SELECT id, username, COALESCE(email,''), password_hash, role, bonus_queries, created_at FROM users WHERE id = ?;");
     sqlite3_bind_int64(stmt.get(), 1, id);
     if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         UserRecord u;
         u.id = sqlite3_column_int64(stmt.get(), 0);
         u.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1));
-        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
-        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
-        u.bonusQueries = sqlite3_column_int(stmt.get(), 4);
-        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 5));
+        u.email = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
+        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
+        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4));
+        u.bonusQueries = sqlite3_column_int(stmt.get(), 5);
+        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 6));
         return u;
     }
     return std::nullopt;
+}
+
+void SQLiteStore::updatePassword(int64_t userId, const std::string& newHash) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "UPDATE users SET password_hash = ? WHERE id = ?;");
+    bindText(stmt.get(), 1, newHash);
+    sqlite3_bind_int64(stmt.get(), 2, userId);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+}
+
+void SQLiteStore::storeVerificationCode(const std::string& email, const std::string& code, const std::string& purpose, int ttlSeconds) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "INSERT INTO verification_codes(email, code, purpose, expires_at) VALUES (?, ?, ?, strftime('%Y-%m-%dT%H:%M:%fZ','now',?));");
+    bindText(stmt.get(), 1, email);
+    bindText(stmt.get(), 2, code);
+    bindText(stmt.get(), 3, purpose);
+    std::string ttl = "+" + std::to_string(ttlSeconds) + " seconds";
+    bindText(stmt.get(), 4, ttl);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+}
+
+std::optional<std::string> SQLiteStore::getValidVerificationCode(const std::string& email, const std::string& code, const std::string& purpose) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT id FROM verification_codes WHERE email = ? AND code = ? AND purpose = ? AND used = 0 AND expires_at > strftime('%Y-%m-%dT%H:%M:%fZ','now') ORDER BY created_at DESC LIMIT 1;");
+    bindText(stmt.get(), 1, email);
+    bindText(stmt.get(), 2, code);
+    bindText(stmt.get(), 3, purpose);
+    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        return std::to_string(sqlite3_column_int64(stmt.get(), 0));
+    }
+    return std::nullopt;
+}
+
+void SQLiteStore::markCodeUsed(int64_t codeId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "UPDATE verification_codes SET used = 1 WHERE id = ?;");
+    sqlite3_bind_int64(stmt.get(), 1, codeId);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
 }
 
 // ---- Query usage ----

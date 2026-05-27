@@ -13,6 +13,53 @@
 #include "httplib.h"
 #include "tourpass/auth.h"
 
+// ---- Email sending via Resend API ----
+namespace {
+bool sendVerificationEmail(const std::string& toEmail, const std::string& code) {
+    const char* apiKey = std::getenv("RESEND_API_KEY");
+    const char* fromEmail = std::getenv("RESEND_FROM_EMAIL");
+    if (!apiKey || !fromEmail) {
+        std::cerr << "EMAIL: RESEND_API_KEY or RESEND_FROM_EMAIL not set" << std::endl;
+        return false;
+    }
+    // cpp-httplib supports HTTPS when compiled with OpenSSL
+    httplib::Client client("https://api.resend.com");
+    client.set_connection_timeout(10);
+    std::string body = "{\"from\":\"" + std::string(fromEmail) + "\","
+                       "\"to\":\"" + toEmail + "\","
+                       "\"subject\":\"Tour Pass - 验证码\","
+                       "\"html\":\"<h2>Tour Pass 注册验证</h2><p>您的验证码是：<strong>" + code + "</strong></p><p>5 分钟内有效。</p>\"}";
+    httplib::Headers headers = {
+        {"Authorization", "Bearer " + std::string(apiKey)},
+        {"Content-Type", "application/json"}
+    };
+    auto res = client.Post("/emails", headers, body, "application/json");
+    if (res && res->status == 200) {
+        std::cout << "EMAIL: sent verification code to " << toEmail << std::endl;
+        return true;
+    }
+    std::cerr << "EMAIL: failed to send to " << toEmail
+              << " status=" << (res ? res->status : 0)
+              << " body=" << (res ? res->body : "no response") << std::endl;
+    return false;
+}
+
+std::string generateNumericCode(int digits) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<int> dist(0, 9);
+    std::string code;
+    for (int i = 0; i < digits; ++i) code += std::to_string(dist(gen));
+    return code;
+}
+
+int getQueryLimit(const std::string& role) {
+    if (role == "admin") return 999999;
+    if (role == "guest") return 3;
+    return 10;
+}
+}
+
 namespace tourpass {
 
 nlohmann::json errorJson(const std::string& code, const std::string& message, const nlohmann::json& details) {
@@ -213,7 +260,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                          || req.path == "/" || req.path == "/index.html"
                          || req.path == "/app.js" || req.path == "/styles.css"
                          || req.path == "/favicon.ico" || req.path == "/admin.html"
-                         || req.path == "/admin.js"
+                         || req.path == "/admin.js" || req.path == "/profile.html"
                          || req.path.find("/assets/") == 0
                          || req.path.find("/images/") == 0;
 
@@ -246,7 +293,8 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
         if (isQueryPath && authUserId > 0 && context.store && context.store->enabled()) {
             int used = context.store->getQueryCount(authUserId);
             int bonus = context.store->getBonusQueries(authUserId);
-            int remaining = 10 + bonus - used;
+            int limit = getQueryLimit(authRole);
+            int remaining = limit + bonus - used;
             res.set_header("X-Query-Remaining", std::to_string(std::max(0, remaining)));
             if (remaining <= 0) {
                 context.metrics.recordRejectedRequest();
@@ -836,7 +884,7 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
                     {"id", user->id},
                     {"username", user->username},
                     {"role", user->role},
-                    {"query_remaining", std::max(0, 10 + bonus - queryUsed)}
+                    {"query_remaining", std::max(0, getQueryLimit(user->role) + bonus - queryUsed)}
                 }}
             });
         } catch (const std::exception& ex) {
@@ -861,9 +909,122 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             {"id", user->id},
             {"username", user->username},
             {"role", user->role},
-            {"query_remaining", std::max(0, 10 + bonus - queryUsed)},
+            {"query_remaining", std::max(0, getQueryLimit(user->role) + bonus - queryUsed)},
             {"created_at", user->createdAt}
         });
+    });
+
+    // ---- Guest mode ----
+    server.Post("/auth/guest", [&](const httplib::Request&, httplib::Response& res) {
+        if (!context.store || !context.store->enabled()) {
+            setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503); return;
+        }
+        std::string username = "guest_" + randomHex(3);
+        std::string hashed = hashPassword(randomHex(8));
+        int64_t userId = context.store->createUser(username, hashed, "guest");
+        std::string token = createToken(userId, username, "guest");
+        setJson(res, {
+            {"token", token},
+            {"user", {{"id", userId}, {"username", username}, {"role", "guest"}, {"query_remaining", 3}}}
+        }, 201);
+    });
+
+    // ---- Send verification code ----
+    server.Post("/auth/send-code", [&](const httplib::Request& req, httplib::Response& res) {
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string email = body.value("email", "");
+            if (email.empty() || email.find('@') == std::string::npos) {
+                setJson(res, errorJson("VALIDATION_ERROR", "请输入有效的邮箱地址"), 400); return;
+            }
+            if (!context.store || !context.store->enabled()) {
+                setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503); return;
+            }
+            // Check if email already registered
+            if (context.store->findUserByEmail(email)) {
+                setJson(res, errorJson("EMAIL_TAKEN", "该邮箱已注册"), 409); return;
+            }
+            std::string code = generateNumericCode(6);
+            context.store->storeVerificationCode(email, code, "register", 300);
+            if (sendVerificationEmail(email, code)) {
+                setJson(res, {{"status", "sent"}, {"message", "验证码已发送到 " + email}});
+            } else {
+                setJson(res, errorJson("EMAIL_FAILED", "邮件发送失败，请稍后重试"), 500);
+            }
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", "发送验证码失败", {{"reason", ex.what()}}), 500);
+        }
+    });
+
+    // ---- Register with email verification ----
+    server.Post("/auth/register-email", [&](const httplib::Request& req, httplib::Response& res) {
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string email = body.value("email", "");
+            std::string code = body.value("code", "");
+            std::string password = body.value("password", "");
+            if (email.empty() || code.empty() || password.empty()) {
+                setJson(res, errorJson("VALIDATION_ERROR", "邮箱、验证码和密码不能为空"), 400); return;
+            }
+            if (password.size() < 6) {
+                setJson(res, errorJson("VALIDATION_ERROR", "密码长度至少 6 字符"), 400); return;
+            }
+            if (!context.store || !context.store->enabled()) {
+                setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503); return;
+            }
+            // Verify code
+            auto codeId = context.store->getValidVerificationCode(email, code, "register");
+            if (!codeId) {
+                setJson(res, errorJson("INVALID_CODE", "验证码无效或已过期"), 400); return;
+            }
+            context.store->markCodeUsed(std::stoll(*codeId));
+            // Check email not taken (race condition guard)
+            if (context.store->findUserByEmail(email)) {
+                setJson(res, errorJson("EMAIL_TAKEN", "该邮箱已注册"), 409); return;
+            }
+            // Generate username from email
+            std::string username = email.substr(0, email.find('@'));
+            // Ensure unique username
+            if (context.store->findUserByUsername(username)) {
+                username += "_" + randomHex(2);
+            }
+            std::string hashed = hashPassword(password);
+            std::string role = "user";
+            const char* adminEmails = std::getenv("TOURPASS_ADMIN_USERS");
+            if (adminEmails && std::string(adminEmails).find(email) != std::string::npos) {
+                role = "admin";
+            }
+            int64_t userId = context.store->createUser(username, hashed, role, email);
+            std::string token = createToken(userId, username, role);
+            setJson(res, {{"token", token}, {"user", {{"id", userId}, {"username", username}, {"email", email}, {"role", role}}}}, 201);
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", "注册失败", {{"reason", ex.what()}}), 500);
+        }
+    });
+
+    // ---- Change password ----
+    server.Patch("/auth/password", [&](const httplib::Request& req, httplib::Response& res) {
+        auto [userId, role] = getAuthUser(req);
+        if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string oldPassword = body.value("old_password", "");
+            std::string newPassword = body.value("new_password", "");
+            if (oldPassword.empty() || newPassword.empty()) {
+                setJson(res, errorJson("VALIDATION_ERROR", "旧密码和新密码不能为空"), 400); return;
+            }
+            if (newPassword.size() < 6) {
+                setJson(res, errorJson("VALIDATION_ERROR", "新密码长度至少 6 字符"), 400); return;
+            }
+            auto user = context.store->findUserById(userId);
+            if (!user || !verifyPassword(oldPassword, user->passwordHash)) {
+                setJson(res, errorJson("INVALID_CREDENTIALS", "旧密码错误"), 401); return;
+            }
+            context.store->updatePassword(userId, hashPassword(newPassword));
+            setJson(res, {{"status", "updated"}, {"message", "密码修改成功"}});
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", "修改密码失败", {{"reason", ex.what()}}), 500);
+        }
     });
 
     // ---- Saved trips ----
@@ -871,6 +1032,7 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
     server.Post("/trips/save", [&](const httplib::Request& req, httplib::Response& res) {
         auto [userId, role] = getAuthUser(req);
         if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
+        if (role == "guest") { setJson(res, errorJson("GUEST_LIMITED", "游客无法保存行程，请先注册账号"), 403); return; }
         try {
             auto body = nlohmann::json::parse(req.body);
             std::string title = body.value("title", "未命名行程");

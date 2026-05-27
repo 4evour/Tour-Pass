@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tour Pass - 个人中心</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      .profile-shell { max-width: 700px; margin: 0 auto; padding: 20px; }
+      .profile-topbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+      .profile-topbar h1 { font-size: 20px; margin: 0; }
+      .profile-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+      .profile-card h2 { font-size: 16px; margin: 0 0 14px; }
+      .info-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+      .info-row .label { color: var(--muted); }
+      .change-pwd-form { display: flex; flex-direction: column; gap: 10px; }
+      .change-pwd-form input { padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; }
+      .change-pwd-form button { padding: 10px; border-radius: 8px; border: none; cursor: pointer; font-size: 14px; }
+      .btn-primary { background: var(--accent); color: #fff; }
+      .btn-primary:hover { background: var(--accent-dark); }
+      .msg-ok { color: var(--accent); font-size: 13px; }
+      .msg-err { color: #c0392b; font-size: 13px; }
+      .trip-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 14px; }
+      .trip-item .trip-title { font-weight: 500; }
+      .trip-item .trip-date { color: var(--muted); font-size: 12px; }
+      .trip-item .trip-actions { display: flex; gap: 6px; }
+      .trip-item button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); cursor: pointer; font-size: 12px; }
+      .trip-item button:hover { border-color: var(--accent); }
+      .usage-bar { height: 8px; background: #eee; border-radius: 4px; overflow: hidden; margin-top: 6px; }
+      .usage-fill { height: 100%; background: var(--accent); border-radius: 4px; transition: width 0.3s; }
+      .usage-fill.warn { background: #c0392b; }
+      .empty-text { color: var(--muted); font-size: 13px; text-align: center; padding: 20px; }
+    </style>
+  </head>
+  <body>
+    <div class="profile-shell">
+      <div class="profile-topbar">
+        <h1>👤 个人中心</h1>
+        <a href="/" style="font-size:13px;color:var(--muted);">返回首页</a>
+      </div>
+
+      <div id="profileError" class="admin-error" hidden>
+        <p>请先登录。</p><p><a href="/">返回首页登录</a></p>
+      </div>
+
+      <div id="profileContent" hidden>
+        <!-- User info -->
+        <div class="profile-card">
+          <h2>📋 账户信息</h2>
+          <div class="info-row"><span class="label">用户名</span><span id="pUsername"></span></div>
+          <div class="info-row"><span class="label">邮箱</span><span id="pEmail"></span></div>
+          <div class="info-row"><span class="label">角色</span><span id="pRole"></span></div>
+          <div class="info-row"><span class="label">注册时间</span><span id="pCreated"></span></div>
+        </div>
+
+        <!-- Query usage -->
+        <div class="profile-card">
+          <h2>📊 今日使用</h2>
+          <div id="usageInfo">
+            <span id="usageText"></span>
+            <div class="usage-bar"><div class="usage-fill" id="usageFill"></div></div>
+          </div>
+        </div>
+
+        <!-- Change password -->
+        <div class="profile-card" id="changePwdCard">
+          <h2>🔒 修改密码</h2>
+          <div class="change-pwd-form">
+            <input id="oldPwd" type="password" placeholder="当前密码" />
+            <input id="newPwd" type="password" placeholder="新密码（至少6位）" />
+            <input id="confirmPwd" type="password" placeholder="确认新密码" />
+            <div id="pwdMsg" hidden></div>
+            <button id="changePwdBtn" class="btn-primary" type="button">修改密码</button>
+          </div>
+        </div>
+
+        <!-- My trips -->
+        <div class="profile-card">
+          <h2>🧳 我的行程</h2>
+          <div id="tripList"><div class="empty-text">暂无保存的行程</div></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const token = localStorage.getItem("tp_token");
+      async function api(path, opts = {}) {
+        const headers = { "Content-Type": "application/json" };
+        if (token) headers["Authorization"] = "Bearer " + token;
+        const res = await fetch(path, { headers, ...opts });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error?.message || "请求失败");
+        return data;
+      }
+      function esc(t) { const d = document.createElement("div"); d.textContent = t || ""; return d.innerHTML; }
+
+      async function init() {
+        if (!token) { document.getElementById("profileError").hidden = false; return; }
+        try {
+          const me = await api("/auth/me");
+          document.getElementById("profileContent").hidden = false;
+          document.getElementById("pUsername").textContent = me.username;
+          document.getElementById("pEmail").textContent = me.email || "未绑定";
+          document.getElementById("pRole").textContent = {user:"普通用户",guest:"游客",admin:"管理员"}[me.role] || me.role;
+          document.getElementById("pCreated").textContent = (me.created_at || "").slice(0, 16);
+
+          const limit = me.role === "guest" ? 3 : me.role === "admin" ? 999 : 10;
+          const remaining = me.query_remaining || 0;
+          const used = limit - remaining;
+          const pct = Math.min(100, (used / limit) * 100);
+          document.getElementById("usageText").textContent = `今日已用 ${used}/${limit}，剩余 ${remaining} 次`;
+          const fill = document.getElementById("usageFill");
+          fill.style.width = pct + "%";
+          fill.classList.toggle("warn", remaining <= 3);
+
+          if (me.role === "guest") {
+            document.getElementById("changePwdCard").hidden = true;
+          }
+        } catch { document.getElementById("profileError").hidden = false; }
+
+        // Load trips
+        try {
+          const trips = await api("/trips/list");
+          const list = document.getElementById("tripList");
+          if (trips.data && trips.data.length > 0) {
+            list.innerHTML = trips.data.map(t => `
+              <div class="trip-item">
+                <div>
+                  <span class="trip-title">${esc(t.title)}</span>
+                  <span class="trip-date">${(t.created_at||"").slice(0,16)}</span>
+                </div>
+                <div class="trip-actions">
+                  ${t.share_id ? `<button onclick="navigator.clipboard.writeText(location.origin+'/s/${t.share_id}');alert('链接已复制')">复制分享链接</button>` : ""}
+                </div>
+              </div>
+            `).join("");
+          }
+        } catch {}
+      }
+
+      // Change password
+      document.getElementById("changePwdBtn").addEventListener("click", async () => {
+        const oldPwd = document.getElementById("oldPwd").value;
+        const newPwd = document.getElementById("newPwd").value;
+        const confirmPwd = document.getElementById("confirmPwd").value;
+        const msg = document.getElementById("pwdMsg");
+        msg.hidden = true;
+        if (newPwd !== confirmPwd) { msg.textContent = "两次输入的密码不一致"; msg.className = "msg-err"; msg.hidden = false; return; }
+        if (newPwd.length < 6) { msg.textContent = "新密码至少6位"; msg.className = "msg-err"; msg.hidden = false; return; }
+        try {
+          await api("/auth/password", { method: "PATCH", body: JSON.stringify({ old_password: oldPwd, new_password: newPwd }) });
+          msg.textContent = "密码修改成功！"; msg.className = "msg-ok"; msg.hidden = false;
+          document.getElementById("oldPwd").value = "";
+          document.getElementById("newPwd").value = "";
+          document.getElementById("confirmPwd").value = "";
+        } catch (e) { msg.textContent = e.message; msg.className = "msg-err"; msg.hidden = false; }
+      });
+
+      init();
+    </script>
+  </body>
+</html>
