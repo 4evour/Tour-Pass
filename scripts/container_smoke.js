@@ -21,10 +21,14 @@ async function waitForHealth(baseUrl) {
   throw new Error(`service did not become healthy: ${lastError}`);
 }
 
-async function postJson(url, body) {
+async function postJson(url, body, token = "") {
+  const headers = { "Content-Type": "application/json; charset=utf-8" };
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
   const response = await fetch(url, {
     method: "POST",
-    headers: { "Content-Type": "application/json; charset=utf-8" },
+    headers,
     body: JSON.stringify(body),
   });
   if (!response.ok) {
@@ -33,8 +37,12 @@ async function postJson(url, body) {
   return response.json();
 }
 
-async function getJson(url) {
-  const response = await fetch(url);
+async function getJson(url, token = "") {
+  const headers = {};
+  if (token) {
+    headers.Authorization = `Bearer ${token}`;
+  }
+  const response = await fetch(url, { headers });
   if (!response.ok) {
     throw new Error(`${url} failed with ${response.status}: ${(await response.text()).slice(0, 240)}`);
   }
@@ -48,13 +56,21 @@ async function main() {
     throw new Error(`unexpected health response: ${JSON.stringify(health)}`);
   }
 
+  const auth = await postJson(`${baseUrl}/auth/register`, {
+    username: "container_smoke_user",
+    password: "container_smoke_password",
+  });
+  if (!auth.token) {
+    throw new Error("auth smoke did not return a token");
+  }
+
   const tripRequest = JSON.parse(fs.readFileSync("docs/sample_candidate_request.json", "utf8"));
-  const plan = await postJson(`${baseUrl}/trip/plan`, tripRequest);
+  const plan = await postJson(`${baseUrl}/trip/plan`, tripRequest, auth.token);
   if (!Array.isArray(plan.candidates) || plan.candidates.length === 0) {
     throw new Error("trip plan did not return candidates");
   }
 
-  const search = await getJson(`${baseUrl}/poi/search?q=${encodeURIComponent("历史文化")}&limit=3`);
+  const search = await getJson(`${baseUrl}/poi/search?q=${encodeURIComponent("历史文化")}&limit=3`, auth.token);
   if (!Array.isArray(search.data) || search.data.length === 0) {
     throw new Error("poi search did not return data");
   }

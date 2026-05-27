@@ -3,6 +3,7 @@
 ## v4.1 CI Smoke Alignment
 
 - Windows GitHub Actions 的 `scripts/api_smoke.ps1` 现在按默认真实数据集校验 `/health`：期望 `500` 个 POI 与 `1937` 条通勤边，并检查 `data_loaded` 与 `travel_provider`；旧 `25` POI / `46` 边只作为 `data/pois_sample.json` 与 `data/edges_sample.json` 的快速样例口径保留。冒烟失败时脚本会输出不匹配字段和压缩后的 health JSON，避免只看到笼统的运行时字段错误。脚本会在独立 SQLite smoke DB 中注册临时用户并携带 Bearer token 调用受保护 API；路线冒烟从当前 `data/edges.json` 读取样本边，避免依赖旧样例 POI id；运行时容量、缓存和 DB 字段由后续 `/metrics` 冒烟覆盖。
+- Docker CI 的 `scripts/container_smoke.js` 也会先注册临时用户并携带 Bearer token 访问 `/trip/plan` 与 `/poi/search`，避免认证中间件改造后容器冒烟被 401 拦截。
 
 ## v4.0 Hybrid AI Architecture
 
