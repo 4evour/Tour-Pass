@@ -218,7 +218,14 @@ async function api(path, options = {}) {
 
 function updateQueryCounter(remaining) {
   const el = $("queryCounter");
-  if (el) el.textContent = remaining !== undefined ? `今日剩余 ${remaining}/10` : "";
+  if (!el) return;
+  if (remaining !== undefined) {
+    el.textContent = `今日剩余 ${remaining}/10`;
+    el.classList.toggle("warning", remaining <= 3);
+  } else {
+    el.textContent = "";
+    el.classList.remove("warning");
+  }
 }
 
 function showApp() {
@@ -226,6 +233,9 @@ function showApp() {
   $("mainApp").hidden = false;
   $("userBadge").textContent = state.user?.username || "";
   updateQueryCounter(state.user?.query_remaining);
+  // Show admin link for admin users
+  const adminLink = $("adminLink");
+  if (adminLink) adminLink.hidden = state.user?.role !== "admin";
   loadHealth();
   renderHotRecommendations();
 }

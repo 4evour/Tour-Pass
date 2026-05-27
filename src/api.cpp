@@ -212,7 +212,8 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                          || req.method == "OPTIONS"
                          || req.path == "/" || req.path == "/index.html"
                          || req.path == "/app.js" || req.path == "/styles.css"
-                         || req.path == "/favicon.ico"
+                         || req.path == "/favicon.ico" || req.path == "/admin.html"
+                         || req.path == "/admin.js"
                          || req.path.find("/assets/") == 0
                          || req.path.find("/images/") == 0;
 
@@ -790,9 +791,18 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
                 return;
             }
             std::string hashed = hashPassword(password);
-            int64_t userId = context.store->createUser(username, hashed);
-            std::string token = createToken(userId, username, "user");
-            setJson(res, {{"token", token}, {"user", {{"id", userId}, {"username", username}, {"role", "user"}}}}, 201);
+            // Check if this user should be admin
+            std::string role = "user";
+            const char* adminUsers = std::getenv("TOURPASS_ADMIN_USERS");
+            if (adminUsers) {
+                std::string adminList(adminUsers);
+                if (adminList.find(username) != std::string::npos) {
+                    role = "admin";
+                }
+            }
+            int64_t userId = context.store->createUser(username, hashed, role);
+            std::string token = createToken(userId, username, role);
+            setJson(res, {{"token", token}, {"user", {{"id", userId}, {"username", username}, {"role", role}}}}, 201);
         } catch (const std::exception& ex) {
             std::string msg = ex.what();
             if (msg.find("USERNAME_TAKEN") != std::string::npos) {

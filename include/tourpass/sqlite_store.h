@@ -57,7 +57,7 @@ public:
     nlohmann::json stats() const;
 
     // --- auth ---
-    int64_t createUser(const std::string& username, const std::string& passwordHash);
+    int64_t createUser(const std::string& username, const std::string& passwordHash, const std::string& role = "user");
     std::optional<UserRecord> findUserByUsername(const std::string& username);
     std::optional<UserRecord> findUserById(int64_t id);
 

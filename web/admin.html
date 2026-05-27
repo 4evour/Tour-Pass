@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tour Pass 管理后台</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      .admin-shell { max-width: 1100px; margin: 0 auto; padding: 20px; }
+      .admin-topbar { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+      .admin-topbar h1 { font-size: 20px; margin: 0; }
+      .admin-topbar h1 small { font-size: 13px; color: var(--muted); font-weight: 400; margin-left: 8px; }
+      .admin-nav { display: flex; gap: 8px; margin-bottom: 20px; }
+      .admin-nav button { padding: 8px 16px; border: 2px solid var(--line); border-radius: 8px; background: var(--surface); cursor: pointer; font-size: 13px; transition: all 0.2s; }
+      .admin-nav button.active { border-color: var(--accent); background: var(--soft); color: var(--accent-dark); font-weight: 600; }
+      .admin-section { display: none; }
+      .admin-section.active { display: block; }
+
+      /* Dashboard */
+      .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 24px; }
+      .stat-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; text-align: center; }
+      .stat-card .num { font-size: 32px; font-weight: 700; color: var(--accent); }
+      .stat-card .label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+      .chart-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+      .chart-wrap h3 { margin: 0 0 12px; font-size: 15px; }
+      #queryChart { width: 100%; height: 200px; }
+
+      /* Table */
+      .admin-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+      .admin-table th { text-align: left; padding: 8px 12px; background: var(--soft); border-bottom: 2px solid var(--line); font-weight: 600; color: var(--muted); }
+      .admin-table td { padding: 8px 12px; border-bottom: 1px solid #f0f0f0; }
+      .admin-table tr:hover td { background: var(--soft); }
+
+      /* Feedback */
+      .fb-filter { display: flex; gap: 8px; margin-bottom: 12px; }
+      .fb-filter button { padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); cursor: pointer; font-size: 12px; }
+      .fb-filter button.active { border-color: var(--accent); background: var(--soft); font-weight: 600; }
+      .fb-item { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px; margin-bottom: 8px; }
+      .fb-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+      .fb-item-header strong { font-size: 14px; }
+      .fb-badge { padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+      .fb-badge.pending { background: #fce4e4; color: #c0392b; }
+      .fb-badge.reviewed { background: #e8f4f0; color: var(--accent); }
+      .fb-badge.resolved { background: var(--soft); color: var(--muted); }
+      .fb-content { font-size: 13px; margin-bottom: 8px; line-height: 1.5; }
+      .fb-meta { font-size: 11px; color: var(--muted); }
+      .fb-reply { margin-top: 8px; display: flex; gap: 8px; }
+      .fb-reply input { flex: 1; padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; }
+      .fb-reply button { padding: 6px 12px; border-radius: 6px; border: none; cursor: pointer; font-size: 12px; }
+
+      .admin-error { padding: 40px; text-align: center; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <div class="admin-topbar">
+        <h1>Tour Pass <small>管理后台</small></h1>
+        <div>
+          <span id="adminUser" style="font-size:13px;color:var(--accent);margin-right:12px;"></span>
+          <a href="/" style="font-size:13px;color:var(--muted);">返回首页</a>
+        </div>
+      </div>
+
+      <div id="adminLogin" class="admin-error" hidden>
+        <p>需要管理员权限才能访问此页面。</p>
+        <p><a href="/">返回首页登录</a></p>
+      </div>
+
+      <div id="adminContent" hidden>
+        <nav class="admin-nav">
+          <button class="active" data-tab="dashboard">📊 仪表盘</button>
+          <button data-tab="users">👥 用户管理</button>
+          <button data-tab="feedback">💬 反馈管理</button>
+        </nav>
+
+        <!-- Dashboard -->
+        <section id="sec-dashboard" class="admin-section active">
+          <div class="stats-grid" id="statsGrid"></div>
+          <div class="chart-wrap">
+            <h3>近 14 天查询量趋势</h3>
+            <canvas id="queryChart"></canvas>
+          </div>
+        </section>
+
+        <!-- Users -->
+        <section id="sec-users" class="admin-section">
+          <table class="admin-table">
+            <thead><tr><th>ID</th><th>用户名</th><th>角色</th><th>累计查询</th><th>注册时间</th></tr></thead>
+            <tbody id="usersTable"></tbody>
+          </table>
+        </section>
+
+        <!-- Feedback -->
+        <section id="sec-feedback" class="admin-section">
+          <div class="fb-filter" id="fbFilter">
+            <button class="active" data-status="">全部</button>
+            <button data-status="pending">待处理</button>
+            <button data-status="reviewed">已查看</button>
+            <button data-status="resolved">已解决</button>
+          </div>
+          <div id="feedbackList"></div>
+        </section>
+      </div>
+    </div>
+    <script src="/admin.js"></script>
+  </body>
+</html>

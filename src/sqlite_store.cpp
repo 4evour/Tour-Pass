@@ -295,11 +295,12 @@ nlohmann::json SQLiteStore::stats() const {
 
 // ---- Auth ----
 
-int64_t SQLiteStore::createUser(const std::string& username, const std::string& passwordHash) {
+int64_t SQLiteStore::createUser(const std::string& username, const std::string& passwordHash, const std::string& role) {
     std::lock_guard<std::mutex> lock(mutex_);
-    Statement stmt(db_, "INSERT INTO users(username, password_hash) VALUES (?, ?);");
+    Statement stmt(db_, "INSERT INTO users(username, password_hash, role) VALUES (?, ?, ?);");
     bindText(stmt.get(), 1, username);
     bindText(stmt.get(), 2, passwordHash);
+    bindText(stmt.get(), 3, role);
     if (sqlite3_step(stmt.get()) != SQLITE_DONE) {
         std::string err = sqlite3_errmsg(db_);
         if (err.find("UNIQUE") != std::string::npos) {
