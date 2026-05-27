@@ -512,6 +512,12 @@ function renderPlan() {
   $("mapContainer").hidden = true;
   renderOverviewMap(candidate);
   initDragDrop();
+  // Fetch weather asynchronously
+  const city = state.lastPayload?.city || "长沙";
+  fetchWeather(city).then(weather => {
+    const bar = $("weatherBar");
+    if (bar && weather) bar.innerHTML = renderWeatherBar(weather, candidate.days || []);
+  });
 }
 
 // ---- Drag & Drop itinerary editing ----
@@ -658,6 +664,7 @@ function renderOverview(candidate) {
     : `<p>${escapeHtml(summaries[0] || "")}</p>`;
 
   return `
+    <div id="weatherBar"></div>
     <div class="overview-top-bar">
       <div class="overview-stat"><strong>${days.length}</strong><span>天</span></div>
       <div class="overview-stat"><strong>${totalStops}</strong><span>站</span></div>
@@ -679,11 +686,12 @@ function renderOverview(candidate) {
           ${days.map((day) => {
             const stops = day.stops || [];
             const cost = estimateDayCost(stops);
+            const actual = getActualCost(day.day);
             return `
             <div class="day-card">
               <div class="day-card-header">
                 <strong>Day ${day.day}</strong>
-                <span class="day-card-stats">${stops.length} 站 · ≈¥${cost.lo}-${cost.hi}</span>
+                <span class="day-card-stats">${stops.length} 站 · ≈¥${cost.lo}-${cost.hi}${actual ? ` · 实际 ¥${actual}` : ""}</span>
               </div>
               <div class="day-card-timeline">
                 ${stops.map((stop, j) => `
@@ -694,6 +702,10 @@ function renderOverview(candidate) {
                     ${j > 0 && stop.travel_minutes_from_previous ? `<span class="stop-transport">${transportIcon(stop.travel_minutes_from_previous)} ${stop.travel_minutes_from_previous}min</span>` : ""}
                   </div>
                 `).join("")}
+              </div>
+              <div class="day-cost-track">
+                <input type="number" class="cost-input" placeholder="记录实际花费 ¥" value="${actual || ""}" data-day="${day.day}" />
+                <span class="cost-estimate">预估 ¥${cost.lo}-${cost.hi}</span>
               </div>
             </div>`;
           }).join("")}
@@ -1374,9 +1386,88 @@ document.addEventListener("click", (e) => {
 });
 
 function exportTrip() {
-  // Switch to overview tab for best print layout
   setStage("overview");
   setTimeout(() => window.print(), 300);
+}
+
+// ---- Cost tracking (localStorage) ----
+function getCostKey() {
+  const city = state.lastPayload?.city || "unknown";
+  const days = state.lastPayload?.days || 0;
+  return `tp_cost_${city}_${days}d`;
+}
+function getActualCost(day) {
+  try { const d = JSON.parse(localStorage.getItem(getCostKey()) || "{}"); return d[day] || 0; } catch { return 0; }
+}
+function setActualCost(day, amount) {
+  try { const d = JSON.parse(localStorage.getItem(getCostKey()) || "{}"); d[day] = amount; localStorage.setItem(getCostKey(), JSON.stringify(d)); } catch {}
+}
+// Event delegation for cost inputs
+document.addEventListener("change", (e) => {
+  if (e.target.classList.contains("cost-input")) {
+    const day = parseInt(e.target.dataset.day);
+    const amount = parseInt(e.target.value) || 0;
+    setActualCost(day, amount);
+    // Update header display
+    const card = e.target.closest(".day-card");
+    if (card) {
+      const stats = card.querySelector(".day-card-stats");
+      const cost = estimateDayCost(state.candidates[state.selectedIndex]?.days?.[day - 1]?.stops || []);
+      if (stats) stats.textContent = `${(state.candidates[state.selectedIndex]?.days?.[day - 1]?.stops || []).length} 站 · ≈¥${cost.lo}-${cost.hi}${amount ? ` · 实际 ¥${amount}` : ""}`;
+    }
+  }
+});
+
+// ---- Weather integration (Open-Meteo, free, no key) ----
+const CITY_COORDS = {
+  "长沙": { lat: 28.23, lon: 112.94 },
+  "武汉": { lat: 30.59, lon: 114.31 },
+  "changsha": { lat: 28.23, lon: 112.94 },
+  "wuhan": { lat: 30.59, lon: 114.31 },
+};
+
+const WEATHER_CODES = {
+  0: "☀️ 晴", 1: "🌤️ 晴间多云", 2: "⛅ 多云", 3: "☁️ 阴",
+  45: "🌫️ 雾", 48: "🌫️ 雾凇", 51: "🌦️ 小雨", 53: "🌧️ 中雨", 55: "🌧️ 大雨",
+  61: "🌧️ 小雨", 63: "🌧️ 中雨", 65: "🌧️ 大雨", 71: "🌨️ 小雪", 73: "❄️ 中雪",
+  75: "❄️ 大雪", 80: "🌦️ 阵雨", 81: "🌧️ 阵雨", 82: "⛈️ 暴雨",
+  95: "⛈️ 雷暴", 96: "⛈️ 雷暴冰雹", 99: "⛈️ 雷暴冰雹"
+};
+
+async function fetchWeather(city) {
+  const coords = CITY_COORDS[city] || CITY_COORDS[city?.toLowerCase()];
+  if (!coords) return null;
+  try {
+    const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia/Shanghai&forecast_days=7`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const daily = data.daily;
+    return (daily.time || []).map((date, i) => ({
+      date,
+      code: daily.weathercode?.[i] || 0,
+      tempMax: daily.temperature_2m_max?.[i],
+      tempMin: daily.temperature_2m_min?.[i],
+      rainProb: daily.precipitation_probability_max?.[i] || 0,
+    }));
+  } catch { return null; }
+}
+
+function renderWeatherBar(weather, days) {
+  if (!weather || !weather.length) return "";
+  const dayWeathers = weather.slice(0, days.length);
+  const hasRain = dayWeathers.some(w => w.rainProb > 40 || [51,53,55,61,63,65,80,81,82,95,96,99].includes(w.code));
+  return `
+    <div class="weather-bar">
+      ${dayWeathers.map((w, i) => `
+        <div class="weather-day">
+          <span class="weather-icon">${WEATHER_CODES[w.code] || "🌤️"}</span>
+          <span class="weather-temp">${Math.round(w.tempMin)}~${Math.round(w.tempMax)}°C</span>
+          <span class="weather-date">Day ${i + 1}</span>
+        </div>
+      `).join("")}
+      ${hasRain ? '<div class="weather-alert">🌧️ 部分日期有雨，已为您推荐室内备选方案</div>' : ""}
+    </div>
+  `;
 }
 
 // ---- Guest mode ----
