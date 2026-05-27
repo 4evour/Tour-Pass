@@ -209,7 +209,12 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
         bool isPublicPath = req.path == "/health" || req.path == "/metrics"
                          || req.path.find("/auth/") == 0
                          || req.path.find("/s/") == 0
-                         || req.method == "OPTIONS";
+                         || req.method == "OPTIONS"
+                         || req.path == "/" || req.path == "/index.html"
+                         || req.path == "/app.js" || req.path == "/styles.css"
+                         || req.path == "/favicon.ico"
+                         || req.path.find("/assets/") == 0
+                         || req.path.find("/images/") == 0;
 
         // API key bypass (for programmatic access)
         const std::string& apiKey = requiredApiKey();
