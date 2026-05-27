@@ -98,7 +98,7 @@ select {
 
 .stage-nav {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
   margin-top: 18px;
   padding: 6px;
@@ -1164,6 +1164,207 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .secondary-action.small {
   padding: 5px 12px;
   font-size: 13px;
+}
+.topbar h1 small {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+/* ---- Chat hero ---- */
+.chat-hero {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #f0f9f7 0%, #e8f4f0 100%);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+}
+.chat-hero-inner {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+}
+.chat-hero-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  font-size: 15px;
+  resize: none;
+  background: var(--surface);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+  line-height: 1.5;
+}
+.chat-hero-input:focus {
+  border-color: var(--accent);
+}
+.chat-hero-btn {
+  padding: 12px 24px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s;
+  min-height: 46px;
+}
+.chat-hero-btn:hover { background: var(--accent-dark); }
+.chat-hero-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.chat-hero-output {
+  margin-top: 14px;
+  padding: 14px;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  font-size: 14px;
+  line-height: 1.6;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* ---- Loading animation ---- */
+.loading-overlay {
+  margin-top: 14px;
+  padding: 16px;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+.loading-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.loading-step {
+  font-size: 14px;
+  color: var(--muted);
+  padding: 6px 0;
+  transition: color 0.3s, font-weight 0.3s;
+}
+.loading-step.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+.loading-step.done {
+  color: var(--muted);
+  opacity: 0.6;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.loading-step.active::after {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-left: 6px;
+  animation: pulse 1s infinite;
+}
+
+/* ---- City cards ---- */
+.city-cards {
+  display: flex;
+  gap: 8px;
+}
+.city-card {
+  padding: 8px 16px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.city-card.active {
+  border-color: var(--accent);
+  background: var(--soft);
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+.city-card:hover { border-color: var(--accent); }
+
+/* ---- Interest tags ---- */
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag {
+  padding: 5px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+.tag.active {
+  border-color: var(--accent);
+  background: var(--soft);
+  color: var(--accent-dark);
+}
+.tag:hover { border-color: var(--accent); }
+
+/* ---- Compact form ---- */
+.form-collapsible {
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.form-collapsible summary {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  list-style: none;
+}
+.form-collapsible summary::-webkit-details-marker { display: none; }
+.form-collapsible summary::before {
+  content: "▸ ";
+  transition: transform 0.2s;
+}
+.form-collapsible[open] summary::before { content: "▾ "; }
+.compact-form {
+  padding: 0 16px 16px;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+}
+.form-grid .field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.form-grid .field-row label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.form-grid .field-row input,
+.form-grid .field-row select {
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* ---- Result area ---- */
+.result-area {
+  margin-top: 16px;
 }
 
 /* ---- Feedback FAB ---- */

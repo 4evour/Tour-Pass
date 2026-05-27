@@ -895,50 +895,63 @@ async function explainPlan() {
 }
 
 $("planForm").addEventListener("submit", generatePlan);
-$("loadExampleButton").addEventListener("click", loadExample);
 $("routeButton").addEventListener("click", queryRoute);
 $("alternativeButton").addEventListener("click", queryAlternatives);
 $("searchButton").addEventListener("click", querySearch);
 $("explainButton").addEventListener("click", explainPlan);
 $("explainToolButton").addEventListener("click", explainPlan);
 
+function showLoading() {
+  $("loadingOverlay").hidden = false;
+  $("chatOutput").hidden = true;
+  const steps = ["loadStep1", "loadStep2", "loadStep3"];
+  steps.forEach(id => { $(id).className = "loading-step"; });
+  // Progress through steps
+  setTimeout(() => { $(steps[0]).className = "loading-step done"; $(steps[1]).className = "loading-step active"; }, 2000);
+  setTimeout(() => { $(steps[1]).className = "loading-step done"; $(steps[2]).className = "loading-step active"; }, 5000);
+}
+function hideLoading() {
+  $("loadingOverlay").hidden = true;
+}
+
 async function chatPlan() {
   const message = $("chatInput").value.trim();
-  if (!message) {
-    $("chatOutput").textContent = "请输入旅行需求。";
-    return;
-  }
-  $("chatOutput").textContent = "正在解析需求并规划行程...";
+  if (!message) return;
+  $("chatBtnText").hidden = true;
+  $("chatBtnLoading").hidden = false;
   $("chatButton").disabled = true;
+  showLoading();
   try {
     const data = await api("/trip/chat", {
       method: "POST",
       body: JSON.stringify({ message, context: [] }),
     });
+    hideLoading();
     let html = "";
     if (data.reply) {
-      html += `<p><strong>AI 回复：</strong>${escHtml(data.reply)}</p>`;
+      html += `<p>${escHtml(data.reply)}</p>`;
     }
-    if (data.poi_matching && data.poi_matching.length > 0) {
-      html += "<p><strong>景点匹配：</strong></p><ul>";
-      data.poi_matching.forEach((m) => {
-        const conf = m.confidence === "high" ? "✓" : m.confidence === "medium" ? "?" : "✗";
-        html += `<li>${conf} "${escHtml(m.query)}" → ${escHtml(m.matched_name || "未匹配")} (${m.score.toFixed(1)})</li>`;
-      });
-      html += "</ul>";
+    if (data.suggestions && data.suggestions.length > 0) {
+      html += data.suggestions.map(s => `<p style="color:var(--warn);font-size:13px;">⚠️ ${escHtml(s)}</p>`).join("");
     }
     if (data.candidates && data.candidates.length > 0) {
       state.candidates = data.candidates;
       state.selectedIndex = 0;
       state.lastPayload = { candidates: data.candidates };
-      html += `<p><strong>已生成 ${data.candidates.length} 个候选方案，</strong><a href="#" onclick="setStage('overview');return false;">点击查看</a></p>`;
       renderPlan();
+      setStage("overview");
+      html += `<p style="font-size:13px;color:var(--muted);">已生成 ${data.candidates.length} 个方案，切换查看详情。</p>`;
     }
     $("chatOutput").innerHTML = html || "规划完成。";
+    $("chatOutput").hidden = false;
   } catch (error) {
-    $("chatOutput").textContent = `规划失败：${error.message}`;
+    hideLoading();
+    $("chatOutput").innerHTML = `<p style="color:#c0392b;">${escHtml(error.message)}</p>`;
+    $("chatOutput").hidden = false;
   } finally {
     $("chatButton").disabled = false;
+    $("chatBtnText").hidden = false;
+    $("chatBtnLoading").hidden = true;
   }
 }
 
@@ -950,7 +963,7 @@ function escHtml(text) {
 
 $("chatButton").addEventListener("click", chatPlan);
 $("chatInput").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") chatPlan();
+  if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) chatPlan();
 });
 
 function setStage(stage) {
@@ -965,8 +978,14 @@ function updateStageVisibility() {
     button.classList.toggle("active", active);
     button.setAttribute("aria-selected", active ? "true" : "false");
   });
+  // main panel: visible for overview and itinerary
+  // tools/debug panel: visible only for debug
   document.querySelectorAll("[data-stage-panel]").forEach((panel) => {
-    panel.hidden = panel.dataset.stagePanel === "tools" ? state.activeStage !== "tools" : state.activeStage === "tools";
+    if (panel.dataset.stagePanel === "tools") {
+      panel.hidden = state.activeStage !== "debug";
+    } else {
+      panel.hidden = state.activeStage === "debug";
+    }
   });
 }
 
@@ -975,6 +994,30 @@ document.querySelectorAll(".stage-tab").forEach((button) => {
 });
 
 updateStageVisibility();
+
+// City cards
+document.querySelectorAll(".city-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    document.querySelectorAll(".city-card").forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
+    $("city").value = card.dataset.city;
+    // Update hotel default based on city
+    if (card.dataset.city === "武汉") {
+      $("hotelLocation").value = "7天优品酒店(武汉江汉路步行街店)";
+    } else {
+      $("hotelLocation").value = "7天优品酒店(长沙橘子洲五一广场地铁站店)";
+    }
+  });
+});
+
+// Interest tags
+document.querySelectorAll(".interest-tags .tag").forEach((tag) => {
+  tag.addEventListener("click", () => {
+    tag.classList.toggle("active");
+    const active = [...document.querySelectorAll(".interest-tags .tag.active")].map(t => t.dataset.val);
+    $("interests").value = active.join(", ");
+  });
+});
 
 // Auth event listeners
 $("authLoginBtn").addEventListener("click", doLogin);

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Tour Pass 演示台</title>
+    <title>Tour Pass · AI 旅行规划</title>
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -43,117 +43,110 @@
       <section class="workspace" aria-labelledby="app-title">
         <header class="topbar">
           <div>
-            <p class="eyebrow">C++ AI Trip Planner</p>
-            <h1 id="app-title">Tour Pass 演示台</h1>
+            <h1 id="app-title">Tour Pass <small>AI 旅行规划</small></h1>
           </div>
           <div class="topbar-right">
             <span class="query-counter" id="queryCounter" title="今日剩余查询次数"></span>
             <span class="user-badge" id="userBadge"></span>
             <button class="secondary-action small" id="logoutBtn" type="button">退出</button>
-            <div class="status" id="serviceStatus" role="status">连接中</div>
           </div>
         </header>
 
-        <section class="demo-rail" aria-label="演示链路">
-          <span>输入偏好</span>
-          <span>候选对比</span>
-          <span>路线明细</span>
-          <span>算法解释</span>
-          <span>工具联动</span>
+        <!-- Chat hero: primary entry -->
+        <section class="chat-hero" id="chatHero">
+          <div class="chat-hero-inner">
+            <textarea id="chatInput" class="chat-hero-input" rows="2"
+              placeholder="告诉我你的旅行计划，比如：3天长沙行，想去橘子洲，带老人不要太累"></textarea>
+            <button id="chatButton" class="chat-hero-btn" type="button">
+              <span id="chatBtnText">AI 规划</span>
+              <span id="chatBtnLoading" hidden>规划中...</span>
+            </button>
+          </div>
+          <div id="chatOutput" class="chat-hero-output" hidden></div>
+          <!-- Loading animation -->
+          <div id="loadingOverlay" class="loading-overlay" hidden>
+            <div class="loading-steps">
+              <div class="loading-step active" id="loadStep1">🧠 正在理解你的需求…</div>
+              <div class="loading-step" id="loadStep2">🗺️ 正在规划路线…</div>
+              <div class="loading-step" id="loadStep3">✨ 正在优化行程…</div>
+            </div>
+          </div>
         </section>
 
-        <section class="stage-nav" aria-label="演示阶段">
-          <button class="stage-tab active" type="button" data-stage="overview">规划概览</button>
-          <button class="stage-tab" type="button" data-stage="compare">候选对比</button>
-          <button class="stage-tab" type="button" data-stage="itinerary">路线明细</button>
-          <button class="stage-tab" type="button" data-stage="debug">算法解释</button>
-          <button class="stage-tab" type="button" data-stage="tools">工具箱</button>
-        </section>
-
-        <section class="planner-layout" data-stage-panel="main">
-          <form id="planForm" class="control-panel" aria-label="行程偏好">
-            <div class="panel-heading">
-              <h2>演示输入</h2>
-              <span>保留一组可复现的长沙样例</span>
-            </div>
-
-            <div class="field-row">
-              <label for="city">城市</label>
-              <input id="city" name="city" value="长沙" />
-            </div>
-
-            <div class="two-col">
+        <!-- Simplified form (collapsible) -->
+        <details class="form-collapsible" id="formSection">
+          <summary>📋 手动设置偏好</summary>
+          <form id="planForm" class="compact-form" aria-label="行程偏好">
+            <div class="form-grid">
+              <div class="field-row">
+                <label for="city">城市</label>
+                <div class="city-cards" id="cityCards">
+                  <button type="button" class="city-card active" data-city="长沙">🏙️ 长沙</button>
+                  <button type="button" class="city-card" data-city="武汉">🌉 武汉</button>
+                </div>
+                <input id="city" name="city" value="长沙" hidden />
+              </div>
               <div class="field-row">
                 <label for="days">天数</label>
                 <input id="days" name="days" type="number" min="1" max="7" value="2" />
               </div>
               <div class="field-row">
-                <label for="candidateCount">候选数</label>
-                <input id="candidateCount" name="candidateCount" type="number" min="1" max="5" value="5" />
+                <label>兴趣</label>
+                <div class="interest-tags" id="interestTags">
+                  <button type="button" class="tag active" data-val="历史文化">🏛 历史文化</button>
+                  <button type="button" class="tag active" data-val="美食">🍜 美食</button>
+                  <button type="button" class="tag" data-val="夜景">🌙 夜景</button>
+                  <button type="button" class="tag" data-val="自然风光">🌿 自然风光</button>
+                  <button type="button" class="tag" data-val="购物">🛍 购物</button>
+                  <button type="button" class="tag" data-val="亲子">👨‍👩‍👧 亲子</button>
+                </div>
+                <input id="interests" name="interests" value="历史文化, 美食" hidden />
               </div>
-            </div>
-
-            <div class="two-col">
               <div class="field-row">
-                <label for="startTime">开始时间</label>
-                <input id="startTime" name="startTime" value="09:30" />
+                <label for="hotelLocation">酒店</label>
+                <input id="hotelLocation" name="hotelLocation" value="7天优品酒店(长沙橘子洲五一广场地铁站店)" placeholder="输入酒店名或从推荐中选择" />
               </div>
               <div class="field-row">
-                <label for="endTime">结束时间</label>
-                <input id="endTime" name="endTime" value="21:30" />
+                <label for="pace">节奏</label>
+                <select id="pace" name="pace">
+                  <option>轻松</option>
+                  <option selected>标准</option>
+                  <option>紧凑</option>
+                </select>
               </div>
             </div>
-
-            <div class="field-row">
-              <label for="hotelLocation">酒店位置</label>
-              <input id="hotelLocation" name="hotelLocation" value="7天优品酒店(长沙橘子洲五一广场地铁站店)" />
-            </div>
-
-            <div class="field-row">
-              <label for="interests">兴趣偏好</label>
-              <input id="interests" name="interests" value="历史文化, 美食, 夜景" />
-            </div>
-
-            <div class="field-row">
-              <label for="mustVisit">必去地点</label>
-              <input id="mustVisit" name="mustVisit" value="橘子洲风景名胜区, 湖南省博物馆" />
-            </div>
-
-            <div class="field-row">
-              <label for="pace">节奏</label>
-              <select id="pace" name="pace">
-                <option>轻松</option>
-                <option selected>标准</option>
-                <option>紧凑</option>
-              </select>
-            </div>
-
+            <!-- Hidden fields with defaults -->
+            <input id="candidateCount" name="candidateCount" value="5" hidden />
+            <input id="startTime" name="startTime" value="09:30" hidden />
+            <input id="endTime" name="endTime" value="21:30" hidden />
+            <input id="mustVisit" name="mustVisit" value="" hidden />
             <div class="action-row">
               <button class="primary-action" type="submit">生成行程</button>
-              <button id="loadExampleButton" class="secondary-action" type="button">加载示例</button>
             </div>
           </form>
+        </details>
 
-          <section class="result-panel" aria-live="polite">
-            <div class="result-header">
-              <div>
-                <p class="eyebrow">Plan Output</p>
-                <h2>候选行程</h2>
-              </div>
-              <button id="explainButton" class="secondary-action" type="button">生成解释</button>
-            </div>
-            <div id="candidateSummary" class="candidate-summary"></div>
-            <div id="candidateTabs" class="tabs" role="tablist"></div>
-            <div id="mapContainer" class="map-container" hidden>
-              <div id="map"></div>
-            </div>
-            <div id="planOutput" class="plan-output empty-state">
-              选择偏好后生成行程。
-            </div>
-          </section>
+        <!-- 3 tabs -->
+        <section class="stage-nav" aria-label="结果导航">
+          <button class="stage-tab active" type="button" data-stage="overview">🗺️ 行程总览</button>
+          <button class="stage-tab" type="button" data-stage="itinerary">📋 每日详情</button>
+          <button class="stage-tab" type="button" data-stage="debug">🔧 技术详情</button>
         </section>
 
-        <aside class="inspector stage-panel" data-stage-panel="tools" aria-label="辅助工具" hidden>
+        <!-- Result area -->
+        <section class="result-area" data-stage-panel="main">
+          <div id="candidateSummary" class="candidate-summary"></div>
+          <div id="candidateTabs" class="tabs" role="tablist"></div>
+          <div id="mapContainer" class="map-container" hidden>
+            <div id="map"></div>
+          </div>
+          <div id="planOutput" class="plan-output empty-state">
+            用上方聊天框描述你的旅行计划，或手动设置偏好后生成行程。
+          </div>
+        </section>
+
+        <!-- Technical details (collapsed, for debug tab) -->
+        <aside class="inspector stage-panel" data-stage-panel="tools" aria-label="技术详情" hidden>
           <section>
             <div class="panel-heading">
               <h2>路径查询</h2>
@@ -218,24 +211,20 @@
 
           <section>
             <div class="panel-heading">
-              <h2>自然语言规划</h2>
-              <span>用中文描述需求，LLM 解析 + Beam Search 规划</span>
-            </div>
-            <div class="field-row">
-              <label for="chatInput">需求</label>
-              <input id="chatInput" placeholder="帮我规划3天长沙之旅，想去橘子洲头，不要太累" />
-            </div>
-            <button id="chatButton" class="secondary-action" type="button">智能规划</button>
-            <div id="chatOutput" class="explain-box">输入自然语言旅行需求，系统会自动解析意图、匹配景点并生成行程。</div>
-          </section>
-
-          <section>
-            <div class="panel-heading">
               <h2>行程解释</h2>
               <span>调用 LLM 或本地模板生成讲解稿</span>
             </div>
             <button id="explainToolButton" class="secondary-action" type="button">生成解释</button>
+            <button id="explainButton" class="secondary-action" type="button">解释当前行程</button>
             <div id="explainOutput" class="explain-box">暂无解释。</div>
+          </section>
+
+          <section>
+            <div class="panel-heading">
+              <h2>算法对比</h2>
+              <span>候选方案 Pareto 排名与多样性指标</span>
+            </div>
+            <div id="compareOutput" class="mini-list">生成多候选行程后显示。</div>
           </section>
         </aside>
       </section>
