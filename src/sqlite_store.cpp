@@ -184,6 +184,15 @@ void SQLiteStore::initializeSchema() {
     // Add email column to users if not exists (ignore error if already exists)
     try { exec("ALTER TABLE users ADD COLUMN email TEXT NOT NULL DEFAULT '';"); } catch (...) {}
     exec("INSERT OR IGNORE INTO schema_migrations(version, applied_at) VALUES (3, " + nowSql() + ");");
+
+    // Schema v4: guest IP limit
+    exec("CREATE TABLE IF NOT EXISTS guest_creation_log ("
+         "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+         "ip TEXT NOT NULL,"
+         "created_date TEXT NOT NULL,"
+         "UNIQUE(ip, created_date)"
+         ");");
+    exec("INSERT OR IGNORE INTO schema_migrations(version, applied_at) VALUES (4, " + nowSql() + ");");
 }
 
 void SQLiteStore::recordWrite(bool ok) {
@@ -426,10 +435,7 @@ void SQLiteStore::markCodeUsed(int64_t codeId) {
     recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
 }
 
-// ---- Query usage ----
-
 static std::string todayDate() {
-    // Use UTC date
     auto now = std::chrono::system_clock::now();
     auto time = std::chrono::system_clock::to_time_t(now);
     struct tm* utc = gmtime(&time);
@@ -437,6 +443,29 @@ static std::string todayDate() {
     snprintf(buf, sizeof(buf), "%04d-%02d-%02d", utc->tm_year + 1900, utc->tm_mon + 1, utc->tm_mday);
     return buf;
 }
+
+bool SQLiteStore::canCreateGuest(const std::string& ip) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string today = todayDate();
+    Statement stmt(db_, "SELECT COUNT(*) FROM guest_creation_log WHERE ip = ? AND created_date = ?;");
+    bindText(stmt.get(), 1, ip);
+    bindText(stmt.get(), 2, today);
+    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        return sqlite3_column_int(stmt.get(), 0) == 0;
+    }
+    return true;
+}
+
+void SQLiteStore::logGuestCreation(const std::string& ip) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string today = todayDate();
+    Statement stmt(db_, "INSERT OR IGNORE INTO guest_creation_log(ip, created_date) VALUES (?, ?);");
+    bindText(stmt.get(), 1, ip);
+    bindText(stmt.get(), 2, today);
+    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+}
+
+// ---- Query usage ----
 
 int SQLiteStore::getQueryCount(int64_t userId) {
     std::lock_guard<std::mutex> lock(mutex_);

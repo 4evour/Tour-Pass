@@ -1344,6 +1344,27 @@ function renderHotRecommendations() {
   });
 }
 
+// ---- Dark mode ----
+function initTheme() {
+  const saved = localStorage.getItem("tp_theme");
+  if (saved) document.documentElement.dataset.theme = saved;
+  else if (window.matchMedia("(prefers-color-scheme: dark)").matches) document.documentElement.dataset.theme = "dark";
+  updateThemeIcon();
+}
+function toggleTheme() {
+  const current = document.documentElement.dataset.theme;
+  const next = current === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = next;
+  localStorage.setItem("tp_theme", next);
+  updateThemeIcon();
+}
+function updateThemeIcon() {
+  const btn = $("themeToggle");
+  if (btn) btn.textContent = document.documentElement.dataset.theme === "dark" ? "☀️" : "🌙";
+}
+$("themeToggle")?.addEventListener("click", toggleTheme);
+initTheme();
+
 // Event delegation for dynamically rendered buttons
 document.addEventListener("click", (e) => {
   if (e.target.id === "saveTripBtn" || e.target.closest?.("#saveTripBtn")) saveTrip();
@@ -1352,6 +1373,8 @@ document.addEventListener("click", (e) => {
 
 // ---- Guest mode ----
 async function doGuestLogin() {
+  const errEl = $("authError");
+  errEl.hidden = true;
   try {
     const data = await api("/auth/guest", { method: "POST" });
     state.token = data.token;
@@ -1359,8 +1382,8 @@ async function doGuestLogin() {
     localStorage.setItem("tp_token", data.token);
     showApp();
   } catch (e) {
-    $("authError").textContent = e.message;
-    $("authError").hidden = false;
+    errEl.textContent = e.message;
+    errEl.hidden = false;
   }
 }
 

@@ -70,6 +70,10 @@ public:
     std::optional<std::string> getValidVerificationCode(const std::string& email, const std::string& code, const std::string& purpose);
     void markCodeUsed(int64_t codeId);
 
+    // --- guest IP limit ---
+    bool canCreateGuest(const std::string& ip);
+    void logGuestCreation(const std::string& ip);
+
     // --- query usage ---
     int getQueryCount(int64_t userId);               // today's count
     int getBonusQueries(int64_t userId);             // unused bonus for today

@@ -12,6 +12,36 @@
   --blue-soft: #eaf1f8;
 }
 
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1413;
+  --surface: #1a1f1e;
+  --ink: #e0e6e4;
+  --muted: #8a9590;
+  --line: #2a3130;
+  --accent: #2dd4a8;
+  --accent-dark: #22b892;
+  --warn: #e0973a;
+  --soft: #1e2725;
+  --blue-soft: #1a2330;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0f1413;
+    --surface: #1a1f1e;
+    --ink: #e0e6e4;
+    --muted: #8a9590;
+    --line: #2a3130;
+    --accent: #2dd4a8;
+    --accent-dark: #22b892;
+    --warn: #e0973a;
+    --soft: #1e2725;
+    --blue-soft: #1a2330;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -1170,6 +1200,21 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   align-items: center;
   gap: 12px;
 }
+.theme-toggle {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.theme-toggle:hover { border-color: var(--accent); }
+[data-theme="dark"] .theme-toggle { background: var(--soft); }
 .query-counter {
   font-size: 13px;
   color: var(--muted);

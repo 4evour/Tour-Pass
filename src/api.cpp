@@ -925,14 +925,19 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
         });
     });
 
-    // ---- Guest mode ----
-    server.Post("/auth/guest", [&](const httplib::Request&, httplib::Response& res) {
+    // ---- Guest mode (IP limited: 1 per IP per day) ----
+    server.Post("/auth/guest", [&](const httplib::Request& req, httplib::Response& res) {
         if (!context.store || !context.store->enabled()) {
             setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503); return;
+        }
+        std::string ip = req.remote_addr;
+        if (!context.store->canCreateGuest(ip)) {
+            setJson(res, errorJson("GUEST_LIMIT", "今日游客体验已达上限，请注册账号获取更多次数", {{"hint", "POST /auth/register-email"}}), 429); return;
         }
         std::string username = "guest_" + randomHex(3);
         std::string hashed = hashPassword(randomHex(8));
         int64_t userId = context.store->createUser(username, hashed, "guest");
+        context.store->logGuestCreation(ip);
         std::string token = createToken(userId, username, "guest");
         setJson(res, {
             {"token", token},
