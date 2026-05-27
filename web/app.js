@@ -511,6 +511,109 @@ function renderPlan() {
   bindComparisonCards();
   $("mapContainer").hidden = true;
   renderOverviewMap(candidate);
+  initDragDrop();
+}
+
+// ---- Drag & Drop itinerary editing ----
+let dragState = { dayIndex: -1, stopIndex: -1, el: null };
+
+function initDragDrop() {
+  document.querySelectorAll(".stop-card[draggable]").forEach(card => {
+    card.addEventListener("dragstart", (e) => {
+      const stopList = card.closest(".stop-list");
+      const dayBlock = card.closest(".day-block");
+      const dayIdx = [...document.querySelectorAll(".day-block")].indexOf(dayBlock);
+      const stopIdx = [...stopList.querySelectorAll(".stop-card")].indexOf(card);
+      dragState = { dayIndex: dayIdx, stopIndex: stopIdx, el: card };
+      card.classList.add("dragging");
+      e.dataTransfer.effectAllowed = "move";
+      e.dataTransfer.setData("text/plain", "");
+    });
+    card.addEventListener("dragend", () => {
+      card.classList.remove("dragging");
+      document.querySelectorAll(".drag-over").forEach(el => el.classList.remove("drag-over"));
+      dragState = { dayIndex: -1, stopIndex: -1, el: null };
+    });
+  });
+
+  document.querySelectorAll(".stop-list").forEach(list => {
+    list.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = "move";
+      const afterEl = getDragAfterElement(list, e.clientY);
+      const cards = list.querySelectorAll(".stop-card");
+      cards.forEach(c => c.classList.remove("drag-over"));
+      if (afterEl) afterEl.classList.add("drag-over");
+    });
+
+    list.addEventListener("drop", (e) => {
+      e.preventDefault();
+      document.querySelectorAll(".drag-over").forEach(el => el.classList.remove("drag-over"));
+      if (dragState.dayIndex < 0) return;
+
+      const targetDayBlock = list.closest(".day-block");
+      const targetDayIdx = [...document.querySelectorAll(".day-block")].indexOf(targetDayBlock);
+      const afterEl = getDragAfterElement(list, e.clientY);
+      let targetStopIdx = afterEl
+        ? [...list.querySelectorAll(".stop-card")].indexOf(afterEl)
+        : list.querySelectorAll(".stop-card").length;
+
+      moveStop(dragState.dayIndex, dragState.stopIndex, targetDayIdx, targetStopIdx);
+    });
+  });
+}
+
+function getDragAfterElement(list, y) {
+  const cards = [...list.querySelectorAll(".stop-card:not(.dragging)")];
+  return cards.reduce((closest, child) => {
+    const box = child.getBoundingClientRect();
+    const offset = y - box.top - box.height / 2;
+    if (offset < 0 && offset > closest.offset) return { offset, element: child };
+    return closest;
+  }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
+function moveStop(fromDay, fromStop, toDay, toStop) {
+  const candidate = state.candidates[state.selectedIndex];
+  if (!candidate?.days) return;
+  const srcDay = candidate.days[fromDay];
+  const dstDay = candidate.days[toDay];
+  if (!srcDay?.stops || !dstDay?.stops) return;
+  if (fromDay === toDay && fromStop === toStop) return;
+
+  // Remove from source
+  const [moved] = srcDay.stops.splice(fromStop, 1);
+  // Adjust target index if same day and moving down
+  if (fromDay === toDay && fromStop < toStop) toStop--;
+  // Insert at target
+  dstDay.stops.splice(toStop, 0, moved);
+
+  // Recalculate times for affected days
+  recalcDayTimes(dstDay);
+  if (fromDay !== toDay) recalcDayTimes(srcDay);
+
+  // Re-render
+  renderPlan();
+}
+
+function recalcDayTimes(day) {
+  if (!day?.stops?.length) return;
+  let currentMin = 9 * 60; // Start at 09:00
+  day.stops.forEach((stop, i) => {
+    const travel = i === 0 ? 0 : (stop.travel_minutes_from_previous || 10);
+    currentMin += travel;
+    const visit = stop.visit_duration_minutes || 60;
+    stop.start_time = minToTime(currentMin);
+    currentMin += visit;
+    stop.end_time = minToTime(currentMin);
+  });
+  day.total_travel_minutes = day.stops.reduce((s, st) => s + (st.travel_minutes_from_previous || 0), 0);
+}
+
+function minToTime(min) {
+  const h = Math.floor(min / 60);
+  const m = min % 60;
+  return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
 }
 
 function transportIcon(minutes) {
@@ -835,13 +938,21 @@ function renderDay(day) {
   `;
 }
 
+function poiImageUrl(name, type) {
+  const typeMap = { attraction: "landmark", restaurant: "food", hotel: "hotel building", nightlife: "nightlife city" };
+  const q = encodeURIComponent((name || "").split("(")[0].split("（")[0] + " " + (typeMap[type] || "travel"));
+  return `https://source.unsplash.com/200x200/?${q}`;
+}
+
 function renderStop(stop) {
   const travel = stop.travel_minutes_from_previous || 0;
   const hasRisk = stop.time_window_status && stop.time_window_status !== "ok";
+  const imgUrl = poiImageUrl(stop.poi_name, stop.poi_type);
   return `
-    <article class="stop-card ${hasRisk ? "stop-risk" : ""}">
+    <article class="stop-card ${hasRisk ? "stop-risk" : ""}" draggable="true" data-poi-id="${stop.poi_id || ""}">
       ${travel > 0 ? `<div class="stop-transport-bar">${transportIcon(travel)} ${travel} 分钟</div>` : ""}
       <div class="stop-main">
+        <img class="stop-poi-img" src="${imgUrl}" alt="" loading="lazy" onerror="this.style.display='none'" />
         <span class="stop-type-icon">${typeIcon(stop.poi_type)}</span>
         <div class="stop-info">
           <div class="stop-name-line">

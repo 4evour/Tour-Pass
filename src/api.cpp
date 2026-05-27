@@ -2,6 +2,7 @@
 
 #include <chrono>
 #include <cstdlib>
+#include <fstream>
 #include <functional>
 #include <iostream>
 #include <limits>
@@ -1092,8 +1093,31 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
     server.Get(R"(/s/([a-z0-9]+))", [&](const httplib::Request& req, httplib::Response& res) {
         std::string shareId = req.matches[1];
         auto trip = context.store->getTripByShareId(shareId);
-        if (!trip) { setJson(res, errorJson("NOT_FOUND", "分享链接无效或已过期"), 404); return; }
-        setJson(res, *trip);
+        if (!trip) {
+            // Return 404 HTML page
+            res.status = 404;
+            res.set_content("<!DOCTYPE html><html><head><meta charset='utf-8'><title>链接无效</title>"
+                "<style>body{font-family:system-ui;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f5f7f6;}"
+                ".box{text-align:center;padding:40px;}.box h1{font-size:48px;margin:0;}.box p{color:#65706d;}"
+                "a{color:#146b5d;text-decoration:none;font-weight:600;}</style></head>"
+                "<body><div class='box'><h1>😕</h1><p>分享链接无效或已过期</p><p><a href='/'>返回首页</a></p></div></body></html>",
+                "text/html; charset=utf-8");
+            return;
+        }
+        // Serve share.html with trip data embedded
+        std::ifstream file("web/share.html");
+        if (!file.is_open()) {
+            setJson(res, *trip);
+            return;
+        }
+        std::string html((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+        // Inject trip data as a script tag
+        std::string script = "<script>window.__SHARE_DATA__=" + trip->dump() + ";</script></head>";
+        auto pos = html.find("</head>");
+        if (pos != std::string::npos) {
+            html.replace(pos, 7, script);
+        }
+        res.set_content(html, "text/html; charset=utf-8");
     });
 
     // ---- Feedback ----

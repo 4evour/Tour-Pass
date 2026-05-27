@@ -1562,6 +1562,14 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   flex-shrink: 0;
   margin-top: 2px;
 }
+.stop-poi-img {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #eee;
+}
 .stop-info { flex: 1; min-width: 0; }
 .stop-name-line {
   display: flex;
@@ -1588,6 +1596,13 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   margin-top: 4px;
   line-height: 1.4;
 }
+/* Drag & drop */
+.stop-card[draggable] { cursor: grab; transition: transform 0.15s, box-shadow 0.15s; }
+.stop-card[draggable]:hover { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.stop-card.dragging { opacity: 0.4; transform: scale(0.98); }
+.stop-card.drag-over { border-top: 3px solid var(--accent); }
+.stop-list { min-height: 40px; padding: 2px; border-radius: 8px; transition: background 0.2s; }
+.stop-list:has(.drag-over) { background: rgba(20,107,93,0.04); }
 
 @media (max-width: 620px) {
   .overview-map-wrap { height: 250px; }
