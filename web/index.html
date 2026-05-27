@@ -104,7 +104,13 @@
               </div>
               <div class="field-row">
                 <label for="hotelLocation">酒店</label>
-                <input id="hotelLocation" name="hotelLocation" value="7天优品酒店(长沙橘子洲五一广场地铁站店)" placeholder="输入酒店名或从推荐中选择" />
+                <div class="hotel-picker-wrap">
+                  <input id="hotelLocation" name="hotelLocation" value="7天优品酒店(长沙橘子洲五一广场地铁站店)" placeholder="点击选择酒店..." readonly />
+                  <div id="hotelDropdown" class="hotel-dropdown" hidden>
+                    <input id="hotelSearch" class="hotel-search" placeholder="搜索酒店..." />
+                    <div id="hotelList" class="hotel-list"></div>
+                  </div>
+                </div>
               </div>
               <div class="field-row">
                 <label for="pace">节奏</label>

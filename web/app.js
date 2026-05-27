@@ -227,6 +227,7 @@ function showApp() {
   $("userBadge").textContent = state.user?.username || "";
   updateQueryCounter(state.user?.query_remaining);
   loadHealth();
+  renderHotRecommendations();
 }
 
 function showAuth() {
@@ -1093,6 +1094,72 @@ document.querySelectorAll(".interest-tags .tag").forEach((tag) => {
     $("interests").value = active.join(", ");
   });
 });
+
+// Hotel picker
+let allHotels = [];
+async function loadHotels() {
+  try {
+    const data = await api("/poi/search?type=hotel&limit=100");
+    allHotels = data.data || [];
+    renderHotelList(allHotels);
+  } catch {}
+}
+function renderHotelList(hotels) {
+  $("hotelList").innerHTML = hotels.map(h => `
+    <div class="hotel-item" data-id="${h.id}" data-name="${escapeHtml(h.name)}">
+      <strong>${escapeHtml(h.name)}</strong>
+      <span>${escapeHtml(h.area || "")} · ⭐ ${(h.popularity || 0).toFixed(1)}</span>
+    </div>
+  `).join("") || '<div class="hotel-item"><span>暂无酒店数据</span></div>';
+  document.querySelectorAll(".hotel-item").forEach(item => {
+    item.addEventListener("click", () => {
+      $("hotelLocation").value = item.dataset.name;
+      $("hotelDropdown").hidden = true;
+    });
+  });
+}
+$("hotelLocation").addEventListener("click", async () => {
+  $("hotelDropdown").hidden = !$("hotelDropdown").hidden;
+  if (!$("hotelDropdown").hidden && allHotels.length === 0) await loadHotels();
+});
+$("hotelSearch")?.addEventListener("input", (e) => {
+  const q = e.target.value.toLowerCase();
+  renderHotelList(allHotels.filter(h => h.name.toLowerCase().includes(q) || (h.area || "").toLowerCase().includes(q)));
+});
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".hotel-picker-wrap")) $("hotelDropdown").hidden = true;
+});
+
+// Hot recommendations (shown when no results)
+function renderHotRecommendations() {
+  const output = $("planOutput");
+  output.className = "plan-output";
+  output.innerHTML = `
+    <div class="hot-recs">
+      <h3>🔥 热门行程推荐</h3>
+      <div class="hot-rec-cards">
+        <button class="hot-rec-card" type="button" data-msg="2天长沙行，想去橘子洲和岳麓山，喜欢历史文化">
+          <strong>🏙️ 长沙 2日文化之旅</strong>
+          <span>橘子洲 · 岳麓山 · 湖南省博物馆</span>
+        </button>
+        <button class="hot-rec-card" type="button" data-msg="2天长沙行，主要吃美食，不要太累">
+          <strong>🍜 长沙 2日美食探索</strong>
+          <span>坡子街 · 太平街 · 文和友</span>
+        </button>
+        <button class="hot-rec-card" type="button" data-msg="2天武汉行，想去黄鹤楼和户部巷，尝热干面">
+          <strong>🌉 武汉 2日经典游</strong>
+          <span>黄鹤楼 · 户部巷 · 东湖</span>
+        </button>
+      </div>
+    </div>
+  `;
+  document.querySelectorAll(".hot-rec-card").forEach(card => {
+    card.addEventListener("click", () => {
+      $("chatInput").value = card.dataset.msg;
+      chatPlan();
+    });
+  });
+}
 
 // Auth event listeners
 $("authLoginBtn").addEventListener("click", doLogin);
