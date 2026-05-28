@@ -392,11 +392,9 @@ void PostgresStore::markCodeUsed(int64_t codeId) {
 
 // ---- Guest IP limit ----
 
-bool PostgresStore::canCreateGuest(const std::string& ip) {
-    std::lock_guard<std::mutex> lock(mutex_);
-    std::string today = queryScalar("SELECT CURRENT_DATE::text;");
-    std::string sql = "SELECT COUNT(*)::text FROM guest_creation_log WHERE ip = '" + esc(conn_, ip) + "' AND created_date = '" + esc(conn_, today) + "';";
-    return queryScalar(sql) == "0";
+bool PostgresStore::canCreateGuest(const std::string& /*ip*/) {
+    // IP limit removed - the 3/day query limit per guest is sufficient protection
+    return true;
 }
 
 void PostgresStore::logGuestCreation(const std::string& ip) {
