@@ -8,9 +8,13 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 option(TOURPASS_BUILD_TESTS "Build the tourpass_tests executable" OFF)
 option(TOURPASS_USE_GTEST "Build GoogleTest-based tests with FetchContent" OFF)
 option(TOURPASS_ENABLE_OPENSSL "Enable HTTPS LLM calls when OpenSSL is available" ON)
+option(TOURPASS_ENABLE_POSTGRES "Enable PostgreSQL storage backend when libpq is available" ON)
 find_package(Threads REQUIRED)
 if (TOURPASS_ENABLE_OPENSSL)
     find_package(OpenSSL QUIET)
+endif()
+if (TOURPASS_ENABLE_POSTGRES)
+    find_package(PostgreSQL QUIET)
 endif()
 
 include_directories(
@@ -32,6 +36,10 @@ set(TOURPASS_SOURCES
     src/travel_time_provider.cpp
 )
 
+if (PostgreSQL_FOUND)
+    list(APPEND TOURPASS_SOURCES src/pg_store.cpp)
+endif()
+
 add_library(sqlite3 STATIC third_party/sqlite3.c)
 target_compile_definitions(sqlite3 PRIVATE SQLITE_THREADSAFE=1 SQLITE_DEFAULT_MEMSTATUS=0)
 
@@ -49,6 +57,11 @@ if (OpenSSL_FOUND)
     target_compile_definitions(tourpass PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
     target_link_libraries(tourpass PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 endif()
+if (PostgreSQL_FOUND)
+    target_compile_definitions(tourpass PRIVATE TOURPASS_HAS_POSTGRES)
+    target_include_directories(tourpass PRIVATE ${PostgreSQL_INCLUDE_DIRS})
+    target_link_libraries(tourpass PRIVATE ${PostgreSQL_LIBRARIES})
+endif()
 
 if(TOURPASS_BUILD_TESTS)
     add_executable(tourpass_tests
@@ -63,6 +76,11 @@ if(TOURPASS_BUILD_TESTS)
     if (OpenSSL_FOUND)
         target_compile_definitions(tourpass_tests PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
         target_link_libraries(tourpass_tests PRIVATE OpenSSL::SSL OpenSSL::Crypto)
+    endif()
+    if (PostgreSQL_FOUND)
+        target_compile_definitions(tourpass_tests PRIVATE TOURPASS_HAS_POSTGRES)
+        target_include_directories(tourpass_tests PRIVATE ${PostgreSQL_INCLUDE_DIRS})
+        target_link_libraries(tourpass_tests PRIVATE ${PostgreSQL_LIBRARIES})
     endif()
     enable_testing()
     add_test(NAME tourpass_tests COMMAND tourpass_tests)

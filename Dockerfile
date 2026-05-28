@@ -9,7 +9,8 @@ RUN echo "=== Step 1: apt-get update ===" \
         build-essential \
         ca-certificates \
         cmake \
-        libssl-dev 2>&1 \
+        libssl-dev \
+        libpq-dev 2>&1 \
     && echo "=== Step 3: cleanup ===" \
     && rm -rf /var/lib/apt/lists/*
 
@@ -38,7 +39,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TOURPASS_DB_PATH=/app/storage/tourpass.sqlite
 
 RUN apt-get update 2>&1 \
-    && apt-get install -y --no-install-recommends ca-certificates libssl3 2>&1 \
+    && apt-get install -y --no-install-recommends ca-certificates libssl3 libpq5 2>&1 \
     && rm -rf /var/lib/apt/lists/* \
     && useradd --create-home --shell /usr/sbin/nologin tourpass
 

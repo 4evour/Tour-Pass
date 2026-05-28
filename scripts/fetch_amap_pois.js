@@ -4,6 +4,26 @@ const path = require("path");
 const AMAP_PLACE_TEXT_URL = "https://restapi.amap.com/v3/place/text";
 const VALID_TYPES = new Set(["attraction", "restaurant", "hotel", "transit", "nightlife"]);
 
+const DRINK_KEYWORDS = ["茶饮", "冷饮", "甜品", "奶茶", "咖啡", "果汁", "饮品", "茶室", "茶馆", "冰淇淋", "冷饮店", "甜品店"];
+const SNACK_KEYWORDS = ["夜市", "烧烤", "甜点", "点心", "面包店", "蛋糕", "串串", "炸鸡", "卤味", "鸭脖", "小吃街", "小吃店", "卤味店"];
+
+function deriveMealType(poiType, tags, categoryName) {
+  if (poiType !== "restaurant") return "main";
+  // Check category name first (most reliable signal)
+  const catLower = (categoryName || "").toLowerCase();
+  if (catLower.includes("茶饮") || catLower.includes("茶颜")) return "drink";
+  if (catLower.includes("夜市") || catLower.includes("夜游")) return "snack";
+  // Check tags
+  const lowerTags = tags.map(t => t.toLowerCase());
+  for (const kw of DRINK_KEYWORDS) {
+    if (lowerTags.some(t => t.includes(kw))) return "drink";
+  }
+  for (const kw of SNACK_KEYWORDS) {
+    if (lowerTags.some(t => t.includes(kw))) return "snack";
+  }
+  return "main";
+}
+
 function parseArgs(argv) {
   const args = {
     config: "config/amap.changsha.json",
@@ -127,6 +147,7 @@ function normalizePoi(amapPoi, category, index) {
     tags,
     popularity: Number(rating.toFixed(1)),
     price_level: cost,
+    meal_type: deriveMealType(poiType, tags, category.name),
     description: `${name}，来自高德 Web 服务 POI 搜索；分类：${category.name || poiType}。`,
     source: "amap",
     source_id: amapId,

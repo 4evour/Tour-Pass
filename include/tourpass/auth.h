@@ -11,7 +11,7 @@ std::string hashPassword(const std::string& password);
 bool verifyPassword(const std::string& password, const std::string& storedHash);
 
 // JWT token (HMAC-SHA256)
-std::string createToken(int64_t userId, const std::string& username, const std::string& role, int ttlSeconds = 86400 * 7);
+std::string createToken(int64_t userId, const std::string& username, const std::string& role, int ttlSeconds = 86400 * 30);
 struct TokenPayload {
     int64_t userId = 0;
     std::string username;

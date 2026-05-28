@@ -1,0 +1,80 @@
+{
+  "city": "丽江",
+  "target_count": 300,
+  "page_size": 25,
+  "max_pages_per_category": 20,
+  "categories": [
+    {
+      "name": "核心景点",
+      "target_count": 60,
+      "keywords": "丽江 景点 古城",
+      "types": "110000",
+      "poi_type": "attraction",
+      "tags": ["景点", "城市游览"]
+    },
+    {
+      "name": "博物馆与文化",
+      "target_count": 25,
+      "keywords": "丽江 博物馆 纳西",
+      "types": "140000",
+      "poi_type": "attraction",
+      "tags": ["历史文化", "室内", "博物馆"]
+    },
+    {
+      "name": "公园与户外",
+      "target_count": 40,
+      "keywords": "丽江 自然 雪山 湖",
+      "types": "110100|110000",
+      "poi_type": "attraction",
+      "tags": ["公园", "户外", "自然风光"]
+    },
+    {
+      "name": "商圈街区",
+      "target_count": 30,
+      "keywords": "丽江 古城 四方街",
+      "types": "060000",
+      "poi_type": "attraction",
+      "tags": ["街区", "古城", "城市漫步"]
+    },
+    {
+      "name": "本地餐饮",
+      "target_count": 50,
+      "keywords": "丽江 云南菜 小吃",
+      "types": "050000",
+      "poi_type": "restaurant",
+      "tags": ["美食", "云南菜", "小吃"]
+    },
+    {
+      "name": "夜游夜市",
+      "target_count": 25,
+      "keywords": "丽江 酒吧 夜市",
+      "types": "050000",
+      "poi_type": "nightlife",
+      "tags": ["夜景", "酒吧", "休闲"]
+    },
+    {
+      "name": "茶饮甜品",
+      "target_count": 15,
+      "keywords": "丽江 咖啡 茶馆",
+      "types": "050000",
+      "poi_type": "restaurant",
+      "tags": ["美食", "茶饮", "咖啡"]
+    },
+    {
+      "name": "古城酒店",
+      "target_count": 35,
+      "keywords": "丽江 古城 客栈 民宿",
+      "types": "100000",
+      "poi_type": "hotel",
+      "tags": ["酒店", "客栈", "古城"]
+    },
+    {
+      "name": "交通",
+      "target_count": 15,
+      "keywords": "丽江 机场 火车站",
+      "types": "150000",
+      "poi_type": "transit",
+      "tags": ["交通", "枢纽"]
+    }
+  ]
+}

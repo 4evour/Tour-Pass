@@ -4,11 +4,36 @@
 #include <memory>
 #include <sstream>
 
+#ifdef _WIN32
+#include <direct.h>
+#define getcwd _getcwd
+#else
+#include <unistd.h>
+#endif
+
 #include "tourpass/api.h"
 #include "tourpass/data_loader.h"
+#include "tourpass/sqlite_store.h"
 #include "tourpass/travel_time_provider.h"
 
+#ifdef TOURPASS_HAS_POSTGRES
+#include "tourpass/pg_store.h"
+#endif
+
 namespace {
+
+std::string currentWorkingDir() {
+    char buf[1024];
+    if (getcwd(buf, sizeof(buf))) return std::string(buf);
+    return ".";
+}
+
+std::string resolveRelativePath(const std::string& path) {
+    if (path.empty() || path[0] == '/' || (path.size() >= 2 && path[1] == ':')) {
+        return path; // already absolute
+    }
+    return currentWorkingDir() + "/" + path;
+}
 
 std::string fileHash(const std::string& path) {
     std::ifstream input(path, std::ios::binary);
@@ -52,11 +77,32 @@ int main() {
         tourpass::TripPlanner planner(graph);
         tourpass::SearchEngine search(graph);
         tourpass::LlmClient llm;
+        // Resolve relative paths to absolute at startup (prevents DB loss on CWD change)
+        poiPath = resolveRelativePath(poiPath);
+        edgePath = resolveRelativePath(edgePath);
+
         tourpass::RuntimeConfig config = tourpass::runtimeConfigFromEnv();
         config.travelProviderName = travelProvider->name();
-        std::unique_ptr<tourpass::SQLiteStore> store;
-        if (config.dbEnabled) {
+        config.dbPath = resolveRelativePath(config.dbPath);
+
+        std::unique_ptr<tourpass::DataStore> store;
+        const char* databaseUrl = std::getenv("DATABASE_URL");
+#ifdef TOURPASS_HAS_POSTGRES
+        if (databaseUrl && *databaseUrl) {
+            std::cout << "Using PostgreSQL backend" << std::endl;
+            auto pg = std::make_unique<tourpass::PostgresStore>(databaseUrl);
+            if (pg->enabled()) {
+                store = std::move(pg);
+            } else {
+                std::cerr << "PostgreSQL connection failed, falling back to SQLite" << std::endl;
+            }
+        }
+#endif
+        if (!store && config.dbEnabled) {
+            std::cout << "Using SQLite backend: " << config.dbPath << std::endl;
             store = std::make_unique<tourpass::SQLiteStore>(config.dbPath);
+        }
+        if (store) {
             store->recordDataVersion(graph.pois().size(), graph.edgeCount(), fileHash(poiPath), fileHash(edgePath));
         }
 

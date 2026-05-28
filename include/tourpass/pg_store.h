@@ -3,28 +3,25 @@
 #include <mutex>
 #include <optional>
 #include <string>
-#include <vector>
 
 #include "json.hpp"
 #include "tourpass/data_store.h"
-#include "tourpass/models.h"
 
-struct sqlite3;
+struct pg_conn;
 
 namespace tourpass {
 
-class SQLiteStore : public DataStore {
+class PostgresStore : public DataStore {
 public:
-    explicit SQLiteStore(const std::string& path);
-    ~SQLiteStore() override;
+    explicit PostgresStore(const std::string& connStr);
+    ~PostgresStore() override;
 
-    SQLiteStore(const SQLiteStore&) = delete;
-    SQLiteStore& operator=(const SQLiteStore&) = delete;
+    PostgresStore(const PostgresStore&) = delete;
+    PostgresStore& operator=(const PostgresStore&) = delete;
 
-    bool enabled() const override { return db_ != nullptr; }
-    const std::string& path() const { return path_; }
+    bool enabled() const override { return conn_ != nullptr; }
 
-    // --- existing ---
+    // --- recording ---
     void recordDataVersion(size_t poiCount, size_t edgeCount, const std::string& poisHash, const std::string& edgesHash) override;
     void recordPlanningRequest(const std::string& requestId, const std::string& route, const std::string& cacheStatus, const std::string& requestJson, int responseStatus, int64_t latencyMs) override;
     void recordTripJob(const std::string& id, const std::string& status, const std::string& requestJson, const std::string& resultJson, const std::string& error, int64_t queueWaitMs, int64_t executionMs) override;
@@ -77,12 +74,12 @@ public:
 
 private:
     void open();
-    void exec(const std::string& sql);
     void initializeSchema();
-    void recordWrite(bool ok);
+    void exec(const std::string& sql);
+    std::string queryScalar(const std::string& sql) const;
 
-    std::string path_;
-    sqlite3* db_ = nullptr;
+    std::string connStr_;
+    pg_conn* conn_ = nullptr;
     mutable std::mutex mutex_;
     uint64_t writeCount_ = 0;
     uint64_t writeFailures_ = 0;

@@ -345,10 +345,22 @@ std::string LlmClient::chatCompletion(const std::vector<ChatMessage>& messages, 
 
 std::string LlmClient::explainWithRemote(const Itinerary& itinerary) const {
     std::vector<ChatMessage> messages = {
-        {"system", "你是中文旅行规划助手。根据结构化行程，输出简洁、可信、适合演示的中文解释。"},
+        {"system", R"(你是一位资深旅行攻略达人，像朋友一样为用户规划行程。根据结构化行程数据，用轻松自然的中文输出攻略式解释。
+
+要求：
+1. 用第一人称"我"或"咱们"开头，像朋友推荐一样亲切自然
+2. 每个景点/餐厅简要说明"为什么选这里"——特色、亮点、拍照点、招牌菜等
+3. 相邻行程自然串联，形成动线故事（如"逛完XX正好走到YY吃个饭"）
+4. 给出实用小贴士：最佳时间、排队建议、交通方式、穿着建议等
+5. 如果有下午茶安排，说明是休息调整的好时机
+6. 餐厅推荐要说明特色菜或推荐理由，不要只说"用餐"
+7. 保持整体节奏感：上午精力充沛适合逛景点，下午轻松休闲，晚上感受夜生活
+8. 总字数控制在 500 字以内
+
+不要输出 JSON，只输出攻略式中文文本。)"},
         {"user", itineraryToJson(itinerary).dump()}
     };
-    return chatCompletion(messages, 0.4);
+    return chatCompletion(messages, 0.5);
 }
 
 LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& message, const std::vector<ChatMessage>& context) const {
@@ -439,13 +451,14 @@ LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& messa
 }
 
 std::string LlmClient::generateItineraryReply(const std::string& userMessage, const TripRequest& /*request*/, const Itinerary& itinerary) const {
-    std::string systemPrompt = R"(你是中文旅行规划助手。用户用自然语言提出了旅行需求，系统已经生成了行程规划。
+    std::string systemPrompt = R"(你是一位热情的旅行攻略达人。用户提出了旅行需求，系统已生成行程规划。
 
-请用自然、亲切的中文回复用户：
-1. 简要总结行程亮点（每天主题、必去景点是否覆盖）
-2. 指出行程中的特别推荐
-3. 如有实用建议可以补充（如天气、交通提示）
-4. 保持在 200 字以内
+请用朋友聊天的口吻回复用户：
+1. 先用一句话概括整体行程感觉（如"这条线路走的是XX风格"）
+2. 用 2-3 个亮点吸引用户（为什么这个安排很棒、有什么隐藏玩法）
+3. 给 1-2 条实用贴士（穿什么、带什么、注意事项）
+4. 如果有下午茶/小吃安排，提一下当地特色
+5. 保持在 250 字以内，语气轻松自然
 
 不要输出 JSON，只输出纯文本回复。)";
 
