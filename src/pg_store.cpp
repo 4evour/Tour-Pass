@@ -456,12 +456,13 @@ void PostgresStore::recordEasterEgg(int64_t userId) {
 
 // ---- Saved trips ----
 
-void PostgresStore::saveTrip(int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) {
+int64_t PostgresStore::saveTrip(int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) {
     std::lock_guard<std::mutex> lock(mutex_);
     std::ostringstream sql;
     sql << "INSERT INTO saved_trips(user_id, title, request_json, response_json) VALUES ("
-        << userId << ", '" << esc(conn_, title) << "', '" << esc(conn_, requestJson) << "', '" << esc(conn_, responseJson) << "');";
-    exec(sql.str());
+        << userId << ", '" << esc(conn_, title) << "', '" << esc(conn_, requestJson) << "', '" << esc(conn_, responseJson) << "') RETURNING id;";
+    std::string idStr = queryScalar(sql.str());
+    return idStr.empty() ? 0 : std::stoll(idStr);
 }
 
 nlohmann::json PostgresStore::listTrips(int64_t userId) {

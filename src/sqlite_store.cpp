@@ -541,14 +541,19 @@ void SQLiteStore::recordEasterEgg(int64_t userId) {
 
 // ---- Saved trips ----
 
-void SQLiteStore::saveTrip(int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) {
+int64_t SQLiteStore::saveTrip(int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) {
     std::lock_guard<std::mutex> lock(mutex_);
     Statement stmt(db_, "INSERT INTO saved_trips(user_id, title, request_json, response_json) VALUES (?, ?, ?, ?);");
     sqlite3_bind_int64(stmt.get(), 1, userId);
     bindText(stmt.get(), 2, title);
     bindText(stmt.get(), 3, requestJson);
     bindText(stmt.get(), 4, responseJson);
-    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
+    if (sqlite3_step(stmt.get()) == SQLITE_DONE) {
+        recordWrite(true);
+        return sqlite3_last_insert_rowid(db_);
+    }
+    recordWrite(false);
+    return 0;
 }
 
 nlohmann::json SQLiteStore::listTrips(int64_t userId) {

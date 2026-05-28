@@ -1185,8 +1185,8 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             std::string title = body.value("title", "未命名行程");
             std::string requestJson = body.contains("request") ? body["request"].dump() : "{}";
             std::string responseJson = body.contains("response") ? body["response"].dump() : "{}";
-            context.store->saveTrip(userId, title, requestJson, responseJson);
-            setJson(res, {{"status", "saved"}}, 201);
+            int64_t tripId = context.store->saveTrip(userId, title, requestJson, responseJson);
+            setJson(res, {{"status", "saved"}, {"id", tripId}}, 201);
         } catch (const std::exception& ex) {
             setJson(res, errorJson("INTERNAL_ERROR", "保存失败", {{"reason", ex.what()}}), 500);
         }

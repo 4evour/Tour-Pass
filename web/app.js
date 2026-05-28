@@ -1398,28 +1398,33 @@ async function shareTrip() {
   const shareBtn = document.getElementById("shareTripBtn");
   if (shareBtn) { shareBtn.disabled = true; shareBtn.textContent = "分享中..."; }
   try {
-    await api("/trips/save", {
-      method: "POST",
-      body: JSON.stringify({
-        title: `${candidate.variant_name || "行程"} ${candidate.days?.length || 0}天`,
-        request: state.lastPayload,
-        response: candidate,
-      }),
-    });
+    // Save first if not already saved
+    if (!state.tripSaved) {
+      await saveTrip();
+    }
+    // If still not saved (e.g. save failed), abort
+    if (!state.tripSaved) {
+      toast("请先保存行程再分享", "info");
+      return;
+    }
+    // Get latest trip ID
     const trips = await api("/trips/list");
-    if (trips.data && trips.data.length > 0) {
-      const tripId = trips.data[0].id;
-      const shareData = await api(`/trips/${tripId}/share`, { method: "POST", body: JSON.stringify({}) });
-      const url = location.origin + shareData.share_url;
-      try { await navigator.clipboard.writeText(url); } catch {}
-      toast("分享链接已复制", "success",
-        `<a href="${shareData.share_url}" target="_blank" class="toast-link">预览分享页</a>`);
-      if (shareBtn) { shareBtn.textContent = "复制链接"; shareBtn.disabled = false; shareBtn.onclick = () => { navigator.clipboard.writeText(url).catch(() => {}); toast("链接已复制", "success"); }; }
+    const tripId = state.savedTripId || (trips.data?.[0]?.id);
+    if (!tripId) { toast("未找到已保存的行程", "error"); return; }
+    // Generate share link
+    const shareData = await api(`/trips/${tripId}/share`, { method: "POST", body: "{}" });
+    const url = location.origin + shareData.share_url;
+    try { await navigator.clipboard.writeText(url); } catch {}
+    toast("分享链接已复制", "success",
+      `<a href="${shareData.share_url}" target="_blank" class="toast-link">预览分享页</a>`);
+    if (shareBtn) {
+      shareBtn.textContent = "🔗 复制链接";
+      shareBtn.disabled = false;
+      shareBtn.onclick = () => { navigator.clipboard.writeText(url).catch(() => {}); toast("链接已复制", "success"); };
     }
   } catch (e) {
     toast("分享失败：" + e.message, "error");
-  } finally {
-    if (shareBtn && shareBtn.textContent === "分享中...") { shareBtn.textContent = "分享"; shareBtn.disabled = false; }
+    if (shareBtn) { shareBtn.textContent = "🔗 分享"; shareBtn.disabled = false; }
   }
 }
 
