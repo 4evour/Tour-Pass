@@ -76,9 +76,8 @@ nlohmann::json errorJson(const std::string& code, const std::string& message, co
 namespace {
 
 struct ApiContext {
-    const PoiGraph& graph;
-    TripPlanner& planner;
-    SearchEngine& search;
+    std::unordered_map<std::string, CityBundle*> cities;
+    std::string defaultCity;
     LlmClient& llm;
     RuntimeConfig config;
     ResponseCache cache;
@@ -86,15 +85,22 @@ struct ApiContext {
     TripJobStore jobs;
     DataStore* store;
 
-    ApiContext(const PoiGraph& graphRef, TripPlanner& plannerRef, SearchEngine& searchRef, LlmClient& llmRef, const RuntimeConfig& runtimeConfig, DataStore* sqliteStore)
-        : graph(graphRef),
-          planner(plannerRef),
-          search(searchRef),
+    ApiContext(std::unordered_map<std::string, CityBundle*> cityMap, const std::string& defCity,
+               LlmClient& llmRef, const RuntimeConfig& runtimeConfig, DataStore* sqliteStore)
+        : cities(std::move(cityMap)),
+          defaultCity(defCity),
           llm(llmRef),
           config(runtimeConfig),
           cache(runtimeConfig.cacheEntries, std::chrono::seconds(runtimeConfig.cacheTtlSeconds)),
           jobs(runtimeConfig.maxTripJobs, runtimeConfig.jobWorkerCount),
           store(sqliteStore) {}
+
+    CityBundle* getCity(const std::string& city) {
+        auto it = cities.find(city);
+        if (it != cities.end()) return it->second;
+        auto def = cities.find(defaultCity);
+        return def != cities.end() ? def->second : nullptr;
+    }
 };
 
 struct RequestMeta {
@@ -189,14 +195,16 @@ std::string extractJobId(const httplib::Request& req) {
 }
 
 nlohmann::json planJson(ApiContext& context, const TripRequest& tripRequest) {
+    auto* city = context.getCity(tripRequest.city);
+    if (!city) return errorJson("CITY_NOT_FOUND", "未找到城市数据: " + tripRequest.city);
     if (tripRequest.candidateCount > 1) {
         nlohmann::json candidates = nlohmann::json::array();
-        for (const auto& itinerary : context.planner.planCandidates(tripRequest)) {
+        for (const auto& itinerary : city->planner.planCandidates(tripRequest)) {
             candidates.push_back(itineraryToJson(itinerary));
         }
         return {{"city", tripRequest.city}, {"candidates", candidates}};
     }
-    return itineraryToJson(context.planner.plan(tripRequest));
+    return itineraryToJson(city->planner.plan(tripRequest));
 }
 
 bool serveFromCache(ApiContext& context, httplib::Response& res, const std::string& key) {
@@ -264,7 +272,8 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                          || req.path == "/admin.js" || req.path == "/profile.html"
                          || req.path.find("/assets/") == 0
                          || req.path.find("/images/") == 0
-                         || req.path.find("/city/") == 0;
+                         || req.path.find("/city/") == 0
+                         || req.path == "/cities";
 
         // API key bypass (for programmatic access)
         const std::string& apiKey = requiredApiKey();
@@ -414,20 +423,14 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
 
 }  // namespace
 
-int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, int port) {
-    return runServer(graph, planner, search, llm, port, runtimeConfigFromEnv());
-}
-
-int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, int port, const RuntimeConfig& config) {
-    return runServer(graph, planner, search, llm, port, config, nullptr);
-}
-
-int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, int port, const RuntimeConfig& config, DataStore* store) {
-    return runServer(graph, planner, search, llm, "127.0.0.1", port, config, store);
-}
-
-int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search, LlmClient& llm, const std::string& host, int port, const RuntimeConfig& config, DataStore* store) {
-    ApiContext context(graph, planner, search, llm, config, store);
+int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> cities, const std::string& defaultCity,
+              LlmClient& llm, const std::string& host, int port, const RuntimeConfig& config, DataStore* store) {
+    // Build raw pointer map (cities remain owned by the unique_ptr map)
+    std::unordered_map<std::string, CityBundle*> cityPtrs;
+    for (auto& [name, ptr] : cities) {
+        cityPtrs[name] = ptr.get();
+    }
+    ApiContext context(std::move(cityPtrs), defaultCity, llm, config, store);
     httplib::Server server;
     server.new_task_queue = [workers = config.workerCount, maxQueue = config.maxQueuedRequests]() {
         return new httplib::ThreadPool(workers, maxQueue);
@@ -436,14 +439,29 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
     installMiddleware(server, context);
 
     server.Get("/health", [&](const httplib::Request&, httplib::Response& res) {
+        nlohmann::json cityInfo = nlohmann::json::object();
+        size_t totalPois = 0;
+        for (const auto& [name, ptr] : context.cities) {
+            cityInfo[name] = {{"poi_count", ptr->graph.pois().size()}, {"edge_count", ptr->graph.edgeCount()}};
+            totalPois += ptr->graph.pois().size();
+        }
         setJson(res, {
             {"status", "ok"},
-            {"data_loaded", !context.graph.empty()},
-            {"poi_count", context.graph.pois().size()},
-            {"edge_count", context.graph.edgeCount()},
-            {"llm_configured", context.llm.isConfigured()},
-            {"travel_provider", context.config.travelProviderName}
+            {"city_count", context.cities.size()},
+            {"total_poi_count", totalPois},
+            {"cities", cityInfo},
+            {"default_city", context.defaultCity},
+            {"llm_configured", context.llm.isConfigured()}
         });
+    });
+
+    // List available cities
+    server.Get("/cities", [&](const httplib::Request&, httplib::Response& res) {
+        nlohmann::json arr = nlohmann::json::array();
+        for (const auto& [name, ptr] : context.cities) {
+            arr.push_back({{"name", name}, {"poi_count", ptr->graph.pois().size()}});
+        }
+        setJson(res, {{"cities", arr}, {"default", context.defaultCity}});
     });
 
     server.Get("/metrics", [&](const httplib::Request&, httplib::Response& res) {
@@ -603,12 +621,15 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             setJson(res, errorJson("VALIDATION_ERROR", "from 和 to 参数必填"), 400);
             return;
         }
+        std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
+        auto* city = context.getCity(cityName);
+        if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
         std::string key = requestCacheKey(req.method, req.path, queryString(req), "");
         if (serveFromCache(context, res, key)) return;
         std::string from = req.get_param_value("from");
         std::string to = req.get_param_value("to");
         std::string algorithm = req.has_param("algorithm") ? req.get_param_value("algorithm") : "dijkstra";
-        RouteResult route = algorithm == "astar" ? context.graph.aStarRoute(from, to) : context.graph.shortestRoute(from, to);
+        RouteResult route = algorithm == "astar" ? city->graph.aStarRoute(from, to) : city->graph.shortestRoute(from, to);
         if (route.travelMinutes == std::numeric_limits<int>::max()) {
             setJson(res, errorJson("NOT_FOUND", "无法找到可达路线", {{"from", from}, {"to", to}}), 404);
             return;
@@ -635,9 +656,13 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
                 query = "休闲";
             }
 
+            std::string cityName = body.value("city", context.defaultCity);
+            auto* city = context.getCity(cityName);
             nlohmann::json data = nlohmann::json::array();
-            for (const auto& result : context.search.search(query, type, body.value("limit", 5))) {
-                data.push_back(searchResultToJson(result));
+            if (city) {
+                for (const auto& result : city->search.search(query, type, body.value("limit", 5))) {
+                    data.push_back(searchResultToJson(result));
+                }
             }
             setJson(res, {
                 {"scenario", scenario},
@@ -653,6 +678,9 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
     server.Get("/poi/search", [&](const httplib::Request& req, httplib::Response& res) {
         std::string q = req.has_param("q") ? req.get_param_value("q") : "";
         std::string type = req.has_param("type") ? req.get_param_value("type") : "";
+        std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
+        auto* city = context.getCity(cityName);
+        if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
         int limit = 10;
         if (req.has_param("limit")) {
             try {
@@ -667,7 +695,7 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
         std::string key = requestCacheKey(req.method, req.path, queryString(req), "");
         if (serveFromCache(context, res, key)) return;
         nlohmann::json data = nlohmann::json::array();
-        for (const auto& result : context.search.search(q, type, limit)) {
+        for (const auto& result : city->search.search(q, type, limit)) {
             data.push_back(searchResultToJson(result));
         }
         nlohmann::json result = {{"data", data}};
@@ -724,7 +752,8 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
                 }
             } else {
                 TripRequest request = tripRequestFromJson(body);
-                itinerary = context.planner.plan(request);
+                auto* city = context.getCity(request.city);
+                if (city) itinerary = city->planner.plan(request);
             }
             setJson(res, {{"explanation", context.llm.explain(itinerary)}, {"llm_configured", context.llm.isConfigured()}});
         } catch (const std::exception& ex) {
@@ -765,13 +794,20 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
                 return;
             }
 
+            // Get city context
+            auto* city = context.getCity(parsed.request.city);
+            if (!city) {
+                setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市数据: " + parsed.request.city), 404);
+                return;
+            }
+
             // Step 2: Fuzzy match POI names via BM25 search
             nlohmann::json matchedPois = nlohmann::json::array();
             nlohmann::json suggestions = nlohmann::json::array();
             std::vector<std::string> resolvedMustVisit;
 
             for (const auto& name : parsed.unmatchedNames) {
-                auto searchResults = context.search.search(name, "", 3);
+                auto searchResults = city->search.search(name, "", 3);
                 if (!searchResults.empty() && searchResults[0].score > 2.0) {
                     resolvedMustVisit.push_back(searchResults[0].id);
                     matchedPois.push_back({
@@ -796,7 +832,7 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
 
             // Step 3: Plan itinerary
             nlohmann::json candidates = nlohmann::json::array();
-            std::vector<Itinerary> itineraries = context.planner.planCandidates(parsed.request);
+            std::vector<Itinerary> itineraries = city->planner.planCandidates(parsed.request);
             for (const auto& it : itineraries) {
                 candidates.push_back(itineraryToJson(it));
             }

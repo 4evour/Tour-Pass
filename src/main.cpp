@@ -1,8 +1,10 @@
 #include <cstdlib>
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <memory>
 #include <sstream>
+#include <unordered_map>
 
 #ifdef _WIN32
 #include <direct.h>
@@ -30,61 +32,63 @@ std::string currentWorkingDir() {
 
 std::string resolveRelativePath(const std::string& path) {
     if (path.empty() || path[0] == '/' || (path.size() >= 2 && path[1] == ':')) {
-        return path; // already absolute
+        return path;
     }
     return currentWorkingDir() + "/" + path;
-}
-
-std::string fileHash(const std::string& path) {
-    std::ifstream input(path, std::ios::binary);
-    std::ostringstream buffer;
-    buffer << input.rdbuf();
-    std::hash<std::string> hasher;
-    std::ostringstream out;
-    out << std::hex << hasher(buffer.str());
-    return out.str();
 }
 
 }  // namespace
 
 int main() {
     try {
-        const char* cityEnv = std::getenv("TOURPASS_CITY");
-        std::string city = cityEnv && *cityEnv ? cityEnv : "";
+        // ---- Load all available cities ----
+        std::unordered_map<std::string, std::unique_ptr<tourpass::CityBundle>> cities;
 
-        const char* poiPathEnv = std::getenv("TOURPASS_POIS_PATH");
-        const char* edgePathEnv = std::getenv("TOURPASS_EDGES_PATH");
+        // Directory name -> display name mapping
+        struct CityEntry { std::string dir; std::string name; };
+        std::vector<CityEntry> cityList = {
+            {"changsha", "长沙"}, {"wuhan", "武汉"}, {"dali", "大理"},
+            {"lijiang", "丽江"}, {"nanjing", "南京"}, {"suzhou", "苏州"}
+        };
 
-        std::string poiPath;
-        std::string edgePath;
-        if (poiPathEnv && *poiPathEnv) {
-            poiPath = poiPathEnv;
-        } else if (!city.empty()) {
-            poiPath = "data/" + city + "/pois.json";
-        } else {
-            poiPath = "data/pois.json";
+        for (const auto& entry : cityList) {
+            std::string poisPath, edgesPath;
+
+            // Root data files serve as changsha (legacy)
+            if (entry.dir == "changsha") {
+                poisPath = "data/pois.json";
+                edgesPath = "data/edges.json";
+            } else {
+                poisPath = "data/" + entry.dir + "/pois.json";
+                edgesPath = "data/" + entry.dir + "/edges.json";
+            }
+
+            if (!std::filesystem::exists(poisPath) || !std::filesystem::exists(edgesPath)) {
+                continue;
+            }
+            try {
+                auto data = tourpass::loadDataSet(poisPath, edgesPath);
+                std::cout << "Loaded city " << entry.name << ": " << data.pois.size() << " POIs" << std::endl;
+                cities[entry.name] = std::make_unique<tourpass::CityBundle>(std::move(data.pois), std::move(data.edges));
+            } catch (const std::exception& ex) {
+                std::cerr << "Warning: failed to load " << entry.name << ": " << ex.what() << std::endl;
+            }
         }
-        if (edgePathEnv && *edgePathEnv) {
-            edgePath = edgePathEnv;
-        } else if (!city.empty()) {
-            edgePath = "data/" + city + "/edges.json";
-        } else {
-            edgePath = "data/edges.json";
+
+        if (cities.empty()) {
+            std::cerr << "No city data found. Exiting." << std::endl;
+            return 1;
         }
-        tourpass::DataSet data = tourpass::loadDataSet(poiPath, edgePath);
-        tourpass::PoiGraph graph(data.pois, data.edges);
-        auto travelProvider = tourpass::createTravelTimeProvider(graph);
-        tourpass::TripPlanner planner(graph);
-        tourpass::SearchEngine search(graph);
+        std::cout << "Total cities loaded: " << cities.size() << std::endl;
+
+        // ---- LLM ----
         tourpass::LlmClient llm;
-        // Resolve relative paths to absolute at startup (prevents DB loss on CWD change)
-        poiPath = resolveRelativePath(poiPath);
-        edgePath = resolveRelativePath(edgePath);
 
+        // ---- Config ----
         tourpass::RuntimeConfig config = tourpass::runtimeConfigFromEnv();
-        config.travelProviderName = travelProvider->name();
         config.dbPath = resolveRelativePath(config.dbPath);
 
+        // ---- Database ----
         std::unique_ptr<tourpass::DataStore> store;
         const char* databaseUrl = std::getenv("DATABASE_URL");
 #ifdef TOURPASS_HAS_POSTGRES
@@ -102,10 +106,8 @@ int main() {
             std::cout << "Using SQLite backend: " << config.dbPath << std::endl;
             store = std::make_unique<tourpass::SQLiteStore>(config.dbPath);
         }
-        if (store) {
-            store->recordDataVersion(graph.pois().size(), graph.edgeCount(), fileHash(poiPath), fileHash(edgePath));
-        }
 
+        // ---- Server ----
         int port = 8080;
         if (const char* envPort = std::getenv("PORT")) {
             port = std::atoi(envPort);
@@ -117,7 +119,9 @@ int main() {
         } else if (const char* hostEnv = std::getenv("HOST")) {
             if (*hostEnv) host = hostEnv;
         }
-        return tourpass::runServer(graph, planner, search, llm, host, port, config, store.get());
+
+        std::string defaultCity = "长沙";
+        return tourpass::runServer(std::move(cities), defaultCity, llm, host, port, config, store.get());
     } catch (const std::exception& ex) {
         std::cerr << "startup failed: " << ex.what() << std::endl;
         return 1;

@@ -1467,6 +1467,10 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   border-top: 1px solid var(--line);
 }
 
+/* ---- Form guidebook ---- */
+.form-guidebook { margin-top: 12px; }
+.form-guidebook .guidebook-panel { margin-bottom: 0; }
+
 /* ---- Guidebook ---- */
 .guidebook-panel {
   margin-bottom: 12px;

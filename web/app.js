@@ -1236,14 +1236,22 @@ document.querySelectorAll(".city-card").forEach((card) => {
     document.querySelectorAll(".city-card").forEach(c => c.classList.remove("active"));
     card.classList.add("active");
     $("city").value = card.dataset.city;
-    // Update hotel default based on city
-    if (card.dataset.city === "武汉") {
-      $("hotelLocation").value = "7天优品酒店(武汉江汉路步行街店)";
-    } else {
-      $("hotelLocation").value = "7天优品酒店(长沙橘子洲五一广场地铁站店)";
-    }
+    // Load guidebook for selected city
+    loadGuidebook(card.dataset.city);
+    // Update hotel default
+    const hotelDefaults = {
+      "长沙": "7天优品酒店(长沙橘子洲五一广场地铁站店)",
+      "武汉": "7天优品酒店(武汉江汉路步行街店)",
+      "大理": "大理古城客栈",
+      "丽江": "丽江古城民宿",
+      "南京": "新街口附近酒店",
+      "苏州": "观前街附近酒店",
+    };
+    $("hotelLocation").value = hotelDefaults[card.dataset.city] || "";
   });
 });
+// Load default city guidebook on page load
+setTimeout(() => loadGuidebook("长沙"), 1000);
 
 // Interest tags
 document.querySelectorAll(".interest-tags .tag").forEach((tag) => {
@@ -1494,8 +1502,13 @@ async function loadGuidebook(city) {
   try {
     const data = await fetch(`/city/${key}/guidebook`).then(r => r.ok ? r.json() : null);
     if (!data) return;
-    const el = $("guidebookSection");
-    if (el) el.innerHTML = renderGuidebook(data);
+    const html = renderGuidebook(data);
+    // Show in form section (always visible)
+    const formEl = $("formGuidebook");
+    if (formEl) formEl.innerHTML = html;
+    // Also show in overview if it exists
+    const overviewEl = $("guidebookSection");
+    if (overviewEl) overviewEl.innerHTML = html;
   } catch {}
 }
 

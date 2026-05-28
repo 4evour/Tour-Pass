@@ -20,7 +20,8 @@
     "description": "巴公房子，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFK4IHIB",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "巴公房子适合城市游览、景点爱好者"
   },
   {
     "id": "amap_957c946e",
@@ -71,7 +72,8 @@
     "description": "解放公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0IZT0",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观解放公园，人气评分4.8"
   },
   {
     "id": "amap_b44cc5a1",
@@ -96,7 +98,8 @@
     "description": "武昌江滩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0IPSG",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武昌江滩适合城市游览、景点爱好者"
   },
   {
     "id": "amap_eaefbf57",
@@ -119,7 +122,8 @@
     "description": "江汉关大楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGJA77F",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观江汉关大楼，人气评分4.7"
   },
   {
     "id": "amap_4776de0a",
@@ -144,7 +148,8 @@
     "description": "中山公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B00022",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观中山公园，人气评分4.7"
   },
   {
     "id": "amap_74a0109d",
@@ -169,7 +174,8 @@
     "description": "黄鹤楼公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0IY32",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "黄鹤楼公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_964c3940",
@@ -193,7 +199,8 @@
     "description": "黄鹤楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0I4K0",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "黄鹤楼适合城市游览、景点爱好者"
   },
   {
     "id": "amap_b19848fc",
@@ -268,7 +275,8 @@
     "description": "汉口江滩2期，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0II5Z",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "汉口江滩2期适合城市游览、景点爱好者"
   },
   {
     "id": "amap_f005fcda",
@@ -395,7 +403,8 @@
     "description": "宋庆龄汉口旧居纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B1CFHO",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "宋庆龄汉口旧居纪念馆适合城市游览、景点爱好者"
   },
   {
     "id": "amap_5e6529eb",
@@ -420,7 +429,8 @@
     "description": "沙湖公园C区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFK4UPJL",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "沙湖公园C区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4176d498",
@@ -445,7 +455,8 @@
     "description": "八·七会议会址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B00024",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观八·七会议会址，人气评分3.0"
   },
   {
     "id": "amap_5f44d92c",
@@ -470,7 +481,8 @@
     "description": "汉口江滩三阳广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B1FOKC",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观汉口江滩三阳广场，人气评分4.6"
   },
   {
     "id": "amap_ae090fd3",
@@ -495,7 +507,8 @@
     "description": "汉口德国领事馆旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0JR6LSDQ0",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观汉口德国领事馆旧址，人气评分4.0"
   },
   {
     "id": "amap_25d327af",
@@ -520,7 +533,8 @@
     "description": "宝岛公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0IZN4",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "宝岛公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_75b0241",
@@ -543,7 +557,8 @@
     "description": "武汉长江大桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0JP4S",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉长江大桥是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_73476946",
@@ -566,7 +581,8 @@
     "description": "平和打包厂旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B1ASKL",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观平和打包厂旧址，人气评分4.6"
   },
   {
     "id": "amap_aa4d0c95",
@@ -591,7 +607,8 @@
     "description": "纵横体育公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0LGL5DG9X",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "纵横体育公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e213caf2",
@@ -614,7 +631,8 @@
     "description": "龟山风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B05205",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "龟山风景区适合城市游览、景点爱好者"
   },
   {
     "id": "amap_c45e0c43",
@@ -638,7 +656,8 @@
     "description": "晴川阁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0IZ9U",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "晴川阁是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_caa90f57",
@@ -687,7 +706,8 @@
     "description": "四美塘文化公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0J3LH81C7",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "四美塘文化公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a6e0538b",
@@ -712,7 +732,8 @@
     "description": "长江荣耀号游船，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0IGXALGAU",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "长江荣耀号游船是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_61d3b847",
@@ -887,7 +908,8 @@
     "description": "樱园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGMRWAT",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "樱园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_c7e66aa5",
@@ -912,7 +934,8 @@
     "description": "汉口江滩3期，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0I1CR",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观汉口江滩3期，人气评分4.5"
   },
   {
     "id": "amap_76668606",
@@ -937,7 +960,8 @@
     "description": "南岸嘴江滩公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B1GN28",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "南岸嘴江滩公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_17320e2d",
@@ -960,7 +984,8 @@
     "description": "东湖生态旅游风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0A0CK",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东湖生态旅游风景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_53602734",
@@ -986,7 +1011,8 @@
     "description": "汉口汇丰银行大楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B08B7A",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "汉口汇丰银行大楼是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a330d890",
@@ -1011,7 +1037,8 @@
     "description": "武汉中共中央机关旧址纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFIZQD7F",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观武汉中共中央机关旧址纪念馆，人气评分0.0"
   },
   {
     "id": "amap_9b89776d",
@@ -1034,7 +1061,8 @@
     "description": "汉口东正教堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0JRG5387F",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观汉口东正教堂，人气评分4.4"
   },
   {
     "id": "amap_56479dc2",
@@ -1108,7 +1136,8 @@
     "description": "武汉江滩1期(沿江大道)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B1BY45",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉江滩1期(沿江大道)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a011ed26",
@@ -1154,7 +1183,8 @@
     "description": "八路军武汉办事处旧址纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFTB9XN",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "八路军武汉办事处旧址纪念馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4bab53b0",
@@ -1382,7 +1412,8 @@
     "description": "龙王庙公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0J07O",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "龙王庙公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_32e8ee57",
@@ -1407,7 +1438,8 @@
     "description": "江汉关广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0KKVAMHHZ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观江汉关广场，人气评分4.2"
   },
   {
     "id": "amap_e2458e60",
@@ -1432,7 +1464,8 @@
     "description": "沙湖公园A区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFKWW36W",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "沙湖公园A区适合城市游览、景点爱好者"
   },
   {
     "id": "amap_aaa49f8a",
@@ -1482,7 +1515,8 @@
     "description": "大禹神话园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0J03A",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "大禹神话园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c1ce93e",
@@ -1531,7 +1565,8 @@
     "description": "后襄河公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B15SE2",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "后襄河公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_de39d9ff",
@@ -1582,7 +1617,8 @@
     "description": "菱角湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0IZEL",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观菱角湖公园，人气评分4.6"
   },
   {
     "id": "amap_31d9f658",
@@ -1631,7 +1667,8 @@
     "description": "兰陵门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0KUBRYCI9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观兰陵门，人气评分4.3"
   },
   {
     "id": "amap_37253130",
@@ -1654,7 +1691,8 @@
     "description": "桃花岛，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG26UZO",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "桃花岛是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3af816fb",
@@ -1677,7 +1715,8 @@
     "description": "长江观景第一台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B08IJ0",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "长江观景第一台是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b4afe736",
@@ -1700,7 +1739,8 @@
     "description": "天主教汉口总教区上海路主教座堂天主堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0IO00",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观天主教汉口总教区上海路主教座堂天主堂，人气评分4.4"
   },
   {
     "id": "amap_7fa061f6",
@@ -1749,7 +1789,8 @@
     "description": "解放公园鸽子广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFLIX1I",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "解放公园鸽子广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_59d8a6e4",
@@ -1772,7 +1813,8 @@
     "description": "武汉园博园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG83RE8",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉园博园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_73a98d03",
@@ -1797,7 +1839,8 @@
     "description": "硚口公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B06WBD",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "硚口公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_b89ea48d",
@@ -1846,7 +1889,8 @@
     "description": "武汉两江游览(武汉关2号码头)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0HDGGKRW5",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观武汉两江游览(武汉关2号码头)，人气评分4.2"
   },
   {
     "id": "amap_21566491",
@@ -1869,7 +1913,8 @@
     "description": "古德寺-禅堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFL2U3PD",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观古德寺-禅堂，人气评分4.3"
   },
   {
     "id": "amap_9b589b19",
@@ -1922,7 +1967,8 @@
     "description": "城市公园(沙湖公园E区)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0H01ZMO8H",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观城市公园(沙湖公园E区)，人气评分4.2"
   },
   {
     "id": "amap_81a16d8e",
@@ -1946,7 +1992,8 @@
     "description": "龙王庙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFH25BNJ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观龙王庙，人气评分4.3"
   },
   {
     "id": "amap_166f81ad",
@@ -1969,7 +2016,8 @@
     "description": "东湖磨山景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001B0J0B5",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东湖磨山景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4efb84b3",
@@ -1994,7 +2042,8 @@
     "description": "武汉博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B065B6",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观武汉博物馆，人气评分4.7"
   },
   {
     "id": "amap_36428c11",
@@ -2019,7 +2068,8 @@
     "description": "武汉市黄陂区博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B1ASIC",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在黄陂区参观武汉市黄陂区博物馆，人气评分3.9"
   },
   {
     "id": "amap_87025835",
@@ -2095,7 +2145,8 @@
     "description": "江汉关博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B08BC3",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "江汉关博物馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_38da015d",
@@ -2122,7 +2173,8 @@
     "description": "武汉市第十六中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0IZK5",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市第十六中学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_d82e106c",
@@ -2149,7 +2201,8 @@
     "description": "武汉市第二中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0IVG6",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市第二中学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_1ca5f6f4",
@@ -2176,7 +2229,8 @@
     "description": "湖北大学(武昌校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B06EAF",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "湖北大学(武昌校区)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_da52a2e6",
@@ -2202,7 +2256,8 @@
     "description": "武汉科学技术馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B18NPG",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉科学技术馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_4049bd0d",
@@ -2228,7 +2283,8 @@
     "description": "武汉市公安局交通管理局车辆管理所江南考场，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0IDVCEC1O",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市公安局交通管理局车辆管理所江南考场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c3f761ee",
@@ -2254,7 +2310,8 @@
     "description": "武汉国际会展中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0IOU3",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉国际会展中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2cb01d7b",
@@ -2280,7 +2337,8 @@
     "description": "武汉图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0I2M9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉图书馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c2cd852e",
@@ -2306,7 +2364,8 @@
     "description": "武汉美术馆(汉口馆)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0II9U",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉美术馆(汉口馆)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_a961b296",
@@ -2359,7 +2418,8 @@
     "description": "武汉市第六中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFF59CWM",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市第六中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_99009a09",
@@ -2411,7 +2471,8 @@
     "description": "武汉市青少年宫，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0I1W1",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观武汉市青少年宫，人气评分0.0"
   },
   {
     "id": "amap_20f5afc7",
@@ -2438,7 +2499,8 @@
     "description": "武汉市育才高级中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B035F5",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市育才高级中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_36e969c8",
@@ -2465,7 +2527,8 @@
     "description": "武汉市第二十中学(合作路校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B08L7G",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观武汉市第二十中学(合作路校区)，人气评分0.0"
   },
   {
     "id": "amap_203ee387",
@@ -2491,7 +2554,8 @@
     "description": "武汉市少年儿童图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0HZJC",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市少年儿童图书馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_bfaf058e",
@@ -2518,7 +2582,8 @@
     "description": "武汉市育才小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B03A0D",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市育才小学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ecaf9142",
@@ -2545,7 +2610,8 @@
     "description": "武汉市育才第二小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B09R2K",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观武汉市育才第二小学，人气评分0.0"
   },
   {
     "id": "amap_37ac246",
@@ -2572,7 +2638,8 @@
     "description": "武汉航海职业技术学院喻家湖校区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B062F2",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉航海职业技术学院喻家湖校区适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_3ade19fb",
@@ -2626,7 +2693,8 @@
     "description": "湖北大学附属中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0653C",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "湖北大学附属中学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_b273757e",
@@ -2652,7 +2720,8 @@
     "description": "武汉市群众艺术馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B06RH0",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市群众艺术馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_6723053e",
@@ -2679,7 +2748,8 @@
     "description": "武汉市七一中学(武汉天地校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFFYD7J9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观武汉市七一中学(武汉天地校区)，人气评分0.0"
   },
   {
     "id": "amap_1387005f",
@@ -2706,7 +2776,8 @@
     "description": "武汉市江岸区一元路小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B04212",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市江岸区一元路小学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e7782916",
@@ -2759,7 +2830,8 @@
     "description": "江城书房，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0IDVCGF9I",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "江城书房适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_914c0c51",
@@ -2786,7 +2858,7 @@
     "source": "amap",
     "source_id": "B0FFK9CE33",
     "meal_type": "main",
-    "recommendation": "文艺"
+    "recommendation": "鹅社书店艺术馆(青岛路馆)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_27d4e67",
@@ -2841,7 +2913,8 @@
     "description": "武汉市第二初级中学(融科校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0H3NZ1QHN",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市第二初级中学(融科校区)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_2107386b",
@@ -2868,7 +2941,8 @@
     "description": "庐月又·城市书院(龙湖滨江天街)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0LU9MBJYP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "庐月又·城市书院(龙湖滨江天街)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_11482142",
@@ -2893,7 +2967,8 @@
     "description": "横渡长江博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFHCWQGI",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "横渡长江博物馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_a26ecf18",
@@ -2920,7 +2995,8 @@
     "description": "沈阳路小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0B9UV",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "沈阳路小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_a2cb82fc",
@@ -2946,7 +3022,8 @@
     "description": "武汉工人文化宫，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0KKSU4BBG",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉工人文化宫是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a3deb28c",
@@ -2973,7 +3050,8 @@
     "description": "华中科技大学同济医学院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B06178",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在硚口区参观华中科技大学同济医学院，人气评分0.0"
   },
   {
     "id": "amap_237a0e7b",
@@ -3000,7 +3078,8 @@
     "description": "武汉育才美术高中，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0AFQQ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉育才美术高中是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_620423e1",
@@ -3028,7 +3107,8 @@
     "description": "中信建筑设计研究总院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B16S4Q",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "中信建筑设计研究总院适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_2e9587a",
@@ -3056,7 +3136,8 @@
     "description": "度世界精酿啤酒博物馆(汉口店)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0HUKM5JVY",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观度世界精酿啤酒博物馆(汉口店)，人气评分4.7"
   },
   {
     "id": "amap_5a5d543c",
@@ -3083,7 +3164,8 @@
     "description": "武汉广播电视台，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B160YN",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉广播电视台是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_63362362",
@@ -3110,7 +3192,8 @@
     "description": "武汉外国语学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B06RSI",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观武汉外国语学校，人气评分0.0"
   },
   {
     "id": "amap_e2a6a923",
@@ -3136,7 +3219,8 @@
     "description": "武汉市规划设计研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B0K5JE",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉市规划设计研究院适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_c46da1a8",
@@ -3163,7 +3247,8 @@
     "description": "武汉市二中广雅中学(解放校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001B03762",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观武汉市二中广雅中学(解放校区)，人气评分0.0"
   },
   {
     "id": "amap_eccc7ff1",
@@ -3188,7 +3273,8 @@
     "description": "后官湖国家湿地公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFF0ER1B",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在蔡甸区参观后官湖国家湿地公园，人气评分4.6"
   },
   {
     "id": "amap_a6d0b8c5",
@@ -3213,7 +3299,8 @@
     "description": "武汉杜公湖国家湿地公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFLHZP8D",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉杜公湖国家湿地公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_5d2494d5",
@@ -3242,7 +3329,8 @@
     "description": "武汉足球主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFGYBKU8",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在蔡甸区参观武汉足球主题公园，人气评分4.6"
   },
   {
     "id": "amap_1af352cc",
@@ -3268,7 +3356,8 @@
     "description": "武昌江滩(大堤口广场)-外滩公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFHRO7NS",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武昌江滩(大堤口广场)-外滩公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_7416f0b7",
@@ -3294,7 +3383,8 @@
     "description": "小南湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001B0J4DA",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "小南湖公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_6dfbd842",
@@ -3347,7 +3437,8 @@
     "description": "武昌江滩-海棠园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFH6SIXF",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武昌江滩-海棠园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_873bce6b",
@@ -3400,7 +3491,8 @@
     "description": "喷泉公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001B0IZLW",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观喷泉公园，人气评分4.1"
   },
   {
     "id": "amap_9be28a8f",
@@ -3426,7 +3518,8 @@
     "description": "西北湖小游园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0LURZ1OXY",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "西北湖小游园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_ce455789",
@@ -3506,7 +3599,8 @@
     "description": "二七公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFF35Y30",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "二七公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b8033c82",
@@ -3532,7 +3626,8 @@
     "description": "健康路游园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0IAHA2RQG",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "健康路游园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_49f79905",
@@ -3584,7 +3679,8 @@
     "description": "沙湖公园B区，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFFGV5QG",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "沙湖公园B区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a84d6012",
@@ -3637,7 +3733,8 @@
     "description": "武昌廉政文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001B16F8O",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观武昌廉政文化公园，人气评分4.3"
   },
   {
     "id": "amap_430400c4",
@@ -3663,7 +3760,8 @@
     "description": "汉阳门花园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFHUVNRF",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "汉阳门花园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_57071b48",
@@ -3716,7 +3814,8 @@
     "description": "莲花湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001B0AYU1",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "莲花湖公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_460f710",
@@ -3742,7 +3841,8 @@
     "description": "金桥体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0LBDDXX3N",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "金桥体育公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5d19f563",
@@ -3795,7 +3895,8 @@
     "description": "武昌江边禁毒公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0IGPSG3TN",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武昌江边禁毒公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_7b06226c",
@@ -3848,7 +3949,8 @@
     "description": "汉阳江滩公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0L0LS8IHX",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "汉阳江滩公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_31d7cc1",
@@ -3874,7 +3976,8 @@
     "description": "沙湖公园-琴园公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFG38TZ6",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观沙湖公园-琴园公园，人气评分3.8"
   },
   {
     "id": "amap_db3e1977",
@@ -3900,7 +4003,8 @@
     "description": "旷野公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0MDKXDUNA",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "旷野公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_2f79ffff",
@@ -3952,7 +4056,8 @@
     "description": "沙湖公园E区-畅园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0KUFCVVJ9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "沙湖公园E区-畅园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2df7b1d6",
@@ -3978,7 +4083,8 @@
     "description": "琴台公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0G3178KS7",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "琴台公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_2a6b82e9",
@@ -4004,7 +4110,8 @@
     "description": "常青人才公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001B0IH4B",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "常青人才公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_f6e3fcc2",
@@ -4111,7 +4218,8 @@
     "description": "清廉公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0JRNH1HTO",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江岸区参观清廉公园，人气评分3.8"
   },
   {
     "id": "amap_39acb098",
@@ -4191,7 +4299,8 @@
     "description": "楚望台遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001B0K94I",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观楚望台遗址公园，人气评分4.5"
   },
   {
     "id": "amap_1c96ef5c",
@@ -4217,7 +4326,8 @@
     "description": "洪山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001B0IZVM",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "洪山公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_f0523c20",
@@ -4270,7 +4380,8 @@
     "description": "奇趣蛋壳公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0GR36GI1P",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "奇趣蛋壳公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_ad15277b",
@@ -4349,7 +4460,8 @@
     "description": "后湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFGFQYIE",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "后湖公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_589778e2",
@@ -4403,7 +4515,8 @@
     "description": "武汉K11购物艺术中心，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFKC5A44",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉K11购物艺术中心适合城市游览、街区爱好者"
   },
   {
     "id": "amap_9a66d7ef",
@@ -4458,7 +4571,8 @@
     "description": "武汉凯越鑫不锈钢有限公司，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFF9ZKHS",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉凯越鑫不锈钢有限公司是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_52aa082d",
@@ -4484,7 +4598,8 @@
     "description": "武汉大悦城，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFKDII2S",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉大悦城适合城市游览、街区爱好者"
   },
   {
     "id": "amap_d3deb1a2",
@@ -4594,7 +4709,8 @@
     "description": "人信汇(汉阳店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B001B1GKIU",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在汉阳区参观人信汇(汉阳店)，人气评分4.7"
   },
   {
     "id": "amap_5f32e0c0",
@@ -4705,7 +4821,8 @@
     "description": "世凤烟酒副食，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFHS3IBU",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "世凤烟酒副食适合城市游览、街区爱好者"
   },
   {
     "id": "amap_c490e28f",
@@ -4730,7 +4847,8 @@
     "description": "慧秀百货超市，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFGARGSX",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在汉阳区参观慧秀百货超市，人气评分3.5"
   },
   {
     "id": "amap_ec7c2ad2",
@@ -4812,7 +4930,8 @@
     "description": "江汉区常青便民摊群，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B001B09Z5K",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观江汉区常青便民摊群，人气评分3.7"
   },
   {
     "id": "amap_b90c491e",
@@ -4839,7 +4958,8 @@
     "description": "和蕊茶行(汉口茶市店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFM64ZYC",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "和蕊茶行(汉口茶市店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_432a278c",
@@ -4866,7 +4986,8 @@
     "description": "翠玉缘(锦荣花园店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B001B0JS9P",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "翠玉缘(锦荣花园店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_bc1d812a",
@@ -4892,7 +5013,8 @@
     "description": "壹号中心(沿海·菱角湖壹号店)臻享瘦，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFKFOLHI",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观壹号中心(沿海·菱角湖壹号店)臻享瘦，人气评分0.0"
   },
   {
     "id": "amap_e8306f21",
@@ -4947,7 +5069,8 @@
     "description": "零食顽家(长江日报路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0K3T4WDKN",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观零食顽家(长江日报路店)，人气评分4.0"
   },
   {
     "id": "amap_7e7a934b",
@@ -4973,7 +5096,8 @@
     "description": "海尔卡萨帝(创世纪工贸店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0L0HUQGS8",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "海尔卡萨帝(创世纪工贸店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_42d63c17",
@@ -5027,7 +5151,8 @@
     "description": "亮兴文具批发，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFF9ZY7F",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "亮兴文具批发适合城市游览、街区爱好者"
   },
   {
     "id": "amap_34cca6cc",
@@ -5054,7 +5179,8 @@
     "description": "常顺锁具，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0G3A7HV56",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "常顺锁具适合城市游览、街区爱好者"
   },
   {
     "id": "amap_f96a98dc",
@@ -5081,7 +5207,8 @@
     "description": "新世纪花艺(汉正街华贸一号楼109号)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0GRH7Z065",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在硚口区参观新世纪花艺(汉正街华贸一号楼109号)，人气评分3.5"
   },
   {
     "id": "amap_b3d30c0e",
@@ -5108,7 +5235,8 @@
     "description": "贵州茅台股份有限公司汉酱烟酒专卖(商圈店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFK4MKHN",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "贵州茅台股份有限公司汉酱烟酒专卖(商圈店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_439945f7",
@@ -5135,7 +5263,8 @@
     "description": "童鑫玩具批发(安善社区店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFJG8OGK",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "童鑫玩具批发(安善社区店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_a3c6c747",
@@ -5161,7 +5290,8 @@
     "description": "欢欢副食(华贸四号楼B区居民区店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0KDNLUVE1",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在硚口区参观欢欢副食(华贸四号楼B区居民区店)，人气评分3.2"
   },
   {
     "id": "amap_70fb0485",
@@ -5245,7 +5375,8 @@
     "description": "小米之家(武汉武昌区漫时区专卖店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HRDRX4TW",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "小米之家(武汉武昌区漫时区专卖店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a653586f",
@@ -5300,7 +5431,8 @@
     "description": "鑫源五金，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B001B16P9H",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "鑫源五金适合城市游览、街区爱好者"
   },
   {
     "id": "amap_5a6866ae",
@@ -5326,7 +5458,8 @@
     "description": "芙蓉兴盛便利超市(小刘家湾店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFGIMBTF",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "芙蓉兴盛便利超市(小刘家湾店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_3c0e80ef",
@@ -5355,7 +5488,8 @@
     "description": "楚河汉街，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFID01CO",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "楚河汉街是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2e3c61a6",
@@ -5384,7 +5518,8 @@
     "description": "量绅公馆Kingentle Bespoke(汉街体验店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFJM87Y0",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "量绅公馆Kingentle Bespoke(汉街体验店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2964f91d",
@@ -5411,7 +5546,8 @@
     "description": "福星烟酒行(沙湖路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFHM94O9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "福星烟酒行(沙湖路店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_8552cfb9",
@@ -5437,7 +5573,8 @@
     "description": "涛涛副食(武珞路小区店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFG06HZO",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在洪山区参观涛涛副食(武珞路小区店)，人气评分3.3"
   },
   {
     "id": "amap_ce9863e6",
@@ -5464,7 +5601,8 @@
     "description": "东苑书店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0J6MCLH1X",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东苑书店是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c85a5475",
@@ -5490,7 +5628,8 @@
     "description": "罗明副食店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFLFOESA",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "罗明副食店适合城市游览、街区爱好者"
   },
   {
     "id": "amap_cbbe1b38",
@@ -5516,7 +5655,8 @@
     "description": "江夏商业街(长隆楼东南)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B001B0JGF5",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "江夏商业街(长隆楼东南)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_c4bc2bb7",
@@ -5543,7 +5683,8 @@
     "description": "7-ELEVEn(武汉大学店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFKGQ7T6",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观7-ELEVEn(武汉大学店)，人气评分4.3"
   },
   {
     "id": "amap_3e4824a6",
@@ -5570,7 +5711,8 @@
     "description": "小米之家(武汉洪山区光谷融众国际专卖店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0KRV5LOIO",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "小米之家(武汉洪山区光谷融众国际专卖店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a81b916f",
@@ -5595,7 +5737,8 @@
     "description": "君君副食热干面，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K3TYUP3M",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在江汉区觅食推荐君君副食热干面，性价比不错"
   },
   {
     "id": "amap_984df8a4",
@@ -5620,7 +5763,8 @@
     "description": "老四热干面店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H0B94AK2",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "老四热干面店口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_54d101b1",
@@ -5645,7 +5789,8 @@
     "description": "叁個大热干面(原大大大热干面)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KK4ATG0B",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "叁個大热干面(原大大大热干面)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_92211678",
@@ -5719,7 +5864,8 @@
     "description": "尹记牛肉热干面(发展三路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFH2VV40",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "尹记牛肉热干面(发展三路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_d006ff5f",
@@ -5744,7 +5890,8 @@
     "description": "罗氏牛肉热干面馆(五龙路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHFW5IA",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "罗氏牛肉热干面馆(五龙路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6efda5e7",
@@ -5766,7 +5913,8 @@
     "description": "建安牛肉热干面馆(新世纪宝安花园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JRRSP23F",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "建安牛肉热干面馆(新世纪宝安花园店)是夜间休闲好去处"
   },
   {
     "id": "amap_d0948e16",
@@ -5791,7 +5939,8 @@
     "description": "周记热干面豆皮大王(桃花东街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFFNLCH",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在汉阳区觅食推荐周记热干面豆皮大王(桃花东街店)，性价比不错"
   },
   {
     "id": "amap_2c02eb6f",
@@ -5816,7 +5965,8 @@
     "description": "长子热干面，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHSLZLY",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "长子热干面口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_45ac06e9",
@@ -5842,7 +5992,8 @@
     "description": "老武汉风味小吃(重才里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B001B03A38",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "老武汉风味小吃(重才里店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_23e1ac1c",
@@ -5867,7 +6018,8 @@
     "description": "聋子热干面老店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B001B0I2YH",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在江岸区觅食推荐聋子热干面老店，性价比不错"
   },
   {
     "id": "amap_f4a6bdfe",
@@ -5893,7 +6045,8 @@
     "description": "盛先森的热干面(欧亚达店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LBCSDYFP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在江夏区觅食推荐盛先森的热干面(欧亚达店)，性价比不错"
   },
   {
     "id": "amap_754838fa",
@@ -5918,7 +6071,8 @@
     "description": "蔡明纬热干面(长港店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFP15R1",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "蔡明纬热干面(长港店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_7aa6ee9",
@@ -5943,7 +6097,8 @@
     "description": "三毛热干面老店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG83FVJ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在硚口区觅食推荐三毛热干面老店，性价比不错"
   },
   {
     "id": "amap_e7b9815a",
@@ -5968,7 +6123,8 @@
     "description": "盛先森的热干面(古驿道店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L297RCNB",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "盛先森的热干面(古驿道店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_247babe7",
@@ -5993,7 +6149,8 @@
     "description": "天天热干面(总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKYNIOF",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "天天热干面(总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e3ab86dd",
@@ -6015,7 +6172,8 @@
     "description": "马家热干面(清真粮道街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B001B0I5QT",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "马家热干面(清真粮道街店)是夜间休闲好去处"
   },
   {
     "id": "amap_5ba2d649",
@@ -6040,7 +6198,8 @@
     "description": "李记热干面(二七路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFFNF86",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "李记热干面(二七路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_3006a01b",
@@ -6062,7 +6221,8 @@
     "description": "一品香红油热干面(福星苑店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKBWXU9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "晚上去一品香红油热干面(福星苑店)感受当地夜生活氛围"
   },
   {
     "id": "amap_340a512b",
@@ -6084,7 +6244,8 @@
     "description": "汉口茗记热干面(培训总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFFWV43",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "汉口茗记热干面(培训总店)是夜间休闲好去处"
   },
   {
     "id": "amap_ff1b0704",
@@ -6109,7 +6270,8 @@
     "description": "陈小满热干面馆(常二社区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFL1YYKK",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "陈小满热干面馆(常二社区店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_b66eefb1",
@@ -6131,7 +6293,8 @@
     "description": "严记热干面(武昌店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFH1I5EB",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "严记热干面(武昌店)是夜间休闲好去处"
   },
   {
     "id": "amap_6efe6567",
@@ -6156,7 +6319,8 @@
     "description": "鹏记热干面(玫瑰苑店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JDO591D4",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在汉阳区觅食推荐鹏记热干面(玫瑰苑店)，性价比不错"
   },
   {
     "id": "amap_1a1a8c10",
@@ -6181,7 +6345,8 @@
     "description": "天天热干面(航空路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B001B1AEGP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在硚口区觅食推荐天天热干面(航空路店)，性价比不错"
   },
   {
     "id": "amap_3d3b6b44",
@@ -6206,7 +6371,8 @@
     "description": "卢记热干面(洪达巷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFGUXSR",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在洪山区觅食推荐卢记热干面(洪达巷店)，性价比不错"
   },
   {
     "id": "amap_ab9f0a74",
@@ -6228,7 +6394,8 @@
     "description": "程记热干面，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGCB4LU",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "程记热干面是夜间休闲好去处"
   },
   {
     "id": "amap_9b4c290b",
@@ -6250,7 +6417,8 @@
     "description": "鹏记热干面(汉口旗舰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFK9DIIB",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "晚上去鹏记热干面(汉口旗舰店)感受当地夜生活氛围"
   },
   {
     "id": "amap_e38d4f6e",
@@ -6276,7 +6444,8 @@
     "description": "盛先森的热干面(菩提苑店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LUCUVYD5",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "盛先森的热干面(菩提苑店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_50470b4e",
@@ -6298,7 +6467,8 @@
     "description": "罗记热干面(彭刘杨店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIPG80Q",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "罗记热干面(彭刘杨店)是夜间休闲好去处"
   },
   {
     "id": "amap_e59d8d00",
@@ -6320,7 +6490,8 @@
     "description": "蒋胜热干面，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFLJLUJ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "蒋胜热干面适合饭后散步或消遣"
   },
   {
     "id": "amap_d44b8996",
@@ -6342,7 +6513,8 @@
     "description": "石太婆热干面(户部巷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFF2CTR8",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "晚上去石太婆热干面(户部巷店)感受当地夜生活氛围"
   },
   {
     "id": "amap_f9028db3",
@@ -6364,7 +6536,8 @@
     "description": "蔡明纬热干面(武昌火车站店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFCLO9Y",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "晚上去蔡明纬热干面(武昌火车站店)感受当地夜生活氛围"
   },
   {
     "id": "amap_31a6526f",
@@ -6416,7 +6589,8 @@
     "description": "卢记热干面(阳新路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G2LAKUP9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "卢记热干面(阳新路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_d5fb7758",
@@ -6441,7 +6615,8 @@
     "description": "武汉热干面美食馆(武汉站店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JBZ7I03N",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉热干面美食馆(武汉站店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a2669480",
@@ -6492,7 +6667,8 @@
     "description": "天声热干面馆(F.雅园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFFP7VE",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "天声热干面馆(F.雅园店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_bb55ad46",
@@ -6567,7 +6743,8 @@
     "description": "天声热干面(四美苑住宅小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFF5VNTI",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "天声热干面(四美苑住宅小区店)适合饭后散步或消遣"
   },
   {
     "id": "amap_caa50a0e",
@@ -6589,7 +6766,8 @@
     "description": "汉味源老武汉热干面(瑞安街)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFF0F2IF",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "晚上去汉味源老武汉热干面(瑞安街)感受当地夜生活氛围"
   },
   {
     "id": "amap_510f4e87",
@@ -6611,7 +6789,8 @@
     "description": "汉味老蔡热干面(丁字桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIKUTVA",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "汉味老蔡热干面(丁字桥店)是夜间休闲好去处"
   },
   {
     "id": "amap_5a384e98",
@@ -6636,7 +6815,8 @@
     "description": "李记热干面馆(大夹街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFP9KIP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在硚口区觅食推荐李记热干面馆(大夹街店)，性价比不错"
   },
   {
     "id": "amap_eb28a399",
@@ -6658,7 +6838,8 @@
     "description": "老江城热干面(楚河汉街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KDPC6IPO",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "老江城热干面(楚河汉街店)是夜间休闲好去处"
   },
   {
     "id": "amap_146fcf9f",
@@ -6683,7 +6864,8 @@
     "description": "常青麦香园热干面(新华路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFF0EZJU",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "常青麦香园热干面(新华路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_2c99d88",
@@ -6807,7 +6989,8 @@
     "description": "鹏记热干面(武大店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKPA3U0",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "鹏记热干面(武大店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_20a20ab1",
@@ -6829,7 +7012,8 @@
     "description": "老字号张记热干面，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKPJ0G8",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "老字号张记热干面是夜间休闲好去处"
   },
   {
     "id": "amap_9d040bd5",
@@ -6880,7 +7064,8 @@
     "description": "轩味热干面(梁山头社区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGHGN8F",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在江夏区觅食推荐轩味热干面(梁山头社区店)，性价比不错"
   },
   {
     "id": "amap_7597eab3",
@@ -6951,7 +7136,8 @@
     "description": "追梦老汉口湖北特色小吃(武汉站东出站口右侧店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KB7UHQQ6",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "追梦老汉口湖北特色小吃(武汉站东出站口右侧店)适合饭后散步或消遣"
   },
   {
     "id": "amap_84c5081f",
@@ -6977,7 +7163,8 @@
     "description": "赵四热干面(友谊路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LG1H30MJ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "赵四热干面(友谊路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a7bff1fe",
@@ -7002,7 +7189,8 @@
     "description": "唐禾热干面，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L0BSU5FZ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在江岸区觅食推荐唐禾热干面，性价比不错"
   },
   {
     "id": "amap_2cc393c5",
@@ -7027,7 +7215,8 @@
     "description": "甜甜热干面(玫瑰东园小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFFMS0Z",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在汉阳区觅食推荐甜甜热干面(玫瑰东园小区店)，性价比不错"
   },
   {
     "id": "amap_a90d6608",
@@ -7052,7 +7241,8 @@
     "description": "热干面大王(维善小区西区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGQ9WBS",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在江汉区觅食推荐热干面大王(维善小区西区店)，性价比不错"
   },
   {
     "id": "amap_7a70357c",
@@ -7078,7 +7268,8 @@
     "description": "盛先生的热干面，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L6BPAA4S",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "盛先生的热干面是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_55034bff",
@@ -7103,7 +7294,8 @@
     "description": "村长哥热干面餐厅(汉阳人信汇天悦店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HRGCBPQ9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在汉阳区觅食推荐村长哥热干面餐厅(汉阳人信汇天悦店)，性价比不错"
   },
   {
     "id": "amap_dcf55c6d",
@@ -7127,7 +7319,8 @@
     "description": "何记红油热干面，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L2BZIT8S",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "何记红油热干面是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_99974ea2",
@@ -7179,7 +7372,8 @@
     "description": "天天热干面(北湖公寓店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFL6VRZX",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在江汉区觅食推荐天天热干面(北湖公寓店)，性价比不错"
   },
   {
     "id": "amap_8331393e",
@@ -7204,7 +7398,8 @@
     "description": "天天热干面(高雄路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFA1ALZ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "天天热干面(高雄路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_818c6ca",
@@ -7229,7 +7424,8 @@
     "description": "鹏记热干面(韦桑路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFFO5IL",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "鹏记热干面(韦桑路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_da8831c3",
@@ -7254,7 +7450,8 @@
     "description": "面妈妈热干面馆(城市广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG7Z6W3",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在洪山区觅食推荐面妈妈热干面馆(城市广场店)，性价比不错"
   },
   {
     "id": "amap_90fad670",
@@ -7276,7 +7473,8 @@
     "description": "面妈妈热干面(洪山路店65号店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHE6XVP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "面妈妈热干面(洪山路店65号店)是夜间休闲好去处"
   },
   {
     "id": "amap_c2b2fc31",
@@ -7301,7 +7499,8 @@
     "description": "鹏记热干面(武汉客厅店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFM1HXF2",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在东西湖区觅食推荐鹏记热干面(武汉客厅店)，性价比不错"
   },
   {
     "id": "amap_1ff7d4e0",
@@ -7346,7 +7545,8 @@
     "description": "面妈妈热干面(华锦花园富安街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG7TB9Y",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "面妈妈热干面(华锦花园富安街店)是夜间休闲好去处"
   },
   {
     "id": "amap_d94a3a62",
@@ -7397,7 +7597,8 @@
     "description": "天天热干面(蓝山·城市中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G2DNO1HP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "天天热干面(蓝山·城市中心店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_584630f8",
@@ -7445,7 +7646,8 @@
     "description": "蔡记热干面馆(后补街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFF67MTT",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "蔡记热干面馆(后补街店)是夜间休闲好去处"
   },
   {
     "id": "amap_3f2be989",
@@ -7470,7 +7672,8 @@
     "description": "鹏记热干面(湖滨半岛店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G0AZSP3J",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "鹏记热干面(湖滨半岛店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_4e216092",
@@ -7496,7 +7699,8 @@
     "description": "李记热干面(多福路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K01B1L2N",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "李记热干面(多福路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_64f37714",
@@ -7521,7 +7725,8 @@
     "description": "鹏记热干面(辛小东侧路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJN5NSA",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "鹏记热干面(辛小东侧路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_45c692aa",
@@ -7543,7 +7748,8 @@
     "description": "户部巷美食第一巷，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L37HLI5K",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "晚上去户部巷美食第一巷感受当地夜生活氛围"
   },
   {
     "id": "amap_6f6a7e34",
@@ -7611,7 +7817,8 @@
     "description": "户部巷小吃一条街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0M61DH0LV",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "户部巷小吃一条街适合饭后散步或消遣"
   },
   {
     "id": "amap_2e864d2b",
@@ -7633,7 +7840,8 @@
     "description": "古茗(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0J2U5086T",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "古茗(户部巷店)是夜间休闲好去处"
   },
   {
     "id": "amap_5682ecef",
@@ -7655,7 +7863,8 @@
     "description": "有名堂(武昌店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFGA9GDH",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "晚上去有名堂(武昌店)感受当地夜生活氛围"
   },
   {
     "id": "amap_49c80eb4",
@@ -7677,7 +7886,8 @@
     "description": "江城杨公子·湖北武汉手信特产(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFHYDGNU",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "江城杨公子·湖北武汉手信特产(户部巷店)适合饭后散步或消遣"
   },
   {
     "id": "amap_2301553d",
@@ -7699,7 +7909,8 @@
     "description": "函小六酥糖制造局(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LGF5LYDG",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "函小六酥糖制造局(户部巷店)适合饭后散步或消遣"
   },
   {
     "id": "amap_1b3258c8",
@@ -7721,7 +7932,8 @@
     "description": "一封情酥(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0J1RALXRW",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "一封情酥(户部巷店)适合饭后散步或消遣"
   },
   {
     "id": "amap_650d04d9",
@@ -7743,7 +7955,8 @@
     "description": "蛮到味山海味(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0H0CCY7KU",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "蛮到味山海味(户部巷店)适合饭后散步或消遣"
   },
   {
     "id": "amap_f09d0861",
@@ -7769,7 +7982,8 @@
     "description": "老巷子三鲜豆皮(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF5RPTG",
-    "meal_type": "drink"
+    "meal_type": "drink",
+    "recommendation": "在武昌区觅食推荐老巷子三鲜豆皮(户部巷店)，性价比不错"
   },
   {
     "id": "amap_ffab2813",
@@ -7794,7 +8008,8 @@
     "description": "四季美汤包(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B001B170N1",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "四季美汤包(户部巷店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_528f45aa",
@@ -7819,7 +8034,8 @@
     "description": "瑞幸咖啡(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L31CVMAP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "瑞幸咖啡(户部巷店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_9b02af98",
@@ -7844,7 +8060,8 @@
     "description": "户部巷(瑞祥路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0MBZGB9KK",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在江岸区觅食推荐户部巷(瑞祥路店)，性价比不错"
   },
   {
     "id": "amap_308d6022",
@@ -7898,7 +8115,8 @@
     "description": "蔡林记(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0K3B7Y32E",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "蔡林记(户部巷店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ef6d36f9",
@@ -7923,7 +8141,8 @@
     "description": "蜜雪冰城(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LR16RP25",
-    "meal_type": "drink"
+    "meal_type": "drink",
+    "recommendation": "蜜雪冰城(户部巷店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ec076f0",
@@ -7948,7 +8167,8 @@
     "description": "徐嫂糊汤粉，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0JDA7VHMZ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "徐嫂糊汤粉是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_adc9d8b9",
@@ -7973,7 +8193,8 @@
     "description": "邵记恩施小土豆(户部巷小区店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0I0D7QVGF",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在武昌区觅食推荐邵记恩施小土豆(户部巷小区店)，性价比不错"
   },
   {
     "id": "amap_b346707d",
@@ -7998,7 +8219,8 @@
     "description": "良物华美汤包，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF33VSE",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "良物华美汤包是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_7d362fe3",
@@ -8049,7 +8271,8 @@
     "description": "小时候梅花糕，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0JBPA8MYQ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "小时候梅花糕是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ef99b94b",
@@ -8102,7 +8325,8 @@
     "description": "乡村人家土菜馆(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B001B170PP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "乡村人家土菜馆(户部巷店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_5a85120d",
@@ -8127,7 +8351,8 @@
     "description": "鲜鱼糊汤粉(斗级营店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFFZXRDP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "鲜鱼糊汤粉(斗级营店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_840b738b",
@@ -8152,7 +8377,8 @@
     "description": "江城杨公子(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0J6ADV1T4",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在武昌区觅食推荐江城杨公子(户部巷店)，性价比不错"
   },
   {
     "id": "amap_865aa87b",
@@ -8177,7 +8403,8 @@
     "description": "传统老武汉热干面(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFGHIDGO",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "传统老武汉热干面(户部巷店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_2397a9fb",
@@ -8202,7 +8429,8 @@
     "description": "古巷人家菜馆(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B001B16E63",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "古巷人家菜馆(户部巷店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e0fac141",
@@ -8227,7 +8455,8 @@
     "description": "洪湖一枝藕农家菜(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0J1HA5511",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "洪湖一枝藕农家菜(户部巷店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_da990b9",
@@ -8252,7 +8481,8 @@
     "description": "两只小象户部巷店，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LDBCF3DB",
-    "meal_type": "drink"
+    "meal_type": "drink",
+    "recommendation": "在武昌区觅食推荐两只小象户部巷店，性价比不错"
   },
   {
     "id": "amap_d66a6730",
@@ -8278,7 +8508,8 @@
     "description": "邵品记手工冰粉(户部巷小区店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0HG1MRFZV",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "邵品记手工冰粉(户部巷小区店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b148841",
@@ -8304,7 +8535,8 @@
     "description": "老帅爷王臭豆腐(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF0DPYO",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在武昌区觅食推荐老帅爷王臭豆腐(户部巷店)，性价比不错"
   },
   {
     "id": "amap_1bbcf8f7",
@@ -8329,7 +8561,8 @@
     "description": "山阿妹神农架炕小土豆(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFHRPR66",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "山阿妹神农架炕小土豆(户部巷店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_b3fbfd0c",
@@ -8355,7 +8588,8 @@
     "description": "大奔头烤牛蛙(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFHRQWEP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "大奔头烤牛蛙(户部巷店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_94a87e48",
@@ -8380,7 +8614,8 @@
     "description": "代记鲜鱼糊汤粉(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFHFVPT9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在武昌区觅食推荐代记鲜鱼糊汤粉(户部巷店)，性价比不错"
   },
   {
     "id": "amap_2fbd5c5",
@@ -8405,7 +8640,8 @@
     "description": "武汉手信(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFMGXFW9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉手信(户部巷店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_bba7f23e",
@@ -8430,7 +8666,8 @@
     "description": "湖北特产楚味堂(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFLPIFGW",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在武昌区觅食推荐湖北特产楚味堂(户部巷店)，性价比不错"
   },
   {
     "id": "amap_cb3ed596",
@@ -8456,7 +8693,8 @@
     "description": "周黑鸭(武汉武昌区户部巷网红墙)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LBCS5LTD",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在武昌区觅食推荐周黑鸭(武汉武昌区户部巷网红墙)，性价比不错"
   },
   {
     "id": "amap_e538a5e2",
@@ -8481,7 +8719,8 @@
     "description": "老武汉排骨藕汤，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0K06NKRT9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在武昌区觅食推荐老武汉排骨藕汤，性价比不错"
   },
   {
     "id": "amap_83d76c81",
@@ -8534,7 +8773,8 @@
     "description": "火爆大鱿鱼(武汉户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0J3UKUQIG",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "火爆大鱿鱼(武汉户部巷店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_567dbb25",
@@ -8613,7 +8853,8 @@
     "description": "周黑鸭(司门口户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFGDMDYG",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "在武昌区觅食推荐周黑鸭(司门口户部巷店)，性价比不错"
   },
   {
     "id": "amap_46372d69",
@@ -8638,7 +8879,8 @@
     "description": "江小八章鱼小丸子(户部巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF5RTKV",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "江小八章鱼小丸子(户部巷店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_b8fa616b",
@@ -8665,7 +8907,8 @@
     "description": "武商梦时代，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFMCDLTX",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武商梦时代适合城市游览、购物爱好者"
   },
   {
     "id": "amap_302a030c",
@@ -8694,7 +8937,8 @@
     "description": "武汉武昌万象城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0JA7SXPVR",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉武昌万象城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b794398f",
@@ -8721,7 +8965,8 @@
     "description": "武汉万象城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHFHITS",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉万象城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d5a93c7b",
@@ -8746,7 +8991,8 @@
     "description": "武汉江宸天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFLIN96L",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观武汉江宸天街，人气评分4.9"
   },
   {
     "id": "amap_ffecf071",
@@ -8800,7 +9046,8 @@
     "description": "武汉经开永旺梦乐城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFFP4PD",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在汉阳区参观武汉经开永旺梦乐城，人气评分4.9"
   },
   {
     "id": "amap_f8cf46f1",
@@ -8826,7 +9073,8 @@
     "description": "武汉荟聚，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGBGLNB",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在硚口区参观武汉荟聚，人气评分4.9"
   },
   {
     "id": "amap_242e8f9c",
@@ -8881,7 +9129,8 @@
     "description": "武商MALL•世贸，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001B063DA",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在江汉区参观武商MALL•世贸，人气评分4.7"
   },
   {
     "id": "amap_6d103ce5",
@@ -8964,7 +9213,8 @@
     "description": "光谷天地，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001B16M10",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "光谷天地是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_92656e7b",
@@ -8991,7 +9241,8 @@
     "description": "武汉SKP，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0G2XPKM14",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉SKP是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_10c2ad2d",
@@ -9018,7 +9269,8 @@
     "description": "世界城广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001B1BPME",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "世界城广场适合城市游览、购物爱好者"
   },
   {
     "id": "amap_604f59b7",
@@ -9045,7 +9297,8 @@
     "description": "武汉摩尔城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001B0JX9J",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉摩尔城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a0d31aa4",
@@ -9072,7 +9325,8 @@
     "description": "武汉滨江天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0HGYZWLIY",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉滨江天街是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d9c8e959",
@@ -9127,7 +9381,8 @@
     "description": "永旺梦乐城(武汉金银潭店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFGULCQ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在东西湖区参观永旺梦乐城(武汉金银潭店)，人气评分4.8"
   },
   {
     "id": "amap_c2a9f70d",
@@ -9154,7 +9409,8 @@
     "description": "永旺梦乐城(武汉江夏店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0HALS4E4I",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "永旺梦乐城(武汉江夏店)适合城市游览、购物爱好者"
   },
   {
     "id": "amap_78753de",
@@ -9181,7 +9437,8 @@
     "description": "群光广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001B07U0L",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "群光广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_401072cc",
@@ -9291,7 +9548,8 @@
     "description": "群星城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001B1FTN7",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "群星城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_bf10fe1e",
@@ -9317,7 +9575,8 @@
     "description": "武汉亲橙万象汇，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0KRYC0ZA9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉亲橙万象汇适合城市游览、购物爱好者"
   },
   {
     "id": "amap_be1e913d",
@@ -9346,7 +9605,8 @@
     "description": "武汉新天地南馆，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFG87QDO",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉新天地南馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d4826138",
@@ -9373,7 +9633,7 @@
     "source": "amap",
     "source_id": "B0FFHEWWXZ",
     "meal_type": "main",
-    "recommendation": "首创奥"
+    "recommendation": "首创奥特莱斯是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_55ed6a3e",
@@ -9402,7 +9662,8 @@
     "description": "万科未来中心VFC，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0GD3Z1LDN",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在汉阳区参观万科未来中心VFC，人气评分4.8"
   },
   {
     "id": "amap_52fffc6f",
@@ -9429,7 +9690,8 @@
     "description": "龙湖武汉白沙天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0IR3DHHDT",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在洪山区参观龙湖武汉白沙天街，人气评分4.7"
   },
   {
     "id": "amap_febea71a",
@@ -9456,7 +9718,8 @@
     "description": "龙湖武汉白沙天街B馆，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0HG47SLEM",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在洪山区参观龙湖武汉白沙天街B馆，人气评分4.7"
   },
   {
     "id": "amap_a6d16da4",
@@ -9506,7 +9769,8 @@
     "description": "武汉东湖风景区落雁景区-长咀，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0FFG4E2HR",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉东湖风景区落雁景区-长咀适合城市游览、自然风光爱好者"
   },
   {
     "id": "amap_b7944cb8",
@@ -9532,7 +9796,8 @@
     "description": "东湖游船，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0FFKCUZ8J",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东湖游船是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5a412599",
@@ -9585,7 +9850,8 @@
     "description": "东湖之眼，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0G17OZO48",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观东湖之眼，人气评分4.7"
   },
   {
     "id": "amap_9d38a0da",
@@ -9609,7 +9875,8 @@
     "description": "东湖生态旅游风景区-异国风情园，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B001B1ASEB",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东湖生态旅游风景区-异国风情园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_42d52563",
@@ -9633,7 +9900,8 @@
     "description": "东湖鹿岛，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0KUB7XPLQ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在洪山区参观东湖鹿岛，人气评分3.5"
   },
   {
     "id": "amap_6cd73fd7",
@@ -9658,7 +9926,8 @@
     "description": "东湖牡丹园，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B001B08LWR",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观东湖牡丹园，人气评分4.5"
   },
   {
     "id": "amap_d9a0350d",
@@ -9710,7 +9979,8 @@
     "description": "东湖音乐公园，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0FFLID6I8",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东湖音乐公园适合城市游览、自然风光爱好者"
   },
   {
     "id": "amap_4c9e8973",
@@ -9734,7 +10004,8 @@
     "description": "春到东湖，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0LA6DBE48",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "春到东湖是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9c50a42d",
@@ -9760,7 +10031,8 @@
     "description": "东湖楚市，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B001B1ASOE",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观东湖楚市，人气评分3.4"
   },
   {
     "id": "amap_ea110ac8",
@@ -9786,7 +10058,8 @@
     "description": "凌波门东湖观景点，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0JBO7VPZS",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "凌波门东湖观景点适合城市游览、自然风光爱好者"
   },
   {
     "id": "amap_5509553d",
@@ -9813,7 +10086,8 @@
     "description": "东湖飞鸟世界，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0FFITKZCW",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东湖飞鸟世界是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1a3e2c55",
@@ -9837,7 +10111,8 @@
     "description": "东湖国家湿地公园，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0FFG4GLEQ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在洪山区参观东湖国家湿地公园，人气评分4.0"
   },
   {
     "id": "amap_1be64182",
@@ -9863,7 +10138,8 @@
     "description": "东湖森林烤场，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0L2RDLQB0",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东湖森林烤场适合城市游览、自然风光爱好者"
   },
   {
     "id": "amap_a75297ba",
@@ -9889,7 +10165,8 @@
     "description": "东湖生态旅游风景区-大假山，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0FFFV4A3W",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观东湖生态旅游风景区-大假山，人气评分3.5"
   },
   {
     "id": "amap_25f3aa50",
@@ -9915,7 +10192,8 @@
     "description": "武汉东湖海洋世界，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0IGCOL8BM",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉东湖海洋世界适合城市游览、自然风光爱好者"
   },
   {
     "id": "amap_8556f04",
@@ -9939,7 +10217,8 @@
     "description": "东湖生态旅游风景区-森林广场，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0FFFV4A40",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观东湖生态旅游风景区-森林广场，人气评分3.5"
   },
   {
     "id": "amap_121acf21",
@@ -9965,7 +10244,8 @@
     "description": "东湖磨山景区-磨山挹翠，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0FFIQ1MQI",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东湖磨山景区-磨山挹翠适合城市游览、自然风光爱好者"
   },
   {
     "id": "amap_ad64b06a",
@@ -9991,7 +10271,8 @@
     "description": "东湖观光氦气球，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0HKASKKW7",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东湖观光氦气球是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9f9a1699",
@@ -10017,7 +10298,8 @@
     "description": "东湖生态旅游风景区-新时空飞盘广场，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0G39AM1B2",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "东湖生态旅游风景区-新时空飞盘广场适合城市游览、自然风光爱好者"
   },
   {
     "id": "amap_d6f887c0",
@@ -10096,7 +10378,8 @@
     "description": "东湖磨山景区-杜鹃园，来自高德 Web 服务 POI 搜索；分类：东湖景区。",
     "source": "amap",
     "source_id": "B0FFG03EAU",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐在武昌区参观东湖磨山景区-杜鹃园，人气评分4.3"
   },
   {
     "id": "amap_64f4e5b7",
@@ -10120,7 +10403,8 @@
     "description": "武汉佳美旅馆(江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B0B22E",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉佳美旅馆(江汉路步行街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_7dfc366b",
@@ -10144,7 +10428,8 @@
     "description": "武汉锦泰影院酒店(江汉路步行街协和医院店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFF9ZDPA",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉锦泰影院酒店(江汉路步行街协和医院店)位于江汉区，出行方便"
   },
   {
     "id": "amap_b50ac72f",
@@ -10168,7 +10453,8 @@
     "description": "武汉钻石6+1假日宾馆，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFHXR6U7",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉钻石6+1假日宾馆，交通便利"
   },
   {
     "id": "amap_e4abc0a0",
@@ -10192,7 +10478,8 @@
     "description": "世兴出租屋(武汉循礼门轻轨店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFG126WX",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "世兴出租屋(武汉循礼门轻轨店)位于江汉区，出行方便"
   },
   {
     "id": "amap_87477304",
@@ -10216,7 +10503,8 @@
     "description": "武汉汉都宾馆(江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFHI42R8",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉汉都宾馆(江汉路步行街店)位于江汉区，出行方便"
   },
   {
     "id": "amap_fdd4d7ea",
@@ -10265,7 +10553,8 @@
     "description": "武汉美菲尔宾馆，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFFFWVT1",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉美菲尔宾馆位于江汉区，出行方便"
   },
   {
     "id": "amap_9edfc8d",
@@ -10290,7 +10579,8 @@
     "description": "易佰酒店(武汉汉口江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B16TAQ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "易佰酒店(武汉汉口江汉路步行街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_c98fb1f3",
@@ -10315,7 +10605,8 @@
     "description": "城市优选酒店(武汉汉口江滩江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFISNEBE",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住城市优选酒店(武汉汉口江滩江汉路步行街店)，交通便利"
   },
   {
     "id": "amap_9e6581a0",
@@ -10339,7 +10630,8 @@
     "description": "九洲旅馆(武汉市汉口江滩黎黄陂路店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B0JXBR",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住九洲旅馆(武汉市汉口江滩黎黄陂路店)，交通便利"
   },
   {
     "id": "amap_ad89b8c3",
@@ -10363,7 +10655,8 @@
     "description": "武汉天壹宾馆(江汉路吉庆街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B1BPTT",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉天壹宾馆(江汉路吉庆街店)，交通便利"
   },
   {
     "id": "amap_83cc706f",
@@ -10387,7 +10680,8 @@
     "description": "武汉万家都市宾馆(江汉路步行街循礼门地铁站店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B0BCOS",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉万家都市宾馆(江汉路步行街循礼门地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_c63180cc",
@@ -10411,7 +10705,8 @@
     "description": "八方酒店(江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0K0CUET76",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "八方酒店(江汉路步行街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_24781dae",
@@ -10460,7 +10755,8 @@
     "description": "武汉京展宾馆，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B16NHB",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉京展宾馆，交通便利"
   },
   {
     "id": "amap_974bc61b",
@@ -10484,7 +10780,8 @@
     "description": "武汉·金花之星|TheBeautyofTheEast酒店(江汉路步行街江滩店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B16GOZ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉·金花之星|TheBeautyofTheEast酒店(江汉路步行街江滩店)位于江岸区，出行方便"
   },
   {
     "id": "amap_c10e09f9",
@@ -10509,7 +10806,8 @@
     "description": "77连锁宾馆(武汉江滩洞庭街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFFA1KMV",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "77连锁宾馆(武汉江滩洞庭街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_7facb350",
@@ -10533,7 +10831,8 @@
     "description": "瑞祥商务酒店(武汉亚心医院店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B16DP1",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "瑞祥商务酒店(武汉亚心医院店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_b8ea7c5f",
@@ -10557,7 +10856,8 @@
     "description": "锦程太空舱青年公寓(江汉路地铁站店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0HU59QUSP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "锦程太空舱青年公寓(江汉路地铁站店)位于江岸区，出行方便"
   },
   {
     "id": "amap_c56ff219",
@@ -10607,7 +10907,8 @@
     "description": "武汉欣悦宾馆(协和医院店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFFA1T1S",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉欣悦宾馆(协和医院店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_7d065674",
@@ -10631,7 +10932,8 @@
     "description": "天羽宾馆(武汉友谊南路店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFF5XSK8",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "天羽宾馆(武汉友谊南路店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_559492ba",
@@ -10656,7 +10958,8 @@
     "description": "7天优品酒店(武汉江汉路地铁站步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B0JTBX",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "7天优品酒店(武汉江汉路地铁站步行街店)位于江汉区，出行方便"
   },
   {
     "id": "amap_df7f5a2a",
@@ -10680,7 +10983,8 @@
     "description": "武汉鑫汇商务宾馆，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFFLJPW6",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉鑫汇商务宾馆，交通便利"
   },
   {
     "id": "amap_b311b174",
@@ -10705,7 +11009,8 @@
     "description": "7天酒店(武汉汉口江滩江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B0JOR5",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "7天酒店(武汉汉口江滩江汉路步行街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_b25cde7d",
@@ -10729,7 +11034,8 @@
     "description": "戴丁精选酒店(武汉江汉路步行街汉口江滩店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0I2OHUVAD",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住戴丁精选酒店(武汉江汉路步行街汉口江滩店)，交通便利"
   },
   {
     "id": "amap_fe59df5e",
@@ -10754,7 +11060,8 @@
     "description": "武汉V9精选酒店(江汉路步行街六渡桥地铁站店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFFVUWEP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉V9精选酒店(江汉路步行街六渡桥地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_21ec9bae",
@@ -10778,7 +11085,8 @@
     "description": "银华智能影院酒店(武汉协和医院江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B1C6AA",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "银华智能影院酒店(武汉协和医院江汉路步行街店)位于江汉区，出行方便"
   },
   {
     "id": "amap_741872df",
@@ -10802,7 +11110,8 @@
     "description": "优家连锁酒店(六渡桥汉正街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0H3JD38LT",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "优家连锁酒店(六渡桥汉正街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_4aee6d7f",
@@ -10826,7 +11135,8 @@
     "description": "戴丁连锁酒店(大智路地铁站江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0IAXS0ETT",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住戴丁连锁酒店(大智路地铁站江汉路步行街店)，交通便利"
   },
   {
     "id": "amap_920931ca",
@@ -10851,7 +11161,8 @@
     "description": "7天连锁酒店(武汉江汉路步行街吉庆街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B16NHM",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "7天连锁酒店(武汉江汉路步行街吉庆街店)位于江岸区，出行方便"
   },
   {
     "id": "amap_ba5de4bf",
@@ -10875,7 +11186,8 @@
     "description": "武汉瑞鑫宾馆(江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFKQM6IN",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉瑞鑫宾馆(江汉路步行街店)，交通便利"
   },
   {
     "id": "amap_b0d0deba",
@@ -10899,7 +11211,8 @@
     "description": "纽宾凯怡亭酒店(江汉路协和医院店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFFFWRLH",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "纽宾凯怡亭酒店(江汉路协和医院店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_f938e3e0",
@@ -10923,7 +11236,8 @@
     "description": "空杯酒店(武汉江汉路步行街吉庆街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0HRCAJHLM",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "空杯酒店(武汉江汉路步行街吉庆街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_7ed0a922",
@@ -10947,7 +11261,8 @@
     "description": "风尚酒店(武汉江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0HDZU1DKZ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "风尚酒店(武汉江汉路步行街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_ddcce736",
@@ -10971,7 +11286,8 @@
     "description": "武汉谷曼精品酒店(江汉路吉庆街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFLQ9EIK",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉谷曼精品酒店(江汉路吉庆街店)，交通便利"
   },
   {
     "id": "amap_dd0e8a0d",
@@ -10995,7 +11311,8 @@
     "description": "栖岸智能酒店，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0JD67SHHH",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住栖岸智能酒店，交通便利"
   },
   {
     "id": "amap_27cf7318",
@@ -11069,7 +11386,8 @@
     "description": "屿梦酒店(江汉路步行街循礼门地铁站店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0KGKGN8WP",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "屿梦酒店(江汉路步行街循礼门地铁站店)位于江汉区，出行方便"
   },
   {
     "id": "amap_1b44b451",
@@ -11093,7 +11411,8 @@
     "description": "武汉春锋宾馆(江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0JKYDD516",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉春锋宾馆(江汉路步行街店)，交通便利"
   },
   {
     "id": "amap_848f25fd",
@@ -11117,7 +11436,8 @@
     "description": "新缤凯酒店(江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0J1P918KZ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "新缤凯酒店(江汉路步行街店)位于江岸区，出行方便"
   },
   {
     "id": "amap_eb47fd42",
@@ -11141,7 +11461,8 @@
     "description": "栖岸智能酒店(武汉循礼门地铁站江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0J2X5NHCQ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "栖岸智能酒店(武汉循礼门地铁站江汉路步行街店)位于江汉区，出行方便"
   },
   {
     "id": "amap_d049e1dd",
@@ -11165,7 +11486,8 @@
     "description": "迪华商务宾馆(武汉汉口江滩黎黄陂路店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B001B0JYOG",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "迪华商务宾馆(武汉汉口江滩黎黄陂路店)位于江岸区，出行方便"
   },
   {
     "id": "amap_c5ae3044",
@@ -11189,7 +11511,8 @@
     "description": "武汉大华宾馆(江汉路步行街店)，来自高德 Web 服务 POI 搜索；分类：演示酒店。",
     "source": "amap",
     "source_id": "B0FFFA02RJ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉大华宾馆(江汉路步行街店)位于江岸区，出行方便"
   },
   {
     "id": "amap_e61760a",
@@ -11214,7 +11537,8 @@
     "description": "悦雅酒店(武昌火车站黄鹤楼店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0JDT6WRLD",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住悦雅酒店(武昌火车站黄鹤楼店)，交通便利"
   },
   {
     "id": "amap_3f313ccf",
@@ -11289,7 +11613,8 @@
     "description": "武汉帝豪公寓(湖北大学店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0FFGFYQIX",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉帝豪公寓(湖北大学店)位于武昌区，出行方便"
   },
   {
     "id": "amap_d2835859",
@@ -11313,7 +11638,8 @@
     "description": "鑫尚捷酒店(武昌火车站店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0FFGMDAXS",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住鑫尚捷酒店(武昌火车站店)，交通便利"
   },
   {
     "id": "amap_1b4d5752",
@@ -11338,7 +11664,8 @@
     "description": "瑞泰宾馆(黄鹤楼户部巷店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0FFGHPJK1",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "瑞泰宾馆(黄鹤楼户部巷店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_c871b88c",
@@ -11362,7 +11689,8 @@
     "description": "武汉金利屋宾馆，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0FFG4DCN9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉金利屋宾馆位于武昌区，出行方便"
   },
   {
     "id": "amap_27f09a56",
@@ -11411,7 +11739,8 @@
     "description": "武汉银华快捷宾馆(小东门地铁站店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B001B18OEV",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉银华快捷宾馆(小东门地铁站店)，交通便利"
   },
   {
     "id": "amap_2b710b64",
@@ -11435,7 +11764,8 @@
     "description": "军旅商务酒店(武汉武昌火车站店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B001B0JZ46",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "军旅商务酒店(武汉武昌火车站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_dc8330e3",
@@ -11459,7 +11789,8 @@
     "description": "京都旅馆(解放路店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B001B1CDN1",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住京都旅馆(解放路店)，交通便利"
   },
   {
     "id": "amap_292affd7",
@@ -11483,7 +11814,8 @@
     "description": "武汉圣华旅馆，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B001B0IX2J",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉圣华旅馆位于武昌区，出行方便"
   },
   {
     "id": "amap_71e319a5",
@@ -11507,7 +11839,8 @@
     "description": "武汉悦东方酒店(黄鹤楼武昌火车站店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0FFFCODUM",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉悦东方酒店(黄鹤楼武昌火车站店)，交通便利"
   },
   {
     "id": "amap_f00ef736",
@@ -11531,7 +11864,8 @@
     "description": "天怡旅馆(武汉黄鹤楼首义路地铁站店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B001B1C9OL",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "天怡旅馆(武汉黄鹤楼首义路地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_3657c40f",
@@ -11555,7 +11889,8 @@
     "description": "万金辉都精选酒店(武汉武昌火车站店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0FFHOC1N9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "万金辉都精选酒店(武汉武昌火车站店)位于武昌区，出行方便"
   },
   {
     "id": "amap_24c202e6",
@@ -11579,7 +11914,8 @@
     "description": "武汉泰坤时尚旅馆(武昌火车站店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0FFFH6O5S",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉泰坤时尚旅馆(武昌火车站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_a8a20e8e",
@@ -11603,7 +11939,8 @@
     "description": "速七连锁宾馆(第三医院店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0FFFF86YJ",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "速七连锁宾馆(第三医院店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_711ad9a7",
@@ -11677,7 +12014,8 @@
     "description": "武汉东安宾馆，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B001B1H386",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉东安宾馆，交通便利"
   },
   {
     "id": "amap_2b845b2d",
@@ -11701,7 +12039,8 @@
     "description": "武汉520时尚宾馆(武商梦时代店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0FFFFVGY8",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉520时尚宾馆(武商梦时代店)，交通便利"
   },
   {
     "id": "amap_3acdbd6",
@@ -11725,7 +12064,8 @@
     "description": "武汉增辉公寓，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B0FFGQU6E9",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住武汉增辉公寓，交通便利"
   },
   {
     "id": "amap_d22911be",
@@ -11749,7 +12089,8 @@
     "description": "速七主题公寓(徐东销品茂店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B001B1GM8M",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住速七主题公寓(徐东销品茂店)，交通便利"
   },
   {
     "id": "amap_9977456f",
@@ -11773,7 +12114,8 @@
     "description": "阳光公寓(武汉销品茂店)，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B001B1GKUG",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住阳光公寓(武汉销品茂店)，交通便利"
   },
   {
     "id": "amap_c2bcab00",
@@ -11798,7 +12140,8 @@
     "description": "武汉五鑫宾馆，来自高德 Web 服务 POI 搜索；分类：武昌区酒店。",
     "source": "amap",
     "source_id": "B001B1HB0I",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉五鑫宾馆位于武昌区，出行方便"
   },
   {
     "id": "amap_6d33f157",
@@ -11823,7 +12166,8 @@
     "description": "天河机场站，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "B0FFHN1FC6",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "推荐入住天河机场站，交通便利"
   },
   {
     "id": "amap_4e2fc725",
@@ -11849,7 +12193,8 @@
     "description": "武汉火车站(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "BV10058419",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武汉火车站(公交站)位于洪山区，出行方便"
   },
   {
     "id": "amap_c56642b9",
@@ -11875,7 +12220,8 @@
     "description": "武昌火车站(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "BV11572747",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "武昌火车站(公交站)位于武昌区，出行方便"
   },
   {
     "id": "amap_a68d6c5d",
@@ -11900,7 +12246,8 @@
     "description": "天河机场出发层下车点，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "B0I6FMKKX2",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "天河机场出发层下车点位于黄陂区，出行方便"
   },
   {
     "id": "amap_8d63d46d",
@@ -11926,6 +12273,7 @@
     "description": "汉口火车站(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "BV10057986",
-    "meal_type": "main"
+    "meal_type": "main",
+    "recommendation": "汉口火车站(公交站)位置便利，适合作为旅行住宿据点"
   }
 ]
