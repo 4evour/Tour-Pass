@@ -14,6 +14,39 @@ const AMAP_WALKING_URL = "https://restapi.amap.com/v3/direction/walking";
 const AMAP_DRIVING_URL = "https://restapi.amap.com/v3/direction/driving";
 const AMAP_DISTANCE_URL = "https://restapi.amap.com/v3/distance";
 
+// Rate limiting and retry
+const API_DELAY_MS = 250;
+const MAX_RETRIES = 3;
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+async function fetchWithRetry(url, retries = MAX_RETRIES) {
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        if (attempt < retries) { await sleep(1000 * (attempt + 1)); continue; }
+        return null;
+      }
+      const json = await response.json();
+      // Check for QPS limit
+      if (json && json.infocode === "10021") {
+        const delay = 2000 * (attempt + 1);
+        console.warn(`  QPS limit hit, waiting ${delay}ms (attempt ${attempt + 1}/${retries + 1})`);
+        if (attempt < retries) { await sleep(delay); continue; }
+        return json;
+      }
+      return json;
+    } catch (err) {
+      if (attempt < retries) { await sleep(1000 * (attempt + 1)); continue; }
+      return null;
+    }
+  }
+  return null;
+}
+
 function parseArgs(argv) {
   const args = {
     pois: "",
@@ -247,9 +280,9 @@ async function fetchAmapDrivingDistanceBatch({ pairs, apiKey, cacheDir, batchSiz
         type: "1",
         output: "json",
       });
-      const response = await fetch(`${AMAP_DISTANCE_URL}?${params.toString()}`);
-      if (!response.ok) continue;
-      const json = await response.json();
+      await sleep(API_DELAY_MS);
+      const json = await fetchWithRetry(`${AMAP_DISTANCE_URL}?${params.toString()}`);
+      if (!json) continue;
       fs.mkdirSync(cacheDir, { recursive: true });
       fs.writeFileSync(path.join(cacheDir, `distance-${destination.id}-${i}.json`), `${JSON.stringify(sanitizeAmapResponse(json), null, 2)}\n`, "utf8");
       const results = parseAmapDistanceResults(json);
@@ -263,24 +296,96 @@ async function fetchAmapDrivingDistanceBatch({ pairs, apiKey, cacheDir, batchSiz
   return metricsByPair;
 }
 
+async function fetchAmapWalkingDistanceBatch({ pairs, apiKey, cacheDir, batchSize }) {
+  const metricsByPair = new Map();
+  const byDestination = new Map();
+  for (const pair of pairs) {
+    const items = byDestination.get(pair.to.id) || [];
+    items.push(pair);
+    byDestination.set(pair.to.id, items);
+  }
+
+  let callCount = 0;
+  for (const group of byDestination.values()) {
+    for (let i = 0; i < group.length; i += batchSize) {
+      const batch = group.slice(i, i + batchSize);
+      const destination = batch[0].to;
+      const cacheFile = path.join(cacheDir, `walk-distance-${destination.id}-${i}.json`);
+
+      // Use cache if available
+      if (fs.existsSync(cacheFile)) {
+        const cached = JSON.parse(fs.readFileSync(cacheFile, "utf8"));
+        const results = parseAmapDistanceResults(cached);
+        results.forEach((result, index) => {
+          if (!result) return;
+          const pair = batch[index];
+          if (pair) metricsByPair.set(pairKey(pair.from, pair.to), result);
+        });
+        continue;
+      }
+
+      const params = new URLSearchParams({
+        key: apiKey,
+        origins: batch.map((pair) => `${pair.from.lng},${pair.from.lat}`).join("|"),
+        destination: `${destination.lng},${destination.lat}`,
+        type: "2", // walking
+        output: "json",
+      });
+
+      await sleep(API_DELAY_MS);
+      const json = await fetchWithRetry(`${AMAP_DISTANCE_URL}?${params.toString()}`);
+      if (!json) continue;
+
+      fs.mkdirSync(cacheDir, { recursive: true });
+      fs.writeFileSync(cacheFile, `${JSON.stringify(sanitizeAmapResponse(json), null, 2)}\n`, "utf8");
+      const results = parseAmapDistanceResults(json);
+      results.forEach((result, index) => {
+        if (!result) return;
+        const pair = batch[index];
+        if (pair) metricsByPair.set(pairKey(pair.from, pair.to), result);
+      });
+      callCount++;
+    }
+  }
+  if (callCount > 0) console.log(`  Walking batch: ${callCount} API calls, ${metricsByPair.size} results`);
+  return metricsByPair;
+}
+
 async function buildEdges(pois, options) {
   const apiKey = process.env.AMAP_API_KEY;
   const canUseAmap = options.useAmap && (options.mockDir || apiKey);
   const pairs = addBridgePairs(pois, nearestPairs(pois, options.neighbors));
+
+  console.log(`Building edges for ${pois.length} POIs, ${pairs.length} pairs (mode=${options.mode})...`);
+
+  // Batch fetch driving times
   const drivingBatch = canUseAmap && !options.mockDir && (options.mode === "driving" || options.mode === "mixed")
     ? await fetchAmapDrivingDistanceBatch({ pairs, apiKey, cacheDir: options.cacheDir, batchSize: options.batchSize })
     : new Map();
+  if (drivingBatch.size > 0) console.log(`  Driving batch: ${drivingBatch.size} results`);
+
+  // Batch fetch walking times (NEW: uses type=2 batch API instead of individual calls)
+  const walkingBatch = canUseAmap && !options.mockDir && (options.mode === "walking" || options.mode === "mixed")
+    ? await fetchAmapWalkingDistanceBatch({ pairs, apiKey, cacheDir: options.cacheDir, batchSize: options.batchSize })
+    : new Map();
+  if (walkingBatch.size > 0) console.log(`  Walking batch: ${walkingBatch.size} results`);
+
   const edges = [];
+  let amapCount = 0;
+  let geoCount = 0;
   for (const pair of pairs) {
     let walkMetrics = null;
     let taxiMetrics = null;
-    const batchedDrivingMetrics = drivingBatch.get(pairKey(pair.from, pair.to)) || null;
+    const pk = pairKey(pair.from, pair.to);
+    const batchedDrivingMetrics = drivingBatch.get(pk) || null;
+    const batchedWalkingMetrics = walkingBatch.get(pk) || null;
+
     if (canUseAmap) {
       if (options.mode === "walking" || options.mode === "mixed") {
-        walkMetrics = await fetchAmapRouteMetrics({ ...pair, mode: "walk", apiKey, mockDir: options.mockDir, cacheDir: options.cacheDir });
+        walkMetrics = batchedWalkingMetrics || null;
       }
       if (options.mode === "driving" || options.mode === "mixed") {
-        taxiMetrics = batchedDrivingMetrics || await fetchAmapRouteMetrics({ ...pair, mode: "drive", apiKey, mockDir: options.mockDir, cacheDir: options.cacheDir });
+        taxiMetrics = batchedDrivingMetrics || null;
       }
     }
     const source = walkMetrics || taxiMetrics ? "amap" : "geo_estimated";
@@ -365,6 +470,7 @@ if (require.main === module) {
 module.exports = {
   buildEdges,
   fetchAmapDrivingDistanceBatch,
+  fetchAmapWalkingDistanceBatch,
   fetchAmapRouteMetrics,
   nearestPairs,
   pairKey,
