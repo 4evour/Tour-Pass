@@ -237,7 +237,11 @@ async function api(path, options = {}) {
   if (remaining !== null) updateQueryCounter(parseInt(remaining));
   if (!response.ok) {
     if (response.status === 401 && !path.startsWith("/auth")) {
-      logout();
+      // Don't auto-logout — show confirmation to preserve user state
+      const shouldRelogin = confirm("登录已过期，是否重新登录？\n（取消可继续浏览当前页面）");
+      if (shouldRelogin) {
+        logout();
+      }
       throw new Error("登录已过期，请重新登录");
     }
     throw new Error(data?.error?.message || `请求失败 (${response.status})`);

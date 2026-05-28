@@ -1016,6 +1016,15 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
     padding: 12px;
   }
 
+  .city-cards {
+    max-height: 90px;
+    gap: 4px;
+  }
+  .city-card {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+
   .workspace,
   .inspector {
     padding: 16px;
@@ -1341,15 +1350,20 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 /* ---- City cards ---- */
 .city-cards {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-height: 120px;
+  overflow-y: auto;
+  padding: 2px;
 }
 .city-card {
-  padding: 8px 16px;
+  padding: 5px 10px;
   border: 2px solid var(--line);
-  border-radius: 8px;
+  border-radius: 6px;
   background: var(--surface);
   cursor: pointer;
-  font-size: 14px;
+  font-size: 13px;
+  white-space: nowrap;
   transition: all 0.2s;
 }
 .city-card.active {
