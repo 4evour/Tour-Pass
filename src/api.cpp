@@ -46,8 +46,7 @@ bool sendVerificationEmail(const std::string& toEmail, const std::string& code) 
 }
 
 std::string generateNumericCode(int digits) {
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    static thread_local std::mt19937 gen(std::random_device{}());
     std::uniform_int_distribution<int> dist(0, 9);
     std::string code;
     for (int i = 0; i < digits; ++i) code += std::to_string(dist(gen));
@@ -121,7 +120,35 @@ std::string requiredApiKey() {
     return key;
 }
 
+bool isAdminValue(const char* envList, const std::string& value) {
+    if (!envList || !*envList) return false;
+    std::string list(envList);
+    std::istringstream ss(list);
+    std::string item;
+    while (std::getline(ss, item, ',')) {
+        size_t start = item.find_first_not_of(" \t");
+        size_t end = item.find_last_not_of(" \t");
+        if (start == std::string::npos) continue;
+        if (item.substr(start, end - start + 1) == value) return true;
+    }
+    return false;
+}
+
+bool shouldAutoPromoteAdmin(DataStore* store) {
+    if (!store || !store->enabled()) return false;
+    try {
+        auto allUsers = store->listUsers(500);
+        for (const auto& u : allUsers) {
+            if (u.value("role", "") == "admin") return false;
+        }
+    } catch (...) {
+        return false;
+    }
+    return true;
+}
+
 struct IpRateLimiter {
+    static constexpr size_t maxTotalIps = 100000;
     std::mutex mu;
     std::unordered_map<std::string, std::deque<std::chrono::steady_clock::time_point>> hits;
     int maxRequests;
@@ -133,9 +160,32 @@ struct IpRateLimiter {
         std::lock_guard<std::mutex> lock(mu);
         auto now = std::chrono::steady_clock::now();
         auto& q = hits[ip];
-        while (!q.empty() && now - q.front() > window) q.pop_front();
+        while (!q.empty() && now - q.front() > window) {
+            q.pop_front();
+        }
         if (static_cast<int>(q.size()) >= maxRequests) return false;
         q.push_back(now);
+        if (hits.size() > maxTotalIps) {
+            for (auto it = hits.begin(); it != hits.end();) {
+                if (it->second.empty()) it = hits.erase(it);
+                else ++it;
+            }
+        }
+        return true;
+    }
+};
+
+struct EmailRateLimiter {
+    std::mutex mu;
+    std::unordered_map<std::string, std::chrono::steady_clock::time_point> lastSentAt;
+    std::chrono::seconds minInterval;
+    EmailRateLimiter(int intervalSec) : minInterval(intervalSec) {}
+    bool allow(const std::string& email) {
+        std::lock_guard<std::mutex> lock(mu);
+        auto now = std::chrono::steady_clock::now();
+        auto it = lastSentAt.find(email);
+        if (it != lastSentAt.end() && now - it->second < minInterval) return false;
+        lastSentAt[email] = now;
         return true;
     }
 };
@@ -148,14 +198,17 @@ void setJson(httplib::Response& res, const nlohmann::json& body, int status = 20
 std::string corsOrigin() {
     static const std::string origin = [] {
         const char* env = std::getenv("TOURPASS_CORS_ORIGIN");
-        return env ? std::string(env) : std::string("*");
+        return env ? std::string(env) : std::string();
     }();
     return origin;
 }
 
 void setCommonHeaders(httplib::Response& res, const std::string& requestId) {
     res.set_header("X-Request-Id", requestId);
-    res.set_header("Access-Control-Allow-Origin", corsOrigin());
+    std::string origin = corsOrigin();
+    if (!origin.empty()) {
+        res.set_header("Access-Control-Allow-Origin", origin);
+    }
     res.set_header("Access-Control-Allow-Headers", "Content-Type, X-Request-Id, Authorization");
     res.set_header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE, OPTIONS");
     res.set_header("Access-Control-Expose-Headers", "X-Request-Id, X-Response-Time-Ms, X-Cache, X-Query-Remaining");
@@ -169,6 +222,15 @@ std::string queryString(const httplib::Request& req) {
     auto pos = req.target.find('?');
     if (pos == std::string::npos) return "";
     return req.target.substr(pos + 1);
+}
+
+bool constantTimeEquals(const std::string& a, const std::string& b) {
+    if (a.size() != b.size()) return false;
+    volatile unsigned char result = 0;
+    for (size_t i = 0; i < a.size(); ++i) {
+        result |= static_cast<unsigned char>(a[i]) ^ static_cast<unsigned char>(b[i]);
+    }
+    return result == 0;
 }
 
 std::string routeName(const httplib::Request& req) {
@@ -230,8 +292,10 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
     }
 }
 
-void installMiddleware(httplib::Server& server, ApiContext& context) {
-    static IpRateLimiter rateLimiter(60, 60);
+    static EmailRateLimiter emailLimiter(60);
+
+    void installMiddleware(httplib::Server& server, ApiContext& context) {
+        static IpRateLimiter rateLimiter(60, 60);
     server.set_payload_max_length(context.config.maxBodyBytes);
     server.set_pre_routing_handler([&](const httplib::Request& req, httplib::Response& res) {
         std::string requestId = req.get_header_value("X-Request-Id");
@@ -279,7 +343,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
         const std::string& apiKey = requiredApiKey();
         if (!apiKey.empty()) {
             std::string provided = req.get_header_value("Authorization");
-            if (provided == "Bearer " + apiKey || req.get_header_value("X-API-Key") == apiKey) {
+            if (provided == "Bearer " + apiKey || constantTimeEquals(req.get_header_value("X-API-Key"), apiKey)) {
                 authUserId = -1;  // API key auth, no user
                 authRole = "admin";
             }
@@ -489,6 +553,13 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     server.Post("/trip/plan", [&](const httplib::Request& req, httplib::Response& res) {
         try {
             std::string key = requestCacheKey(req.method, req.path, queryString(req), req.body);
+            {
+                std::lock_guard<std::mutex> lock(metaMutex);
+                auto found = requestMeta.find(&req);
+                if (found != requestMeta.end() && found->second.userId > 0) {
+                    key += "@u" + std::to_string(found->second.userId);
+                }
+            }
             if (serveFromCache(context, res, key)) {
                 return;
             }
@@ -775,20 +846,19 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 return;
             }
 
-            std::vector<ChatMessage> context_messages;
+            std::vector<ChatMessage> chatHistory;
             if (body.contains("context") && body["context"].is_array()) {
                 for (const auto& msg : body["context"]) {
                     ChatMessage cm;
                     cm.role = msg.value("role", "user");
                     cm.content = msg.value("content", "");
                     if (!cm.content.empty()) {
-                        context_messages.push_back(cm);
+                        chatHistory.push_back(cm);
                     }
                 }
             }
 
-            // Step 1: Parse natural language to TripRequest
-            LlmParsedRequest parsed = context.llm.parseNaturalLanguageRequest(message, context_messages);
+            LlmParsedRequest parsed = context.llm.parseNaturalLanguageRequest(message, chatHistory);
             if (!parsed.parsed) {
                 setJson(res, errorJson("PARSE_FAILED", "无法理解您的旅行需求", {{"detail", parsed.parseNote}}), 422);
                 return;
@@ -894,25 +964,8 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 return;
             }
             std::string hashed = hashPassword(password);
-            // Check if this user should be admin
-            std::string role = "user";
-            const char* adminUsers = std::getenv("TOURPASS_ADMIN_USERS");
-            if (adminUsers) {
-                std::string adminList(adminUsers);
-                if (adminList.find(username) != std::string::npos) {
-                    role = "admin";
-                }
-            }
-            // Auto-promote if no admin user exists in the system
-            if (role == "user") {
-                auto stats = context.store->adminStats();
-                auto allUsers = context.store->listUsers(500);
-                bool hasAdmin = false;
-                for (const auto& u : allUsers) {
-                    if (u.value("role", "") == "admin") { hasAdmin = true; break; }
-                }
-                if (!hasAdmin) role = "admin";
-            }
+            std::string role = isAdminValue(std::getenv("TOURPASS_ADMIN_USERS"), username) ? "admin" : "user";
+            if (role == "user" && shouldAutoPromoteAdmin(context.store)) role = "admin";
             int64_t userId = context.store->createUser(username, hashed, role);
             std::string token = createToken(userId, username, role);
             setJson(res, {{"token", token}, {"user", {{"id", userId}, {"username", username}, {"role", role}}}}, 201);
@@ -963,6 +1016,10 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401);
             return;
         }
+        if (!context.store || !context.store->enabled()) {
+            setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503);
+            return;
+        }
         auto user = context.store->findUserById(userId);
         if (!user) {
             setJson(res, errorJson("NOT_FOUND", "用户不存在"), 404);
@@ -979,24 +1036,44 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         });
     });
 
-    // ---- Guest mode (IP limited: 1 per IP per day) ----
+    // ---- Guest mode ----
+    static IpRateLimiter guestIpLimiter(5, 86400);
     server.Post("/auth/guest", [&](const httplib::Request& req, httplib::Response& res) {
         if (!context.store || !context.store->enabled()) {
             setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503); return;
         }
-        std::string ip = req.remote_addr;
-        if (!context.store->canCreateGuest(ip)) {
-            setJson(res, errorJson("GUEST_LIMIT", "今日游客体验已达上限，请注册账号获取更多次数", {{"hint", "POST /auth/register-email"}}), 429); return;
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string deviceId = body.value("device_id", "");
+            if (deviceId.empty() || deviceId.size() > 128) {
+                setJson(res, errorJson("VALIDATION_ERROR", "请提供有效的设备标识"), 400); return;
+            }
+            if (!guestIpLimiter.allow(req.remote_addr)) {
+                setJson(res, errorJson("RATE_LIMITED", "今日创建游客次数过多，请明天再试"), 429); return;
+            }
+            auto existing = context.store->findUserByDeviceId(deviceId);
+            if (existing) {
+                std::string token = createToken(existing->id, existing->username, "guest");
+                int queryUsed = context.store->getQueryCount(existing->id);
+                int bonus = context.store->getBonusQueries(existing->id);
+                setJson(res, {
+                    {"token", token},
+                    {"user", {{"id", existing->id}, {"username", existing->username}, {"role", "guest"},
+                              {"query_remaining", std::max(0, getQueryLimit("guest") + bonus - queryUsed)}}}
+                });
+                return;
+            }
+            std::string username = "guest_" + randomHex(3);
+            std::string hashed = hashPassword(randomHex(8));
+            int64_t userId = context.store->createUser(username, hashed, "guest", "", deviceId);
+            std::string token = createToken(userId, username, "guest");
+            setJson(res, {
+                {"token", token},
+                {"user", {{"id", userId}, {"username", username}, {"role", "guest"}, {"query_remaining", 3}}}
+            }, 201);
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", "游客登录失败", {{"reason", ex.what()}}), 500);
         }
-        std::string username = "guest_" + randomHex(3);
-        std::string hashed = hashPassword(randomHex(8));
-        int64_t userId = context.store->createUser(username, hashed, "guest");
-        context.store->logGuestCreation(ip);
-        std::string token = createToken(userId, username, "guest");
-        setJson(res, {
-            {"token", token},
-            {"user", {{"id", userId}, {"username", username}, {"role", "guest"}, {"query_remaining", 3}}}
-        }, 201);
     });
 
     // ---- Send verification code ----
@@ -1010,7 +1087,11 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             if (!context.store || !context.store->enabled()) {
                 setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503); return;
             }
-            // Check if email already registered
+            std::string remoteAddr = req.get_header_value("REMOTE_ADDR");
+            if (!emailLimiter.allow(email)) {
+                setJson(res, errorJson("RATE_LIMITED", "验证码发送过于频繁，请 60 秒后重试"), 429); return;
+            }
+            (void)remoteAddr;
             if (context.store->findUserByEmail(email)) {
                 setJson(res, errorJson("EMAIL_TAKEN", "该邮箱已注册"), 409); return;
             }
@@ -1059,20 +1140,8 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 username += "_" + randomHex(2);
             }
             std::string hashed = hashPassword(password);
-            std::string role = "user";
-            const char* adminEmails = std::getenv("TOURPASS_ADMIN_USERS");
-            if (adminEmails && std::string(adminEmails).find(email) != std::string::npos) {
-                role = "admin";
-            }
-            // Auto-promote if no admin exists in the system
-            if (role == "user") {
-                auto allUsers = context.store->listUsers(500);
-                bool hasAdmin = false;
-                for (const auto& u : allUsers) {
-                    if (u.value("role", "") == "admin") { hasAdmin = true; break; }
-                }
-                if (!hasAdmin) role = "admin";
-            }
+            std::string role = isAdminValue(std::getenv("TOURPASS_ADMIN_USERS"), email) ? "admin" : "user";
+            if (role == "user" && shouldAutoPromoteAdmin(context.store)) role = "admin";
             int64_t userId = context.store->createUser(username, hashed, role, email);
             std::string token = createToken(userId, username, role);
             setJson(res, {{"token", token}, {"user", {{"id", userId}, {"username", username}, {"email", email}, {"role", role}}}}, 201);
@@ -1111,7 +1180,6 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     server.Post("/trips/save", [&](const httplib::Request& req, httplib::Response& res) {
         auto [userId, role] = getAuthUser(req);
         if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
-        if (role == "guest") { setJson(res, errorJson("GUEST_LIMITED", "游客无法保存行程，请先注册账号"), 403); return; }
         try {
             auto body = nlohmann::json::parse(req.body);
             std::string title = body.value("title", "未命名行程");
@@ -1145,10 +1213,14 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
         int64_t tripId = 0;
         try { tripId = std::stoll(req.matches[1]); } catch (...) {}
-        auto trip = context.store->getTrip(tripId, userId);
-        if (!trip) { setJson(res, errorJson("NOT_FOUND", "行程不存在"), 404); return; }
-        std::string shareId = context.store->generateShareId(tripId);
-        setJson(res, {{"share_id", shareId}, {"share_url", "/s/" + shareId}});
+        try {
+            auto trip = context.store->getTrip(tripId, userId);
+            if (!trip) { setJson(res, errorJson("NOT_FOUND", "行程不存在"), 404); return; }
+            std::string shareId = context.store->generateShareId(tripId);
+            setJson(res, {{"share_id", shareId}, {"share_url", "/s/" + shareId}});
+        } catch (const std::exception& e) {
+            setJson(res, errorJson("INTERNAL_ERROR", std::string("分享失败: ") + e.what()), 500);
+        }
     });
 
     server.Get(R"(/s/([a-z0-9]+))", [&](const httplib::Request& req, httplib::Response& res) {

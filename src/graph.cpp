@@ -1,3 +1,4 @@
+#include "tourpass/env.h"
 #include "tourpass/graph.h"
 
 #include <queue>
@@ -345,16 +346,7 @@ void PoiGraph::putCachedOnDemand(size_t from, size_t to, int minutes) const {
 
 namespace {
 
-size_t envSize(const char* key, size_t fallback, size_t minValue, size_t maxValue) {
-    const char* value = std::getenv(key);
-    if (!value || !*value) return fallback;
-    try {
-        size_t parsed = static_cast<size_t>(std::stoul(value));
-        return std::max(minValue, std::min(maxValue, parsed));
-    } catch (...) {
-        return fallback;
-    }
-}
+// envSize is provided by tourpass/env.h (included above)
 
 DistanceCacheMode parseDistanceCacheMode(const char* value) {
     if (!value || !*value) return DistanceCacheMode::Auto;

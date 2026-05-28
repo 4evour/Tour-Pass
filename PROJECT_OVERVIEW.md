@@ -1,5 +1,66 @@
 # Tour Pass 项目说明
 
+## v4.3 Frontend UX & Cloud Deployment
+
+前端体验优化：
+- 全局 toast 通知系统（`toast()`）替代所有 `alert()` 弹窗，支持 success/error/info 类型、4 秒自动消失和操作链接
+- `api()` 函数加固：先读取 `response.text()` 再 `JSON.parse()`，正确处理空响应体和异常格式
+- 保存按钮防抖：2 秒冷却 + 重复保存检测（`state.tripSaved`），禁用期间显示"保存中..."，失败时自动恢复
+- 登录页闪烁修复：`<body>` 初始 `visibility:hidden`，`checkAuth()` 完成后恢复可见，避免短暂闪现登录界面
+- 游客保留期提示：底部横幅"游客数据保留 7 天，注册账号可长期保存"，点击跳转邮箱注册表单
+- Profile 页空状态兜底：无保存行程时显示"还没有保存过行程"+ 规划入口
+- 分享结果内联显示：`shareMsg` 元素替代 `alert()`，成功/失败用不同颜色区分
+
+后端关键修复：
+- 分享端点 5 秒延迟根因修复：`generateShareId()` 从 `std::random_device`（阻塞读 `/dev/urandom`）改为先尝试 `urandom` 再 fallback 到 `mt19937`
+- 分享 POST 必须带 body：httplib 对无 body 的请求会读超时，前端 `shareTrip()` 现在发送 `body: JSON.stringify({})`
+- `generateNumericCode()` 阻塞修复：改为 `static thread_local mt19937 gen(std::random_device{}())`，避免每次调用重复读熵源
+- 请求体限制提升：`maxBodyBytes` 从 64KB 扩大到 256KB，支持长行程（5 天 5 候选 = 110KB+）的保存请求
+
+云端部署启用 LLM：
+- `render.yaml` 移除 `LLM_DISABLED=1`，新增 `OPENAI_API_KEY`（`sync: false` 手动配置）、`LLM_BASE_URL=https://api.deepseek.com`、`LLM_MODEL=deepseek-chat`
+- `Dockerfile` 移除 `LLM_DISABLED=1`，`TOURPASS_MAX_BODY_BYTES=262144` 与后端默认值对齐
+- 云端 binary 通过 CMake `find_package(OpenSSL)` 自动启用 HTTPS，可直接调用 DeepSeek API，无需 Python 代理
+- `TOURPASS_JWT_SECRET` 作为 Render 环境变量（`sync: false`），避免重启后 token 失效
+
+## v4.2 Security & Quality Hardening
+
+安全加固：
+- `auth.cpp` JWT 签名校验改为常量时间比较（`constantTimeEquals`），移除硬编码 JWT 密钥，启动时若 `TOURPASS_JWT_SECRET` 缺失则直接退出
+- 密码哈希算法从 SHA-256 升级为 PBKDF2-HMAC-SHA256（100k 迭代），保留对旧 64 字符 SHA-256 哈希的向后兼容验证
+- 管理员判断从 `string::find()` 子串匹配改为按 `,` 分隔精确匹配，避免 `admin` 匹配到 `notadmin`
+- `/auth/send-code` 新增邮箱级 60 秒防刷限流（`EmailRateLimiter`），避免滥用邮件发送接口
+- API Key 校验（`X-API-Key` header）改为常量时间比较
+- CORS 默认 origin 从 `*` 改为空（不发送 header），需通过 `TOURPASS_CORS_ORIGIN` 显式配置
+- `POST /trip/plan` 缓存 key 追加 `userId`，避免不同用户的个性化结果互相覆盖
+
+逻辑修正：
+- `/auth/me` 端点新增数据库可用性校验，防止 `context.store` 为 null 时空指针崩溃
+- `planner.cpp` 备选方案（alternatives）从硬编码长沙改为按 `request.city` 动态选择
+- `pg_store.cpp` `adminStats()` 字段名对齐 SQLite 后端（`active_today` → `today_active_users`，`total_planning_requests` → `total_queries`），避免前端字段不一致
+- `sqlite_store.cpp` ALTER TABLE 迁移从 `catch (...) {}` 改为仅忽略 "duplicate column" 错误，其他异常正常抛出
+
+代码清理：
+- 移除 `canCreateGuest` / `logGuestCreation` 已废弃的虚函数及两个后端的实现，`/auth/guest` 不再依赖死代码路径
+- `IpRateLimiter` 增加 IP 上限（100K）和过期清理，防止内存无限增长
+- `envSize()` 函数从 `service_runtime.cpp` 和 `graph.cpp` 的匿名命名空间提取到公共 `include/tourpass/env.h`，消除重复定义
+- `api.cpp` `context_messages` 重命名为 `chatHistory`，语义更清晰
+
+性能优化：
+- `SearchEngine` 新增 `PoiSearchIndex`：构造时预计算所有 POI 的大小写归一化字段和文档长度，每次 `search()` 查询不再重复执行 `lowerAscii()` 和文档长度计算
+
+构建 & 部署：
+- CMakeLists.txt 从全局 `include_directories()` 改为每个目标独立的 `target_include_directories()` 和 `target_compile_options()`（`-Wall -Wextra`）
+- Dockerfile 新增 `curl` 依赖并添加 `HEALTHCHECK` 指令
+
+游客系统重构（schema v5）：
+- 新增 `users.device_id` 字段及索引，支持浏览器指纹绑定
+- `/auth/guest` 重写：按 `device_id` 查找或创建游客账号，同一设备复用同一 guest 账号
+- 游客可保存行程和分享行程，移除 `GUEST_LIMITED` 限制
+- 防刷：每 IP 每天最多创建 5 个游客账号
+- 自动清理：启动时删除 7 天前的游客账号及关联数据（saved_trips → easter_egg_log → query_usage → feedback → users），外键按顺序删除
+- `DataStore` 接口新增 `findUserByDeviceId()` 和 `cleanupExpiredGuests()`，SQLite 和 PostgreSQL 后端均已实现
+
 ## v4.1 CI Smoke Alignment
 
 - Windows GitHub Actions 的 `scripts/api_smoke.ps1` 现在按默认真实数据集校验 `/health`：期望 `500` 个 POI 与 `1937` 条通勤边，并检查 `data_loaded` 与 `travel_provider`；旧 `25` POI / `46` 边只作为 `data/pois_sample.json` 与 `data/edges_sample.json` 的快速样例口径保留。冒烟失败时脚本会输出不匹配字段和压缩后的 health JSON，避免只看到笼统的运行时字段错误。脚本会在独立 SQLite smoke DB 中注册临时用户并携带 Bearer token 调用受保护 API；路线冒烟从当前 `data/edges.json` 读取样本边，避免依赖旧样例 POI id；运行时容量、缓存和 DB 字段由后续 `/metrics` 冒烟覆盖。

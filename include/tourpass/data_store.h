@@ -31,10 +31,11 @@ public:
     virtual nlohmann::json recentJobs(int limit) const = 0;
 
     // Auth
-    virtual int64_t createUser(const std::string& username, const std::string& passwordHash, const std::string& role = "user", const std::string& email = "") = 0;
+    virtual int64_t createUser(const std::string& username, const std::string& passwordHash, const std::string& role = "user", const std::string& email = "", const std::string& deviceId = "") = 0;
     virtual std::optional<UserRecord> findUserByUsername(const std::string& username) = 0;
     virtual std::optional<UserRecord> findUserByEmail(const std::string& email) = 0;
     virtual std::optional<UserRecord> findUserById(int64_t id) = 0;
+    virtual std::optional<UserRecord> findUserByDeviceId(const std::string& deviceId) = 0;
     virtual void updatePassword(int64_t userId, const std::string& newHash) = 0;
     virtual void updateRole(int64_t userId, const std::string& role) = 0;
 
@@ -42,10 +43,6 @@ public:
     virtual void storeVerificationCode(const std::string& email, const std::string& code, const std::string& purpose, int ttlSeconds) = 0;
     virtual std::optional<std::string> getValidVerificationCode(const std::string& email, const std::string& code, const std::string& purpose) = 0;
     virtual void markCodeUsed(int64_t codeId) = 0;
-
-    // Guest IP limit
-    virtual bool canCreateGuest(const std::string& ip) = 0;
-    virtual void logGuestCreation(const std::string& ip) = 0;
 
     // Query usage
     virtual int getQueryCount(int64_t userId) = 0;
@@ -71,6 +68,7 @@ public:
     virtual nlohmann::json adminStats() = 0;
     virtual nlohmann::json listUsers(int limit) = 0;
     virtual nlohmann::json queryStatsByDay(int days) = 0;
+    virtual void cleanupExpiredGuests(int daysRetention) = 0;
 };
 
 }  // namespace tourpass

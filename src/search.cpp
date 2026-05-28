@@ -66,50 +66,62 @@ std::string joinTerms(const std::vector<std::string>& terms) {
 
 }  // namespace
 
-SearchEngine::SearchEngine(const PoiGraph& graph) : graph_(graph) {}
+SearchEngine::SearchEngine(const PoiGraph& graph) : graph_(graph), averageLength_(1.0) {
+    const auto& pois = graph_.pois();
+    index_.reserve(pois.size());
+    double totalLength = 0.0;
+    for (const auto& poi : pois) {
+        PoiSearchIndex entry;
+        entry.poi = &poi;
+        entry.nameLc = lowerAscii(poi.name);
+        entry.areaLc = lowerAscii(poi.area);
+        entry.descriptionLc = lowerAscii(poi.description);
+        std::string tags;
+        for (const auto& tag : poi.tags) {
+            tags += lowerAscii(tag) + " ";
+        }
+        entry.tagsTextLc = std::move(tags);
+        entry.docLength = 2.0 + poi.tags.size() + std::max<size_t>(1, poi.description.size() / 6);
+        totalLength += entry.docLength;
+        index_.push_back(std::move(entry));
+    }
+    averageLength_ = pois.empty() ? 1.0 : totalLength / static_cast<double>(pois.size());
+}
 
 std::vector<SearchResult> SearchEngine::search(const std::string& query, const std::string& type, int limit) const {
     std::vector<SearchResult> results;
     if (limit <= 0) limit = 10;
     const auto tokens = splitQuery(query);
-    const auto& pois = graph_.pois();
 
     std::unordered_map<std::string, int> documentFrequency;
     for (const auto& token : tokens) {
         int count = 0;
-        for (const auto& poi : pois) {
-            std::string text = lowerAscii(poi.name + " " + poi.area + " " + poi.description);
-            for (const auto& tag : poi.tags) {
-                text += " " + lowerAscii(tag);
-            }
-            if (text.find(token) != std::string::npos) {
+        for (const auto& entry : index_) {
+            if (entry.nameLc.find(token) != std::string::npos ||
+                entry.tagsTextLc.find(token) != std::string::npos ||
+                entry.areaLc.find(token) != std::string::npos ||
+                entry.descriptionLc.find(token) != std::string::npos) {
                 ++count;
             }
         }
         documentFrequency[token] = std::max(1, count);
     }
 
-    double totalLength = 0.0;
-    for (const auto& poi : pois) {
-        totalLength += 2.0 + poi.tags.size() + std::max<size_t>(1, poi.description.size() / 6);
-    }
-    const double averageLength = pois.empty() ? 1.0 : totalLength / static_cast<double>(pois.size());
+    const double averageLength = averageLength_;
 
-    for (const auto& poi : pois) {
+    for (const auto& entry : index_) {
+        const auto& poi = *entry.poi;
         if (!type.empty() && poiTypeToString(poi.type) != type) {
             continue;
         }
 
         double score = 0.0;
         std::vector<std::string> matchedTerms;
-        std::string tagsText;
-        for (const auto& tag : poi.tags) {
-            tagsText += lowerAscii(tag) + " ";
-        }
-        const std::string name = lowerAscii(poi.name);
-        const std::string area = lowerAscii(poi.area);
-        const std::string description = lowerAscii(poi.description);
-        const double docLength = 2.0 + poi.tags.size() + std::max<size_t>(1, poi.description.size() / 6);
+        const std::string& name = entry.nameLc;
+        const std::string& area = entry.areaLc;
+        const std::string& description = entry.descriptionLc;
+        const std::string& tagsText = entry.tagsTextLc;
+        const double docLength = entry.docLength;
         std::vector<ScoreComponent> contributions;
 
         for (const auto& token : tokens) {
@@ -120,7 +132,7 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
             double tf = nameTf + tagsTf + areaTf + descriptionTf;
             if (tf > 0.0) {
                 matchedTerms.push_back(token);
-                double documentCount = static_cast<double>(pois.size());
+                double documentCount = static_cast<double>(index_.size());
                 double df = static_cast<double>(documentFrequency[token]);
                 double tokenScore = bm25Contribution(tf, documentCount, df, docLength, averageLength);
                 score += tokenScore;
@@ -140,21 +152,21 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
             }
         }
         if (tokens.empty()) {
-            score = poi.popularity;
+            score = entry.poi->popularity;
             matchedTerms.push_back("热度");
             contributions.push_back({"热度", poi.popularity, "空查询按 POI 热度排序。"});
         }
-        score += poi.popularity;
-        contributions.push_back({"热度加权", poi.popularity, "检索排序叠加 POI 热度，避免低质量文本匹配靠前。"});
+        score += entry.poi->popularity;
+        contributions.push_back({"热度加权", entry.poi->popularity, "检索排序叠加 POI 热度，避免低质量文本匹配靠前。"});
 
         if (score > 0.0) {
             SearchResult result;
-            result.id = poi.id;
-            result.name = poi.name;
-            result.type = poiTypeToString(poi.type);
-            result.area = poi.area;
+            result.id = entry.poi->id;
+            result.name = entry.poi->name;
+            result.type = poiTypeToString(entry.poi->type);
+            result.area = entry.poi->area;
             result.score = std::round(score * 10.0) / 10.0;
-            result.description = poi.description;
+            result.description = entry.poi->description;
             result.matchedTerms = matchedTerms;
             result.scoreExplanation = tokens.empty()
                 ? "空查询按 POI 热度排序。"

@@ -5,10 +5,32 @@ const state = {
   activeStage: "overview",
   user: null,
   token: localStorage.getItem("tp_token") || null,
+  tripSaved: false,
+  savedTripId: null,
 };
 
 let planMap = null;
 let routeMap = null;
+
+// ---- Toast notifications ----
+function toast(message, type = "info", actionHtml = "") {
+  let container = document.getElementById("toastContainer");
+  if (!container) {
+    container = document.createElement("div");
+    container.id = "toastContainer";
+    container.className = "toast-container";
+    document.body.appendChild(container);
+  }
+  const el = document.createElement("div");
+  el.className = `toast toast-${type}`;
+  el.innerHTML = `<span class="toast-msg">${message}</span>${actionHtml ? `<span class="toast-actions">${actionHtml}</span>` : ""}`;
+  container.appendChild(el);
+  requestAnimationFrame(() => el.classList.add("toast-show"));
+  setTimeout(() => {
+    el.classList.remove("toast-show");
+    el.addEventListener("transitionend", () => el.remove());
+  }, 4000);
+}
 
 const DAY_COLORS = ["#146b5d", "#c25b1e", "#2563eb", "#9333ea", "#dc2626", "#0d9488", "#d97706"];
 
@@ -200,7 +222,16 @@ async function api(path, options = {}) {
   const headers = { "Content-Type": "application/json; charset=utf-8" };
   if (state.token) headers["Authorization"] = "Bearer " + state.token;
   const response = await fetch(path, { headers, ...options });
-  const data = await response.json();
+  let data = null;
+  const text = await response.text();
+  if (text) {
+    try {
+      data = JSON.parse(text);
+    } catch {
+      if (!response.ok) throw new Error("服务返回了无法解析的响应");
+      data = null;
+    }
+  }
   // Update query remaining from response header
   const remaining = response.headers.get("X-Query-Remaining");
   if (remaining !== null) updateQueryCounter(parseInt(remaining));
@@ -209,7 +240,7 @@ async function api(path, options = {}) {
       logout();
       throw new Error("登录已过期，请重新登录");
     }
-    throw new Error(data.error?.message || "请求失败");
+    throw new Error(data?.error?.message || `请求失败 (${response.status})`);
   }
   return data;
 }
@@ -229,6 +260,17 @@ function updateQueryCounter(remaining) {
 }
 
 function showApp() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const showParam = urlParams.get("show");
+  // If guest user lands on ?show=register, redirect to register form
+  if (state.user?.role === "guest" && showParam === "register") {
+    $("authOverlay").hidden = false;
+    $("mainApp").hidden = true;
+    $("authLoginForm").hidden = true;
+    $("authRegisterForm").hidden = true;
+    $("authEmailForm").hidden = false;
+    return;
+  }
   $("authOverlay").hidden = true;
   $("mainApp").hidden = false;
   $("userBadge").textContent = state.user?.username || "";
@@ -236,6 +278,20 @@ function showApp() {
   // Show admin link for admin users
   const adminLink = $("adminLink");
   if (adminLink) adminLink.hidden = state.user?.role !== "admin";
+  // Guest retention banner
+  let guestBanner = document.getElementById("guestRetentionBanner");
+  if (state.user?.role === "guest") {
+    if (!guestBanner) {
+      guestBanner = document.createElement("div");
+      guestBanner.id = "guestRetentionBanner";
+      guestBanner.className = "guest-retention-banner";
+      guestBanner.innerHTML = `<span>游客数据保留 7 天，<a href="/?show=register">注册账号</a>可长期保存</span>`;
+      document.querySelector(".app-shell")?.insertBefore(guestBanner, document.querySelector(".workspace"));
+    }
+    guestBanner.hidden = false;
+  } else if (guestBanner) {
+    guestBanner.hidden = true;
+  }
   loadHealth();
   renderHotRecommendations();
 }
@@ -301,6 +357,7 @@ async function doRegister() {
 }
 
 async function checkAuth() {
+  document.body.style.visibility = "visible";
   if (!state.token) { showAuth(); return; }
   try {
     const data = await api("/auth/me");
@@ -1026,6 +1083,8 @@ async function generatePlan(event) {
     });
     state.candidates = data.candidates || [data];
     state.selectedIndex = 0;
+    state.tripSaved = false;
+    state.savedTripId = null;
     renderPlan();
     updateStageVisibility();
   } catch (error) {
@@ -1298,11 +1357,18 @@ document.addEventListener("click", (e) => {
 });
 
 // Save / Share trip
+let saveCooldownUntil = 0;
 async function saveTrip() {
   const candidate = state.candidates[state.selectedIndex];
   if (!candidate) return;
+  const now = Date.now();
+  if (now < saveCooldownUntil) { toast("请勿频繁操作", "info"); return; }
+  if (state.tripSaved) { toast("该行程已保存", "info"); return; }
+  const saveBtn = document.getElementById("saveTripBtn");
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = "保存中..."; }
+  saveCooldownUntil = now + 2000;
   try {
-    await api("/trips/save", {
+    const res = await api("/trips/save", {
       method: "POST",
       body: JSON.stringify({
         title: `${candidate.variant_name || "行程"} ${candidate.days?.length || 0}天`,
@@ -1310,14 +1376,23 @@ async function saveTrip() {
         response: candidate,
       }),
     });
-    alert("行程已保存！");
-  } catch (e) { alert("保存失败：" + e.message); }
+    state.tripSaved = true;
+    state.savedTripId = res?.id;
+    if (saveBtn) { saveBtn.textContent = "✅ 已保存"; }
+    const guestHint = state.user?.role === "guest" ? " (游客数据保留 7 天，注册后可长期保存)" : "";
+    toast(`行程已保存！${guestHint}`, "success",
+      `<a href="/profile.html" class="toast-link">查看已保存</a>`);
+  } catch (e) {
+    toast("保存失败：" + e.message, "error");
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = "💾 保存行程"; }
+  }
 }
 async function shareTrip() {
   const candidate = state.candidates[state.selectedIndex];
   if (!candidate) return;
+  const shareBtn = document.getElementById("shareTripBtn");
+  if (shareBtn) { shareBtn.disabled = true; shareBtn.textContent = "分享中..."; }
   try {
-    // Save first, then share
     await api("/trips/save", {
       method: "POST",
       body: JSON.stringify({
@@ -1326,16 +1401,21 @@ async function shareTrip() {
         response: candidate,
       }),
     });
-    // Get the latest trip and share it
     const trips = await api("/trips/list");
     if (trips.data && trips.data.length > 0) {
       const tripId = trips.data[0].id;
-      const shareData = await api(`/trips/${tripId}/share`, { method: "POST" });
+      const shareData = await api(`/trips/${tripId}/share`, { method: "POST", body: JSON.stringify({}) });
       const url = location.origin + shareData.share_url;
-      await navigator.clipboard.writeText(url);
-      alert("分享链接已复制到剪贴板：\n" + url);
+      try { await navigator.clipboard.writeText(url); } catch {}
+      toast("分享链接已复制", "success",
+        `<a href="${shareData.share_url}" target="_blank" class="toast-link">预览分享页</a>`);
+      if (shareBtn) { shareBtn.textContent = "复制链接"; shareBtn.disabled = false; shareBtn.onclick = () => { navigator.clipboard.writeText(url).catch(() => {}); toast("链接已复制", "success"); }; }
     }
-  } catch (e) { alert("分享失败：" + e.message); }
+  } catch (e) {
+    toast("分享失败：" + e.message, "error");
+  } finally {
+    if (shareBtn && shareBtn.textContent === "分享中...") { shareBtn.textContent = "分享"; shareBtn.disabled = false; }
+  }
 }
 
 // ---- Itinerary templates ----
@@ -1556,15 +1636,27 @@ function renderWeatherBar(weather, days) {
 }
 
 // ---- Guest mode ----
+function getDeviceId() {
+  let id = localStorage.getItem("tp_device_id");
+  if (!id) {
+    id = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36));
+    localStorage.setItem("tp_device_id", id);
+  }
+  return id;
+}
 async function doGuestLogin() {
   const errEl = $("authError");
   errEl.hidden = true;
   try {
-    const data = await api("/auth/guest", { method: "POST" });
+    const data = await api("/auth/guest", {
+      method: "POST",
+      body: JSON.stringify({ device_id: getDeviceId() }),
+    });
     state.token = data.token;
     state.user = data.user;
     localStorage.setItem("tp_token", data.token);
     showApp();
+    toast("游客模式已启用，数据将保留 7 天", "info");
   } catch (e) {
     errEl.textContent = e.message;
     errEl.hidden = false;

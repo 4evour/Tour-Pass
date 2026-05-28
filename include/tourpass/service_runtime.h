@@ -21,7 +21,7 @@ namespace tourpass {
 struct RuntimeConfig {
     size_t workerCount = 0;
     size_t maxQueuedRequests = 64;
-    size_t maxBodyBytes = 64 * 1024;
+    size_t maxBodyBytes = 256 * 1024;
     size_t cacheEntries = 64;
     int cacheTtlSeconds = 120;
     size_t maxTripJobs = 32;

@@ -39,7 +39,14 @@ std::vector<unsigned char> fromHex(const std::string& hex) {
     return out;
 }
 
-// ---- SHA256 ----
+bool constantTimeEquals(const std::string& a, const std::string& b) {
+    if (a.size() != b.size()) return false;
+    volatile unsigned char result = 0;
+    for (size_t i = 0; i < a.size(); ++i) {
+        result |= static_cast<unsigned char>(a[i]) ^ static_cast<unsigned char>(b[i]);
+    }
+    return result == 0;
+}
 
 std::string sha256(const std::string& data) {
 #ifdef CPPHTTPLIB_OPENSSL_SUPPORT
@@ -48,10 +55,21 @@ std::string sha256(const std::string& data) {
     EVP_Digest(data.data(), data.size(), hash, &hashLen, EVP_sha256(), nullptr);
     return toHex(hash, hashLen);
 #else
-    // Fallback: simple hash (NOT cryptographically secure - only for dev without OpenSSL)
     std::hash<std::string> hasher;
     size_t h = hasher(data);
     return toHex(reinterpret_cast<const unsigned char*>(&h), sizeof(h));
+#endif
+}
+
+std::string pbkdf2Hex(const std::string& password, const std::string& salt) {
+#ifdef CPPHTTPLIB_OPENSSL_SUPPORT
+    unsigned char dk[32];
+    PKCS5_PBKDF2_HMAC(password.data(), static_cast<int>(password.size()),
+                      reinterpret_cast<const unsigned char*>(salt.data()), static_cast<int>(salt.size()),
+                      100000, EVP_sha256(), sizeof(dk), dk);
+    return toHex(dk, sizeof(dk));
+#else
+    return sha256(salt + ":" + password);
 #endif
 }
 
@@ -76,8 +94,7 @@ std::string hmacSha256(const std::string& key, const std::string& data) {
 }  // namespace
 
 std::string randomHex(size_t bytes) {
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    static thread_local std::mt19937 gen(std::random_device{}());
     std::uniform_int_distribution<int> dist(0, 255);
     std::ostringstream oss;
     for (size_t i = 0; i < bytes; ++i) {
@@ -86,11 +103,9 @@ std::string randomHex(size_t bytes) {
     return oss.str();
 }
 
-// ---- Password hashing ----
-
 std::string hashPassword(const std::string& password) {
     std::string salt = randomHex(16);
-    std::string hash = sha256(salt + ":" + password);
+    std::string hash = pbkdf2Hex(password, salt);
     return salt + ":" + hash;
 }
 
@@ -99,8 +114,13 @@ bool verifyPassword(const std::string& password, const std::string& storedHash) 
     if (colonPos == std::string::npos) return false;
     std::string salt = storedHash.substr(0, colonPos);
     std::string expectedHash = storedHash.substr(colonPos + 1);
-    std::string computedHash = sha256(salt + ":" + password);
-    return computedHash == expectedHash;
+    std::string computedHash;
+    if (expectedHash.size() == 64) {
+        computedHash = sha256(salt + ":" + password);
+    } else {
+        computedHash = pbkdf2Hex(password, salt);
+    }
+    return computedHash.size() == expectedHash.size() && std::strcmp(computedHash.c_str(), expectedHash.c_str()) == 0;
 }
 
 // ---- Base64url ----
@@ -158,8 +178,7 @@ const std::string& jwtSecret() {
     static const std::string secret = [] {
         const char* env = std::getenv("TOURPASS_JWT_SECRET");
         if (env && env[0]) return std::string(env);
-        // Fallback: generate from machine-specific data (not ideal for multi-instance)
-        return std::string("tourpass-default-jwt-secret-change-me");
+        throw std::runtime_error("TOURPASS_JWT_SECRET environment variable is required");
     }();
     return secret;
 }
@@ -206,7 +225,7 @@ std::optional<TokenPayload> verifyToken(const std::string& token) {
     std::string expectedSig = hmacSha256(jwtSecret(), signingInput);
     std::string expectedSigB64 = base64urlEncode(expectedSig);
 
-    if (signatureB64 != expectedSigB64) return std::nullopt;
+    if (!constantTimeEquals(signatureB64, expectedSigB64)) return std::nullopt;
 
     // Parse payload
     try {

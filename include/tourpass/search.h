@@ -19,6 +19,15 @@ struct SearchResult {
     std::vector<ScoreComponent> scoreContributions;
 };
 
+struct PoiSearchIndex {
+    const Poi* poi;
+    std::string nameLc;
+    std::string areaLc;
+    std::string descriptionLc;
+    std::string tagsTextLc;
+    double docLength;
+};
+
 class SearchEngine {
 public:
     explicit SearchEngine(const PoiGraph& graph);
@@ -26,6 +35,8 @@ public:
 
 private:
     const PoiGraph& graph_;
+    std::vector<PoiSearchIndex> index_;
+    double averageLength_;
 };
 
 nlohmann::json searchResultToJson(const SearchResult& result);

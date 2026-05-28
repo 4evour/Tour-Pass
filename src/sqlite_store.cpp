@@ -2,6 +2,8 @@
 
 #include <chrono>
 #include <filesystem>
+#include <fstream>
+#include <iostream>
 #include <random>
 #include <stdexcept>
 
@@ -182,7 +184,10 @@ void SQLiteStore::initializeSchema() {
          "created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))"
          ");");
     // Add email column to users if not exists (ignore error if already exists)
-    try { exec("ALTER TABLE users ADD COLUMN email TEXT NOT NULL DEFAULT '';"); } catch (...) {}
+    try { exec("ALTER TABLE users ADD COLUMN email TEXT NOT NULL DEFAULT '';"); } catch (const std::exception& e) {
+        std::string msg = e.what();
+        if (msg.find("duplicate column") == std::string::npos) throw;
+    }
     exec("INSERT OR IGNORE INTO schema_migrations(version, applied_at) VALUES (3, " + nowSql() + ");");
 
     // Schema v4: guest IP limit
@@ -193,6 +198,14 @@ void SQLiteStore::initializeSchema() {
          "UNIQUE(ip, created_date)"
          ");");
     exec("INSERT OR IGNORE INTO schema_migrations(version, applied_at) VALUES (4, " + nowSql() + ");");
+
+    // Schema v5: guest device binding
+    try { exec("ALTER TABLE users ADD COLUMN device_id TEXT NOT NULL DEFAULT '';"); } catch (const std::exception& e) {
+        std::string msg = e.what();
+        if (msg.find("duplicate column") == std::string::npos) throw;
+    }
+    exec("CREATE INDEX IF NOT EXISTS idx_users_device_id ON users(device_id);");
+    exec("INSERT OR IGNORE INTO schema_migrations(version, applied_at) VALUES (5, " + nowSql() + ");");
 }
 
 void SQLiteStore::recordWrite(bool ok) {
@@ -318,13 +331,14 @@ nlohmann::json SQLiteStore::stats() const {
 
 // ---- Auth ----
 
-int64_t SQLiteStore::createUser(const std::string& username, const std::string& passwordHash, const std::string& role, const std::string& email) {
+int64_t SQLiteStore::createUser(const std::string& username, const std::string& passwordHash, const std::string& role, const std::string& email, const std::string& deviceId) {
     std::lock_guard<std::mutex> lock(mutex_);
-    Statement stmt(db_, "INSERT INTO users(username, password_hash, role, email) VALUES (?, ?, ?, ?);");
+    Statement stmt(db_, "INSERT INTO users(username, password_hash, role, email, device_id) VALUES (?, ?, ?, ?, ?);");
     bindText(stmt.get(), 1, username);
     bindText(stmt.get(), 2, passwordHash);
     bindText(stmt.get(), 3, role);
     bindText(stmt.get(), 4, email);
+    bindText(stmt.get(), 5, deviceId);
     if (sqlite3_step(stmt.get()) != SQLITE_DONE) {
         std::string err = sqlite3_errmsg(db_);
         if (err.find("UNIQUE") != std::string::npos) {
@@ -375,6 +389,25 @@ std::optional<UserRecord> SQLiteStore::findUserById(int64_t id) {
     std::lock_guard<std::mutex> lock(mutex_);
     Statement stmt(db_, "SELECT id, username, COALESCE(email,''), password_hash, role, bonus_queries, created_at FROM users WHERE id = ?;");
     sqlite3_bind_int64(stmt.get(), 1, id);
+    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
+        UserRecord u;
+        u.id = sqlite3_column_int64(stmt.get(), 0);
+        u.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1));
+        u.email = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
+        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
+        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4));
+        u.bonusQueries = sqlite3_column_int(stmt.get(), 5);
+        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 6));
+        return u;
+    }
+    return std::nullopt;
+}
+
+std::optional<UserRecord> SQLiteStore::findUserByDeviceId(const std::string& deviceId) {
+    if (deviceId.empty()) return std::nullopt;
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "SELECT id, username, COALESCE(email,''), password_hash, role, bonus_queries, created_at FROM users WHERE device_id = ? AND role = 'guest' ORDER BY created_at DESC LIMIT 1;");
+    bindText(stmt.get(), 1, deviceId);
     if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         UserRecord u;
         u.id = sqlite3_column_int64(stmt.get(), 0);
@@ -444,19 +477,7 @@ static std::string todayDate() {
     return buf;
 }
 
-bool SQLiteStore::canCreateGuest(const std::string& /*ip*/) {
-    // IP limit removed - the 3/day query limit per guest is sufficient protection
-    return true;
-}
-
-void SQLiteStore::logGuestCreation(const std::string& ip) {
-    std::lock_guard<std::mutex> lock(mutex_);
-    std::string today = todayDate();
-    Statement stmt(db_, "INSERT OR IGNORE INTO guest_creation_log(ip, created_date) VALUES (?, ?);");
-    bindText(stmt.get(), 1, ip);
-    bindText(stmt.get(), 2, today);
-    recordWrite(sqlite3_step(stmt.get()) == SQLITE_DONE);
-}
+// canCreateGuest / logGuestCreation removed (dead code, always returned true)
 
 // ---- Query usage ----
 
@@ -570,13 +591,21 @@ std::optional<nlohmann::json> SQLiteStore::getTrip(int64_t tripId, int64_t userI
 
 std::string SQLiteStore::generateShareId(int64_t tripId) {
     std::lock_guard<std::mutex> lock(mutex_);
-    // Generate a random 12-char share ID
+    // Generate a random 12-char share ID using urandom (non-blocking)
     static const char chars[] = "abcdefghijklmnopqrstuvwxyz0123456789";
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> dist(0, sizeof(chars) - 2);
-    std::string shareId;
-    for (int i = 0; i < 12; ++i) shareId += chars[dist(gen)];
+    std::string shareId(12, 'a');
+    {
+        std::ifstream urandom("/dev/urandom", std::ios::binary);
+        if (urandom) {
+            char buf[12];
+            urandom.read(buf, 12);
+            for (int i = 0; i < 12; ++i) shareId[i] = chars[(unsigned char)buf[i] % (sizeof(chars) - 1)];
+        } else {
+            std::mt19937 gen(std::chrono::steady_clock::now().time_since_epoch().count());
+            std::uniform_int_distribution<int> dist(0, sizeof(chars) - 2);
+            for (int i = 0; i < 12; ++i) shareId[i] = chars[dist(gen)];
+        }
+    }
 
     Statement stmt(db_, "UPDATE saved_trips SET share_id = ? WHERE id = ? AND share_id IS NULL;");
     bindText(stmt.get(), 1, shareId);
@@ -719,6 +748,20 @@ nlohmann::json SQLiteStore::queryStatsByDay(int days) {
         });
     }
     return arr;
+}
+
+void SQLiteStore::cleanupExpiredGuests(int daysRetention) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string cutoff = "datetime('now', '-" + std::to_string(daysRetention) + " days')";
+    try {
+        exec("DELETE FROM saved_trips WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
+        exec("DELETE FROM easter_egg_log WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
+        exec("DELETE FROM query_usage WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
+        exec("DELETE FROM feedback WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
+        exec("DELETE FROM users WHERE role = 'guest' AND created_at < " + cutoff + ";");
+    } catch (const std::exception& ex) {
+        std::cerr << "cleanupExpiredGuests failed: " << ex.what() << std::endl;
+    }
 }
 
 }  // namespace tourpass

@@ -1,3 +1,4 @@
+#include "tourpass/env.h"
 #include "tourpass/service_runtime.h"
 
 #include <algorithm>
@@ -11,17 +12,6 @@
 namespace tourpass {
 
 namespace {
-
-size_t envSize(const char* key, size_t fallback, size_t minValue, size_t maxValue) {
-    const char* value = std::getenv(key);
-    if (!value || !*value) return fallback;
-    try {
-        size_t parsed = static_cast<size_t>(std::stoul(value));
-        return std::max(minValue, std::min(maxValue, parsed));
-    } catch (...) {
-        return fallback;
-    }
-}
 
 uint64_t percentile(std::vector<int64_t> values, double p) {
     if (values.empty()) return 0;

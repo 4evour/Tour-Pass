@@ -17,11 +17,6 @@ if (TOURPASS_ENABLE_POSTGRES)
     find_package(PostgreSQL QUIET)
 endif()
 
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/third_party
-)
-
 set(TOURPASS_SOURCES
     src/models.cpp
     src/api.cpp
@@ -42,10 +37,18 @@ endif()
 
 add_library(sqlite3 STATIC third_party/sqlite3.c)
 target_compile_definitions(sqlite3 PRIVATE SQLITE_THREADSAFE=1 SQLITE_DEFAULT_MEMSTATUS=0)
+target_include_directories(sqlite3 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/third_party)
 
 add_executable(tourpass
     src/main.cpp
     ${TOURPASS_SOURCES}
+)
+target_include_directories(tourpass PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/third_party
+)
+target_compile_options(tourpass PRIVATE
+    $<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:-Wall -Wextra -Wno-unused-parameter>
 )
 
 if (WIN32)
@@ -67,6 +70,13 @@ if(TOURPASS_BUILD_TESTS)
     add_executable(tourpass_tests
         tests/test_main.cpp
         ${TOURPASS_SOURCES}
+    )
+    target_include_directories(tourpass_tests PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/third_party
+    )
+    target_compile_options(tourpass_tests PRIVATE
+        $<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:-Wall -Wextra -Wno-unused-parameter>
     )
     if (WIN32)
         target_link_libraries(tourpass_tests PRIVATE ws2_32 winhttp)
@@ -100,6 +110,13 @@ if (TOURPASS_USE_GTEST)
     add_executable(tourpass_gtests
         tests/gtest_main.cpp
         ${TOURPASS_SOURCES}
+    )
+    target_include_directories(tourpass_gtests PRIVATE
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/third_party
+    )
+    target_compile_options(tourpass_gtests PRIVATE
+        $<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:-Wall -Wextra -Wno-unused-parameter>
     )
     target_link_libraries(tourpass_gtests PRIVATE GTest::gtest_main)
     target_link_libraries(tourpass_gtests PRIVATE Threads::Threads)

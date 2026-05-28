@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   </head>
-  <body>
+  <body style="visibility:hidden">
     <!-- Auth overlay -->
     <div id="authOverlay" class="auth-overlay">
       <div class="auth-card">
@@ -27,6 +27,7 @@
           <button id="authLoginBtn" class="auth-btn primary" type="button">登录</button>
           <p class="auth-switch">没有账号？<a href="#" id="authShowRegister">邮箱注册</a></p>
           <button id="guestBtn" class="auth-btn guest" type="button">🚶 游客体验（无需注册）</button>
+          <p class="auth-subtitle" style="margin-top:4px;font-size:12px;opacity:.7;">游客数据保留 7 天</p>
         </div>
 
         <!-- Email registration form -->

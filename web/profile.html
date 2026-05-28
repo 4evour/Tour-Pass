@@ -80,9 +80,9 @@
           <span class="emoji">🚶</span>
           <div class="text">
             <strong>你当前是游客身份</strong>
-            <span>注册账号可获得每日 10 次查询、保存行程、分享等更多功能</span>
+            <span>游客数据仅保留 7 天，过期后将自动清理。注册账号可长期保存行程、享受每日 10 次查询</span>
           </div>
-          <a href="/">去注册</a>
+          <a href="/?show=register">去注册</a>
         </div>
 
         <!-- User info card -->
@@ -132,6 +132,7 @@
         <!-- My trips -->
         <div class="profile-card">
           <h2>🧳 我的行程</h2>
+          <div id="shareMsg" class="msg-ok" hidden style="margin-bottom:10px;"></div>
           <div id="tripList">
             <div class="empty-state-box">
               <div class="emoji">🗺️</div>
@@ -156,8 +157,12 @@
         const headers = { "Content-Type": "application/json" };
         if (token) headers["Authorization"] = "Bearer " + token;
         const res = await fetch(path, { headers, ...opts });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error?.message || "请求失败");
+        let data = null;
+        const text = await res.text();
+        if (text) {
+          try { data = JSON.parse(text); } catch { if (!res.ok) throw new Error("服务返回了无法解析的响应"); }
+        }
+        if (!res.ok) throw new Error(data?.error?.message || `请求失败 (${res.status})`);
         return data;
       }
       function esc(t) { const d = document.createElement("div"); d.textContent = t || ""; return d.innerHTML; }
@@ -224,18 +229,34 @@
                 </div>
               </div>
             `).join("");
+          } else {
+            document.getElementById("tripList").innerHTML = `
+              <div class="empty-state-box">
+                <div class="emoji">📂</div>
+                <p><strong>还没有保存过行程</strong></p>
+                <p><a href="/">去规划你的第一个行程</a></p>
+              </div>`;
           }
         } catch {}
       }
 
       async function shareTrip(tripId) {
         try {
-          const data = await api(`/trips/${tripId}/share`, { method: "POST" });
+          const data = await api(`/trips/${tripId}/share`, { method: "POST", body: JSON.stringify({}) });
           const url = location.origin + data.share_url;
-          await navigator.clipboard.writeText(url);
-          alert("分享链接已复制：" + url);
-          init(); // Refresh
-        } catch (e) { alert("分享失败：" + e.message); }
+          try { await navigator.clipboard.writeText(url); } catch {}
+          const msgEl = document.getElementById("shareMsg");
+          msgEl.hidden = false;
+          msgEl.textContent = "分享链接已复制";
+          setTimeout(() => { msgEl.hidden = true; }, 2500);
+          init();
+        } catch (e) {
+          const msgEl = document.getElementById("shareMsg");
+          msgEl.hidden = false;
+          msgEl.textContent = "分享失败：" + e.message;
+          msgEl.className = "msg-err";
+          setTimeout(() => { msgEl.hidden = true; msgEl.className = "msg-ok"; }, 3500);
+        }
       }
 
       document.getElementById("changePwdBtn").addEventListener("click", async () => {

@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <exception>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
@@ -14,6 +15,7 @@
 #endif
 
 #include "tourpass/api.h"
+#include "tourpass/auth.h"
 #include "tourpass/data_loader.h"
 #include "tourpass/sqlite_store.h"
 #include "tourpass/travel_time_provider.h"
@@ -86,6 +88,14 @@ int main() {
         // ---- LLM ----
         tourpass::LlmClient llm;
 
+        try {
+            static_cast<void>(tourpass::jwtSecret());
+        } catch (const std::exception& ex) {
+            std::cerr << ex.what() << std::endl;
+            std::cerr << "Set TOURPASS_JWT_SECRET environment variable." << std::endl;
+            return 1;
+        }
+
         // ---- Config ----
         tourpass::RuntimeConfig config = tourpass::runtimeConfigFromEnv();
         config.dbPath = resolveRelativePath(config.dbPath);
@@ -109,11 +119,20 @@ int main() {
             store = std::make_unique<tourpass::SQLiteStore>(config.dbPath);
         }
 
+        if (store && store->enabled()) {
+            std::cout << "Cleaning up expired guest accounts (7 days)..." << std::endl;
+            store->cleanupExpiredGuests(7);
+        }
+
         // ---- Server ----
         int port = 8080;
         if (const char* envPort = std::getenv("PORT")) {
-            port = std::atoi(envPort);
-            if (port <= 0) port = 8080;
+            try {
+                port = std::stoi(envPort);
+                if (port <= 0) port = 8080;
+            } catch (...) {
+                port = 8080;
+            }
         }
         std::string host = "127.0.0.1";
         if (const char* envHost = std::getenv("TOURPASS_HOST")) {

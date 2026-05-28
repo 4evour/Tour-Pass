@@ -35,11 +35,11 @@ FROM ubuntu:24.04 AS runtime
 ENV DEBIAN_FRONTEND=noninteractive \
     HOST=0.0.0.0 \
     PORT=8080 \
-    LLM_DISABLED=1 \
+    TOURPASS_MAX_BODY_BYTES=262144 \
     TOURPASS_DB_PATH=/app/storage/tourpass.sqlite
 
 RUN apt-get update 2>&1 \
-    && apt-get install -y --no-install-recommends ca-certificates libssl3 libpq5 2>&1 \
+    && apt-get install -y --no-install-recommends ca-certificates libssl3 libpq5 curl 2>&1 \
     && rm -rf /var/lib/apt/lists/* \
     && useradd --create-home --shell /usr/sbin/nologin tourpass
 
@@ -55,5 +55,11 @@ COPY --chown=tourpass:tourpass config/llm.example.json /app/config/llm.example.j
 
 USER tourpass
 EXPOSE 8080
+
+# LLM config: set OPENAI_API_KEY, LLM_BASE_URL, LLM_MODEL env vars via Render dashboard
+# Or copy config/llm.local.json to /app/config/llm.local.json for file-based config
+# See config/llm.example.json for the required format (base_url, api_key, model)
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD curl -fsS http://localhost:8080/health || exit 1
 
 CMD ["/app/tourpass"]

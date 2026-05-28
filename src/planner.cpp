@@ -1013,11 +1013,19 @@ Itinerary TripPlanner::plan(const TripRequest& request) const {
         itinerary.days.push_back(dayPlan);
     }
 
-    itinerary.alternatives = {
-        "下雨时可将户外点替换为湖南博物院、潮宗街室内店铺或商场休闲。",
-        "如果体力不足，可减少下午景点并延长餐饮和休息时间。",
-        "预算降低时优先选择地铁可达区域和小吃街餐饮。"
-    };
+    if (request.city == "长沙") {
+        itinerary.alternatives = {
+            "下雨时可将户外点替换为湖南博物院、潮宗街室内店铺或商场休闲。",
+            "如果体力不足，可减少下午景点并延长餐饮和休息时间。",
+            "预算降低时优先选择地铁可达区域和小吃街餐饮。"
+        };
+    } else {
+        itinerary.alternatives = {
+            "下雨时可将户外景点替换为室内展馆、咖啡馆或商场休闲。",
+            "如果体力不足，可减少下午景点并延长餐饮和休息时间。",
+            "预算降低时优先选择公共交通可达区域和平价餐饮。"
+        };
+    }
     itinerary.totalScore = std::round(itinerary.totalScore * 10.0) / 10.0;
     itinerary.comparison = buildComparisonMetrics(request, itinerary);
     return itinerary;

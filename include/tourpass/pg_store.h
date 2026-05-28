@@ -31,10 +31,11 @@ public:
     nlohmann::json stats() const override;
 
     // --- auth ---
-    int64_t createUser(const std::string& username, const std::string& passwordHash, const std::string& role = "user", const std::string& email = "") override;
+    int64_t createUser(const std::string& username, const std::string& passwordHash, const std::string& role = "user", const std::string& email = "", const std::string& deviceId = "") override;
     std::optional<UserRecord> findUserByUsername(const std::string& username) override;
     std::optional<UserRecord> findUserByEmail(const std::string& email) override;
     std::optional<UserRecord> findUserById(int64_t id) override;
+    std::optional<UserRecord> findUserByDeviceId(const std::string& deviceId) override;
     void updatePassword(int64_t userId, const std::string& newHash) override;
     void updateRole(int64_t userId, const std::string& role) override;
 
@@ -42,10 +43,6 @@ public:
     void storeVerificationCode(const std::string& email, const std::string& code, const std::string& purpose, int ttlSeconds) override;
     std::optional<std::string> getValidVerificationCode(const std::string& email, const std::string& code, const std::string& purpose) override;
     void markCodeUsed(int64_t codeId) override;
-
-    // --- guest IP limit ---
-    bool canCreateGuest(const std::string& ip) override;
-    void logGuestCreation(const std::string& ip) override;
 
     // --- query usage ---
     int getQueryCount(int64_t userId) override;
@@ -71,6 +68,7 @@ public:
     nlohmann::json adminStats() override;
     nlohmann::json listUsers(int limit) override;
     nlohmann::json queryStatsByDay(int days) override;
+    void cleanupExpiredGuests(int daysRetention) override;
 
 private:
     void open();

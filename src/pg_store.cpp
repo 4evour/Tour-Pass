@@ -232,6 +232,14 @@ void PostgresStore::initializeSchema() {
         )");
         exec("INSERT INTO schema_migrations(version) VALUES (4) ON CONFLICT DO NOTHING;");
     }
+    // Schema v5: guest device binding
+    if (!queryScalar("SELECT 1 FROM schema_migrations WHERE version = 5;").empty()) {
+        // already migrated
+    } else {
+        try { exec("ALTER TABLE users ADD COLUMN device_id TEXT NOT NULL DEFAULT '';"); } catch (...) {}
+        try { exec("CREATE INDEX idx_users_device_id ON users(device_id);"); } catch (...) {}
+        exec("INSERT INTO schema_migrations(version) VALUES (5) ON CONFLICT DO NOTHING;");
+    }
 }
 
 // ---- Recording ----
@@ -305,12 +313,12 @@ nlohmann::json PostgresStore::stats() const {
 
 // ---- Auth ----
 
-int64_t PostgresStore::createUser(const std::string& username, const std::string& passwordHash, const std::string& role, const std::string& email) {
+int64_t PostgresStore::createUser(const std::string& username, const std::string& passwordHash, const std::string& role, const std::string& email, const std::string& deviceId) {
     std::lock_guard<std::mutex> lock(mutex_);
     std::ostringstream sql;
-    sql << "INSERT INTO users(username, password_hash, role, email) VALUES ('"
+    sql << "INSERT INTO users(username, password_hash, role, email, device_id) VALUES ('"
         << esc(conn_, username) << "', '" << esc(conn_, passwordHash) << "', '" << esc(conn_, role) << "', '"
-        << esc(conn_, email) << "') RETURNING id;";
+        << esc(conn_, email) << "', '" << esc(conn_, deviceId) << "') RETURNING id;";
     PGresult* res = PQexec(conn_, sql.str().c_str());
     if (PQresultStatus(res) != PGRES_TUPLES_OK) {
         std::string err = PQresultErrorMessage(res);
@@ -346,6 +354,16 @@ std::optional<UserRecord> PostgresStore::findUserByEmail(const std::string& emai
 std::optional<UserRecord> PostgresStore::findUserById(int64_t id) {
     std::lock_guard<std::mutex> lock(mutex_);
     std::string sql = "SELECT id, username, COALESCE(email,''), password_hash, role, bonus_queries, created_at::text FROM users WHERE id = " + std::to_string(id) + ";";
+    PGresult* res = PQexec(conn_, sql.c_str());
+    auto user = extractUser(res);
+    PQclear(res);
+    return user;
+}
+
+std::optional<UserRecord> PostgresStore::findUserByDeviceId(const std::string& deviceId) {
+    if (deviceId.empty()) return std::nullopt;
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string sql = "SELECT id, username, COALESCE(email,''), password_hash, role, bonus_queries, created_at::text FROM users WHERE device_id = '" + esc(conn_, deviceId) + "' AND role = 'guest' ORDER BY created_at DESC LIMIT 1;";
     PGresult* res = PQexec(conn_, sql.c_str());
     auto user = extractUser(res);
     PQclear(res);
@@ -388,19 +406,6 @@ std::optional<std::string> PostgresStore::getValidVerificationCode(const std::st
 void PostgresStore::markCodeUsed(int64_t codeId) {
     std::lock_guard<std::mutex> lock(mutex_);
     exec("UPDATE verification_codes SET used = 1 WHERE id = " + std::to_string(codeId) + ";");
-}
-
-// ---- Guest IP limit ----
-
-bool PostgresStore::canCreateGuest(const std::string& /*ip*/) {
-    // IP limit removed - the 3/day query limit per guest is sufficient protection
-    return true;
-}
-
-void PostgresStore::logGuestCreation(const std::string& ip) {
-    std::lock_guard<std::mutex> lock(mutex_);
-    std::string today = queryScalar("SELECT CURRENT_DATE::text;");
-    exec("INSERT INTO guest_creation_log(ip, created_date) VALUES ('" + esc(conn_, ip) + "', '" + esc(conn_, today) + "') ON CONFLICT DO NOTHING;");
 }
 
 // ---- Query usage ----
@@ -543,8 +548,8 @@ nlohmann::json PostgresStore::adminStats() {
     std::lock_guard<std::mutex> lock(mutex_);
     nlohmann::json result;
     result["total_users"] = queryInt64(conn_, "SELECT COUNT(*) FROM users;");
-    result["active_today"] = queryInt64(conn_, "SELECT COUNT(DISTINCT user_id) FROM query_usage WHERE query_date = CURRENT_DATE::text;");
-    result["total_planning_requests"] = queryInt64(conn_, "SELECT COUNT(*) FROM planning_requests;");
+    result["today_active_users"] = queryInt64(conn_, "SELECT COUNT(DISTINCT user_id) FROM query_usage WHERE query_date = CURRENT_DATE::text;");
+    result["total_queries"] = queryInt64(conn_, "SELECT COUNT(*) FROM planning_requests;");
     result["pending_feedback"] = queryInt64(conn_, "SELECT COUNT(*) FROM feedback WHERE status = 'pending';");
     return result;
 }
@@ -575,6 +580,20 @@ nlohmann::json PostgresStore::queryStatsByDay(int days) {
     }
     PQclear(res);
     return arr;
+}
+
+void PostgresStore::cleanupExpiredGuests(int daysRetention) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string cutoff = "CURRENT_TIMESTAMP - INTERVAL '" + std::to_string(daysRetention) + " days'";
+    try {
+        exec("DELETE FROM saved_trips WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at::timestamp < " + cutoff + ");");
+        exec("DELETE FROM easter_egg_log WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at::timestamp < " + cutoff + ");");
+        exec("DELETE FROM query_usage WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at::timestamp < " + cutoff + ");");
+        exec("DELETE FROM feedback WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at::timestamp < " + cutoff + ");");
+        exec("DELETE FROM users WHERE role = 'guest' AND created_at::timestamp < " + cutoff + ";");
+    } catch (const std::exception& ex) {
+        std::cerr << "cleanupExpiredGuests failed: " << ex.what() << std::endl;
+    }
 }
 
 }  // namespace tourpass
