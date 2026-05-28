@@ -444,15 +444,8 @@ static std::string todayDate() {
     return buf;
 }
 
-bool SQLiteStore::canCreateGuest(const std::string& ip) {
-    std::lock_guard<std::mutex> lock(mutex_);
-    std::string today = todayDate();
-    Statement stmt(db_, "SELECT COUNT(*) FROM guest_creation_log WHERE ip = ? AND created_date = ?;");
-    bindText(stmt.get(), 1, ip);
-    bindText(stmt.get(), 2, today);
-    if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
-        return sqlite3_column_int(stmt.get(), 0) == 0;
-    }
+bool SQLiteStore::canCreateGuest(const std::string& /*ip*/) {
+    // IP limit removed - the 3/day query limit per guest is sufficient protection
     return true;
 }
 

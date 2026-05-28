@@ -867,15 +867,15 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
                     role = "admin";
                 }
             }
-            // Auto-promote first user to admin if no admin exists yet
+            // Auto-promote if no admin user exists in the system
             if (role == "user") {
-                auto existingAdmin = context.store->findUserByUsername("admin");
-                if (!existingAdmin || existingAdmin->role != "admin") {
-                    auto stats = context.store->adminStats();
-                    if (stats.value("total_users", 0) == 0) {
-                        role = "admin";
-                    }
+                auto stats = context.store->adminStats();
+                auto allUsers = context.store->listUsers(500);
+                bool hasAdmin = false;
+                for (const auto& u : allUsers) {
+                    if (u.value("role", "") == "admin") { hasAdmin = true; break; }
                 }
+                if (!hasAdmin) role = "admin";
             }
             int64_t userId = context.store->createUser(username, hashed, role);
             std::string token = createToken(userId, username, role);
@@ -1028,12 +1028,14 @@ int runServer(const PoiGraph& graph, TripPlanner& planner, SearchEngine& search,
             if (adminEmails && std::string(adminEmails).find(email) != std::string::npos) {
                 role = "admin";
             }
-            // Auto-promote first user to admin if no admin exists
+            // Auto-promote if no admin exists in the system
             if (role == "user") {
-                auto stats = context.store->adminStats();
-                if (stats.value("total_users", 0) == 0) {
-                    role = "admin";
+                auto allUsers = context.store->listUsers(500);
+                bool hasAdmin = false;
+                for (const auto& u : allUsers) {
+                    if (u.value("role", "") == "admin") { hasAdmin = true; break; }
                 }
+                if (!hasAdmin) role = "admin";
             }
             int64_t userId = context.store->createUser(username, hashed, role, email);
             std::string token = createToken(userId, username, role);
