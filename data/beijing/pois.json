@@ -20,7 +20,8 @@
     "meal_type": "main",
     "description": "圆明园遗址公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A16E89"
+    "source_id": "B000A16E89",
+    "recommendation": "圆明园遗址公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_965dd51d",
@@ -44,7 +45,8 @@
     "meal_type": "main",
     "description": "玉渊潭公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A7XIYH"
+    "source_id": "B000A7XIYH",
+    "recommendation": "玉渊潭公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_35e8b523",
@@ -69,7 +71,8 @@
     "meal_type": "main",
     "description": "北京动物园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A87IUX"
+    "source_id": "B000A87IUX",
+    "recommendation": "北京动物园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_7902ef1e",
@@ -94,7 +97,8 @@
     "meal_type": "main",
     "description": "故宫博物院，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A8UIN8"
+    "source_id": "B000A8UIN8",
+    "recommendation": "故宫博物院适合城市游览、景点爱好者"
   },
   {
     "id": "amap_7bd0466e",
@@ -118,7 +122,8 @@
     "meal_type": "main",
     "description": "天坛公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A81CB2"
+    "source_id": "B000A81CB2",
+    "recommendation": "推荐在东城区参观天坛公园，人气评分4.9"
   },
   {
     "id": "amap_1ab69822",
@@ -141,7 +146,8 @@
     "meal_type": "main",
     "description": "奥林匹克森林公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A875MC"
+    "source_id": "B000A875MC",
+    "recommendation": "推荐在朝阳区参观奥林匹克森林公园，人气评分4.8"
   },
   {
     "id": "amap_a4fd351b",
@@ -165,7 +171,8 @@
     "meal_type": "main",
     "description": "潭柘寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A0B46C"
+    "source_id": "B000A0B46C",
+    "recommendation": "潭柘寺适合城市游览、景点爱好者"
   },
   {
     "id": "amap_701cf4e0",
@@ -189,7 +196,8 @@
     "meal_type": "main",
     "description": "恭王府博物馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A645D9"
+    "source_id": "B000A645D9",
+    "recommendation": "恭王府博物馆适合城市游览、景点爱好者"
   },
   {
     "id": "amap_b7cea346",
@@ -214,7 +222,8 @@
     "meal_type": "main",
     "description": "北海公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A80UL1"
+    "source_id": "B000A80UL1",
+    "recommendation": "推荐在西城区参观北海公园，人气评分4.8"
   },
   {
     "id": "amap_be8e17e2",
@@ -238,7 +247,8 @@
     "meal_type": "main",
     "description": "什刹海，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A7O5PK"
+    "source_id": "B000A7O5PK",
+    "recommendation": "什刹海适合城市游览、景点爱好者"
   },
   {
     "id": "amap_1f2ba3a",
@@ -263,7 +273,8 @@
     "meal_type": "main",
     "description": "景山公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A7I1OL"
+    "source_id": "B000A7I1OL",
+    "recommendation": "推荐在西城区参观景山公园，人气评分4.8"
   },
   {
     "id": "amap_b2706770",
@@ -286,7 +297,8 @@
     "meal_type": "main",
     "description": "雍和宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A7BGMG"
+    "source_id": "B000A7BGMG",
+    "recommendation": "推荐在东城区参观雍和宫，人气评分4.9"
   },
   {
     "id": "amap_8d64df6",
@@ -310,7 +322,8 @@
     "meal_type": "main",
     "description": "天安门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A60DA1"
+    "source_id": "B000A60DA1",
+    "recommendation": "天安门适合城市游览、景点爱好者"
   },
   {
     "id": "amap_bf316d2e",
@@ -335,7 +348,8 @@
     "meal_type": "main",
     "description": "朝阳公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A7CA07"
+    "source_id": "B000A7CA07",
+    "recommendation": "朝阳公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_dd939db1",
@@ -359,7 +373,8 @@
     "meal_type": "main",
     "description": "大观园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG2YR4P"
+    "source_id": "B0FFG2YR4P",
+    "recommendation": "大观园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_44d0c49",
@@ -382,7 +397,8 @@
     "meal_type": "main",
     "description": "南锣鼓巷，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFAH7I9"
+    "source_id": "B0FFFAH7I9",
+    "recommendation": "推荐在东城区参观南锣鼓巷，人气评分4.8"
   },
   {
     "id": "amap_27e44706",
@@ -405,7 +421,8 @@
     "meal_type": "main",
     "description": "古北水镇，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000AABXEH"
+    "source_id": "B000AABXEH",
+    "recommendation": "古北水镇适合城市游览、景点爱好者"
   },
   {
     "id": "amap_803c1d0b",
@@ -430,7 +447,8 @@
     "meal_type": "main",
     "description": "地坛公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A81FMM"
+    "source_id": "B000A81FMM",
+    "recommendation": "地坛公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_bc5678b",
@@ -453,7 +471,8 @@
     "meal_type": "main",
     "description": "鼓楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFS33G2"
+    "source_id": "B0FFFS33G2",
+    "recommendation": "鼓楼是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_dddcd0fb",
@@ -478,7 +497,8 @@
     "meal_type": "main",
     "description": "十七孔桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFA9PWI"
+    "source_id": "B0FFFA9PWI",
+    "recommendation": "十七孔桥是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_fa85b41b",
@@ -502,7 +522,8 @@
     "meal_type": "main",
     "description": "中山公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A840SB"
+    "source_id": "B000A840SB",
+    "recommendation": "中山公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_26906ad8",
@@ -524,7 +545,8 @@
     "meal_type": "main",
     "description": "故宫博物院-太和门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9LFGT"
+    "source_id": "B000A9LFGT",
+    "recommendation": "故宫博物院-太和门是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_255b3bae",
@@ -548,7 +570,8 @@
     "meal_type": "main",
     "description": "故宫博物院-贞度门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFT7RC7"
+    "source_id": "B0FFFT7RC7",
+    "recommendation": "推荐在东城区参观故宫博物院-贞度门，人气评分4.0"
   },
   {
     "id": "amap_81da6b45",
@@ -572,7 +595,8 @@
     "meal_type": "main",
     "description": "国子监，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A1FDA9"
+    "source_id": "B000A1FDA9",
+    "recommendation": "推荐在东城区参观国子监，人气评分4.7"
   },
   {
     "id": "amap_5c951a0f",
@@ -594,7 +618,8 @@
     "meal_type": "main",
     "description": "故宫博物院-景仁宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PIPO"
+    "source_id": "B000A9PIPO",
+    "recommendation": "故宫博物院-景仁宫是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f2db37ad",
@@ -616,7 +641,8 @@
     "meal_type": "main",
     "description": "天坛公园-回音壁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A831VS"
+    "source_id": "B000A831VS",
+    "recommendation": "天坛公园-回音壁适合城市游览、景点爱好者"
   },
   {
     "id": "amap_69f30a0e",
@@ -661,7 +687,8 @@
     "meal_type": "main",
     "description": "故宫博物院-御花园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PNRJ"
+    "source_id": "B000A9PNRJ",
+    "recommendation": "故宫博物院-御花园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_864df912",
@@ -683,7 +710,8 @@
     "meal_type": "main",
     "description": "故宫博物院-西南角楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PIOU"
+    "source_id": "B000A9PIOU",
+    "recommendation": "推荐在东城区参观故宫博物院-西南角楼，人气评分4.6"
   },
   {
     "id": "amap_33515f19",
@@ -707,7 +735,8 @@
     "meal_type": "main",
     "description": "天坛公园-皇穹宇，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A83CZQ"
+    "source_id": "B000A83CZQ",
+    "recommendation": "天坛公园-皇穹宇是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2867e31a",
@@ -730,7 +759,8 @@
     "meal_type": "main",
     "description": "中国紫檀博物馆-仿故宫养心殿，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFDQDF4"
+    "source_id": "B0FFFDQDF4",
+    "recommendation": "中国紫檀博物馆-仿故宫养心殿是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_96e69427",
@@ -753,7 +783,8 @@
     "meal_type": "main",
     "description": "北海公园-九龙壁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG1885G"
+    "source_id": "B0FFG1885G",
+    "recommendation": "北海公园-九龙壁是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2919a344",
@@ -775,7 +806,8 @@
     "meal_type": "main",
     "description": "故宫博物院-寿康宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PJ4Q"
+    "source_id": "B000A9PJ4Q",
+    "recommendation": "故宫博物院-寿康宫是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_88979dea",
@@ -797,7 +829,8 @@
     "meal_type": "main",
     "description": "故宫博物院-坤宁宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PIQC"
+    "source_id": "B000A9PIQC",
+    "recommendation": "故宫博物院-坤宁宫是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9338545d",
@@ -821,7 +854,8 @@
     "meal_type": "main",
     "description": "正阳门城楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFH05QQ3"
+    "source_id": "B0FFH05QQ3",
+    "recommendation": "正阳门城楼适合城市游览、景点爱好者"
   },
   {
     "id": "amap_77863a06",
@@ -845,7 +879,8 @@
     "meal_type": "main",
     "description": "故宫博物院-钟粹宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PIVJ"
+    "source_id": "B000A9PIVJ",
+    "recommendation": "故宫博物院-钟粹宫适合城市游览、景点爱好者"
   },
   {
     "id": "amap_4492b5b0",
@@ -868,7 +903,8 @@
     "meal_type": "main",
     "description": "故宫博物院-神武门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PISW"
+    "source_id": "B000A9PISW",
+    "recommendation": "推荐在东城区参观故宫博物院-神武门，人气评分4.3"
   },
   {
     "id": "amap_2ef119d9",
@@ -891,7 +927,8 @@
     "meal_type": "main",
     "description": "团城，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A7BXK1"
+    "source_id": "B000A7BXK1",
+    "recommendation": "推荐在西城区参观团城，人气评分4.5"
   },
   {
     "id": "amap_7c4baabd",
@@ -913,7 +950,8 @@
     "meal_type": "main",
     "description": "故宫博物院-慈宁宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PINO"
+    "source_id": "B000A9PINO",
+    "recommendation": "故宫博物院-慈宁宫是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e94c23e",
@@ -935,7 +973,8 @@
     "meal_type": "main",
     "description": "景山公园-绮望楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9LFEH"
+    "source_id": "B000A9LFEH",
+    "recommendation": "推荐在西城区参观景山公园-绮望楼，人气评分4.6"
   },
   {
     "id": "amap_448fc660",
@@ -960,7 +999,8 @@
     "meal_type": "main",
     "description": "雍和宫-鼓楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHW1TDM"
+    "source_id": "B0FFHW1TDM",
+    "recommendation": "推荐在东城区参观雍和宫-鼓楼，人气评分3.9"
   },
   {
     "id": "amap_454fd156",
@@ -984,7 +1024,8 @@
     "meal_type": "main",
     "description": "故宫博物院-慈宁门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PILT"
+    "source_id": "B000A9PILT",
+    "recommendation": "故宫博物院-慈宁门适合城市游览、景点爱好者"
   },
   {
     "id": "amap_6a1a56e3",
@@ -1007,7 +1048,8 @@
     "meal_type": "main",
     "description": "天安门-城楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG8YDKK"
+    "source_id": "B0FFG8YDKK",
+    "recommendation": "推荐在东城区参观天安门-城楼，人气评分4.5"
   },
   {
     "id": "amap_4e7cff1f",
@@ -1029,7 +1071,8 @@
     "meal_type": "main",
     "description": "故宫博物院-储秀宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PIZY"
+    "source_id": "B000A9PIZY",
+    "recommendation": "故宫博物院-储秀宫适合城市游览、景点爱好者"
   },
   {
     "id": "amap_36908408",
@@ -1075,7 +1118,8 @@
     "meal_type": "main",
     "description": "大高玄殿，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A1D85E"
+    "source_id": "B000A1D85E",
+    "recommendation": "大高玄殿是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f3565ced",
@@ -1099,7 +1143,8 @@
     "meal_type": "main",
     "description": "故宫博物院-弘义阁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFT847U"
+    "source_id": "B0FFFT847U",
+    "recommendation": "推荐在东城区参观故宫博物院-弘义阁，人气评分0.0"
   },
   {
     "id": "amap_2e10b0c7",
@@ -1123,7 +1168,8 @@
     "meal_type": "main",
     "description": "中山公园-格言亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PJ0L"
+    "source_id": "B000A9PJ0L",
+    "recommendation": "中山公园-格言亭适合城市游览、景点爱好者"
   },
   {
     "id": "amap_350cc0d4",
@@ -1147,7 +1193,8 @@
     "meal_type": "main",
     "description": "故宫博物院-宁寿宫花园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFT7SZS"
+    "source_id": "B0FFFT7SZS",
+    "recommendation": "推荐在东城区参观故宫博物院-宁寿宫花园，人气评分0.0"
   },
   {
     "id": "amap_1afb3b5f",
@@ -1171,7 +1218,8 @@
     "meal_type": "main",
     "description": "北海公园-永安寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A853V5"
+    "source_id": "B000A853V5",
+    "recommendation": "北海公园-永安寺适合城市游览、景点爱好者"
   },
   {
     "id": "amap_1571323c",
@@ -1193,7 +1241,8 @@
     "meal_type": "main",
     "description": "景山公园-明思宗殉国处，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9LF3T"
+    "source_id": "B000A9LF3T",
+    "recommendation": "推荐在西城区参观景山公园-明思宗殉国处，人气评分4.7"
   },
   {
     "id": "amap_f1f1a311",
@@ -1215,7 +1264,8 @@
     "meal_type": "main",
     "description": "故宫博物院-东北角楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0H65CPLW1"
+    "source_id": "B0H65CPLW1",
+    "recommendation": "故宫博物院-东北角楼适合城市游览、景点爱好者"
   },
   {
     "id": "amap_9255c43a",
@@ -1239,7 +1289,8 @@
     "meal_type": "main",
     "description": "故宫博物院-体仁阁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFT8474"
+    "source_id": "B0FFFT8474",
+    "recommendation": "故宫博物院-体仁阁适合城市游览、景点爱好者"
   },
   {
     "id": "amap_4a4fd935",
@@ -1263,7 +1314,8 @@
     "meal_type": "main",
     "description": "故宫博物院-畅音阁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PILQ"
+    "source_id": "B000A9PILQ",
+    "recommendation": "故宫博物院-畅音阁是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_8190d720",
@@ -1308,7 +1360,8 @@
     "meal_type": "main",
     "description": "故宫博物院-端门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A7VMK9"
+    "source_id": "B000A7VMK9",
+    "recommendation": "推荐在东城区参观故宫博物院-端门，人气评分3.5"
   },
   {
     "id": "amap_7f66682f",
@@ -1332,7 +1385,8 @@
     "meal_type": "main",
     "description": "北海公园-阐福寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A84CX8"
+    "source_id": "B000A84CX8",
+    "recommendation": "北海公园-阐福寺适合城市游览、景点爱好者"
   },
   {
     "id": "amap_90866161",
@@ -1377,7 +1431,8 @@
     "meal_type": "main",
     "description": "故宫博物院-乾清门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9LFN4"
+    "source_id": "B000A9LFN4",
+    "recommendation": "故宫博物院-乾清门适合城市游览、景点爱好者"
   },
   {
     "id": "amap_3812ff1c",
@@ -1399,7 +1454,8 @@
     "meal_type": "main",
     "description": "故宫博物院-中和殿，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PJ70"
+    "source_id": "B000A9PJ70",
+    "recommendation": "故宫博物院-中和殿是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_10dda57e",
@@ -1421,7 +1477,8 @@
     "meal_type": "main",
     "description": "天坛公园-七星石，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A831W5"
+    "source_id": "B000A831W5",
+    "recommendation": "天坛公园-七星石是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c3e71632",
@@ -1443,7 +1500,8 @@
     "meal_type": "main",
     "description": "太子林，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFV1KQ0"
+    "source_id": "B0FFFV1KQ0",
+    "recommendation": "太子林是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_716a7d10",
@@ -1467,7 +1525,8 @@
     "meal_type": "main",
     "description": "故宫博物院-堆秀山，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9LFVO"
+    "source_id": "B000A9LFVO",
+    "recommendation": "故宫博物院-堆秀山是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5c79668b",
@@ -1489,7 +1548,8 @@
     "meal_type": "main",
     "description": "故宫博物院-九龙壁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9LFXX"
+    "source_id": "B000A9LFXX",
+    "recommendation": "推荐在东城区参观故宫博物院-九龙壁，人气评分3.7"
   },
   {
     "id": "amap_7d11af5a",
@@ -1513,7 +1573,8 @@
     "meal_type": "main",
     "description": "故宫博物院-协和门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFT7SXK"
+    "source_id": "B0FFFT7SXK",
+    "recommendation": "故宫博物院-协和门适合城市游览、景点爱好者"
   },
   {
     "id": "amap_8590dd6c",
@@ -1536,7 +1597,8 @@
     "meal_type": "main",
     "description": "故宫博物院-钦安殿，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PIRP"
+    "source_id": "B000A9PIRP",
+    "recommendation": "故宫博物院-钦安殿是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_865f4233",
@@ -1560,7 +1622,8 @@
     "meal_type": "main",
     "description": "故宫博物院-熙和门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PIFY"
+    "source_id": "B000A9PIFY",
+    "recommendation": "推荐在东城区参观故宫博物院-熙和门，人气评分0.0"
   },
   {
     "id": "amap_7bd97683",
@@ -1584,7 +1647,8 @@
     "meal_type": "main",
     "description": "故宫博物院-皇极门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFKQMSVZ"
+    "source_id": "B0FFKQMSVZ",
+    "recommendation": "推荐在东城区参观故宫博物院-皇极门，人气评分4.8"
   },
   {
     "id": "amap_18fb3839",
@@ -1609,7 +1673,8 @@
     "meal_type": "main",
     "description": "北海公园-阅古楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A853V3"
+    "source_id": "B000A853V3",
+    "recommendation": "推荐在西城区参观北海公园-阅古楼，人气评分4.2"
   },
   {
     "id": "amap_2fce82e",
@@ -1631,7 +1696,8 @@
     "meal_type": "main",
     "description": "天坛公园-祈年殿西配殿，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A83LQJ"
+    "source_id": "B000A83LQJ",
+    "recommendation": "推荐在东城区参观天坛公园-祈年殿西配殿，人气评分3.9"
   },
   {
     "id": "amap_8a5afc7e",
@@ -1655,7 +1721,8 @@
     "meal_type": "main",
     "description": "中山公园-茅草亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFGCWA2C"
+    "source_id": "B0FFGCWA2C",
+    "recommendation": "中山公园-茅草亭是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2d772e8d",
@@ -1679,7 +1746,8 @@
     "meal_type": "main",
     "description": "乾隆花园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFKQN29Q"
+    "source_id": "B0FFKQN29Q",
+    "recommendation": "乾隆花园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_71748977",
@@ -1703,7 +1771,8 @@
     "meal_type": "main",
     "description": "故宫博物院-右掖门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFTMJJI"
+    "source_id": "B0FFFTMJJI",
+    "recommendation": "故宫博物院-右掖门适合城市游览、景点爱好者"
   },
   {
     "id": "amap_f25899f1",
@@ -1727,7 +1796,8 @@
     "meal_type": "main",
     "description": "故宫博物院-月华门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFT846V"
+    "source_id": "B0FFFT846V",
+    "recommendation": "推荐在东城区参观故宫博物院-月华门，人气评分0.0"
   },
   {
     "id": "amap_2613a47f",
@@ -1751,7 +1821,8 @@
     "meal_type": "main",
     "description": "故宫博物院-灵沼轩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFF5IYMJ"
+    "source_id": "B0FFF5IYMJ",
+    "recommendation": "故宫博物院-灵沼轩是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e0072a1a",
@@ -1775,7 +1846,8 @@
     "meal_type": "main",
     "description": "故宫博物院-衍祺门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PNRQ"
+    "source_id": "B000A9PNRQ",
+    "recommendation": "故宫博物院-衍祺门适合城市游览、景点爱好者"
   },
   {
     "id": "amap_6961761c",
@@ -1799,7 +1871,8 @@
     "meal_type": "main",
     "description": "故宫博物院-近光左门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9LFRG"
+    "source_id": "B000A9LFRG",
+    "recommendation": "故宫博物院-近光左门是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b6320b9",
@@ -1823,7 +1896,8 @@
     "meal_type": "main",
     "description": "故宫博物院-嘉祉门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9LFQE"
+    "source_id": "B000A9LFQE",
+    "recommendation": "故宫博物院-嘉祉门是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_33659e48",
@@ -1847,7 +1921,8 @@
     "meal_type": "main",
     "description": "故宫博物院-养心门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9LFPA"
+    "source_id": "B000A9LFPA",
+    "recommendation": "推荐在东城区参观故宫博物院-养心门，人气评分0.0"
   },
   {
     "id": "amap_ec14c60f",
@@ -1869,7 +1944,8 @@
     "meal_type": "main",
     "description": "故宫博物院-永寿宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B000A9PJ6B"
+    "source_id": "B000A9PJ6B",
+    "recommendation": "推荐在东城区参观故宫博物院-永寿宫，人气评分0.0"
   },
   {
     "id": "amap_76cc63e8",
@@ -1894,7 +1970,8 @@
     "meal_type": "main",
     "description": "北京民俗博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A6FCC4"
+    "source_id": "B000A6FCC4",
+    "recommendation": "北京民俗博物馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_1817fce",
@@ -1919,7 +1996,8 @@
     "meal_type": "main",
     "description": "北京自来水博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFG732IA"
+    "source_id": "B0FFG732IA",
+    "recommendation": "推荐在东城区参观北京自来水博物馆，人气评分4.6"
   },
   {
     "id": "amap_e51351b9",
@@ -1944,7 +2022,8 @@
     "meal_type": "main",
     "description": "北京艺术博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A5702C"
+    "source_id": "B000A5702C",
+    "recommendation": "推荐在海淀区参观北京艺术博物馆，人气评分4.7"
   },
   {
     "id": "amap_df22bb79",
@@ -1969,7 +2048,8 @@
     "meal_type": "main",
     "description": "北京金石博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0JDP5M5DW"
+    "source_id": "B0JDP5M5DW",
+    "recommendation": "推荐在西城区参观北京金石博物馆，人气评分4.3"
   },
   {
     "id": "amap_4b65d116",
@@ -2021,7 +2101,8 @@
     "meal_type": "main",
     "description": "北京市劳动人民文化宫，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A7I4X8"
+    "source_id": "B000A7I4X8",
+    "recommendation": "北京市劳动人民文化宫适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_862371",
@@ -2046,7 +2127,8 @@
     "meal_type": "main",
     "description": "北京地下城，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0MDDHMX4B"
+    "source_id": "B0MDDHMX4B",
+    "recommendation": "北京地下城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b401a1fb",
@@ -2071,7 +2153,8 @@
     "meal_type": "main",
     "description": "北京市规划展览馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A28DD9"
+    "source_id": "B000A28DD9",
+    "recommendation": "北京市规划展览馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_1a5dbd5d",
@@ -2095,7 +2178,8 @@
     "meal_type": "main",
     "description": "中央礼品文物管理中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0HUFDX2SZ"
+    "source_id": "B0HUFDX2SZ",
+    "recommendation": "中央礼品文物管理中心适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_4673d452",
@@ -2120,7 +2204,8 @@
     "meal_type": "main",
     "description": "中央文史研究馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000AA0J4S"
+    "source_id": "B000AA0J4S",
+    "recommendation": "中央文史研究馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_e3aca685",
@@ -2145,7 +2230,8 @@
     "meal_type": "main",
     "description": "国家自然博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A7CRPA"
+    "source_id": "B000A7CRPA",
+    "recommendation": "国家自然博物馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_a128d80b",
@@ -2170,7 +2256,8 @@
     "meal_type": "main",
     "description": "中国美术馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A7BC2S"
+    "source_id": "B000A7BC2S",
+    "recommendation": "中国美术馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_68fd321f",
@@ -2196,7 +2283,8 @@
     "meal_type": "main",
     "description": "北京饭店国际会展中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000AA0I2I"
+    "source_id": "B000AA0I2I",
+    "recommendation": "北京饭店国际会展中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1b03761e",
@@ -2222,7 +2310,8 @@
     "meal_type": "main",
     "description": "首都儿科研究所，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFGZX5EJ"
+    "source_id": "B0FFGZX5EJ",
+    "recommendation": "推荐在朝阳区参观首都儿科研究所，人气评分0.0"
   },
   {
     "id": "amap_75d08fe3",
@@ -2248,7 +2337,8 @@
     "meal_type": "main",
     "description": "北京梵高星空艺术馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0H6RS6EUO"
+    "source_id": "B0H6RS6EUO",
+    "recommendation": "北京梵高星空艺术馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_c6821323",
@@ -2274,7 +2364,8 @@
     "meal_type": "main",
     "description": "北京嘉德艺术中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFIH51T5"
+    "source_id": "B0FFIH51T5",
+    "recommendation": "推荐在东城区参观北京嘉德艺术中心，人气评分4.8"
   },
   {
     "id": "amap_1e2f49a3",
@@ -2299,7 +2390,8 @@
     "meal_type": "main",
     "description": "中国海关博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000AA0HTV"
+    "source_id": "B000AA0HTV",
+    "recommendation": "推荐在东城区参观中国海关博物馆，人气评分4.7"
   },
   {
     "id": "amap_cc40c82a",
@@ -2325,7 +2417,8 @@
     "meal_type": "main",
     "description": "中国社会科学院(贡院西街)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A40BBD"
+    "source_id": "B000A40BBD",
+    "recommendation": "中国社会科学院(贡院西街)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_caa9cb2",
@@ -2351,7 +2444,8 @@
     "meal_type": "main",
     "description": "人民大会堂，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A87LVO"
+    "source_id": "B000A87LVO",
+    "recommendation": "人民大会堂是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_faa3ad4c",
@@ -2377,7 +2471,8 @@
     "meal_type": "main",
     "description": "故宫博物院-钟表馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A9LFO0"
+    "source_id": "B000A9LFO0",
+    "recommendation": "故宫博物院-钟表馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_dcaafcbb",
@@ -2404,7 +2499,8 @@
     "meal_type": "main",
     "description": "中国医学科学院 北京协和医学院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A7JCVO"
+    "source_id": "B000A7JCVO",
+    "recommendation": "推荐在东城区参观中国医学科学院 北京协和医学院，人气评分0.0"
   },
   {
     "id": "amap_c5480fba",
@@ -2429,7 +2525,8 @@
     "meal_type": "main",
     "description": "北京古代建筑博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A16BBC"
+    "source_id": "B000A16BBC",
+    "recommendation": "北京古代建筑博物馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_9f81de1e",
@@ -2456,7 +2553,8 @@
     "meal_type": "main",
     "description": "北京师范大学附属中学(东校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A7ZGI9"
+    "source_id": "B000A7ZGI9",
+    "recommendation": "北京师范大学附属中学(东校区)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3b981f93",
@@ -2482,7 +2580,8 @@
     "meal_type": "main",
     "description": "北京国际饭店会议中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A80RN3"
+    "source_id": "B000A80RN3",
+    "recommendation": "北京国际饭店会议中心适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_e7be9ade",
@@ -2509,7 +2608,8 @@
     "meal_type": "main",
     "description": "北京市第二中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A71B1A"
+    "source_id": "B000A71B1A",
+    "recommendation": "北京市第二中学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_b0ea85f2",
@@ -2536,7 +2636,8 @@
     "meal_type": "main",
     "description": "北京景山学校(南校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A69F6A"
+    "source_id": "B000A69F6A",
+    "recommendation": "北京景山学校(南校区)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_2e315c34",
@@ -2560,7 +2661,8 @@
     "meal_type": "main",
     "description": "北京人民防空历史文化馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0MDHUS97V"
+    "source_id": "B0MDHUS97V",
+    "recommendation": "北京人民防空历史文化馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_f26c0b31",
@@ -2586,7 +2688,8 @@
     "meal_type": "main",
     "description": "南池子美术馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0HD9U1XM4"
+    "source_id": "B0HD9U1XM4",
+    "recommendation": "南池子美术馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_276a9d82",
@@ -2611,7 +2714,8 @@
     "meal_type": "main",
     "description": "中国钱币博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A8UMB4"
+    "source_id": "B000A8UMB4",
+    "recommendation": "中国钱币博物馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_eecf32d8",
@@ -2637,7 +2741,8 @@
     "meal_type": "main",
     "description": "中国第一历史档案馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0HUYMSYTV"
+    "source_id": "B0HUYMSYTV",
+    "recommendation": "中国第一历史档案馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f3ee9d6e",
@@ -2664,7 +2769,8 @@
     "meal_type": "main",
     "description": "北京汇文中学主校区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A39D88"
+    "source_id": "B000A39D88",
+    "recommendation": "推荐在东城区参观北京汇文中学主校区，人气评分0.0"
   },
   {
     "id": "amap_4e4d9180",
@@ -2690,7 +2796,8 @@
     "meal_type": "main",
     "description": "民族文化宫，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A2A4D3"
+    "source_id": "B000A2A4D3",
+    "recommendation": "民族文化宫适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_92915383",
@@ -2715,7 +2822,8 @@
     "meal_type": "main",
     "description": "巧克巧蔻·巧克力博物馆(北京馆)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0L0LUA3GD"
+    "source_id": "B0L0LUA3GD",
+    "recommendation": "推荐在西城区参观巧克巧蔻·巧克力博物馆(北京馆)，人气评分4.6"
   },
   {
     "id": "amap_95d41c0d",
@@ -2742,7 +2850,8 @@
     "meal_type": "main",
     "description": "北京市第十一中学(金鱼池校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A7BEGL"
+    "source_id": "B000A7BEGL",
+    "recommendation": "北京市第十一中学(金鱼池校区)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_11bfaa3d",
@@ -2768,7 +2877,8 @@
     "meal_type": "main",
     "description": "前门小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFHID5RP"
+    "source_id": "B0FFHID5RP",
+    "recommendation": "推荐在东城区参观前门小学，人气评分0.0"
   },
   {
     "id": "amap_7727c0d3",
@@ -2794,7 +2904,8 @@
     "meal_type": "main",
     "description": "北京市前门外国语学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A7BNCY"
+    "source_id": "B000A7BNCY",
+    "recommendation": "北京市前门外国语学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_710b08ee",
@@ -2820,7 +2931,8 @@
     "meal_type": "main",
     "description": "中国食品药品检定研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFG6XSNA"
+    "source_id": "B0FFG6XSNA",
+    "recommendation": "推荐在东城区参观中国食品药品检定研究院，人气评分0.0"
   },
   {
     "id": "amap_86c7a96f",
@@ -2848,7 +2960,8 @@
     "meal_type": "main",
     "description": "北京广播电视台(建国门办公区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A88ECW"
+    "source_id": "B000A88ECW",
+    "recommendation": "推荐在朝阳区参观北京广播电视台(建国门办公区)，人气评分0.0"
   },
   {
     "id": "amap_28a925cc",
@@ -2875,7 +2988,8 @@
     "meal_type": "main",
     "description": "北京师范大学附属实验中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A81KDV"
+    "source_id": "B000A81KDV",
+    "recommendation": "北京师范大学附属实验中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a898e1b9",
@@ -2902,7 +3016,8 @@
     "meal_type": "main",
     "description": "北京市第一六一中学(和平门校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0G2NX7ZLH"
+    "source_id": "B0G2NX7ZLH",
+    "recommendation": "推荐在西城区参观北京市第一六一中学(和平门校区)，人气评分0.0"
   },
   {
     "id": "amap_4e290ee9",
@@ -2926,7 +3041,8 @@
     "meal_type": "main",
     "description": "国礼博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0L2OHUUDS"
+    "source_id": "B0L2OHUUDS",
+    "recommendation": "国礼博物馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5c063c3",
@@ -2953,7 +3069,8 @@
     "meal_type": "main",
     "description": "北京市第一六六中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A7CRXO"
+    "source_id": "B000A7CRXO",
+    "recommendation": "北京市第一六六中学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_efa6f27b",
@@ -2979,7 +3096,8 @@
     "meal_type": "main",
     "description": "大华城市表演艺术中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0GU3UJKB7"
+    "source_id": "B0GU3UJKB7",
+    "recommendation": "大华城市表演艺术中心适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_9844a192",
@@ -3005,7 +3123,8 @@
     "meal_type": "main",
     "description": "台湾会馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A87GX2"
+    "source_id": "B000A87GX2",
+    "recommendation": "台湾会馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_3533937b",
@@ -3030,7 +3149,8 @@
     "meal_type": "main",
     "description": "史家胡同博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFF3T3SC"
+    "source_id": "B0FFF3T3SC",
+    "recommendation": "史家胡同博物馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_c37da694",
@@ -3057,7 +3177,8 @@
     "meal_type": "main",
     "description": "北京市广渠门中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A22CA6"
+    "source_id": "B000A22CA6",
+    "recommendation": "推荐在东城区参观北京市广渠门中学，人气评分0.0"
   },
   {
     "id": "amap_fdac31ce",
@@ -3082,7 +3203,8 @@
     "meal_type": "main",
     "description": "中国妇女儿童博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A85E86"
+    "source_id": "B000A85E86",
+    "recommendation": "中国妇女儿童博物馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_5312633f",
@@ -3109,7 +3231,8 @@
     "meal_type": "main",
     "description": "北京市第二十四中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B000A7ZJD4"
+    "source_id": "B000A7ZJD4",
+    "recommendation": "北京市第二十四中学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_6037a9f7",
@@ -3135,7 +3258,8 @@
     "meal_type": "main",
     "description": "北京劝业场，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFK5WDAV"
+    "source_id": "B0FFK5WDAV",
+    "recommendation": "北京劝业场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_abf1941e",
@@ -3161,7 +3285,8 @@
     "meal_type": "main",
     "description": "学而思(东四南大街校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0J3SLDI9E"
+    "source_id": "B0J3SLDI9E",
+    "recommendation": "学而思(东四南大街校区)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_7b393497",
@@ -3187,7 +3312,8 @@
     "meal_type": "main",
     "description": "菖蒲河公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFLJW2Q"
+    "source_id": "B0FFFLJW2Q",
+    "recommendation": "菖蒲河公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_336a8c3c",
@@ -3213,7 +3339,8 @@
     "meal_type": "main",
     "description": "北京明城墙遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A87KTH"
+    "source_id": "B000A87KTH",
+    "recommendation": "北京明城墙遗址公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4a030f93",
@@ -3239,7 +3366,8 @@
     "meal_type": "main",
     "description": "日坛公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A7C9EW"
+    "source_id": "B000A7C9EW",
+    "recommendation": "日坛公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_427b1852",
@@ -3265,7 +3393,8 @@
     "meal_type": "main",
     "description": "皇城根遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A7VRNI"
+    "source_id": "B000A7VRNI",
+    "recommendation": "推荐在东城区参观皇城根遗址公园，人气评分4.6"
   },
   {
     "id": "amap_c923235c",
@@ -3291,7 +3420,8 @@
     "meal_type": "main",
     "description": "龙潭中湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A7AB8D"
+    "source_id": "B000A7AB8D",
+    "recommendation": "龙潭中湖公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_66ee8c1d",
@@ -3317,7 +3447,8 @@
     "meal_type": "main",
     "description": "陶然亭公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A4D500"
+    "source_id": "B000A4D500",
+    "recommendation": "陶然亭公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_5acc169b",
@@ -3343,7 +3474,8 @@
     "meal_type": "main",
     "description": "龙潭西湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0H1DCOY6D"
+    "source_id": "B0H1DCOY6D",
+    "recommendation": "龙潭西湖公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a445188f",
@@ -3369,7 +3501,8 @@
     "meal_type": "main",
     "description": "玉蜓公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A7W49R"
+    "source_id": "B000A7W49R",
+    "recommendation": "推荐在东城区参观玉蜓公园，人气评分4.3"
   },
   {
     "id": "amap_ade827b7",
@@ -3394,7 +3527,8 @@
     "meal_type": "main",
     "description": "天坛公园-科普园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0H3J74OCP"
+    "source_id": "B0H3J74OCP",
+    "recommendation": "天坛公园-科普园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1385a803",
@@ -3420,7 +3554,8 @@
     "meal_type": "main",
     "description": "海清苑，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0GRO76HVM"
+    "source_id": "B0GRO76HVM",
+    "recommendation": "海清苑适合城市游览、公园爱好者"
   },
   {
     "id": "amap_ec18b32f",
@@ -3445,7 +3580,8 @@
     "meal_type": "main",
     "description": "前门公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0HRODIB2P"
+    "source_id": "B0HRODIB2P",
+    "recommendation": "前门公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4294dfd5",
@@ -3471,7 +3607,8 @@
     "meal_type": "main",
     "description": "月亮湾公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFI1BTGW"
+    "source_id": "B0FFI1BTGW",
+    "recommendation": "月亮湾公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_f467af1c",
@@ -3497,7 +3634,8 @@
     "meal_type": "main",
     "description": "角楼映秀公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0HRODJ5ZW"
+    "source_id": "B0HRODJ5ZW",
+    "recommendation": "推荐在东城区参观角楼映秀公园，人气评分3.9"
   },
   {
     "id": "amap_4e2b0852",
@@ -3523,7 +3661,8 @@
     "meal_type": "main",
     "description": "后海公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A843G6"
+    "source_id": "B000A843G6",
+    "recommendation": "推荐在西城区参观后海公园，人气评分4.7"
   },
   {
     "id": "amap_17ea2bb2",
@@ -3549,7 +3688,8 @@
     "meal_type": "main",
     "description": "大通滨河公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFIACLAK"
+    "source_id": "B0FFIACLAK",
+    "recommendation": "推荐在东城区参观大通滨河公园，人气评分4.0"
   },
   {
     "id": "amap_f974db75",
@@ -3575,7 +3715,8 @@
     "meal_type": "main",
     "description": "万寿公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A60201"
+    "source_id": "B000A60201",
+    "recommendation": "万寿公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_cd7db350",
@@ -3601,7 +3742,8 @@
     "meal_type": "main",
     "description": "玉河公园南园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFIMAHA7"
+    "source_id": "B0FFIMAHA7",
+    "recommendation": "推荐在东城区参观玉河公园南园，人气评分4.0"
   },
   {
     "id": "amap_49fe5e97",
@@ -3627,7 +3769,8 @@
     "meal_type": "main",
     "description": "北京市北海公园管理处，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFQ09Y5"
+    "source_id": "B0FFFQ09Y5",
+    "recommendation": "北京市北海公园管理处适合城市游览、公园爱好者"
   },
   {
     "id": "amap_ac368cf3",
@@ -3653,7 +3796,8 @@
     "meal_type": "main",
     "description": "北海公园游船，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFF4HZGA"
+    "source_id": "B0FFF4HZGA",
+    "recommendation": "北海公园游船是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ff7f74b",
@@ -3679,7 +3823,8 @@
     "meal_type": "main",
     "description": "庆丰公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A88DNM"
+    "source_id": "B000A88DNM",
+    "recommendation": "庆丰公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_684e7ce0",
@@ -3705,7 +3850,8 @@
     "meal_type": "main",
     "description": "西便门城墙遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A84NQ3"
+    "source_id": "B000A84NQ3",
+    "recommendation": "西便门城墙遗址公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_b992448f",
@@ -3731,7 +3877,8 @@
     "meal_type": "main",
     "description": "遇见公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L35LFP51"
+    "source_id": "B0L35LFP51",
+    "recommendation": "遇见公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_bbf78fb0",
@@ -3757,7 +3904,8 @@
     "meal_type": "main",
     "description": "百花园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFHLUER5"
+    "source_id": "B0FFHLUER5",
+    "recommendation": "百花园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_88a8e64b",
@@ -3783,7 +3931,8 @@
     "meal_type": "main",
     "description": "灵境翠园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KB1U8G20"
+    "source_id": "B0KB1U8G20",
+    "recommendation": "灵境翠园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_219b70fb",
@@ -3809,7 +3958,8 @@
     "meal_type": "main",
     "description": "二十四节气公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFG93W3C"
+    "source_id": "B0FFG93W3C",
+    "recommendation": "二十四节气公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_ba71f10a",
@@ -3835,7 +3985,8 @@
     "meal_type": "main",
     "description": "团结湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A6B2AE"
+    "source_id": "B000A6B2AE",
+    "recommendation": "推荐在朝阳区参观团结湖公园，人气评分4.7"
   },
   {
     "id": "amap_85bd8d",
@@ -3861,7 +4012,8 @@
     "meal_type": "main",
     "description": "南馆公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A840SD"
+    "source_id": "B000A840SD",
+    "recommendation": "推荐在东城区参观南馆公园，人气评分4.5"
   },
   {
     "id": "amap_bfe4c12",
@@ -3887,7 +4039,8 @@
     "meal_type": "main",
     "description": "长椿苑公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0K3LC4V8D"
+    "source_id": "B0K3LC4V8D",
+    "recommendation": "长椿苑公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_e18b5ac7",
@@ -3913,7 +4066,8 @@
     "meal_type": "main",
     "description": "天桥街道学雷锋志愿服务主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFK5V9XC"
+    "source_id": "B0FFK5V9XC",
+    "recommendation": "天桥街道学雷锋志愿服务主题公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_49c1ec58",
@@ -3939,7 +4093,8 @@
     "meal_type": "main",
     "description": "北海公园(北岸)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0H26KYE7E"
+    "source_id": "B0H26KYE7E",
+    "recommendation": "北海公园(北岸)适合城市游览、公园爱好者"
   },
   {
     "id": "amap_fb3d84bf",
@@ -3965,7 +4120,8 @@
     "meal_type": "main",
     "description": "东四奥林匹克社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A7BKTU"
+    "source_id": "B000A7BKTU",
+    "recommendation": "东四奥林匹克社区公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_1c9c5b7a",
@@ -3991,7 +4147,8 @@
     "meal_type": "main",
     "description": "精品公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A84BK3"
+    "source_id": "B000A84BK3",
+    "recommendation": "推荐在西城区参观精品公园，人气评分3.7"
   },
   {
     "id": "amap_b457f554",
@@ -4017,7 +4174,8 @@
     "meal_type": "main",
     "description": "蜡烛园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFKS8F2O"
+    "source_id": "B0FFKS8F2O",
+    "recommendation": "蜡烛园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_6131a443",
@@ -4043,7 +4201,8 @@
     "meal_type": "main",
     "description": "京韵园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFI9E3IU"
+    "source_id": "B0FFI9E3IU",
+    "recommendation": "京韵园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_637a037b",
@@ -4069,7 +4228,8 @@
     "meal_type": "main",
     "description": "CBD历史文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000AA1FDS"
+    "source_id": "B000AA1FDS",
+    "recommendation": "CBD历史文化公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_92f89831",
@@ -4095,7 +4255,8 @@
     "meal_type": "main",
     "description": "CBD森林公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFKLVS20"
+    "source_id": "B0FFKLVS20",
+    "recommendation": "推荐在朝阳区参观CBD森林公园，人气评分4.2"
   },
   {
     "id": "amap_ab083440",
@@ -4121,7 +4282,8 @@
     "meal_type": "main",
     "description": "永定门公园南园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFME9FJ0"
+    "source_id": "B0FFME9FJ0",
+    "recommendation": "推荐在东城区参观永定门公园南园，人气评分3.9"
   },
   {
     "id": "amap_d9c55806",
@@ -4147,7 +4309,8 @@
     "meal_type": "main",
     "description": "南礼士路公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B000A7IBQA"
+    "source_id": "B000A7IBQA",
+    "recommendation": "推荐在西城区参观南礼士路公园，人气评分4.2"
   },
   {
     "id": "amap_a705227c",
@@ -4173,7 +4336,8 @@
     "meal_type": "main",
     "description": "西单体育游园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0H01COTLH"
+    "source_id": "B0H01COTLH",
+    "recommendation": "西单体育游园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_da61defa",
@@ -4198,7 +4362,8 @@
     "meal_type": "main",
     "description": "东美园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KDYMXI5F"
+    "source_id": "B0KDYMXI5F",
+    "recommendation": "推荐在东城区参观东美园，人气评分3.8"
   },
   {
     "id": "amap_d1d123fd",
@@ -4221,7 +4386,8 @@
     "meal_type": "main",
     "description": "北京市朝阳区王府井(北京环球金融中心)南锣鼓巷(北京环球金融中心)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": ""
+    "source_id": "",
+    "recommendation": "推荐在东城区参观北京市朝阳区王府井(北京环球金融中心)南锣鼓巷(北京环球金融中心)，人气评分0.0"
   },
   {
     "id": "amap_5bcc96b7",
@@ -4247,7 +4413,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(前门大栅栏店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFK7GTSV"
+    "source_id": "B0FFK7GTSV",
+    "recommendation": "在西城区觅食推荐四季民福烤鸭店(前门大栅栏店)，性价比不错"
   },
   {
     "id": "amap_47e3d6cc",
@@ -4273,7 +4440,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(前门店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFK2MS0Z"
+    "source_id": "B0FFK2MS0Z",
+    "recommendation": "四季民福烤鸭店(前门店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_5a31de78",
@@ -4299,7 +4467,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(王府井东安门店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHELWET"
+    "source_id": "B0FFHELWET",
+    "recommendation": "在东城区觅食推荐四季民福烤鸭店(王府井东安门店)，性价比不错"
   },
   {
     "id": "amap_fd3d2251",
@@ -4325,7 +4494,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(安德路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HU7SXIM3"
+    "source_id": "B0HU7SXIM3",
+    "recommendation": "四季民福烤鸭店(安德路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_bb0e5482",
@@ -4351,7 +4521,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(呼家楼店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HGDH7SG7"
+    "source_id": "B0HGDH7SG7",
+    "recommendation": "在朝阳区觅食推荐四季民福烤鸭店(呼家楼店)，性价比不错"
   },
   {
     "id": "amap_a3b7ad43",
@@ -4377,7 +4548,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(和平里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFQ2KBT"
+    "source_id": "B0FFFQ2KBT",
+    "recommendation": "在朝阳区觅食推荐四季民福烤鸭店(和平里店)，性价比不错"
   },
   {
     "id": "amap_2cd18556",
@@ -4403,7 +4575,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(东四十条店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A8WB65"
+    "source_id": "B000A8WB65",
+    "recommendation": "在东城区觅食推荐四季民福烤鸭店(东四十条店)，性价比不错"
   },
   {
     "id": "amap_fb2fec78",
@@ -4429,7 +4602,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(双井店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFK8Q7JN"
+    "source_id": "B0FFK8Q7JN",
+    "recommendation": "四季民福烤鸭店(双井店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a2914819",
@@ -4455,7 +4629,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(王府井灯市口店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A87HTT"
+    "source_id": "B000A87HTT",
+    "recommendation": "四季民福烤鸭店(王府井灯市口店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_85d7ddf3",
@@ -4481,7 +4656,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(马连道店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H6D5AD4D"
+    "source_id": "B0H6D5AD4D",
+    "recommendation": "四季民福烤鸭店(马连道店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_3f08f8f6",
@@ -4506,7 +4682,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(翠微店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KGN4RT63"
+    "source_id": "B0KGN4RT63",
+    "recommendation": "在海淀区觅食推荐四季民福烤鸭店(翠微店)，性价比不错"
   },
   {
     "id": "amap_3ad042f9",
@@ -4532,7 +4709,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(望京旺角店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A87TOE"
+    "source_id": "B000A87TOE",
+    "recommendation": "四季民福烤鸭店(望京旺角店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_f51a0fcf",
@@ -4558,7 +4736,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(三里河店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H2OCDNAY"
+    "source_id": "B0H2OCDNAY",
+    "recommendation": "在西城区觅食推荐四季民福烤鸭店(三里河店)，性价比不错"
   },
   {
     "id": "amap_f38226c3",
@@ -4583,7 +4762,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(西客站店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0IG6HEJM4"
+    "source_id": "B0IG6HEJM4",
+    "recommendation": "四季民福烤鸭店(西客站店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ecdd91c1",
@@ -4609,7 +4789,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(金融街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0J3UR2T1W"
+    "source_id": "B0J3UR2T1W",
+    "recommendation": "四季民福烤鸭店(金融街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_290a2892",
@@ -4635,7 +4816,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(通州马驹桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIXIEYE"
+    "source_id": "B0FFIXIEYE",
+    "recommendation": "四季民福烤鸭店(通州马驹桥店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6f259729",
@@ -4661,7 +4843,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(望京南湖东园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFG73320"
+    "source_id": "B0FFG73320",
+    "recommendation": "在朝阳区觅食推荐四季民福烤鸭店(望京南湖东园店)，性价比不错"
   },
   {
     "id": "amap_a97616ef",
@@ -4687,7 +4870,8 @@
     "meal_type": "main",
     "description": "北平楼烤鸭·京菜(牡丹园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A7OJXW"
+    "source_id": "B000A7OJXW",
+    "recommendation": "北平楼烤鸭·京菜(牡丹园店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_9cc2dfb5",
@@ -4714,7 +4898,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(西单汉光店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFLQE35D"
+    "source_id": "B0FFLQE35D",
+    "recommendation": "在西城区觅食推荐四季民福烤鸭店(西单汉光店)，性价比不错"
   },
   {
     "id": "amap_ba737f90",
@@ -4740,7 +4925,8 @@
     "meal_type": "main",
     "description": "四季民福烤鸭店(西单华威约饭街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFME0OOQ"
+    "source_id": "B0FFME0OOQ",
+    "recommendation": "四季民福烤鸭店(西单华威约饭街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ee47c03f",
@@ -4766,7 +4952,8 @@
     "meal_type": "main",
     "description": "紫光园·烤鸭·北京菜(红庙总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A5BAC8"
+    "source_id": "B000A5BAC8",
+    "recommendation": "紫光园·烤鸭·北京菜(红庙总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_55c1b8eb",
@@ -4792,7 +4979,8 @@
     "meal_type": "main",
     "description": "蘇锦宴·淮扬菜·烤鸭(亚运村店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0K1T7MEIR"
+    "source_id": "B0K1T7MEIR",
+    "recommendation": "在朝阳区觅食推荐蘇锦宴·淮扬菜·烤鸭(亚运村店)，性价比不错"
   },
   {
     "id": "amap_421684d2",
@@ -4820,7 +5008,8 @@
     "meal_type": "main",
     "description": "万荣烤鸭店(回龙观店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A8VP4B"
+    "source_id": "B000A8VP4B",
+    "recommendation": "在昌平区觅食推荐万荣烤鸭店(回龙观店)，性价比不错"
   },
   {
     "id": "amap_2b3c69c6",
@@ -4846,7 +5035,8 @@
     "meal_type": "main",
     "description": "八次方烤鸭店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KKL5RBFZ"
+    "source_id": "B0KKL5RBFZ",
+    "recommendation": "在东城区觅食推荐八次方烤鸭店，性价比不错"
   },
   {
     "id": "amap_41e595a8",
@@ -4872,7 +5062,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭(雅宝路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIPC3VF"
+    "source_id": "B0FFIPC3VF",
+    "recommendation": "大鸭梨烤鸭(雅宝路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_5a1a39da",
@@ -4898,7 +5089,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(北京南站陶然亭店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A8YE0N"
+    "source_id": "B000A8YE0N",
+    "recommendation": "在西城区觅食推荐北平食府·北京烤鸭(北京南站陶然亭店)，性价比不错"
   },
   {
     "id": "amap_f0a9d0ec",
@@ -4924,7 +5116,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(北京西站六里桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A85NPC"
+    "source_id": "B000A85NPC",
+    "recommendation": "在丰台区觅食推荐北平食府·北京烤鸭(北京西站六里桥店)，性价比不错"
   },
   {
     "id": "amap_1d8eaead",
@@ -4950,7 +5143,8 @@
     "meal_type": "main",
     "description": "四世同堂·京菜·烤鸭(双井店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGDZNIX"
+    "source_id": "B0FFGDZNIX",
+    "recommendation": "四世同堂·京菜·烤鸭(双井店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_46c62517",
@@ -4976,7 +5170,8 @@
     "meal_type": "main",
     "description": "便宜坊烤鸭店(朝阳公园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H1YCVI3G"
+    "source_id": "B0H1YCVI3G",
+    "recommendation": "在朝阳区觅食推荐便宜坊烤鸭店(朝阳公园店)，性价比不错"
   },
   {
     "id": "amap_6067b378",
@@ -5001,7 +5196,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭(广安门甄选店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KR6O4PYD"
+    "source_id": "B0KR6O4PYD",
+    "recommendation": "大鸭梨烤鸭(广安门甄选店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_aac53f27",
@@ -5027,7 +5223,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(望京店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A7RWX5"
+    "source_id": "B000A7RWX5",
+    "recommendation": "在朝阳区觅食推荐大鸭梨烤鸭店(望京店)，性价比不错"
   },
   {
     "id": "amap_f0e65947",
@@ -5053,7 +5250,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(大望路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A87FDT"
+    "source_id": "B000A87FDT",
+    "recommendation": "大鸭梨烤鸭店(大望路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_4015d20c",
@@ -5079,7 +5277,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(亚运村店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A7GVQ5"
+    "source_id": "B000A7GVQ5",
+    "recommendation": "在朝阳区觅食推荐大鸭梨烤鸭店(亚运村店)，性价比不错"
   },
   {
     "id": "amap_ce7b0369",
@@ -5104,7 +5303,8 @@
     "meal_type": "main",
     "description": "便宜坊烤鸭店(和平里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0K3998BWE"
+    "source_id": "B0K3998BWE",
+    "recommendation": "便宜坊烤鸭店(和平里店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_546bb7ae",
@@ -5129,7 +5329,8 @@
     "meal_type": "main",
     "description": "御掌柜·果木烤鸭(雍和宫·簋街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFM15N7E"
+    "source_id": "B0FFM15N7E",
+    "recommendation": "御掌柜·果木烤鸭(雍和宫·簋街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_276bc0ed",
@@ -5155,7 +5356,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(光彩店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JKSSYRTP"
+    "source_id": "B0JKSSYRTP",
+    "recommendation": "大鸭梨烤鸭店(光彩店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_13aaec74",
@@ -5180,7 +5382,8 @@
     "meal_type": "main",
     "description": "尹三豆汁·尹三烤鸭(南锣鼓巷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KRS5F9PY"
+    "source_id": "B0KRS5F9PY",
+    "recommendation": "在东城区觅食推荐尹三豆汁·尹三烤鸭(南锣鼓巷店)，性价比不错"
   },
   {
     "id": "amap_195fcb5b",
@@ -5205,7 +5408,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(学院路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJGNMJD"
+    "source_id": "B0FFJGNMJD",
+    "recommendation": "北平食府·北京烤鸭(学院路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b62cbb0d",
@@ -5231,7 +5435,8 @@
     "meal_type": "main",
     "description": "提督·TIDU烤鸭·北京菜(前门创始店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H65COK9M"
+    "source_id": "B0H65COK9M",
+    "recommendation": "提督·TIDU烤鸭·北京菜(前门创始店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_c1127e85",
@@ -5256,7 +5461,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(鸟巢亚运村店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LDOL1TR6"
+    "source_id": "B0LDOL1TR6",
+    "recommendation": "北平食府·北京烤鸭(鸟巢亚运村店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_d0928203",
@@ -5282,7 +5488,8 @@
     "meal_type": "main",
     "description": "紫光园·烤鸭(平安里后海店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LASA0PHI"
+    "source_id": "B0LASA0PHI",
+    "recommendation": "在西城区觅食推荐紫光园·烤鸭(平安里后海店)，性价比不错"
   },
   {
     "id": "amap_310d3b24",
@@ -5307,7 +5514,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(亦庄店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJTJCBH"
+    "source_id": "B0FFJTJCBH",
+    "recommendation": "在大兴区觅食推荐北平食府·北京烤鸭(亦庄店)，性价比不错"
   },
   {
     "id": "amap_95aa353b",
@@ -5332,7 +5540,8 @@
     "meal_type": "main",
     "description": "紫光园·烤鸭(北京交通大学店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LD974BPZ"
+    "source_id": "B0LD974BPZ",
+    "recommendation": "紫光园·烤鸭(北京交通大学店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_4a6bb22f",
@@ -5358,7 +5567,8 @@
     "meal_type": "main",
     "description": "小吊梨汤·北京菜·烤鸭(畅春园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KUHA7GLS"
+    "source_id": "B0KUHA7GLS",
+    "recommendation": "在海淀区觅食推荐小吊梨汤·北京菜·烤鸭(畅春园店)，性价比不错"
   },
   {
     "id": "amap_78435515",
@@ -5383,7 +5593,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(北京南站洋桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIQ0E3T"
+    "source_id": "B0FFIQ0E3T",
+    "recommendation": "北平食府·北京烤鸭(北京南站洋桥店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_42970d0",
@@ -5409,7 +5620,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(百子湾店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A8VX13"
+    "source_id": "B000A8VX13",
+    "recommendation": "大鸭梨烤鸭店(百子湾店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_89d6b85e",
@@ -5435,7 +5647,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(右安门北京南站店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFG1XU1M"
+    "source_id": "B0FFG1XU1M",
+    "recommendation": "北平食府·北京烤鸭(右安门北京南站店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_772937",
@@ -5460,7 +5673,8 @@
     "meal_type": "main",
     "description": "蘭庆轩·品宴·淮扬菜·北京烤鸭(青年路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0J0C56QBK"
+    "source_id": "B0J0C56QBK",
+    "recommendation": "蘭庆轩·品宴·淮扬菜·北京烤鸭(青年路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_2a54c2a1",
@@ -5486,7 +5700,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(新华街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJ0VCCL"
+    "source_id": "B0FFJ0VCCL",
+    "recommendation": "在丰台区觅食推荐北平食府·北京烤鸭(新华街店)，性价比不错"
   },
   {
     "id": "amap_7f7a83ee",
@@ -5511,7 +5726,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(十里河店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JBA76TXU"
+    "source_id": "B0JBA76TXU",
+    "recommendation": "北平食府·北京烤鸭(十里河店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_bb4e4d52",
@@ -5536,7 +5752,8 @@
     "meal_type": "main",
     "description": "红红烤鸭店(西单店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A587B0"
+    "source_id": "B000A587B0",
+    "recommendation": "在西城区觅食推荐红红烤鸭店(西单店)，性价比不错"
   },
   {
     "id": "amap_7f802d75",
@@ -5562,7 +5779,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(方庄锦恒大厦店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFAJ3OY"
+    "source_id": "B0FFFAJ3OY",
+    "recommendation": "北平食府·北京烤鸭(方庄锦恒大厦店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_acc5424d",
@@ -5588,7 +5806,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(右安门店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A7RWX7"
+    "source_id": "B000A7RWX7",
+    "recommendation": "大鸭梨烤鸭店(右安门店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_7d768968",
@@ -5613,7 +5832,8 @@
     "meal_type": "main",
     "description": "晟永興烤鸭店(三里屯店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHK25UV"
+    "source_id": "B0FFHK25UV",
+    "recommendation": "在朝阳区觅食推荐晟永興烤鸭店(三里屯店)，性价比不错"
   },
   {
     "id": "amap_d259bf5b",
@@ -5639,7 +5859,8 @@
     "meal_type": "main",
     "description": "京城九门轩烤鸭店(前门店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A8UL3E"
+    "source_id": "B000A8UL3E",
+    "recommendation": "京城九门轩烤鸭店(前门店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_fd114e4b",
@@ -5665,7 +5886,8 @@
     "meal_type": "main",
     "description": "紫光园·烤鸭·北京菜(北京西站店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LK9SAL93"
+    "source_id": "B0LK9SAL93",
+    "recommendation": "紫光园·烤鸭·北京菜(北京西站店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_5c5bcaca",
@@ -5690,7 +5912,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭(鸟巢店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0K2NH0AM8"
+    "source_id": "B0K2NH0AM8",
+    "recommendation": "大鸭梨烤鸭(鸟巢店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_905e1b54",
@@ -5714,7 +5937,8 @@
     "meal_type": "main",
     "description": "玉桥烤鸭店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A7J64A"
+    "source_id": "B000A7J64A",
+    "recommendation": "在东城区觅食推荐玉桥烤鸭店，性价比不错"
   },
   {
     "id": "amap_e7676da5",
@@ -5740,7 +5964,8 @@
     "meal_type": "main",
     "description": "紫光园·烤鸭(富力摩根店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KACHZ6I8"
+    "source_id": "B0KACHZ6I8",
+    "recommendation": "紫光园·烤鸭(富力摩根店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a429b08",
@@ -5766,7 +5991,8 @@
     "meal_type": "main",
     "description": "紫光园·烤鸭(望京西园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KAYBLTG5"
+    "source_id": "B0KAYBLTG5",
+    "recommendation": "紫光园·烤鸭(望京西园店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ccd55961",
@@ -5792,7 +6018,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(花园村店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A82V0I"
+    "source_id": "B000A82V0I",
+    "recommendation": "大鸭梨烤鸭店(花园村店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b7ac6fee",
@@ -5817,7 +6044,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(旧宫店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFKQEZQM"
+    "source_id": "B0FFKQEZQM",
+    "recommendation": "北平食府·北京烤鸭(旧宫店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_51b75ab6",
@@ -5843,7 +6071,8 @@
     "meal_type": "main",
     "description": "北平楼烤鸭·京菜(西三旗店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHZTYFZ"
+    "source_id": "B0FFHZTYFZ",
+    "recommendation": "北平楼烤鸭·京菜(西三旗店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_f93d340d",
@@ -5869,7 +6098,8 @@
     "meal_type": "main",
     "description": "全福德烤鸭店(故宫东门店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HUBMD6LZ"
+    "source_id": "B0HUBMD6LZ",
+    "recommendation": "全福德烤鸭店(故宫东门店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ac46769",
@@ -5894,7 +6124,8 @@
     "meal_type": "main",
     "description": "魁盛居烤鸭·百年鲁菜(北京首店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KK5CAB5R"
+    "source_id": "B0KK5CAB5R",
+    "recommendation": "魁盛居烤鸭·百年鲁菜(北京首店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d1b89aa8",
@@ -5920,7 +6151,8 @@
     "meal_type": "main",
     "description": "聚京民福烤鸭店(青年路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JA6MFNU2"
+    "source_id": "B0JA6MFNU2",
+    "recommendation": "在朝阳区觅食推荐聚京民福烤鸭店(青年路店)，性价比不错"
   },
   {
     "id": "amap_8899f96a",
@@ -5946,7 +6178,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(国展店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGRNQD3"
+    "source_id": "B0FFGRNQD3",
+    "recommendation": "大鸭梨烤鸭店(国展店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_f45bb4b1",
@@ -5971,7 +6204,8 @@
     "meal_type": "main",
     "description": "北平家宴·烤鸭·北京菜(北京丰台站·丽泽桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LD0SG36M"
+    "source_id": "B0LD0SG36M",
+    "recommendation": "北平家宴·烤鸭·北京菜(北京丰台站·丽泽桥店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_461728e5",
@@ -5997,7 +6231,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(顺义后沙峪店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A8Y94G"
+    "source_id": "B000A8Y94G",
+    "recommendation": "大鸭梨烤鸭店(顺义后沙峪店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a2f0e459",
@@ -6022,7 +6257,8 @@
     "meal_type": "main",
     "description": "尹三烤鸭(前门大栅栏店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KBKRC4HO"
+    "source_id": "B0KBKRC4HO",
+    "recommendation": "尹三烤鸭(前门大栅栏店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_dd88d26e",
@@ -6047,7 +6283,8 @@
     "meal_type": "main",
     "description": "便宜坊烤鸭店(魏公村店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LD1A9EHO"
+    "source_id": "B0LD1A9EHO",
+    "recommendation": "便宜坊烤鸭店(魏公村店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_19ed4083",
@@ -6072,7 +6309,8 @@
     "meal_type": "main",
     "description": "紫光园·烤鸭(上地大厦店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LA2CONP7"
+    "source_id": "B0LA2CONP7",
+    "recommendation": "在海淀区觅食推荐紫光园·烤鸭(上地大厦店)，性价比不错"
   },
   {
     "id": "amap_72a4616a",
@@ -6098,7 +6336,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(管庄店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A7ORUG"
+    "source_id": "B000A7ORUG",
+    "recommendation": "在朝阳区觅食推荐大鸭梨烤鸭店(管庄店)，性价比不错"
   },
   {
     "id": "amap_d69286af",
@@ -6126,7 +6365,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(顺义石园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFI72NGY"
+    "source_id": "B0FFI72NGY",
+    "recommendation": "大鸭梨烤鸭店(顺义石园店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_4a61330d",
@@ -6151,7 +6391,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭(旧宫店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H1TMHVQW"
+    "source_id": "B0H1TMHVQW",
+    "recommendation": "在大兴区觅食推荐大鸭梨烤鸭(旧宫店)，性价比不错"
   },
   {
     "id": "amap_74fa0266",
@@ -6176,7 +6417,8 @@
     "meal_type": "main",
     "description": "晟永兴烤鸭店(万和大厦店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A848EW"
+    "source_id": "B000A848EW",
+    "recommendation": "晟永兴烤鸭店(万和大厦店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_148aab57",
@@ -6202,7 +6444,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(甘家口店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFAHUB0"
+    "source_id": "B0FFFAHUB0",
+    "recommendation": "大鸭梨烤鸭店(甘家口店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_d6dc3eab",
@@ -6228,7 +6471,8 @@
     "meal_type": "main",
     "description": "大鸭梨烤鸭店(马家堡店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B000A766D0"
+    "source_id": "B000A766D0",
+    "recommendation": "在丰台区觅食推荐大鸭梨烤鸭店(马家堡店)，性价比不错"
   },
   {
     "id": "amap_9e12b829",
@@ -6253,7 +6497,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(草桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KKTSK0IM"
+    "source_id": "B0KKTSK0IM",
+    "recommendation": "北平食府·北京烤鸭(草桥店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_8d44eb9f",
@@ -6278,7 +6523,8 @@
     "meal_type": "main",
     "description": "北平食府·北京烤鸭(团结湖店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFK92FK5"
+    "source_id": "B0FFK92FK5",
+    "recommendation": "北平食府·北京烤鸭(团结湖店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_1e22e7e6",
@@ -6304,7 +6550,8 @@
     "meal_type": "main",
     "description": "西部马华牛肉面·烧烤(白家庄店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0HRUZFNSA"
+    "source_id": "B0HRUZFNSA",
+    "recommendation": "西部马华牛肉面·烧烤(白家庄店)是夜间休闲好去处"
   },
   {
     "id": "amap_e7fcf75",
@@ -6330,7 +6577,8 @@
     "meal_type": "main",
     "description": "王缸钵老重庆火锅(通广大厦店)(暂停营业)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0H6JABMPL"
+    "source_id": "B0H6JABMPL",
+    "recommendation": "王缸钵老重庆火锅(通广大厦店)(暂停营业)是夜间休闲好去处"
   },
   {
     "id": "amap_ca7306b6",
@@ -6355,7 +6603,8 @@
     "meal_type": "main",
     "description": "簋街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFHF130I"
+    "source_id": "B0FFHF130I",
+    "recommendation": "在东城区觅食推荐簋街，性价比不错"
   },
   {
     "id": "amap_69ab33b",
@@ -6382,7 +6631,8 @@
     "meal_type": "main",
     "description": "耗儿鱼美蛙火锅(北京簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFHSFIXT"
+    "source_id": "B0FFHSFIXT",
+    "recommendation": "耗儿鱼美蛙火锅(北京簋街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_b3689e28",
@@ -6408,7 +6658,8 @@
     "meal_type": "main",
     "description": "簋街龙虾庄(簋街总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LR1ASZHJ"
+    "source_id": "B0LR1ASZHJ",
+    "recommendation": "在东城区觅食推荐簋街龙虾庄(簋街总店)，性价比不错"
   },
   {
     "id": "amap_a3cf2696",
@@ -6434,7 +6685,8 @@
     "meal_type": "main",
     "description": "簋街龙虾·活虾现做，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LRV7JXEA"
+    "source_id": "B0LRV7JXEA",
+    "recommendation": "簋街龙虾·活虾现做是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b3c7694c",
@@ -6460,7 +6712,8 @@
     "meal_type": "main",
     "description": "簋街龙虾庄(总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L3OUXTCS"
+    "source_id": "B0L3OUXTCS",
+    "recommendation": "在东城区觅食推荐簋街龙虾庄(总店)，性价比不错"
   },
   {
     "id": "amap_73637e09",
@@ -6485,7 +6738,8 @@
     "meal_type": "main",
     "description": "簋街印象(广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0IAJL44A9"
+    "source_id": "B0IAJL44A9",
+    "recommendation": "在平谷区觅食推荐簋街印象(广场店)，性价比不错"
   },
   {
     "id": "amap_22407d46",
@@ -6511,7 +6765,8 @@
     "meal_type": "main",
     "description": "簋街王婆大虾(雁西店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0J037CV7Y"
+    "source_id": "B0J037CV7Y",
+    "recommendation": "簋街王婆大虾(雁西店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_b445be8a",
@@ -6536,7 +6791,8 @@
     "meal_type": "main",
     "description": "簋街龙虾，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0MBNXV6OU"
+    "source_id": "B0MBNXV6OU",
+    "recommendation": "在朝阳区觅食推荐簋街龙虾，性价比不错"
   },
   {
     "id": "amap_ee61e88",
@@ -6561,7 +6817,8 @@
     "meal_type": "main",
     "description": "簋街王婆大虾(杨宋店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0JA3ZSRZL"
+    "source_id": "B0JA3ZSRZL",
+    "recommendation": "簋街王婆大虾(杨宋店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_2643b4b2",
@@ -6587,7 +6844,8 @@
     "meal_type": "main",
     "description": "胡胖子簋街香辣蟹(第11档口簋街海隆美食城店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0MB6UNRLE"
+    "source_id": "B0MB6UNRLE",
+    "recommendation": "在朝阳区觅食推荐胡胖子簋街香辣蟹(第11档口簋街海隆美食城店)，性价比不错"
   },
   {
     "id": "amap_9368f318",
@@ -6613,7 +6871,8 @@
     "meal_type": "main",
     "description": "簋街仔仔小龙虾(总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFFO60LR"
+    "source_id": "B0FFFO60LR",
+    "recommendation": "簋街仔仔小龙虾(总店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_e6093557",
@@ -6639,7 +6898,8 @@
     "meal_type": "main",
     "description": "簋街仔仔小龙虾(九分店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFHIX9FV"
+    "source_id": "B0FFHIX9FV",
+    "recommendation": "在东城区觅食推荐簋街仔仔小龙虾(九分店)，性价比不错"
   },
   {
     "id": "amap_edc2f60f",
@@ -6664,7 +6924,8 @@
     "meal_type": "main",
     "description": "簋街小龙虾，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L2HSAY6E"
+    "source_id": "B0L2HSAY6E",
+    "recommendation": "簋街小龙虾口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_78d4ba2d",
@@ -6690,7 +6951,8 @@
     "meal_type": "main",
     "description": "簋街小渔山小龙虾，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0KGTRF329"
+    "source_id": "B0KGTRF329",
+    "recommendation": "簋街小渔山小龙虾口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a610111",
@@ -6716,7 +6978,8 @@
     "meal_type": "main",
     "description": "簋街龙虾锦州烧烤(兴华大街辅路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0IGMS5T3L"
+    "source_id": "B0IGMS5T3L",
+    "recommendation": "簋街龙虾锦州烧烤(兴华大街辅路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_f217b984",
@@ -6742,7 +7005,8 @@
     "meal_type": "main",
     "description": "簋街仔仔小虾(六分店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFJXW1AH"
+    "source_id": "B0FFJXW1AH",
+    "recommendation": "簋街仔仔小虾(六分店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_dc4e6686",
@@ -6768,7 +7032,8 @@
     "meal_type": "main",
     "description": "簋街仔仔小龙虾(三分店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFFWGU0F"
+    "source_id": "B0FFFWGU0F",
+    "recommendation": "簋街仔仔小龙虾(三分店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_4c00fb54",
@@ -6794,7 +7059,8 @@
     "meal_type": "main",
     "description": "簋街小红烤翅，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0M6TR5U66"
+    "source_id": "B0M6TR5U66",
+    "recommendation": "簋街小红烤翅是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_1873d38c",
@@ -6819,7 +7085,8 @@
     "meal_type": "main",
     "description": "簋街小龙虾·活虾现炒(第3风味+北京好又好小吃店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LANPUFTO"
+    "source_id": "B0LANPUFTO",
+    "recommendation": "在昌平区觅食推荐簋街小龙虾·活虾现炒(第3风味+北京好又好小吃店)，性价比不错"
   },
   {
     "id": "amap_9ccfdc6f",
@@ -6844,7 +7111,8 @@
     "meal_type": "main",
     "description": "簋街麻小(第27号档口金百荣美食城)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0HROCJ9X3"
+    "source_id": "B0HROCJ9X3",
+    "recommendation": "在通州区觅食推荐簋街麻小(第27号档口金百荣美食城)，性价比不错"
   },
   {
     "id": "amap_187cfbf7",
@@ -6870,7 +7138,8 @@
     "meal_type": "main",
     "description": "姚记炒肝店(簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B000A8ZH4E"
+    "source_id": "B000A8ZH4E",
+    "recommendation": "在东城区觅食推荐姚记炒肝店(簋街店)，性价比不错"
   },
   {
     "id": "amap_ef58f4e8",
@@ -6895,7 +7164,8 @@
     "meal_type": "main",
     "description": "胖妹拾糖(北京簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFFYF5O0"
+    "source_id": "B0FFFYF5O0",
+    "recommendation": "胖妹拾糖(北京簋街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_80ccd389",
@@ -6920,7 +7190,8 @@
     "meal_type": "main",
     "description": "金波亭章鱼烧(北京簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFF9WFKW"
+    "source_id": "B0FFF9WFKW",
+    "recommendation": "金波亭章鱼烧(北京簋街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_d4dc4757",
@@ -6945,7 +7216,8 @@
     "meal_type": "main",
     "description": "兄弟烧烤(簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B000A9O6JG"
+    "source_id": "B000A9O6JG",
+    "recommendation": "兄弟烧烤(簋街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_20732ebb",
@@ -6970,7 +7242,8 @@
     "meal_type": "main",
     "description": "簋街大肠卤煮(东坝店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFHDWHK4"
+    "source_id": "B0FFHDWHK4",
+    "recommendation": "簋街大肠卤煮(东坝店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_601d4766",
@@ -6995,7 +7268,8 @@
     "meal_type": "main",
     "description": "簋街味道馋猫鱼馆(良乡梅花庄店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFKG632Z"
+    "source_id": "B0FFKG632Z",
+    "recommendation": "在房山区觅食推荐簋街味道馋猫鱼馆(良乡梅花庄店)，性价比不错"
   },
   {
     "id": "amap_e3286754",
@@ -7020,7 +7294,8 @@
     "meal_type": "main",
     "description": "簋街龙虾·馋嘴蛙，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0J06UAVAJ"
+    "source_id": "B0J06UAVAJ",
+    "recommendation": "在通州区觅食推荐簋街龙虾·馋嘴蛙，性价比不错"
   },
   {
     "id": "amap_9480a3be",
@@ -7045,7 +7320,8 @@
     "meal_type": "main",
     "description": "满分炸串(北京旭辉天地南城新簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0H1URZIA7"
+    "source_id": "B0H1URZIA7",
+    "recommendation": "满分炸串(北京旭辉天地南城新簋街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_53440111",
@@ -7071,7 +7347,8 @@
     "meal_type": "main",
     "description": "东直门中学食堂(北京簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B000A9JLQY"
+    "source_id": "B000A9JLQY",
+    "recommendation": "在东城区觅食推荐东直门中学食堂(北京簋街店)，性价比不错"
   },
   {
     "id": "amap_dfad467",
@@ -7096,7 +7373,8 @@
     "meal_type": "main",
     "description": "盱眙龙虾簋街店，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LDVZZ66V"
+    "source_id": "B0LDVZZ66V",
+    "recommendation": "盱眙龙虾簋街店口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_2b5ad8eb",
@@ -7122,7 +7400,8 @@
     "meal_type": "main",
     "description": "天一阁(东直门簋街一店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B000A7BBW1"
+    "source_id": "B000A7BBW1",
+    "recommendation": "天一阁(东直门簋街一店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_c4136b56",
@@ -7148,7 +7427,8 @@
     "meal_type": "main",
     "description": "簋街老徐龙虾·牛蛙·烤鱼·川湘菜(东直门总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFIV6AYV"
+    "source_id": "B0FFIV6AYV",
+    "recommendation": "簋街老徐龙虾·牛蛙·烤鱼·川湘菜(东直门总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_3afeb3b8",
@@ -7173,7 +7453,8 @@
     "meal_type": "main",
     "description": "山河薈·萃(雍和宫簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LU4ZMCXZ"
+    "source_id": "B0LU4ZMCXZ",
+    "recommendation": "山河薈·萃(雍和宫簋街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_286870fe",
@@ -7198,7 +7479,8 @@
     "meal_type": "drink",
     "description": "蜜雪冰城(簋街胡总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0H2UMPL3B"
+    "source_id": "B0H2UMPL3B",
+    "recommendation": "蜜雪冰城(簋街胡总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_2d033817",
@@ -7223,7 +7505,8 @@
     "meal_type": "main",
     "description": "威海银滩渔家菜(北京簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0H27AVK8W"
+    "source_id": "B0H27AVK8W",
+    "recommendation": "在东城区觅食推荐威海银滩渔家菜(北京簋街店)，性价比不错"
   },
   {
     "id": "amap_ca2ab7d5",
@@ -7249,7 +7532,8 @@
     "meal_type": "main",
     "description": "晨阳北新桥和牛烧肉(北京簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0G0KST2VQ"
+    "source_id": "B0G0KST2VQ",
+    "recommendation": "在东城区觅食推荐晨阳北新桥和牛烧肉(北京簋街店)，性价比不错"
   },
   {
     "id": "amap_38d52cdf",
@@ -7274,7 +7558,8 @@
     "meal_type": "main",
     "description": "牛街大绿包烤羊腿(北京簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0IUR7R1LD"
+    "source_id": "B0IUR7R1LD",
+    "recommendation": "牛街大绿包烤羊腿(北京簋街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_f4ee2301",
@@ -7300,7 +7585,8 @@
     "meal_type": "main",
     "description": "通乐饭馆(北京簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B000A2E98E"
+    "source_id": "B000A2E98E",
+    "recommendation": "通乐饭馆(北京簋街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_45bcc20d",
@@ -7326,7 +7612,8 @@
     "meal_type": "main",
     "description": "李华泽热卤鸭货(李华泽热卤鸭货(簋街店))，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L33CBT52"
+    "source_id": "B0L33CBT52",
+    "recommendation": "李华泽热卤鸭货(李华泽热卤鸭货(簋街店))口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_dfd1ccb5",
@@ -7350,7 +7637,8 @@
     "meal_type": "main",
     "description": "簋街麻小(昌平店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFH8MZO6"
+    "source_id": "B0FFH8MZO6",
+    "recommendation": "在昌平区觅食推荐簋街麻小(昌平店)，性价比不错"
   },
   {
     "id": "amap_4b1e653e",
@@ -7375,7 +7663,8 @@
     "meal_type": "main",
     "description": "簋街麻辣小龙虾，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L3USH8QO"
+    "source_id": "B0L3USH8QO",
+    "recommendation": "在朝阳区觅食推荐簋街麻辣小龙虾，性价比不错"
   },
   {
     "id": "amap_54202f43",
@@ -7402,7 +7691,8 @@
     "meal_type": "main",
     "description": "火辣辣老重庆地摊火锅(簋街总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L0YR7YJW"
+    "source_id": "B0L0YR7YJW",
+    "recommendation": "火辣辣老重庆地摊火锅(簋街总店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_c333157b",
@@ -7428,7 +7718,8 @@
     "meal_type": "main",
     "description": "小春日和(北京簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFG2O0T6"
+    "source_id": "B0FFG2O0T6",
+    "recommendation": "小春日和(北京簋街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_2cc26990",
@@ -7453,7 +7744,8 @@
     "meal_type": "main",
     "description": "八爷府(北京簋街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFGY2GWI"
+    "source_id": "B0FFGY2GWI",
+    "recommendation": "在东城区觅食推荐八爷府(北京簋街店)，性价比不错"
   },
   {
     "id": "amap_1010e1a0",
@@ -7479,7 +7771,8 @@
     "meal_type": "main",
     "description": "伊犁楼兰餐厅(簋街新店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0JGUZHG2T"
+    "source_id": "B0JGUZHG2T",
+    "recommendation": "伊犁楼兰餐厅(簋街新店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e1a7281e",
@@ -7674,7 +7967,8 @@
     "meal_type": "main",
     "description": "北京超极合生汇，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0HKH7GI7B"
+    "source_id": "B0HKH7GI7B",
+    "recommendation": "推荐在昌平区参观北京超极合生汇，人气评分4.8"
   },
   {
     "id": "amap_d1c32466",
@@ -7702,7 +7996,8 @@
     "meal_type": "main",
     "description": "万达广场(通州店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A9NIPV"
+    "source_id": "B000A9NIPV",
+    "recommendation": "万达广场(通州店)适合城市游览、购物爱好者"
   },
   {
     "id": "amap_950b016",
@@ -7729,7 +8024,8 @@
     "meal_type": "main",
     "description": "华熙LIVE·五棵松，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0H6RU92AP"
+    "source_id": "B0H6RU92AP",
+    "recommendation": "华熙LIVE·五棵松适合城市游览、购物爱好者"
   },
   {
     "id": "amap_5385fffe",
@@ -7756,7 +8052,8 @@
     "meal_type": "main",
     "description": "凯德MALL(西直门店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A8VSXA"
+    "source_id": "B000A8VSXA",
+    "recommendation": "凯德MALL(西直门店)适合城市游览、购物爱好者"
   },
   {
     "id": "amap_b628ae34",
@@ -7782,7 +8079,8 @@
     "meal_type": "main",
     "description": "湾里·王府井WellTown，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0KAXDG2V0"
+    "source_id": "B0KAXDG2V0",
+    "recommendation": "推荐在通州区参观湾里·王府井WellTown，人气评分4.7"
   },
   {
     "id": "amap_ab26440a",
@@ -7809,7 +8107,8 @@
     "meal_type": "main",
     "description": "北京五棵松万达广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0HB379PU7"
+    "source_id": "B0HB379PU7",
+    "recommendation": "北京五棵松万达广场适合城市游览、购物爱好者"
   },
   {
     "id": "amap_a09c0c1e",
@@ -7836,7 +8135,8 @@
     "meal_type": "main",
     "description": "西红门新光界，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0I2G5GDPC"
+    "source_id": "B0I2G5GDPC",
+    "recommendation": "推荐在大兴区参观西红门新光界，人气评分4.6"
   },
   {
     "id": "amap_fdd82a12",
@@ -7863,7 +8163,8 @@
     "meal_type": "main",
     "description": "北京SKP，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A9R4FE"
+    "source_id": "B000A9R4FE",
+    "recommendation": "推荐在朝阳区参观北京SKP，人气评分4.9"
   },
   {
     "id": "amap_36a14037",
@@ -7890,7 +8191,8 @@
     "meal_type": "main",
     "description": "百荣世贸商城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A8446U"
+    "source_id": "B000A8446U",
+    "recommendation": "推荐在东城区参观百荣世贸商城，人气评分4.7"
   },
   {
     "id": "amap_b0f073f2",
@@ -7917,7 +8219,8 @@
     "meal_type": "main",
     "description": "世纪金源购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A83JJ1"
+    "source_id": "B000A83JJ1",
+    "recommendation": "世纪金源购物中心适合城市游览、购物爱好者"
   },
   {
     "id": "amap_5ddfce5b",
@@ -7944,7 +8247,8 @@
     "meal_type": "main",
     "description": "国贸商城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A853CF"
+    "source_id": "B000A853CF",
+    "recommendation": "推荐在朝阳区参观国贸商城，人气评分4.8"
   },
   {
     "id": "amap_df669bb9",
@@ -7971,7 +8275,8 @@
     "meal_type": "main",
     "description": "北京apm，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A842O2"
+    "source_id": "B000A842O2",
+    "recommendation": "北京apm适合城市游览、购物爱好者"
   },
   {
     "id": "amap_5d3dee89",
@@ -7997,7 +8302,8 @@
     "meal_type": "main",
     "description": "龙湖北京丽泽天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFLJ6X9I"
+    "source_id": "B0FFLJ6X9I",
+    "recommendation": "推荐在丰台区参观龙湖北京丽泽天街，人气评分4.8"
   },
   {
     "id": "amap_9820bc68",
@@ -8023,7 +8329,8 @@
     "meal_type": "main",
     "description": "八达岭奥莱，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFG9OHFF"
+    "source_id": "B0FFG9OHFF",
+    "recommendation": "八达岭奥莱适合城市游览、购物爱好者"
   },
   {
     "id": "amap_7a63e220",
@@ -8050,7 +8357,8 @@
     "meal_type": "main",
     "description": "首开通州万象汇，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0G0K7T9J9"
+    "source_id": "B0G0K7T9J9",
+    "recommendation": "首开通州万象汇适合城市游览、购物爱好者"
   },
   {
     "id": "amap_c0ac25cf",
@@ -8077,7 +8385,8 @@
     "meal_type": "main",
     "description": "龙湖北京大兴天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFGZR768"
+    "source_id": "B0FFGZR768",
+    "recommendation": "龙湖北京大兴天街适合城市游览、购物爱好者"
   },
   {
     "id": "amap_653dd738",
@@ -8104,7 +8413,8 @@
     "meal_type": "main",
     "description": "北京燕莎奥特莱斯购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFF3J47S"
+    "source_id": "B0FFF3J47S",
+    "recommendation": "推荐在朝阳区参观北京燕莎奥特莱斯购物中心，人气评分4.8"
   },
   {
     "id": "amap_c6f9f482",
@@ -8131,7 +8441,8 @@
     "meal_type": "main",
     "description": "王府井喜悦，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000AA0I5O"
+    "source_id": "B000AA0I5O",
+    "recommendation": "王府井喜悦适合城市游览、购物爱好者"
   },
   {
     "id": "amap_d08358b2",
@@ -8157,7 +8468,8 @@
     "meal_type": "main",
     "description": "中关村ARTPARK大融城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0LDNU37SC"
+    "source_id": "B0LDNU37SC",
+    "recommendation": "中关村ARTPARK大融城适合城市游览、购物爱好者"
   },
   {
     "id": "amap_28952ec3",
@@ -8184,7 +8496,8 @@
     "meal_type": "main",
     "description": "北投新奥购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A87QIT"
+    "source_id": "B000A87QIT",
+    "recommendation": "推荐在朝阳区参观北投新奥购物中心，人气评分4.7"
   },
   {
     "id": "amap_ac45e60c",
@@ -8267,7 +8580,8 @@
     "meal_type": "main",
     "description": "龙德广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A8VNOV"
+    "source_id": "B000A8VNOV",
+    "recommendation": "龙德广场适合城市游览、购物爱好者"
   },
   {
     "id": "amap_b6c33ca4",
@@ -8294,7 +8608,8 @@
     "meal_type": "main",
     "description": "枫蓝国际购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A84154"
+    "source_id": "B000A84154",
+    "recommendation": "推荐在海淀区参观枫蓝国际购物中心，人气评分4.8"
   },
   {
     "id": "amap_d16bc1ba",
@@ -8321,7 +8636,8 @@
     "meal_type": "main",
     "description": "银座和谐广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFG3NBGH"
+    "source_id": "B0FFG3NBGH",
+    "recommendation": "银座和谐广场适合城市游览、购物爱好者"
   },
   {
     "id": "amap_b671d65",
@@ -8376,7 +8692,8 @@
     "meal_type": "main",
     "description": "北京东方新天地，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B000A83LNO"
+    "source_id": "B000A83LNO",
+    "recommendation": "推荐在东城区参观北京东方新天地，人气评分4.7"
   },
   {
     "id": "amap_ab1a68d0",
@@ -8403,7 +8720,8 @@
     "meal_type": "main",
     "description": "龙湖北京亦庄天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0HUNABECE"
+    "source_id": "B0HUNABECE",
+    "recommendation": "龙湖北京亦庄天街适合城市游览、购物爱好者"
   },
   {
     "id": "amap_6d0215c2",
@@ -8430,7 +8748,8 @@
     "meal_type": "main",
     "description": "西北旺万象汇，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0HBO6GWU7"
+    "source_id": "B0HBO6GWU7",
+    "recommendation": "西北旺万象汇适合城市游览、购物爱好者"
   },
   {
     "id": "amap_ed19730d",
@@ -8455,7 +8774,8 @@
     "meal_type": "drink",
     "description": "琥珀咖啡Amber café·北京泛太平洋酒店，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0LG7C44WV"
+    "source_id": "B0LG7C44WV",
+    "recommendation": "琥珀咖啡Amber café·北京泛太平洋酒店是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_f95c959b",
@@ -8483,7 +8803,8 @@
     "meal_type": "drink",
     "description": "JoinYin-联和印学院茶，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0HAF7WSV0"
+    "source_id": "B0HAF7WSV0",
+    "recommendation": "JoinYin-联和印学院茶是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_1647bf05",
@@ -8509,7 +8830,8 @@
     "meal_type": "drink",
     "description": "花间驻咖啡·酒馆·茶馆(天宁1号文化科技创新园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFJFJ1S0"
+    "source_id": "B0FFJFJ1S0",
+    "recommendation": "在西城区觅食推荐花间驻咖啡·酒馆·茶馆(天宁1号文化科技创新园店)，性价比不错"
   },
   {
     "id": "amap_d8fa264f",
@@ -8534,7 +8856,8 @@
     "meal_type": "drink",
     "description": "物理Coffee·Tea咖啡·茶馆(牡丹园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0JGCMLAOY"
+    "source_id": "B0JGCMLAOY",
+    "recommendation": "在海淀区觅食推荐物理Coffee·Tea咖啡·茶馆(牡丹园店)，性价比不错"
   },
   {
     "id": "amap_31608f0f",
@@ -8560,7 +8883,8 @@
     "meal_type": "drink",
     "description": "雲之瑞草茶馆咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0LBRUK0MK"
+    "source_id": "B0LBRUK0MK",
+    "recommendation": "雲之瑞草茶馆咖啡是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_f453ca4b",
@@ -8585,7 +8909,8 @@
     "meal_type": "drink",
     "description": "呦呦物色·岩茶馆(咏园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0I3TCE3ZQ"
+    "source_id": "B0I3TCE3ZQ",
+    "recommendation": "在东城区觅食推荐呦呦物色·岩茶馆(咏园店)，性价比不错"
   },
   {
     "id": "amap_7b507eb7",
@@ -8610,7 +8935,8 @@
     "meal_type": "drink",
     "description": "东润静雅茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K3YDCAG8"
+    "source_id": "B0K3YDCAG8",
+    "recommendation": "东润静雅茶馆口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_17179be0",
@@ -8634,7 +8960,8 @@
     "meal_type": "drink",
     "description": "房山小茶馆六石茶咖，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0LRZ52G5V"
+    "source_id": "B0LRZ52G5V",
+    "recommendation": "房山小茶馆六石茶咖口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_14c9cdf9",
@@ -8659,7 +8986,8 @@
     "meal_type": "drink",
     "description": "Sanwild茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KRU94AR8"
+    "source_id": "B0KRU94AR8",
+    "recommendation": "Sanwild茶馆是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b7032473",
@@ -8684,7 +9012,8 @@
     "meal_type": "drink",
     "description": "香庭咖啡茶(北七家店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0L1R5BF9M"
+    "source_id": "B0L1R5BF9M",
+    "recommendation": "在昌平区觅食推荐香庭咖啡茶(北七家店)，性价比不错"
   },
   {
     "id": "amap_d292d250",
@@ -8709,7 +9038,8 @@
     "meal_type": "drink",
     "description": "暖暖咖啡(马甸店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFIYMABO"
+    "source_id": "B0FFIYMABO",
+    "recommendation": "在朝阳区觅食推荐暖暖咖啡(马甸店)，性价比不错"
   },
   {
     "id": "amap_73a23f02",
@@ -8733,7 +9063,8 @@
     "meal_type": "drink",
     "description": "窝咖咖休闲咖啡沙龙艺术品(万科天地店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0H2K56LQ4"
+    "source_id": "B0H2K56LQ4",
+    "recommendation": "窝咖咖休闲咖啡沙龙艺术品(万科天地店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_2e162e44",
@@ -8758,7 +9089,8 @@
     "meal_type": "drink",
     "description": "素拾忆咖啡·素食，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0L1OUO7WG"
+    "source_id": "B0L1OUO7WG",
+    "recommendation": "素拾忆咖啡·素食口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a2c0c63d",
@@ -8783,7 +9115,8 @@
     "meal_type": "drink",
     "description": "茶语咖啡(檀营小区店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFL82QZ3"
+    "source_id": "B0FFL82QZ3",
+    "recommendation": "在密云区觅食推荐茶语咖啡(檀营小区店)，性价比不错"
   },
   {
     "id": "amap_2f6554d2",
@@ -8808,7 +9141,8 @@
     "meal_type": "drink",
     "description": "咖啡茶艺娱乐吧，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFK8XGEB"
+    "source_id": "B0FFK8XGEB",
+    "recommendation": "在石景山区觅食推荐咖啡茶艺娱乐吧，性价比不错"
   },
   {
     "id": "amap_d3962468",
@@ -8833,7 +9167,8 @@
     "meal_type": "drink",
     "description": "星坐咖啡(朝来绿色家园广华居店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0G0ANQJP8"
+    "source_id": "B0G0ANQJP8",
+    "recommendation": "星坐咖啡(朝来绿色家园广华居店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_1ffa96af",
@@ -8858,7 +9193,8 @@
     "meal_type": "drink",
     "description": "柿园客厅·茶·咖啡·后海四合院，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0LDNKU0O3"
+    "source_id": "B0LDNKU0O3",
+    "recommendation": "柿园客厅·茶·咖啡·后海四合院是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_31a48f0e",
@@ -8883,7 +9219,8 @@
     "meal_type": "drink",
     "description": "拾光咖啡厅(科实大厦店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KBFOV5H2"
+    "source_id": "B0KBFOV5H2",
+    "recommendation": "在海淀区觅食推荐拾光咖啡厅(科实大厦店)，性价比不错"
   },
   {
     "id": "amap_2829206e",
@@ -8909,7 +9246,8 @@
     "meal_type": "drink",
     "description": "不二茶舍·咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K3SAK8RZ"
+    "source_id": "B0K3SAK8RZ",
+    "recommendation": "在丰台区觅食推荐不二茶舍·咖啡，性价比不错"
   },
   {
     "id": "amap_45eb7676",
@@ -8934,7 +9272,8 @@
     "meal_type": "drink",
     "description": "北平印象·咖啡馆·酒馆(月坛店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0IRKAT305"
+    "source_id": "B0IRKAT305",
+    "recommendation": "北平印象·咖啡馆·酒馆(月坛店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_9d3d40d8",
@@ -8959,7 +9298,8 @@
     "meal_type": "drink",
     "description": "聚彩金秋·茶语咖啡书吧，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K03SN47M"
+    "source_id": "B0K03SN47M",
+    "recommendation": "聚彩金秋·茶语咖啡书吧是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_255f6d57",
@@ -8984,7 +9324,8 @@
     "meal_type": "drink",
     "description": "凯迪克格兰云天大酒店-咖啡厅，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0J06UJSYS"
+    "source_id": "B0J06UJSYS",
+    "recommendation": "在朝阳区觅食推荐凯迪克格兰云天大酒店-咖啡厅，性价比不错"
   },
   {
     "id": "amap_1a1f06a0",
@@ -9009,7 +9350,8 @@
     "meal_type": "drink",
     "description": "咖啡通(大山子店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFI0S10F"
+    "source_id": "B0FFI0S10F",
+    "recommendation": "在朝阳区觅食推荐咖啡通(大山子店)，性价比不错"
   },
   {
     "id": "amap_25c606f7",
@@ -9034,7 +9376,8 @@
     "meal_type": "drink",
     "description": "朝花夕室，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFKTAFXX"
+    "source_id": "B0FFKTAFXX",
+    "recommendation": "朝花夕室口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a7855b3b",
@@ -9059,7 +9402,8 @@
     "meal_type": "drink",
     "description": "润友茶舍，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K2DHHL10"
+    "source_id": "B0K2DHHL10",
+    "recommendation": "润友茶舍是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_96551091",
@@ -9083,7 +9427,8 @@
     "meal_type": "main",
     "description": "北京华尔道夫胡同四合院，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0H6YB5C1F"
+    "source_id": "B0H6YB5C1F",
+    "recommendation": "北京华尔道夫胡同四合院位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_782c4d0a",
@@ -9107,7 +9452,8 @@
     "meal_type": "main",
     "description": "COFFIZZ高富诗酒店(北京天安门王府井教堂店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0HU9H7ACX"
+    "source_id": "B0HU9H7ACX",
+    "recommendation": "推荐入住COFFIZZ高富诗酒店(北京天安门王府井教堂店)，交通便利"
   },
   {
     "id": "amap_71ac74d2",
@@ -9131,7 +9477,8 @@
     "meal_type": "main",
     "description": "北京天安门王府井合院漫心府，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0H6D4377R"
+    "source_id": "B0H6D4377R",
+    "recommendation": "推荐入住北京天安门王府井合院漫心府，交通便利"
   },
   {
     "id": "amap_b3667fd1",
@@ -9159,7 +9506,8 @@
     "meal_type": "main",
     "description": "天伦松鹤大饭店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A8105M"
+    "source_id": "B000A8105M",
+    "recommendation": "推荐入住天伦松鹤大饭店，交通便利"
   },
   {
     "id": "amap_ac68b59d",
@@ -9183,7 +9531,8 @@
     "meal_type": "main",
     "description": "速8精选酒店北京王府井大街金鱼胡同地铁站店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0IU4RG0ON"
+    "source_id": "B0IU4RG0ON",
+    "recommendation": "推荐入住速8精选酒店北京王府井大街金鱼胡同地铁站店，交通便利"
   },
   {
     "id": "amap_ed4515b",
@@ -9211,7 +9560,8 @@
     "meal_type": "main",
     "description": "北京华尔道夫酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000AA0F26"
+    "source_id": "B000AA0F26",
+    "recommendation": "推荐入住北京华尔道夫酒店，交通便利"
   },
   {
     "id": "amap_a8b695a8",
@@ -9235,7 +9585,8 @@
     "meal_type": "main",
     "description": "北京婧小院酒店(王府井天安门广场店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0FFKNMAPP"
+    "source_id": "B0FFKNMAPP",
+    "recommendation": "北京婧小院酒店(王府井天安门广场店)位于东城区，出行方便"
   },
   {
     "id": "amap_44275838",
@@ -9260,7 +9611,8 @@
     "meal_type": "main",
     "description": "汉庭酒店(北京王府井店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A8UUWI"
+    "source_id": "B000A8UUWI",
+    "recommendation": "推荐入住汉庭酒店(北京王府井店)，交通便利"
   },
   {
     "id": "amap_18bacfe4",
@@ -9285,7 +9637,8 @@
     "meal_type": "main",
     "description": "北京朝旺园旅馆，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A7ONBD"
+    "source_id": "B000A7ONBD",
+    "recommendation": "北京朝旺园旅馆位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_1ab58f5d",
@@ -9313,7 +9666,8 @@
     "meal_type": "main",
     "description": "北京王府井希尔顿酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A8755R"
+    "source_id": "B000A8755R",
+    "recommendation": "推荐入住北京王府井希尔顿酒店，交通便利"
   },
   {
     "id": "amap_dbfca466",
@@ -9341,7 +9695,8 @@
     "meal_type": "main",
     "description": "和平宾馆，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A7ELMS"
+    "source_id": "B000A7ELMS",
+    "recommendation": "推荐入住和平宾馆，交通便利"
   },
   {
     "id": "amap_ec28447f",
@@ -9366,7 +9721,8 @@
     "meal_type": "main",
     "description": "国际艺苑大酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A7CBSF"
+    "source_id": "B000A7CBSF",
+    "recommendation": "国际艺苑大酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_fac91d08",
@@ -9391,7 +9747,8 @@
     "meal_type": "main",
     "description": "建国·璞隐酒店(北京天安门王府井店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0HDHADJ1A"
+    "source_id": "B0HDHADJ1A",
+    "recommendation": "推荐入住建国·璞隐酒店(北京天安门王府井店)，交通便利"
   },
   {
     "id": "amap_e067527a",
@@ -9415,7 +9772,8 @@
     "meal_type": "main",
     "description": "美程青居酒店(王府井协和医院店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0FFLNEOP1"
+    "source_id": "B0FFLNEOP1",
+    "recommendation": "美程青居酒店(王府井协和医院店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_bf444bd8",
@@ -9440,7 +9798,8 @@
     "meal_type": "main",
     "description": "锦江之星(北京王府井步行街酒店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A8XTW7"
+    "source_id": "B000A8XTW7",
+    "recommendation": "锦江之星(北京王府井步行街酒店)位于东城区，出行方便"
   },
   {
     "id": "amap_96f6afe2",
@@ -9468,7 +9827,8 @@
     "meal_type": "main",
     "description": "天伦王朝酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A7BEIK"
+    "source_id": "B000A7BEIK",
+    "recommendation": "推荐入住天伦王朝酒店，交通便利"
   },
   {
     "id": "amap_cf3dcc9e",
@@ -9492,7 +9852,8 @@
     "meal_type": "main",
     "description": "北京天安门王府井枫渡酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0K1A7UB3O"
+    "source_id": "B0K1A7UB3O",
+    "recommendation": "北京天安门王府井枫渡酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_23fec5c5",
@@ -9516,7 +9877,8 @@
     "meal_type": "main",
     "description": "北京天安门王府井步行街亚朵酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0H1CZ3WPZ"
+    "source_id": "B0H1CZ3WPZ",
+    "recommendation": "推荐入住北京天安门王府井步行街亚朵酒店，交通便利"
   },
   {
     "id": "amap_21eb80b6",
@@ -9541,7 +9903,8 @@
     "meal_type": "main",
     "description": "北京王府半岛酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A7ISXS"
+    "source_id": "B000A7ISXS",
+    "recommendation": "推荐入住北京王府半岛酒店，交通便利"
   },
   {
     "id": "amap_2598565e",
@@ -9565,7 +9928,8 @@
     "meal_type": "main",
     "description": "北京天安门故宫宝欐酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0HD4ZGPJJ"
+    "source_id": "B0HD4ZGPJJ",
+    "recommendation": "北京天安门故宫宝欐酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_c14fd836",
@@ -9590,7 +9954,8 @@
     "meal_type": "main",
     "description": "桔子酒店(北京王府井店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0FFJ89UP3"
+    "source_id": "B0FFJ89UP3",
+    "recommendation": "推荐入住桔子酒店(北京王府井店)，交通便利"
   },
   {
     "id": "amap_a3adaa91",
@@ -9615,7 +9980,8 @@
     "meal_type": "main",
     "description": "北京丽晶酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A7I5SY"
+    "source_id": "B000A7I5SY",
+    "recommendation": "北京丽晶酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_4f2aa54a",
@@ -9639,7 +10005,8 @@
     "meal_type": "main",
     "description": "春豪宾馆(王府井店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A804BF"
+    "source_id": "B000A804BF",
+    "recommendation": "春豪宾馆(王府井店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_333b77ee",
@@ -9663,7 +10030,8 @@
     "meal_type": "main",
     "description": "左府婧园酒店(北京天安门王府井店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0LD5H6FWY"
+    "source_id": "B0LD5H6FWY",
+    "recommendation": "推荐入住左府婧园酒店(北京天安门王府井店)，交通便利"
   },
   {
     "id": "amap_659265c2",
@@ -9687,7 +10055,8 @@
     "meal_type": "main",
     "description": "北京浪漫四季酒店(王府井大街协和医院店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0K2RUGJ5W"
+    "source_id": "B0K2RUGJ5W",
+    "recommendation": "推荐入住北京浪漫四季酒店(王府井大街协和医院店)，交通便利"
   },
   {
     "id": "amap_e3766e6b",
@@ -9711,7 +10080,8 @@
     "meal_type": "main",
     "description": "金果精选酒店(北京故宫王府井店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0HAU5TDOF"
+    "source_id": "B0HAU5TDOF",
+    "recommendation": "金果精选酒店(北京故宫王府井店)位于东城区，出行方便"
   },
   {
     "id": "amap_615a08c4",
@@ -9735,7 +10105,8 @@
     "meal_type": "main",
     "description": "麗枫酒店(北京天安门广场王府井大街店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0FFKU58YI"
+    "source_id": "B0FFKU58YI",
+    "recommendation": "麗枫酒店(北京天安门广场王府井大街店)位于东城区，出行方便"
   },
   {
     "id": "amap_2a174f79",
@@ -9759,7 +10130,8 @@
     "meal_type": "main",
     "description": "北京天安门王府井桔子水晶酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0FFKFWFQY"
+    "source_id": "B0FFKFWFQY",
+    "recommendation": "北京天安门王府井桔子水晶酒店位于东城区，出行方便"
   },
   {
     "id": "amap_86495deb",
@@ -9784,7 +10156,8 @@
     "meal_type": "main",
     "description": "创世商务酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A8UI3H"
+    "source_id": "B000A8UI3H",
+    "recommendation": "创世商务酒店位于东城区，出行方便"
   },
   {
     "id": "amap_29549145",
@@ -9808,7 +10181,8 @@
     "meal_type": "main",
     "description": "北京云景明谊酒店(王府井店)，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0HA5CPAN8"
+    "source_id": "B0HA5CPAN8",
+    "recommendation": "北京云景明谊酒店(王府井店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_aae1891f",
@@ -9836,7 +10210,8 @@
     "meal_type": "main",
     "description": "北京丽亭酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A2415C"
+    "source_id": "B000A2415C",
+    "recommendation": "推荐入住北京丽亭酒店，交通便利"
   },
   {
     "id": "amap_b7707e1d",
@@ -9860,7 +10235,8 @@
     "meal_type": "main",
     "description": "北京天意宝旅馆，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A9Q79K"
+    "source_id": "B000A9Q79K",
+    "recommendation": "北京天意宝旅馆位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_d876ac3d",
@@ -9888,7 +10264,8 @@
     "meal_type": "main",
     "description": "北京王府井文华东方酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0H6L7EQUZ"
+    "source_id": "B0H6L7EQUZ",
+    "recommendation": "北京王府井文华东方酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_ab662e60",
@@ -9913,7 +10290,8 @@
     "meal_type": "main",
     "description": "北京金茂万丽酒店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B0FFFAJDQC"
+    "source_id": "B0FFFAJDQC",
+    "recommendation": "北京金茂万丽酒店位于东城区，出行方便"
   },
   {
     "id": "amap_f7d5806d",
@@ -9938,7 +10316,8 @@
     "meal_type": "main",
     "description": "南京大饭店，来自高德 Web 服务 POI 搜索；分类：王府井酒店。",
     "source": "amap",
-    "source_id": "B000A7CQJ0"
+    "source_id": "B000A7CQJ0",
+    "recommendation": "南京大饭店位于东城区，出行方便"
   },
   {
     "id": "amap_7b4180da",
@@ -9962,7 +10341,8 @@
     "meal_type": "main",
     "description": "住小叮酒店(北京万达CBD国贸地铁站店)，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0M6UHPGQE"
+    "source_id": "B0M6UHPGQE",
+    "recommendation": "住小叮酒店(北京万达CBD国贸地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_6de96125",
@@ -9986,7 +10366,8 @@
     "meal_type": "main",
     "description": "三行者青年酒店(北京永安里地铁站光华路SOHO店)，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0L3CUJMJD"
+    "source_id": "B0L3CUJMJD",
+    "recommendation": "推荐入住三行者青年酒店(北京永安里地铁站光华路SOHO店)，交通便利"
   },
   {
     "id": "amap_9091f622",
@@ -10010,7 +10391,8 @@
     "meal_type": "main",
     "description": "禾木青旅酒店(北京国贸店)，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0L17Z83XZ"
+    "source_id": "B0L17Z83XZ",
+    "recommendation": "推荐入住禾木青旅酒店(北京国贸店)，交通便利"
   },
   {
     "id": "amap_5470cde8",
@@ -10034,7 +10416,8 @@
     "meal_type": "main",
     "description": "驿柠酒店(北京国贸CBD核心区店)，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0LRUHDISH"
+    "source_id": "B0LRUHDISH",
+    "recommendation": "驿柠酒店(北京国贸CBD核心区店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_6131a25a",
@@ -10059,7 +10442,8 @@
     "meal_type": "main",
     "description": "瑞兆酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A82UVQ"
+    "source_id": "B000A82UVQ",
+    "recommendation": "推荐入住瑞兆酒店，交通便利"
   },
   {
     "id": "amap_aa07df37",
@@ -10083,7 +10467,8 @@
     "meal_type": "main",
     "description": "三与叁酒店(北京国贸CBD核心区店)，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0LG95TF7B"
+    "source_id": "B0LG95TF7B",
+    "recommendation": "推荐入住三与叁酒店(北京国贸CBD核心区店)，交通便利"
   },
   {
     "id": "amap_7acb4a0d",
@@ -10107,7 +10492,8 @@
     "meal_type": "main",
     "description": "JEN北京新国贸饭店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0FFHWBSQS"
+    "source_id": "B0FFHWBSQS",
+    "recommendation": "JEN北京新国贸饭店位于朝阳区，出行方便"
   },
   {
     "id": "amap_125fa080",
@@ -10131,7 +10517,8 @@
     "meal_type": "main",
     "description": "秋果酒店(北京国贸中心店)，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0LG5R21MK"
+    "source_id": "B0LG5R21MK",
+    "recommendation": "推荐入住秋果酒店(北京国贸中心店)，交通便利"
   },
   {
     "id": "amap_e4744ddf",
@@ -10155,7 +10542,8 @@
     "meal_type": "main",
     "description": "家美世界城公寓(北京国贸世贸天阶店)，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0KBAXCHQ6"
+    "source_id": "B0KBAXCHQ6",
+    "recommendation": "推荐入住家美世界城公寓(北京国贸世贸天阶店)，交通便利"
   },
   {
     "id": "amap_e26fe72f",
@@ -10180,7 +10568,8 @@
     "meal_type": "main",
     "description": "北京建国饭店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A7CQ31"
+    "source_id": "B000A7CQ31",
+    "recommendation": "北京建国饭店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_4657fd4d",
@@ -10205,7 +10594,8 @@
     "meal_type": "main",
     "description": "全季酒店(北京国贸世贸天阶店)，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0LU3SAAV5"
+    "source_id": "B0LU3SAAV5",
+    "recommendation": "全季酒店(北京国贸世贸天阶店)位于朝阳区，出行方便"
   },
   {
     "id": "amap_b27058f9",
@@ -10229,7 +10619,8 @@
     "meal_type": "main",
     "description": "北京好时家酒店式公寓(世贸天阶店)，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0FFIPNC93"
+    "source_id": "B0FFIPNC93",
+    "recommendation": "北京好时家酒店式公寓(世贸天阶店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_6b9e593a",
@@ -10253,7 +10644,8 @@
     "meal_type": "main",
     "description": "纽扣酒店(北京国贸地铁站店)，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0L64C5M4P"
+    "source_id": "B0L64C5M4P",
+    "recommendation": "纽扣酒店(北京国贸地铁站店)位于朝阳区，出行方便"
   },
   {
     "id": "amap_b6583f93",
@@ -10277,7 +10669,8 @@
     "meal_type": "main",
     "description": "北京国贸CBD建国门漫心酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0KK5UDB5E"
+    "source_id": "B0KK5UDB5E",
+    "recommendation": "北京国贸CBD建国门漫心酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_27038f48",
@@ -10302,7 +10695,8 @@
     "meal_type": "main",
     "description": "北京国贸大酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A85J5D"
+    "source_id": "B000A85J5D",
+    "recommendation": "推荐入住北京国贸大酒店，交通便利"
   },
   {
     "id": "amap_4fcaab7",
@@ -10330,7 +10724,8 @@
     "meal_type": "main",
     "description": "北京柏悦酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A81C03"
+    "source_id": "B000A81C03",
+    "recommendation": "北京柏悦酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_cbb06a50",
@@ -10358,7 +10753,8 @@
     "meal_type": "main",
     "description": "北京中国大饭店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A7CQYB"
+    "source_id": "B000A7CQYB",
+    "recommendation": "北京中国大饭店位于朝阳区，出行方便"
   },
   {
     "id": "amap_45a3dc88",
@@ -10383,7 +10779,8 @@
     "meal_type": "main",
     "description": "北京嘉里大酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A6890E"
+    "source_id": "B000A6890E",
+    "recommendation": "北京嘉里大酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_6c8c75e9",
@@ -10407,7 +10804,8 @@
     "meal_type": "main",
     "description": "北京国贸CBD建国门桔子水晶酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A87HRB"
+    "source_id": "B000A87HRB",
+    "recommendation": "北京国贸CBD建国门桔子水晶酒店位于朝阳区，出行方便"
   },
   {
     "id": "amap_b4c260b6",
@@ -10432,7 +10830,8 @@
     "meal_type": "main",
     "description": "和乔丽致酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A7HPQX"
+    "source_id": "B000A7HPQX",
+    "recommendation": "和乔丽致酒店位于朝阳区，出行方便"
   },
   {
     "id": "amap_24114358",
@@ -10460,7 +10859,8 @@
     "meal_type": "main",
     "description": "艾维克酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A7CBJ0"
+    "source_id": "B000A7CBJ0",
+    "recommendation": "艾维克酒店位于朝阳区，出行方便"
   },
   {
     "id": "amap_a3bab43a",
@@ -10485,7 +10885,8 @@
     "meal_type": "main",
     "description": "北京华彬费尔蒙酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A84IGH"
+    "source_id": "B000A84IGH",
+    "recommendation": "推荐入住北京华彬费尔蒙酒店，交通便利"
   },
   {
     "id": "amap_47272632",
@@ -10510,7 +10911,8 @@
     "meal_type": "main",
     "description": "北京瑰丽酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A7GVH0"
+    "source_id": "B000A7GVH0",
+    "recommendation": "北京瑰丽酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_53953579",
@@ -10535,7 +10937,8 @@
     "meal_type": "main",
     "description": "国泰饭店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B000A84GFD"
+    "source_id": "B000A84GFD",
+    "recommendation": "国泰饭店位于朝阳区，出行方便"
   },
   {
     "id": "amap_c3c44026",
@@ -10561,7 +10964,8 @@
     "meal_type": "main",
     "description": "北京国贸希尔顿花园酒店，来自高德 Web 服务 POI 搜索；分类：国贸酒店。",
     "source": "amap",
-    "source_id": "B0K0RU975F"
+    "source_id": "B0K0RU975F",
+    "recommendation": "北京国贸希尔顿花园酒店位于朝阳区，出行方便"
   },
   {
     "id": "amap_e84054ba",
@@ -10587,7 +10991,8 @@
     "meal_type": "main",
     "description": "北京南站(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV10006453"
+    "source_id": "BV10006453",
+    "recommendation": "北京南站(公交站)适合城市游览、交通爱好者"
   },
   {
     "id": "amap_372c30d2",
@@ -10613,7 +11018,8 @@
     "meal_type": "main",
     "description": "喆啡酒店北京东坝首都机场第二高速路店停车点，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "B0H39HT9WW"
+    "source_id": "B0H39HT9WW",
+    "recommendation": "喆啡酒店北京东坝首都机场第二高速路店停车点是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f659ac5a",
@@ -10638,7 +11044,8 @@
     "meal_type": "main",
     "description": "三元桥南(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV11493641"
+    "source_id": "BV11493641",
+    "recommendation": "三元桥南(公交站)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_fcfa5e47",
@@ -10663,7 +11070,8 @@
     "meal_type": "main",
     "description": "郭家场桥(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV10803655"
+    "source_id": "BV10803655",
+    "recommendation": "推荐在朝阳区参观郭家场桥(公交站)，人气评分0.0"
   },
   {
     "id": "amap_7fab8279",
@@ -10689,7 +11097,8 @@
     "meal_type": "main",
     "description": "达官营(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV10005974"
+    "source_id": "BV10005974",
+    "recommendation": "达官营(公交站)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_6b84e0dd",
@@ -10715,7 +11124,8 @@
     "meal_type": "main",
     "description": "大北窑南(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV10001299"
+    "source_id": "BV10001299",
+    "recommendation": "大北窑南(公交站)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_88e2c7cd",
@@ -10741,7 +11151,8 @@
     "meal_type": "main",
     "description": "六里桥北里(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV10000212"
+    "source_id": "BV10000212",
+    "recommendation": "推荐在丰台区参观六里桥北里(公交站)，人气评分0.0"
   },
   {
     "id": "amap_87f55d29",
@@ -10767,7 +11178,8 @@
     "meal_type": "main",
     "description": "亮马桥(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV10000195"
+    "source_id": "BV10000195",
+    "recommendation": "推荐在朝阳区参观亮马桥(公交站)，人气评分0.0"
   },
   {
     "id": "amap_86f55b96",
@@ -10793,7 +11205,8 @@
     "meal_type": "main",
     "description": "双井桥北(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV10000194"
+    "source_id": "BV10000194",
+    "recommendation": "双井桥北(公交站)适合城市游览、交通爱好者"
   },
   {
     "id": "amap_87046620",
@@ -10819,7 +11232,8 @@
     "meal_type": "main",
     "description": "公主坟南(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV10000138"
+    "source_id": "BV10000138",
+    "recommendation": "公主坟南(公交站)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1679afeb",
@@ -10845,7 +11259,8 @@
     "meal_type": "main",
     "description": "劲松桥北(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV10007233"
+    "source_id": "BV10007233",
+    "recommendation": "推荐在朝阳区参观劲松桥北(公交站)，人气评分0.0"
   },
   {
     "id": "amap_dc4cb779",
@@ -10871,6 +11286,7 @@
     "meal_type": "main",
     "description": "京密路丽都饭店(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV11493613"
+    "source_id": "BV11493613",
+    "recommendation": "京密路丽都饭店(公交站)是当地热门景点，建议游览90分钟左右"
   }
 ]

@@ -22,7 +22,8 @@
     "meal_type": "main",
     "description": "西安城市运动公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFF5UE68"
+    "source_id": "B0FFF5UE68",
+    "recommendation": "西安城市运动公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_32ab3440",
@@ -45,7 +46,8 @@
     "meal_type": "main",
     "description": "大明宫国家遗址公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0ZYYD"
+    "source_id": "B001D0ZYYD",
+    "recommendation": "推荐在新城区参观大明宫国家遗址公园，人气评分4.7"
   },
   {
     "id": "amap_aebc1226",
@@ -68,7 +70,8 @@
     "meal_type": "main",
     "description": "汉城湖旅游风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0WRTA"
+    "source_id": "B001D0WRTA",
+    "recommendation": "推荐在未央区参观汉城湖旅游风景区，人气评分4.7"
   },
   {
     "id": "amap_f8893867",
@@ -91,7 +94,8 @@
     "meal_type": "main",
     "description": "西安城墙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0WP6V"
+    "source_id": "B001D0WP6V",
+    "recommendation": "推荐在新城区参观西安城墙，人气评分4.8"
   },
   {
     "id": "amap_380cfbf6",
@@ -115,7 +119,8 @@
     "meal_type": "main",
     "description": "宣平里景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFL7RN0L"
+    "source_id": "B0FFL7RN0L",
+    "recommendation": "推荐在未央区参观宣平里景区，人气评分4.4"
   },
   {
     "id": "amap_25dd9958",
@@ -140,7 +145,8 @@
     "meal_type": "main",
     "description": "开元公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHWM1GE"
+    "source_id": "B0FFHWM1GE",
+    "recommendation": "推荐在未央区参观开元公园，人气评分4.5"
   },
   {
     "id": "amap_cc0f7107",
@@ -164,7 +170,8 @@
     "meal_type": "main",
     "description": "文景公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D087A9"
+    "source_id": "B001D087A9",
+    "recommendation": "文景公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2c27ae39",
@@ -188,7 +195,8 @@
     "meal_type": "main",
     "description": "红旗铁路公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KDXZZEHJ"
+    "source_id": "B0KDXZZEHJ",
+    "recommendation": "废弃铁轨变创意公园，复古感满满。傍晚去拍夕阳，铁轨上随手出大片。"
   },
   {
     "id": "amap_664a6e4f",
@@ -211,7 +219,7 @@
     "description": "西安钟楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001D09TAA",
-    "recommendation": "钟楼夜景超惊艳，建议日落前登楼拍车流光轨，避开周末人流更惬意。"
+    "recommendation": "钟楼夜景绝美，建议傍晚登楼看华灯初上，拍城市中轴线的车流光影。"
   },
   {
     "id": "amap_c0fe7108",
@@ -234,7 +242,8 @@
     "meal_type": "main",
     "description": "广仁寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D048LX"
+    "source_id": "B001D048LX",
+    "recommendation": "广仁寺是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5a2b5f23",
@@ -256,7 +265,8 @@
     "meal_type": "main",
     "description": "西安后海，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LRAS0B6V"
+    "source_id": "B0LRAS0B6V",
+    "recommendation": "西安后海适合城市游览、景点爱好者"
   },
   {
     "id": "amap_41d1b563",
@@ -281,7 +291,8 @@
     "meal_type": "main",
     "description": "文景山公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHCUZ5Q"
+    "source_id": "B0FFHCUZ5Q",
+    "recommendation": "文景山公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_152d9016",
@@ -307,7 +318,8 @@
     "meal_type": "main",
     "description": "大唐不夜城，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0VWAX"
+    "source_id": "B001D0VWAX",
+    "recommendation": "推荐在雁塔区参观大唐不夜城，人气评分4.8"
   },
   {
     "id": "amap_12ccef2f",
@@ -329,7 +341,8 @@
     "meal_type": "main",
     "description": "华夏文旅西安度假区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHJTTVL"
+    "source_id": "B0FFHJTTVL",
+    "recommendation": "推荐在灞桥区参观华夏文旅西安度假区，人气评分4.6"
   },
   {
     "id": "amap_697a1ca7",
@@ -353,7 +366,8 @@
     "meal_type": "main",
     "description": "华夏文旅海洋公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHWV8IF"
+    "source_id": "B0FFHWV8IF",
+    "recommendation": "华夏文旅海洋公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_bc3e44e8",
@@ -375,7 +389,8 @@
     "meal_type": "main",
     "description": "西安湖，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFGZ6HTT"
+    "source_id": "B0FFGZ6HTT",
+    "recommendation": "推荐在未央区参观西安湖，人气评分4.7"
   },
   {
     "id": "amap_8108bbc8",
@@ -397,7 +412,8 @@
     "meal_type": "main",
     "description": "汉长安城未央宫国家考古遗址公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D041S4"
+    "source_id": "B001D041S4",
+    "recommendation": "想在西安感受大汉雄风？这里超大片废墟遗址超有电影感！建议租个自行车慢慢逛～"
   },
   {
     "id": "amap_41b8b489",
@@ -419,7 +435,8 @@
     "meal_type": "main",
     "description": "汉城湖景区封禅天下广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFGLWH5Q"
+    "source_id": "B0FFGLWH5Q",
+    "recommendation": "汉城湖景区封禅天下广场适合城市游览、景点爱好者"
   },
   {
     "id": "amap_cc4ef7c5",
@@ -441,7 +458,8 @@
     "meal_type": "main",
     "description": "西安城墙·碑林历史文化景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KROZSZG0"
+    "source_id": "B0KROZSZG0",
+    "recommendation": "城墙和碑林打包玩最划算！傍晚骑车上城墙看日落，再去碑林摸一摸颜真卿真迹～"
   },
   {
     "id": "amap_1c2196e0",
@@ -466,7 +484,8 @@
     "meal_type": "main",
     "description": "康乐园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFH1DKSV"
+    "source_id": "B0FFH1DKSV",
+    "recommendation": "康乐园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_544967ce",
@@ -490,7 +509,8 @@
     "meal_type": "main",
     "description": "兴庆宫公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D09HQR"
+    "source_id": "B001D09HQR",
+    "recommendation": "推荐在碑林区参观兴庆宫公园，人气评分4.8"
   },
   {
     "id": "amap_e048b529",
@@ -513,7 +533,8 @@
     "meal_type": "main",
     "description": "大慈恩寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D117RP"
+    "source_id": "B001D117RP",
+    "recommendation": "大雁塔就在里面！一定要登塔俯瞰长安城，顺便听个玄奘取经的故事～"
   },
   {
     "id": "amap_efece991",
@@ -536,7 +557,7 @@
     "description": "大雁塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001D023F0",
-    "recommendation": "大雁塔北广场音乐喷泉必看，晚上9点场最震撼，记得提前占C位。"
+    "recommendation": "大雁塔北广场音乐喷泉超震撼，晚上去还能逛大唐不夜城，一举两得。"
   },
   {
     "id": "amap_ad399e5d",
@@ -558,7 +579,8 @@
     "meal_type": "main",
     "description": "汉城湖旅游风景区-汉武大帝雕像，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHC72OO"
+    "source_id": "B0FFHC72OO",
+    "recommendation": "推荐在未央区参观汉城湖旅游风景区-汉武大帝雕像，人气评分4.3"
   },
   {
     "id": "amap_6da822b9",
@@ -580,7 +602,8 @@
     "meal_type": "main",
     "description": "紫薇湖，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFGZWSLO"
+    "source_id": "B0FFGZWSLO",
+    "recommendation": "推荐在未央区参观紫薇湖，人气评分4.5"
   },
   {
     "id": "amap_a4edd3e5",
@@ -603,7 +626,8 @@
     "meal_type": "main",
     "description": "西安世博园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D12FJ8"
+    "source_id": "B001D12FJ8",
+    "recommendation": "超级上镜的欧式园林和长安塔！溜娃约会两不误，建议带个野餐垫～"
   },
   {
     "id": "amap_d2b237fc",
@@ -628,7 +652,8 @@
     "meal_type": "main",
     "description": "桃花潭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D14WDB"
+    "source_id": "B001D14WDB",
+    "recommendation": "藏在市区的“桃花源”！春日落英缤纷超美，旁边就是浐灞滨水步道～"
   },
   {
     "id": "amap_1ad641be",
@@ -650,7 +675,8 @@
     "meal_type": "main",
     "description": "大明宫国家遗址公园-玄武门遗址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFH98EAT"
+    "source_id": "B0FFH98EAT",
+    "recommendation": "大明宫国家遗址公园-玄武门遗址是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_cfec1a4c",
@@ -674,7 +700,8 @@
     "meal_type": "main",
     "description": "红旗铁路公园-团结里，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LAOUPB0F"
+    "source_id": "B0LAOUPB0F",
+    "recommendation": "红旗铁路公园-团结里适合城市游览、景点爱好者"
   },
   {
     "id": "amap_4720217e",
@@ -699,7 +726,8 @@
     "meal_type": "main",
     "description": "西安城墙永宁门城楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFKG0HLU"
+    "source_id": "B0FFKG0HLU",
+    "recommendation": "傍晚骑车登城，看夕阳洒在古砖上特别美，建议租自行车绕一圈。"
   },
   {
     "id": "amap_15ebfc68",
@@ -724,7 +752,8 @@
     "meal_type": "main",
     "description": "莲湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D00CCF"
+    "source_id": "B001D00CCF",
+    "recommendation": "莲湖公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2a3392f9",
@@ -746,7 +775,8 @@
     "meal_type": "main",
     "description": "汉城湖旅游风景区大风阁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFGUVKW"
+    "source_id": "B0FFFGUVKW",
+    "recommendation": "汉城湖旅游风景区大风阁适合城市游览、景点爱好者"
   },
   {
     "id": "amap_67d639af",
@@ -770,7 +800,8 @@
     "meal_type": "main",
     "description": "西安浐灞国家湿地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D15L5H"
+    "source_id": "B001D15L5H",
+    "recommendation": "观鸟爱好者的天堂！大片芦苇和湿地栈道，夏天去还能看荷花～"
   },
   {
     "id": "amap_c4fb993",
@@ -795,7 +826,8 @@
     "meal_type": "main",
     "description": "革命公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D092F6"
+    "source_id": "B001D092F6",
+    "recommendation": "革命公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2d47f95b",
@@ -818,7 +850,8 @@
     "meal_type": "main",
     "description": "大唐西市，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0VWVB"
+    "source_id": "B001D0VWVB",
+    "recommendation": "大唐西市是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_775ab2a3",
@@ -845,7 +878,8 @@
     "meal_type": "main",
     "description": "西安博物院，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D06AOS"
+    "source_id": "B001D06AOS",
+    "recommendation": "避开人潮的好去处，小雁塔和文物都值得细看，记得提前在公众号预约。"
   },
   {
     "id": "amap_6845bd0b",
@@ -868,7 +902,8 @@
     "meal_type": "main",
     "description": "大唐芙蓉园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D092BB"
+    "source_id": "B001D092BB",
+    "recommendation": "推荐在雁塔区参观大唐芙蓉园，人气评分4.6"
   },
   {
     "id": "amap_3dd73ea2",
@@ -892,7 +927,8 @@
     "meal_type": "main",
     "description": "御道广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFX0R9X"
+    "source_id": "B0FFFX0R9X",
+    "recommendation": "御道广场适合城市游览、景点爱好者"
   },
   {
     "id": "amap_328130e6",
@@ -915,7 +951,8 @@
     "meal_type": "main",
     "description": "高家大院，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFDCW9P"
+    "source_id": "B0FFFDCW9P",
+    "recommendation": "高家大院藏着地道的皮影戏和明清老宅韵味，建议避开周末高峰慢慢逛。"
   },
   {
     "id": "amap_fd1c4512",
@@ -939,7 +976,8 @@
     "meal_type": "main",
     "description": "大兴善寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D031C7"
+    "source_id": "B001D031C7",
+    "recommendation": "闹市中的千年古刹，古朴幽静，早上去能听到僧人诵经，顺便求个平安符。"
   },
   {
     "id": "amap_e3cc28",
@@ -963,7 +1001,8 @@
     "meal_type": "main",
     "description": "丰庆公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0W3AQ"
+    "source_id": "B001D0W3AQ",
+    "recommendation": "丰庆公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_385845f2",
@@ -987,7 +1026,8 @@
     "meal_type": "main",
     "description": "阁老门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LAX74PY6"
+    "source_id": "B0LAX74PY6",
+    "recommendation": "阁老门适合城市游览、景点爱好者"
   },
   {
     "id": "amap_60ef94ef",
@@ -1011,7 +1051,8 @@
     "meal_type": "main",
     "description": "西安千古情，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFKLE8Q1"
+    "source_id": "B0FFKLE8Q1",
+    "recommendation": "西安千古情适合城市游览、景点爱好者"
   },
   {
     "id": "amap_be472df1",
@@ -1033,7 +1074,8 @@
     "meal_type": "main",
     "description": "大明宫国家遗址公园丹凤门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0X51I"
+    "source_id": "B001D0X51I",
+    "recommendation": "丹凤门是唐宫的门面担当，黄昏时分金光洒在城墙上超级出片。"
   },
   {
     "id": "amap_427cba",
@@ -1057,7 +1099,8 @@
     "meal_type": "main",
     "description": "湘子庙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D071YQ"
+    "source_id": "B001D071YQ",
+    "recommendation": "推荐在碑林区参观湘子庙，人气评分4.7"
   },
   {
     "id": "amap_a0a18958",
@@ -1081,7 +1124,8 @@
     "meal_type": "main",
     "description": "敕建万寿八仙宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG6CLI4"
+    "source_id": "B0FFG6CLI4",
+    "recommendation": "敕建万寿八仙宫是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2dcb24c2",
@@ -1106,7 +1150,8 @@
     "meal_type": "main",
     "description": "西安海洋馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0L1NZWAR4"
+    "source_id": "B0L1NZWAR4",
+    "recommendation": "推荐在莲湖区参观西安海洋馆，人气评分4.4"
   },
   {
     "id": "amap_e54cfa4a",
@@ -1131,7 +1176,8 @@
     "meal_type": "main",
     "description": "长乐公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D064TL"
+    "source_id": "B001D064TL",
+    "recommendation": "长乐公园是本地人的后花园，晨练或午后带本书来发呆都舒服。"
   },
   {
     "id": "amap_faf90a68",
@@ -1156,7 +1202,8 @@
     "meal_type": "main",
     "description": "八路军西安办事处纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D08UUN"
+    "source_id": "B001D08UUN",
+    "recommendation": "推荐在新城区参观八路军西安办事处纪念馆，人气评分4.3"
   },
   {
     "id": "amap_6ddb25e0",
@@ -1181,7 +1228,8 @@
     "meal_type": "main",
     "description": "曲江池遗址公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0VQ3N"
+    "source_id": "B001D0VQ3N",
+    "recommendation": "推荐在雁塔区参观曲江池遗址公园，人气评分4.7"
   },
   {
     "id": "amap_3dd6194",
@@ -1204,7 +1252,8 @@
     "meal_type": "main",
     "description": "大雁塔北广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D04CI0"
+    "source_id": "B001D04CI0",
+    "recommendation": "推荐在雁塔区参观大雁塔北广场，人气评分4.7"
   },
   {
     "id": "amap_67fed6b2",
@@ -1228,7 +1277,8 @@
     "meal_type": "main",
     "description": "曲江海洋极地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D1058R"
+    "source_id": "B001D1058R",
+    "recommendation": "曲江海洋极地公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_58db9712",
@@ -1252,7 +1302,8 @@
     "meal_type": "main",
     "description": "乐游原青龙寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0HAMO3L72"
+    "source_id": "B0HAMO3L72",
+    "recommendation": "青龙寺的樱花和古塔绝配，春天来这儿穿汉服拍照瞬间穿越。"
   },
   {
     "id": "amap_8b013f7d",
@@ -1276,7 +1327,8 @@
     "meal_type": "main",
     "description": "西安渭河城市运动公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0WT6P"
+    "source_id": "B001D0WT6P",
+    "recommendation": "渭河运动公园超大草坪适合放风筝，傍晚看落日染红河面超治愈。"
   },
   {
     "id": "amap_6873750f",
@@ -1300,7 +1352,8 @@
     "meal_type": "main",
     "description": "西安环城公园(顺城北路西段)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0VJN7"
+    "source_id": "B001D0VJN7",
+    "recommendation": "西安环城公园(顺城北路西段)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c3a5aa34",
@@ -1324,7 +1377,8 @@
     "meal_type": "main",
     "description": "西安奥体中心-西广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0H2N7IODF"
+    "source_id": "B0H2N7IODF",
+    "recommendation": "西安奥体中心-西广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d05c986e",
@@ -1348,7 +1402,8 @@
     "meal_type": "main",
     "description": "西安牡丹苑，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D09LSH"
+    "source_id": "B001D09LSH",
+    "recommendation": "牡丹苑四五月花海惊艳，穿浅色衣服去，随便一拍都是壁纸。"
   },
   {
     "id": "amap_8d677c43",
@@ -1372,7 +1427,8 @@
     "meal_type": "main",
     "description": "西安事变纪念馆(青年路)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D088QB"
+    "source_id": "B001D088QB",
+    "recommendation": "西安事变纪念馆(青年路)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_323b73d2",
@@ -1396,7 +1452,8 @@
     "meal_type": "main",
     "description": "都城隍庙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D06E2S"
+    "source_id": "B001D06E2S",
+    "recommendation": "都城隍庙适合城市游览、景点爱好者"
   },
   {
     "id": "amap_7cdab5bc",
@@ -1418,7 +1475,8 @@
     "meal_type": "main",
     "description": "天玑湖，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0HB97D960"
+    "source_id": "B0HB97D960",
+    "recommendation": "天玑湖是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_48cddd2a",
@@ -1442,7 +1500,8 @@
     "meal_type": "main",
     "description": "西安事变纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D04RI7"
+    "source_id": "B001D04RI7",
+    "recommendation": "西安事变纪念馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_6b9382d9",
@@ -1467,7 +1526,8 @@
     "meal_type": "main",
     "description": "昆明池·七夕公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHCVRBS"
+    "source_id": "B0FFHCVRBS",
+    "recommendation": "推荐在长安区参观昆明池·七夕公园，人气评分4.7"
   },
   {
     "id": "amap_da0b552c",
@@ -1489,7 +1549,8 @@
     "meal_type": "main",
     "description": "浐灞网红墙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0MAZMCAE3"
+    "source_id": "B0MAZMCAE3",
+    "recommendation": "推荐在灞桥区参观浐灞网红墙，人气评分4.1"
   },
   {
     "id": "amap_8dbe3e83",
@@ -1514,7 +1575,8 @@
     "meal_type": "main",
     "description": "红旗广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFF01GDJ"
+    "source_id": "B0FFF01GDJ",
+    "recommendation": "红旗广场适合城市游览、景点爱好者"
   },
   {
     "id": "amap_825e534d",
@@ -1539,7 +1601,8 @@
     "meal_type": "main",
     "description": "西安城墙(含光门)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0VH6G"
+    "source_id": "B001D0VH6G",
+    "recommendation": "西安城墙(含光门)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_80cdee60",
@@ -1563,7 +1626,8 @@
     "meal_type": "main",
     "description": "大明宫国家遗址公园-九仙门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D10W86"
+    "source_id": "B001D10W86",
+    "recommendation": "推荐在未央区参观大明宫国家遗址公园-九仙门，人气评分4.3"
   },
   {
     "id": "amap_ba8a7d64",
@@ -1587,7 +1651,8 @@
     "meal_type": "main",
     "description": "城市中央公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KRJ14UWI"
+    "source_id": "B0KRJ14UWI",
+    "recommendation": "城市中央公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_fa278978",
@@ -1612,7 +1677,8 @@
     "meal_type": "main",
     "description": "香湖湾，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KUB7YCEC"
+    "source_id": "B0KUB7YCEC",
+    "recommendation": "香湖湾是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_90f93e5f",
@@ -1636,7 +1702,8 @@
     "meal_type": "main",
     "description": "凤城广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D10YR3"
+    "source_id": "B001D10YR3",
+    "recommendation": "推荐在未央区参观凤城广场，人气评分4.1"
   },
   {
     "id": "amap_395a8063",
@@ -1660,7 +1727,8 @@
     "meal_type": "main",
     "description": "西安植物园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHWS5KV"
+    "source_id": "B0FFHWS5KV",
+    "recommendation": "植物园里四季有花看，带娃认植物或自己慢慢逛都很惬意。"
   },
   {
     "id": "amap_aae6a9d",
@@ -1684,7 +1752,8 @@
     "meal_type": "main",
     "description": "西安化觉巷清真大寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D07CMR"
+    "source_id": "B001D07CMR",
+    "recommendation": "西安化觉巷清真大寺是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_58d3ebaf",
@@ -1706,7 +1775,8 @@
     "meal_type": "main",
     "description": "西安幸福林带，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFLJ3GLX"
+    "source_id": "B0FFLJ3GLX",
+    "recommendation": "推荐在新城区参观西安幸福林带，人气评分4.6"
   },
   {
     "id": "amap_31458f25",
@@ -1730,7 +1800,8 @@
     "meal_type": "main",
     "description": "中亚公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KAML73UX"
+    "source_id": "B0KAML73UX",
+    "recommendation": "推荐在灞桥区参观中亚公园，人气评分4.6"
   },
   {
     "id": "amap_272d627c",
@@ -1754,7 +1825,8 @@
     "meal_type": "main",
     "description": "红旗铁路公园-云庆坊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LRHA7RIR"
+    "source_id": "B0LRHA7RIR",
+    "recommendation": "红旗铁路公园-云庆坊是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_cec3cd22",
@@ -1778,7 +1850,8 @@
     "meal_type": "main",
     "description": "卧龙禅寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D11MRO"
+    "source_id": "B001D11MRO",
+    "recommendation": "推荐在碑林区参观卧龙禅寺，人气评分4.7"
   },
   {
     "id": "amap_cdf502d0",
@@ -1801,7 +1874,8 @@
     "meal_type": "main",
     "description": "曲江寒窑遗址公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D023CD"
+    "source_id": "B001D023CD",
+    "recommendation": "曲江寒窑的爱情故事让园林多了份浪漫，傍晚去人少安静，适合情侣散步拍照。"
   },
   {
     "id": "amap_89419108",
@@ -1823,7 +1897,8 @@
     "meal_type": "main",
     "description": "陕不列颠公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0L2LUOM9Y"
+    "source_id": "B0L2LUOM9Y",
+    "recommendation": "推荐在未央区参观陕不列颠公园，人气评分4.4"
   },
   {
     "id": "amap_c6cb7e44",
@@ -1848,7 +1923,8 @@
     "meal_type": "main",
     "description": "白鹿原·白鹿仓，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHCF8EO"
+    "source_id": "B0FFHCF8EO",
+    "recommendation": "白鹿仓的仿古街区很有穿越感，推荐下午来，夕阳下小吃街和民国风建筑超好拍。"
   },
   {
     "id": "amap_8d0c38c",
@@ -1871,7 +1947,8 @@
     "meal_type": "main",
     "description": "大雁塔南广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D12PCJ"
+    "source_id": "B001D12PCJ",
+    "recommendation": "大雁塔南广场适合城市游览、景点爱好者"
   },
   {
     "id": "amap_b66806db",
@@ -1895,7 +1972,8 @@
     "meal_type": "main",
     "description": "开元广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001D0VVLI"
+    "source_id": "B001D0VVLI",
+    "recommendation": "推荐在雁塔区参观开元广场，人气评分4.7"
   },
   {
     "id": "amap_9fb5ab07",
@@ -1920,7 +1998,8 @@
     "meal_type": "main",
     "description": "西安市钟鼓楼博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFF9WFDD"
+    "source_id": "B0FFF9WFDD",
+    "recommendation": "西安市钟鼓楼博物馆适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_11f44933",
@@ -1944,7 +2023,8 @@
     "meal_type": "main",
     "description": "西安地铁博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0M6H7BW6Y"
+    "source_id": "B0M6H7BW6Y",
+    "recommendation": "推荐在高陵区参观西安地铁博物馆，人气评分3.7"
   },
   {
     "id": "amap_8db2a187",
@@ -1968,7 +2048,8 @@
     "meal_type": "main",
     "description": "大唐西市博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D0VY24"
+    "source_id": "B001D0VY24",
+    "recommendation": "丝路起点上的宝藏博物馆，文物精品多，建议周内去人少，免费开放时段很划算。"
   },
   {
     "id": "amap_82e185db",
@@ -1993,7 +2074,8 @@
     "meal_type": "main",
     "description": "中国建筑西北设计研究院(文景路)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D09O8U"
+    "source_id": "B001D09O8U",
+    "recommendation": "中国建筑西北设计研究院(文景路)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_ad315bae",
@@ -2020,7 +2102,8 @@
     "meal_type": "main",
     "description": "陕西交通职业技术学院文景校区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D017F4"
+    "source_id": "B001D017F4",
+    "recommendation": "推荐在未央区参观陕西交通职业技术学院文景校区，人气评分0.0"
   },
   {
     "id": "amap_48c63d6a",
@@ -2047,7 +2130,8 @@
     "meal_type": "main",
     "description": "陕西省西安中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D08VAO"
+    "source_id": "B001D08VAO",
+    "recommendation": "陕西省西安中学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_a6a127fd",
@@ -2072,7 +2156,8 @@
     "meal_type": "main",
     "description": "西安市经开第二学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFJGOG74"
+    "source_id": "B0FFJGOG74",
+    "recommendation": "想感受西安现代教育气息？这里是典型校园，注意周末非开放时间不要打扰学生。"
   },
   {
     "id": "amap_5bf5dbbf",
@@ -2099,7 +2184,8 @@
     "meal_type": "main",
     "description": "西安市经开第一学校(十路校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFKKSOIW"
+    "source_id": "B0FFKKSOIW",
+    "recommendation": "西安市经开第一学校(十路校区)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_e8386bd7",
@@ -2126,7 +2212,8 @@
     "meal_type": "main",
     "description": "西安市第六十六中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D08ZO6"
+    "source_id": "B001D08ZO6",
+    "recommendation": "推荐在未央区参观西安市第六十六中学，人气评分0.0"
   },
   {
     "id": "amap_709d50e",
@@ -2153,7 +2240,8 @@
     "meal_type": "main",
     "description": "西安高级中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D13950"
+    "source_id": "B001D13950",
+    "recommendation": "西安高级中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_eb6884ab",
@@ -2180,7 +2268,8 @@
     "meal_type": "main",
     "description": "西安市经开第五中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0HD2HD558"
+    "source_id": "B0HD2HD558",
+    "recommendation": "西安市经开第五中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5930c70b",
@@ -2206,7 +2295,8 @@
     "meal_type": "main",
     "description": "宏景小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0HG3YCI72"
+    "source_id": "B0HG3YCI72",
+    "recommendation": "宏景小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_db49df50",
@@ -2232,7 +2322,8 @@
     "meal_type": "main",
     "description": "西安市经开第六中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0G3XLEA5B"
+    "source_id": "B0G3XLEA5B",
+    "recommendation": "推荐在未央区参观西安市经开第六中学，人气评分0.0"
   },
   {
     "id": "amap_6ca257fa",
@@ -2258,7 +2349,8 @@
     "meal_type": "main",
     "description": "西安市第一实验学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0HD37R4EL"
+    "source_id": "B0HD37R4EL",
+    "recommendation": "推荐在未央区参观西安市第一实验学校，人气评分0.0"
   },
   {
     "id": "amap_e1593896",
@@ -2285,7 +2377,8 @@
     "meal_type": "main",
     "description": "西安市西航一中，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D003B3"
+    "source_id": "B001D003B3",
+    "recommendation": "推荐在未央区参观西安市西航一中，人气评分0.0"
   },
   {
     "id": "amap_dd8b800e",
@@ -2311,7 +2404,8 @@
     "meal_type": "main",
     "description": "地铁二号线市图书馆站，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0M6K7CQ2F"
+    "source_id": "B0M6K7CQ2F",
+    "recommendation": "推荐在未央区参观地铁二号线市图书馆站，人气评分0.0"
   },
   {
     "id": "amap_c99be8fc",
@@ -2338,7 +2432,8 @@
     "meal_type": "main",
     "description": "西航二中，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D0WRAX"
+    "source_id": "B001D0WRAX",
+    "recommendation": "西航二中是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_41683f11",
@@ -2364,7 +2459,8 @@
     "meal_type": "main",
     "description": "西安市青少年活动中心少儿图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0LRV7KGOV"
+    "source_id": "B0LRV7KGOV",
+    "recommendation": "西安市青少年活动中心少儿图书馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_6d5e1106",
@@ -2390,7 +2486,8 @@
     "meal_type": "main",
     "description": "西安市第十一中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D03IQA"
+    "source_id": "B001D03IQA",
+    "recommendation": "推荐在未央区参观西安市第十一中学，人气评分0.0"
   },
   {
     "id": "amap_272033b3",
@@ -2415,7 +2512,8 @@
     "meal_type": "main",
     "description": "陕西工程科技高级技工学校安全生产考试点，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0KKBUMYYX"
+    "source_id": "B0KKBUMYYX",
+    "recommendation": "推荐在未央区参观陕西工程科技高级技工学校安全生产考试点，人气评分0.0"
   },
   {
     "id": "amap_d54fe509",
@@ -2442,7 +2540,8 @@
     "meal_type": "main",
     "description": "长安大学(渭水校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D08MQ9"
+    "source_id": "B001D08MQ9",
+    "recommendation": "长安大学(渭水校区)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_9580f3cc",
@@ -2469,7 +2568,8 @@
     "meal_type": "main",
     "description": "经开区第七小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFJGKLTM"
+    "source_id": "B0FFJGKLTM",
+    "recommendation": "推荐在未央区参观经开区第七小学，人气评分0.0"
   },
   {
     "id": "amap_c43af775",
@@ -2498,7 +2598,8 @@
     "meal_type": "main",
     "description": "艾贝瑞国际亲子游泳(西安经开校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFHYLE4V"
+    "source_id": "B0FFHYLE4V",
+    "recommendation": "亲子水中乐园水温恒定，教练专业"
   },
   {
     "id": "amap_3472daaf",
@@ -2523,7 +2624,8 @@
     "meal_type": "main",
     "description": "龙文教育(白桦林居校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFM61GT5"
+    "source_id": "B0FFM61GT5",
+    "recommendation": "推荐在未央区参观龙文教育(白桦林居校区)，人气评分4.2"
   },
   {
     "id": "amap_6ad9faa8",
@@ -2550,7 +2652,8 @@
     "meal_type": "main",
     "description": "西安市经开第六学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D08V9A"
+    "source_id": "B001D08V9A",
+    "recommendation": "西安市经开第六学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2bbbca97",
@@ -2576,7 +2679,8 @@
     "meal_type": "main",
     "description": "西安市第七十五中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D0W383"
+    "source_id": "B001D0W383",
+    "recommendation": "推荐在未央区参观西安市第七十五中学，人气评分0.0"
   },
   {
     "id": "amap_ea96f53c",
@@ -2603,7 +2707,8 @@
     "meal_type": "main",
     "description": "经开区第十小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0G3UZ0LHF"
+    "source_id": "B0G3UZ0LHF",
+    "recommendation": "经开区第十小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_3051e1e",
@@ -2630,7 +2735,8 @@
     "meal_type": "main",
     "description": "西安市凤景小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFG835CW"
+    "source_id": "B0FFG835CW",
+    "recommendation": "西安市凤景小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_3f3ef1ce",
@@ -2657,7 +2763,8 @@
     "meal_type": "main",
     "description": "大唐西北电力试验研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFI5J928"
+    "source_id": "B0FFI5J928",
+    "recommendation": "大唐西北电力试验研究院适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_75e481d4",
@@ -2684,7 +2791,8 @@
     "meal_type": "main",
     "description": "西安市第五十八中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFGB9AK1"
+    "source_id": "B0FFGB9AK1",
+    "recommendation": "西安市第五十八中学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_8683cd29",
@@ -2710,7 +2818,8 @@
     "meal_type": "main",
     "description": "西安教育电视台，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0G27SE2YA"
+    "source_id": "B0G27SE2YA",
+    "recommendation": "推荐在未央区参观西安教育电视台，人气评分0.0"
   },
   {
     "id": "amap_a2ca41aa",
@@ -2737,7 +2846,8 @@
     "meal_type": "main",
     "description": "西安经开第五小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFGILNTA"
+    "source_id": "B0FFGILNTA",
+    "recommendation": "西安经开第五小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_14c60a42",
@@ -2764,7 +2874,8 @@
     "meal_type": "main",
     "description": "西航三校(西校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D0WR9B"
+    "source_id": "B001D0WR9B",
+    "recommendation": "西航三校(西校区)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d673ae02",
@@ -2790,7 +2901,8 @@
     "meal_type": "main",
     "description": "楼阁台小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D0W4HW"
+    "source_id": "B001D0W4HW",
+    "recommendation": "推荐在未央区参观楼阁台小学，人气评分0.0"
   },
   {
     "id": "amap_e0d9f1f0",
@@ -2816,7 +2928,8 @@
     "meal_type": "main",
     "description": "杨善寨小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D0Z6H0"
+    "source_id": "B001D0Z6H0",
+    "recommendation": "推荐在未央区参观杨善寨小学，人气评分0.0"
   },
   {
     "id": "amap_fa8b67ba",
@@ -2841,7 +2954,8 @@
     "meal_type": "main",
     "description": "天童教育素质成长中心(经开分校)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0H64LK170"
+    "source_id": "B0H64LK170",
+    "recommendation": "天童教育素质成长中心(经开分校)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_cb0736ec",
@@ -2868,7 +2982,8 @@
     "meal_type": "main",
     "description": "长庆第八中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFGJQ3ZD"
+    "source_id": "B0FFGJQ3ZD",
+    "recommendation": "长庆第八中学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_8f2e8d5b",
@@ -2895,7 +3010,8 @@
     "meal_type": "main",
     "description": "西安经开第一学校南校区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFL9MEQ4"
+    "source_id": "B0FFL9MEQ4",
+    "recommendation": "推荐在未央区参观西安经开第一学校南校区，人气评分0.0"
   },
   {
     "id": "amap_a287e156",
@@ -2920,7 +3036,8 @@
     "meal_type": "main",
     "description": "嘉泽艺考，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFL0JPBK"
+    "source_id": "B0FFL0JPBK",
+    "recommendation": "嘉泽艺考适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_182f48d4",
@@ -2947,7 +3064,8 @@
     "meal_type": "main",
     "description": "陕西科技大学西安校区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D090KR"
+    "source_id": "B001D090KR",
+    "recommendation": "推荐在未央区参观陕西科技大学西安校区，人气评分0.0"
   },
   {
     "id": "amap_34229d2c",
@@ -2973,7 +3091,8 @@
     "meal_type": "main",
     "description": "三官庙小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D0W009"
+    "source_id": "B001D0W009",
+    "recommendation": "三官庙小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_4efc8187",
@@ -2999,7 +3118,8 @@
     "meal_type": "main",
     "description": "陕西省青少年宫艺术团(经开校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0HURA3WSI"
+    "source_id": "B0HURA3WSI",
+    "recommendation": "陕西省青少年宫艺术团(经开校区)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ae7f022d",
@@ -3027,7 +3147,8 @@
     "meal_type": "main",
     "description": "西航三校(东校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D08RVW"
+    "source_id": "B001D08RVW",
+    "recommendation": "西航三校(东校区)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_89c6fcf5",
@@ -3053,7 +3174,8 @@
     "meal_type": "main",
     "description": "低渗透油气田勘探开发国家工程实验室，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFGC2QA4"
+    "source_id": "B0FFGC2QA4",
+    "recommendation": "推荐在未央区参观低渗透油气田勘探开发国家工程实验室，人气评分0.0"
   },
   {
     "id": "amap_36ce1d72",
@@ -3079,7 +3201,8 @@
     "meal_type": "main",
     "description": "西安经发学校大学区成员校经新小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFFTL0P5"
+    "source_id": "B0FFFTL0P5",
+    "recommendation": "推荐在未央区参观西安经发学校大学区成员校经新小学，人气评分0.0"
   },
   {
     "id": "amap_ad0bb76",
@@ -3106,7 +3229,8 @@
     "meal_type": "main",
     "description": "西安经开第十一小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0HD2HDPTY"
+    "source_id": "B0HD2HDPTY",
+    "recommendation": "推荐在未央区参观西安经开第十一小学，人气评分0.0"
   },
   {
     "id": "amap_fc9681a1",
@@ -3133,7 +3257,7 @@
     "description": "优路教育(西安分校)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0HB3K49CV",
-    "recommendation": "虽是培训机构，但周边张家堡美食多，学累了去民乐园吃碗面，充电又回血。"
+    "recommendation": "备考党别错过这处安静自习室，内部还有文化展板可看，适合充充电。"
   },
   {
     "id": "amap_8484e3aa",
@@ -3159,7 +3283,8 @@
     "meal_type": "main",
     "description": "陕西交通职业技术学院文景校区职工培训中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFGMMB0B"
+    "source_id": "B0FFGMMB0B",
+    "recommendation": "推荐在未央区参观陕西交通职业技术学院文景校区职工培训中心，人气评分4.6"
   },
   {
     "id": "amap_e3b362ff",
@@ -3185,7 +3310,8 @@
     "meal_type": "main",
     "description": "西北有色金属研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001D01437"
+    "source_id": "B001D01437",
+    "recommendation": "西北有色金属研究院是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4ea4d548",
@@ -3211,7 +3337,8 @@
     "meal_type": "main",
     "description": "三星小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFF64Y26"
+    "source_id": "B0FFF64Y26",
+    "recommendation": "三星小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_ade4d48b",
@@ -3236,7 +3363,8 @@
     "meal_type": "main",
     "description": "未央朱宏体育运动公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KK35XAH7"
+    "source_id": "B0KK35XAH7",
+    "recommendation": "未央朱宏体育运动公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_5b75c905",
@@ -3262,7 +3390,8 @@
     "meal_type": "main",
     "description": "街心公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFM9N1UX"
+    "source_id": "B0FFM9N1UX",
+    "recommendation": "街心公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_6fd0dae3",
@@ -3287,7 +3416,8 @@
     "meal_type": "main",
     "description": "六艺场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0H1S5JJVW"
+    "source_id": "B0H1S5JJVW",
+    "recommendation": "六艺场适合城市游览、公园爱好者"
   },
   {
     "id": "amap_2b918469",
@@ -3313,7 +3443,8 @@
     "meal_type": "main",
     "description": "垃圾分类主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0J26SMS7R"
+    "source_id": "B0J26SMS7R",
+    "recommendation": "垃圾分类主题公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_a17a52",
@@ -3339,7 +3470,8 @@
     "meal_type": "main",
     "description": "金枝公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0G3CA5PHN"
+    "source_id": "B0G3CA5PHN",
+    "recommendation": "金枝公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_a0ee20a6",
@@ -3364,7 +3496,8 @@
     "meal_type": "main",
     "description": "红旗铁路公园-永信园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0LAOUBWJ9"
+    "source_id": "B0LAOUBWJ9",
+    "recommendation": "红旗铁路公园-永信园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_9ce8396",
@@ -3389,7 +3522,8 @@
     "meal_type": "main",
     "description": "浐灞滋水公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFZXOVN"
+    "source_id": "B0FFFZXOVN",
+    "recommendation": "推荐在未央区参观浐灞滋水公园，人气评分4.4"
   },
   {
     "id": "amap_6ef84e40",
@@ -3415,7 +3549,8 @@
     "meal_type": "main",
     "description": "薛家寨汉墓群-渭滨公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFO3LV7"
+    "source_id": "B0FFFO3LV7",
+    "recommendation": "薛家寨汉墓群-渭滨公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_fd6602d9",
@@ -3440,7 +3575,8 @@
     "meal_type": "main",
     "description": "幸福河生态公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFKT2FWF"
+    "source_id": "B0FFKT2FWF",
+    "recommendation": "推荐在未央区参观幸福河生态公园，人气评分4.1"
   },
   {
     "id": "amap_8199492a",
@@ -3466,7 +3602,8 @@
     "meal_type": "main",
     "description": "张家堡街道经开万科中心城运公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFMGRNON"
+    "source_id": "B0FFMGRNON",
+    "recommendation": "推荐在未央区参观张家堡街道经开万科中心城运公园，人气评分3.1"
   },
   {
     "id": "amap_2b9b046a",
@@ -3491,7 +3628,8 @@
     "meal_type": "main",
     "description": "未央街角公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0J3AANSUV"
+    "source_id": "B0J3AANSUV",
+    "recommendation": "未央街角公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_6a7ee023",
@@ -3516,7 +3654,8 @@
     "meal_type": "main",
     "description": "从前慢口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0HB6AIMJQ"
+    "source_id": "B0HB6AIMJQ",
+    "recommendation": "从前慢口袋公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_99cb1a27",
@@ -3541,7 +3680,8 @@
     "meal_type": "main",
     "description": "后海彩虹桥，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L3X129QV"
+    "source_id": "B0L3X129QV",
+    "recommendation": "推荐在灞桥区参观后海彩虹桥，人气评分4.2"
   },
   {
     "id": "amap_99b95a44",
@@ -3566,7 +3706,8 @@
     "meal_type": "main",
     "description": "草滩阳早寒春公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0JAVAWWOZ"
+    "source_id": "B0JAVAWWOZ",
+    "recommendation": "推荐在未央区参观草滩阳早寒春公园，人气评分3.9"
   },
   {
     "id": "amap_9bb69349",
@@ -3592,7 +3733,8 @@
     "meal_type": "main",
     "description": "陇海线铁路主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0HAURU2X3"
+    "source_id": "B0HAURU2X3",
+    "recommendation": "陇海线铁路主题公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_f936418",
@@ -3617,7 +3759,8 @@
     "meal_type": "main",
     "description": "东元公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFI17UXO"
+    "source_id": "B0FFI17UXO",
+    "recommendation": "推荐在新城区参观东元公园，人气评分4.1"
   },
   {
     "id": "amap_8466b167",
@@ -3642,7 +3785,8 @@
     "meal_type": "main",
     "description": "西安奥体光影文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KRKLE60C"
+    "source_id": "B0KRKLE60C",
+    "recommendation": "推荐在灞桥区参观西安奥体光影文化公园，人气评分4.1"
   },
   {
     "id": "amap_92321cb7",
@@ -3667,7 +3811,8 @@
     "meal_type": "main",
     "description": "安远园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFFK373"
+    "source_id": "B0FFFFK373",
+    "recommendation": "安远园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_cc29232f",
@@ -3693,7 +3838,8 @@
     "meal_type": "main",
     "description": "鑫苑体育运动公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFJOESC8"
+    "source_id": "B0FFJOESC8",
+    "recommendation": "鑫苑体育运动公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_30132a41",
@@ -3718,7 +3864,8 @@
     "meal_type": "main",
     "description": "灞河小岛，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0J2SZLZSB"
+    "source_id": "B0J2SZLZSB",
+    "recommendation": "灞河小岛是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3102af1f",
@@ -3743,7 +3890,8 @@
     "meal_type": "main",
     "description": "喵咪公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KUBLQBAT"
+    "source_id": "B0KUBLQBAT",
+    "recommendation": "喵咪公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_459010cd",
@@ -3768,7 +3916,8 @@
     "meal_type": "main",
     "description": "汉韵园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFH8MUHL"
+    "source_id": "B0FFH8MUHL",
+    "recommendation": "汉韵园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_e48a7f7e",
@@ -3793,7 +3942,8 @@
     "meal_type": "main",
     "description": "环城西苑公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B001D089ON"
+    "source_id": "B001D089ON",
+    "recommendation": "推荐在莲湖区参观环城西苑公园，人气评分4.2"
   },
   {
     "id": "amap_c6aace25",
@@ -3819,7 +3969,8 @@
     "meal_type": "main",
     "description": "东南角公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFKZXCJX"
+    "source_id": "B0FFKZXCJX",
+    "recommendation": "东南角公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_3f43bd2f",
@@ -3844,7 +3995,8 @@
     "meal_type": "main",
     "description": "安定园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFGUXTB"
+    "source_id": "B0FFFGUXTB",
+    "recommendation": "安定园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c65e72c2",
@@ -3869,7 +4021,8 @@
     "meal_type": "main",
     "description": "趴趴熊公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KALGC52F"
+    "source_id": "B0KALGC52F",
+    "recommendation": "趴趴熊公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_7cd0ef5a",
@@ -3894,7 +4047,8 @@
     "meal_type": "main",
     "description": "含元路口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0H1S5JJVX"
+    "source_id": "B0H1S5JJVX",
+    "recommendation": "推荐在新城区参观含元路口袋公园，人气评分3.7"
   },
   {
     "id": "amap_ace7f6a0",
@@ -3919,7 +4073,8 @@
     "meal_type": "main",
     "description": "浐灞口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0IUN9INK4"
+    "source_id": "B0IUN9INK4",
+    "recommendation": "浐灞口袋公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_e8d591c1",
@@ -3945,7 +4100,8 @@
     "meal_type": "main",
     "description": "西安莲湖廉洁文化主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0H2JCULZP"
+    "source_id": "B0H2JCULZP",
+    "recommendation": "西安莲湖廉洁文化主题公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_8b1f788",
@@ -3970,7 +4126,8 @@
     "meal_type": "main",
     "description": "西安环城公园(顺城东路南段)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B001D07UU7"
+    "source_id": "B001D07UU7",
+    "recommendation": "推荐在碑林区参观西安环城公园(顺城东路南段)，人气评分4.3"
   },
   {
     "id": "amap_950d2ec1",
@@ -3995,7 +4152,8 @@
     "meal_type": "main",
     "description": "西安城墙环城公园(莲湖路)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFL6CCE9"
+    "source_id": "B0FFL6CCE9",
+    "recommendation": "西安城墙环城公园(莲湖路)适合城市游览、公园爱好者"
   },
   {
     "id": "amap_d050b456",
@@ -4021,7 +4179,8 @@
     "meal_type": "main",
     "description": "天朗城市公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B001D0VIVW"
+    "source_id": "B001D0VIVW",
+    "recommendation": "天朗城市公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_58d29933",
@@ -4047,7 +4206,8 @@
     "meal_type": "main",
     "description": "土门小树林公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFGAGDKH"
+    "source_id": "B0FFGAGDKH",
+    "recommendation": "推荐在莲湖区参观土门小树林公园，人气评分4.4"
   },
   {
     "id": "amap_a8ced852",
@@ -4073,7 +4233,8 @@
     "meal_type": "main",
     "description": "环城公园(文艺北路)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFH2048E"
+    "source_id": "B0FFH2048E",
+    "recommendation": "环城公园(文艺北路)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_47f702b8",
@@ -4099,7 +4260,8 @@
     "meal_type": "main",
     "description": "西安奥体中央公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0H10HUZMJ"
+    "source_id": "B0H10HUZMJ",
+    "recommendation": "西安奥体中央公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_706ae1bb",
@@ -4125,7 +4287,8 @@
     "meal_type": "main",
     "description": "东内苑遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFJ4HH4V"
+    "source_id": "B0FFJ4HH4V",
+    "recommendation": "东内苑遗址公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2a2413db",
@@ -4151,7 +4314,8 @@
     "meal_type": "main",
     "description": "永宁西苑，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFF9WJ2Z"
+    "source_id": "B0FFF9WJ2Z",
+    "recommendation": "推荐在碑林区参观永宁西苑，人气评分4.0"
   },
   {
     "id": "amap_63cba8e",
@@ -4177,7 +4341,8 @@
     "meal_type": "main",
     "description": "小雁塔遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0HAOZINUG"
+    "source_id": "B0HAOZINUG",
+    "recommendation": "推荐在碑林区参观小雁塔遗址公园，人气评分4.6"
   },
   {
     "id": "amap_33825a8d",
@@ -4202,7 +4367,8 @@
     "meal_type": "main",
     "description": "城市中央公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L2U5EVEL"
+    "source_id": "B0L2U5EVEL",
+    "recommendation": "推荐在新城区参观城市中央公园，人气评分3.4"
   },
   {
     "id": "amap_f1bcc2f8",
@@ -4228,7 +4394,8 @@
     "meal_type": "main",
     "description": "红光公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFXAFHF"
+    "source_id": "B0FFFXAFHF",
+    "recommendation": "推荐在未央区参观红光公园，人气评分4.5"
   },
   {
     "id": "amap_64f1fee8",
@@ -4253,7 +4420,8 @@
     "meal_type": "main",
     "description": "名创优品(陕西西安大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0IUC50HV1"
+    "source_id": "B0IUC50HV1",
+    "recommendation": "名创优品(陕西西安大唐不夜城店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_2d84fc6a",
@@ -4279,7 +4447,8 @@
     "meal_type": "main",
     "description": "慈恩镇古玩城(大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0H3YC8LBN"
+    "source_id": "B0H3YC8LBN",
+    "recommendation": "推荐在雁塔区参观慈恩镇古玩城(大唐不夜城店)，人气评分3.7"
   },
   {
     "id": "amap_6fb0bb8d",
@@ -4305,7 +4474,8 @@
     "meal_type": "main",
     "description": "藏玉阁(大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFFVSB5J"
+    "source_id": "B0FFFVSB5J",
+    "recommendation": "藏玉阁(大唐不夜城店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e5df597e",
@@ -4334,7 +4504,8 @@
     "meal_type": "main",
     "description": "大雁塔古玩城(大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0IA3ST9NP"
+    "source_id": "B0IA3ST9NP",
+    "recommendation": "推荐在雁塔区参观大雁塔古玩城(大唐不夜城店)，人气评分4.0"
   },
   {
     "id": "amap_435052fb",
@@ -4359,7 +4530,8 @@
     "meal_type": "main",
     "description": "十三豆汉服(大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0JDYM0AJC"
+    "source_id": "B0JDYM0AJC",
+    "recommendation": "十三豆汉服(大唐不夜城店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9970592c",
@@ -4385,7 +4557,8 @@
     "meal_type": "main",
     "description": "晋邦缘(大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFFVOC7N"
+    "source_id": "B0FFFVOC7N",
+    "recommendation": "晋邦缘(大唐不夜城店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_4eebaf01",
@@ -4411,7 +4584,8 @@
     "meal_type": "main",
     "description": "金翼收藏(大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFL2K66I"
+    "source_id": "B0FFL2K66I",
+    "recommendation": "金翼收藏(大唐不夜城店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_50318240",
@@ -4437,7 +4611,8 @@
     "meal_type": "main",
     "description": "顺祥银饰(大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFK7X6Y2"
+    "source_id": "B0FFK7X6Y2",
+    "recommendation": "顺祥银饰(大唐不夜城店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_f672586b",
@@ -4462,7 +4637,8 @@
     "meal_type": "main",
     "description": "十三云舒汉服馆(大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0KGVZZJXF"
+    "source_id": "B0KGVZZJXF",
+    "recommendation": "十三云舒汉服馆(大唐不夜城店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_406e42ed",
@@ -4488,7 +4664,8 @@
     "meal_type": "main",
     "description": "涂柒阁汉服体验馆(大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0M6LA4TDN"
+    "source_id": "B0M6LA4TDN",
+    "recommendation": "涂柒阁汉服体验馆(大唐不夜城店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3b5b54df",
@@ -4514,7 +4691,8 @@
     "meal_type": "main",
     "description": "麗枫酒店(大雁塔大唐不夜城店)停车场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0LUURPE45"
+    "source_id": "B0LUURPE45",
+    "recommendation": "推荐在雁塔区参观麗枫酒店(大雁塔大唐不夜城店)停车场，人气评分0.0"
   },
   {
     "id": "amap_a65f89e6",
@@ -4541,7 +4719,8 @@
     "meal_type": "main",
     "description": "陕西特产超市(雁塔广场西店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFF9WLMJ"
+    "source_id": "B0FFF9WLMJ",
+    "recommendation": "推荐在雁塔区参观陕西特产超市(雁塔广场西店)，人气评分3.5"
   },
   {
     "id": "amap_b11bb3e",
@@ -4567,7 +4746,8 @@
     "meal_type": "main",
     "description": "花间月汉服妆造体验(大雁塔店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0KKS7LKGI"
+    "source_id": "B0KKS7LKGI",
+    "recommendation": "穿汉服游大雁塔的绝配，妆造很精致，建议提前一天预约，省得排队。"
   },
   {
     "id": "amap_c39d178",
@@ -4593,7 +4773,8 @@
     "meal_type": "main",
     "description": "老刘家泡馍.陕西老字号(钟鼓楼广济街)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFITBVO7"
+    "source_id": "B0FFITBVO7",
+    "recommendation": "老刘家泡馍.陕西老字号(钟鼓楼广济街)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_7c210800",
@@ -4619,7 +4800,8 @@
     "meal_type": "main",
     "description": "西安饭庄·非遗(锦业路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFGV0FT"
+    "source_id": "B0FFFGV0FT",
+    "recommendation": "西安饭庄·非遗(锦业路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_16102813",
@@ -4644,7 +4826,8 @@
     "meal_type": "main",
     "description": "长安记·传承陕菜·长安三万里(钟楼店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGOZ079"
+    "source_id": "B0FFGOZ079",
+    "recommendation": "在新城区觅食推荐长安记·传承陕菜·长安三万里(钟楼店)，性价比不错"
   },
   {
     "id": "amap_da7b55ff",
@@ -4670,7 +4853,8 @@
     "meal_type": "main",
     "description": "大海子陕菜(小寨店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJFA2WD"
+    "source_id": "B0FFJFA2WD",
+    "recommendation": "大海子陕菜(小寨店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_203fbb9d",
@@ -4696,7 +4880,8 @@
     "meal_type": "main",
     "description": "德兴楼泡馍馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0G2S7KK3H"
+    "source_id": "B0G2S7KK3H",
+    "recommendation": "想吃地道的西安泡馍？这家老客多，汤鲜肉烂，记得自己掰馍才过瘾！"
   },
   {
     "id": "amap_f9b834d2",
@@ -4722,7 +4907,8 @@
     "meal_type": "main",
     "description": "清真一间星月楼牛羊肉泡馍小炒，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFK234AJ"
+    "source_id": "B0FFK234AJ",
+    "recommendation": "清真一间星月楼牛羊肉泡馍小炒口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_1d40773f",
@@ -4747,7 +4933,8 @@
     "meal_type": "main",
     "description": "清真·回坊大牌档·陕菜(兵马俑店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HG4MQ56N"
+    "source_id": "B0HG4MQ56N",
+    "recommendation": "清真·回坊大牌档·陕菜(兵马俑店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_957ef26d",
@@ -4773,7 +4960,8 @@
     "meal_type": "main",
     "description": "老米家泡馍·陕菜·烧烤(雁塔西路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0L69AP35J"
+    "source_id": "B0L69AP35J",
+    "recommendation": "老米家泡馍·陕菜·烧烤(雁塔西路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_f1bd3a57",
@@ -4799,7 +4987,8 @@
     "meal_type": "main",
     "description": "老孙家饭庄(东关总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D098SS"
+    "source_id": "B001D098SS",
+    "recommendation": "老孙家饭庄(东关总店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_329f070d",
@@ -4824,7 +5013,8 @@
     "meal_type": "main",
     "description": "老孙家泡馍·陕菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0K69YNMPD"
+    "source_id": "B0K69YNMPD",
+    "recommendation": "在临潼区觅食推荐老孙家泡馍·陕菜，性价比不错"
   },
   {
     "id": "amap_480d2eaa",
@@ -4850,7 +5040,8 @@
     "meal_type": "main",
     "description": "老车家牛羊肉泡馍馆(大差市店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFA8V2L"
+    "source_id": "B0FFFA8V2L",
+    "recommendation": "在碑林区觅食推荐老车家牛羊肉泡馍馆(大差市店)，性价比不错"
   },
   {
     "id": "amap_7d57e410",
@@ -4874,7 +5065,8 @@
     "meal_type": "main",
     "description": "司家御满香葫芦头陕菜(西沣四路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0ID3U16PW"
+    "source_id": "B0ID3U16PW",
+    "recommendation": "司家御满香葫芦头陕菜(西沣四路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_f30016e",
@@ -4899,7 +5091,8 @@
     "meal_type": "main",
     "description": "隐唐中国菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LUS15QJF"
+    "source_id": "B0LUS15QJF",
+    "recommendation": "隐唐中国菜是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6a5cabed",
@@ -4925,7 +5118,8 @@
     "meal_type": "main",
     "description": "司家御满香葫芦头陕菜(高新新天地购物广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0L0TCAVQC"
+    "source_id": "B0L0TCAVQC",
+    "recommendation": "司家御满香葫芦头陕菜(高新新天地购物广场店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_8f88a6ac",
@@ -4951,7 +5145,8 @@
     "meal_type": "main",
     "description": "长安小镇，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JRZSAPUT"
+    "source_id": "B0JRZSAPUT",
+    "recommendation": "长安小镇口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_b23ac427",
@@ -4977,7 +5172,8 @@
     "meal_type": "main",
     "description": "百盛楼泡馍(洪庆店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFFX21Q"
+    "source_id": "B0FFFFX21Q",
+    "recommendation": "百盛楼泡馍(洪庆店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_15333982",
@@ -5003,7 +5199,8 @@
     "meal_type": "main",
     "description": "南院门三鲜葫芦头(四棉厂住宅互助区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFI91GXY"
+    "source_id": "B0FFI91GXY",
+    "recommendation": "在灞桥区觅食推荐南院门三鲜葫芦头(四棉厂住宅互助区店)，性价比不错"
   },
   {
     "id": "amap_9957b31",
@@ -5029,7 +5226,8 @@
     "meal_type": "main",
     "description": "伊明祥泡馍私房菜(枣园刘住宅小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHWSLJJ"
+    "source_id": "B0FFHWSLJJ",
+    "recommendation": "伊明祥泡馍私房菜(枣园刘住宅小区店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_10a94bd8",
@@ -5053,7 +5251,8 @@
     "meal_type": "main",
     "description": "张记葫芦头陕菜泡馍(渭滨路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFL3H1QH"
+    "source_id": "B0FFL3H1QH",
+    "recommendation": "张记葫芦头陕菜泡馍(渭滨路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_5cccf25",
@@ -5078,7 +5277,8 @@
     "meal_type": "main",
     "description": "陕鄠马驹牛肉泡馍馆(东秀岭小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFMEE6QZ"
+    "source_id": "B0FFMEE6QZ",
+    "recommendation": "陕鄠马驹牛肉泡馍馆(东秀岭小区店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_93fbd015",
@@ -5102,7 +5302,8 @@
     "meal_type": "main",
     "description": "清真老白家泡馍烧烤江湖菜(曲江店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LKC71P6R"
+    "source_id": "B0LKC71P6R",
+    "recommendation": "清真老白家泡馍烧烤江湖菜(曲江店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ea56a067",
@@ -5126,7 +5327,8 @@
     "meal_type": "main",
     "description": "老安家私房菜泡馍，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JU7CQ987"
+    "source_id": "B0JU7CQ987",
+    "recommendation": "在长安区觅食推荐老安家私房菜泡馍，性价比不错"
   },
   {
     "id": "amap_3babfb62",
@@ -5152,7 +5354,8 @@
     "meal_type": "main",
     "description": "锦盛斋泡馍烤肉家常菜(金色花语城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HAD5DGH0"
+    "source_id": "B0HAD5DGH0",
+    "recommendation": "锦盛斋泡馍烤肉家常菜(金色花语城店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ff93488f",
@@ -5176,7 +5379,8 @@
     "meal_type": "main",
     "description": "长安大牌档陕历博文化餐厅(赛格旗舰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFF9WHXV"
+    "source_id": "B0FFF9WHXV",
+    "recommendation": "赛格楼上的文化餐厅，陕菜精致又有创意，推荐葫芦鸡和毛笔酥，拍照打卡记得早去占位。"
   },
   {
     "id": "amap_67f525f0",
@@ -5201,7 +5405,8 @@
     "meal_type": "main",
     "description": "传承长安陕菜馆(钟鼓楼店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KATZF7RD"
+    "source_id": "B0KATZF7RD",
+    "recommendation": "在碑林区觅食推荐传承长安陕菜馆(钟鼓楼店)，性价比不错"
   },
   {
     "id": "amap_c10042f",
@@ -5226,7 +5431,8 @@
     "meal_type": "main",
     "description": "清真伊兰香泡馍私房菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KAG113OU"
+    "source_id": "B0KAG113OU",
+    "recommendation": "在周至县觅食推荐清真伊兰香泡馍私房菜，性价比不错"
   },
   {
     "id": "amap_a26de38e",
@@ -5250,7 +5456,8 @@
     "meal_type": "main",
     "description": "传承长安陕菜馆(钟楼北大街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KRVHL183"
+    "source_id": "B0KRVHL183",
+    "recommendation": "在新城区觅食推荐传承长安陕菜馆(钟楼北大街店)，性价比不错"
   },
   {
     "id": "amap_d6837646",
@@ -5276,7 +5483,8 @@
     "meal_type": "main",
     "description": "秦椒香biangbiang面陕菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0L6GSB7A9"
+    "source_id": "B0L6GSB7A9",
+    "recommendation": "秦椒香biangbiang面陕菜馆口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_9ba5a32",
@@ -5302,7 +5510,8 @@
     "meal_type": "main",
     "description": "穆林坊泡馍烧烤私房菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0M6X5QNGO"
+    "source_id": "B0M6X5QNGO",
+    "recommendation": "穆林坊泡馍烧烤私房菜口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_8e98d533",
@@ -5327,7 +5536,8 @@
     "meal_type": "main",
     "description": "老安家泡馍私房菜烧烤(皇子坡店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0L0PL1YZP"
+    "source_id": "B0L0PL1YZP",
+    "recommendation": "老安家泡馍私房菜烧烤(皇子坡店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_66c42c7c",
@@ -5352,7 +5562,8 @@
     "meal_type": "main",
     "description": "关中泡馍食尚陕菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KG7Z0SJU"
+    "source_id": "B0KG7Z0SJU",
+    "recommendation": "在新城区觅食推荐关中泡馍食尚陕菜，性价比不错"
   },
   {
     "id": "amap_5e18b6e",
@@ -5376,7 +5587,8 @@
     "meal_type": "main",
     "description": "泡馍小炒纸包鱼江湖菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LRZ73BG6"
+    "source_id": "B0LRZ73BG6",
+    "recommendation": "泡馍小炒纸包鱼江湖菜口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_e7945f59",
@@ -5402,7 +5614,8 @@
     "meal_type": "main",
     "description": "马家泡馍(西大街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0IRXUYWLB"
+    "source_id": "B0IRXUYWLB",
+    "recommendation": "马家泡馍(西大街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_6a0d8150",
@@ -5428,7 +5641,8 @@
     "meal_type": "main",
     "description": "清真一间楼馬超泡馍馆(曲江六号店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0GR0MWHLR"
+    "source_id": "B0GR0MWHLR",
+    "recommendation": "在雁塔区觅食推荐清真一间楼馬超泡馍馆(曲江六号店)，性价比不错"
   },
   {
     "id": "amap_cad253e3",
@@ -5454,7 +5668,8 @@
     "meal_type": "main",
     "description": "马洪小炒泡馍馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D0WGM0"
+    "source_id": "B001D0WGM0",
+    "recommendation": "西安小炒泡馍的扛把子，酸辣口超解馋，记得自己"
   },
   {
     "id": "amap_edc8eeae",
@@ -5480,7 +5695,8 @@
     "meal_type": "main",
     "description": "老孙家小炒泡馍(大皮院店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LUMM5F9Z"
+    "source_id": "B0LUMM5F9Z",
+    "recommendation": "老孙家小炒泡馍(大皮院店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_c91c8d2e",
@@ -5506,7 +5722,8 @@
     "meal_type": "main",
     "description": "果渊斋老米家泡馍馆(回坊总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D06RAY"
+    "source_id": "B001D06RAY",
+    "recommendation": "回坊里的泡馍老店，馍香汤醇，建议上午十点去，"
   },
   {
     "id": "amap_19582c87",
@@ -5533,7 +5750,8 @@
     "meal_type": "main",
     "description": "一间楼泡馍馆(东一路)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGK8M83"
+    "source_id": "B0FFGK8M83",
+    "recommendation": "在新城区觅食推荐一间楼泡馍馆(东一路)，性价比不错"
   },
   {
     "id": "amap_93a664c0",
@@ -5559,7 +5777,8 @@
     "meal_type": "main",
     "description": "黄家泡馍馆(汉城南路西安总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D0084D"
+    "source_id": "B001D0084D",
+    "recommendation": "黄家泡馍馆(汉城南路西安总店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a9ece89c",
@@ -5585,7 +5804,8 @@
     "meal_type": "main",
     "description": "老刘家永盛斋牛羊肉泡馍(东关南街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJMQDIB"
+    "source_id": "B0FFJMQDIB",
+    "recommendation": "在碑林区觅食推荐老刘家永盛斋牛羊肉泡馍(东关南街店)，性价比不错"
   },
   {
     "id": "amap_c9cd203b",
@@ -5611,7 +5831,8 @@
     "meal_type": "main",
     "description": "建基泡馍(永宁路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFH0IZNC"
+    "source_id": "B0FFH0IZNC",
+    "recommendation": "建基泡馍(永宁路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_64cde9c0",
@@ -5637,7 +5858,8 @@
     "meal_type": "main",
     "description": "刘信牛羊肉泡馍小炒(回民街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D08DBR"
+    "source_id": "B001D08DBR",
+    "recommendation": "在莲湖区觅食推荐刘信牛羊肉泡馍小炒(回民街店)，性价比不错"
   },
   {
     "id": "amap_a4837d67",
@@ -5663,7 +5885,8 @@
     "meal_type": "main",
     "description": "一真楼羊肉泡馍，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D075S4"
+    "source_id": "B001D075S4",
+    "recommendation": "在莲湖区觅食推荐一真楼羊肉泡馍，性价比不错"
   },
   {
     "id": "amap_d2d15fd4",
@@ -5687,7 +5910,8 @@
     "meal_type": "main",
     "description": "同盛祥(曲江大唐不夜城步行街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFK6LGH5"
+    "source_id": "B0FFK6LGH5",
+    "recommendation": "同盛祥(曲江大唐不夜城步行街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_9df756fc",
@@ -5713,7 +5937,8 @@
     "meal_type": "main",
     "description": "清真建基泡馍(高新逸翠园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KA2CHSRA"
+    "source_id": "B0KA2CHSRA",
+    "recommendation": "在雁塔区觅食推荐清真建基泡馍(高新逸翠园店)，性价比不错"
   },
   {
     "id": "amap_8e1ddb62",
@@ -5739,7 +5964,8 @@
     "meal_type": "main",
     "description": "同盛斋牛羊肉泡馍(唐人街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D0WKXP"
+    "source_id": "B001D0WKXP",
+    "recommendation": "同盛斋牛羊肉泡馍(唐人街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_b483cef0",
@@ -5765,7 +5991,8 @@
     "meal_type": "main",
     "description": "铁老十泡馍馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D047JQ"
+    "source_id": "B001D047JQ",
+    "recommendation": "在莲湖区觅食推荐铁老十泡馍馆，性价比不错"
   },
   {
     "id": "amap_d0619c47",
@@ -5791,7 +6018,8 @@
     "meal_type": "main",
     "description": "景德牛羊肉泡馍馆(汇鑫家园南区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJZTKCB"
+    "source_id": "B0FFJZTKCB",
+    "recommendation": "在莲湖区觅食推荐景德牛羊肉泡馍馆(汇鑫家园南区店)，性价比不错"
   },
   {
     "id": "amap_b4f75e7",
@@ -5817,7 +6045,8 @@
     "meal_type": "main",
     "description": "盛祥斋泡馍(长乐坊风味街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJMEGWB"
+    "source_id": "B0FFJMEGWB",
+    "recommendation": "盛祥斋泡馍(长乐坊风味街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_74684af9",
@@ -5843,7 +6072,8 @@
     "meal_type": "main",
     "description": "老安家泡馍(育才路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIW4QD7"
+    "source_id": "B0FFIW4QD7",
+    "recommendation": "老安家泡馍(育才路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_48414e2",
@@ -5868,7 +6098,8 @@
     "meal_type": "main",
     "description": "老安家泡馍(友谊东路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFK64HWA"
+    "source_id": "B0FFK64HWA",
+    "recommendation": "在碑林区觅食推荐老安家泡馍(友谊东路店)，性价比不错"
   },
   {
     "id": "amap_984a1e1",
@@ -5893,7 +6124,8 @@
     "meal_type": "main",
     "description": "老徐葫芦头泡馍(东六路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJAS79T"
+    "source_id": "B0FFJAS79T",
+    "recommendation": "老徐葫芦头泡馍(东六路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_6118453e",
@@ -5918,7 +6150,8 @@
     "meal_type": "main",
     "description": "永信伊泡馍(丝绸之路风情街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFZ4NJS"
+    "source_id": "B0FFFZ4NJS",
+    "recommendation": "永信伊泡馍(丝绸之路风情街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ba14ce2b",
@@ -5944,7 +6177,8 @@
     "meal_type": "main",
     "description": "同兴福马骥家牛羊肉泡馍馆(西羊市店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFF9WKEF"
+    "source_id": "B0FFF9WKEF",
+    "recommendation": "同兴福马骥家牛羊肉泡馍馆(西羊市店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_b2dfacf4",
@@ -5970,7 +6204,8 @@
     "meal_type": "main",
     "description": "老黄家泡馍，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFI11O5D"
+    "source_id": "B0FFI11O5D",
+    "recommendation": "在未央区觅食推荐老黄家泡馍，性价比不错"
   },
   {
     "id": "amap_54322ce0",
@@ -5995,7 +6230,8 @@
     "meal_type": "main",
     "description": "德盛祥泡馍(北街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D08XEO"
+    "source_id": "B001D08XEO",
+    "recommendation": "德盛祥泡馍(北街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6e963758",
@@ -6019,7 +6255,8 @@
     "meal_type": "main",
     "description": "盛安斋老赵家小炒泡馍·清真(陕西陕钢115街坊南院店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFI86WF1"
+    "source_id": "B0FFI86WF1",
+    "recommendation": "在新城区觅食推荐盛安斋老赵家小炒泡馍·清真(陕西陕钢115街坊南院店)，性价比不错"
   },
   {
     "id": "amap_3bc65116",
@@ -6045,7 +6282,8 @@
     "meal_type": "main",
     "description": "顺德坊牛羊肉泡馍(唐御坊店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFHIXBD"
+    "source_id": "B0FFFHIXBD",
+    "recommendation": "顺德坊牛羊肉泡馍(唐御坊店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_1fc058ea",
@@ -6071,7 +6309,8 @@
     "meal_type": "main",
     "description": "老马家牛羊肉泡馍(韦大路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D11DDH"
+    "source_id": "B001D11DDH",
+    "recommendation": "老马家牛羊肉泡馍(韦大路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_86d15e4",
@@ -6097,7 +6336,8 @@
     "meal_type": "main",
     "description": "信真伊泡馍烧烤，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LAHUIO0Y"
+    "source_id": "B0LAHUIO0Y",
+    "recommendation": "信真伊泡馍烧烤是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_caafb478",
@@ -6122,7 +6362,8 @@
     "meal_type": "main",
     "description": "玺宴·江浙菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0K139YLVL"
+    "source_id": "B0K139YLVL",
+    "recommendation": "玺宴·江浙菜口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_2bc46e6",
@@ -6148,7 +6389,8 @@
     "meal_type": "main",
     "description": "老海家泡馍凤栖原店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFF659DA"
+    "source_id": "B0FFF659DA",
+    "recommendation": "在长安区觅食推荐老海家泡馍凤栖原店，性价比不错"
   },
   {
     "id": "amap_81e45b23",
@@ -6173,7 +6415,8 @@
     "meal_type": "main",
     "description": "清雅楼泡馍(西弥街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFF902FK"
+    "source_id": "B0FFF902FK",
+    "recommendation": "清雅楼泡馍(西弥街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ee62f8a8",
@@ -6199,7 +6442,8 @@
     "meal_type": "main",
     "description": "西安饭庄·非遗(钟楼店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFH0XVYP"
+    "source_id": "B0FFH0XVYP",
+    "recommendation": "西安饭庄·非遗(钟楼店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_2738cbc5",
@@ -6224,7 +6468,8 @@
     "meal_type": "main",
     "description": "老安家泡馍.烧烤炒菜海鲜(昆御府店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0J2JCBCQI"
+    "source_id": "B0J2JCBCQI",
+    "recommendation": "老安家泡馍.烧烤炒菜海鲜(昆御府店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a1ea0c80",
@@ -6250,7 +6495,8 @@
     "meal_type": "main",
     "description": "将旦(西安首店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LKO5FURC"
+    "source_id": "B0LKO5FURC",
+    "recommendation": "在雁塔区觅食推荐将旦(西安首店)，性价比不错"
   },
   {
     "id": "amap_7b32c20a",
@@ -6275,7 +6521,8 @@
     "meal_type": "main",
     "description": "秦人街西北菜(凤城九路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHCBKMB"
+    "source_id": "B0FFHCBKMB",
+    "recommendation": "秦人街西北菜(凤城九路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_8cbaedc6",
@@ -6300,7 +6547,8 @@
     "meal_type": "main",
     "description": "鸿顺祥老米家泡馍(菜市场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H6YA92LJ"
+    "source_id": "B0H6YA92LJ",
+    "recommendation": "鸿顺祥老米家泡馍(菜市场店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_3498e66c",
@@ -6326,7 +6574,8 @@
     "meal_type": "main",
     "description": "鑫雅斋牛羊肉泡馍馆(向阳坊社区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D07CDV"
+    "source_id": "B001D07CDV",
+    "recommendation": "鑫雅斋牛羊肉泡馍馆(向阳坊社区店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_e52bc05e",
@@ -6351,7 +6600,8 @@
     "meal_type": "main",
     "description": "福盛斋牛羊肉泡馍(雁环路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGFPUQ2"
+    "source_id": "B0FFGFPUQ2",
+    "recommendation": "福盛斋牛羊肉泡馍(雁环路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d4e24c08",
@@ -6377,7 +6627,8 @@
     "meal_type": "main",
     "description": "回坊阁牛羊肉泡馍，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFPT7DD"
+    "source_id": "B0FFFPT7DD",
+    "recommendation": "回坊阁牛羊肉泡馍是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_7081865c",
@@ -6403,7 +6654,8 @@
     "meal_type": "main",
     "description": "西泰厚泡馍馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGJU2BE"
+    "source_id": "B0FFGJU2BE",
+    "recommendation": "西泰厚泡馍馆口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_995f84ce",
@@ -6429,7 +6681,8 @@
     "meal_type": "main",
     "description": "老杨家·小炒泡馍(龙首商业街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H1M91LYD"
+    "source_id": "B0H1M91LYD",
+    "recommendation": "在未央区觅食推荐老杨家·小炒泡馍(龙首商业街店)，性价比不错"
   },
   {
     "id": "amap_56952fd2",
@@ -6453,7 +6706,8 @@
     "meal_type": "main",
     "description": "老米家泡馍(北大街西七路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JKO9METP"
+    "source_id": "B0JKO9METP",
+    "recommendation": "老米家泡馍(北大街西七路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_118a34a1",
@@ -6478,7 +6732,8 @@
     "meal_type": "main",
     "description": "和月楼牛羊肉泡馍，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D06I57"
+    "source_id": "B001D06I57",
+    "recommendation": "和月楼牛羊肉泡馍口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a4f9c534",
@@ -6504,7 +6759,8 @@
     "meal_type": "main",
     "description": "清真一品楼泡馍，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001D0VZ0T"
+    "source_id": "B001D0VZ0T",
+    "recommendation": "清真一品楼泡馍口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_afbb80dc",
@@ -6530,7 +6786,8 @@
     "meal_type": "main",
     "description": "黄家泡馍馆(木塔寺分店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0GUK5FFUN"
+    "source_id": "B0GUK5FFUN",
+    "recommendation": "黄家泡馍馆(木塔寺分店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_496de602",
@@ -6556,7 +6813,8 @@
     "meal_type": "main",
     "description": "月牙斋泡馍，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LKCC11Z6"
+    "source_id": "B0LKCC11Z6",
+    "recommendation": "月牙斋泡馍是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_bffb449b",
@@ -6580,7 +6838,8 @@
     "meal_type": "main",
     "description": "老孙家泡馍，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LKPR05WA"
+    "source_id": "B0LKPR05WA",
+    "recommendation": "老孙家泡馍口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_9bac2f47",
@@ -6605,7 +6864,8 @@
     "meal_type": "main",
     "description": "黄家泡馍馆(长安分店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFKSEC06"
+    "source_id": "B0FFKSEC06",
+    "recommendation": "在长安区觅食推荐黄家泡馍馆(长安分店)，性价比不错"
   },
   {
     "id": "amap_285b46c8",
@@ -6627,7 +6887,8 @@
     "meal_type": "main",
     "description": "陕西省西安市雁塔区大唐不夜城，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": ""
+    "source_id": "",
+    "recommendation": "陕西省西安市雁塔区大唐不夜城适合饭后散步或消遣"
   },
   {
     "id": "amap_5417feca",
@@ -6653,7 +6914,8 @@
     "meal_type": "main",
     "description": "回民街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001D140J1"
+    "source_id": "B001D140J1",
+    "recommendation": "回民街口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_cee58932",
@@ -6678,7 +6940,8 @@
     "meal_type": "main",
     "description": "西遇美食坊(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0HAX5MO3Z"
+    "source_id": "B0HAX5MO3Z",
+    "recommendation": "在莲湖区觅食推荐西遇美食坊(回民街店)，性价比不错"
   },
   {
     "id": "amap_da4f32ab",
@@ -6704,7 +6967,8 @@
     "meal_type": "main",
     "description": "天植美玉批发(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001D07MKP"
+    "source_id": "B001D07MKP",
+    "recommendation": "天植美玉批发(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_44780ac2",
@@ -6729,7 +6993,8 @@
     "meal_type": "main",
     "description": "西安清忆居酒店(钟鼓楼回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0IB31DZFR"
+    "source_id": "B0IB31DZFR",
+    "recommendation": "西安清忆居酒店(钟鼓楼回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ccc8394e",
@@ -6755,7 +7020,8 @@
     "meal_type": "main",
     "description": "何老八老街印象(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFFA8WHW"
+    "source_id": "B0FFFA8WHW",
+    "recommendation": "何老八老街印象(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_b269c4c2",
@@ -6781,7 +7047,8 @@
     "meal_type": "main",
     "description": "学习巷小马烤肉(回民街)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFFVOC2G"
+    "source_id": "B0FFFVOC2G",
+    "recommendation": "在莲湖区觅食推荐学习巷小马烤肉(回民街)，性价比不错"
   },
   {
     "id": "amap_c5afccfe",
@@ -6807,7 +7074,8 @@
     "meal_type": "main",
     "description": "礼遇长安(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0G0CPRJJ9"
+    "source_id": "B0G0CPRJJ9",
+    "recommendation": "礼遇长安(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_5dd90fc5",
@@ -6833,7 +7101,8 @@
     "meal_type": "main",
     "description": "马天小炒泡馍(钟楼回民街总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFGSFN3Y"
+    "source_id": "B0FFGSFN3Y",
+    "recommendation": "马天小炒泡馍(钟楼回民街总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_3170a501",
@@ -6859,7 +7128,8 @@
     "meal_type": "main",
     "description": "清真·咥犇羴鱻烧烤海鲜(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFIWAPCT"
+    "source_id": "B0FFIWAPCT",
+    "recommendation": "清真·咥犇羴鱻烧烤海鲜(回民街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_45f1fb18",
@@ -6884,7 +7154,8 @@
     "meal_type": "drink",
     "description": "蜜雪冰城(回民街二府街西入口店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LGJNFWYH"
+    "source_id": "B0LGJNFWYH",
+    "recommendation": "蜜雪冰城(回民街二府街西入口店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_5e1faf2a",
@@ -6909,7 +7180,8 @@
     "meal_type": "drink",
     "description": "不舍长安里·CLUB(钟鼓楼回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0GR9OSBAD"
+    "source_id": "B0GR9OSBAD",
+    "recommendation": "不舍长安里·CLUB(钟鼓楼回民街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b3ea0b1",
@@ -6935,7 +7207,8 @@
     "meal_type": "main",
     "description": "西安钟楼回民街逸扉酒店·咖啡厅，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L2CNGRVZ"
+    "source_id": "B0L2CNGRVZ",
+    "recommendation": "西安钟楼回民街逸扉酒店·咖啡厅口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_8b1d86ff",
@@ -6961,7 +7234,8 @@
     "meal_type": "main",
     "description": "回文人家·回坊大牌档-特色菜(回民街百年老店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFLEN2AB"
+    "source_id": "B0FFLEN2AB",
+    "recommendation": "回文人家·回坊大牌档-特色菜(回民街百年老店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_fae98fb4",
@@ -6987,7 +7261,8 @@
     "meal_type": "main",
     "description": "老米家大雨泡馍(回民街总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFK4JZE7"
+    "source_id": "B0FFK4JZE7",
+    "recommendation": "老米家大雨泡馍(回民街总店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_688b984b",
@@ -7014,7 +7289,8 @@
     "meal_type": "main",
     "description": "陕北人家酒店公寓(西安钟鼓楼回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFJCZU5I"
+    "source_id": "B0FFJCZU5I",
+    "recommendation": "陕北人家酒店公寓(西安钟鼓楼回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_41387f2d",
@@ -7043,7 +7319,8 @@
     "meal_type": "main",
     "description": "伊古斋黄桂柿子饼(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001D07VZF"
+    "source_id": "B001D07VZF",
+    "recommendation": "伊古斋黄桂柿子饼(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_c3caff68",
@@ -7069,7 +7346,8 @@
     "meal_type": "main",
     "description": "马乐烤肉(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFGSYG5H"
+    "source_id": "B0FFGSYG5H",
+    "recommendation": "马乐烤肉(回民街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_64a80bf0",
@@ -7095,7 +7373,8 @@
     "meal_type": "main",
     "description": "尔里餐厅(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFGXASK9"
+    "source_id": "B0FFGXASK9",
+    "recommendation": "尔里餐厅(回民街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_405bbb74",
@@ -7120,7 +7399,8 @@
     "meal_type": "drink",
     "description": "库迪咖啡(回民街大学习巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0JABAUP2X"
+    "source_id": "B0JABAUP2X",
+    "recommendation": "库迪咖啡(回民街大学习巷店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_3d594277",
@@ -7145,7 +7425,8 @@
     "meal_type": "main",
     "description": "矮子酥饼(回民街总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFLK154I"
+    "source_id": "B0FFLK154I",
+    "recommendation": "矮子酥饼(回民街总店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_abc69a25",
@@ -7171,7 +7452,8 @@
     "meal_type": "main",
     "description": "山楂老铺(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFKSKXGD"
+    "source_id": "B0FFKSKXGD",
+    "recommendation": "山楂老铺(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_7bfb34e0",
@@ -7197,7 +7479,8 @@
     "meal_type": "main",
     "description": "陕西第一碗(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001D09FIJ"
+    "source_id": "B001D09FIJ",
+    "recommendation": "陕西第一碗(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ca5388df",
@@ -7222,7 +7505,8 @@
     "meal_type": "main",
     "description": "辣椒妈妈关中油泼辣子(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0M6TH4IZN"
+    "source_id": "B0M6TH4IZN",
+    "recommendation": "辣椒妈妈关中油泼辣子(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_f215ef04",
@@ -7247,7 +7531,8 @@
     "meal_type": "drink",
     "description": "清真·蜜果子烘焙(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0GKDRTRQ4"
+    "source_id": "B0GKDRTRQ4",
+    "recommendation": "清真·蜜果子烘焙(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_905014ae",
@@ -7273,7 +7558,8 @@
     "meal_type": "main",
     "description": "老铁家腊牛羊肉(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFFV5AL9"
+    "source_id": "B0FFFV5AL9",
+    "recommendation": "在莲湖区觅食推荐老铁家腊牛羊肉(回民街店)，性价比不错"
   },
   {
     "id": "amap_dcc2ed4",
@@ -7299,7 +7585,8 @@
     "meal_type": "main",
     "description": "王奕丰烤肉(钟楼回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0K271BEKP"
+    "source_id": "B0K271BEKP",
+    "recommendation": "在莲湖区觅食推荐王奕丰烤肉(钟楼回民街店)，性价比不错"
   },
   {
     "id": "amap_e9566111",
@@ -7326,7 +7613,8 @@
     "meal_type": "main",
     "description": "军军绿豆糕(回民街总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFHOUABE"
+    "source_id": "B0FFHOUABE",
+    "recommendation": "在莲湖区觅食推荐军军绿豆糕(回民街总店)，性价比不错"
   },
   {
     "id": "amap_d0156222",
@@ -7352,7 +7640,8 @@
     "meal_type": "main",
     "description": "清真拉菲尔鱼庄(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFHCP18Y"
+    "source_id": "B0FFHCP18Y",
+    "recommendation": "在莲湖区觅食推荐清真拉菲尔鱼庄(回民街店)，性价比不错"
   },
   {
     "id": "amap_1b769712",
@@ -7378,7 +7667,8 @@
     "meal_type": "main",
     "description": "高家烤肉(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001D0WYJL"
+    "source_id": "B001D0WYJL",
+    "recommendation": "高家烤肉(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_236b489a",
@@ -7404,7 +7694,8 @@
     "meal_type": "main",
     "description": "秦羊记·手抓羊肉·水盆羊肉(钟楼回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0K271BTXB"
+    "source_id": "B0K271BTXB",
+    "recommendation": "秦羊记·手抓羊肉·水盆羊肉(钟楼回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_88ab52b7",
@@ -7430,7 +7721,8 @@
     "meal_type": "main",
     "description": "老白家老街第一家烤全羊(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0I12Y0E2B"
+    "source_id": "B0I12Y0E2B",
+    "recommendation": "老白家老街第一家烤全羊(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_4b9d41aa",
@@ -7455,7 +7747,8 @@
     "meal_type": "main",
     "description": "主麻冒菜(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFHLO1KR"
+    "source_id": "B0FFHLO1KR",
+    "recommendation": "主麻冒菜(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_d6ce7bfd",
@@ -7481,7 +7774,8 @@
     "meal_type": "main",
     "description": "柿井桂花柿子饼(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0J2FL4JLB"
+    "source_id": "B0J2FL4JLB",
+    "recommendation": "在莲湖区觅食推荐柿井桂花柿子饼(回民街店)，性价比不错"
   },
   {
     "id": "amap_e2aa5437",
@@ -7507,7 +7801,8 @@
     "meal_type": "main",
     "description": "清真·老马家腊牛羊肉(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFKH3NHV"
+    "source_id": "B0FFKH3NHV",
+    "recommendation": "在莲湖区觅食推荐清真·老马家腊牛羊肉(回民街店)，性价比不错"
   },
   {
     "id": "amap_ed0714f2",
@@ -7532,7 +7827,8 @@
     "meal_type": "main",
     "description": "鱿鱼世家(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0H2H1L1WD"
+    "source_id": "B0H2H1L1WD",
+    "recommendation": "鱿鱼世家(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ca9e9b6b",
@@ -7558,7 +7854,8 @@
     "meal_type": "main",
     "description": "三秋·SunChew·精品民宿(钟鼓楼回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0J16ZT4TS"
+    "source_id": "B0J16ZT4TS",
+    "recommendation": "在莲湖区觅食推荐三秋·SunChew·精品民宿(钟鼓楼回民街店)，性价比不错"
   },
   {
     "id": "amap_b88902ae",
@@ -7584,7 +7881,8 @@
     "meal_type": "main",
     "description": "知感酸汤水饺(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFH2J6LE"
+    "source_id": "B0FFH2J6LE",
+    "recommendation": "知感酸汤水饺(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_da6ccb02",
@@ -7610,7 +7908,8 @@
     "meal_type": "main",
     "description": "老米家泡馍(回民街总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0J3FHCHB7"
+    "source_id": "B0J3FHCHB7",
+    "recommendation": "老米家泡馍(回民街总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ed0fed1e",
@@ -7636,7 +7935,8 @@
     "meal_type": "main",
     "description": "霸王茶姬(西安回民街西羊市店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0JUJ7TEJF"
+    "source_id": "B0JUJ7TEJF",
+    "recommendation": "霸王茶姬(西安回民街西羊市店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ba6229ba",
@@ -7664,7 +7964,8 @@
     "meal_type": "main",
     "description": "佟小曼-长安茶饼坊(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0J0GHJ4NP"
+    "source_id": "B0J0GHJ4NP",
+    "recommendation": "在莲湖区觅食推荐佟小曼-长安茶饼坊(回民街店)，性价比不错"
   },
   {
     "id": "amap_17c48786",
@@ -7691,7 +7992,8 @@
     "meal_type": "main",
     "description": "五韵丰花馍王·百年花馍老店(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L15H1AV9"
+    "source_id": "B0L15H1AV9",
+    "recommendation": "五韵丰花馍王·百年花馍老店(回民街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_902f27a9",
@@ -7717,7 +8019,8 @@
     "meal_type": "main",
     "description": "安家凉皮店(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001D0WKSX"
+    "source_id": "B001D0WKSX",
+    "recommendation": "安家凉皮店(回民街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_77e38988",
@@ -7742,7 +8045,8 @@
     "meal_type": "main",
     "description": "清真·维罗纳古典火炉披萨Verona pizza(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFIBHJ73"
+    "source_id": "B0FFIBHJ73",
+    "recommendation": "在莲湖区觅食推荐清真·维罗纳古典火炉披萨Verona pizza(回民街店)，性价比不错"
   },
   {
     "id": "amap_74268546",
@@ -7768,7 +8072,8 @@
     "meal_type": "main",
     "description": "老刘家biangbiang面(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFF8FP87"
+    "source_id": "B0FFF8FP87",
+    "recommendation": "老刘家biangbiang面(回民街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_18a1d2f5",
@@ -7794,7 +8099,8 @@
     "meal_type": "main",
     "description": "老白家豌豆糕(回民街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0JBAS80YI"
+    "source_id": "B0JBAS80YI",
+    "recommendation": "在莲湖区觅食推荐老白家豌豆糕(回民街店)，性价比不错"
   },
   {
     "id": "amap_fb65663b",
@@ -7821,7 +8127,7 @@
     "description": "赛格国际购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001D10WBA",
-    "recommendation": "赛格室内瀑布和飞天电梯超炫酷，顶楼美食城老字号扎堆，逛吃首选。"
+    "recommendation": "赛格超好逛，室内瀑布和美食层必打卡，记得空着肚子来吃"
   },
   {
     "id": "amap_24e9d0b7",
@@ -7875,7 +8181,8 @@
     "meal_type": "main",
     "description": "西安万象城(生命之树)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0J2LZWH63"
+    "source_id": "B0J2LZWH63",
+    "recommendation": "西安万象城(生命之树)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2f011399",
@@ -7903,7 +8210,8 @@
     "meal_type": "main",
     "description": "西安大悦城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0G0XR1FPH"
+    "source_id": "B0G0XR1FPH",
+    "recommendation": "推荐在雁塔区参观西安大悦城，人气评分4.8"
   },
   {
     "id": "amap_5c43c2f5",
@@ -7931,7 +8239,8 @@
     "meal_type": "main",
     "description": "砂之船(西安)奥莱，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFH5NPAR"
+    "source_id": "B0FFH5NPAR",
+    "recommendation": "推荐在灞桥区参观砂之船(西安)奥莱，人气评分4.8"
   },
   {
     "id": "amap_e620dc37",
@@ -7959,7 +8268,7 @@
     "description": "CityOn熙地港(西安)购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGNRSXF",
-    "recommendation": "时尚潮牌集中地，周末有市集活动，建议傍晚来逛，夜景灯光超美。"
+    "recommendation": "熙地港在未央路地铁口，逛街超方便！建议周末下午去，能避开中午人流高峰。"
   },
   {
     "id": "amap_a396768c",
@@ -7986,7 +8295,7 @@
     "description": "万达广场(西安大明宫店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFZFK31",
-    "recommendation": "逛完大明宫来这吃饭超方便，地下一层美食街选择多，记得空着肚子来。"
+    "recommendation": "大明宫万达紧邻遗迹公园，逛完博物馆来这儿吃饭最顺路！地下美食街的陕菜很地道。"
   },
   {
     "id": "amap_ea9d85d4",
@@ -8014,7 +8323,7 @@
     "description": "西安大都荟，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF8Z2GV",
-    "recommendation": "街区式购物体验，户外空间很惬意，推荐"
+    "recommendation": "科技路旁的潮流地标，晚上露天市集超有氛围！推荐周五去，常有街头艺人表演。"
   },
   {
     "id": "amap_4ffbcc9b",
@@ -8039,7 +8348,8 @@
     "meal_type": "main",
     "description": "曲江创意谷，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFJ5Q85O"
+    "source_id": "B0FFJ5Q85O",
+    "recommendation": "曲江创意谷设计感十足，随手一拍就是大片！建议下午三四点去，光线最出片。"
   },
   {
     "id": "amap_abdddbc3",
@@ -8066,7 +8376,8 @@
     "meal_type": "main",
     "description": "MOMOPARK艺术购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFG38S9J"
+    "source_id": "B0FFG38S9J",
+    "recommendation": "吉祥村附近的艺术商场，展览和网红餐厅扎堆！必逛一层的中庭艺术装置，拍照绝了。"
   },
   {
     "id": "amap_95219728",
@@ -8095,7 +8406,8 @@
     "meal_type": "main",
     "description": "万达广场(西安高新店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFGVHRBZ"
+    "source_id": "B0FFGVHRBZ",
+    "recommendation": "高新区的亲子天堂，儿童乐园和早教店超多！带娃建议周中去，周末活动要排队。"
   },
   {
     "id": "amap_1e521b17",
@@ -8122,7 +8434,8 @@
     "meal_type": "main",
     "description": "西咸万象城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFGXGS25"
+    "source_id": "B0FFGXGS25",
+    "recommendation": "西咸新区的巨无"
   },
   {
     "id": "amap_be8cdbf4",
@@ -8149,7 +8462,8 @@
     "meal_type": "main",
     "description": "西安西咸吾悦广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFI7UXPB"
+    "source_id": "B0FFI7UXPB",
+    "recommendation": "推荐在未央区参观西安西咸吾悦广场，人气评分4.8"
   },
   {
     "id": "amap_62ba1394",
@@ -8178,7 +8492,8 @@
     "meal_type": "main",
     "description": "大茂城购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFLJP5QE"
+    "source_id": "B0FFLJP5QE",
+    "recommendation": "推荐在雁塔区参观大茂城购物中心，人气评分4.8"
   },
   {
     "id": "amap_5e960f43",
@@ -8204,7 +8519,8 @@
     "meal_type": "main",
     "description": "龙湖西安未央天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0J39AD4KZ"
+    "source_id": "B0J39AD4KZ",
+    "recommendation": "龙湖西安未央天街适合城市游览、购物爱好者"
   },
   {
     "id": "amap_3eca397b",
@@ -8231,7 +8547,8 @@
     "meal_type": "main",
     "description": "西北商贸中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001D07H8T"
+    "source_id": "B001D07H8T",
+    "recommendation": "淘货圣地，衣服鞋帽种类多，记得砍价，周末人超多建议工作日去。"
   },
   {
     "id": "amap_6b8a1fa9",
@@ -8314,7 +8631,8 @@
     "meal_type": "main",
     "description": "立丰城LE CITY，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFF8ZU8A"
+    "source_id": "B0FFF8ZU8A",
+    "recommendation": "高新的新地标，吃喝玩乐一站式，停车位足，周末带娃好去处。"
   },
   {
     "id": "amap_3c1fbb4f",
@@ -8341,7 +8659,8 @@
     "meal_type": "main",
     "description": "西安大融城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFIS0P3E"
+    "source_id": "B0FFIS0P3E",
+    "recommendation": "西安大融城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c048e644",
@@ -8368,7 +8687,8 @@
     "meal_type": "main",
     "description": "太奥广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFFO60CO"
+    "source_id": "B0FFFO60CO",
+    "recommendation": "推荐在莲湖区参观太奥广场，人气评分4.7"
   },
   {
     "id": "amap_be06594d",
@@ -8394,7 +8714,8 @@
     "meal_type": "main",
     "description": "西安益田假日世界购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFGVYD6D"
+    "source_id": "B0FFGVYD6D",
+    "recommendation": "西安益田假日世界购物中心适合城市游览、购物爱好者"
   },
   {
     "id": "amap_90a7f3bc",
@@ -8421,7 +8742,8 @@
     "meal_type": "main",
     "description": "万和城购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFF656NF"
+    "source_id": "B0FFF656NF",
+    "recommendation": "推荐在新城区参观万和城购物中心，人气评分4.8"
   },
   {
     "id": "amap_c9fe1548",
@@ -8448,7 +8770,8 @@
     "meal_type": "main",
     "description": "西安小寨银泰百货，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001D10YTD"
+    "source_id": "B001D10YTD",
+    "recommendation": "西安小寨银泰百货适合城市游览、购物爱好者"
   },
   {
     "id": "amap_7dcf8ee1",
@@ -8475,7 +8798,8 @@
     "meal_type": "main",
     "description": "万达广场(西安碑林店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001D08ACC"
+    "source_id": "B001D08ACC",
+    "recommendation": "万达广场(西安碑林店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a29fa1cc",
@@ -8501,7 +8825,8 @@
     "meal_type": "main",
     "description": "汉神购物广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFFGLJUU"
+    "source_id": "B0FFFGLJUU",
+    "recommendation": "汉神购物广场适合城市游览、购物爱好者"
   },
   {
     "id": "amap_5a4a576a",
@@ -8527,7 +8852,8 @@
     "meal_type": "main",
     "description": "大唐西市·西市城购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0LKVD48S7"
+    "source_id": "B0LKVD48S7",
+    "recommendation": "大唐西市·西市城购物中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ef3a353f",
@@ -8554,7 +8880,8 @@
     "meal_type": "main",
     "description": "小寨·原力场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001D06NE6"
+    "source_id": "B001D06NE6",
+    "recommendation": "小寨·原力场适合城市游览、购物爱好者"
   },
   {
     "id": "amap_59125716",
@@ -8582,7 +8909,8 @@
     "meal_type": "main",
     "description": "西安民乐园万达广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001D09FPG"
+    "source_id": "B001D09FPG",
+    "recommendation": "西安民乐园万达广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_68d1b99d",
@@ -8609,7 +8937,8 @@
     "meal_type": "main",
     "description": "西安阳光天地购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001D0WGMN"
+    "source_id": "B001D0WGMN",
+    "recommendation": "推荐在长安区参观西安阳光天地购物中心，人气评分4.7"
   },
   {
     "id": "amap_72cf229d",
@@ -8636,7 +8965,8 @@
     "meal_type": "main",
     "description": "西安益田假日里购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0H6FZ2U1L"
+    "source_id": "B0H6FZ2U1L",
+    "recommendation": "西安益田假日里购物中心适合城市游览、购物爱好者"
   },
   {
     "id": "amap_eb8edfd4",
@@ -8661,7 +8991,8 @@
     "meal_type": "main",
     "description": "龙湖西安长乐天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0JA1CPDRL"
+    "source_id": "B0JA1CPDRL",
+    "recommendation": "长乐天街品牌超全，新开的商场环境棒，周末去记得早点抢停车位哦！"
   },
   {
     "id": "amap_b0bc024d",
@@ -8688,7 +9019,8 @@
     "meal_type": "main",
     "description": "王府井奥莱临潼小镇，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFGALOXU"
+    "source_id": "B0FFGALOXU",
+    "recommendation": "奥莱折扣力度大，离兵马俑不远，血拼完还能顺路看古迹，建议穿舒服的鞋慢慢逛。"
   },
   {
     "id": "amap_c77fd98d",
@@ -8715,7 +9047,8 @@
     "meal_type": "main",
     "description": "凯德广场·御锦城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFKIW911"
+    "source_id": "B0FFKIW911",
+    "recommendation": "御锦城里的宝藏商场，亲子设施齐全，带娃来有吃有玩，下午茶推荐去一楼的甜品店。"
   },
   {
     "id": "amap_6ac89c03",
@@ -8743,7 +9076,8 @@
     "meal_type": "main",
     "description": "南飞鸿·乐荟中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0JGFZPB58"
+    "source_id": "B0JGFZPB58",
+    "recommendation": "南飞鸿·乐荟中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_50a99176",
@@ -8767,7 +9101,8 @@
     "meal_type": "drink",
     "description": "魏客咖啡(旺座曲江店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0LRMAXPPO"
+    "source_id": "B0LRMAXPPO",
+    "recommendation": "魏客咖啡(旺座曲江店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_8ce7f22",
@@ -8793,7 +9128,8 @@
     "meal_type": "drink",
     "description": "魏客咖啡(中铁西安中心店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFK2CB8G"
+    "source_id": "B0FFK2CB8G",
+    "recommendation": "魏客咖啡(中铁西安中心店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_4c3ef866",
@@ -8818,7 +9154,8 @@
     "meal_type": "drink",
     "description": "西安晚风咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KAR7E0MJ"
+    "source_id": "B0KAR7E0MJ",
+    "recommendation": "西安晚风咖啡口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_967c8a87",
@@ -8843,7 +9180,8 @@
     "meal_type": "drink",
     "description": "雕刻时光咖啡馆(师大路店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B001D14Z5U"
+    "source_id": "B001D14Z5U",
+    "recommendation": "在雁塔区觅食推荐雕刻时光咖啡馆(师大路店)，性价比不错"
   },
   {
     "id": "amap_107a1def",
@@ -8868,7 +9206,8 @@
     "meal_type": "drink",
     "description": "雕刻时光咖啡馆(交大店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B001D09JR6"
+    "source_id": "B001D09JR6",
+    "recommendation": "在碑林区觅食推荐雕刻时光咖啡馆(交大店)，性价比不错"
   },
   {
     "id": "amap_9e715202",
@@ -8893,7 +9232,8 @@
     "meal_type": "drink",
     "description": "脱野咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K21703R1"
+    "source_id": "B0K21703R1",
+    "recommendation": "在鄠邑区觅食推荐脱野咖啡，性价比不错"
   },
   {
     "id": "amap_ceb4ebff",
@@ -8917,7 +9257,8 @@
     "meal_type": "drink",
     "description": "知一咖啡馆(西安城墙·碑林历史文化景区店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0LG7ZVNP0"
+    "source_id": "B0LG7ZVNP0",
+    "recommendation": "知一咖啡馆(西安城墙·碑林历史文化景区店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_cb95c8db",
@@ -8941,7 +9282,8 @@
     "meal_type": "drink",
     "description": "瑞幸咖啡(西安大悦城店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0JAHUHECZ"
+    "source_id": "B0JAHUHECZ",
+    "recommendation": "瑞幸咖啡(西安大悦城店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d3de5fb8",
@@ -8966,7 +9308,8 @@
     "meal_type": "drink",
     "description": "雕刻时光咖啡馆(龙首店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0IGL748EQ"
+    "source_id": "B0IGL748EQ",
+    "recommendation": "在莲湖区觅食推荐雕刻时光咖啡馆(龙首店)，性价比不错"
   },
   {
     "id": "amap_2a0a1b0a",
@@ -8991,7 +9334,8 @@
     "meal_type": "drink",
     "description": "花咲咖啡博物馆工厂店，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KU4ZZN7D"
+    "source_id": "B0KU4ZZN7D",
+    "recommendation": "花咲咖啡博物馆工厂店口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_41675095",
@@ -9015,7 +9359,8 @@
     "meal_type": "drink",
     "description": "马上咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KUBHQAPV"
+    "source_id": "B0KUBHQAPV",
+    "recommendation": "在长安区觅食推荐马上咖啡，性价比不错"
   },
   {
     "id": "amap_5cc5023e",
@@ -9040,7 +9385,8 @@
     "meal_type": "drink",
     "description": "质疑者咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0H1JZPXSS"
+    "source_id": "B0H1JZPXSS",
+    "recommendation": "质疑者咖啡口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_2e05a522",
@@ -9065,7 +9411,8 @@
     "meal_type": "drink",
     "description": "瑞比不让吃咖啡餐厅，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFKY7V35"
+    "source_id": "B0FFKY7V35",
+    "recommendation": "在碑林区觅食推荐瑞比不让吃咖啡餐厅，性价比不错"
   },
   {
     "id": "amap_48c7ff63",
@@ -9090,7 +9437,8 @@
     "meal_type": "drink",
     "description": "Peet's皮爷咖啡(西安万象城店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KKRSORQK"
+    "source_id": "B0KKRSORQK",
+    "recommendation": "在雁塔区觅食推荐Peet's皮爷咖啡(西安万象城店)，性价比不错"
   },
   {
     "id": "amap_3d0f1482",
@@ -9115,7 +9463,8 @@
     "meal_type": "drink",
     "description": "西安人的咖啡XACOFFEE，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KGXXOMZC"
+    "source_id": "B0KGXXOMZC",
+    "recommendation": "在莲湖区觅食推荐西安人的咖啡XACOFFEE，性价比不错"
   },
   {
     "id": "amap_5991c1d",
@@ -9140,7 +9489,8 @@
     "meal_type": "drink",
     "description": "申时咖啡馆(高新街区店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KRS7HLMP"
+    "source_id": "B0KRS7HLMP",
+    "recommendation": "申时咖啡馆(高新街区店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_9e3a98a1",
@@ -9165,7 +9515,8 @@
     "meal_type": "drink",
     "description": "瑞幸咖啡(西安龙湖星悦荟店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0G1AO0XR8"
+    "source_id": "B0G1AO0XR8",
+    "recommendation": "在莲湖区觅食推荐瑞幸咖啡(西安龙湖星悦荟店)，性价比不错"
   },
   {
     "id": "amap_161b6f3",
@@ -9190,7 +9541,8 @@
     "meal_type": "drink",
     "description": "Peet's皮爷咖啡(大都荟首店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0J1250HKE"
+    "source_id": "B0J1250HKE",
+    "recommendation": "在雁塔区觅食推荐Peet's皮爷咖啡(大都荟首店)，性价比不错"
   },
   {
     "id": "amap_798d496a",
@@ -9215,7 +9567,8 @@
     "meal_type": "drink",
     "description": "seewood coffee见木咖啡(中铁西安中心店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0GDLUITTD"
+    "source_id": "B0GDLUITTD",
+    "recommendation": "seewood coffee见木咖啡(中铁西安中心店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e8cea6c7",
@@ -9240,7 +9593,8 @@
     "meal_type": "drink",
     "description": "和平西咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0J2X5SQFO"
+    "source_id": "B0J2X5SQFO",
+    "recommendation": "和平西咖啡口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_7843f834",
@@ -9264,7 +9618,8 @@
     "meal_type": "drink",
     "description": "Big Goose大鹅咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0JRR7UJ9F"
+    "source_id": "B0JRR7UJ9F",
+    "recommendation": "在灞桥区觅食推荐Big Goose大鹅咖啡，性价比不错"
   },
   {
     "id": "amap_7c4b7d93",
@@ -9289,7 +9644,8 @@
     "meal_type": "drink",
     "description": "ZIMO子墨咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFGLAYUT"
+    "source_id": "B0FFGLAYUT",
+    "recommendation": "ZIMO子墨咖啡是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_8cbe4fc",
@@ -9314,7 +9670,8 @@
     "meal_type": "drink",
     "description": "共赴咖啡馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K1G7QHW5"
+    "source_id": "B0K1G7QHW5",
+    "recommendation": "在碑林区觅食推荐共赴咖啡馆，性价比不错"
   },
   {
     "id": "amap_d8d86e2e",
@@ -9339,7 +9696,8 @@
     "meal_type": "drink",
     "description": "安影咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0L1US3WOI"
+    "source_id": "B0L1US3WOI",
+    "recommendation": "安影咖啡是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_8ec4ec1",
@@ -9363,7 +9721,8 @@
     "meal_type": "drink",
     "description": "窑Yall咖啡・茶，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0I2BBNJAD"
+    "source_id": "B0I2BBNJAD",
+    "recommendation": "窑Yall咖啡・茶口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_c5e73986",
@@ -9388,7 +9747,8 @@
     "meal_type": "main",
     "description": "丽兹酒店(西安回民街钟楼地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B001D0WE2D"
+    "source_id": "B001D0WE2D",
+    "recommendation": "丽兹酒店(西安回民街钟楼地铁站店)位于莲湖区，出行方便"
   },
   {
     "id": "amap_4c9e6a6a",
@@ -9411,7 +9771,8 @@
     "meal_type": "main",
     "description": "宿适精选酒店(钟楼地铁站回民街店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0LR17TVR9"
+    "source_id": "B0LR17TVR9",
+    "recommendation": "推荐入住宿适精选酒店(钟楼地铁站回民街店)，交通便利"
   },
   {
     "id": "amap_c75acaff",
@@ -9435,7 +9796,8 @@
     "meal_type": "main",
     "description": "背包十年青年旅舍(西安钟楼店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0GRYDU9XN"
+    "source_id": "B0GRYDU9XN",
+    "recommendation": "推荐入住背包十年青年旅舍(西安钟楼店)，交通便利"
   },
   {
     "id": "amap_5c140c88",
@@ -9459,7 +9821,8 @@
     "meal_type": "main",
     "description": "西航商务宾馆，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFFR4XST"
+    "source_id": "B0FFFR4XST",
+    "recommendation": "推荐入住西航商务宾馆，交通便利"
   },
   {
     "id": "amap_624dbdbd",
@@ -9484,7 +9847,8 @@
     "meal_type": "main",
     "description": "西安文商宾馆，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFF9WCFE"
+    "source_id": "B0FFF9WCFE",
+    "recommendation": "西安文商宾馆位于碑林区，出行方便"
   },
   {
     "id": "amap_deb7a196",
@@ -9507,7 +9871,8 @@
     "meal_type": "main",
     "description": "西安钟楼森德酒店，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFKDMLGP"
+    "source_id": "B0FFKDMLGP",
+    "recommendation": "推荐入住西安钟楼森德酒店，交通便利"
   },
   {
     "id": "amap_d19bc15e",
@@ -9531,7 +9896,8 @@
     "meal_type": "main",
     "description": "西安小猪民宿(钟鼓楼回民街店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFHUD468"
+    "source_id": "B0FFHUD468",
+    "recommendation": "西安小猪民宿(钟鼓楼回民街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_c8815f50",
@@ -9555,7 +9921,8 @@
     "meal_type": "main",
     "description": "西安市莲湖区天合宾馆(钟鼓楼回民街地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFF3NVDP"
+    "source_id": "B0FFF3NVDP",
+    "recommendation": "西安市莲湖区天合宾馆(钟鼓楼回民街地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_ff49b9fd",
@@ -9579,7 +9946,8 @@
     "meal_type": "main",
     "description": "柏橙酒店(西安钟楼地铁站回民街店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0JRASNZRP"
+    "source_id": "B0JRASNZRP",
+    "recommendation": "柏橙酒店(西安钟楼地铁站回民街店)位于莲湖区，出行方便"
   },
   {
     "id": "amap_888148fc",
@@ -9603,7 +9971,8 @@
     "meal_type": "main",
     "description": "艾尚·钟鼓楼酒店(西安回民街店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0H395RZRR"
+    "source_id": "B0H395RZRR",
+    "recommendation": "艾尚·钟鼓楼酒店(西安回民街店)位于莲湖区，出行方便"
   },
   {
     "id": "amap_8ba929f1",
@@ -9627,7 +9996,8 @@
     "meal_type": "main",
     "description": "猫头鹰花园青年旅舍(西安钟楼地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0JUXHP7NP"
+    "source_id": "B0JUXHP7NP",
+    "recommendation": "推荐入住猫头鹰花园青年旅舍(西安钟楼地铁站店)，交通便利"
   },
   {
     "id": "amap_bd152acf",
@@ -9651,7 +10021,8 @@
     "meal_type": "main",
     "description": "西安钟楼公寓(西安回民街钟楼地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFF64YH5"
+    "source_id": "B0FFF64YH5",
+    "recommendation": "西安钟楼公寓(西安回民街钟楼地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_fc2295e0",
@@ -9677,7 +10048,8 @@
     "meal_type": "main",
     "description": "梦想旅行家太空舱青年旅社(西安钟楼回民街店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFG4Y9R0"
+    "source_id": "B0FFG4Y9R0",
+    "recommendation": "推荐入住梦想旅行家太空舱青年旅社(西安钟楼回民街店)，交通便利"
   },
   {
     "id": "amap_2e99431d",
@@ -9701,7 +10073,8 @@
     "meal_type": "main",
     "description": "西安柠檬布丁公寓酒店(钟鼓楼地铁站中心店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFLOXY3E"
+    "source_id": "B0FFLOXY3E",
+    "recommendation": "西安柠檬布丁公寓酒店(钟鼓楼地铁站中心店)位于莲湖区，出行方便"
   },
   {
     "id": "amap_419d6a1e",
@@ -9725,7 +10098,8 @@
     "meal_type": "main",
     "description": "西安福林宾馆(钟鼓楼店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFKRJO16"
+    "source_id": "B0FFKRJO16",
+    "recommendation": "西安福林宾馆(钟鼓楼店)位于碑林区，出行方便"
   },
   {
     "id": "amap_b6b98f55",
@@ -9749,7 +10123,8 @@
     "meal_type": "main",
     "description": "璎珞影院公寓酒店(钟楼地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0I1V5VXJC"
+    "source_id": "B0I1V5VXJC",
+    "recommendation": "璎珞影院公寓酒店(钟楼地铁站店)位于莲湖区，出行方便"
   },
   {
     "id": "amap_c41339d8",
@@ -9773,7 +10148,8 @@
     "meal_type": "main",
     "description": "钟楼四季阳光酒店公寓(钟鼓楼回民街店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B001D0YPY0"
+    "source_id": "B001D0YPY0",
+    "recommendation": "推荐入住钟楼四季阳光酒店公寓(钟鼓楼回民街店)，交通便利"
   },
   {
     "id": "amap_72b70575",
@@ -9797,7 +10173,8 @@
     "meal_type": "main",
     "description": "青墨年华青年旅社(钟楼地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0KKL5319B"
+    "source_id": "B0KKL5319B",
+    "recommendation": "推荐入住青墨年华青年旅社(钟楼地铁站店)，交通便利"
   },
   {
     "id": "amap_fc236101",
@@ -9821,7 +10198,8 @@
     "meal_type": "main",
     "description": "西安艾薇儿酒店(钟鼓楼回民街地铁站中心店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFHSDQGY"
+    "source_id": "B0FFHSDQGY",
+    "recommendation": "西安艾薇儿酒店(钟鼓楼回民街地铁站中心店)位于莲湖区，出行方便"
   },
   {
     "id": "amap_b4e40cc1",
@@ -9845,7 +10223,8 @@
     "meal_type": "main",
     "description": "七月公寓酒店(西安钟鼓楼回民街地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFI5FWWT"
+    "source_id": "B0FFI5FWWT",
+    "recommendation": "七月公寓酒店(西安钟鼓楼回民街地铁站店)位于莲湖区，出行方便"
   },
   {
     "id": "amap_3f103997",
@@ -9869,7 +10248,8 @@
     "meal_type": "main",
     "description": "梦阁酒店(钟楼店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0K0ZDYGVY"
+    "source_id": "B0K0ZDYGVY",
+    "recommendation": "推荐入住梦阁酒店(钟楼店)，交通便利"
   },
   {
     "id": "amap_b0aa2b77",
@@ -9893,7 +10273,8 @@
     "meal_type": "main",
     "description": "西安清风公寓(钟鼓楼地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFL8RLJ0"
+    "source_id": "B0FFL8RLJ0",
+    "recommendation": "西安清风公寓(钟鼓楼地铁站店)位于莲湖区，出行方便"
   },
   {
     "id": "amap_3d153b1b",
@@ -9917,7 +10298,8 @@
     "meal_type": "main",
     "description": "轻住·西安莲子酒店(钟楼地铁站回民街店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0JG7C09PF"
+    "source_id": "B0JG7C09PF",
+    "recommendation": "轻住·西安莲子酒店(钟楼地铁站回民街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_192320ae",
@@ -9941,7 +10323,8 @@
     "meal_type": "main",
     "description": "西安钟楼曼陀罗智能民宿(鼓楼分店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFIV5ZBA"
+    "source_id": "B0FFIV5ZBA",
+    "recommendation": "推荐入住西安钟楼曼陀罗智能民宿(鼓楼分店)，交通便利"
   },
   {
     "id": "amap_75b71042",
@@ -9965,7 +10348,8 @@
     "meal_type": "main",
     "description": "西安本森公寓酒店(回民街钟楼地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFIJ8PFL"
+    "source_id": "B0FFIJ8PFL",
+    "recommendation": "西安本森公寓酒店(回民街钟楼地铁站店)位于莲湖区，出行方便"
   },
   {
     "id": "amap_e274a489",
@@ -9989,7 +10373,8 @@
     "meal_type": "main",
     "description": "嘉禾商务酒店，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B001D08YWO"
+    "source_id": "B001D08YWO",
+    "recommendation": "嘉禾商务酒店位于碑林区，出行方便"
   },
   {
     "id": "amap_7f25ddb2",
@@ -10013,7 +10398,8 @@
     "meal_type": "main",
     "description": "西安钟楼舒洁家庭公寓，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFFY93CE"
+    "source_id": "B0FFFY93CE",
+    "recommendation": "推荐入住西安钟楼舒洁家庭公寓，交通便利"
   },
   {
     "id": "amap_ee52603f",
@@ -10037,7 +10423,8 @@
     "meal_type": "main",
     "description": "西安钟楼米花公寓酒店(钟楼地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0G3ORC9C4"
+    "source_id": "B0G3ORC9C4",
+    "recommendation": "推荐入住西安钟楼米花公寓酒店(钟楼地铁站店)，交通便利"
   },
   {
     "id": "amap_ee1fbae2",
@@ -10061,7 +10448,8 @@
     "meal_type": "main",
     "description": "西安莲湖印象长安公寓，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFJCZNF0"
+    "source_id": "B0FFJCZNF0",
+    "recommendation": "西安莲湖印象长安公寓位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_cd4f85b6",
@@ -10085,7 +10473,8 @@
     "meal_type": "main",
     "description": "西安钟楼星座民宿(钟楼地铁站店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B001D121RN"
+    "source_id": "B001D121RN",
+    "recommendation": "推荐入住西安钟楼星座民宿(钟楼地铁站店)，交通便利"
   },
   {
     "id": "amap_c1378512",
@@ -10108,7 +10497,8 @@
     "meal_type": "main",
     "description": "西安鑫怡青旅(钟楼店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0K6J6MTWF"
+    "source_id": "B0K6J6MTWF",
+    "recommendation": "西安鑫怡青旅(钟楼店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_447880f9",
@@ -10132,7 +10522,8 @@
     "meal_type": "main",
     "description": "西安柠檬公寓酒店(钟鼓楼回民街地铁站中心店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFKVSVL6"
+    "source_id": "B0FFKVSVL6",
+    "recommendation": "西安柠檬公寓酒店(钟鼓楼回民街地铁站中心店)位于莲湖区，出行方便"
   },
   {
     "id": "amap_5f816e74",
@@ -10155,7 +10546,8 @@
     "meal_type": "main",
     "description": "等风来客栈(西安钟鼓楼店)，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0JBU63MGM"
+    "source_id": "B0JBU63MGM",
+    "recommendation": "等风来客栈(西安钟鼓楼店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_f3589ae1",
@@ -10180,7 +10572,7 @@
     "description": "西安君威公寓，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
     "source_id": "B0LGTCYR7Z",
-    "recommendation": "钟楼商圈核心，去哪都方便；选无窗房型性价比更高，适合背包客。"
+    "recommendation": "住在钟楼边，去哪都方便，晚上溜达到回民街吃夜宵超爽。"
   },
   {
     "id": "amap_aa369239",
@@ -10204,7 +10596,8 @@
     "meal_type": "main",
     "description": "西安钟楼鼓楼公寓酒店，来自高德 Web 服务 POI 搜索；分类：钟楼酒店。",
     "source": "amap",
-    "source_id": "B0FFH7E1YX"
+    "source_id": "B0FFH7E1YX",
+    "recommendation": "西安钟楼鼓楼公寓酒店位于莲湖区，出行方便"
   },
   {
     "id": "amap_41650f0d",
@@ -10227,7 +10620,8 @@
     "meal_type": "main",
     "description": "嘉佰乐酒店(西安大唐不夜城大雁塔地铁站店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0J21AJ2ZN"
+    "source_id": "B0J21AJ2ZN",
+    "recommendation": "推荐入住嘉佰乐酒店(西安大唐不夜城大雁塔地铁站店)，交通便利"
   },
   {
     "id": "amap_322b163a",
@@ -10250,7 +10644,8 @@
     "meal_type": "main",
     "description": "西安盛唐酒店(大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0HDKZDK7N"
+    "source_id": "B0HDKZDK7N",
+    "recommendation": "推荐入住西安盛唐酒店(大雁塔大唐不夜城店)，交通便利"
   },
   {
     "id": "amap_35eacf5f",
@@ -10273,7 +10668,8 @@
     "meal_type": "main",
     "description": "V·蘭酒店(西安大雁塔北广场大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0JDP7Y345"
+    "source_id": "B0JDP7Y345",
+    "recommendation": "V·蘭酒店(西安大雁塔北广场大唐不夜城店)位于雁塔区，出行方便"
   },
   {
     "id": "amap_500b05ba",
@@ -10296,7 +10692,8 @@
     "meal_type": "main",
     "description": "望塔阁民宿(西安大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0GK6SRQ3V"
+    "source_id": "B0GK6SRQ3V",
+    "recommendation": "望塔阁民宿(西安大雁塔大唐不夜城店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_bf6bc91d",
@@ -10320,7 +10717,7 @@
     "description": "执隐酒店(西安大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
     "source_id": "B0JR0UOJWY",
-    "recommendation": "沉浸式体验唐风夜景，住店就能步行去不夜城；记得订带浴缸的房型，泡澡看大雁塔。"
+    "recommendation": "楼下就是大唐不夜城，订高楼层房间，落地窗看夜景美翻了。"
   },
   {
     "id": "amap_80c5cf1",
@@ -10343,7 +10740,8 @@
     "meal_type": "main",
     "description": "轻住·悦享酒店(西安大唐不夜城大雁塔地铁口店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0G25HVRGC"
+    "source_id": "B0G25HVRGC",
+    "recommendation": "推荐入住轻住·悦享酒店(西安大唐不夜城大雁塔地铁口店)，交通便利"
   },
   {
     "id": "amap_4e607b63",
@@ -10366,7 +10764,8 @@
     "meal_type": "main",
     "description": "忆景酒店(西安大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0GKFKN8TQ"
+    "source_id": "B0GKFKN8TQ",
+    "recommendation": "忆景酒店(西安大雁塔大唐不夜城店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_a7ace77e",
@@ -10389,7 +10788,8 @@
     "meal_type": "main",
     "description": "四季里酒店(西安大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0HD950HKT"
+    "source_id": "B0HD950HKT",
+    "recommendation": "四季里酒店(西安大雁塔大唐不夜城店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_a5e0387",
@@ -10412,7 +10812,8 @@
     "meal_type": "main",
     "description": "天裕酒店(西安大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0IKSL3M3D"
+    "source_id": "B0IKSL3M3D",
+    "recommendation": "紧邻大唐不夜城，夜游超方便。建议选高楼层房，俯瞰璀璨夜景，绝美！"
   },
   {
     "id": "amap_eeffeba4",
@@ -10435,7 +10836,8 @@
     "meal_type": "main",
     "description": "春天里民宿(西安大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0G241FE2V"
+    "source_id": "B0G241FE2V",
+    "recommendation": "春天里民宿(西安大雁塔大唐不夜城店)位于雁塔区，出行方便"
   },
   {
     "id": "amap_107f7ca5",
@@ -10458,7 +10860,8 @@
     "meal_type": "main",
     "description": "西安蘭桂坊酒店(大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0JRU4R6YR"
+    "source_id": "B0JRU4R6YR",
+    "recommendation": "西安蘭桂坊酒店(大雁塔大唐不夜城店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_63ac0390",
@@ -10481,7 +10884,8 @@
     "meal_type": "main",
     "description": "星辰酒店(西安大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0G0FS7KEH"
+    "source_id": "B0G0FS7KEH",
+    "recommendation": "星辰酒店(西安大雁塔大唐不夜城店)位于雁塔区，出行方便"
   },
   {
     "id": "amap_57933888",
@@ -10504,7 +10908,8 @@
     "meal_type": "main",
     "description": "协和酒店(西安省博物馆大雁塔喷泉店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0LKVS40VA"
+    "source_id": "B0LKVS40VA",
+    "recommendation": "协和酒店(西安省博物馆大雁塔喷泉店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_5b94fb48",
@@ -10527,7 +10932,8 @@
     "meal_type": "main",
     "description": "ZMAX满兮酒店(西安大唐不夜城大雁塔地铁站店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0HAVZ8W2Q"
+    "source_id": "B0HAVZ8W2Q",
+    "recommendation": "ZMAX满兮酒店(西安大唐不夜城大雁塔地铁站店)位于雁塔区，出行方便"
   },
   {
     "id": "amap_7a4615a7",
@@ -10550,7 +10956,8 @@
     "meal_type": "main",
     "description": "优圣酒店(大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0JAF7EJSV"
+    "source_id": "B0JAF7EJSV",
+    "recommendation": "推荐入住优圣酒店(大雁塔大唐不夜城店)，交通便利"
   },
   {
     "id": "amap_7a101bea",
@@ -10573,7 +10980,8 @@
     "meal_type": "main",
     "description": "曼千酒店(西安大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0J6LLUAPM"
+    "source_id": "B0J6LLUAPM",
+    "recommendation": "曼千酒店(西安大雁塔大唐不夜城店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_f81bbe44",
@@ -10597,7 +11005,7 @@
     "description": "幸福里民宿(西安大雁塔大唐不夜城地铁站店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
     "source_id": "B0FFLKQJ6U",
-    "recommendation": "地铁口零距离，拖着箱子也不累；提前跟房东说会送手绘地图，超贴心。"
+    "recommendation": "地铁口直达大雁塔，家庭出游首选，提前订性价比很高。"
   },
   {
     "id": "amap_d3b1912a",
@@ -10620,7 +11028,8 @@
     "meal_type": "main",
     "description": "美豪酒店(西安大雁塔北广场大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0FFK09ETP"
+    "source_id": "B0FFK09ETP",
+    "recommendation": "推荐入住美豪酒店(西安大雁塔北广场大唐不夜城店)，交通便利"
   },
   {
     "id": "amap_926748e1",
@@ -10644,7 +11053,8 @@
     "meal_type": "main",
     "description": "帛薇酒店(西安大唐不夜城大雁塔地铁站店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0H2NAENMQ"
+    "source_id": "B0H2NAENMQ",
+    "recommendation": "帛薇酒店(西安大唐不夜城大雁塔地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_215e76d",
@@ -10668,7 +11078,8 @@
     "meal_type": "main",
     "description": "蓝铂酒店(西安大唐不夜城大雁塔地铁站店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0HBKSP97B"
+    "source_id": "B0HBKSP97B",
+    "recommendation": "蓝铂酒店(西安大唐不夜城大雁塔地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_bfba3347",
@@ -10692,7 +11103,7 @@
     "description": "西安又见设计师民宿(大唐不夜城大雁塔店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
     "source_id": "B0I15SUSCC",
-    "recommendation": "设计师民宿颜值爆表，公共区域随便拍都出片；建议住顶层露台房，看灯"
+    "recommendation": "西安又见设计师民宿(大唐不夜城大雁塔店)位于雁塔区，出行方便"
   },
   {
     "id": "amap_14f79e42",
@@ -10716,7 +11127,8 @@
     "meal_type": "main",
     "description": "唐隐酒店(西安大雁塔北广场店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0J35ZPO6R"
+    "source_id": "B0J35ZPO6R",
+    "recommendation": "北广场旁闹中取静，去大雁塔散步只需几分钟。清晨出门，感受宁静古韵。"
   },
   {
     "id": "amap_ada1390c",
@@ -10739,7 +11151,8 @@
     "meal_type": "main",
     "description": "肆月的民宿(芙蓉东路分店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0HRJZMVZD"
+    "source_id": "B0HRJZMVZD",
+    "recommendation": "芙蓉东路的小清新民宿，温馨如家。适合闺蜜结伴，老板会分享地道美食攻略。"
   },
   {
     "id": "amap_562b965b",
@@ -10762,7 +11175,8 @@
     "meal_type": "main",
     "description": "悦唐酒店(大雁塔大唐不夜城店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0KAF7O0TD"
+    "source_id": "B0KAF7O0TD",
+    "recommendation": "悦唐酒店(大雁塔大唐不夜城店)位于雁塔区，出行方便"
   },
   {
     "id": "amap_af29352e",
@@ -10785,7 +11199,8 @@
     "meal_type": "main",
     "description": "喆啡精选酒店(西安大雁塔地铁站店)，来自高德 Web 服务 POI 搜索；分类：大雁塔酒店。",
     "source": "amap",
-    "source_id": "B0FFHTZRUH"
+    "source_id": "B0FFHTZRUH",
+    "recommendation": "喆啡精选酒店(西安大雁塔地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_197168d1",
@@ -10810,6 +11225,7 @@
     "meal_type": "main",
     "description": "西安高铁站(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV11402307"
+    "source_id": "BV11402307",
+    "recommendation": "推荐在未央区参观西安高铁站(公交站)，人气评分0.0"
   }
 ]

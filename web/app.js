@@ -1305,6 +1305,11 @@ document.querySelectorAll(".city-card").forEach((card) => {
       "丽江": "丽江古城民宿",
       "南京": "新街口附近酒店",
       "苏州": "观前街附近酒店",
+      "北京": "王府井附近酒店",
+      "成都": "春熙路附近酒店",
+      "重庆": "解放碑附近酒店",
+      "杭州": "西湖附近酒店",
+      "西安": "钟楼附近酒店",
     };
     $("hotelLocation").value = hotelDefaults[card.dataset.city] || "";
   });
@@ -1436,6 +1441,16 @@ const TEMPLATES = [
     msg: "2天南京行，想去中山陵和夫子庙，喜欢历史文化", spots: "中山陵 · 夫子庙 · 明孝陵" },
   { city: "苏州", days: 2, icon: "🏡", name: "苏州园林游", theme: "园林+古镇",
     msg: "2天苏州行，想去拙政园和虎丘，看看江南园林", spots: "拙政园 · 虎丘 · 平江路" },
+  { city: "北京", days: 3, icon: "🏯", name: "北京经典游", theme: "历史文化",
+    msg: "3天北京行，想去故宫、长城和天安门", spots: "故宫 · 长城 · 天安门 · 颐和园" },
+  { city: "成都", days: 3, icon: "🐼", name: "成都休闲游", theme: "美食+熊猫",
+    msg: "3天成都行，想看大熊猫，吃火锅和串串", spots: "大熊猫基地 · 宽窄巷子 · 锦里" },
+  { city: "重庆", days: 2, icon: "🔥", name: "重庆山城游", theme: "美食+夜景",
+    msg: "2天重庆行，想吃火锅看夜景，体验山城", spots: "洪崖洞 · 解放碑 · 磁器口" },
+  { city: "杭州", days: 2, icon: "🌊", name: "杭州西湖游", theme: "自然+文化",
+    msg: "2天杭州行，想去西湖和灵隐寺", spots: "西湖 · 灵隐寺 · 河坊街" },
+  { city: "西安", days: 3, icon: "🏛️", name: "西安古都游", theme: "历史+美食",
+    msg: "3天西安行，想看兵马俑和古城墙，吃肉夹馍", spots: "兵马俑 · 古城墙 · 回民街 · 大雁塔" },
 ];
 
 function renderHotRecommendations() {
@@ -1573,8 +1588,14 @@ async function fetchWeather(city) {
 }
 
 // ---- City guidebook ----
-const CITY_KEY_MAP = { "长沙": "changsha", "武汉": "wuhan", "大理": "dali", "丽江": "lijiang", "南京": "nanjing", "苏州": "suzhou",
-  "changsha": "changsha", "wuhan": "wuhan", "dali": "dali", "lijiang": "lijiang", "nanjing": "nanjing", "suzhou": "suzhou" };
+const CITY_KEY_MAP = {
+  "长沙": "changsha", "武汉": "wuhan", "大理": "dali", "丽江": "lijiang",
+  "南京": "nanjing", "苏州": "suzhou", "北京": "beijing", "成都": "chengdu",
+  "重庆": "chongqing", "杭州": "hangzhou", "西安": "xian",
+  "changsha": "changsha", "wuhan": "wuhan", "dali": "dali", "lijiang": "lijiang",
+  "nanjing": "nanjing", "suzhou": "suzhou", "beijing": "beijing", "chengdu": "chengdu",
+  "chongqing": "chongqing", "hangzhou": "hangzhou", "xian": "xian"
+};
 
 async function loadGuidebook(city) {
   const key = CITY_KEY_MAP[city] || city?.toLowerCase();

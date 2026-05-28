@@ -23,7 +23,7 @@
     "description": "锦城公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG86UMF",
-    "recommendation": "城市绿肺，晨跑或野餐都赞，傍晚阳光洒在草坪上，拍照绝美。"
+    "recommendation": "城市里的天然氧吧！湖边的草坪超适合野餐，周末带块野餐垫能待一下午。"
   },
   {
     "id": "amap_3d99db4",
@@ -49,7 +49,7 @@
     "description": "交子公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHUHA9B",
-    "recommendation": "金融城里的宁静绿洲，春季樱花绽放时最浪漫，适合散步发呆。"
+    "recommendation": "金融城里的绝美公园！夜跑或散步都超棒，还能近距离看双子塔灯光秀。"
   },
   {
     "id": "amap_56cff3b4",
@@ -75,7 +75,7 @@
     "description": "桂溪生态公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFH0US9N",
-    "recommendation": "可以划船露营的生态公园，下午树荫多很凉快，带张野餐垫就能"
+    "recommendation": "生态公园里的“小森林”！建议带帐篷来露营，树下特别凉快。"
   },
   {
     "id": "amap_5e21ffc6",
@@ -99,7 +99,8 @@
     "meal_type": "main",
     "description": "铁像寺水街，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C937OI"
+    "source_id": "B001C937OI",
+    "recommendation": "古风水街韵味十足！推荐下午来喝茶听戏，晚上灯笼亮起更美。"
   },
   {
     "id": "amap_8be09738",
@@ -122,7 +123,8 @@
     "meal_type": "main",
     "description": "双子塔夜景打卡点，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0K2D9EUZC"
+    "source_id": "B0K2D9EUZC",
+    "recommendation": "双子塔夜景打卡点是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d3796c3a",
@@ -145,7 +147,8 @@
     "meal_type": "main",
     "description": "天府绿道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0JDDUTR9Y"
+    "source_id": "B0JDDUTR9Y",
+    "recommendation": "天府绿道是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ae1e497d",
@@ -170,7 +173,8 @@
     "meal_type": "main",
     "description": "大源中央公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C8OPDK"
+    "source_id": "B001C8OPDK",
+    "recommendation": "傍晚来散步超惬意，草坪很大适合野餐，记得带块垫子晒晒太阳。"
   },
   {
     "id": "amap_ebf59b38",
@@ -195,7 +199,8 @@
     "meal_type": "main",
     "description": "中和湿地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFL812HL"
+    "source_id": "B0FFL812HL",
+    "recommendation": "人少景美的大公园，适合骑行和野餐！傍晚去能看夕阳，记得带驱蚊水。"
   },
   {
     "id": "amap_bd32751",
@@ -219,7 +224,8 @@
     "meal_type": "main",
     "description": "铁像寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C05319"
+    "source_id": "B001C05319",
+    "recommendation": "藏在市区的静谧古寺，铁铸佛像很有特色！上午去人少，还能吃素斋。"
   },
   {
     "id": "amap_bdd57a",
@@ -244,7 +250,8 @@
     "meal_type": "main",
     "description": "成都江滩公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFH0FKW3"
+    "source_id": "B0FFH0FKW3",
+    "recommendation": "江边散步吹风太惬意了！晚上灯光很美，建议带野餐垫坐坐。"
   },
   {
     "id": "amap_df4e770b",
@@ -269,7 +276,8 @@
     "meal_type": "main",
     "description": "桂溪生态公园西区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFI3DJZT"
+    "source_id": "B0FFI3DJZT",
+    "recommendation": "桂溪生态公园西区适合城市游览、景点爱好者"
   },
   {
     "id": "amap_8bc9201e",
@@ -294,7 +302,8 @@
     "meal_type": "main",
     "description": "东湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C7WGEA"
+    "source_id": "B001C7WGEA",
+    "recommendation": "湖景超美，晨跑或黄昏散步都不错，夏天荷花盛开时别忘带相机。"
   },
   {
     "id": "amap_d3345979",
@@ -317,7 +326,8 @@
     "meal_type": "main",
     "description": "交子之环，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0H2OPC916"
+    "source_id": "B0H2OPC916",
+    "recommendation": "交子之环适合城市游览、景点爱好者"
   },
   {
     "id": "amap_b622bc8c",
@@ -342,7 +352,8 @@
     "meal_type": "main",
     "description": "桂溪生态公园东区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFL8CB0N"
+    "source_id": "B0FFL8CB0N",
+    "recommendation": "推荐在武侯区参观桂溪生态公园东区，人气评分4.3"
   },
   {
     "id": "amap_6fabd851",
@@ -365,7 +376,8 @@
     "meal_type": "main",
     "description": "三圣花乡旅游区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFH6Y6QZ"
+    "source_id": "B0FFH6Y6QZ",
+    "recommendation": "四季都有花海的浪漫之地！春天看桃花最好，还可以买盆栽回家。"
   },
   {
     "id": "amap_8a1d0b7a",
@@ -390,7 +402,8 @@
     "meal_type": "main",
     "description": "望江楼公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C06R0O"
+    "source_id": "B001C06R0O",
+    "recommendation": "登望江楼俯瞰锦江，"
   },
   {
     "id": "amap_c9f2f45c",
@@ -415,7 +428,8 @@
     "meal_type": "main",
     "description": "锦城湖4号公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFGAZRYB"
+    "source_id": "B0FFGAZRYB",
+    "recommendation": "锦城湖4号公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_6ac1a915",
@@ -438,7 +452,8 @@
     "meal_type": "main",
     "description": "九叶莲桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0MGCSE8BE"
+    "source_id": "B0MGCSE8BE",
+    "recommendation": "九叶莲桥是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9f242f07",
@@ -461,7 +476,8 @@
     "meal_type": "main",
     "description": "环球中心东广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LUFZXACI"
+    "source_id": "B0LUFZXACI",
+    "recommendation": "成都最大商场门前广场，傍晚灯光秀超震撼，拍照打卡必去！"
   },
   {
     "id": "amap_6094c23b",
@@ -486,7 +502,8 @@
     "meal_type": "main",
     "description": "锦城湖2号湖区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFH9V82Y"
+    "source_id": "B0FFH9V82Y",
+    "recommendation": "锦城湖2号湖区适合城市游览、景点爱好者"
   },
   {
     "id": "amap_59f2babc",
@@ -510,7 +527,8 @@
     "meal_type": "main",
     "description": "人民公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C7X8QA"
+    "source_id": "B001C7X8QA",
+    "recommendation": "人民公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_733ab6e2",
@@ -535,7 +553,8 @@
     "meal_type": "main",
     "description": "白鹭湾湿地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFF3AE8H"
+    "source_id": "B0FFF3AE8H",
+    "recommendation": "白鹭湾湿地公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_eef8b08f",
@@ -559,7 +578,8 @@
     "meal_type": "main",
     "description": "近慈寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C808ES"
+    "source_id": "B001C808ES",
+    "recommendation": "推荐在武侯区参观近慈寺，人气评分4.3"
   },
   {
     "id": "amap_59f80a23",
@@ -587,7 +607,7 @@
     "description": "宽窄巷子景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001C7YCM4",
-    "recommendation": "想感受最地道的成都生活就来这，清晨人少时走一走，青砖黛瓦间超有韵味～"
+    "recommendation": "逛完宽窄巷子记得拐进井巷子，人少景美，适合拍老成都慢生活。"
   },
   {
     "id": "amap_42660968",
@@ -612,7 +632,7 @@
     "description": "东郊记忆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001C8NUD2",
-    "recommendation": "旧工厂变身文艺地标，建议傍晚来，红砖墙配夕阳，随手拍都是工业风大片！"
+    "recommendation": "前苏联工厂改造的文创园，工业风拍照超酷，建议下午去还能赶上市集。"
   },
   {
     "id": "amap_7e206065",
@@ -637,7 +657,8 @@
     "meal_type": "main",
     "description": "西蜀廊桥古镇，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFGB50GC"
+    "source_id": "B0FFGB50GC",
+    "recommendation": "推荐在武侯区参观西蜀廊桥古镇，人气评分4.4"
   },
   {
     "id": "amap_7761669d",
@@ -660,7 +681,8 @@
     "meal_type": "main",
     "description": "锦里古街，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFD3P2C"
+    "source_id": "B0FFFD3P2C",
+    "recommendation": "推荐在武侯区参观锦里古街，人气评分4.7"
   },
   {
     "id": "amap_45f40a1a",
@@ -685,7 +707,8 @@
     "meal_type": "main",
     "description": "锦城广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFF58NXV"
+    "source_id": "B0FFF58NXV",
+    "recommendation": "推荐在武侯区参观锦城广场，人气评分4.1"
   },
   {
     "id": "amap_b22292b",
@@ -710,7 +733,8 @@
     "meal_type": "main",
     "description": "成都桂溪公园骑行起点，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LR9RQ6KG"
+    "source_id": "B0LR9RQ6KG",
+    "recommendation": "桂溪公园骑行起点，沿河风景超赞！建议清晨去，人少风凉，还能看日出哦。"
   },
   {
     "id": "amap_2e93e4c4",
@@ -735,7 +759,8 @@
     "meal_type": "main",
     "description": "塔子山公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C06JG0"
+    "source_id": "B001C06JG0",
+    "recommendation": "塔子山公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_616e248a",
@@ -760,7 +785,8 @@
     "meal_type": "main",
     "description": "海合安成都极地海洋公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C805MI"
+    "source_id": "B001C805MI",
+    "recommendation": "看企鹅白鲸超治愈，亲子游"
   },
   {
     "id": "amap_fe5a0d6f",
@@ -785,7 +811,7 @@
     "description": "文殊院，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001C7WPBD",
-    "recommendation": "闹中取静的千年古刹，逛完别忘了去香园吃碗素斋，门口的宫廷糕点也超赞～"
+    "recommendation": "闹中取静的千年古刹，别忘了尝尝文殊院的宫廷糕点，上午去最清净。"
   },
   {
     "id": "amap_c9f1a047",
@@ -807,7 +833,8 @@
     "meal_type": "main",
     "description": "天府芙蓉园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFIS0UIR"
+    "source_id": "B0FFIS0UIR",
+    "recommendation": "芙蓉花开满园香，傍晚光影下拍照超梦幻，记得带驱蚊水哦！"
   },
   {
     "id": "amap_5b75ade5",
@@ -832,7 +859,8 @@
     "meal_type": "main",
     "description": "锦江公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0HU1ABMSW"
+    "source_id": "B0HU1ABMSW",
+    "recommendation": "推荐在锦江区参观锦江公园，人气评分4.3"
   },
   {
     "id": "amap_da7d33ae",
@@ -855,7 +883,8 @@
     "meal_type": "main",
     "description": "幸福梅林，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C7UUK7"
+    "source_id": "B001C7UUK7",
+    "recommendation": "冬季梅花盛开时美不胜收，周末带个垫子野餐享受慢生活。"
   },
   {
     "id": "amap_cc42fc37",
@@ -878,7 +907,8 @@
     "meal_type": "main",
     "description": "基督教光音堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C95DFT"
+    "source_id": "B001C95DFT",
+    "recommendation": "推荐在武侯区参观基督教光音堂，人气评分4.3"
   },
   {
     "id": "amap_2a95b1e2",
@@ -903,7 +933,7 @@
     "description": "成都大熊猫繁育研究基地，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001C7WE5S",
-    "recommendation": "一定要上午9-11点去，那个时间熊猫宝宝最活泼，看它们吃竹子萌化了！"
+    "recommendation": "看熊猫宝宝卖萌的绝佳去处，早上9点前到能看到它们最活跃的状态。"
   },
   {
     "id": "amap_e3615e13",
@@ -928,7 +958,8 @@
     "meal_type": "main",
     "description": "月牙湖，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFI3Z26N"
+    "source_id": "B0FFI3Z26N",
+    "recommendation": "月牙湖形如弯月，傍晚散步看倒影超美，建议日落前去拍照，光线柔和。"
   },
   {
     "id": "amap_f65d60f",
@@ -953,7 +984,8 @@
     "meal_type": "main",
     "description": "新川之心公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFK89JNN"
+    "source_id": "B0FFK89JNN",
+    "recommendation": "新川之心公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_fe202448",
@@ -978,7 +1010,8 @@
     "meal_type": "main",
     "description": "骑龙中水湿地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0JA4L267W"
+    "source_id": "B0JA4L267W",
+    "recommendation": "推荐在武侯区参观骑龙中水湿地公园，人气评分4.4"
   },
   {
     "id": "amap_490a2cf6",
@@ -1004,7 +1037,8 @@
     "meal_type": "main",
     "description": "浓园国际艺术村，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C7Y72F"
+    "source_id": "B001C7Y72F",
+    "recommendation": "浓园国际艺术村，文艺青年必打卡！周末常有展览和文创市集，适合慢慢逛。"
   },
   {
     "id": "amap_ee020056",
@@ -1028,7 +1062,8 @@
     "meal_type": "main",
     "description": "大慈寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C00869"
+    "source_id": "B001C00869",
+    "recommendation": "大慈寺适合城市游览、景点爱好者"
   },
   {
     "id": "amap_cd9f424d",
@@ -1053,7 +1088,8 @@
     "meal_type": "main",
     "description": "和平社区广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C7Y8P2"
+    "source_id": "B001C7Y8P2",
+    "recommendation": "社区广场烟火气浓，晚上常有广场舞和夜市，感受地道成都生活。"
   },
   {
     "id": "amap_67fd102c",
@@ -1078,7 +1114,8 @@
     "meal_type": "main",
     "description": "浣花溪公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C7UM1C"
+    "source_id": "B001C7UM1C",
+    "recommendation": "浣花溪公园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_af162d24",
@@ -1103,7 +1140,8 @@
     "meal_type": "main",
     "description": "南站公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C80OKC"
+    "source_id": "B001C80OKC",
+    "recommendation": "南站公园交通便利，闹中取静的好去处！傍晚散步最佳，看火车缓缓"
   },
   {
     "id": "amap_d897302d",
@@ -1129,7 +1167,7 @@
     "description": "成都动物园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001C8MXRO",
-    "recommendation": "带娃必打卡！动物种类多还便宜，长颈鹿互动区超有趣，记得带点胡萝卜。"
+    "recommendation": "亲子游首选，动物种类丰富，建议工作日去，人少体验更好。"
   },
   {
     "id": "amap_6749a385",
@@ -1153,7 +1191,8 @@
     "meal_type": "main",
     "description": "青龙湖湿地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG9I9IK"
+    "source_id": "B0FFG9I9IK",
+    "recommendation": "推荐在龙泉驿区参观青龙湖湿地公园，人气评分4.7"
   },
   {
     "id": "amap_914498e8",
@@ -1178,7 +1217,8 @@
     "meal_type": "main",
     "description": "4号湖入口广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFMFFAZY"
+    "source_id": "B0FFMFFAZY",
+    "recommendation": "4号湖入口广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_54a3269d",
@@ -1204,7 +1244,8 @@
     "meal_type": "main",
     "description": "锦里，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0L0JMFXP3"
+    "source_id": "B0L0JMFXP3",
+    "recommendation": "三国主题古街，晚上灯笼亮起更有韵味，别错过张飞牛肉。"
   },
   {
     "id": "amap_9b48891f",
@@ -1227,7 +1268,8 @@
     "meal_type": "main",
     "description": "春熙路IFS爬墙大熊猫打卡点，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0L01HFMBV"
+    "source_id": "B0L01HFMBV",
+    "recommendation": "春熙路IFS爬墙大熊猫打卡点适合城市游览、景点爱好者"
   },
   {
     "id": "amap_82b3063e",
@@ -1250,7 +1292,8 @@
     "meal_type": "main",
     "description": "麓湖水城景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFJSVRRH"
+    "source_id": "B0FFJSVRRH",
+    "recommendation": "坐船穿行在湖上，傍晚时分灯光亮起特别浪漫，记得挑个好天气去拍日落剪影！"
   },
   {
     "id": "amap_81b4970e",
@@ -1275,7 +1318,8 @@
     "meal_type": "main",
     "description": "新川之心公园东区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0GUMH732X"
+    "source_id": "B0GUMH732X",
+    "recommendation": "现代生态公园，湖滨栈道适合散步，周末还有音乐喷泉表演。"
   },
   {
     "id": "amap_13f29419",
@@ -1300,7 +1344,8 @@
     "meal_type": "main",
     "description": "棠湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C04D86"
+    "source_id": "B001C04D86",
+    "recommendation": "小巧精致的川西园林，春天海棠花盛开时超美，建议午后带杯茶去长廊坐坐。"
   },
   {
     "id": "amap_e723876b",
@@ -1325,7 +1370,8 @@
     "meal_type": "main",
     "description": "桂龙公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C8RGGT"
+    "source_id": "B001C8RGGT",
+    "recommendation": "桂龙公园绿植茂密，适合带娃野餐，周末去要早占阴凉位。"
   },
   {
     "id": "amap_24d815d1",
@@ -1349,7 +1395,8 @@
     "meal_type": "main",
     "description": "糖果乐园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0I6UCI21M"
+    "source_id": "B0I6UCI21M",
+    "recommendation": "糖果乐园适合城市游览、景点爱好者"
   },
   {
     "id": "amap_4fc17eef",
@@ -1374,7 +1421,8 @@
     "meal_type": "main",
     "description": "夜游锦江(东门码头)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFMHC88N"
+    "source_id": "B0FFMHC88N",
+    "recommendation": "晚上坐船看两岸灯火，仿佛穿越古成都，建议选八九点场，光影秀最精彩。"
   },
   {
     "id": "amap_266db6af",
@@ -1399,7 +1447,8 @@
     "meal_type": "main",
     "description": "文化公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C8P5DI"
+    "source_id": "B001C8P5DI",
+    "recommendation": "常有花展和灯会，本地人爱去遛弯，周末去逛逛，说不定碰上川剧表演。"
   },
   {
     "id": "amap_a15fb2b6",
@@ -1423,7 +1472,8 @@
     "meal_type": "main",
     "description": "簇锦公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C7UJY2"
+    "source_id": "B001C7UJY2",
+    "recommendation": "推荐在武侯区参观簇锦公园，人气评分4.5"
   },
   {
     "id": "amap_5ec69ab0",
@@ -1448,7 +1498,8 @@
     "meal_type": "main",
     "description": "沙河东篱翠湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C7WGDH"
+    "source_id": "B001C7WGDH",
+    "recommendation": "沙河边的翠湖公园清净怡人，清晨沿湖慢跑，能听到鸟鸣。"
   },
   {
     "id": "amap_b07a283",
@@ -1473,7 +1524,8 @@
     "meal_type": "main",
     "description": "百花潭公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C05OX0"
+    "source_id": "B001C05OX0",
+    "recommendation": "园内盆景园别有洞天，还有个小瀑布，清晨去空气清新，适合晨练或发呆。"
   },
   {
     "id": "amap_2fbeb4b0",
@@ -1499,7 +1551,7 @@
     "description": "天府艺术公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0HUTAZ5FP",
-    "recommendation": "艺术与自然完美融合，拍照绝了！推荐傍晚去，湖面倒映夕阳美到窒息。"
+    "recommendation": "现代艺术与自然景观完美融合，傍晚时分光影交错，散步超惬意。"
   },
   {
     "id": "amap_ca960952",
@@ -1524,7 +1576,8 @@
     "meal_type": "main",
     "description": "东安湖国际旅游度假区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0JB35F6ED"
+    "source_id": "B0JB35F6ED",
+    "recommendation": "东安湖国际旅游度假区适合城市游览、景点爱好者"
   },
   {
     "id": "amap_766a55e3",
@@ -1547,7 +1600,8 @@
     "meal_type": "main",
     "description": "玉林四巷爱转角文创街区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFLPTZWO"
+    "source_id": "B0FFLPTZWO",
+    "recommendation": "玉林四巷爱转角文创街区适合城市游览、景点爱好者"
   },
   {
     "id": "amap_888824a5",
@@ -1572,7 +1626,8 @@
     "meal_type": "main",
     "description": "锦江绿道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0L2MGY6B7"
+    "source_id": "B0L2MGY6B7",
+    "recommendation": "锦江绿道适合城市游览、景点爱好者"
   },
   {
     "id": "amap_fbefbfe1",
@@ -1596,7 +1651,8 @@
     "meal_type": "main",
     "description": "成都露天音乐公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFJGL8WB"
+    "source_id": "B0FFJGL8WB",
+    "recommendation": "中国最大的露天音乐公园，赶上演出的话氛围超燃，没演出时去草坪野餐也不错。"
   },
   {
     "id": "amap_95f281ec",
@@ -1621,7 +1677,8 @@
     "meal_type": "main",
     "description": "锦江体育公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C7YD1J"
+    "source_id": "B001C7YD1J",
+    "recommendation": "运动公园里藏着各种健身设施，傍晚来慢跑超舒服，记得带水！"
   },
   {
     "id": "amap_a1887eb1",
@@ -1644,7 +1701,8 @@
     "meal_type": "main",
     "description": "麓客岛，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFI72LKM"
+    "source_id": "B0FFI72LKM",
+    "recommendation": "湖心小岛适合放空，有网红咖啡厅和码头，建议带块野餐垫，躺一下午。"
   },
   {
     "id": "amap_30531b9c",
@@ -1668,7 +1726,8 @@
     "meal_type": "main",
     "description": "昭觉寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C05E7V"
+    "source_id": "B001C05E7V",
+    "recommendation": "川西第一禅林，古木参天很清幽，上午去能听到僧人诵经，素斋也不错。"
   },
   {
     "id": "amap_8d59e0b8",
@@ -1693,7 +1752,8 @@
     "meal_type": "main",
     "description": "锦城湖3号湖区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFGEY0PZ"
+    "source_id": "B0FFGEY0PZ",
+    "recommendation": "锦城湖3号湖区适合城市游览、景点爱好者"
   },
   {
     "id": "amap_2d475340",
@@ -1718,7 +1778,8 @@
     "meal_type": "main",
     "description": "东安湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0G3UY0GN0"
+    "source_id": "B0G3UY0GN0",
+    "recommendation": "大运会主场馆旁的新公园，环"
   },
   {
     "id": "amap_f6fcdb09",
@@ -1746,7 +1807,8 @@
     "meal_type": "main",
     "description": "天府森林动物园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LDP71HK7"
+    "source_id": "B0LDP71HK7",
+    "recommendation": "天府森林动物园面积大，亲子游备好水和零食，小动物互动区最受欢迎。"
   },
   {
     "id": "amap_6fb52130",
@@ -1771,7 +1833,8 @@
     "meal_type": "main",
     "description": "天府公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHF7O63"
+    "source_id": "B0FFHF7O63",
+    "recommendation": "推荐在双流区参观天府公园，人气评分4.7"
   },
   {
     "id": "amap_2f22ee6b",
@@ -1796,7 +1859,8 @@
     "meal_type": "main",
     "description": "成都骁腾运动公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0L3H78C65"
+    "source_id": "B0L3H78C65",
+    "recommendation": "动感十足的户外乐园，适合带娃放电，记得穿运动鞋。"
   },
   {
     "id": "amap_f902b541",
@@ -1819,7 +1883,8 @@
     "meal_type": "main",
     "description": "双流空港花田，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFJ5WOWB"
+    "source_id": "B0FFJ5WOWB",
+    "recommendation": "看飞机从花海上低空飞过，拍照发朋友圈绝对点赞，选下午航班密集时段去。"
   },
   {
     "id": "amap_fca92ab",
@@ -1843,7 +1908,8 @@
     "meal_type": "main",
     "description": "昭觉寺-第一禅林，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFIZSWCR"
+    "source_id": "B0FFIZSWCR",
+    "recommendation": "昭觉寺-第一禅林是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c5f8df93",
@@ -1866,7 +1932,8 @@
     "meal_type": "main",
     "description": "爬墙熊猫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0L3MSKGIR"
+    "source_id": "B0L3MSKGIR",
+    "recommendation": "爬到IFS楼顶就能看到它，网红熊猫屁股等你拍！建议傍晚去，灯光下合影超有氛围感。"
   },
   {
     "id": "amap_9547c7e",
@@ -1891,7 +1958,8 @@
     "meal_type": "main",
     "description": "桂溪生态公园(西区)-儿童活动区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0K22LDCEV"
+    "source_id": "B0K22LDCEV",
+    "recommendation": "推荐在武侯区参观桂溪生态公园(西区)-儿童活动区，人气评分4.2"
   },
   {
     "id": "amap_da8105af",
@@ -1916,7 +1984,8 @@
     "meal_type": "main",
     "description": "桂溪公园东区儿童滑梯，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFL4NLNL"
+    "source_id": "B0FFL4NLNL",
+    "recommendation": "桂溪公园东区儿童滑梯适合城市游览、景点爱好者"
   },
   {
     "id": "amap_78ecc01f",
@@ -1939,7 +2008,8 @@
     "meal_type": "main",
     "description": "合江亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C03DBC"
+    "source_id": "B001C03DBC",
+    "recommendation": "两江交汇处古亭，夜景灯光倒映水面超浪漫，建议黄昏时分来等华灯初上。"
   },
   {
     "id": "amap_3044ed55",
@@ -1964,7 +2034,8 @@
     "meal_type": "main",
     "description": "神仙树公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B001C7UTYM"
+    "source_id": "B001C7UTYM",
+    "recommendation": "闹中取静的绿肺，早晨去"
   },
   {
     "id": "amap_d8464cdf",
@@ -1989,7 +2060,8 @@
     "meal_type": "main",
     "description": "成都博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8SBG2"
+    "source_id": "B001C8SBG2",
+    "recommendation": "成都博物馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e8fa4c39",
@@ -2013,7 +2085,8 @@
     "meal_type": "main",
     "description": "成都绿舟博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFFBW3RN"
+    "source_id": "B0FFFBW3RN",
+    "recommendation": "想了解成都的生态文化？绿舟博物馆很涨知识！建议留出半天时间慢慢逛，展览常换新。"
   },
   {
     "id": "amap_6756b7af",
@@ -2038,7 +2111,8 @@
     "meal_type": "main",
     "description": "成都自然博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFLA0FTW"
+    "source_id": "B0FFLA0FTW",
+    "recommendation": "恐龙化石和矿石标本超震撼，带娃必去！记得提前预约，周一闭馆别跑空啦。"
   },
   {
     "id": "amap_169dd669",
@@ -2063,7 +2137,8 @@
     "meal_type": "main",
     "description": "成都大运会博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0JBN5XPKX"
+    "source_id": "B0JBN5XPKX",
+    "recommendation": "成都大运会博物馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_331971b3",
@@ -2090,7 +2165,7 @@
     "description": "成都世纪城新国际会展中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001C8RGC0",
-    "recommendation": "展览爱好者的天堂，去"
+    "recommendation": "逛展达人必去，留意每月展会排期，提前线上购票更省心"
   },
   {
     "id": "amap_9bf14c42",
@@ -2117,7 +2192,8 @@
     "meal_type": "main",
     "description": "四川广播电视台，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8N6CJ"
+    "source_id": "B001C8N6CJ",
+    "recommendation": "推荐在武侯区参观四川广播电视台，人气评分0.0"
   },
   {
     "id": "amap_45348ee1",
@@ -2143,7 +2219,8 @@
     "meal_type": "main",
     "description": "成都规划馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8O85D"
+    "source_id": "B001C8O85D",
+    "recommendation": "巨型沙盘展现成都前世今生，拍照很酷。下午人少，适合静静听讲解涨知识。"
   },
   {
     "id": "amap_ad229ed",
@@ -2170,7 +2247,8 @@
     "meal_type": "main",
     "description": "世纪城国际会议中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFGOC2GB"
+    "source_id": "B0FFGOC2GB",
+    "recommendation": "超有设计感的会议中心，外观像巨型飞碟，最佳打卡点在正门广场。"
   },
   {
     "id": "amap_337acce1",
@@ -2197,7 +2275,8 @@
     "meal_type": "main",
     "description": "成都石室天府中学(交子校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8O8JU"
+    "source_id": "B001C8O8JU",
+    "recommendation": "成都石室天府中学(交子校区)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_619e73da",
@@ -2224,7 +2303,8 @@
     "meal_type": "main",
     "description": "成都职业技术学院高新校区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C7URNC"
+    "source_id": "B001C7URNC",
+    "recommendation": "成都职业技术学院高新校区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b5b45931",
@@ -2251,7 +2331,8 @@
     "meal_type": "main",
     "description": "成都市第七中学高新校区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8RACP"
+    "source_id": "B001C8RACP",
+    "recommendation": "推荐在武侯区参观成都市第七中学高新校区，人气评分0.0"
   },
   {
     "id": "amap_bb287cb0",
@@ -2278,7 +2359,8 @@
     "meal_type": "main",
     "description": "成都市泡桐树小学(天府校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8O800"
+    "source_id": "B001C8O800",
+    "recommendation": "成都市泡桐树小学(天府校区)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_bf44ebf3",
@@ -2305,7 +2387,8 @@
     "meal_type": "main",
     "description": "成都蒙彼利埃小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFF00EHW"
+    "source_id": "B0FFF00EHW",
+    "recommendation": "成都蒙彼利埃小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_34f983d1",
@@ -2332,7 +2415,8 @@
     "meal_type": "main",
     "description": "成都市中和中学高中部，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C04D5E"
+    "source_id": "B001C04D5E",
+    "recommendation": "成都市中和中学高中部适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_cc15a275",
@@ -2358,7 +2442,8 @@
     "meal_type": "main",
     "description": "成都高新区图书馆新馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0JD2UO1FU"
+    "source_id": "B0JD2UO1FU",
+    "recommendation": "成都高新区图书馆新馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3bbb68d3",
@@ -2385,7 +2470,8 @@
     "meal_type": "main",
     "description": "成都工业职业技术学院高新校区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8O92B"
+    "source_id": "B001C8O92B",
+    "recommendation": "成都工业职业技术学院高新校区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_aaacffed",
@@ -2412,7 +2498,8 @@
     "meal_type": "main",
     "description": "成都石室天府中学(锦城湖校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0G1FMNDN9"
+    "source_id": "B0G1FMNDN9",
+    "recommendation": "成都石室天府中学(锦城湖校区)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_48901293",
@@ -2439,7 +2526,8 @@
     "meal_type": "main",
     "description": "成都七中初中学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8RA98"
+    "source_id": "B001C8RA98",
+    "recommendation": "成都七中初中学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c8fe8758",
@@ -2467,7 +2555,8 @@
     "meal_type": "main",
     "description": "中国石化西南科研办公基地-中国石化勘探分公司，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8RGHH"
+    "source_id": "B001C8RGHH",
+    "recommendation": "中国石化西南科研办公基地-中国石化勘探分公司适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_81187fc4",
@@ -2493,7 +2582,8 @@
     "meal_type": "main",
     "description": "国网四川省电力公司电力科学研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFIDGIWK"
+    "source_id": "B0FFIDGIWK",
+    "recommendation": "国网四川省电力公司电力科学研究院适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_f746fef1",
@@ -2519,7 +2609,8 @@
     "meal_type": "main",
     "description": "锦晖小学金融城分校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0HGUNDSC2"
+    "source_id": "B0HGUNDSC2",
+    "recommendation": "锦晖小学金融城分校适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_7637c02b",
@@ -2545,7 +2636,8 @@
     "meal_type": "main",
     "description": "世纪城国际展览中心1号馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFFOD7TZ"
+    "source_id": "B0FFFOD7TZ",
+    "recommendation": "常办大型展会，关注官网提前预约，免费领票能省不少。"
   },
   {
     "id": "amap_3785d917",
@@ -2571,7 +2663,8 @@
     "meal_type": "main",
     "description": "成都市青少年宫(锦城公园校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFIRY4KG"
+    "source_id": "B0FFIRY4KG",
+    "recommendation": "成都市青少年宫(锦城公园校区)适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_5fccd468",
@@ -2598,7 +2691,8 @@
     "meal_type": "main",
     "description": "成都高新区锦晖小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8MR2J"
+    "source_id": "B001C8MR2J",
+    "recommendation": "成都高新区锦晖小学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ba6124a9",
@@ -2623,7 +2717,8 @@
     "meal_type": "main",
     "description": "三和老爷车博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFFVYB3Z"
+    "source_id": "B0FFFVYB3Z",
+    "recommendation": "复古车迷的天堂，近百辆经典老爷车，周一闭馆别跑空。"
   },
   {
     "id": "amap_784f5f81",
@@ -2649,7 +2744,8 @@
     "meal_type": "main",
     "description": "先进科技研发中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFIN7X82"
+    "source_id": "B0FFIN7X82",
+    "recommendation": "先进科技研发中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_136e47dc",
@@ -2674,7 +2770,8 @@
     "meal_type": "main",
     "description": "交子金融博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0H1YHVHFK"
+    "source_id": "B0H1YHVHFK",
+    "recommendation": "穿越千年看纸币发展，互动装置有趣，冷门博物馆人少好逛，周末安排上。"
   },
   {
     "id": "amap_c4145daf",
@@ -2701,7 +2798,8 @@
     "meal_type": "main",
     "description": "成都七中初中学校(锦城校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFKVTFQF"
+    "source_id": "B0FFKVTFQF",
+    "recommendation": "推荐在武侯区参观成都七中初中学校(锦城校区)，人气评分0.0"
   },
   {
     "id": "amap_ecba3960",
@@ -2728,7 +2826,8 @@
     "meal_type": "main",
     "description": "成都高新区锦城小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8VMY9"
+    "source_id": "B001C8VMY9",
+    "recommendation": "成都高新区锦城小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_b9f818e8",
@@ -2754,7 +2853,8 @@
     "meal_type": "main",
     "description": "成都石室天府中学附属小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFJ84Q3O"
+    "source_id": "B0FFJ84Q3O",
+    "recommendation": "成都石室天府中学附属小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_532efc49",
@@ -2780,7 +2880,8 @@
     "meal_type": "main",
     "description": "成都市城市建设和自然资源档案馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8XJ6J"
+    "source_id": "B001C8XJ6J",
+    "recommendation": "推荐在武侯区参观成都市城市建设和自然资源档案馆，人气评分0.0"
   },
   {
     "id": "amap_6e71b982",
@@ -2807,7 +2908,8 @@
     "meal_type": "main",
     "description": "四川省成都市盐道街中学(南区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0LDG1APAO"
+    "source_id": "B0LDG1APAO",
+    "recommendation": "百年盐道街书香之地，校舍红砖墙有味道，路过可以拍张复古风街拍。"
   },
   {
     "id": "amap_1d4ccde1",
@@ -2833,7 +2935,8 @@
     "meal_type": "main",
     "description": "四川省成都市七中育才学校(金融城校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0K2A1UU0Q"
+    "source_id": "B0K2A1UU0Q",
+    "recommendation": "推荐在锦江区参观四川省成都市七中育才学校(金融城校区)，人气评分0.0"
   },
   {
     "id": "amap_7137b84c",
@@ -2859,7 +2962,8 @@
     "meal_type": "main",
     "description": "成都世纪城国际展览中心2号馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFFOD7TW"
+    "source_id": "B0FFFOD7TW",
+    "recommendation": "和1号馆相连，逛展累了可去隔壁美食街补充能量。"
   },
   {
     "id": "amap_46d37f0a",
@@ -2886,7 +2990,8 @@
     "meal_type": "main",
     "description": "新华通讯社(四川分社)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8O98O"
+    "source_id": "B001C8O98O",
+    "recommendation": "推荐在武侯区参观新华通讯社(四川分社)，人气评分0.0"
   },
   {
     "id": "amap_46a875fb",
@@ -2912,7 +3017,8 @@
     "meal_type": "main",
     "description": "学而思素养(大源校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0HRVODS75"
+    "source_id": "B0HRVODS75",
+    "recommendation": "孩子编程思维启蒙好地方，课程生动不枯燥，记得提前约免费体验课。"
   },
   {
     "id": "amap_b980733e",
@@ -2938,7 +3044,8 @@
     "meal_type": "main",
     "description": "世纪城国际展览中心9号馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFFODHAQ"
+    "source_id": "B0FFFODHAQ",
+    "recommendation": "9号馆常办车"
   },
   {
     "id": "amap_9f761cfc",
@@ -2967,7 +3074,8 @@
     "meal_type": "main",
     "description": "过载空间(凯德天府店)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0I0MU4D4D"
+    "source_id": "B0I0MU4D4D",
+    "recommendation": "这里常有沉浸式展览和互动体验，周末去人少些，拍照超有氛围感。"
   },
   {
     "id": "amap_30553b49",
@@ -2992,7 +3100,8 @@
     "meal_type": "main",
     "description": "立巢航空博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFK5Q1NR"
+    "source_id": "B0FFK5Q1NR",
+    "recommendation": "推荐在武侯区参观立巢航空博物馆，人气评分4.5"
   },
   {
     "id": "amap_5460f9da",
@@ -3019,7 +3128,8 @@
     "meal_type": "main",
     "description": "成都墨池书院小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFH5GZK4"
+    "source_id": "B0FFH5GZK4",
+    "recommendation": "成都墨池书院小学适合城市游览、历史文化爱好者"
   },
   {
     "id": "amap_eb3ca0dc",
@@ -3045,7 +3155,8 @@
     "meal_type": "main",
     "description": "东者舞馆DONGJO(招商大魔方店)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0JRMUJDY6"
+    "source_id": "B0JRMUJDY6",
+    "recommendation": "东者舞馆DONGJO(招商大魔方店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_779c2b2a",
@@ -3072,7 +3183,8 @@
     "meal_type": "main",
     "description": "成都高新区益州小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C8NQQS"
+    "source_id": "B001C8NQQS",
+    "recommendation": "成都高新区益州小学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_cabdcf3c",
@@ -3099,7 +3211,8 @@
     "meal_type": "main",
     "description": "成都市中和职业中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFH2FFKN"
+    "source_id": "B0FFH2FFKN",
+    "recommendation": "推荐在锦江区参观成都市中和职业中学，人气评分4.1"
   },
   {
     "id": "amap_5709bc66",
@@ -3126,7 +3239,8 @@
     "meal_type": "main",
     "description": "成都教育科学研究院附属学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFIAAHSS"
+    "source_id": "B0FFIAAHSS",
+    "recommendation": "校园内绿植环绕，适合散步感受青春气息。建议清晨或傍晚前往，拍照光线更柔和哦。"
   },
   {
     "id": "amap_61b6726c",
@@ -3153,7 +3267,8 @@
     "meal_type": "main",
     "description": "成都七中初中天和学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B001C051A0"
+    "source_id": "B001C051A0",
+    "recommendation": "名校氛围浓厚，建筑现代大气。带孩子来可以提前了解参观政策，说不定能偶遇学霸活动。"
   },
   {
     "id": "amap_5e3a7f16",
@@ -3180,7 +3295,8 @@
     "meal_type": "main",
     "description": "成都植物园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B001C05SU4"
+    "source_id": "B001C05SU4",
+    "recommendation": "城市里的天然氧吧，珍稀植物超多。春天花季去最棒，散步"
   },
   {
     "id": "amap_60888e2",
@@ -3206,7 +3322,8 @@
     "meal_type": "main",
     "description": "桂溪生态公园-成都锦城绿道，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFIN31UU"
+    "source_id": "B0FFIN31UU",
+    "recommendation": "推荐在武侯区参观桂溪生态公园-成都锦城绿道，人气评分4.1"
   },
   {
     "id": "amap_e88b9c81",
@@ -3232,7 +3349,8 @@
     "meal_type": "main",
     "description": "芙蓉岛公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0HDJNRYMN"
+    "source_id": "B0HDJNRYMN",
+    "recommendation": "芙蓉岛公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_bddb9449",
@@ -3258,7 +3376,8 @@
     "meal_type": "main",
     "description": "成都SKP屋顶花园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0IKMSCUY1"
+    "source_id": "B0IKMSCUY1",
+    "recommendation": "成都SKP屋顶花园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_d63f645a",
@@ -3284,7 +3403,8 @@
     "meal_type": "main",
     "description": "天府立交西游园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFGFKNAD"
+    "source_id": "B0FFGFKNAD",
+    "recommendation": "天府立交西游园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_c2c16aa9",
@@ -3310,7 +3430,8 @@
     "meal_type": "main",
     "description": "濯锦公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KD7ZVL8V"
+    "source_id": "B0KD7ZVL8V",
+    "recommendation": "濯锦公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_b4358786",
@@ -3336,7 +3457,8 @@
     "meal_type": "main",
     "description": "交子公园2期，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0LG9DNPTM"
+    "source_id": "B0LG9DNPTM",
+    "recommendation": "推荐在武侯区参观交子公园2期，人气评分4.0"
   },
   {
     "id": "amap_cd5bd2a2",
@@ -3362,7 +3484,8 @@
     "meal_type": "main",
     "description": "桂溪湿地公园东区木立方，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFLGWCV0"
+    "source_id": "B0FFLGWCV0",
+    "recommendation": "桂溪湿地公园东区木立方适合城市游览、公园爱好者"
   },
   {
     "id": "amap_af7d54ac",
@@ -3388,7 +3511,8 @@
     "meal_type": "main",
     "description": "交子锦江公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L017GSBA"
+    "source_id": "B0L017GSBA",
+    "recommendation": "交子公园沿江而建，傍晚散步超惬意，还能看金融城灯光秀，记得带相机。"
   },
   {
     "id": "amap_54b7899d",
@@ -3414,7 +3538,8 @@
     "meal_type": "main",
     "description": "瞪羚谷公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFME5ILF"
+    "source_id": "B0FFME5ILF",
+    "recommendation": "瞪羚谷公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_14bb7a36",
@@ -3440,7 +3565,8 @@
     "meal_type": "main",
     "description": "美洲时尚体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFH6MEE0"
+    "source_id": "B0FFH6MEE0",
+    "recommendation": "美洲时尚体育公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_fcebe157",
@@ -3466,7 +3592,8 @@
     "meal_type": "main",
     "description": "市政公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFIP4AJH"
+    "source_id": "B0FFIP4AJH",
+    "recommendation": "推荐在武侯区参观市政公园，人气评分4.0"
   },
   {
     "id": "amap_8fb651e2",
@@ -3492,7 +3619,8 @@
     "meal_type": "main",
     "description": "府河文体公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFGZVTUU"
+    "source_id": "B0FFGZVTUU",
+    "recommendation": "府河文体公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_cb8b55c7",
@@ -3518,7 +3646,8 @@
     "meal_type": "main",
     "description": "儿童乐园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0J3DZIOAP"
+    "source_id": "B0J3DZIOAP",
+    "recommendation": "带娃去放电吧！滑梯秋千够玩半天，建议下午四点后人少树荫多，记得带水壶。"
   },
   {
     "id": "amap_147a500b",
@@ -3544,7 +3673,8 @@
     "meal_type": "main",
     "description": "新体公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L6YMCIT4"
+    "source_id": "B0L6YMCIT4",
+    "recommendation": "新体公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_9efd0638",
@@ -3570,7 +3700,8 @@
     "meal_type": "main",
     "description": "汇尚公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFIUUF19"
+    "source_id": "B0FFIUUF19",
+    "recommendation": "汇尚公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_926597f3",
@@ -3596,7 +3727,8 @@
     "meal_type": "main",
     "description": "吉泰路活力公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFK6F4RK"
+    "source_id": "B0FFK6F4RK",
+    "recommendation": "吉泰路活力公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_548d19a3",
@@ -3622,7 +3754,8 @@
     "meal_type": "main",
     "description": "新怡公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFHSYL1K"
+    "source_id": "B0FFHSYL1K",
+    "recommendation": "新怡公园人少景美，带本书在长椅上发呆，午后阳光穿过树影超"
   },
   {
     "id": "amap_57326db0",
@@ -3649,7 +3782,8 @@
     "meal_type": "main",
     "description": "朱家沟游园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFIXL6C1"
+    "source_id": "B0FFIXL6C1",
+    "recommendation": "绿植丰富，适合散步放松，傍晚去拍照光线超美。"
   },
   {
     "id": "amap_356b3856",
@@ -3675,7 +3809,8 @@
     "meal_type": "main",
     "description": "天仁南街小游园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0LBHDZ8DK"
+    "source_id": "B0LBHDZ8DK",
+    "recommendation": "藏在社区里的小游园，花木错落很安静，适合午后带本书去放空自己。"
   },
   {
     "id": "amap_316b674f",
@@ -3703,7 +3838,8 @@
     "meal_type": "main",
     "description": "动感熊猫体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0IGORIBVD"
+    "source_id": "B0IGORIBVD",
+    "recommendation": "动感熊猫体育公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_372ef0b2",
@@ -3729,7 +3865,8 @@
     "meal_type": "main",
     "description": "琉璃公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0I64ZUKS9"
+    "source_id": "B0I64ZUKS9",
+    "recommendation": "小众宝藏公园，琉璃装饰超有艺术感，傍晚光线最出片，适合慢悠悠散步。"
   },
   {
     "id": "amap_8a92e5e8",
@@ -3755,7 +3892,8 @@
     "meal_type": "main",
     "description": "银湖体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFLP68CZ"
+    "source_id": "B0FFLP68CZ",
+    "recommendation": "推荐在武侯区参观银湖体育公园，人气评分3.4"
   },
   {
     "id": "amap_943f224f",
@@ -3781,7 +3919,8 @@
     "meal_type": "main",
     "description": "会龙公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFF00E2M"
+    "source_id": "B0FFF00E2M",
+    "recommendation": "会龙公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_83e7d884",
@@ -3807,7 +3946,8 @@
     "meal_type": "main",
     "description": "CITYPARK，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0LB9ZW825"
+    "source_id": "B0LB9ZW825",
+    "recommendation": "现代感十足的公园，适合拍照打卡，建议傍晚去感受落日余晖。"
   },
   {
     "id": "amap_1ccb0e16",
@@ -3833,7 +3973,8 @@
     "meal_type": "main",
     "description": "花荫沟公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0IUDAHLJJ"
+    "source_id": "B0IUDAHLJJ",
+    "recommendation": "名字就很有诗意，夏日纳凉好去处，带本书能待一下午。"
   },
   {
     "id": "amap_dd560b8c",
@@ -3859,7 +4000,8 @@
     "meal_type": "main",
     "description": "口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KKMAJTRA"
+    "source_id": "B0KKMAJTRA",
+    "recommendation": "桐梓林的口袋公园迷你却精致，路过时坐坐拍张照，就能收获一份小确幸。"
   },
   {
     "id": "amap_aeaf63a9",
@@ -3885,7 +4027,8 @@
     "meal_type": "main",
     "description": "新川湿地公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFK1Y0LM"
+    "source_id": "B0FFK1Y0LM",
+    "recommendation": "新川湿地公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_a659902e",
@@ -3911,7 +4054,8 @@
     "meal_type": "main",
     "description": "沙河公园(萃锦东路)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B001C92F8F"
+    "source_id": "B001C92F8F",
+    "recommendation": "推荐在锦江区参观沙河公园(萃锦东路)，人气评分4.1"
   },
   {
     "id": "amap_85d625f6",
@@ -3937,7 +4081,8 @@
     "meal_type": "main",
     "description": "沃顿公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B001C05307"
+    "source_id": "B001C05307",
+    "recommendation": "沃顿公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_47901100",
@@ -3962,7 +4107,8 @@
     "meal_type": "main",
     "description": "锦江Lohas绿道，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B001C8RA99"
+    "source_id": "B001C8RA99",
+    "recommendation": "沿江骑行或跑步的绝佳绿道，傍晚看落日染红江面超治愈，记得带驱蚊水。"
   },
   {
     "id": "amap_9c35435d",
@@ -3988,7 +4134,8 @@
     "meal_type": "main",
     "description": "维也纳森林公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B001C0A0J3"
+    "source_id": "B001C0A0J3",
+    "recommendation": "维也纳森林公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_6ed46707",
@@ -4013,7 +4160,8 @@
     "meal_type": "main",
     "description": "晨辉路公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFM8CEZU"
+    "source_id": "B0FFM8CEZU",
+    "recommendation": "晨辉路公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_eab2fd65",
@@ -4038,7 +4186,8 @@
     "meal_type": "main",
     "description": "新北社区体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0GU9XVUTF"
+    "source_id": "B0GU9XVUTF",
+    "recommendation": "社区里的宝藏运动场，傍晚来这跑步打篮球超惬意，人少空气好！"
   },
   {
     "id": "amap_a55c9a81",
@@ -4064,7 +4213,8 @@
     "meal_type": "main",
     "description": "文化方洲公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KUBROTA0"
+    "source_id": "B0KUBROTA0",
+    "recommendation": "融合文化元素的公园，周末常有小展览，走累了有长椅休息。"
   },
   {
     "id": "amap_b05d0eaa",
@@ -4090,7 +4240,8 @@
     "meal_type": "main",
     "description": "桂溪安全文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFIMU701"
+    "source_id": "B0FFIMU701",
+    "recommendation": "寓教于乐的公园，适合带娃学习安全知识，还有健身设施。"
   },
   {
     "id": "amap_34a8622e",
@@ -4116,7 +4267,8 @@
     "meal_type": "main",
     "description": "赛道公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0M6JUDWNX"
+    "source_id": "B0M6JUDWNX",
+    "recommendation": "推荐在武侯区参观赛道公园，人气评分3.4"
   },
   {
     "id": "amap_3ead1d4",
@@ -4142,7 +4294,8 @@
     "meal_type": "main",
     "description": "府河北公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0GUD7SRBG"
+    "source_id": "B0GUD7SRBG",
+    "recommendation": "推荐在锦江区参观府河北公园，人气评分3.9"
   },
   {
     "id": "amap_fe724498",
@@ -4168,7 +4321,8 @@
     "meal_type": "main",
     "description": "芙蓉岛公园一号馆，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KR49VURF"
+    "source_id": "B0KR49VURF",
+    "recommendation": "芙蓉岛公园一号馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ca8c86a8",
@@ -4194,7 +4348,8 @@
     "meal_type": "main",
     "description": "江安河公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0J2OSKUED"
+    "source_id": "B0J2OSKUED",
+    "recommendation": "江安河公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_994738b8",
@@ -4220,7 +4375,8 @@
     "meal_type": "main",
     "description": "标本博物馆荒石公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L03LDS8C"
+    "source_id": "B0L03LDS8C",
+    "recommendation": "标本博物馆荒石公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_56aa99a",
@@ -4246,7 +4402,8 @@
     "meal_type": "main",
     "description": "老成都民俗公园(人民南路四段)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFABD3O"
+    "source_id": "B0FFFABD3O",
+    "recommendation": "老成都民俗公园(人民南路四段)适合城市游览、公园爱好者"
   },
   {
     "id": "amap_92a4ffcf",
@@ -4272,7 +4429,8 @@
     "meal_type": "main",
     "description": "橡树林滨河公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B001C8O3MQ"
+    "source_id": "B001C8O3MQ",
+    "recommendation": "沿河漫步很惬意，晨跑"
   },
   {
     "id": "amap_f52626db",
@@ -4297,7 +4455,8 @@
     "meal_type": "main",
     "description": "梅园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B001C8SBJY"
+    "source_id": "B001C8SBJY",
+    "recommendation": "冬季赏梅必冲，暗香浮动意境满满，穿浅色衣服拍照更仙，建议清晨去。"
   },
   {
     "id": "amap_9eaede66",
@@ -4323,7 +4482,8 @@
     "meal_type": "main",
     "description": "The Parkfum细嗅公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L3RLNSDG"
+    "source_id": "B0L3RLNSDG",
+    "recommendation": "The Parkfum细嗅公园适合城市游览、公园爱好者"
   },
   {
     "id": "amap_d1ac2a36",
@@ -4352,7 +4512,8 @@
     "meal_type": "main",
     "description": "成都春熙路百盛购物中心，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B001C7UN1N"
+    "source_id": "B001C7UN1N",
+    "recommendation": "成都老牌百货，品牌齐全且常有折扣，适合慢慢逛淘好货。"
   },
   {
     "id": "amap_c0269818",
@@ -4378,7 +4539,8 @@
     "meal_type": "main",
     "description": "KKV(成都春熙路主力店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFM25T1T"
+    "source_id": "B0FFM25T1T",
+    "recommendation": "推荐在锦江区参观KKV(成都春熙路主力店)，人气评分4.7"
   },
   {
     "id": "amap_1ff6ebed",
@@ -4405,7 +4567,8 @@
     "meal_type": "main",
     "description": "红旗超市(春熙路天府广场地铁站成都达州宾馆店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B001C8P54S"
+    "source_id": "B001C8P54S",
+    "recommendation": "地铁站出口就能买水买零食，超方便！建议在春熙路逛累了顺手补给。"
   },
   {
     "id": "amap_371cd4c1",
@@ -4431,7 +4594,8 @@
     "meal_type": "main",
     "description": "ΙWС(成都春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0L0JOHEBH"
+    "source_id": "B0L0JOHEBH",
+    "recommendation": "潮流买手店扎堆，连招牌都超好拍！建议傍晚去，灯光亮起后更出片。"
   },
   {
     "id": "amap_f242ac6d",
@@ -4457,7 +4621,8 @@
     "meal_type": "main",
     "description": "春熙路步行街，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B001C8RQLM"
+    "source_id": "B001C8RQLM",
+    "recommendation": "推荐在锦江区参观春熙路步行街，人气评分4.9"
   },
   {
     "id": "amap_7fc1286c",
@@ -4484,7 +4649,8 @@
     "meal_type": "main",
     "description": "春熙路-太古里商圈，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0H3JZ2J4F"
+    "source_id": "B0H3JZ2J4F",
+    "recommendation": "春熙路-太古里商圈是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_25ae3a24",
@@ -4511,7 +4677,8 @@
     "meal_type": "main",
     "description": "春熙路cabbeen旗舰店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFG0Z96U"
+    "source_id": "B0FFG0Z96U",
+    "recommendation": "想找个性穿搭？这家旗舰店款式新潮，试穿后还能顺便逛春熙路。"
   },
   {
     "id": "amap_8e439e1b",
@@ -4537,7 +4704,8 @@
     "meal_type": "main",
     "description": "回力(春熙路步行街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0J19HX299"
+    "source_id": "B0J19HX299",
+    "recommendation": "推荐在锦江区参观回力(春熙路步行街店)，人气评分4.0"
   },
   {
     "id": "amap_80de8b85",
@@ -4564,7 +4732,8 @@
     "meal_type": "main",
     "description": "海澜之家(春熙路五店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0KRRXX4VA"
+    "source_id": "B0KRRXX4VA",
+    "recommendation": "推荐在锦江区参观海澜之家(春熙路五店)，人气评分4.3"
   },
   {
     "id": "amap_89494965",
@@ -4591,7 +4760,8 @@
     "meal_type": "main",
     "description": "周六福(春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0LBOL6YFL"
+    "source_id": "B0LBOL6YFL",
+    "recommendation": "周六福(春熙路店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_7a51ac15",
@@ -4617,7 +4787,8 @@
     "meal_type": "main",
     "description": "名创优品(四川成都春熙路旗舰店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFKP7P99"
+    "source_id": "B0FFKP7P99",
+    "recommendation": "名创优品(四川成都春熙路旗舰店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9be38595",
@@ -4644,7 +4815,8 @@
     "meal_type": "main",
     "description": "森马(春熙路步行街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFGC9M2X"
+    "source_id": "B0FFGC9M2X",
+    "recommendation": "推荐在锦江区参观森马(春熙路步行街店)，人气评分4.4"
   },
   {
     "id": "amap_d3148e81",
@@ -4670,7 +4842,8 @@
     "meal_type": "main",
     "description": "名创优品(成都春熙路36号店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0JKSM2KM5"
+    "source_id": "B0JKSM2KM5",
+    "recommendation": "推荐在锦江区参观名创优品(成都春熙路36号店)，人气评分4.5"
   },
   {
     "id": "amap_f6a35c8",
@@ -4696,7 +4869,8 @@
     "meal_type": "main",
     "description": "马登工装(春熙路北段店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0L6O9JAXT"
+    "source_id": "B0L6O9JAXT",
+    "recommendation": "马登工装(春熙路北段店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_a8ec7b54",
@@ -4722,7 +4896,8 @@
     "meal_type": "main",
     "description": "特步(春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0IDB5MRRV"
+    "source_id": "B0IDB5MRRV",
+    "recommendation": "运动装备一站式搞定，偶尔有折扣，记得进店问优惠。"
   },
   {
     "id": "amap_55c0e492",
@@ -4748,7 +4923,8 @@
     "meal_type": "main",
     "description": "春熙路文创市集，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0G1SRBN48"
+    "source_id": "B0G1SRBN48",
+    "recommendation": "春熙路文创市集是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e2662c2f",
@@ -4774,7 +4950,8 @@
     "meal_type": "main",
     "description": "名创优品(成都春熙路MINISO LAND店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0K0FA6BDJ"
+    "source_id": "B0K0FA6BDJ",
+    "recommendation": "春熙路超大IP店，限定联名款很多，建议逛时把预算留够。"
   },
   {
     "id": "amap_141f989f",
@@ -4801,7 +4978,8 @@
     "meal_type": "main",
     "description": "TOP TOY(成都春熙路旗舰店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0L6992BEK"
+    "source_id": "B0L6992BEK",
+    "recommendation": "潮玩爱好者的天堂，盲盒和手办上新快，记得带好钱包。"
   },
   {
     "id": "amap_43336627",
@@ -4827,7 +5005,8 @@
     "meal_type": "main",
     "description": "宝威(春熙路-太古里商圈店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B001C08FCS"
+    "source_id": "B001C08FCS",
+    "recommendation": "超好逛的买手店，折扣季能淘到宝！建议周中上午去，人少挑货更尽兴。"
   },
   {
     "id": "amap_c02501e5",
@@ -4854,7 +5033,8 @@
     "meal_type": "main",
     "description": "李宁(春熙路旗舰店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B001C7VBGD"
+    "source_id": "B001C7VBGD",
+    "recommendation": "李宁(春熙路旗舰店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_7f08f0e4",
@@ -4881,7 +5061,8 @@
     "meal_type": "main",
     "description": "四川特产购物中心(春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0JDFCWWO9"
+    "source_id": "B0JDFCWWO9",
+    "recommendation": "四川特产购物中心(春熙路店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ccfc283b",
@@ -4907,7 +5088,8 @@
     "meal_type": "main",
     "description": "春熙店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0KARA8VT5"
+    "source_id": "B0KARA8VT5",
+    "recommendation": "春熙路这家店紧跟潮流，逛完直接去IFS爬楼看熊猫，"
   },
   {
     "id": "amap_c1aa2b3c",
@@ -4936,7 +5118,8 @@
     "meal_type": "main",
     "description": "全季成都春熙路IFS国金中心酒店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFFVVSLH"
+    "source_id": "B0FFFVVSLH",
+    "recommendation": "位置绝佳，出门就是IFS，住这逛街超方便，记得提前订房。"
   },
   {
     "id": "amap_a760f027",
@@ -4963,7 +5146,8 @@
     "meal_type": "main",
     "description": "LOHO(成都春熙路百盛购物中心店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFLAHGWS"
+    "source_id": "B0FFLAHGWS",
+    "recommendation": "想配副时髦眼镜？这里款式超多，店员很专业，记得试戴后再决定哦。"
   },
   {
     "id": "amap_a183543a",
@@ -4990,7 +5174,8 @@
     "meal_type": "main",
     "description": "JNBY(成都春熙路百盛购物中心店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFJJDFRC"
+    "source_id": "B0FFJJDFRC",
+    "recommendation": "文艺控别错过，江南布衣"
   },
   {
     "id": "amap_c981d786",
@@ -5017,7 +5202,8 @@
     "meal_type": "main",
     "description": "天梭表Tissot(成都春熙路步行街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0LR5SAEJ9"
+    "source_id": "B0LR5SAEJ9",
+    "recommendation": "推荐在锦江区参观天梭表Tissot(成都春熙路步行街店)，人气评分4.0"
   },
   {
     "id": "amap_e838193f",
@@ -5043,7 +5229,8 @@
     "meal_type": "main",
     "description": "百年灵(春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0JKFC1O3Y"
+    "source_id": "B0JKFC1O3Y",
+    "recommendation": "百年灵手表精准经典，春熙路店款式全，试戴时记得调校最佳走时哦。"
   },
   {
     "id": "amap_5cbe28c8",
@@ -5070,7 +5257,8 @@
     "meal_type": "main",
     "description": "红妆(春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B001C8MQ5P"
+    "source_id": "B001C8MQ5P",
+    "recommendation": "红妆彩妆护肤一站购，春熙路店常有折扣，建议傍晚逛完街顺路来补"
   },
   {
     "id": "amap_65599f81",
@@ -5097,7 +5285,8 @@
     "meal_type": "main",
     "description": "海伦公主(春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0LA378ZIT"
+    "source_id": "B0LA378ZIT",
+    "recommendation": "推荐在锦江区参观海伦公主(春熙路店)，人气评分4.0"
   },
   {
     "id": "amap_25033e2e",
@@ -5123,7 +5312,8 @@
     "meal_type": "main",
     "description": "野原琳子大码服装(春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0J25ZQ1UW"
+    "source_id": "B0J25ZQ1UW",
+    "recommendation": "大码女生福音，款式时髦不挑身材，试穿后直接拿下几件。"
   },
   {
     "id": "amap_980f5aa2",
@@ -5150,7 +5340,8 @@
     "meal_type": "main",
     "description": "波司登(春熙路-太古里商圈店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0H2B5JHVJ"
+    "source_id": "B0H2B5JHVJ",
+    "recommendation": "波司登(春熙路-太古里商圈店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_27410789",
@@ -5176,7 +5367,8 @@
     "meal_type": "main",
     "description": "浪琴表LONGINES(春熙路步行街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0G0H9IDNK"
+    "source_id": "B0G0H9IDNK",
+    "recommendation": "逛街累了进来赏表吧，经典款齐全，店员专业，戴手上感受精致。"
   },
   {
     "id": "amap_e8d83c70",
@@ -5203,7 +5395,8 @@
     "meal_type": "main",
     "description": "JOSINY 卓诗尼(春熙路-太古里商圈店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFIIUXXD"
+    "source_id": "B0FFIIUXXD",
+    "recommendation": "JOSINY 卓诗尼(春熙路-太古里商圈店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_b20c4b61",
@@ -5230,7 +5423,8 @@
     "meal_type": "main",
     "description": "春南商场(春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFM6HJK4"
+    "source_id": "B0FFM6HJK4",
+    "recommendation": "老牌商场性价比高，淘衣服鞋子别错过，周末常有折扣活动。"
   },
   {
     "id": "amap_d19ced81",
@@ -5256,7 +5450,8 @@
     "meal_type": "main",
     "description": "春熙北里，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0JBY7R48P"
+    "source_id": "B0JBY7R48P",
+    "recommendation": "春熙路旁的小众巷子，人少适合拍照，走累了有长椅歇脚。"
   },
   {
     "id": "amap_200c27ad",
@@ -5282,7 +5477,8 @@
     "meal_type": "main",
     "description": "戴森(苏宁易购春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFKGQRVW"
+    "source_id": "B0FFKGQRVW",
+    "recommendation": "戴森黑科技集中营，吹风机吸尘器随便摸"
   },
   {
     "id": "amap_94786e9",
@@ -5310,7 +5506,8 @@
     "meal_type": "main",
     "description": "CYBO君亭尚品酒店(成都春熙路天府广场店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0GRDDG9TE"
+    "source_id": "B0GRDDG9TE",
+    "recommendation": "CYBO君亭尚品酒店(成都春熙路天府广场店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d3abaee",
@@ -5337,7 +5534,8 @@
     "meal_type": "main",
     "description": "Suning Pro苏宁易购(成都锦江春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFIT7KGC"
+    "source_id": "B0FFIT7KGC",
+    "recommendation": "Suning Pro苏宁易购(成都锦江春熙路店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f6bd78fc",
@@ -5364,7 +5562,8 @@
     "meal_type": "main",
     "description": "暑袜街(春熙路太古里步行街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFL0ZV7T"
+    "source_id": "B0FFL0ZV7T",
+    "recommendation": "暑袜街(春熙路太古里步行街店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1fe5d6c9",
@@ -5391,7 +5590,8 @@
     "meal_type": "main",
     "description": "雅戈尔(春熙路-太古里商圈店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFG7RPRD"
+    "source_id": "B0FFG7RPRD",
+    "recommendation": "雅戈尔(春熙路-太古里商圈店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3dcac0d9",
@@ -5417,7 +5617,8 @@
     "meal_type": "main",
     "description": "安踏(春熙路北段安踏旗舰店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFKXB9Z2"
+    "source_id": "B0FFKXB9Z2",
+    "recommendation": "安踏(春熙路北段安踏旗舰店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_519a8466",
@@ -5444,7 +5645,8 @@
     "meal_type": "main",
     "description": "植物医生(春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFIS7CHE"
+    "source_id": "B0FFIS7CHE",
+    "recommendation": "推荐在锦江区参观植物医生(春熙路店)，人气评分4.2"
   },
   {
     "id": "amap_baa5c3e3",
@@ -5472,7 +5674,8 @@
     "meal_type": "main",
     "description": "金开服装城(尚都广场春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFG9IEA9"
+    "source_id": "B0FFG9IEA9",
+    "recommendation": "金开服装城(尚都广场春熙路店)适合城市游览、街区爱好者"
   },
   {
     "id": "amap_af56b93e",
@@ -5498,7 +5701,8 @@
     "meal_type": "main",
     "description": "T恤家(春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFG2W8I2"
+    "source_id": "B0FFG2W8I2",
+    "recommendation": "推荐在锦江区参观T恤家(春熙路店)，人气评分3.7"
   },
   {
     "id": "amap_d017ee09",
@@ -5526,7 +5730,8 @@
     "meal_type": "main",
     "description": "FPS·王者之梦赛事电竞酒店(成都春熙路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0JGXC1PAX"
+    "source_id": "B0JGXC1PAX",
+    "recommendation": "推荐在锦江区参观FPS·王者之梦赛事电竞酒店(成都春熙路店)，人气评分4.7"
   },
   {
     "id": "amap_3966e869",
@@ -5552,7 +5757,8 @@
     "meal_type": "main",
     "description": "翠孃孃老火锅(春熙路老店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KRORQOAQ"
+    "source_id": "B0KRORQOAQ",
+    "recommendation": "在锦江区觅食推荐翠孃孃老火锅(春熙路老店)，性价比不错"
   },
   {
     "id": "amap_9320b5da",
@@ -5578,7 +5784,8 @@
     "meal_type": "main",
     "description": "皇城老妈火锅(皇城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001C0899I"
+    "source_id": "B001C0899I",
+    "recommendation": "皇城老妈火锅(皇城店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_8609aab",
@@ -5604,7 +5811,8 @@
     "meal_type": "main",
     "description": "鹏鹏妈老火锅(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KKPL1DWP"
+    "source_id": "B0KKPL1DWP",
+    "recommendation": "鹏鹏妈老火锅(宽窄巷子店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_30e6cd61",
@@ -5630,7 +5838,8 @@
     "meal_type": "main",
     "description": "五里关火锅(奎星楼店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0IU1L7PUU"
+    "source_id": "B0IU1L7PUU",
+    "recommendation": "在青羊区觅食推荐五里关火锅(奎星楼店)，性价比不错"
   },
   {
     "id": "amap_acdfc474",
@@ -5656,7 +5865,8 @@
     "meal_type": "main",
     "description": "罗二火锅(小关庙店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HKJU3VMM"
+    "source_id": "B0HKJU3VMM",
+    "recommendation": "罗二火锅(小关庙店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ff22209b",
@@ -5683,7 +5893,7 @@
     "description": "天星正源火锅(地勘路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKKBR6H",
-    "recommendation": "成都本地人私藏的巷子火锅，牛油香浓。建议点微辣锅底，配一碗冰汤圆解辣更爽。"
+    "recommendation": "本地人私藏的耙牛肉火锅，牛油味超醇！建议点微辣，小心被辣哭哦～"
   },
   {
     "id": "amap_d7142c52",
@@ -5710,7 +5920,8 @@
     "meal_type": "main",
     "description": "川西坝子火锅(金沙1.0直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFF29NIM"
+    "source_id": "B0FFF29NIM",
+    "recommendation": "在金牛区觅食推荐川西坝子火锅(金沙1.0直营店)，性价比不错"
   },
   {
     "id": "amap_f156d940",
@@ -5736,7 +5947,8 @@
     "meal_type": "main",
     "description": "矮板凳老火锅(天府广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JR97KGCN"
+    "source_id": "B0JR97KGCN",
+    "recommendation": "地道老火锅，锅底越煮越香，必点鲜毛肚和酥肉，避开饭点排队。"
   },
   {
     "id": "amap_fdb76430",
@@ -5763,7 +5975,8 @@
     "meal_type": "main",
     "description": "川西坝子火锅(清江东路3.0直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGSFQ5C"
+    "source_id": "B0FFGSFQ5C",
+    "recommendation": "川西坝子火锅(清江东路3.0直营店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_59389045",
@@ -5789,7 +6002,8 @@
     "meal_type": "main",
     "description": "五里关火锅(牛市口店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H1SAGTEA"
+    "source_id": "B0H1SAGTEA",
+    "recommendation": "在锦江区觅食推荐五里关火锅(牛市口店)，性价比不错"
   },
   {
     "id": "amap_2e5826f0",
@@ -5816,7 +6030,8 @@
     "meal_type": "main",
     "description": "川西坝子火锅(万科天荟3.0直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0GRKC61B5"
+    "source_id": "B0GRKC61B5",
+    "recommendation": "在成华区觅食推荐川西坝子火锅(万科天荟3.0直营店)，性价比不错"
   },
   {
     "id": "amap_e204cdda",
@@ -5842,7 +6057,8 @@
     "meal_type": "main",
     "description": "于屿城火锅(望平街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0I1YC917B"
+    "source_id": "B0I1YC917B",
+    "recommendation": "于屿城火锅(望平街店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_39e2f2ab",
@@ -5868,7 +6084,8 @@
     "meal_type": "main",
     "description": "冯校长老火锅(太古里总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JB35EBMF"
+    "source_id": "B0JB35EBMF",
+    "recommendation": "冯校长老火锅(太古里总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a81d76ff",
@@ -5895,7 +6112,7 @@
     "description": "翠孃孃老火锅(春熙路分店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LR9DOU2O",
-    "recommendation": "春熙路旁的怀旧老火锅，搪瓷碗碟超有年代感。必点招牌毛肚，建议提前排号省时间。"
+    "recommendation": "春熙路巷子里的老味道，翠孃孃秘制底料一绝！提前排队，记得点腰片。"
   },
   {
     "id": "amap_5a1a5e3e",
@@ -5921,7 +6138,8 @@
     "meal_type": "main",
     "description": "天星正源火锅(高新店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KA1UQYLC"
+    "source_id": "B0KA1UQYLC",
+    "recommendation": "天星正源火锅(高新店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_fbe239a4",
@@ -5948,7 +6166,8 @@
     "meal_type": "main",
     "description": "川西坝子火锅(华阳2.0直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGCGO0Q"
+    "source_id": "B0FFGCGO0Q",
+    "recommendation": "川西坝子火锅(华阳2.0直营店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_419c4f2a",
@@ -5974,7 +6193,8 @@
     "meal_type": "main",
     "description": "五里关火锅(建设北路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JBG7L4XQ"
+    "source_id": "B0JBG7L4XQ",
+    "recommendation": "建设路美食扛把子！晚上去排队时先来碗冰粉，火锅配冰粉绝了。"
   },
   {
     "id": "amap_97d57b55",
@@ -6000,7 +6220,8 @@
     "meal_type": "main",
     "description": "于屿城火锅(锦华万达店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0IGMZ1WOB"
+    "source_id": "B0IGMZ1WOB",
+    "recommendation": "锦华万达逛街后必去，红油锅底香晕人，记得点份鲜鸭血嫩到"
   },
   {
     "id": "amap_1b5402bd",
@@ -6026,7 +6247,8 @@
     "meal_type": "main",
     "description": "言青山成都火锅(武侯祠店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0IRTXKUJA"
+    "source_id": "B0IRTXKUJA",
+    "recommendation": "言青山成都火锅(武侯祠店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_bce20816",
@@ -6052,7 +6274,8 @@
     "meal_type": "main",
     "description": "無名老火锅(动物园总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H22NH2JA"
+    "source_id": "B0H22NH2JA",
+    "recommendation": "無名老火锅(动物园总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_8237a92a",
@@ -6078,7 +6301,8 @@
     "meal_type": "main",
     "description": "天星正源火锅(蜀汉路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0K2ZX73VJ"
+    "source_id": "B0K2ZX73VJ",
+    "recommendation": "天星正源火锅(蜀汉路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_3b3adbf2",
@@ -6104,7 +6328,8 @@
     "meal_type": "main",
     "description": "蜀镇老火锅(双楠直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGK6TY8"
+    "source_id": "B0FFGK6TY8",
+    "recommendation": "蜀镇老火锅(双楠直营店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_5fee0228",
@@ -6130,7 +6355,8 @@
     "meal_type": "main",
     "description": "川西坝子火锅(羊犀2.0直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHDD7MQ"
+    "source_id": "B0FFHDD7MQ",
+    "recommendation": "川西坝子火锅(羊犀2.0直营店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_df8d1304",
@@ -6156,7 +6382,8 @@
     "meal_type": "main",
     "description": "蜀九香火锅(新会展Art店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFA5MU7"
+    "source_id": "B0FFFA5MU7",
+    "recommendation": "蜀九香火锅(新会展Art店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e65de58c",
@@ -6181,7 +6408,8 @@
     "meal_type": "main",
     "description": "曹家巷老火锅(曹家巷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LDXM736H"
+    "source_id": "B0LDXM736H",
+    "recommendation": "曹家巷老火锅(曹家巷店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_c93acd90",
@@ -6207,7 +6435,8 @@
     "meal_type": "main",
     "description": "井口火火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJ4VVA0"
+    "source_id": "B0FFJ4VVA0",
+    "recommendation": "井口火火锅口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_32928772",
@@ -6233,7 +6462,8 @@
     "meal_type": "main",
     "description": "于屿城火锅(万象城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JDHSAXUR"
+    "source_id": "B0JDHSAXUR",
+    "recommendation": "在成华区觅食推荐于屿城火锅(万象城店)，性价比不错"
   },
   {
     "id": "amap_f575f995",
@@ -6259,7 +6489,8 @@
     "meal_type": "main",
     "description": "泸州酸菜豆花火锅(共和路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001C7UQHW"
+    "source_id": "B001C7UQHW",
+    "recommendation": "在武侯区觅食推荐泸州酸菜豆花火锅(共和路店)，性价比不错"
   },
   {
     "id": "amap_6ec54f52",
@@ -6285,7 +6516,8 @@
     "meal_type": "main",
     "description": "荣胜和鲜货火锅(直营总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001C807ZB"
+    "source_id": "B001C807ZB",
+    "recommendation": "荣胜和鲜货火锅(直营总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_c0a614ef",
@@ -6311,7 +6543,8 @@
     "meal_type": "main",
     "description": "蜀九香火锅(百花店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001C8MXTW"
+    "source_id": "B001C8MXTW",
+    "recommendation": "蜀九香经典店，九宫格锅底麻辣过瘾，午餐肉和脑"
   },
   {
     "id": "amap_7b25b334",
@@ -6337,7 +6570,8 @@
     "meal_type": "main",
     "description": "蜀大侠火锅(总府路全国总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFH60U82"
+    "source_id": "B0FFH60U82",
+    "recommendation": "在锦江区觅食推荐蜀大侠火锅(总府路全国总店)，性价比不错"
   },
   {
     "id": "amap_5be302c6",
@@ -6363,7 +6597,8 @@
     "meal_type": "main",
     "description": "走川火锅饭店·中国火锅城，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0L6MUXAND"
+    "source_id": "B0L6MUXAND",
+    "recommendation": "走川火锅饭店·中国火锅城口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_6f06f535",
@@ -6389,7 +6624,8 @@
     "meal_type": "main",
     "description": "五里关火锅(成都小关庙店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFMBQ5TY"
+    "source_id": "B0FFMBQ5TY",
+    "recommendation": "在青羊区觅食推荐五里关火锅(成都小关庙店)，性价比不错"
   },
   {
     "id": "amap_c859d4",
@@ -6415,7 +6651,8 @@
     "meal_type": "main",
     "description": "西妹火锅(洞子口店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JK77QVRA"
+    "source_id": "B0JK77QVRA",
+    "recommendation": "西妹火锅(洞子口店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a2f6ef1c",
@@ -6441,7 +6678,8 @@
     "meal_type": "main",
     "description": "万杰老灶火锅(东郊记忆店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HG0C0CEE"
+    "source_id": "B0HG0C0CEE",
+    "recommendation": "万杰老灶火锅(东郊记忆店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_41d597cd",
@@ -6467,7 +6705,8 @@
     "meal_type": "main",
     "description": "蜀九香火锅(金沙店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFEHF0G"
+    "source_id": "B0FFFEHF0G",
+    "recommendation": "在青羊区觅食推荐蜀九香火锅(金沙店)，性价比不错"
   },
   {
     "id": "amap_46b4650b",
@@ -6494,7 +6733,7 @@
     "description": "洪崖洞张素芬火锅(成都339购物中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J3BLXW2J",
-    "recommendation": "名字带洪崖洞，味道却是正宗成都味。推荐脑花和鸭血，周末晚市记得早去排队。"
+    "recommendation": "火锅配339电视塔夜景，氛围感拉满！必点鸭肠，脆到弹牙～"
   },
   {
     "id": "amap_92aa0660",
@@ -6519,7 +6758,8 @@
     "meal_type": "main",
     "description": "锦城印象火锅酒楼(彩虹店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001C7X9N5"
+    "source_id": "B001C7X9N5",
+    "recommendation": "在武侯区觅食推荐锦城印象火锅酒楼(彩虹店)，性价比不错"
   },
   {
     "id": "amap_ee0be8b0",
@@ -6544,7 +6784,8 @@
     "meal_type": "main",
     "description": "迎三江兔火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFG87PAR"
+    "source_id": "B0FFG87PAR",
+    "recommendation": "迎三江兔火锅是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_871e2328",
@@ -6570,7 +6811,8 @@
     "meal_type": "main",
     "description": "五里关火锅(五里墩店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0GRZA7RR4"
+    "source_id": "B0GRZA7RR4",
+    "recommendation": "五里关火锅(五里墩店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_fee9f68a",
@@ -6595,7 +6837,8 @@
     "meal_type": "main",
     "description": "于屿城火锅(曹家巷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0K6PUZ0V5"
+    "source_id": "B0K6PUZ0V5",
+    "recommendation": "在金牛区觅食推荐于屿城火锅(曹家巷店)，性价比不错"
   },
   {
     "id": "amap_c20345c0",
@@ -6620,7 +6863,8 @@
     "meal_type": "main",
     "description": "江北老灶火锅(川师大店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HDX68LF5"
+    "source_id": "B0HDX68LF5",
+    "recommendation": "江北老灶火锅(川师大店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_8008c559",
@@ -6645,7 +6889,8 @@
     "meal_type": "main",
     "description": "玛歌庄园火锅(五龙山店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIAT67G"
+    "source_id": "B0FFIAT67G",
+    "recommendation": "玛歌庄园火锅(五龙山店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ebfdf94f",
@@ -6671,7 +6916,8 @@
     "meal_type": "main",
     "description": "蜀大侠火锅(中坝店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFK1QTA4"
+    "source_id": "B0FFK1QTA4",
+    "recommendation": "蜀大侠火锅(中坝店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d4831054",
@@ -6697,7 +6943,8 @@
     "meal_type": "main",
     "description": "罗二火锅(金牛店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KA3HKPQF"
+    "source_id": "B0KA3HKPQF",
+    "recommendation": "罗二火锅(金牛店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_954b14dc",
@@ -6723,7 +6970,8 @@
     "meal_type": "main",
     "description": "锦城印象火锅酒楼(德商国际店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HRYAGR86"
+    "source_id": "B0HRYAGR86",
+    "recommendation": "锦城印象火锅酒楼(德商国际店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ad51fd34",
@@ -6749,7 +6997,8 @@
     "meal_type": "main",
     "description": "吼堂老火锅(太古里总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFLLXW4B"
+    "source_id": "B0FFLLXW4B",
+    "recommendation": "在锦江区觅食推荐吼堂老火锅(太古里总店)，性价比不错"
   },
   {
     "id": "amap_49ae3165",
@@ -6775,7 +7024,8 @@
     "meal_type": "main",
     "description": "蜀大侠火锅(春熙店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGKDUPM"
+    "source_id": "B0FFGKDUPM",
+    "recommendation": "在锦江区觅食推荐蜀大侠火锅(春熙店)，性价比不错"
   },
   {
     "id": "amap_3d9bc8f",
@@ -6801,7 +7051,8 @@
     "meal_type": "main",
     "description": "海底捞火锅(印象城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0MBXSYGLR"
+    "source_id": "B0MBXSYGLR",
+    "recommendation": "印象城店等位还能做美甲，记得提前取号，服务热情到让你怀疑是不是在朋友家吃饭。"
   },
   {
     "id": "amap_a108b9ff",
@@ -6827,7 +7078,8 @@
     "meal_type": "main",
     "description": "蜀大侠火锅(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFLP35KY"
+    "source_id": "B0FFLP35KY",
+    "recommendation": "蜀大侠火锅(宽窄巷子店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_31c734e9",
@@ -6853,7 +7105,8 @@
     "meal_type": "main",
     "description": "易燃堂社区火锅(荣盛·香榭兰庭店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KAOU02L8"
+    "source_id": "B0KAOU02L8",
+    "recommendation": "社区里的宝藏火锅，人均不贵还超入味！推荐脆毛肚，蘸干碟绝了。"
   },
   {
     "id": "amap_cb35693d",
@@ -6879,7 +7132,8 @@
     "meal_type": "main",
     "description": "锦城印象火锅(玉林店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001C80PL6"
+    "source_id": "B001C80PL6",
+    "recommendation": "锦城印象火锅(玉林店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_f25b4e10",
@@ -6905,7 +7159,8 @@
     "meal_type": "main",
     "description": "冯校长老火锅(金融城直营三店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JKGZ21GM"
+    "source_id": "B0JKGZ21GM",
+    "recommendation": "在武侯区觅食推荐冯校长老火锅(金融城直营三店)，性价比不错"
   },
   {
     "id": "amap_efc2a8c3",
@@ -6931,7 +7186,8 @@
     "meal_type": "main",
     "description": "吴铭火锅(郫都区红光店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGOMPCX"
+    "source_id": "B0FFGOMPCX",
+    "recommendation": "在郫都区觅食推荐吴铭火锅(郫都区红光店)，性价比不错"
   },
   {
     "id": "amap_5f9b7409",
@@ -6957,7 +7213,8 @@
     "meal_type": "main",
     "description": "小龙坎火锅(春熙太古里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJNEEZV"
+    "source_id": "B0FFJNEEZV",
+    "recommendation": "小龙坎火锅(春熙太古里店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ef638dd1",
@@ -6983,7 +7240,8 @@
     "meal_type": "main",
     "description": "巴蜀大将火锅(春熙店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHCJJX9"
+    "source_id": "B0FFHCJJX9",
+    "recommendation": "在锦江区觅食推荐巴蜀大将火锅(春熙店)，性价比不错"
   },
   {
     "id": "amap_239237c2",
@@ -7009,7 +7267,8 @@
     "meal_type": "main",
     "description": "锦燚火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0I0US6VZ6"
+    "source_id": "B0I0US6VZ6",
+    "recommendation": "在武侯区觅食推荐锦燚火锅，性价比不错"
   },
   {
     "id": "amap_b59693e4",
@@ -7035,7 +7294,8 @@
     "meal_type": "main",
     "description": "五里关火锅(鹭洲里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H3BZ0L59"
+    "source_id": "B0H3BZ0L59",
+    "recommendation": "在武侯区觅食推荐五里关火锅(鹭洲里店)，性价比不错"
   },
   {
     "id": "amap_eeb83c66",
@@ -7061,7 +7321,8 @@
     "meal_type": "main",
     "description": "荣胜和鲜货火锅(云集直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JG3A07XE"
+    "source_id": "B0JG3A07XE",
+    "recommendation": "荣胜和鲜货火锅(云集直营店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_6b2b496c",
@@ -7087,7 +7348,8 @@
     "meal_type": "main",
     "description": "楠火锅(太古里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HBRZ72X0"
+    "source_id": "B0HBRZ72X0",
+    "recommendation": "在锦江区觅食推荐楠火锅(太古里店)，性价比不错"
   },
   {
     "id": "amap_dd5d8822",
@@ -7113,7 +7375,8 @@
     "meal_type": "main",
     "description": "孙婆婆美蛙兔火锅(小关庙店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H0SX7JLY"
+    "source_id": "B0H0SX7JLY",
+    "recommendation": "在青羊区觅食推荐孙婆婆美蛙兔火锅(小关庙店)，性价比不错"
   },
   {
     "id": "amap_cf5e91aa",
@@ -7139,7 +7402,8 @@
     "meal_type": "main",
     "description": "蜀九香火锅(玉林店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001C7US6F"
+    "source_id": "B001C7US6F",
+    "recommendation": "玉林老牌火锅店，牛油锅底越煮越香。建议工作日傍晚去，避开排队高峰。"
   },
   {
     "id": "amap_f60d48d6",
@@ -7165,7 +7429,8 @@
     "meal_type": "main",
     "description": "巴蜀大将火锅(太古里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KACCXWUU"
+    "source_id": "B0KACCXWUU",
+    "recommendation": "巴蜀大将火锅(太古里店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_8f52da8b",
@@ -7191,7 +7456,8 @@
     "meal_type": "main",
     "description": "蓉城江湖市井火锅(春熙路直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KA29I1KH"
+    "source_id": "B0KA29I1KH",
+    "recommendation": "春熙路旁的市井烟火气，土碗装菜很怀旧。必点嫩牛肉，蘸干碟超香。"
   },
   {
     "id": "amap_80a85f45",
@@ -7217,7 +7483,8 @@
     "meal_type": "main",
     "description": "荣胜和火锅(精品自助直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001C80AM4"
+    "source_id": "B001C80AM4",
+    "recommendation": "性价比超高的自助火锅，菜品随便拿。建议中午去，人少环境更舒服。"
   },
   {
     "id": "amap_2ce3a7c2",
@@ -7243,7 +7510,8 @@
     "meal_type": "main",
     "description": "月满大江千层肚火锅(科华店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B001C8RNSF"
+    "source_id": "B001C8RNSF",
+    "recommendation": "月满大江千层肚火锅(科华店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_5d952f2a",
@@ -7269,7 +7537,8 @@
     "meal_type": "main",
     "description": "萍姐火锅·公路夜市(成都总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0IGDH9QPQ"
+    "source_id": "B0IGDH9QPQ",
+    "recommendation": "公路夜市风火锅店，拍照超出片！建议傍晚去，招牌耙牛肉必点。"
   },
   {
     "id": "amap_d7cfb322",
@@ -7295,7 +7564,8 @@
     "meal_type": "main",
     "description": "三圣巷老火锅(太古里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KKO6X14C"
+    "source_id": "B0KKO6X14C",
+    "recommendation": "三圣巷老火锅(太古里店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_1c546adf",
@@ -7321,7 +7591,8 @@
     "meal_type": "main",
     "description": "荣胜和鲜货火锅(西郡英华直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JUO9I9DU"
+    "source_id": "B0JUO9I9DU",
+    "recommendation": "荣胜和鲜货火锅(西郡英华直营店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_62f1ce14",
@@ -7347,7 +7618,8 @@
     "meal_type": "main",
     "description": "归井老火锅(南门店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HR7ZQ7M3"
+    "source_id": "B0HR7ZQ7M3",
+    "recommendation": "在武侯区觅食推荐归井老火锅(南门店)，性价比不错"
   },
   {
     "id": "amap_f76a9a8b",
@@ -7373,7 +7645,8 @@
     "meal_type": "main",
     "description": "椒香城门口老火锅(长寿路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHUDPDA"
+    "source_id": "B0FFHUDPDA",
+    "recommendation": "椒香锅底浓郁，辣而不燥。推荐点微辣，搭配冰汤圆"
   },
   {
     "id": "amap_d93bdd41",
@@ -7399,7 +7672,8 @@
     "meal_type": "main",
     "description": "蜀大侠火锅(东大路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H15LV3UZ"
+    "source_id": "B0H15LV3UZ",
+    "recommendation": "在锦江区觅食推荐蜀大侠火锅(东大路店)，性价比不错"
   },
   {
     "id": "amap_247c35cf",
@@ -7425,7 +7699,8 @@
     "meal_type": "main",
     "description": "荣胜和鲜货火锅(傲城直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KUG9YB0M"
+    "source_id": "B0KUG9YB0M",
+    "recommendation": "荣胜和鲜货火锅(傲城直营店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_53665b27",
@@ -7451,7 +7726,8 @@
     "meal_type": "main",
     "description": "符妈老成都巷子火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JGH7TUKF"
+    "source_id": "B0JGH7TUKF",
+    "recommendation": "符妈老成都巷子火锅是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_92e8a91a",
@@ -7476,7 +7752,8 @@
     "meal_type": "main",
     "description": "蜀镇老火锅(新北直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFG92UEC"
+    "source_id": "B0FFG92UEC",
+    "recommendation": "蜀镇老火锅(新北直营店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_784f1942",
@@ -7502,7 +7779,8 @@
     "meal_type": "main",
     "description": "六公里老火锅(光华村店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KA5H1F45"
+    "source_id": "B0KA5H1F45",
+    "recommendation": "六公里老火锅(光华村店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_574c6305",
@@ -7528,7 +7806,8 @@
     "meal_type": "main",
     "description": "锦城印象火锅酒楼(宽窄·十七周年店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0L1KDU4FW"
+    "source_id": "B0L1KDU4FW",
+    "recommendation": "锦城印象火锅酒楼(宽窄·十七周年店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_1587684c",
@@ -7554,7 +7833,8 @@
     "meal_type": "main",
     "description": "龙幺妹老火锅(锦华万达店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFD9P00"
+    "source_id": "B0FFFD9P00",
+    "recommendation": "龙幺妹老火锅(锦华万达店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e2e21696",
@@ -7580,7 +7860,8 @@
     "meal_type": "main",
     "description": "街檐口火锅馆(天府广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0IDD5FGT8"
+    "source_id": "B0IDD5FGT8",
+    "recommendation": "街檐口火锅馆(天府广场店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_7e960139",
@@ -7606,7 +7887,8 @@
     "meal_type": "main",
     "description": "啥子老火锅(西门罗家碾店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIK7ENL"
+    "source_id": "B0FFIK7ENL",
+    "recommendation": "在青羊区觅食推荐啥子老火锅(西门罗家碾店)，性价比不错"
   },
   {
     "id": "amap_6673bf67",
@@ -7632,7 +7914,8 @@
     "meal_type": "main",
     "description": "幸福小串·地摊小炉子(九眼桥店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0IU1AXRR0"
+    "source_id": "B0IU1AXRR0",
+    "recommendation": "晚上去幸福小串·地摊小炉子(九眼桥店)感受当地夜生活氛围"
   },
   {
     "id": "amap_15fafa9d",
@@ -7658,7 +7941,8 @@
     "meal_type": "main",
     "description": "he’s何师烧烤(九眼桥店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B001C931XS"
+    "source_id": "B001C931XS",
+    "recommendation": "九眼桥夜景配烧烤，吹着河风喝夜啤，建议晚上十点后去，氛围最嗨。"
   },
   {
     "id": "amap_e5914287",
@@ -7684,7 +7968,8 @@
     "meal_type": "main",
     "description": "牛·無名冒菜(总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0K2JH29EM"
+    "source_id": "B0K2JH29EM",
+    "recommendation": "冒菜界的隐藏大佬，辣度可选，建议早点去排队，中午人超多！"
   },
   {
     "id": "amap_87ae1d7f",
@@ -7709,7 +7994,8 @@
     "meal_type": "main",
     "description": "山城超级板凳面，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0K0PUQ9UU"
+    "source_id": "B0K0PUQ9UU",
+    "recommendation": "山城超级板凳面是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_2f99b139",
@@ -7735,7 +8021,8 @@
     "meal_type": "main",
     "description": "无名蹄花(春熙路总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0JKJ9J5JQ"
+    "source_id": "B0JKJ9J5JQ",
+    "recommendation": "猪蹄熬得软糯入味，配碗白米饭绝了，记得加勺辣椒油更香。"
   },
   {
     "id": "amap_3c40ac17",
@@ -7761,7 +8048,8 @@
     "meal_type": "main",
     "description": "骆老妈蹄花·正宗川菜(春熙路潮流广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LG6LIHJL"
+    "source_id": "B0LG6LIHJL",
+    "recommendation": "经典川菜馆，蹄花是招牌，适合带外地朋友来，记得点个回锅肉。"
   },
   {
     "id": "amap_1682028a",
@@ -7786,7 +8074,8 @@
     "meal_type": "main",
     "description": "比格比萨自助(成都春熙路群光广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LDMHE4VA"
+    "source_id": "B0LDMHE4VA",
+    "recommendation": "比萨自助吃到爽，水果披萨和炸鸡翅最抢手，建议错开饭点来。"
   },
   {
     "id": "amap_777b5267",
@@ -7812,7 +8101,8 @@
     "meal_type": "main",
     "description": "炊太婆老妈蹄花·老牌川菜(总府路总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L19MFJOR"
+    "source_id": "B0L19MFJOR",
+    "recommendation": "在锦江区觅食推荐炊太婆老妈蹄花·老牌川菜(总府路总店)，性价比不错"
   },
   {
     "id": "amap_fdebd8a1",
@@ -7838,7 +8128,8 @@
     "meal_type": "main",
     "description": "节节香肥肠粉(非遗总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFG0ATS9"
+    "source_id": "B0FFG0ATS9",
+    "recommendation": "非遗级别的肥肠粉必加“节子”，汤底浓郁，建议早点去避开排队高峰。"
   },
   {
     "id": "amap_d5ae9aaa",
@@ -7864,7 +8155,8 @@
     "meal_type": "main",
     "description": "炊太婆老妈蹄花·老牌川菜(春熙路总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L1RRBIKP"
+    "source_id": "B0L1RRBIKP",
+    "recommendation": "老妈蹄花老字号，汤白肉烂，晚上去配碗蹄花汤暖暖胃。"
   },
   {
     "id": "amap_7f0d30b1",
@@ -7890,7 +8182,8 @@
     "meal_type": "main",
     "description": "麦当劳(壹购广场餐厅 餐厅)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFF8A20Y"
+    "source_id": "B0FFF8A20Y",
+    "recommendation": "逛街累了歇脚好去处，麦辣鸡腿堡套餐性价比高，二楼有充电口。"
   },
   {
     "id": "amap_2519bb4",
@@ -7916,7 +8209,8 @@
     "meal_type": "main",
     "description": "易老妈蹄花(春熙路百年老店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0HGOLV0H5"
+    "source_id": "B0HGOLV0H5",
+    "recommendation": "百年老店的蹄花炖得软烂脱骨，晚上去容易卖光，建议中午赶"
   },
   {
     "id": "amap_70d8916f",
@@ -7942,7 +8236,8 @@
     "meal_type": "main",
     "description": "炊太婆老妈蹄花·老牌川菜(天府广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0K3COBEVE"
+    "source_id": "B0K3COBEVE",
+    "recommendation": "天府广场附近吃正宗蹄花，分量足，建议点个夫妻肺片搭配。"
   },
   {
     "id": "amap_cea5f8b8",
@@ -7968,7 +8263,8 @@
     "meal_type": "main",
     "description": "71号豆汤饭·成都小馆(青石桥店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001C7WMZX"
+    "source_id": "B001C7WMZX",
+    "recommendation": "71号豆汤饭·成都小馆(青石桥店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ef955116",
@@ -7993,7 +8289,8 @@
     "meal_type": "main",
     "description": "塔斯汀中国汉堡(成都市春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0IATAKSEU"
+    "source_id": "B0IATAKSEU",
+    "recommendation": "中式汉堡有创意，板烧凤梨堡很清爽，趁热吃皮脆肉嫩。"
   },
   {
     "id": "amap_776ec91b",
@@ -8018,7 +8315,8 @@
     "meal_type": "main",
     "description": "青石桥老瓦房肥肠粉总店，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001C7Y9RS"
+    "source_id": "B001C7Y9RS",
+    "recommendation": "在锦江区觅食推荐青石桥老瓦房肥肠粉总店，性价比不错"
   },
   {
     "id": "amap_c075e13e",
@@ -8043,7 +8341,8 @@
     "meal_type": "main",
     "description": "老妈蹄花百年总店(春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0KROHSKH3"
+    "source_id": "B0KROHSKH3",
+    "recommendation": "老妈蹄花百年总店(春熙路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_96885911",
@@ -8068,7 +8367,8 @@
     "meal_type": "main",
     "description": "川堂火冒菜(春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LAR6Z7GW"
+    "source_id": "B0LAR6Z7GW",
+    "recommendation": "冒菜红油香而不燥，推荐加份午餐肉，微辣刚好，适合一个人吃。"
   },
   {
     "id": "amap_fb15c759",
@@ -8093,7 +8393,8 @@
     "meal_type": "main",
     "description": "到家张醪糟(非遗传承总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFJMSPXD"
+    "source_id": "B0FFJMSPXD",
+    "recommendation": "非遗传承的醪糟，甜酒味浓，夏天来碗冰醪糟超解暑，记得加份糍粑。"
   },
   {
     "id": "amap_1741739c",
@@ -8118,7 +8419,8 @@
     "meal_type": "main",
     "description": "达美乐比萨(群光广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0KR9PGIA6"
+    "source_id": "B0KR9PGIA6",
+    "recommendation": "逛群光时快速解决午餐的好选择，推荐用优惠券点经典肉酱披萨，划算又管饱！"
   },
   {
     "id": "amap_7299e7e5",
@@ -8144,7 +8446,8 @@
     "meal_type": "main",
     "description": "龙抄手(总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001C7UMYH"
+    "source_id": "B001C7UMYH",
+    "recommendation": "老字号招牌红油抄手皮薄馅嫩，建议下午三点去避开排队高峰，顺便尝尝担担面。"
   },
   {
     "id": "amap_3cdc7676",
@@ -8169,7 +8472,8 @@
     "meal_type": "main",
     "description": "锦蜀蹄花公老妈蹄花(总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LA3HE67K"
+    "source_id": "B0LA3HE67K",
+    "recommendation": "猪蹄汤炖得奶白软糯，胶原蛋白满满，记得配碟蘸水解腻，晚上去更有市井烟火气。"
   },
   {
     "id": "amap_f6810601",
@@ -8195,7 +8499,8 @@
     "meal_type": "main",
     "description": "双流老妈秘制兔头(成都总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0H0JSUZ5Q"
+    "source_id": "B0H0JSUZ5Q",
+    "recommendation": "在锦江区觅食推荐双流老妈秘制兔头(成都总店)，性价比不错"
   },
   {
     "id": "amap_e3b25181",
@@ -8221,7 +8526,8 @@
     "meal_type": "main",
     "description": "鬼包子(成都总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0ID6R7Q6G"
+    "source_id": "B0ID6R7Q6G",
+    "recommendation": "鬼包子(成都总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_feb255b7",
@@ -8246,7 +8552,8 @@
     "meal_type": "main",
     "description": "玉笼轩芙蓉包·担担面·鸡汤饭(大业路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L03DDI7Y"
+    "source_id": "B0L03DDI7Y",
+    "recommendation": "在锦江区觅食推荐玉笼轩芙蓉包·担担面·鸡汤饭(大业路店)，性价比不错"
   },
   {
     "id": "amap_5a189495",
@@ -8271,7 +8578,8 @@
     "meal_type": "main",
     "description": "西月城谭豆花(春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFJLNZLL"
+    "source_id": "B0FFJLNZLL",
+    "recommendation": "来春熙路必吃的老字号，招牌冰醉豆花清凉解腻，牛肉豆花也超赞，建议避开饭点去。"
   },
   {
     "id": "amap_109efd6e",
@@ -8297,7 +8605,8 @@
     "meal_type": "main",
     "description": "肯德基(新群光店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001C8NQ71"
+    "source_id": "B001C8NQ71",
+    "recommendation": "肯德基(新群光店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ccb5105d",
@@ -8323,7 +8632,8 @@
     "meal_type": "main",
     "description": "曹操冒菜(春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0MB4SYYPF"
+    "source_id": "B0MB4SYYPF",
+    "recommendation": "曹操冒菜(春熙路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_46c46cb3",
@@ -8348,7 +8658,8 @@
     "meal_type": "main",
     "description": "玉笼轩(春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L61R69WY"
+    "source_id": "B0L61R69WY",
+    "recommendation": "在锦江区觅食推荐玉笼轩(春熙路店)，性价比不错"
   },
   {
     "id": "amap_a4dbf99f",
@@ -8374,7 +8685,8 @@
     "meal_type": "main",
     "description": "花满蹊炒菜(盐市口店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0G3ZLT0FB"
+    "source_id": "B0G3ZLT0FB",
+    "recommendation": "地道川菜小馆，锅气足味道正，推荐点一份招牌回锅肉下饭。"
   },
   {
     "id": "amap_98b1cd17",
@@ -8400,7 +8712,8 @@
     "meal_type": "main",
     "description": "蓉盘盘麻辣烫(春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0IB957NE7"
+    "source_id": "B0IB957NE7",
+    "recommendation": "蓉盘盘麻辣烫(春熙路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_722ab924",
@@ -8425,7 +8738,8 @@
     "meal_type": "main",
     "description": "华莱士·全鸡汉堡(锦贸大厦B座店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L355EST8"
+    "source_id": "B0L355EST8",
+    "recommendation": "华莱士·全鸡汉堡(锦贸大厦B座店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_ec8a2126",
@@ -8450,7 +8764,8 @@
     "meal_type": "main",
     "description": "无名冒菜(春熙路青石桥直营店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0KBN1LG5W"
+    "source_id": "B0KBN1LG5W",
+    "recommendation": "在锦江区觅食推荐无名冒菜(春熙路青石桥直营店)，性价比不错"
   },
   {
     "id": "amap_399c9b02",
@@ -8476,7 +8791,8 @@
     "meal_type": "main",
     "description": "扎哩土家烧饼 (成都首店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LRV7K9K5"
+    "source_id": "B0LRV7K9K5",
+    "recommendation": "在锦江区觅食推荐扎哩土家烧饼 (成都首店)，性价比不错"
   },
   {
     "id": "amap_c1600c5e",
@@ -8502,7 +8818,8 @@
     "meal_type": "main",
     "description": "肉米塔·熟成和牛饭(春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L3659EWT"
+    "source_id": "B0L3659EWT",
+    "recommendation": "肉米塔·熟成和牛饭(春熙路店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a71b6402",
@@ -8528,7 +8845,8 @@
     "meal_type": "main",
     "description": "肯德基(盐市口韩国馆店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0H1RS9ZAY"
+    "source_id": "B0H1RS9ZAY",
+    "recommendation": "肯德基(盐市口韩国馆店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_90406250",
@@ -8553,7 +8871,8 @@
     "meal_type": "main",
     "description": "韩包子(青石桥店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFF9UNAD"
+    "source_id": "B0FFF9UNAD",
+    "recommendation": "韩包子(青石桥店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_e848a1ac",
@@ -8578,7 +8897,8 @@
     "meal_type": "main",
     "description": "乡村基(总府红旗店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001C7WPMH"
+    "source_id": "B001C7WPMH",
+    "recommendation": "在锦江区觅食推荐乡村基(总府红旗店)，性价比不错"
   },
   {
     "id": "amap_626fa813",
@@ -8604,7 +8924,8 @@
     "meal_type": "main",
     "description": "老麻抄手(成物大厦店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFF9ULBN"
+    "source_id": "B0FFF9ULBN",
+    "recommendation": "老麻抄手(成物大厦店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_99608a09",
@@ -8630,7 +8951,8 @@
     "meal_type": "main",
     "description": "肯德基(新财富店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0IUAD0BN3"
+    "source_id": "B0IUAD0BN3",
+    "recommendation": "肯德基(新财富店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_4da0ef3e",
@@ -8655,7 +8977,8 @@
     "meal_type": "main",
     "description": "二月二春，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0KAAC8Y99"
+    "source_id": "B0KAAC8Y99",
+    "recommendation": "在锦江区觅食推荐二月二春，性价比不错"
   },
   {
     "id": "amap_2931da",
@@ -8680,7 +9003,8 @@
     "meal_type": "main",
     "description": "赖汤圆(总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B001C06U88"
+    "source_id": "B001C06U88",
+    "recommendation": "赖汤圆(总店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_7585f5ca",
@@ -8705,7 +9029,8 @@
     "meal_type": "main",
     "description": "钵问·就是乐山钵钵鸡(春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFK0QHO8"
+    "source_id": "B0FFK0QHO8",
+    "recommendation": "在锦江区觅食推荐钵问·就是乐山钵钵鸡(春熙路店)，性价比不错"
   },
   {
     "id": "amap_bcad6c55",
@@ -8730,7 +9055,8 @@
     "meal_type": "main",
     "description": "华莱士·全鸡汉堡(盐市口店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0G034GD2U"
+    "source_id": "B0G034GD2U",
+    "recommendation": "华莱士·全鸡汉堡(盐市口店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_4cbe7e23",
@@ -8755,7 +9081,8 @@
     "meal_type": "main",
     "description": "老妈蹄花总店(盐市口店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LBPCEDMU"
+    "source_id": "B0LBPCEDMU",
+    "recommendation": "在锦江区觅食推荐老妈蹄花总店(盐市口店)，性价比不错"
   },
   {
     "id": "amap_6b8e1393",
@@ -8781,7 +9108,8 @@
     "meal_type": "main",
     "description": "口福米线(春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LDXM1X37"
+    "source_id": "B0LDXM1X37",
+    "recommendation": "在锦江区觅食推荐口福米线(春熙路店)，性价比不错"
   },
   {
     "id": "amap_fd4df61e",
@@ -8807,7 +9135,8 @@
     "meal_type": "main",
     "description": "正新鸡排(春熙路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LUX9OIBI"
+    "source_id": "B0LUX9OIBI",
+    "recommendation": "春熙路逛累了解馋首选，鸡排现炸酥脆。建议加辣粉和甘梅粉，一口爆汁超满足！"
   },
   {
     "id": "amap_9474eed8",
@@ -8834,7 +9163,8 @@
     "meal_type": "main",
     "description": "成都太古里，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFF6X49V"
+    "source_id": "B0FFF6X49V",
+    "recommendation": "推荐在锦江区参观成都太古里，人气评分4.9"
   },
   {
     "id": "amap_f4e53f1b",
@@ -8861,7 +9191,8 @@
     "meal_type": "main",
     "description": "成都万象城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001C8O6UD"
+    "source_id": "B001C8O6UD",
+    "recommendation": "成都万象城适合城市游览、购物爱好者"
   },
   {
     "id": "amap_d46bf922",
@@ -8890,7 +9221,8 @@
     "meal_type": "main",
     "description": "万象城二期，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0L02ZNOB8"
+    "source_id": "B0L02ZNOB8",
+    "recommendation": "二期新开逛到腿软，各大品牌齐全，还有超酷艺术装置，傍晚来拍照光影绝美。"
   },
   {
     "id": "amap_9cda0dcd",
@@ -8918,7 +9250,8 @@
     "meal_type": "main",
     "description": "万象城C馆，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0IUM52D3I"
+    "source_id": "B0IUM52D3I",
+    "recommendation": "推荐在成华区参观万象城C馆，人气评分4.7"
   },
   {
     "id": "amap_4cbc8669",
@@ -8945,7 +9278,8 @@
     "meal_type": "main",
     "description": "环球中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001C8PLZ0"
+    "source_id": "B001C8PLZ0",
+    "recommendation": "环球中心适合城市游览、购物爱好者"
   },
   {
     "id": "amap_bb0733b3",
@@ -8972,7 +9306,8 @@
     "meal_type": "main",
     "description": "成都大悦城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFFACY1X"
+    "source_id": "B0FFFACY1X",
+    "recommendation": "推荐在武侯区参观成都大悦城，人气评分4.9"
   },
   {
     "id": "amap_9e78f27e",
@@ -9001,7 +9336,8 @@
     "meal_type": "main",
     "description": "成都金牛万达广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001C80TAL"
+    "source_id": "B001C80TAL",
+    "recommendation": "推荐在金牛区参观成都金牛万达广场，人气评分4.8"
   },
   {
     "id": "amap_27a703f3",
@@ -9028,7 +9364,8 @@
     "meal_type": "main",
     "description": "龙湖·滨江天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFLO2OW7"
+    "source_id": "B0FFLO2OW7",
+    "recommendation": "龙湖·滨江天街适合城市游览、购物爱好者"
   },
   {
     "id": "amap_b8723af0",
@@ -9055,7 +9392,8 @@
     "meal_type": "main",
     "description": "成都银泰城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001C95DSR"
+    "source_id": "B001C95DSR",
+    "recommendation": "成都银泰城适合城市游览、购物爱好者"
   },
   {
     "id": "amap_b9fefad8",
@@ -9082,7 +9420,8 @@
     "meal_type": "main",
     "description": "龙湖·西宸天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFHRV764"
+    "source_id": "B0FFHRV764",
+    "recommendation": "龙湖·西宸天街适合城市游览、购物爱好者"
   },
   {
     "id": "amap_e6b08a57",
@@ -9109,7 +9448,8 @@
     "meal_type": "main",
     "description": "天府和悦广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0G1A707WB"
+    "source_id": "B0G1A707WB",
+    "recommendation": "推荐在双流区参观天府和悦广场，人气评分4.8"
   },
   {
     "id": "amap_39111f62",
@@ -9137,7 +9477,7 @@
     "description": "成都来福士广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF05CKL",
-    "recommendation": "建筑设计大师Steven Holl操刀，光影交错超好拍！建议下午四点去，阳光透过中庭最美。"
+    "recommendation": "来福士的建筑设计超酷，下沉广场水景很适合拍照，傍晚灯光亮起更有氛围哦～"
   },
   {
     "id": "amap_c4c7c383",
@@ -9165,7 +9505,7 @@
     "description": "仁和新城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0IKYZBNNO",
-    "recommendation": "城南新晋聚会圣地，VR体验和亲子乐园超赞。周末带娃来能玩一整天，记得提前占位。"
+    "recommendation": "仁和新城人少环境新，"
   },
   {
     "id": "amap_331b8309",
@@ -9248,7 +9588,8 @@
     "meal_type": "main",
     "description": "群光广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001C8MPTN"
+    "source_id": "B001C8MPTN",
+    "recommendation": "群光广场紧邻春熙路，逛完IFS顺路来，负一楼美食小吃多，记得试试"
   },
   {
     "id": "amap_cb798940",
@@ -9275,7 +9616,8 @@
     "meal_type": "main",
     "description": "龙湖成都上城天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFJ351RT"
+    "source_id": "B0FFJ351RT",
+    "recommendation": "龙湖成都上城天街是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f2662819",
@@ -9302,7 +9644,8 @@
     "meal_type": "main",
     "description": "万达广场(成都青羊店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFFZPMAL"
+    "source_id": "B0FFFZPMAL",
+    "recommendation": "推荐在青羊区参观万达广场(成都青羊店)，人气评分4.7"
   },
   {
     "id": "amap_c503289f",
@@ -9329,7 +9672,8 @@
     "meal_type": "main",
     "description": "凯德天府(天仁路店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001C8P59N"
+    "source_id": "B001C8P59N",
+    "recommendation": "凯德天府(天仁路店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_6aa5f177",
@@ -9384,7 +9728,8 @@
     "meal_type": "main",
     "description": "世豪广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFF9UNIK"
+    "source_id": "B0FFF9UNIK",
+    "recommendation": "推荐在武侯区参观世豪广场，人气评分4.8"
   },
   {
     "id": "amap_92b791a3",
@@ -9411,7 +9756,8 @@
     "meal_type": "main",
     "description": "吾悦广场(成都龙泉驿店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFG9VISJ"
+    "source_id": "B0FFG9VISJ",
+    "recommendation": "推荐在龙泉驿区参观吾悦广场(成都龙泉驿店)，人气评分4.8"
   },
   {
     "id": "amap_4ffda091",
@@ -9438,7 +9784,8 @@
     "meal_type": "main",
     "description": "凯德广场(金牛店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001C8N6NP"
+    "source_id": "B001C8N6NP",
+    "recommendation": "推荐在金牛区参观凯德广场(金牛店)，人气评分4.8"
   },
   {
     "id": "amap_8e9d5f0b",
@@ -9465,7 +9812,8 @@
     "meal_type": "main",
     "description": "天府红购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0HR4SXYXH"
+    "source_id": "B0HR4SXYXH",
+    "recommendation": "天府红购物中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5d8353b8",
@@ -9492,7 +9840,8 @@
     "meal_type": "main",
     "description": "万达广场(成都郫都店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0JA1LRYMU"
+    "source_id": "B0JA1LRYMU",
+    "recommendation": "万达广场(成都郫都店)适合城市游览、购物爱好者"
   },
   {
     "id": "amap_d6212e11",
@@ -9519,7 +9868,8 @@
     "meal_type": "main",
     "description": "成都时代奥特莱斯，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B001C8RGFA"
+    "source_id": "B001C8RGFA",
+    "recommendation": "推荐在双流区参观成都时代奥特莱斯，人气评分4.8"
   },
   {
     "id": "amap_ccf51362",
@@ -9546,7 +9896,8 @@
     "meal_type": "main",
     "description": "成都双流时代奥特莱斯B区，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFJRRS0R"
+    "source_id": "B0FFJRRS0R",
+    "recommendation": "成都双流时代奥特莱斯B区适合城市游览、购物爱好者"
   },
   {
     "id": "amap_e5dad806",
@@ -9573,7 +9924,8 @@
     "meal_type": "main",
     "description": "成都大魔方招商花园城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFIIJ11I"
+    "source_id": "B0FFIIJ11I",
+    "recommendation": "成都大魔方招商花园城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3370589f",
@@ -9601,7 +9953,8 @@
     "meal_type": "main",
     "description": "万象城A馆，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0H045AEPG"
+    "source_id": "B0H045AEPG",
+    "recommendation": "万象城A馆适合城市游览、购物爱好者"
   },
   {
     "id": "amap_3257e9ea",
@@ -9628,7 +9981,8 @@
     "meal_type": "main",
     "description": "龙湖成都时代天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFFEYPEL"
+    "source_id": "B0FFFEYPEL",
+    "recommendation": "商场超好逛，还有各种美食和活动！周末去人最多，建议平日傍晚来，停车也方便。"
   },
   {
     "id": "amap_14673ada",
@@ -9655,7 +10009,8 @@
     "meal_type": "main",
     "description": "万达广场(成都双流店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFGHQETT"
+    "source_id": "B0FFGHQETT",
+    "recommendation": "双流逛街好去处，品牌齐全还有影院！推荐下午来，逛完直接吃晚饭，停车位充足。"
   },
   {
     "id": "amap_f2a1dbc4",
@@ -9683,7 +10038,7 @@
     "description": "成都天府大悦城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFKGSNRZ",
-    "recommendation": "天府新区新地标，吃喝玩乐一站式，建议周末来，停车位比较多。"
+    "recommendation": "逛吃逛吃的好去处！周末有各种市集活动，建议傍晚去，还能拍个落日大片。"
   },
   {
     "id": "amap_ea1d6aee",
@@ -9711,7 +10066,7 @@
     "description": "成都世茂广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFM5NC7M",
-    "recommendation": "家庭友好型商场，超大儿童乐园，避开节假日人少，带娃放电首选。"
+    "recommendation": "亲子家庭首选！顶楼有免费儿童乐园，逛累了还能去天台吹吹风。"
   },
   {
     "id": "amap_4ec8cefc",
@@ -9739,7 +10094,7 @@
     "description": "海滨城购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFJH2584",
-    "recommendation": "室内海洋馆+购物，孩子超爱看鲨鱼，周末早点去，避开排队高峰。"
+    "recommendation": "室内有超大海洋馆！带孩子来的话，千万别错过整点的人鱼表演。"
   },
   {
     "id": "amap_4108deab",
@@ -9766,7 +10121,7 @@
     "description": "佛罗伦萨小镇(成都名品奥特莱斯)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0H2C7SVGZ",
-    "recommendation": "意式风情折扣村，大牌打折力度大，记得先列购物清单，避免冲动消费。"
+    "recommendation": "意大利风情小镇，拍照超出片！记得先领优惠券再剁手，折扣力度很大。"
   },
   {
     "id": "amap_cf1f3f73",
@@ -9791,7 +10146,8 @@
     "meal_type": "drink",
     "description": "瓦屋茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0L6DL4ZQO"
+    "source_id": "B0L6DL4ZQO",
+    "recommendation": "瓦屋茶馆口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_6652e565",
@@ -9816,7 +10172,8 @@
     "meal_type": "drink",
     "description": "陶里·国潮茶事·花园茶馆·文创伴手礼，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0L6D6LSSX"
+    "source_id": "B0L6D6LSSX",
+    "recommendation": "在金牛区觅食推荐陶里·国潮茶事·花园茶馆·文创伴手礼，性价比不错"
   },
   {
     "id": "amap_5b8cfab2",
@@ -9841,7 +10198,8 @@
     "meal_type": "drink",
     "description": "丰吉咖啡茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K1L75NCP"
+    "source_id": "B0K1L75NCP",
+    "recommendation": "天府新区闹中取静的茶咖馆，适合带电脑办公。推荐下午茶时段去，他家的拿铁拉花超精致。"
   },
   {
     "id": "amap_45d41895",
@@ -9869,7 +10227,8 @@
     "meal_type": "drink",
     "description": "艺境茶舍(水杉街店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFFGYC25"
+    "source_id": "B0FFFGYC25",
+    "recommendation": "在锦江区觅食推荐艺境茶舍(水杉街店)，性价比不错"
   },
   {
     "id": "amap_eda6fc48",
@@ -9893,7 +10252,8 @@
     "meal_type": "drink",
     "description": "元禾·宋代美学茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KKLH6O0J"
+    "source_id": "B0KKLH6O0J",
+    "recommendation": "在彭州市觅食推荐元禾·宋代美学茶馆，性价比不错"
   },
   {
     "id": "amap_1c71d5ce",
@@ -9918,7 +10278,8 @@
     "meal_type": "drink",
     "description": "友佳拾谷·禅风茶馆(兰庭丽景店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFKO6XH7"
+    "source_id": "B0FFKO6XH7",
+    "recommendation": "友佳拾谷·禅风茶馆(兰庭丽景店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_a275da78",
@@ -9944,7 +10305,8 @@
     "meal_type": "drink",
     "description": "人间滋味咖茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0HKJ50XE6"
+    "source_id": "B0HKJ50XE6",
+    "recommendation": "人间滋味咖茶馆口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_3d1d2eb5",
@@ -9969,7 +10331,8 @@
     "meal_type": "drink",
     "description": "61便民咖啡与茶馆(杉板桥党群服务中心店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K1L5DY5E"
+    "source_id": "B0K1L5DY5E",
+    "recommendation": "61便民咖啡与茶馆(杉板桥党群服务中心店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_b8b42e6",
@@ -9994,7 +10357,8 @@
     "meal_type": "drink",
     "description": "库迪咖啡(成都清凤时代店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0JUXCPO2B"
+    "source_id": "B0JUXCPO2B",
+    "recommendation": "库迪咖啡(成都清凤时代店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_c666c140",
@@ -10019,7 +10383,8 @@
     "meal_type": "drink",
     "description": "野岸未来·咖啡·茶室，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K0992HP0"
+    "source_id": "B0K0992HP0",
+    "recommendation": "野岸未来·咖啡·茶室口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_367ff823",
@@ -10044,7 +10409,8 @@
     "meal_type": "drink",
     "description": "坐山海茶事·咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0LGRREIEV"
+    "source_id": "B0LGRREIEV",
+    "recommendation": "坐山海茶事·咖啡口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_e561113d",
@@ -10070,7 +10436,8 @@
     "meal_type": "drink",
     "description": "卡普拉咖啡茶楼(永辉超市店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFH34BBA"
+    "source_id": "B0FFH34BBA",
+    "recommendation": "卡普拉咖啡茶楼(永辉超市店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_8c888135",
@@ -10095,7 +10462,8 @@
     "meal_type": "drink",
     "description": "科创咖啡·茶空间(光华碧邻店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0IRX5Y1JV"
+    "source_id": "B0IRX5Y1JV",
+    "recommendation": "科技主题茶空间，环境安静适合谈事。建议点杯冷萃茶，搭配抹茶蛋糕很享受。"
   },
   {
     "id": "amap_8d9697f2",
@@ -10121,7 +10489,8 @@
     "meal_type": "drink",
     "description": "芳邻咖啡茶楼(国龙花园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFF4YX2T"
+    "source_id": "B0FFF4YX2T",
+    "recommendation": "芳邻咖啡茶楼(国龙花园店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_799e7df9",
@@ -10146,7 +10515,8 @@
     "meal_type": "drink",
     "description": "滨和苑·咖啡·茶饮(紫薇名居店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0JR3M8R44"
+    "source_id": "B0JR3M8R44",
+    "recommendation": "滨和苑·咖啡·茶饮(紫薇名居店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_420af1e2",
@@ -10171,7 +10541,8 @@
     "meal_type": "drink",
     "description": "老地方咖啡屋(学府路一段)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B001C7U195"
+    "source_id": "B001C7U195",
+    "recommendation": "老地方咖啡屋(学府路一段)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a01f9ce7",
@@ -10197,7 +10568,8 @@
     "meal_type": "drink",
     "description": "了了来·茶空间·围炉煮茶.咖啡.甜品(武侯祠锦里店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0JA7C33D7"
+    "source_id": "B0JA7C33D7",
+    "recommendation": "了了来·茶空间·围炉煮茶.咖啡.甜品(武侯祠锦里店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_c56aaed5",
@@ -10222,7 +10594,8 @@
     "meal_type": "drink",
     "description": "昭里咖啡(五昭路店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B001C8OKBV"
+    "source_id": "B001C8OKBV",
+    "recommendation": "藏在五昭路上的小咖啡馆，适合下午发呆。推荐点杯手冲，配块提拉米苏，拍照记得选窗边光影。"
   },
   {
     "id": "amap_e9f9efaa",
@@ -10248,7 +10621,8 @@
     "meal_type": "drink",
     "description": "蝶小姐咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFIMPW4J"
+    "source_id": "B0FFIMPW4J",
+    "recommendation": "蝶小姐咖啡是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_edbaddb9",
@@ -10272,7 +10646,8 @@
     "meal_type": "drink",
     "description": "归意Gwayee咖啡&茶室，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K37HUQQ4"
+    "source_id": "B0K37HUQQ4",
+    "recommendation": "在青羊区觅食推荐归意Gwayee咖啡&茶室，性价比不错"
   },
   {
     "id": "amap_56a22f81",
@@ -10297,7 +10672,8 @@
     "meal_type": "drink",
     "description": "拾川茶事&咖啡(绿里·上新桥公园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0LKYR4K0K"
+    "source_id": "B0LKYR4K0K",
+    "recommendation": "在金牛区觅食推荐拾川茶事&咖啡(绿里·上新桥公园店)，性价比不错"
   },
   {
     "id": "amap_679336e1",
@@ -10322,7 +10698,8 @@
     "meal_type": "drink",
     "description": "不懂茶事·咖啡·调酒，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0JRFXZEOB"
+    "source_id": "B0JRFXZEOB",
+    "recommendation": "在崇州市觅食推荐不懂茶事·咖啡·调酒，性价比不错"
   },
   {
     "id": "amap_818fb42a",
@@ -10347,7 +10724,8 @@
     "meal_type": "drink",
     "description": "象南咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFKQSD9U"
+    "source_id": "B0FFKQSD9U",
+    "recommendation": "象南咖啡口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_5eb236b3",
@@ -10372,7 +10750,8 @@
     "meal_type": "drink",
     "description": "莱茵咖啡音乐餐吧，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B001C8R2V2"
+    "source_id": "B001C8R2V2",
+    "recommendation": "有现场驻唱的音乐餐吧，氛围感拉满！推荐晚上8点后去，点杯莫吉托微醺听歌。"
   },
   {
     "id": "amap_67babae0",
@@ -10401,7 +10780,8 @@
     "meal_type": "drink",
     "description": "禾盛·棋牌·茶饮·咖啡(华润翡翠城店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0K6B7MI7X"
+    "source_id": "B0K6B7MI7X",
+    "recommendation": "禾盛·棋牌·茶饮·咖啡(华润翡翠城店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_2060c4b9",
@@ -10425,7 +10805,8 @@
     "meal_type": "main",
     "description": "POSHPACKER拖板鞋青年旅舍旅行民宿(成都太古里春熙路地铁站店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C8RR9I"
+    "source_id": "B001C8RR9I",
+    "recommendation": "离太古里春熙路超近，背包客首选！晚上天台很热闹，记得提前订床位哦。"
   },
   {
     "id": "amap_fcc4af94",
@@ -10449,7 +10830,8 @@
     "meal_type": "main",
     "description": "成都佳利招待所，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C7SC75"
+    "source_id": "B001C7SC75",
+    "recommendation": "成都佳利招待所位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_7f515bb3",
@@ -10473,7 +10855,8 @@
     "meal_type": "main",
     "description": "威登酒店(春熙路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFFZENDI"
+    "source_id": "B0FFFZENDI",
+    "recommendation": "春熙路闹中取静的好选择，逛街血拼后秒回房。建议选高楼层房间，夜景视野更赞。"
   },
   {
     "id": "amap_c036e1da",
@@ -10497,7 +10880,8 @@
     "meal_type": "main",
     "description": "家印象精品度假公寓(庆云南街1号分店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFGDC4FY"
+    "source_id": "B0FFGDC4FY",
+    "recommendation": "推荐入住家印象精品度假公寓(庆云南街1号分店)，交通便利"
   },
   {
     "id": "amap_f568224b",
@@ -10521,7 +10905,8 @@
     "meal_type": "main",
     "description": "成都鑫万里酒店(春熙路太古里店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFGFLVOH"
+    "source_id": "B0FFGFLVOH",
+    "recommendation": "推荐入住成都鑫万里酒店(春熙路太古里店)，交通便利"
   },
   {
     "id": "amap_a8100806",
@@ -10545,7 +10930,8 @@
     "meal_type": "main",
     "description": "成都刘三姐公寓(春熙路太古里店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0G3FRM82T"
+    "source_id": "B0G3FRM82T",
+    "recommendation": "成都刘三姐公寓(春熙路太古里店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_22121fc9",
@@ -10570,7 +10956,8 @@
     "meal_type": "main",
     "description": "初见青年旅舍(成都春熙路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFGOIR49"
+    "source_id": "B0FFGOIR49",
+    "recommendation": "性价比超高的青年旅舍，适合背包客。顶楼有露台可看春熙路夜景，记得提前订床位。"
   },
   {
     "id": "amap_1d4b508",
@@ -10594,7 +10981,8 @@
     "meal_type": "main",
     "description": "熊猫王子M酒店(成都新南门地铁站店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0I1BYSQCQ"
+    "source_id": "B0I1BYSQCQ",
+    "recommendation": "熊猫主题超有成都特色，地铁站旁出行方便。大堂有熊猫玩偶墙，带小朋友的别错过。"
   },
   {
     "id": "amap_76a12112",
@@ -10618,7 +11006,8 @@
     "meal_type": "main",
     "description": "成都紫金臻宾馆，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C7VSMZ"
+    "source_id": "B001C7VSMZ",
+    "recommendation": "成都紫金臻宾馆位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_6c764fb8",
@@ -10642,7 +11031,8 @@
     "meal_type": "main",
     "description": "成都良栖酒店公寓(春熙路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0IB2L0V7Q"
+    "source_id": "B0IB2L0V7Q",
+    "recommendation": "成都良栖酒店公寓(春熙路店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_cd23640f",
@@ -10666,7 +11056,8 @@
     "meal_type": "main",
     "description": "成都广电宾馆(市二医院春熙路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C08U8M"
+    "source_id": "B001C08U8M",
+    "recommendation": "成都广电宾馆(市二医院春熙路店)位于锦江区，出行方便"
   },
   {
     "id": "amap_57bd0882",
@@ -10690,7 +11081,8 @@
     "meal_type": "main",
     "description": "熊猫快捷酒店(成都春熙路天府广场店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFIBH169"
+    "source_id": "B0FFIBH169",
+    "recommendation": "熊猫快捷酒店(成都春熙路天府广场店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_303c639a",
@@ -10714,7 +11106,8 @@
     "meal_type": "main",
     "description": "米嘉精品公寓(春熙路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFGCBF1R"
+    "source_id": "B0FFGCBF1R",
+    "recommendation": "米嘉精品公寓(春熙路店)位于锦江区，出行方便"
   },
   {
     "id": "amap_8febaf29",
@@ -10739,7 +11132,8 @@
     "meal_type": "main",
     "description": "盛际酒店(春熙路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0L0MN8E6L"
+    "source_id": "B0L0MN8E6L",
+    "recommendation": "盛际酒店(春熙路店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_5cbfdeb3",
@@ -10763,7 +11157,8 @@
     "meal_type": "main",
     "description": "科华苑宾馆(成都华协店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFFZT3FE"
+    "source_id": "B0FFFZT3FE",
+    "recommendation": "科华苑宾馆(成都华协店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_fe6713f0",
@@ -10787,7 +11182,8 @@
     "meal_type": "main",
     "description": "赛家酒店(成都春熙路太古里店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C7XJ75"
+    "source_id": "B001C7XJ75",
+    "recommendation": "赛家酒店(成都春熙路太古里店)位于锦江区，出行方便"
   },
   {
     "id": "amap_f3107006",
@@ -10811,7 +11207,8 @@
     "meal_type": "main",
     "description": "成都世佳酒店(太古里九眼桥店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C80NA2"
+    "source_id": "B001C80NA2",
+    "recommendation": "推荐入住成都世佳酒店(太古里九眼桥店)，交通便利"
   },
   {
     "id": "amap_e795fd86",
@@ -10834,7 +11231,8 @@
     "meal_type": "main",
     "description": "万里客商务酒店(成都春熙店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C8MRD2"
+    "source_id": "B001C8MRD2",
+    "recommendation": "如果来春熙路逛街，住这儿超方便！选高层房间还能俯瞰成都夜景，逛街血拼后几步就回房。"
   },
   {
     "id": "amap_14ffa673",
@@ -10858,7 +11256,8 @@
     "meal_type": "main",
     "description": "裕龙酒店(春熙路地铁站店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C0AD7V"
+    "source_id": "B001C0AD7V",
+    "recommendation": "裕龙酒店(春熙路地铁站店)位于锦江区，出行方便"
   },
   {
     "id": "amap_fd65e113",
@@ -10882,7 +11281,8 @@
     "meal_type": "main",
     "description": "布丁酒店(成都太古里春熙路地铁站店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFG7SNO0"
+    "source_id": "B0FFG7SNO0",
+    "recommendation": "春熙路核心位置，性价比超高！小贴士：提前预订能省几十块，出门就是美食街。"
   },
   {
     "id": "amap_ff1ebd9d",
@@ -10906,7 +11306,8 @@
     "meal_type": "main",
     "description": "成都华通悦达酒店(成都新南门地铁站店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C7V6Z7"
+    "source_id": "B001C7V6Z7",
+    "recommendation": "紧邻新南门地铁站，去哪都方便。小贴士：适合赶早班机或去熊猫基地的朋友。"
   },
   {
     "id": "amap_b589131c",
@@ -10930,7 +11331,8 @@
     "meal_type": "main",
     "description": "Zsmart智尚酒店(成都太古里春熙路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFHVPGHX"
+    "source_id": "B0FFHVPGHX",
+    "recommendation": "推荐入住Zsmart智尚酒店(成都太古里春熙路店)，交通便利"
   },
   {
     "id": "amap_f3ba7ce4",
@@ -10954,7 +11356,8 @@
     "meal_type": "main",
     "description": "喜源精品公寓(成都春熙太古里店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C918HK"
+    "source_id": "B001C918HK",
+    "recommendation": "公寓式住宿带厨房和洗衣机，适合家庭或长住。旁边就是太古里，晚上散步最惬意。"
   },
   {
     "id": "amap_34195338",
@@ -10978,7 +11381,8 @@
     "meal_type": "main",
     "description": "星豪鸿酒店(成都春熙路太古里店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C92GOX"
+    "source_id": "B001C92GOX",
+    "recommendation": "离太古里步行只要5分钟，房间简约干净。早上可去旁边的镗钯街吃碗抄手。"
   },
   {
     "id": "amap_6a424b37",
@@ -11002,7 +11406,8 @@
     "meal_type": "main",
     "description": "禧瑞酒店(成都新南门地铁站店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B001C7WJVJ"
+    "source_id": "B001C7WJVJ",
+    "recommendation": "推荐入住禧瑞酒店(成都新南门地铁站店)，交通便利"
   },
   {
     "id": "amap_add1f0a2",
@@ -11027,7 +11432,8 @@
     "meal_type": "main",
     "description": "金海岳公寓酒店(成都春熙路天府广场店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFGIBZI8"
+    "source_id": "B0FFGIBZI8",
+    "recommendation": "金海岳公寓酒店(成都春熙路天府广场店)位于青羊区，出行方便"
   },
   {
     "id": "amap_14f5e71b",
@@ -11051,7 +11457,8 @@
     "meal_type": "main",
     "description": "新南晓筑酒店公寓(新南路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0KAFDLVGY"
+    "source_id": "B0KAFDLVGY",
+    "recommendation": "离春熙路步行可达，公寓式宽敞舒适，很适合家庭或长住哦！"
   },
   {
     "id": "amap_89de8c86",
@@ -11075,7 +11482,8 @@
     "meal_type": "main",
     "description": "成都市蓉熙里酒店公寓，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFGNQ8PC"
+    "source_id": "B0FFGNQ8PC",
+    "recommendation": "成都市蓉熙里酒店公寓位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_866fdb2d",
@@ -11099,7 +11507,8 @@
     "meal_type": "main",
     "description": "成都闲暇时光民宿(春熙路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFFEPUTX"
+    "source_id": "B0FFFEPUTX",
+    "recommendation": "推荐入住成都闲暇时光民宿(春熙路店)，交通便利"
   },
   {
     "id": "amap_94d840e4",
@@ -11123,7 +11532,8 @@
     "meal_type": "main",
     "description": "初恋青年旅舍(春熙路天府广场店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFGX1GRN"
+    "source_id": "B0FFGX1GRN",
+    "recommendation": "青年旅舍氛围轻松，有公共区域可交朋友。靠近天府广场，看夜景散步都方便。"
   },
   {
     "id": "amap_897c34de",
@@ -11148,7 +11558,8 @@
     "meal_type": "main",
     "description": "星空宿精品公寓(骡马市天府广场店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFMHXNZ4"
+    "source_id": "B0FFMHXNZ4",
+    "recommendation": "公寓式住宿带厨房，像在家一样自在。小贴士：楼下超市买底料，晚上煮火锅美滋滋。"
   },
   {
     "id": "amap_198a6e01",
@@ -11172,7 +11583,8 @@
     "meal_type": "main",
     "description": "瑞宾酒店(成都春熙路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFKTCQMT"
+    "source_id": "B0FFKTCQMT",
+    "recommendation": "瑞宾酒店(成都春熙路店)位于锦江区，出行方便"
   },
   {
     "id": "amap_597b3b4e",
@@ -11196,7 +11608,8 @@
     "meal_type": "main",
     "description": "成都怡然太空舱青年旅舍(春熙路太古里店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFGROFWZ"
+    "source_id": "B0FFGROFWZ",
+    "recommendation": "成都怡然太空舱青年旅舍(春熙路太古里店)位于锦江区，出行方便"
   },
   {
     "id": "amap_9d9a2b78",
@@ -11220,7 +11633,8 @@
     "meal_type": "main",
     "description": "月友酒店(成都春熙路太古里店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0FFIL1PBS"
+    "source_id": "B0FFIL1PBS",
+    "recommendation": "位置绝佳，走路就能到太古里！性价比高，晚上逛街累了回来超近。"
   },
   {
     "id": "amap_f2257ce4",
@@ -11244,7 +11658,8 @@
     "meal_type": "main",
     "description": "龙猫竣电竞酒店(成都春熙路店)，来自高德 Web 服务 POI 搜索；分类：春熙路酒店。",
     "source": "amap",
-    "source_id": "B0GRNC7WN7"
+    "source_id": "B0GRNC7WN7",
+    "recommendation": "龙猫竣电竞酒店(成都春熙路店)位于锦江区，出行方便"
   },
   {
     "id": "amap_d2812fa2",
@@ -11268,7 +11683,8 @@
     "meal_type": "main",
     "description": "成都榕栖酒店(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0FFFABX8Z"
+    "source_id": "B0FFFABX8Z",
+    "recommendation": "推荐入住成都榕栖酒店(宽窄巷子店)，交通便利"
   },
   {
     "id": "amap_c1bb4282",
@@ -11292,7 +11708,8 @@
     "meal_type": "main",
     "description": "成都钓鱼台精品酒店，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0FFFRRBN1"
+    "source_id": "B0FFFRRBN1",
+    "recommendation": "成都钓鱼台精品酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_af08234b",
@@ -11316,7 +11733,8 @@
     "meal_type": "main",
     "description": "成都鑫通惠酒店，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B001C0ALWF"
+    "source_id": "B001C0ALWF",
+    "recommendation": "紧邻宽窄巷子，逛完就能回房歇脚。推荐选带阳台的房间，下午喝茶看街景。"
   },
   {
     "id": "amap_3cc211a5",
@@ -11341,7 +11759,8 @@
     "meal_type": "main",
     "description": "99优选酒店(成都宽窄巷子地铁站店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B001C8RBFT"
+    "source_id": "B001C8RBFT",
+    "recommendation": "99优选酒店(成都宽窄巷子地铁站店)位于青羊区，出行方便"
   },
   {
     "id": "amap_ab2ea3a0",
@@ -11366,7 +11785,8 @@
     "meal_type": "main",
     "description": "联森酒店(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B001C7YCWG"
+    "source_id": "B001C7YCWG",
+    "recommendation": "联森酒店(宽窄巷子店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_5d0d934c",
@@ -11391,7 +11811,8 @@
     "meal_type": "main",
     "description": "嘉华酒店(成都宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B001C7V7R1"
+    "source_id": "B001C7V7R1",
+    "recommendation": "推荐入住嘉华酒店(成都宽窄巷子店)，交通便利"
   },
   {
     "id": "amap_3ede185a",
@@ -11415,7 +11836,8 @@
     "meal_type": "main",
     "description": "成都社保宾馆，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B001C06NGV"
+    "source_id": "B001C06NGV",
+    "recommendation": "推荐入住成都社保宾馆，交通便利"
   },
   {
     "id": "amap_8ce44d08",
@@ -11439,7 +11861,8 @@
     "meal_type": "main",
     "description": "成都爱尚格调酒店(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0FFGZZ5BC"
+    "source_id": "B0FFGZZ5BC",
+    "recommendation": "成都爱尚格调酒店(宽窄巷子店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_2934fa51",
@@ -11463,7 +11886,8 @@
     "meal_type": "main",
     "description": "蓉城假日酒店(成都宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B001C8XHDZ"
+    "source_id": "B001C8XHDZ",
+    "recommendation": "出门就是宽窄巷子，晚上溜达完直接回房，超省心省力！"
   },
   {
     "id": "amap_1c68f768",
@@ -11487,7 +11911,8 @@
     "meal_type": "main",
     "description": "成都斐格罗酒店(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0FFM24D0L"
+    "source_id": "B0FFM24D0L",
+    "recommendation": "欧式风格装修，拍照很出片。离宽窄巷子魁星楼街都近，晚上去小酒馆坐坐刚好。"
   },
   {
     "id": "amap_4fdc335b",
@@ -11511,7 +11936,8 @@
     "meal_type": "main",
     "description": "成都了凡民宿(宽窄巷子分店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0FFIC9ZOX"
+    "source_id": "B0FFIC9ZOX",
+    "recommendation": "成都了凡民宿(宽窄巷子分店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_9d7d8de0",
@@ -11535,7 +11961,8 @@
     "meal_type": "main",
     "description": "雲昇酒店(成都宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0JRT757JL"
+    "source_id": "B0JRT757JL",
+    "recommendation": "推荐入住雲昇酒店(成都宽窄巷子店)，交通便利"
   },
   {
     "id": "amap_4f4a9cfa",
@@ -11559,7 +11986,8 @@
     "meal_type": "main",
     "description": "麦迪芙轻奢酒店(成都宽窄巷子花牌坊地铁站店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0JDODA591"
+    "source_id": "B0JDODA591",
+    "recommendation": "麦迪芙轻奢酒店(成都宽窄巷子花牌坊地铁站店)位于金牛区，出行方便"
   },
   {
     "id": "amap_aca7a12c",
@@ -11583,7 +12011,8 @@
     "meal_type": "main",
     "description": "栖壤·青年创业酒店(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0JK37HM9H"
+    "source_id": "B0JK37HM9H",
+    "recommendation": "栖壤·青年创业酒店(宽窄巷子店)位于青羊区，出行方便"
   },
   {
     "id": "amap_697c247b",
@@ -11607,7 +12036,8 @@
     "meal_type": "main",
     "description": "成都宽景瑞吉酒店(宽窄巷子中医大省医院地铁站店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0FFHHU6PA"
+    "source_id": "B0FFHHU6PA",
+    "recommendation": "成都宽景瑞吉酒店(宽窄巷子中医大省医院地铁站店)位于金牛区，出行方便"
   },
   {
     "id": "amap_2dc99621",
@@ -11631,7 +12061,8 @@
     "meal_type": "main",
     "description": "成都金月酒店(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B001C8OQ5Q"
+    "source_id": "B001C8OQ5Q",
+    "recommendation": "成都金月酒店(宽窄巷子店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_3ca5a532",
@@ -11655,7 +12086,8 @@
     "meal_type": "main",
     "description": "尚品自主酒店(成都宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0FFFHTRPC"
+    "source_id": "B0FFFHTRPC",
+    "recommendation": "推荐入住尚品自主酒店(成都宽窄巷子店)，交通便利"
   },
   {
     "id": "amap_2ad71262",
@@ -11679,7 +12111,8 @@
     "meal_type": "main",
     "description": "「圣希汀·米歇尔」私汤泡池|极米投影仪|弧形落地窗|免费提供泡澡袋|宽窄巷子，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0L24NML2V"
+    "source_id": "B0L24NML2V",
+    "recommendation": "私汤泡池配极米投影，边泡澡边看电影超享受！务必提前预约时段哦。"
   },
   {
     "id": "amap_e786258a",
@@ -11703,7 +12136,8 @@
     "meal_type": "main",
     "description": "成都让我遇见你民宿(人民公园宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0FFI475DX"
+    "source_id": "B0FFI475DX",
+    "recommendation": "成都让我遇见你民宿(人民公园宽窄巷子店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_f0c448dc",
@@ -11727,7 +12161,8 @@
     "meal_type": "main",
     "description": "梦之阁酒店(成都宽窄巷子人民公园地铁站店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0FFFD9KAP"
+    "source_id": "B0FFFD9KAP",
+    "recommendation": "推荐入住梦之阁酒店(成都宽窄巷子人民公园地铁站店)，交通便利"
   },
   {
     "id": "amap_7c11b83a",
@@ -11751,7 +12186,8 @@
     "meal_type": "main",
     "description": "国光酒店(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B001C8O5CR"
+    "source_id": "B001C8O5CR",
+    "recommendation": "走路就到宽窄巷子，夜游完溜达回酒店超惬意！记得早起尝尝酒店的特制担担面。"
   },
   {
     "id": "amap_b04c990",
@@ -11776,7 +12212,8 @@
     "meal_type": "main",
     "description": "巷游记青年旅舍(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0LR9ORGJ4"
+    "source_id": "B0LR9ORGJ4",
+    "recommendation": "就在宽窄巷子旁边，性价比超高！公共区域适合认识新朋友，记得带耳塞。"
   },
   {
     "id": "amap_6300012b",
@@ -11800,7 +12237,8 @@
     "meal_type": "main",
     "description": "锦尚花酒店(宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B001C7U930"
+    "source_id": "B001C7U930",
+    "recommendation": "地理位置太棒了，步行就能到宽窄巷子。建议订带早餐的，他们家的担担面不错。"
   },
   {
     "id": "amap_a9ec873",
@@ -11825,7 +12263,8 @@
     "meal_type": "main",
     "description": "如家快捷酒店(成都宽窄巷子店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0FFFAHV3D"
+    "source_id": "B0FFFAHV3D",
+    "recommendation": "如家快捷酒店(成都宽窄巷子店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_ebacfcd6",
@@ -11850,7 +12289,8 @@
     "meal_type": "main",
     "description": "7天酒店(成都宽窄巷子人民公园店)，来自高德 Web 服务 POI 搜索；分类：宽窄巷子酒店。",
     "source": "amap",
-    "source_id": "B0KRMAOMXN"
+    "source_id": "B0KRMAOMXN",
+    "recommendation": "7天酒店(成都宽窄巷子人民公园店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_b68d620",
@@ -11875,7 +12315,8 @@
     "meal_type": "main",
     "description": "双流机场站，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "B0FFFDQ5Y6"
+    "source_id": "B0FFFDQ5Y6",
+    "recommendation": "连接机场与高铁的枢纽，换乘超方便！建议预留半小时，从地铁站步行过来刚好赶上列车。"
   },
   {
     "id": "amap_c112c86c",
@@ -11900,7 +12341,8 @@
     "meal_type": "main",
     "description": "天府机场站，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "B0JK2STAHP"
+    "source_id": "B0JK2STAHP",
+    "recommendation": "新车站设计感十足，屋顶像展开的翅膀。候车时到观景台看飞机起降，拍照发朋友圈超酷。"
   },
   {
     "id": "amap_25c719e9",
@@ -11924,6 +12366,7 @@
     "meal_type": "main",
     "description": "双流机场1航站楼(地铁站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
-    "source_id": "BV10718663"
+    "source_id": "BV10718663",
+    "recommendation": "地铁直达航站楼，赶飞机首选！注意看清1/2航站楼指示，别走错出口浪费宝贵时间。"
   }
 ]

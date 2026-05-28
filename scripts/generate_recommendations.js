@@ -12,6 +12,11 @@ const CITY_DIRS = [
   { dir: "data/lijiang", label: "lijiang" },
   { dir: "data/nanjing", label: "nanjing" },
   { dir: "data/suzhou", label: "suzhou" },
+  { dir: "data/beijing", label: "beijing" },
+  { dir: "data/chengdu", label: "chengdu" },
+  { dir: "data/chongqing", label: "chongqing" },
+  { dir: "data/hangzhou", label: "hangzhou" },
+  { dir: "data/xian", label: "xian" },
 ];
 
 // Templates by type
