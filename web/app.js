@@ -1385,7 +1385,12 @@ async function saveTrip() {
     const res = await api("/trips/save", {
       method: "POST",
       body: JSON.stringify({
-        title: `${candidate.variant_name || "行程"} ${candidate.days?.length || 0}天`,
+        title: (() => {
+          const city = state.lastPayload?.city || "旅行";
+          const days = candidate.days?.length || state.lastPayload?.days || 1;
+          const interests = (state.lastPayload?.interests || []).slice(0, 2).join("·");
+          return `${city}${interests ? "·" + interests : ""} ${days}日游`;
+        })(),
         request: state.lastPayload,
         response: candidate,
       }),
