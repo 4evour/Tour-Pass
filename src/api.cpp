@@ -1048,9 +1048,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             if (deviceId.empty() || deviceId.size() > 128) {
                 setJson(res, errorJson("VALIDATION_ERROR", "请提供有效的设备标识"), 400); return;
             }
-            if (!guestIpLimiter.allow(req.remote_addr)) {
-                setJson(res, errorJson("RATE_LIMITED", "今日创建游客次数过多，请明天再试"), 429); return;
-            }
+            // Check existing guest FIRST (skip rate limit for returning guests)
             auto existing = context.store->findUserByDeviceId(deviceId);
             if (existing) {
                 std::string token = createToken(existing->id, existing->username, "guest");
@@ -1062,6 +1060,10 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                               {"query_remaining", std::max(0, getQueryLimit("guest") + bonus - queryUsed)}}}
                 });
                 return;
+            }
+            // Rate limit only for NEW guest creation
+            if (!guestIpLimiter.allow(req.remote_addr)) {
+                setJson(res, errorJson("RATE_LIMITED", "今日创建游客次数过多，请明天再试"), 429); return;
             }
             std::string username = "guest_" + randomHex(3);
             std::string hashed = hashPassword(randomHex(8));
