@@ -162,7 +162,13 @@
         if (text) {
           try { data = JSON.parse(text); } catch { if (!res.ok) throw new Error("服务返回了无法解析的响应"); }
         }
-        if (!res.ok) throw new Error(data?.error?.message || `请求失败 (${res.status})`);
+        if (!res.ok) {
+          if (res.status === 401) {
+            localStorage.removeItem("tp_token");
+            throw new Error("登录已过期，请返回首页重新登录");
+          }
+          throw new Error(data?.error?.message || `请求失败 (${res.status})`);
+        }
         return data;
       }
       function esc(t) { const d = document.createElement("div"); d.textContent = t || ""; return d.innerHTML; }
@@ -237,7 +243,16 @@
                 <p><a href="/">去规划你的第一个行程</a></p>
               </div>`;
           }
-        } catch {}
+        } catch (e) {
+          console.error("Trip load error:", e);
+          document.getElementById("tripList").innerHTML = `
+            <div class="empty-state-box">
+              <div class="emoji">⚠️</div>
+              <p><strong>加载行程失败</strong></p>
+              <p style="color:#c0392b">${esc(e.message)}</p>
+              <p><a href="/">返回首页重新登录</a></p>
+            </div>`;
+        }
       }
 
       async function shareTrip(tripId) {
