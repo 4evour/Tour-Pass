@@ -174,9 +174,11 @@
       function esc(t) { const d = document.createElement("div"); d.textContent = t || ""; return d.innerHTML; }
 
       async function init() {
+        console.log("[Profile] init() start, token:", token ? token.slice(0,20)+"..." : "MISSING");
         if (!token) { document.getElementById("profileError").hidden = false; return; }
         try {
           const me = await api("/auth/me");
+          console.log("[Profile] /auth/me OK:", me.username, me.role);
           document.getElementById("profileContent").hidden = false;
 
           // Fill user info
@@ -217,12 +219,14 @@
           }
         } catch (e) {
           document.getElementById("profileError").hidden = false;
-          console.error("Profile load error:", e);
+          console.error("[Profile] /auth/me FAILED:", e.message);
         }
 
         // Load trips
+        console.log("[Profile] Loading trips...");
         try {
           const trips = await api("/trips/list");
+          console.log("[Profile] /trips/list OK:", trips.data?.length, "trips");
           if (trips.data && trips.data.length > 0) {
             document.getElementById("tripList").innerHTML = trips.data.map(t => `
               <div class="trip-item">
@@ -244,7 +248,7 @@
               </div>`;
           }
         } catch (e) {
-          console.error("Trip load error:", e);
+          console.error("[Profile] /trips/list FAILED:", e.message, e);
           document.getElementById("tripList").innerHTML = `
             <div class="empty-state-box">
               <div class="emoji">⚠️</div>
