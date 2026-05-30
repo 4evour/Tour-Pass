@@ -9,6 +9,13 @@ const CITY_CONFIGS = {
   xian: { config: "config/amap.xian.json", target: 500 },
   hangzhou: { config: "config/amap.hangzhou.json", target: 500 },
   beijing: { config: "config/amap.beijing.json", target: 500 },
+  shanghai: { config: "config/amap.shanghai.json", target: 500 },
+  guangzhou: { config: "config/amap.guangzhou.json", target: 500 },
+  shenzhen: { config: "config/amap.shenzhen.json", target: 500 },
+  xiamen: { config: "config/amap.xiamen.json", target: 500 },
+  guilin: { config: "config/amap.guilin.json", target: 500 },
+  sanya: { config: "config/amap.sanya.json", target: 500 },
+  qingdao: { config: "config/amap.qingdao.json", target: 500 },
 };
 
 function parseArgs(argv) {

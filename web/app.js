@@ -1314,6 +1314,11 @@ document.querySelectorAll(".city-card").forEach((card) => {
       "重庆": "解放碑附近酒店",
       "杭州": "西湖附近酒店",
       "西安": "钟楼附近酒店",
+      "上海": "南京路附近酒店",
+      "广州": "北京路附近酒店",
+      "深圳": "华强北附近酒店",
+      "厦门": "中山路附近酒店",
+      "青岛": "栈桥附近酒店",
     };
     $("hotelLocation").value = hotelDefaults[card.dataset.city] || "";
   });
@@ -1460,6 +1465,16 @@ const TEMPLATES = [
     msg: "2天杭州行，想去西湖和灵隐寺", spots: "西湖 · 灵隐寺 · 河坊街" },
   { city: "西安", days: 3, icon: "🏛️", name: "西安古都游", theme: "历史+美食",
     msg: "3天西安行，想看兵马俑和古城墙，吃肉夹馍", spots: "兵马俑 · 古城墙 · 回民街 · 大雁塔" },
+  { city: "上海", days: 3, icon: "🌃", name: "上海都市游", theme: "都市+文化",
+    msg: "3天上海行，想去外滩、豫园和迪士尼", spots: "外滩 · 豫园 · 南京路 · 东方明珠" },
+  { city: "广州", days: 2, icon: "🥘", name: "广州美食游", theme: "美食+文化",
+    msg: "2天广州行，想吃早茶和粤菜，看看广州塔", spots: "广州塔 · 北京路 · 上下九 · 沙面" },
+  { city: "深圳", days: 2, icon: "🏙️", name: "深圳科技游", theme: "科技+休闲",
+    msg: "2天深圳行，想去世界之窗和欢乐海岸", spots: "世界之窗 · 欢乐海岸 · 华侨城 · 大梅沙" },
+  { city: "厦门", days: 3, icon: "🏖️", name: "厦门海岛游", theme: "海岛+文艺",
+    msg: "3天厦门行，想去鼓浪屿和曾厝垵，看海吃海鲜", spots: "鼓浪屿 · 曾厝垵 · 环岛路 · 南普陀寺" },
+  { city: "青岛", days: 2, icon: "🍺", name: "青岛海滨游", theme: "海滨+啤酒",
+    msg: "2天青岛行，想去栈桥和八大关，喝啤酒吃海鲜", spots: "栈桥 · 八大关 · 五四广场 · 崂山" },
 ];
 
 function renderHotRecommendations() {
@@ -1601,9 +1616,13 @@ const CITY_KEY_MAP = {
   "长沙": "changsha", "武汉": "wuhan", "大理": "dali", "丽江": "lijiang",
   "南京": "nanjing", "苏州": "suzhou", "北京": "beijing", "成都": "chengdu",
   "重庆": "chongqing", "杭州": "hangzhou", "西安": "xian",
+  "上海": "shanghai", "广州": "guangzhou", "深圳": "shenzhen",
+  "厦门": "xiamen", "青岛": "qingdao",
   "changsha": "changsha", "wuhan": "wuhan", "dali": "dali", "lijiang": "lijiang",
   "nanjing": "nanjing", "suzhou": "suzhou", "beijing": "beijing", "chengdu": "chengdu",
-  "chongqing": "chongqing", "hangzhou": "hangzhou", "xian": "xian"
+  "chongqing": "chongqing", "hangzhou": "hangzhou", "xian": "xian",
+  "shanghai": "shanghai", "guangzhou": "guangzhou", "shenzhen": "shenzhen",
+  "xiamen": "xiamen", "qingdao": "qingdao"
 };
 
 async function loadGuidebook(city) {

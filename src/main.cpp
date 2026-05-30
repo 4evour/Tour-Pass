@@ -52,7 +52,9 @@ int main() {
             {"changsha", "长沙"}, {"wuhan", "武汉"}, {"dali", "大理"},
             {"lijiang", "丽江"}, {"nanjing", "南京"}, {"suzhou", "苏州"},
             {"chengdu", "成都"}, {"chongqing", "重庆"}, {"xian", "西安"},
-            {"hangzhou", "杭州"}, {"beijing", "北京"}
+            {"hangzhou", "杭州"}, {"beijing", "北京"},
+            {"shanghai", "上海"}, {"guangzhou", "广州"}, {"shenzhen", "深圳"},
+            {"xiamen", "厦门"}, {"qingdao", "青岛"}
         };
 
         for (const auto& entry : cityList) {
