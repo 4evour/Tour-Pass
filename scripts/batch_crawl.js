@@ -16,6 +16,9 @@ const CITY_CONFIGS = {
   guilin: { config: "config/amap.guilin.json", target: 500 },
   sanya: { config: "config/amap.sanya.json", target: 500 },
   qingdao: { config: "config/amap.qingdao.json", target: 500 },
+  harbin: { config: "config/amap.harbin.json", target: 400 },
+  kunming: { config: "config/amap.kunming.json", target: 400 },
+  zhangjiajie: { config: "config/amap.zhangjiajie.json", target: 300 },
 };
 
 function parseArgs(argv) {

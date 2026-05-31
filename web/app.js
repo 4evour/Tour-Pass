@@ -843,67 +843,6 @@ function renderBeamStep(step) {
   `;
 }
 
-function renderRouteVisual(candidate) {
-  const days = candidate.days || [];
-  const areas = [];
-  for (const day of days) {
-    for (const stop of day.stops || []) {
-      if (stop.area && areas[areas.length - 1] !== stop.area) {
-        areas.push(stop.area);
-      }
-    }
-  }
-  const routeAreas = areas.slice(0, 8);
-  return `
-    <section class="visual-panel" aria-label="路线与时间轴">
-      <div class="section-heading">
-        <h2>路线与时间轴</h2>
-        <span>按区域移动和每日时间窗展示路线结构</span>
-      </div>
-      <div class="route-strip" aria-label="区域路线">
-        ${routeAreas.length ? routeAreas.map((area, index) => `
-          <div class="route-node">
-            <span>${index + 1}</span>
-            <strong>${escapeHtml(area)}</strong>
-          </div>
-        `).join("") : `<div class="route-node"><span>0</span><strong>暂无路线</strong></div>`}
-      </div>
-      <div class="timeline-grid">
-        ${days.map(renderTimelineDay).join("")}
-      </div>
-    </section>
-  `;
-}
-
-function renderTimelineDay(day) {
-  const stops = day.stops || [];
-  const start = Math.min(...stops.map((stop) => timeToMinutes(stop.start_time)), 9 * 60);
-  const end = Math.max(...stops.map((stop) => timeToMinutes(stop.end_time)), 21 * 60);
-  const span = Math.max(1, end - start);
-  return `
-    <article class="timeline-day">
-      <div class="timeline-title">
-        <strong>第 ${day.day} 天</strong>
-        <span>${day.total_travel_minutes || 0} 分钟通勤</span>
-      </div>
-      <div class="timeline-track" aria-label="第 ${day.day} 天时间轴">
-        ${stops.map((stop) => renderTimelineStop(stop, start, span)).join("")}
-      </div>
-    </article>
-  `;
-}
-
-function renderTimelineStop(stop, start, span) {
-  const left = Math.max(0, ((timeToMinutes(stop.start_time) - start) / span) * 100);
-  const width = Math.max(7, ((timeToMinutes(stop.end_time) - timeToMinutes(stop.start_time)) / span) * 100);
-  return `
-    <div class="timeline-stop" style="left:${left.toFixed(2)}%;width:${Math.min(width, 100 - left).toFixed(2)}%;" title="${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)} ${escapeHtml(stop.poi_name)}">
-      <span>${escapeHtml(stop.slot)}</span>
-      <strong>${escapeHtml(stop.poi_name)}</strong>
-    </div>
-  `;
-}
-
 function renderComparisonTable() {
   if (state.candidates.length <= 1) {
     return `<div class="empty-state compact-empty">生成多个候选后展示对比。</div>`;
@@ -1016,21 +955,13 @@ function renderDay(day) {
   `;
 }
 
-function poiImageUrl(name, type) {
-  const typeMap = { attraction: "landmark", restaurant: "food", hotel: "hotel building", nightlife: "nightlife city" };
-  const q = encodeURIComponent((name || "").split("(")[0].split("（")[0] + " " + (typeMap[type] || "travel"));
-  return `https://source.unsplash.com/200x200/?${q}`;
-}
-
 function renderStop(stop) {
   const travel = stop.travel_minutes_from_previous || 0;
   const hasRisk = stop.time_window_status && stop.time_window_status !== "ok";
-  const imgUrl = poiImageUrl(stop.poi_name, stop.poi_type);
   return `
     <article class="stop-card type-${stop.poi_type || "attraction"} ${hasRisk ? "stop-risk" : ""}" draggable="true" data-poi-id="${stop.poi_id || ""}">
       ${travel > 0 ? `<div class="stop-transport-bar">${transportIcon(travel)} ${travel} 分钟</div>` : ""}
       <div class="stop-main">
-        <img class="stop-poi-img" src="${imgUrl}" alt="" loading="lazy" />
         <span class="stop-type-icon">${typeIcon(stop.poi_type)}</span>
         <div class="stop-info">
           <div class="stop-name-line">
@@ -1062,20 +993,6 @@ function timeWindowLabel(status) {
   return labels[status] || "时间窗";
 }
 
-function renderScoreBreakdown(breakdown) {
-  const useful = breakdown
-    .filter((item) => Math.abs(Number(item.value || 0)) > 0.01)
-    .slice(0, 4);
-  if (!useful.length) {
-    return "";
-  }
-  return `
-    <div class="score-breakdown" aria-label="评分拆解">
-      ${useful.map((item) => `<span title="${escapeHtml(item.reason)}">${escapeHtml(item.label)} ${Number(item.value).toFixed(1)}</span>`).join("")}
-    </div>
-  `;
-}
-
 async function generatePlan(event) {
   event.preventDefault();
   const payload = planPayload();
@@ -1100,18 +1017,6 @@ async function generatePlan(event) {
     $("planOutput").className = "plan-output empty-state error-state";
     $("planOutput").textContent = `生成失败：${error.message}`;
   }
-}
-
-function loadExample() {
-  $("city").value = "长沙";
-  $("days").value = "2";
-  $("candidateCount").value = "5";
-  $("startTime").value = "09:30";
-  $("endTime").value = "21:30";
-  $("hotelLocation").value = "7天优品酒店(长沙橘子洲五一广场地铁站店)";
-  $("interests").value = "历史文化, 美食, 夜景";
-  $("mustVisit").value = "橘子洲风景名胜区, 湖南省博物馆";
-  $("pace").value = "轻松";
 }
 
 async function queryRoute() {
@@ -1231,10 +1136,10 @@ async function chatPlan() {
     hideLoading();
     let html = "";
     if (data.reply) {
-      html += `<p>${escHtml(data.reply)}</p>`;
+      html += `<p>${escapeHtml(data.reply)}</p>`;
     }
     if (data.suggestions && data.suggestions.length > 0) {
-      html += data.suggestions.map(s => `<p style="color:var(--warn);font-size:13px;">⚠️ ${escHtml(s)}</p>`).join("");
+      html += data.suggestions.map(s => `<p style="color:var(--warn);font-size:13px;">⚠️ ${escapeHtml(s)}</p>`).join("");
     }
     if (data.candidates && data.candidates.length > 0) {
       state.candidates = data.candidates;
@@ -1256,7 +1161,7 @@ async function chatPlan() {
     $("chatOutput").hidden = false;
   } catch (error) {
     hideLoading();
-    $("chatOutput").innerHTML = `<p style="color:#c0392b;">${escHtml(error.message)}</p>`;
+    $("chatOutput").innerHTML = `<p style="color:#c0392b;">${escapeHtml(error.message)}</p>`;
     $("chatOutput").hidden = false;
   } finally {
     $("chatButton").disabled = false;
@@ -1265,11 +1170,6 @@ async function chatPlan() {
   }
 }
 
-function escHtml(text) {
-  const div = document.createElement("div");
-  div.textContent = text;
-  return div.innerHTML;
-}
 
 $("chatButton").addEventListener("click", chatPlan);
 document.querySelectorAll(".chat-hint").forEach(function(btn) {
@@ -1283,12 +1183,6 @@ document.addEventListener("click", function(e) {
   var rmBtn = e.target.closest(".stop-remove-btn");
   if (rmBtn) { removeStop(rmBtn.dataset.poiId); }
 });
-// Hide broken images (CSP-safe replacement for inline onerror)
-document.addEventListener("error", function(e) {
-  if (e.target.tagName === "IMG" && e.target.classList.contains("stop-poi-img")) {
-    e.target.style.display = "none";
-  }
-}, true);
 $("chatInput").addEventListener("keydown", (e) => {
   if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) chatPlan();
 });
@@ -1348,6 +1242,11 @@ document.querySelectorAll(".city-card").forEach((card) => {
       "深圳": "华强北附近酒店",
       "厦门": "中山路附近酒店",
       "青岛": "栈桥附近酒店",
+      "桂林": "桂林市中心酒店",
+      "三亚": "三亚湾附近酒店",
+      "哈尔滨": "中央大街附近酒店",
+      "昆明": "翠湖附近酒店",
+      "张家界": "武陵源附近酒店",
     };
     $("hotelLocation").value = hotelDefaults[card.dataset.city] || "";
   });
@@ -1665,10 +1564,27 @@ document.addEventListener("change", (e) => {
 
 // ---- Weather integration (Open-Meteo, free, no key) ----
 const CITY_COORDS = {
-  "长沙": { lat: 28.23, lon: 112.94 },
-  "武汉": { lat: 30.59, lon: 114.31 },
-  "changsha": { lat: 28.23, lon: 112.94 },
-  "wuhan": { lat: 30.59, lon: 114.31 },
+  "长沙": { lat: 28.23, lon: 112.94 }, "changsha": { lat: 28.23, lon: 112.94 },
+  "武汉": { lat: 30.59, lon: 114.31 }, "wuhan": { lat: 30.59, lon: 114.31 },
+  "大理": { lat: 25.61, lon: 100.27 }, "dali": { lat: 25.61, lon: 100.27 },
+  "丽江": { lat: 26.87, lon: 100.23 }, "lijiang": { lat: 26.87, lon: 100.23 },
+  "南京": { lat: 32.06, lon: 118.80 }, "nanjing": { lat: 32.06, lon: 118.80 },
+  "苏州": { lat: 31.30, lon: 120.62 }, "suzhou": { lat: 31.30, lon: 120.62 },
+  "成都": { lat: 30.57, lon: 104.07 }, "chengdu": { lat: 30.57, lon: 104.07 },
+  "重庆": { lat: 29.56, lon: 106.55 }, "chongqing": { lat: 29.56, lon: 106.55 },
+  "西安": { lat: 34.26, lon: 108.94 }, "xian": { lat: 34.26, lon: 108.94 },
+  "杭州": { lat: 30.27, lon: 120.15 }, "hangzhou": { lat: 30.27, lon: 120.15 },
+  "北京": { lat: 39.90, lon: 116.40 }, "beijing": { lat: 39.90, lon: 116.40 },
+  "上海": { lat: 31.23, lon: 121.47 }, "shanghai": { lat: 31.23, lon: 121.47 },
+  "广州": { lat: 23.13, lon: 113.26 }, "guangzhou": { lat: 23.13, lon: 113.26 },
+  "深圳": { lat: 22.54, lon: 114.06 }, "shenzhen": { lat: 22.54, lon: 114.06 },
+  "厦门": { lat: 24.48, lon: 118.09 }, "xiamen": { lat: 24.48, lon: 118.09 },
+  "青岛": { lat: 36.07, lon: 120.38 }, "qingdao": { lat: 36.07, lon: 120.38 },
+  "桂林": { lat: 25.27, lon: 110.29 }, "guilin": { lat: 25.27, lon: 110.29 },
+  "三亚": { lat: 18.25, lon: 109.50 }, "sanya": { lat: 18.25, lon: 109.50 },
+  "哈尔滨": { lat: 45.75, lon: 126.65 }, "harbin": { lat: 45.75, lon: 126.65 },
+  "昆明": { lat: 25.04, lon: 102.68 }, "kunming": { lat: 25.04, lon: 102.68 },
+  "张家界": { lat: 29.12, lon: 110.48 }, "zhangjiajie": { lat: 29.12, lon: 110.48 },
 };
 
 const WEATHER_CODES = {
@@ -1704,6 +1620,8 @@ const CITY_KEY_MAP = {
   "重庆": "chongqing", "杭州": "hangzhou", "西安": "xian",
   "上海": "shanghai", "广州": "guangzhou", "深圳": "shenzhen",
   "厦门": "xiamen", "青岛": "qingdao",
+  "桂林": "guilin", "三亚": "sanya", "哈尔滨": "harbin",
+  "昆明": "kunming", "张家界": "zhangjiajie",
   "changsha": "changsha", "wuhan": "wuhan", "dali": "dali", "lijiang": "lijiang",
   "nanjing": "nanjing", "suzhou": "suzhou", "beijing": "beijing", "chengdu": "chengdu",
   "chongqing": "chongqing", "hangzhou": "hangzhou", "xian": "xian",
@@ -1864,7 +1782,4 @@ initFeedback();
 initEasterEgg();
 checkAuth();
 
-// Load tools data (works without auth since these are read-only)
-queryRoute();
-queryAlternatives();
-querySearch();
+// Tools tab queries are triggered by user clicking the buttons, not on page load

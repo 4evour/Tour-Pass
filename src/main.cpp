@@ -54,7 +54,9 @@ int main() {
             {"chengdu", "成都"}, {"chongqing", "重庆"}, {"xian", "西安"},
             {"hangzhou", "杭州"}, {"beijing", "北京"},
             {"shanghai", "上海"}, {"guangzhou", "广州"}, {"shenzhen", "深圳"},
-            {"xiamen", "厦门"}, {"qingdao", "青岛"}
+            {"xiamen", "厦门"}, {"qingdao", "青岛"},
+            {"guilin", "桂林"}, {"sanya", "三亚"}, {"harbin", "哈尔滨"},
+            {"kunming", "昆明"}, {"zhangjiajie", "张家界"}
         };
 
         for (const auto& entry : cityList) {

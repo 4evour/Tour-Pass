@@ -1,5 +1,5 @@
-const token = localStorage.getItem("tp_token");
 async function api(path, opts = {}) {
+  const token = localStorage.getItem("tp_token");
   const headers = { "Content-Type": "application/json" };
   if (token) headers["Authorization"] = "Bearer " + token;
   const res = await fetch(path, { headers, ...opts });
@@ -20,7 +20,7 @@ async function api(path, opts = {}) {
 function esc(t) { const d = document.createElement("div"); d.textContent = t || ""; return d.innerHTML; }
 
 async function init() {
-  if (!token) { document.getElementById("profileError").hidden = false; return; }
+  if (!localStorage.getItem("tp_token")) { document.getElementById("profileError").hidden = false; return; }
   try {
     const me = await api("/auth/me");
     document.getElementById("profileContent").hidden = false;
@@ -65,7 +65,7 @@ async function init() {
   try {
     var trips = await api("/trips/list");
     if (trips.data && trips.data.length > 0) {
-      var cityEmojis = {"长沙":"🏙","武汉":"🌉","大理":"🏔","丽江":"🏘","南京":"🏛","苏州":"🏡","北京":"🏯","成都":"🐼","重庆":"🔥","杭州":"🌊","西安":"🏛","上海":"🌃","广州":"🌺","深圳":"💎","厦门":"🏖","青岛":"🌊"};
+      var cityEmojis = {"长沙":"🏙","武汉":"🌉","大理":"🏔","丽江":"🏘","南京":"🏛","苏州":"🏡","北京":"🏯","成都":"🐼","重庆":"🔥","杭州":"🌊","西安":"🏛","上海":"🌃","广州":"🌺","深圳":"💎","厦门":"🏖","青岛":"🍺","桂林":"🏞","三亚":"🌊","哈尔滨":"❄","昆明":"🌸","张家界":"🏔"};
       document.getElementById("tripList").innerHTML = trips.data.map(function(t) {
         var title = t.title || "未命名行程";
         var city = title.split("·")[0] || "";
