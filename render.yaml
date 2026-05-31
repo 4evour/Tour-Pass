@@ -24,6 +24,8 @@ services:
         value: deepseek-chat
       - key: TOURPASS_JWT_SECRET
         sync: false
+      - key: TOURPASS_AMAP_API_KEY
+        sync: false
       - key: TOURPASS_MAX_BODY_BYTES
         value: "262144"
       - key: TOURPASS_DISTANCE_CACHE_MODE
