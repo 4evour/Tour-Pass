@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Tour Pass - 分享行程</title>
   <link rel="icon" href="data:,"/>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="/vendor/leaflet.css"/>
   <style>
     :root{--accent:#146b5d;--accent-dark:#0c4d43;--bg:#f5f7f6;--surface:#fff;--ink:#17211f;--muted:#65706d;--line:#dce3df;--soft:#e9f1ef;}
     *{box-sizing:border-box;margin:0;}
@@ -48,23 +48,26 @@
   <div class="share-shell">
     <div id="content"><div class="no-data">加载中...</div></div>
   </div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/vendor/leaflet.js"></script>
   <script>
     const COLORS=["#146b5d","#c25b1e","#2563eb","#9333ea","#dc2626","#0d9488","#d97706"];
     const ICONS={attraction:"🏛",restaurant:"🍜",hotel:"🏨",nightlife:"🌙",transit:"🚇"};
     function icon(t){return ICONS[t]||"📍";}
     function transportIcon(m){if(m<=0)return"";if(m<=15)return"🚶";if(m<=30)return"🚌";return"🚕";}
-    function poiImage(name,type){
-      const q=encodeURIComponent(name+" "+({"attraction":"landmark","restaurant":"food","hotel":"hotel","nightlife":"nightlife"}[type]||"travel"));
-      return"https://source.unsplash.com/200x200/?"+q;
-    }
     function esc(t){const d=document.createElement("div");d.textContent=t||"";return d.innerHTML;}
     function estimateCost(stops){let lo=0,hi=0;for(const s of stops){const t=s.poi_type||"";if(t==="attraction"){lo+=20;hi+=80;}else if(t==="restaurant"){lo+=30;hi+=100;}else if(t==="nightlife"){lo+=50;hi+=150;}}const tr=stops.reduce((a,s)=>a+(s.travel_minutes_from_previous||0),0);lo+=Math.round(tr*0.5);hi+=Math.round(tr*2);return{lo,hi};}
 
     const data=window.__SHARE_DATA__;
     if(!data){document.getElementById("content").innerHTML='<div class="no-data"><h2>😕</h2><p>行程数据加载失败</p></div>';}
     else{
-      const resp=JSON.parse(data.response_json||"{}");
+      let resp;
+      try{
+        const rj=data.response_json;
+        resp=typeof rj==="string"?JSON.parse(rj):(rj||{});
+      }catch(e){
+        console.error("Failed to parse response_json:",e);
+        resp={};
+      }
       const days=resp.days||[];
       const title=data.title||"旅行行程";
       const totalLo=days.reduce((s,d)=>s+estimateCost(d.stops||[]).lo,0);
@@ -97,7 +100,6 @@
           html+=`<div class="stop-card">
             ${tr>0?`<div class="stop-transport">${transportIcon(tr)} ${tr}分钟</div>`:""}
             <div class="stop-main">
-              <img class="stop-img" src="${poiImage(stop.poi_name,stop.poi_type)}" alt="" loading="lazy" onerror="this.style.display='none'"/>
               <div class="stop-icon">${icon(stop.poi_type)}</div>
               <div class="stop-info">
                 <div><span class="stop-name">${esc(stop.poi_name)}</span><span class="stop-time">${esc(stop.start_time||"")}-${esc(stop.end_time||"")}</span></div>

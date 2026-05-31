@@ -1,18 +1,23 @@
 // Tour Pass Admin Panel
-const token = localStorage.getItem("tp_token");
-
 async function api(path, opts = {}) {
+  const token = localStorage.getItem("tp_token");
   const headers = { "Content-Type": "application/json" };
   if (token) headers["Authorization"] = "Bearer " + token;
   const res = await fetch(path, { headers, ...opts });
   const data = await res.json();
-  if (!res.ok) throw new Error(data.error?.message || "请求失败");
+  if (!res.ok) {
+    if (res.status === 401) {
+      localStorage.removeItem("tp_token");
+      throw new Error("登录已过期，请返回首页重新登录");
+    }
+    throw new Error(data.error?.message || "请求失败");
+  }
   return data;
 }
 
 // ---- Init ----
 async function init() {
-  if (!token) { showLoginError(); return; }
+  if (!localStorage.getItem("tp_token")) { showLoginError(); return; }
   try {
     const me = await api("/auth/me");
     if (me.role !== "admin") { showLoginError(); return; }
@@ -130,7 +135,7 @@ async function loadUsers() {
         <td>${u.total_queries || 0}</td>
         <td>${(u.created_at || "").replace("T"," ").slice(0, 16)}</td>
         <td>
-          ${u.role !== 'admin' ? `<button onclick="promoteUser(${u.id},'admin')" style="padding:3px 8px;border:1px solid var(--accent);border-radius:4px;background:transparent;cursor:pointer;font-size:11px;color:var(--accent);">设为管理员</button>` : `<button onclick="promoteUser(${u.id},'user')" style="padding:3px 8px;border:1px solid #c0392b;border-radius:4px;background:transparent;cursor:pointer;font-size:11px;color:#c0392b;">取消管理员</button>`}
+          ${u.role !== 'admin' ? `<button class="promote-btn" data-user-id="${u.id}" data-role="admin" style="padding:3px 8px;border:1px solid var(--accent);border-radius:4px;background:transparent;cursor:pointer;font-size:11px;color:var(--accent);">设为管理员</button>` : `<button class="promote-btn" data-user-id="${u.id}" data-role="user" style="padding:3px 8px;border:1px solid #c0392b;border-radius:4px;background:transparent;cursor:pointer;font-size:11px;color:#c0392b;">取消管理员</button>`}
         </td>
       </tr>
     `).join("") || '<tr><td colspan="6" style="text-align:center;color:var(--muted);">暂无用户</td></tr>';
@@ -167,8 +172,8 @@ async function loadFeedback(status) {
         ${fb.admin_reply ? `<div class="fb-content" style="color:var(--accent);">管理员回复：${escHtml(fb.admin_reply)}</div>` : ""}
         <div class="fb-reply">
           <input placeholder="管理员回复..." value="${escHtml(fb.admin_reply || "")}" />
-          <button onclick="updateFeedback(${fb.id}, 'reviewed', this)">已查看</button>
-          <button onclick="updateFeedback(${fb.id}, 'resolved', this)" style="background:var(--accent);color:#fff;">已解决</button>
+          <button class="fb-action-btn" data-fb-id="${fb.id}" data-status="reviewed">已查看</button>
+          <button class="fb-action-btn" data-fb-id="${fb.id}" data-status="resolved" style="background:var(--accent);color:#fff;">已解决</button>
         </div>
       </div>
     `).join("") || '<div class="admin-error">暂无反馈</div>';
@@ -205,5 +210,24 @@ function statusLabel(s) {
 function escHtml(t) {
   const d = document.createElement("div"); d.textContent = t || ""; return d.innerHTML;
 }
+
+// Event delegation for dynamically rendered buttons (CSP-safe)
+document.addEventListener("click", (e) => {
+  const promoteBtn = e.target.closest(".promote-btn");
+  if (promoteBtn) {
+    promoteUser(promoteBtn.dataset.userId, promoteBtn.dataset.role);
+    return;
+  }
+  const fbBtn = e.target.closest(".fb-action-btn");
+  if (fbBtn) {
+    updateFeedback(fbBtn.dataset.fbId, fbBtn.dataset.status, fbBtn);
+    return;
+  }
+});
+
+document.getElementById("adminLogoutBtn")?.addEventListener("click", () => {
+  localStorage.removeItem("tp_token");
+  window.location.href = "/";
+});
 
 init();

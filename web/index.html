@@ -6,7 +6,7 @@
     <title>Tour Pass · AI 旅行规划</title>
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="/styles.css" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/vendor/leaflet.css" />
   </head>
   <body style="visibility:hidden">
     <!-- Auth overlay -->
@@ -73,7 +73,7 @@
             <button id="themeToggle" class="theme-toggle" type="button" title="切换暗色模式">🌙</button>
             <span class="query-counter" id="queryCounter" title="今日剩余查询次数"></span>
             <span class="user-badge" id="userBadge"></span>
-            <a href="/profile.html" class="secondary-action small" style="text-decoration:none;">个人中心</a>
+            <a href="#/profile" class="secondary-action small" style="text-decoration:none;">个人中心</a>
             <a href="/admin.html" id="adminLink" class="secondary-action small" hidden style="text-decoration:none;">管理</a>
             <button class="secondary-action small" id="logoutBtn" type="button">退出</button>
           </div>
@@ -197,9 +197,6 @@
         <section class="result-area" data-stage-panel="main">
           <div id="candidateSummary" class="candidate-summary"></div>
           <div id="candidateTabs" class="tabs" role="tablist"></div>
-          <div id="mapContainer" class="map-container" hidden>
-            <div id="map"></div>
-          </div>
           <div id="planOutput" class="plan-output empty-state">
             用上方聊天框描述你的旅行计划，或手动设置偏好后生成行程。
           </div>
@@ -290,6 +287,73 @@
       </section>
     </main>
 
+    <!-- Profile view (hidden by default, shown via hash routing) -->
+    <section id="profileView" class="profile-view" hidden>
+      <div class="profile-view-header">
+        <h2>👤 个人中心</h2>
+        <button id="profileBackBtn" class="secondary-action small" type="button">← 返回行程</button>
+      </div>
+
+      <div id="profileViewError" class="empty-state-box" hidden>
+        <div class="emoji">🔒</div>
+        <p><strong>请先登录</strong></p>
+        <p><a href="#" id="profileViewLoginLink">返回首页登录</a></p>
+      </div>
+
+      <div id="profileViewContent" hidden>
+        <div id="pvGuestBanner" class="guest-banner" hidden>
+          <span class="emoji">🚶</span>
+          <div class="text">
+            <strong>你当前是游客身份</strong>
+            <span>游客数据仅保留 7 天，注册账号可长期保存</span>
+          </div>
+          <a href="/?show=register" class="primary-action small">去注册</a>
+        </div>
+
+        <div class="profile-card">
+          <h2>📋 账户信息</h2>
+          <div class="info-grid">
+            <div class="info-row"><span class="label">用户名</span><span id="pvUsername"></span></div>
+            <div class="info-row"><span class="label">邮箱</span><span id="pvEmail"></span></div>
+            <div class="info-row"><span class="label">角色</span><span id="pvRole"></span></div>
+            <div class="info-row"><span class="label">注册时间</span><span id="pvCreated"></span></div>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <h2>📊 今日使用情况</h2>
+          <div class="usage-section">
+            <div class="usage-circle">
+              <svg width="64" height="64" viewBox="0 0 64 64">
+                <circle cx="32" cy="32" r="28" fill="none" stroke="#eee" stroke-width="6"/>
+                <circle id="pvUsageRing" cx="32" cy="32" r="28" fill="none" stroke="var(--accent)" stroke-width="6"
+                  stroke-dasharray="176" stroke-dashoffset="176" stroke-linecap="round"/>
+              </svg>
+              <div class="label" id="pvUsageNum">0</div>
+            </div>
+            <div class="usage-detail" id="pvUsageDetail"></div>
+          </div>
+        </div>
+
+        <div class="profile-card" id="pvChangePwdCard">
+          <h2>🔒 修改密码</h2>
+          <div class="change-pwd-form">
+            <input id="pvOldPwd" type="password" placeholder="当前密码" />
+            <input id="pvNewPwd" type="password" placeholder="新密码（至少6位）" />
+            <input id="pvConfirmPwd" type="password" placeholder="确认新密码" />
+            <div id="pvPwdMsg" hidden></div>
+            <button id="pvChangePwdBtn" class="btn-primary" type="button">修改密码</button>
+          </div>
+        </div>
+
+        <div class="profile-card">
+          <h2>🧳 我的行程</h2>
+          <div id="pvShareMsg" class="msg-ok" hidden style="margin-bottom:10px;"></div>
+          <div id="pvTripList"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- Feedback button -->
     <div id="feedbackBtn" class="feedback-fab" title="反馈问题">💬</div>
     <div id="feedbackModal" class="feedback-modal" hidden>
@@ -326,8 +390,8 @@
     <canvas id="fireworksCanvas" class="fireworks-canvas" hidden></canvas>
     <div id="easterMessage" class="easter-message" hidden></div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="/vendor/leaflet.js"></script>
+    <script src="/vendor/html2canvas.min.js"></script>
     <script src="/app.js"></script>
   </body>
 </html>

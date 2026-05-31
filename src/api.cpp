@@ -12,6 +12,9 @@
 #include <unordered_map>
 
 #include "httplib.h"
+#ifdef _WIN32
+#include <winhttp.h>
+#endif
 #include "tourpass/auth.h"
 
 // ---- Email sending via Resend API ----
@@ -215,7 +218,7 @@ void setCommonHeaders(httplib::Response& res, const std::string& requestId) {
     res.set_header("X-Content-Type-Options", "nosniff");
     res.set_header("Referrer-Policy", "no-referrer");
     res.set_header("X-Frame-Options", "DENY");
-    res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'");
+    res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.tile.openstreetmap.org data:");
 }
 
 std::string queryString(const httplib::Request& req) {
@@ -775,6 +778,269 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         setJson(res, result);
     });
 
+    // GET /poi/areas - list all areas with POI counts
+    server.Get("/poi/areas", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
+        auto* city = context.getCity(cityName);
+        if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+
+        std::string key = requestCacheKey(req.method, req.path, queryString(req), "");
+        if (serveFromCache(context, res, key)) return;
+
+        // Aggregate POIs by area
+        std::map<std::string, nlohmann::json> areaMap;
+        for (const auto& poi : city->graph.pois()) {
+            if (poi.area.empty()) continue;
+            auto& entry = areaMap[poi.area];
+            if (!entry.contains("area")) {
+                entry["area"] = poi.area;
+                entry["total"] = 0;
+                entry["attractions"] = 0;
+                entry["restaurants"] = 0;
+                entry["hotels"] = 0;
+                entry["nightlife"] = 0;
+                entry["lat_sum"] = 0.0;
+                entry["lng_sum"] = 0.0;
+            }
+            entry["total"] = entry["total"].get<int>() + 1;
+            if (poi.type == PoiType::Attraction) entry["attractions"] = entry["attractions"].get<int>() + 1;
+            else if (poi.type == PoiType::Restaurant) entry["restaurants"] = entry["restaurants"].get<int>() + 1;
+            else if (poi.type == PoiType::Hotel) entry["hotels"] = entry["hotels"].get<int>() + 1;
+            else if (poi.type == PoiType::Nightlife) entry["nightlife"] = entry["nightlife"].get<int>() + 1;
+            entry["lat_sum"] = entry["lat_sum"].get<double>() + poi.lat;
+            entry["lng_sum"] = entry["lng_sum"].get<double>() + poi.lng;
+        }
+
+        nlohmann::json data = nlohmann::json::array();
+        for (auto& [name, entry] : areaMap) {
+            int total = entry["total"].get<int>();
+            entry["lat"] = entry["lat_sum"].get<double>() / total;
+            entry["lng"] = entry["lng_sum"].get<double>() / total;
+            entry.erase("lat_sum");
+            entry.erase("lng_sum");
+            data.push_back(entry);
+        }
+        // Sort by total POI count descending
+        std::sort(data.begin(), data.end(), [](const nlohmann::json& a, const nlohmann::json& b) {
+            return a["total"].get<int>() > b["total"].get<int>();
+        });
+
+        nlohmann::json result = {{"data", data}};
+        context.cache.put(key, result);
+        setJson(res, result);
+    });
+
+    // GET /poi/by-area - list POIs in a specific area
+    server.Get("/poi/by-area", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
+        std::string area = req.has_param("area") ? req.get_param_value("area") : "";
+        std::string type = req.has_param("type") ? req.get_param_value("type") : "";
+        auto* city = context.getCity(cityName);
+        if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+        if (area.empty()) { setJson(res, errorJson("VALIDATION_ERROR", "area 参数不能为空"), 400); return; }
+
+        int limit = 10;
+        if (req.has_param("limit")) {
+            try { limit = std::stoi(req.get_param_value("limit")); } catch (...) {}
+        }
+        limit = std::max(1, std::min(50, limit));
+
+        std::string key = requestCacheKey(req.method, req.path, queryString(req), "");
+        if (serveFromCache(context, res, key)) return;
+
+        nlohmann::json data = nlohmann::json::array();
+        for (const auto& poi : city->graph.pois()) {
+            if (poi.area != area) continue;
+            if (!type.empty()) {
+                std::string poiType = poi.type == PoiType::Attraction ? "attraction" :
+                    poi.type == PoiType::Restaurant ? "restaurant" :
+                    poi.type == PoiType::Hotel ? "hotel" :
+                    poi.type == PoiType::Nightlife ? "nightlife" : "transit";
+                if (poiType != type) continue;
+            }
+            data.push_back({
+                {"id", poi.id}, {"name", poi.name},
+                {"type", poi.type == PoiType::Attraction ? "attraction" :
+                    poi.type == PoiType::Restaurant ? "restaurant" :
+                    poi.type == PoiType::Hotel ? "hotel" :
+                    poi.type == PoiType::Nightlife ? "nightlife" : "transit"},
+                {"area", poi.area}, {"lat", poi.lat}, {"lng", poi.lng},
+                {"popularity", poi.popularity}, {"price_level", poi.priceLevel},
+                {"description", poi.description}, {"meal_type", poi.mealType},
+                {"recommendation", poi.recommendation},
+            });
+            if (static_cast<int>(data.size()) >= limit) break;
+        }
+        // Sort by popularity descending
+        std::sort(data.begin(), data.end(), [](const nlohmann::json& a, const nlohmann::json& b) {
+            return a["popularity"].get<double>() > b["popularity"].get<double>();
+        });
+
+        nlohmann::json result = {{"data", data}, {"area", area}, {"total", static_cast<int>(data.size())}};
+        context.cache.put(key, result);
+        setJson(res, result);
+    });
+
+    // GET /poi/amap-search - proxy for Amap POI text search
+    server.Get("/poi/amap-search", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string keywords = req.has_param("q") ? req.get_param_value("q") : "";
+        std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
+        std::string cityCode = req.has_param("city_code") ? req.get_param_value("city_code") : "";
+        int limit = 10;
+        if (req.has_param("limit")) {
+            try { limit = std::stoi(req.get_param_value("limit")); } catch (...) {}
+        }
+        limit = std::max(1, std::min(25, limit));
+
+        if (keywords.empty()) {
+            setJson(res, errorJson("VALIDATION_ERROR", "搜索关键词不能为空"), 400);
+            return;
+        }
+
+        // Get Amap API key from environment
+        std::string amapKey;
+        if (const char* k = std::getenv("TOURPASS_AMAP_API_KEY")) amapKey = k;
+        if (amapKey.empty()) {
+            if (const char* k = std::getenv("AMAP_API_KEY")) amapKey = k;
+        }
+        if (amapKey.empty()) {
+            setJson(res, errorJson("CONFIG_ERROR", "高德 API Key 未配置"), 503);
+            return;
+        }
+
+        // Build Amap API URL
+        std::string url = "/v3/place/text?key=" + amapKey +
+            "&keywords=" + httplib::detail::encode_url(keywords) +
+            "&offset=" + std::to_string(limit) +
+            "&extensions=all";
+        if (!cityCode.empty()) {
+            url += "&city=" + cityCode;
+        } else {
+            url += "&city=" + httplib::detail::encode_url(cityName);
+        }
+
+        // Use WinHTTP on Windows (no OpenSSL needed), httplib SSLClient on Linux
+        std::string responseBody;
+        int responseStatus = 0;
+#ifdef _WIN32
+        {
+            HINTERNET hSession = WinHttpOpen(L"TourPass/1.0", WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, nullptr, nullptr, 0);
+            if (!hSession) { setJson(res, errorJson("AMAP_ERROR", "WinHTTP 初始化失败"), 502); return; }
+            HINTERNET hConnect = WinHttpConnect(hSession, L"restapi.amap.com", INTERNET_DEFAULT_HTTPS_PORT, 0);
+            if (!hConnect) { WinHttpCloseHandle(hSession); setJson(res, errorJson("AMAP_ERROR", "WinHTTP 连接失败"), 502); return; }
+            std::wstring wurl(url.begin(), url.end());
+            HINTERNET hRequest = WinHttpOpenRequest(hConnect, L"GET", wurl.c_str(), nullptr, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, WINHTTP_FLAG_SECURE);
+            if (!hRequest) { WinHttpCloseHandle(hConnect); WinHttpCloseHandle(hSession); setJson(res, errorJson("AMAP_ERROR", "WinHTTP 请求失败"), 502); return; }
+            WinHttpSetTimeouts(hRequest, 5000, 5000, 5000, 5000);
+            if (WinHttpSendRequest(hRequest, WINHTTP_NO_ADDITIONAL_HEADERS, 0, WINHTTP_NO_REQUEST_DATA, 0, 0, 0) &&
+                WinHttpReceiveResponse(hRequest, nullptr)) {
+                DWORD status = 0; DWORD statusSize = sizeof(status);
+                WinHttpQueryHeaders(hRequest, WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER, WINHTTP_HEADER_NAME_BY_INDEX, &status, &statusSize, WINHTTP_NO_HEADER_INDEX);
+                responseStatus = status;
+                DWORD bytesRead = 0;
+                char buf[4096];
+                while (WinHttpReadData(hRequest, buf, sizeof(buf), &bytesRead) && bytesRead > 0) {
+                    responseBody.append(buf, bytesRead);
+                    bytesRead = 0;
+                }
+            }
+            WinHttpCloseHandle(hRequest);
+            WinHttpCloseHandle(hConnect);
+            WinHttpCloseHandle(hSession);
+        }
+#else
+        {
+            httplib::SSLClient amapClient("restapi.amap.com");
+            amapClient.set_connection_timeout(5, 0);
+            amapClient.set_read_timeout(5, 0);
+            auto amapRes = amapClient.Get(url);
+            if (amapRes) { responseStatus = amapRes->status; responseBody = amapRes->body; }
+        }
+#endif
+        if (responseStatus != 200 || responseBody.empty()) {
+            setJson(res, errorJson("AMAP_ERROR", "高德 API 请求失败, status=" + std::to_string(responseStatus)), 502);
+            return;
+        }
+
+        try {
+            auto amapData = nlohmann::json::parse(responseBody);
+            if (amapData.value("status", "0") != "1") {
+                setJson(res, errorJson("AMAP_ERROR", "高德 API 返回错误: " + amapData.value("info", "")), 502);
+                return;
+            }
+
+            nlohmann::json data = nlohmann::json::array();
+            for (const auto& poi : amapData.value("pois", nlohmann::json::array())) {
+                try {
+                    // Parse location "lng,lat"
+                    std::string loc = poi.value("location", "");
+                    double lng = 0, lat = 0;
+                    if (!loc.empty()) {
+                        auto comma = loc.find(',');
+                        if (comma != std::string::npos) {
+                            try {
+                                lng = std::stod(loc.substr(0, comma));
+                                lat = std::stod(loc.substr(comma + 1));
+                            } catch (...) {}
+                        }
+                    }
+
+                    // Safely extract fields (some may be arrays instead of strings)
+                    auto safeStr = [](const nlohmann::json& j, const std::string& key) -> std::string {
+                        auto it = j.find(key);
+                        if (it == j.end()) return "";
+                        if (it->is_string()) return it->get<std::string>();
+                        if (it->is_array() && !it->empty() && (*it)[0].is_string()) return (*it)[0].get<std::string>();
+                        return "";
+                    };
+
+                    nlohmann::json entry = {
+                        {"id", safeStr(poi, "id")},
+                        {"name", safeStr(poi, "name")},
+                        {"address", safeStr(poi, "address")},
+                        {"type", safeStr(poi, "type")},
+                        {"lat", lat},
+                        {"lng", lng},
+                        {"city", safeStr(poi, "cityname")},
+                        {"district", safeStr(poi, "adname")},
+                        {"tel", safeStr(poi, "tel")},
+                    };
+
+                    // Safely extract biz_ext fields
+                    if (poi.contains("biz_ext") && poi["biz_ext"].is_object()) {
+                        entry["rating"] = safeStr(poi["biz_ext"], "rating");
+                        entry["open_time"] = safeStr(poi["biz_ext"], "opentime2");
+                    } else {
+                        entry["rating"] = "";
+                        entry["open_time"] = "";
+                    }
+
+                    // Safely extract photos
+                    nlohmann::json urls = nlohmann::json::array();
+                    if (poi.contains("photos") && poi["photos"].is_array()) {
+                        for (const auto& p : poi["photos"]) {
+                            if (p.is_object() && p.contains("url") && p["url"].is_string()) {
+                                urls.push_back(p["url"].get<std::string>());
+                                if (urls.size() >= 3) break;
+                            }
+                        }
+                    }
+                    entry["photos"] = urls;
+
+                    data.push_back(entry);
+                } catch (...) {
+                    // Skip malformed POI entries
+                    continue;
+                }
+            }
+
+            nlohmann::json result = {{"data", data}, {"total", amapData.value("count", "0")}};
+            setJson(res, result);
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("PARSE_ERROR", "解析高德响应失败"), 502);
+        }
+    });
+
     // City guidebook (from Wikivoyage data)
     server.Get(R"(/city/([a-z]+)/guidebook)", [&](const httplib::Request& req, httplib::Response& res) {
         std::string city = req.matches[1];
@@ -956,8 +1222,8 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 setJson(res, errorJson("VALIDATION_ERROR", "用户名长度需 2-20 字符"), 400);
                 return;
             }
-            if (password.size() < 4 || password.size() > 50) {
-                setJson(res, errorJson("VALIDATION_ERROR", "密码长度需 4-50 字符"), 400);
+            if (password.size() < 6 || password.size() > 50) {
+                setJson(res, errorJson("VALIDATION_ERROR", "密码长度需 6-50 字符"), 400);
                 return;
             }
             if (!context.store || !context.store->enabled()) {
@@ -1263,9 +1529,13 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
         try {
             auto body = nlohmann::json::parse(req.body);
+            std::string content = body.value("content", "");
+            if (content.empty() || content.size() > 2000) {
+                setJson(res, errorJson("VALIDATION_ERROR", "反馈内容长度需 1-2000 字符"), 400); return;
+            }
             context.store->submitFeedback(userId,
                 body.value("category", "other"),
-                body.value("content", ""),
+                content,
                 body.value("contact", ""),
                 body.value("page_url", ""),
                 req.get_header_value("User-Agent"));
