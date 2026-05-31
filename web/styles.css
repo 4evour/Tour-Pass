@@ -1824,6 +1824,27 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   margin-top: 4px;
   line-height: 1.4;
 }
+.stop-actions {
+  display: flex;
+  gap: 6px;
+  padding: 6px 14px 8px;
+  border-top: 1px solid var(--line);
+}
+.stop-action-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.stop-action-btn:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+  background: #fef2f2;
+}
 .stop-tip {
   font-size: 12px;
   color: var(--accent-dark);

@@ -65,13 +65,23 @@ async function init() {
   try {
     var trips = await api("/trips/list");
     if (trips.data && trips.data.length > 0) {
+      var cityEmojis = {"长沙":"🏙","武汉":"🌉","大理":"🏔","丽江":"🏘","南京":"🏛","苏州":"🏡","北京":"🏯","成都":"🐼","重庆":"🔥","杭州":"🌊","西安":"🏛","上海":"🌃","广州":"🌺","深圳":"💎","厦门":"🏖","青岛":"🌊"};
       document.getElementById("tripList").innerHTML = trips.data.map(function(t) {
+        var title = t.title || "未命名行程";
+        var city = title.split("·")[0] || "";
+        var emoji = cityEmojis[city] || "✈️";
+        var date = (t.created_at||"").replace("T"," ").slice(0,16);
         var shareBtn = t.share_id
-          ? '<button onclick="copyShareLink(\'' + t.share_id + '\', this)">复制链接</button>'
-          : '<button onclick="shareTrip(' + t.id + ')">分享</button>';
-        return '<div class="trip-item"><div><div class="trip-title">' + esc(t.title) + '</div>' +
-          '<div class="trip-date">' + ((t.created_at||"").replace("T"," ").slice(0,19)) + '</div></div>' +
-          '<div class="trip-actions">' + shareBtn + '</div></div>';
+          ? '<button class="trip-btn" onclick="copyShareLink(\'' + t.share_id + '\', this)">📋 复制链接</button>'
+          : '<button class="trip-btn" onclick="shareTrip(' + t.id + ')">🔗 分享</button>';
+        return '<div class="trip-item">' +
+          '<div class="trip-emoji">' + emoji + '</div>' +
+          '<div class="trip-info">' +
+            '<div class="trip-title">' + esc(title) + '</div>' +
+            '<div class="trip-date">🕐 ' + date + '</div>' +
+          '</div>' +
+          '<div class="trip-actions">' + shareBtn + '</div>' +
+        '</div>';
       }).join("");
     } else {
       document.getElementById("tripList").innerHTML =

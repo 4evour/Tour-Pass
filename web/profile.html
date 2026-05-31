@@ -36,12 +36,14 @@
       .btn-primary:hover { background: var(--accent-dark); }
       .msg-ok { color: var(--accent); font-size: 13px; margin-top: 4px; }
       .msg-err { color: #c0392b; font-size: 13px; margin-top: 4px; }
-      .trip-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #f5f5f5; }
-      .trip-title { font-weight: 500; font-size: 14px; }
-      .trip-date { color: var(--muted); font-size: 12px; }
-      .trip-actions { display: flex; gap: 6px; }
-      .trip-actions button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); cursor: pointer; font-size: 12px; }
-      .trip-actions button:hover { border-color: var(--accent); }
+      .trip-item { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid #f5f5f5; }
+      .trip-emoji { font-size: 28px; flex-shrink: 0; }
+      .trip-info { flex: 1; min-width: 0; }
+      .trip-title { font-weight: 600; font-size: 14px; color: var(--ink); }
+      .trip-date { color: var(--muted); font-size: 12px; margin-top: 2px; }
+      .trip-actions { display: flex; gap: 6px; flex-shrink: 0; }
+      .trip-btn { padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); cursor: pointer; font-size: 12px; white-space: nowrap; }
+      .trip-btn:hover { border-color: var(--accent); background: var(--soft); }
       .empty-state-box { text-align: center; padding: 30px 20px; color: var(--muted); }
       .empty-state-box .emoji { font-size: 36px; margin-bottom: 8px; }
       .empty-state-box p { margin: 4px 0; font-size: 14px; }

@@ -779,6 +779,7 @@ function renderOverview(candidate) {
     <div class="overview-actions">
       <button class="primary-action small" id="saveTripBtn" type="button">💾 保存行程</button>
       <button class="secondary-action small" id="shareTripBtn" type="button">🔗 分享</button>
+      <button class="secondary-action small" id="shareImageBtn" type="button">📸 生成图片</button>
       <button class="secondary-action small" id="exportBtn" type="button">🖨️ 导出/打印</button>
     </div>
   `;
@@ -1040,6 +1041,9 @@ function renderStop(stop) {
           <div class="stop-reason">${escapeHtml(stop.reason) || ""}</div>
           ${stop.recommendation ? `<div class="stop-tip">💡 ${escapeHtml(stop.recommendation)}</div>` : ""}
         </div>
+      </div>
+      <div class="stop-actions">
+        <button class="stop-action-btn" onclick="removeStop('${stop.poi_id || ""}')" title="移除此站点">✕ 移除</button>
       </div>
     </article>
   `;
@@ -1552,12 +1556,64 @@ initTheme();
 document.addEventListener("click", (e) => {
   if (e.target.id === "saveTripBtn" || e.target.closest?.("#saveTripBtn")) saveTrip();
   if (e.target.id === "shareTripBtn" || e.target.closest?.("#shareTripBtn")) shareTrip();
+  if (e.target.id === "shareImageBtn" || e.target.closest?.("#shareImageBtn")) generateShareImage();
   if (e.target.id === "exportBtn" || e.target.closest?.("#exportBtn")) exportTrip();
 });
+
+function removeStop(poiId) {
+  const candidate = state.candidates[state.selectedIndex];
+  if (!candidate || !candidate.days) return;
+  let removed = false;
+  for (const day of candidate.days) {
+    const idx = (day.stops || []).findIndex(s => s.poi_id === poiId);
+    if (idx >= 0) {
+      day.stops.splice(idx, 1);
+      removed = true;
+      break;
+    }
+  }
+  if (removed) {
+    renderPlan();
+    toast("已移除站点", "info");
+  }
+}
 
 function exportTrip() {
   setStage("overview");
   setTimeout(() => window.print(), 300);
+}
+
+async function generateShareImage() {
+  const candidate = state.candidates[state.selectedIndex];
+  if (!candidate) { toast("请先生成行程", "info"); return; }
+  const btn = document.getElementById("shareImageBtn");
+  if (btn) { btn.disabled = true; btn.textContent = "生成中..."; }
+  try {
+    // Switch to overview to ensure it's visible
+    setStage("overview");
+    await new Promise(r => setTimeout(r, 300));
+    const target = document.querySelector(".overview-section") || document.querySelector("[data-plan-section='overview']");
+    if (!target) { toast("未找到行程内容", "error"); return; }
+    if (typeof html2canvas === "undefined") { toast("图片生成组件未加载", "error"); return; }
+    const canvas = await html2canvas(target, {
+      backgroundColor: "#ffffff",
+      scale: 2,
+      useCORS: true,
+      logging: false,
+    });
+    const city = state.lastPayload?.city || "旅行";
+    const days = candidate.days?.length || 1;
+    const link = document.createElement("a");
+    link.download = `TourPass_${city}_${days}天行程.png`;
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+    toast("图片已下载！", "success");
+  } catch (e) {
+    console.error("Share image error:", e);
+    toast("图片生成失败：" + e.message, "error");
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = "📸 生成图片"; }
+  }
 }
 
 // ---- Cost tracking (localStorage) ----
