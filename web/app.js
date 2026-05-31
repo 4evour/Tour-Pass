@@ -1026,7 +1026,7 @@ function renderStop(stop) {
   const hasRisk = stop.time_window_status && stop.time_window_status !== "ok";
   const imgUrl = poiImageUrl(stop.poi_name, stop.poi_type);
   return `
-    <article class="stop-card ${hasRisk ? "stop-risk" : ""}" draggable="true" data-poi-id="${stop.poi_id || ""}">
+    <article class="stop-card type-${stop.poi_type || "attraction"} ${hasRisk ? "stop-risk" : ""}" draggable="true" data-poi-id="${stop.poi_id || ""}">
       ${travel > 0 ? `<div class="stop-transport-bar">${transportIcon(travel)} ${travel} 分钟</div>` : ""}
       <div class="stop-main">
         <img class="stop-poi-img" src="${imgUrl}" alt="" loading="lazy" onerror="this.style.display='none'" />
@@ -1260,6 +1260,12 @@ function escHtml(text) {
 }
 
 $("chatButton").addEventListener("click", chatPlan);
+document.querySelectorAll(".chat-hint").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    $("chatInput").value = btn.dataset.prompt;
+    chatPlan();
+  });
+});
 $("chatInput").addEventListener("keydown", (e) => {
   if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) chatPlan();
 });
