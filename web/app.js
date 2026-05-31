@@ -1030,7 +1030,7 @@ function renderStop(stop) {
     <article class="stop-card type-${stop.poi_type || "attraction"} ${hasRisk ? "stop-risk" : ""}" draggable="true" data-poi-id="${stop.poi_id || ""}">
       ${travel > 0 ? `<div class="stop-transport-bar">${transportIcon(travel)} ${travel} 分钟</div>` : ""}
       <div class="stop-main">
-        <img class="stop-poi-img" src="${imgUrl}" alt="" loading="lazy" onerror="this.style.display='none'" />
+        <img class="stop-poi-img" src="${imgUrl}" alt="" loading="lazy" />
         <span class="stop-type-icon">${typeIcon(stop.poi_type)}</span>
         <div class="stop-info">
           <div class="stop-name-line">
@@ -1043,7 +1043,7 @@ function renderStop(stop) {
         </div>
       </div>
       <div class="stop-actions">
-        <button class="stop-action-btn" onclick="removeStop('${stop.poi_id || ""}')" title="移除此站点">✕ 移除</button>
+        <button class="stop-action-btn stop-remove-btn" data-poi-id="${stop.poi_id || ""}" title="移除此站点">✕ 移除</button>
       </div>
     </article>
   `;
@@ -1239,7 +1239,15 @@ async function chatPlan() {
     if (data.candidates && data.candidates.length > 0) {
       state.candidates = data.candidates;
       state.selectedIndex = 0;
-      state.lastPayload = { candidates: data.candidates };
+      const req = data.parsed_request || {};
+      state.lastPayload = {
+        city: req.city || data.candidates[0]?.city || "旅行",
+        days: req.days || data.candidates[0]?.days?.length || 1,
+        interests: req.interests || [],
+        must_visit: req.must_visit || [],
+        avoid: req.avoid || [],
+        pace: req.pace || "标准",
+      };
       renderPlan();
       setStage("overview");
       html += `<p style="font-size:13px;color:var(--muted);">已生成 ${data.candidates.length} 个方案，切换查看详情。</p>`;
@@ -1270,6 +1278,17 @@ document.querySelectorAll(".chat-hint").forEach(function(btn) {
     chatPlan();
   });
 });
+// Event delegation for stop remove buttons (CSP-safe)
+document.addEventListener("click", function(e) {
+  var rmBtn = e.target.closest(".stop-remove-btn");
+  if (rmBtn) { removeStop(rmBtn.dataset.poiId); }
+});
+// Hide broken images (CSP-safe replacement for inline onerror)
+document.addEventListener("error", function(e) {
+  if (e.target.tagName === "IMG" && e.target.classList.contains("stop-poi-img")) {
+    e.target.style.display = "none";
+  }
+}, true);
 $("chatInput").addEventListener("keydown", (e) => {
   if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) chatPlan();
 });

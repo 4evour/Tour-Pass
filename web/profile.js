@@ -72,8 +72,8 @@ async function init() {
         var emoji = cityEmojis[city] || "✈️";
         var date = (t.created_at||"").replace("T"," ").slice(0,16);
         var shareBtn = t.share_id
-          ? '<button class="trip-btn" onclick="copyShareLink(\'' + t.share_id + '\', this)">📋 复制链接</button>'
-          : '<button class="trip-btn" onclick="shareTrip(' + t.id + ')">🔗 分享</button>';
+          ? '<button class="trip-btn trip-copy" data-share-id="' + t.share_id + '">📋 复制链接</button>'
+          : '<button class="trip-btn trip-share" data-trip-id="' + t.id + '">🔗 分享</button>';
         return '<div class="trip-item">' +
           '<div class="trip-emoji">' + emoji + '</div>' +
           '<div class="trip-info">' +
@@ -83,6 +83,10 @@ async function init() {
           '<div class="trip-actions">' + shareBtn + '</div>' +
         '</div>';
       }).join("");
+      // Bind events via delegation (CSP blocks inline onclick)
+      var tripListEl = document.getElementById("tripList");
+      tripListEl.removeEventListener("click", handleTripListClick);
+      tripListEl.addEventListener("click", handleTripListClick);
     } else {
       document.getElementById("tripList").innerHTML =
         '<div class="empty-state-box"><div class="emoji">📂</div>' +
@@ -99,10 +103,20 @@ async function init() {
   }
 }
 
+function handleTripListClick(e) {
+  var btn = e.target.closest(".trip-copy");
+  if (btn) { copyShareLink(btn.dataset.shareId, btn); return; }
+  btn = e.target.closest(".trip-share");
+  if (btn) { shareTrip(parseInt(btn.dataset.tripId)); return; }
+}
+
 function copyShareLink(shareId, btn) {
-  navigator.clipboard.writeText(location.origin + '/s/' + shareId).then(function() {
-    btn.textContent = '已复制!';
-    setTimeout(function() { btn.textContent = '复制链接'; }, 2000);
+  var url = location.origin + '/s/' + shareId;
+  navigator.clipboard.writeText(url).then(function() {
+    btn.textContent = '✅ 已复制';
+    setTimeout(function() { btn.textContent = '📋 复制链接'; }, 2000);
+  }).catch(function() {
+    prompt('复制此链接:', url);
   });
 }
 
