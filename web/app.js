@@ -76,20 +76,20 @@ function leafletReady() {
 }
 
 function addBaseTileLayer(map) {
-  // 高德地图瓦片（国内快速，中文标注）
-  var amap = L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}", {
-    subdomains: "1234",
-    maxZoom: 18,
-    attribution: '&copy; 高德地图'
+  // 高德浅色底图（减少路名/小区名标注，更清爽）
+  var amapLight = L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}", {
+    subdomains: "1234", maxZoom: 18, attribution: '&copy; 高德地图'
+  });
+  // 高德标准底图（详细道路信息）
+  var amapStd = L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}", {
+    subdomains: "1234", maxZoom: 18, attribution: '&copy; 高德地图'
   });
   // OSM 备用
   var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 18,
-    attribution: '&copy; OSM'
+    maxZoom: 18, attribution: '&copy; OSM'
   });
-  amap.addTo(map);
-  // 图层切换控件
-  L.control.layers({"高德地图": amap, "OpenStreetMap": osm}, null, {position: "topright"}).addTo(map);
+  amapLight.addTo(map);
+  L.control.layers({"高德极简": amapLight, "高德标准": amapStd, "OpenStreetMap": osm}, null, {position: "topright"}).addTo(map);
 }
 
 function renderOverviewMap(candidate) {
@@ -114,46 +114,39 @@ function renderOverviewMap(candidate) {
 
   const bounds = [];
   mapDayLayers = [];
-  let stopIndex = 0;
 
   candidate.days.forEach((day, dayIndex) => {
     const color = DAY_COLORS[dayIndex % DAY_COLORS.length];
     const dayCoords = [];
     const markerGroup = L.layerGroup();
+    let dayStopIndex = 0;
 
     for (const stop of day.stops || []) {
       if (!stop.lat || !stop.lng) continue;
-      stopIndex++;
+      dayStopIndex++;
       const coord = [stop.lat, stop.lng];
       bounds.push(coord);
       dayCoords.push(coord);
 
-      // Enhanced marker with type icon inside colored circle
       const markerIcon = L.divIcon({
         className: "numbered-marker",
-        html: `<div class="map-marker" style="background:${color}" data-poi-id="${stop.poi_id || ""}" data-day-idx="${dayIndex}" data-stop-idx="${stopIndex - 1}">
-          <span class="map-marker-icon">${typeIcon(stop.poi_type)}</span>
-          <span class="map-marker-num">${stopIndex}</span>
+        html: `<div class="map-marker" style="background:${color}" data-poi-id="${stop.poi_id || ""}" data-day-idx="${dayIndex}" data-stop-idx="${dayStopIndex - 1}">
+          <span class="map-marker-num">${dayStopIndex}</span>
         </div>`,
-        iconSize: [36, 36],
-        iconAnchor: [18, 18],
-        popupAnchor: [0, -20],
+        iconSize: [28, 28],
+        iconAnchor: [14, 14],
+        popupAnchor: [0, -16],
       });
 
-      const hasRisk = stop.time_window_status && stop.time_window_status !== "ok";
-      const riskBadge = hasRisk ? `<span style="color:#e0973a;font-size:12px;">⚠️ ${escapeHtml(timeWindowLabel(stop.time_window_status))}</span>` : "";
-      const recTip = stop.recommendation ? `<div style="font-size:12px;color:#65706d;margin-top:4px;">💡 ${escapeHtml(stop.recommendation)}</div>` : "";
-
-      const marker = L.marker(coord, { icon: markerIcon });
-      marker.bindPopup(`
-        <div style="min-width:180px;">
-          <div style="font-weight:700;font-size:14px;margin-bottom:4px;">${escapeHtml(stop.poi_name)}</div>
-          <div style="font-size:12px;color:#65706d;">${typeIcon(stop.poi_type)} ${escapeHtml(stop.area || "")} · ${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)}</div>
-          ${stop.score ? `<div style="font-size:12px;margin-top:2px;">评分 ${Number(stop.score).toFixed(1)}</div>` : ""}
-          ${riskBadge}
-          ${recTip}
-        </div>
-      `);
+      // Minimal popup: name + time only. Details in card sidebar.
+      const marker = L.marker(coord, { icon: markerIcon, draggable: true });
+      marker.bindPopup(
+        '<div class="map-popup">' +
+          '<div class="map-popup-name">' + escapeHtml(stop.poi_name) + '</div>' +
+          '<div class="map-popup-time">' + typeIcon(stop.poi_type) + ' ' + escapeHtml(stop.start_time) + '-' + escapeHtml(stop.end_time) + '</div>' +
+        '</div>'
+      );
+      marker._tourpass = { poiId: stop.poi_id, dayIndex: dayIndex, stopIndex: dayStopIndex - 1 };
       marker.addTo(markerGroup);
       if (stop.poi_id) mapMarkerByPoiId[stop.poi_id] = marker;
     }
@@ -171,6 +164,8 @@ function renderOverviewMap(candidate) {
   });
 
   if (bounds.length > 0) planMap.fitBounds(bounds, { padding: [30, 30] });
+  setTimeout(() => planMap.invalidateSize(), 50);
+  initMapDragReorder();
 }
 
 function initMapDayFilter(candidate) {
@@ -212,6 +207,73 @@ function initMapDayFilter(candidate) {
       if (dayBounds.length > 0) planMap.fitBounds(dayBounds, { padding: [40, 40] });
     }
   });
+}
+
+function initMapDragReorder() {
+  if (!planMap) return;
+  // Listen for dragend on all markers
+  planMap.eachLayer(function(layer) {
+    if (layer instanceof L.Marker && layer._tourpass) {
+      layer.on("dragend", function(e) {
+        var info = e.target._tourpass;
+        var candidate = state.candidates[state.selectedIndex];
+        if (!candidate || !candidate.days) return;
+        var day = candidate.days[info.dayIndex];
+        if (!day || !day.stops) return;
+        var draggedStop = day.stops[info.stopIndex];
+        if (!draggedStop) return;
+
+        // Find nearest stop to the new position to determine new order
+        var newPos = e.target.getLatLng();
+        var nearestIdx = info.stopIndex;
+        var nearestDist = Infinity;
+        day.stops.forEach(function(s, i) {
+          if (i === info.stopIndex || !s.lat || !s.lng) return;
+          var dx = s.lat - newPos.lat;
+          var dy = s.lng - newPos.lng;
+          var dist = dx * dx + dy * dy;
+          if (dist < nearestDist) { nearestDist = dist; nearestIdx = i; }
+        });
+
+        // Reorder: move dragged stop to nearest position
+        if (nearestIdx !== info.stopIndex) {
+          day.stops.splice(info.stopIndex, 1);
+          day.stops.splice(nearestIdx, 0, draggedStop);
+          // Recalculate times
+          recalculateDayTimes(day);
+          // Re-render cards and map
+          renderPlan();
+          toast("行程顺序已更新", "info");
+        }
+      });
+    }
+  });
+}
+
+function recalculateDayTimes(day) {
+  var currentTime = 9 * 60 + 30; // default start 09:30
+  var prevId = null;
+  (day.stops || []).forEach(function(stop) {
+    var travel = 15; // default travel time
+    if (prevId && stop.poi_id) {
+      // Try to get actual travel time from edges (approximate)
+      travel = 10; // fallback
+    }
+    var arrival = currentTime + travel;
+    var openMin = timeToMinutes(stop.start_time); // use existing open time as reference
+    if (arrival < openMin - 30) arrival = openMin; // don't arrive too early
+    stop.travel_minutes_from_previous = travel;
+    stop.start_time = minutesToTime(arrival);
+    stop.end_time = minutesToTime(arrival + (stop.visit_duration_minutes || 60));
+    currentTime = arrival + (stop.visit_duration_minutes || 60);
+    prevId = stop.poi_id;
+  });
+}
+
+function minutesToTime(m) {
+  var h = Math.floor(m / 60);
+  var min = m % 60;
+  return (h < 10 ? "0" : "") + h + ":" + (min < 10 ? "0" : "") + min;
 }
 
 function initCardMarkerInteraction() {
