@@ -368,7 +368,9 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
                          || req.path.find("/images/") == 0
                          || req.path.find("/city/") == 0
                          || req.path == "/cities"
-                         || req.path == "/poi/browse";
+                         || req.path == "/poi/browse"
+                         || req.path.find("/editor") == 0
+                         || req.path.find("/editor-dist/") == 0;
 
         // API key bypass (for programmatic access)
         const std::string& apiKey = requiredApiKey();
@@ -1728,6 +1730,66 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     // ---- Track query usage after successful trip/plan and trip/chat ----
     // (We add a post-routing handler specifically for these)
     // Note: This is handled by incrementing in the existing post-routing handler
+
+    // ---- Editor APIs ----
+    server.Post("/editor/batch-route", [&](const httplib::Request& req, httplib::Response& res) {
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            auto poiIds = body.value("poi_ids", std::vector<std::string>{});
+            auto* city = context.getCity(context.defaultCity);
+            if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市"), 404); return; }
+            nlohmann::json segments = nlohmann::json::array();
+            for (size_t i = 0; i + 1 < poiIds.size(); ++i) {
+                int travel = city->graph.shortestMinutes(poiIds[i], poiIds[i + 1]);
+                if (travel == std::numeric_limits<int>::max()) travel = -1;
+                auto route = city->graph.shortestRoute(poiIds[i], poiIds[i + 1]);
+                nlohmann::json coords = nlohmann::json::array();
+                for (const auto& [lat, lng] : route.pathCoords) {
+                    coords.push_back(nlohmann::json::array({lat, lng}));
+                }
+                segments.push_back({{"from", poiIds[i]}, {"to", poiIds[i + 1]}, {"travelMinutes", travel}, {"coords", coords}});
+            }
+            setJson(res, {{"segments", segments}});
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", ex.what()), 500);
+        }
+    });
+
+    server.Post("/editor/validate", [&](const httplib::Request& req, httplib::Response& res) {
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            auto stops = body.value("stops", nlohmann::json::array());
+            int endMinutes = body.value("end_minutes", 21 * 60);
+            nlohmann::json issues = nlohmann::json::array();
+            for (const auto& stop : stops) {
+                int departure = stop.value("departure", 0);
+                std::string name = stop.value("poi_name", "");
+                if (departure > endMinutes) {
+                    issues.push_back({{"type", "overtime"}, {"poi", name}, {"message", name + " 结束时间超出当日限制"}});
+                }
+                int arrival = stop.value("arrival", 0);
+                int closeMin = stop.value("close_minutes", 24 * 60);
+                if (arrival > closeMin) {
+                    issues.push_back({{"type", "closed"}, {"poi", name}, {"message", name + " 到达时已关门"}});
+                }
+            }
+            setJson(res, {{"issues", issues}, {"valid", issues.empty()}});
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", ex.what()), 500);
+        }
+    });
+
+    // Serve editor React app
+    server.Get("/editor", [&](const httplib::Request&, httplib::Response& res) {
+        std::ifstream file("web/editor-dist/index.html");
+        if (file.is_open()) {
+            std::string html((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+            res.set_content(html, "text/html; charset=utf-8");
+        } else {
+            res.status = 404;
+            res.set_content("Editor not built. Run: cd web/editor && npm run build", "text/plain");
+        }
+    });
 
     std::cout << "Tour Pass server listening on http://" << host << ":" << port << std::endl;
     std::cout << "Demo UI available at http://" << host << ":" << port << "/" << std::endl;
