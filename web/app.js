@@ -716,7 +716,7 @@ function planPayload() {
     days: Number($("days").value || 2),
     start_time: $("startTime").value.trim() || "09:30",
     end_time: $("endTime").value.trim() || "21:30",
-    hotel_location: $("hotelLocation").value.trim() || "7天优品酒店(长沙橘子洲五一广场地铁站店)",
+    hotel_location: $("hotelLocation").value.trim() || "",
     interests: csv($("interests").value),
     pace: $("pace").value,
     must_visit: csv($("mustVisit").value),
@@ -1779,6 +1779,8 @@ async function chatPlan() {
       renderPlan();
       setStage("overview");
       saveTripState();
+      // Update guidebook for the planned city
+      loadGuidebook(state.lastPayload.city);
       html += `<p style="font-size:13px;color:var(--muted);">已生成 ${data.candidates.length} 个方案，切换查看详情。</p>`;
     }
     $("chatOutput").innerHTML = html || "规划完成。";
@@ -1947,8 +1949,8 @@ document.querySelectorAll(".city-card").forEach((card) => {
     $("hotelLocation").value = hotelDefaults[card.dataset.city] || "";
   });
 });
-// Load default city guidebook on page load
-setTimeout(() => loadGuidebook("长沙"), 1000);
+// Load guidebook for default/selected city on page load
+setTimeout(() => loadGuidebook($("city")?.value || "长沙"), 1000);
 
 // Interest tags
 document.querySelectorAll(".interest-tags .tag").forEach((tag) => {
