@@ -7,6 +7,8 @@ import HotelPicker from './components/HotelPicker';
 import MapView from './components/MapView';
 import Sidebar from './components/Sidebar';
 import Timeline from './components/Timeline';
+import AiRecommend from './components/AiRecommend';
+import ConflictAlert from './components/ConflictAlert';
 
 export default function App() {
   const [city, setCity] = useState('');
@@ -103,6 +105,8 @@ export default function App() {
           {/* Center: Map */}
           <div className="flex-1 relative">
             <MapView allPois={pois} onAddPoi={handleAddFromMap} />
+            <AiRecommend allPois={pois} onAdd={(poi) => addStop(currentDay, poi)} />
+            <ConflictAlert />
           </div>
 
           {/* Right: Timeline */}

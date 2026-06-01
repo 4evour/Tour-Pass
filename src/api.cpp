@@ -1779,6 +1779,65 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         }
     });
 
+    server.Post("/editor/ai-suggest", [&](const httplib::Request& req, httplib::Response& res) {
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string currentPoiId = body.value("current_poi_id", "");
+            int currentTime = body.value("current_time", 12 * 60);
+            auto usedIds = body.value("used_poi_ids", std::vector<std::string>{});
+            int limit = body.value("limit", 3);
+
+            auto* city = context.getCity(context.defaultCity);
+            if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市"), 404); return; }
+
+            std::set<std::string> usedSet(usedIds.begin(), usedIds.end());
+            struct ScoredPoi { const Poi* poi; double score; std::string reason; };
+            std::vector<ScoredPoi> scored;
+
+            for (const auto& poi : city->graph.pois()) {
+                if (usedSet.count(poi.id) > 0) continue;
+                if (poi.type == PoiType::Hotel || poi.type == PoiType::Transit) continue;
+                int travel = city->graph.shortestMinutes(currentPoiId, poi.id);
+                if (travel == std::numeric_limits<int>::max()) continue;
+                int arrival = currentTime + travel;
+                if (arrival + poi.visitDurationMinutes > poi.closeMinutes) continue;
+
+                double score = poi.popularity * 10.0 - travel * 1.5 - poi.priceLevel * 2.0;
+                std::string reason = "热度 " + std::to_string(static_cast<int>(poi.popularity * 10)) + "，通勤 " + std::to_string(travel) + " 分";
+                if (poi.type == PoiType::Restaurant && (currentTime >= 11 * 60 && currentTime <= 13 * 60)) {
+                    score += 50.0;
+                    reason = "午餐时间，推荐餐厅";
+                }
+                if (poi.type == PoiType::Restaurant && (currentTime >= 17 * 60 && currentTime <= 19 * 60)) {
+                    score += 50.0;
+                    reason = "晚餐时间，推荐餐厅";
+                }
+                scored.push_back({&poi, score, reason});
+            }
+
+            std::sort(scored.begin(), scored.end(), [](const ScoredPoi& a, const ScoredPoi& b) {
+                return a.score > b.score;
+            });
+
+            nlohmann::json recs = nlohmann::json::array();
+            for (int i = 0; i < std::min(limit, static_cast<int>(scored.size())); ++i) {
+                const auto& sp = scored[i];
+                nlohmann::json poiJson = {
+                    {"id", sp.poi->id}, {"name", sp.poi->name}, {"type", poiTypeToString(sp.poi->type)},
+                    {"area", sp.poi->area}, {"lat", sp.poi->lat}, {"lng", sp.poi->lng},
+                    {"popularity", sp.poi->popularity}, {"price_level", sp.poi->priceLevel},
+                    {"description", sp.poi->description}, {"meal_type", sp.poi->mealType},
+                    {"recommendation", sp.poi->recommendation},
+                };
+                nlohmann::json rec = {{"poi", poiJson}, {"score", std::round(sp.score * 10.0) / 10.0}, {"reason", sp.reason}};
+                recs.push_back(rec);
+            }
+            setJson(res, {{"recommendations", recs}});
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", ex.what()), 500);
+        }
+    });
+
     // Serve editor React app
     server.Get("/editor", [&](const httplib::Request&, httplib::Response& res) {
         std::ifstream file("web/editor-dist/index.html");
