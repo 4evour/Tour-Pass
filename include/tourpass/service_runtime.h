@@ -152,7 +152,7 @@ private:
     std::condition_variable condition_;
     std::unordered_map<std::string, Job> jobs_;
     std::queue<std::string> queue_;
-    bool stopping_ = false;
+    std::atomic<bool> stopping_{false};
     uint64_t completedJobs_ = 0;
     uint64_t failedJobs_ = 0;
     uint64_t totalQueueWaitMs_ = 0;

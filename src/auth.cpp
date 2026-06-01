@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <iomanip>
+#include <mutex>
 #include <random>
 #include <sstream>
 #include <stdexcept>
@@ -37,15 +38,6 @@ std::vector<unsigned char> fromHex(const std::string& hex) {
         out.push_back(static_cast<unsigned char>(byte));
     }
     return out;
-}
-
-bool constantTimeEquals(const std::string& a, const std::string& b) {
-    if (a.size() != b.size()) return false;
-    volatile unsigned char result = 0;
-    for (size_t i = 0; i < a.size(); ++i) {
-        result |= static_cast<unsigned char>(a[i]) ^ static_cast<unsigned char>(b[i]);
-    }
-    return result == 0;
 }
 
 std::string sha256(const std::string& data) {
@@ -93,6 +85,15 @@ std::string hmacSha256(const std::string& key, const std::string& data) {
 
 }  // namespace
 
+bool constantTimeEquals(const std::string& a, const std::string& b) {
+    if (a.size() != b.size()) return false;
+    volatile unsigned char result = 0;
+    for (size_t i = 0; i < a.size(); ++i) {
+        result |= static_cast<unsigned char>(a[i]) ^ static_cast<unsigned char>(b[i]);
+    }
+    return result == 0;
+}
+
 std::string randomHex(size_t bytes) {
     static thread_local std::mt19937 gen(std::random_device{}());
     std::uniform_int_distribution<int> dist(0, 255);
@@ -120,7 +121,7 @@ bool verifyPassword(const std::string& password, const std::string& storedHash) 
     } else {
         computedHash = pbkdf2Hex(password, salt);
     }
-    return computedHash.size() == expectedHash.size() && std::strcmp(computedHash.c_str(), expectedHash.c_str()) == 0;
+    return constantTimeEquals(computedHash, expectedHash);
 }
 
 // ---- Base64url ----
@@ -147,14 +148,13 @@ std::string base64urlEncode(const std::string& input) {
 
 std::string base64urlDecode(const std::string& input) {
     static unsigned char lookup[256];
-    static bool initialized = false;
-    if (!initialized) {
+    static std::once_flag lookupInit;
+    std::call_once(lookupInit, [] {
         std::memset(lookup, 0xFF, 256);
         for (int i = 0; i < 64; ++i) {
             lookup[static_cast<unsigned char>(BASE64URL_CHARS[i])] = static_cast<unsigned char>(i);
         }
-        initialized = true;
-    }
+    });
 
     std::string out;
     size_t len = input.size();

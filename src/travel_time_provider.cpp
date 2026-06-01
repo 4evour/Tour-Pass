@@ -98,7 +98,11 @@ int AmapLiveProvider::fetchFromAmap(const Poi& from, const Poi& to) const {
          << "&key=" << apiKey_;
 
     try {
+#ifdef CPPHTTPLIB_OPENSSL_SUPPORT
+        httplib::SSLClient client("restapi.amap.com");
+#else
         httplib::Client client("https://restapi.amap.com");
+#endif
         if (!client.is_valid()) return -1;
         client.set_connection_timeout(3);
         client.set_read_timeout(5);
@@ -123,8 +127,10 @@ TravelTimeResult AmapLiveProvider::getTravelTime(const std::string& fromId, cons
     if (!from || !to) return {-1, "amap", false};
 
     int minutes = fetchFromAmap(*from, *to);
-    putCache(key, minutes);
-    if (minutes >= 0) return {minutes, "amap", false};
+    if (minutes >= 0) {
+        putCache(key, minutes);
+        return {minutes, "amap", false};
+    }
 
     // Fallback to local data
     int localMinutes = graph_.shortestMinutes(fromId, toId);

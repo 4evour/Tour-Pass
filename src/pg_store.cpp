@@ -74,13 +74,19 @@ void PostgresStore::open() {
 }
 
 void PostgresStore::exec(const std::string& sql) {
+    if (!conn_) {
+        writeFailures_++;
+        throw std::runtime_error("PostgreSQL exec called with null connection");
+    }
     PGresult* res = PQexec(conn_, sql.c_str());
     if (PQresultStatus(res) != PGRES_COMMAND_OK && PQresultStatus(res) != PGRES_TUPLES_OK) {
-        std::cerr << "PostgreSQL exec error: " << PQresultErrorMessage(res) << " [SQL: " << sql.substr(0, 120) << "]" << std::endl;
+        std::string errMsg = PQresultErrorMessage(res);
+        std::cerr << "PostgreSQL exec error: " << errMsg << " [SQL: " << sql.substr(0, 120) << "]" << std::endl;
         writeFailures_++;
-    } else {
-        writeCount_++;
+        PQclear(res);
+        throw std::runtime_error("PostgreSQL exec error: " + errMsg);
     }
+    writeCount_++;
     PQclear(res);
 }
 

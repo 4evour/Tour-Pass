@@ -240,7 +240,7 @@ function initMapDragReorder() {
           day.stops.splice(info.stopIndex, 1);
           day.stops.splice(nearestIdx, 0, draggedStop);
           // Recalculate times
-          recalculateDayTimes(day);
+          recalcDayTimes(day);
           // Re-render cards and map
           renderPlan();
           toast("行程顺序已更新", "info");
@@ -248,32 +248,6 @@ function initMapDragReorder() {
       });
     }
   });
-}
-
-function recalculateDayTimes(day) {
-  var currentTime = 9 * 60 + 30; // default start 09:30
-  var prevId = null;
-  (day.stops || []).forEach(function(stop) {
-    var travel = 15; // default travel time
-    if (prevId && stop.poi_id) {
-      // Try to get actual travel time from edges (approximate)
-      travel = 10; // fallback
-    }
-    var arrival = currentTime + travel;
-    var openMin = timeToMinutes(stop.start_time); // use existing open time as reference
-    if (arrival < openMin - 30) arrival = openMin; // don't arrive too early
-    stop.travel_minutes_from_previous = travel;
-    stop.start_time = minutesToTime(arrival);
-    stop.end_time = minutesToTime(arrival + (stop.visit_duration_minutes || 60));
-    currentTime = arrival + (stop.visit_duration_minutes || 60);
-    prevId = stop.poi_id;
-  });
-}
-
-function minutesToTime(m) {
-  var h = Math.floor(m / 60);
-  var min = m % 60;
-  return (h < 10 ? "0" : "") + h + ":" + (min < 10 ? "0" : "") + min;
 }
 
 function initCardMarkerInteraction() {
@@ -425,14 +399,19 @@ function showSearchResultsOnMap(pois) {
       popupAnchor: [0, -16],
     });
     const marker = L.marker([poi.lat, poi.lng], { icon });
+    const popupId = 'poi_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
     marker.bindPopup(`
       <div style="min-width:160px;">
         <div style="font-weight:700;font-size:13px;">${escapeHtml(poi.name)}</div>
         <div style="font-size:11px;color:#65706d;">${escapeHtml(poi.district || "")} ${escapeHtml(poi.address || "")}</div>
         ${poi.rating ? `<div style="font-size:11px;margin-top:2px;">⭐ ${poi.rating}</div>` : ""}
-        <button onclick="addSearchPoiToItinerary(${JSON.stringify(poi).replace(/"/g, '&quot;')})" style="margin-top:6px;padding:4px 10px;border:1px solid #146b5d;border-radius:4px;background:#146b5d;color:#fff;font-size:11px;cursor:pointer;">+ 添加到行程</button>
+        <button data-poi-id="${popupId}" style="margin-top:6px;padding:4px 10px;border:1px solid #146b5d;border-radius:4px;background:#146b5d;color:#fff;font-size:11px;cursor:pointer;">+ 添加到行程</button>
       </div>
     `);
+    marker.on('popupopen', function() {
+      const btn = document.querySelector(`[data-poi-id="${popupId}"]`);
+      if (btn) btn.addEventListener('click', function() { addSearchPoiToItinerary(poi); });
+    });
     marker.addTo(searchResultMarkers);
   });
   searchResultMarkers.addTo(planMap);
@@ -1968,7 +1947,7 @@ async function loadHotels() {
     const data = await api("/poi/search?type=hotel&limit=100");
     allHotels = data.data || [];
     renderHotelList(allHotels);
-  } catch {}
+  } catch (e) { console.warn("loadHotels failed:", e); }
 }
 function renderHotelList(hotels) {
   $("hotelList").innerHTML = hotels.map(h => `
@@ -2392,7 +2371,7 @@ async function loadGuidebook(city) {
     // Also show in overview if it exists
     const overviewEl = $("guidebookSection");
     if (overviewEl) overviewEl.innerHTML = html;
-  } catch {}
+  } catch (e) { console.warn("loadGuidebook failed:", e); }
 }
 
 function renderGuidebook(data) {

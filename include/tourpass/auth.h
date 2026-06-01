@@ -30,4 +30,7 @@ std::string base64urlDecode(const std::string& input);
 // Random hex string for salt
 std::string randomHex(size_t bytes);
 
+// Constant-time string comparison (safe for cryptographic comparisons)
+bool constantTimeEquals(const std::string& a, const std::string& b);
+
 }  // namespace tourpass

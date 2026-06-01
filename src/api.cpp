@@ -29,10 +29,13 @@ bool sendVerificationEmail(const std::string& toEmail, const std::string& code) 
     // cpp-httplib supports HTTPS when compiled with OpenSSL
     httplib::Client client("https://api.resend.com");
     client.set_connection_timeout(10);
-    std::string body = "{\"from\":\"" + std::string(fromEmail) + "\","
-                       "\"to\":\"" + toEmail + "\","
-                       "\"subject\":\"Tour Pass - 验证码\","
-                       "\"html\":\"<h2>Tour Pass 注册验证</h2><p>您的验证码是：<strong>" + code + "</strong></p><p>5 分钟内有效。</p>\"}";
+    nlohmann::json bodyJson = {
+        {"from", std::string(fromEmail)},
+        {"to", toEmail},
+        {"subject", "Tour Pass - 验证码"},
+        {"html", "<h2>Tour Pass 注册验证</h2><p>您的验证码是：<strong>" + code + "</strong></p><p>5 分钟内有效。</p>"}
+    };
+    std::string body = bodyJson.dump();
     httplib::Headers headers = {
         {"Authorization", "Bearer " + std::string(apiKey)},
         {"Content-Type", "application/json"}
@@ -151,7 +154,7 @@ bool shouldAutoPromoteAdmin(DataStore* store) {
 }
 
 struct IpRateLimiter {
-    static constexpr size_t maxTotalIps = 100000;
+    static constexpr size_t maxTotalIps = 50000;
     std::mutex mu;
     std::unordered_map<std::string, std::deque<std::chrono::steady_clock::time_point>> hits;
     int maxRequests;
@@ -168,9 +171,18 @@ struct IpRateLimiter {
         }
         if (static_cast<int>(q.size()) >= maxRequests) return false;
         q.push_back(now);
-        if (hits.size() > maxTotalIps) {
+        // Evict idle entries, then force-evict oldest if still over limit
+        if (hits.size() > maxTotalIps / 2) {
             for (auto it = hits.begin(); it != hits.end();) {
                 if (it->second.empty()) it = hits.erase(it);
+                else ++it;
+            }
+        }
+        if (hits.size() > maxTotalIps) {
+            // Force-evict oldest 10% entries by last activity
+            size_t toEvict = maxTotalIps / 10;
+            for (auto it = hits.begin(); it != hits.end() && toEvict > 0;) {
+                if (it->first != ip) { it = hits.erase(it); --toEvict; }
                 else ++it;
             }
         }
@@ -190,6 +202,25 @@ struct EmailRateLimiter {
         if (it != lastSentAt.end() && now - it->second < minInterval) return false;
         lastSentAt[email] = now;
         return true;
+    }
+};
+
+struct VerificationAttemptLimiter {
+    static constexpr int maxAttempts = 5;
+    std::mutex mu;
+    std::unordered_map<std::string, int> failedAttempts;  // email -> count
+    bool recordFailure(const std::string& email) {
+        std::lock_guard<std::mutex> lock(mu);
+        return ++failedAttempts[email] >= maxAttempts;
+    }
+    void reset(const std::string& email) {
+        std::lock_guard<std::mutex> lock(mu);
+        failedAttempts.erase(email);
+    }
+    bool isLocked(const std::string& email) {
+        std::lock_guard<std::mutex> lock(mu);
+        auto it = failedAttempts.find(email);
+        return it != failedAttempts.end() && it->second >= maxAttempts;
     }
 };
 
@@ -225,15 +256,6 @@ std::string queryString(const httplib::Request& req) {
     auto pos = req.target.find('?');
     if (pos == std::string::npos) return "";
     return req.target.substr(pos + 1);
-}
-
-bool constantTimeEquals(const std::string& a, const std::string& b) {
-    if (a.size() != b.size()) return false;
-    volatile unsigned char result = 0;
-    for (size_t i = 0; i < a.size(); ++i) {
-        result |= static_cast<unsigned char>(a[i]) ^ static_cast<unsigned char>(b[i]);
-    }
-    return result == 0;
 }
 
 std::string routeName(const httplib::Request& req) {
@@ -296,6 +318,7 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
 }
 
     static EmailRateLimiter emailLimiter(60);
+    static VerificationAttemptLimiter verifyAttemptLimiter;
 
     void installMiddleware(httplib::Server& server, ApiContext& context) {
         static IpRateLimiter rateLimiter(60, 60);
@@ -335,8 +358,10 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
                          || req.method == "OPTIONS"
                          || req.path == "/" || req.path == "/index.html"
                          || req.path == "/app.js" || req.path == "/styles.css"
-                         || req.path == "/favicon.ico" || req.path == "/admin.html"
-                         || req.path == "/admin.js" || req.path == "/profile.html"
+                         || req.path == "/favicon.ico"
+                         || req.path == "/admin.html"  // static page; /admin/* API endpoints require admin role
+                         || req.path == "/admin.js"
+                         || req.path == "/profile.html"
                          || req.path == "/profile.js"
                          || req.path.find("/vendor/") == 0
                          || req.path.find("/assets/") == 0
@@ -371,6 +396,15 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
 
         // Query rate limit for /trip/plan and /trip/chat
         bool isQueryPath = req.path == "/trip/plan" || req.path == "/trip/chat";
+        // API key rate limit (separate from per-user limits)
+        if (isQueryPath && authUserId == -1) {
+            static IpRateLimiter apiKeyLimiter(1000, 86400);  // 1000 queries/day for API key
+            if (!apiKeyLimiter.allow("apikey")) {
+                context.metrics.recordRejectedRequest();
+                setJson(res, errorJson("DAILY_LIMIT_EXCEEDED", "API Key 今日查询次数已用完", {{"remaining", 0}}), 429);
+                return httplib::Server::HandlerResponse::Handled;
+            }
+        }
         if (isQueryPath && authUserId > 0 && context.store && context.store->enabled()) {
             int used = context.store->getQueryCount(authUserId);
             int bonus = context.store->getBonusQueries(authUserId);
@@ -922,12 +956,14 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 {"description", poi.description}, {"meal_type", poi.mealType},
                 {"recommendation", poi.recommendation},
             });
-            if (static_cast<int>(data.size()) >= limit) break;
         }
-        // Sort by popularity descending
+        // Sort by popularity descending, then truncate to limit
         std::sort(data.begin(), data.end(), [](const nlohmann::json& a, const nlohmann::json& b) {
             return a["popularity"].get<double>() > b["popularity"].get<double>();
         });
+        if (static_cast<int>(data.size()) > limit) {
+            data.erase(data.begin() + limit, data.end());
+        }
 
         nlohmann::json result = {{"data", data}, {"area", area}, {"total", static_cast<int>(data.size())}};
         context.cache.put(key, result);
@@ -981,7 +1017,9 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             if (!hSession) { setJson(res, errorJson("AMAP_ERROR", "WinHTTP 初始化失败"), 502); return; }
             HINTERNET hConnect = WinHttpConnect(hSession, L"restapi.amap.com", INTERNET_DEFAULT_HTTPS_PORT, 0);
             if (!hConnect) { WinHttpCloseHandle(hSession); setJson(res, errorJson("AMAP_ERROR", "WinHTTP 连接失败"), 502); return; }
-            std::wstring wurl(url.begin(), url.end());
+            int wlen = MultiByteToWideChar(CP_UTF8, 0, url.c_str(), -1, nullptr, 0);
+            std::wstring wurl(wlen - 1, L'\0');
+            MultiByteToWideChar(CP_UTF8, 0, url.c_str(), -1, &wurl[0], wlen);
             HINTERNET hRequest = WinHttpOpenRequest(hConnect, L"GET", wurl.c_str(), nullptr, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, WINHTTP_FLAG_SECURE);
             if (!hRequest) { WinHttpCloseHandle(hConnect); WinHttpCloseHandle(hSession); setJson(res, errorJson("AMAP_ERROR", "WinHTTP 请求失败"), 502); return; }
             WinHttpSetTimeouts(hRequest, 5000, 5000, 5000, 5000);
@@ -1446,10 +1484,15 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503); return;
             }
             // Verify code
+            if (verifyAttemptLimiter.isLocked(email)) {
+                setJson(res, errorJson("TOO_MANY_ATTEMPTS", "验证码尝试次数过多，请重新获取"), 429); return;
+            }
             auto codeId = context.store->getValidVerificationCode(email, code, "register");
             if (!codeId) {
+                verifyAttemptLimiter.recordFailure(email);
                 setJson(res, errorJson("INVALID_CODE", "验证码无效或已过期"), 400); return;
             }
+            verifyAttemptLimiter.reset(email);
             context.store->markCodeUsed(std::stoll(*codeId));
             // Check email not taken (race condition guard)
             if (context.store->findUserByEmail(email)) {
@@ -1567,7 +1610,16 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         }
         std::string html((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
         // Inject trip data as a script tag
-        std::string script = "<script>window.__SHARE_DATA__=" + trip->dump() + ";</script></head>";
+        // Use JSON.parse to prevent XSS: data in a non-executing script tag
+        std::string escaped = trip->dump();
+        // Escape </script> sequences in JSON to prevent breakout
+        size_t pos2 = 0;
+        while ((pos2 = escaped.find("</", pos2)) != std::string::npos) {
+            escaped.replace(pos2, 2, "<\\/");
+            pos2 += 2;
+        }
+        std::string script = "<script type=\"application/json\" id=\"share-data\">" + escaped + "</script>"
+            "<script>window.__SHARE_DATA__=JSON.parse(document.getElementById('share-data').textContent);</script></head>";
         auto pos = html.find("</head>");
         if (pos != std::string::npos) {
             html.replace(pos, 7, script);

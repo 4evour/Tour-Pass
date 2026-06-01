@@ -471,9 +471,14 @@ void SQLiteStore::markCodeUsed(int64_t codeId) {
 static std::string todayDate() {
     auto now = std::chrono::system_clock::now();
     auto time = std::chrono::system_clock::to_time_t(now);
-    struct tm* utc = gmtime(&time);
+    struct tm utc;
+#ifdef _WIN32
+    gmtime_s(&utc, &time);
+#else
+    gmtime_r(&time, &utc);
+#endif
     char buf[11];
-    snprintf(buf, sizeof(buf), "%04d-%02d-%02d", utc->tm_year + 1900, utc->tm_mon + 1, utc->tm_mday);
+    snprintf(buf, sizeof(buf), "%04d-%02d-%02d", utc.tm_year + 1900, utc.tm_mon + 1, utc.tm_mday);
     return buf;
 }
 
@@ -597,6 +602,16 @@ std::optional<nlohmann::json> SQLiteStore::getTrip(int64_t tripId, int64_t userI
 std::string SQLiteStore::generateShareId(int64_t tripId) {
     std::lock_guard<std::mutex> lock(mutex_);
     // Generate a random 12-char share ID using urandom (non-blocking)
+    // Check if share_id already exists
+    {
+        Statement checkStmt(db_, "SELECT share_id FROM saved_trips WHERE id = ?;");
+        sqlite3_bind_int64(checkStmt.get(), 1, tripId);
+        if (sqlite3_step(checkStmt.get()) == SQLITE_ROW) {
+            const char* existing = reinterpret_cast<const char*>(sqlite3_column_text(checkStmt.get(), 0));
+            if (existing && existing[0]) return existing;
+        }
+    }
+
     static const char chars[] = "abcdefghijklmnopqrstuvwxyz0123456789";
     std::string shareId(12, 'a');
     {
@@ -615,7 +630,15 @@ std::string SQLiteStore::generateShareId(int64_t tripId) {
     Statement stmt(db_, "UPDATE saved_trips SET share_id = ? WHERE id = ? AND share_id IS NULL;");
     bindText(stmt.get(), 1, shareId);
     sqlite3_bind_int64(stmt.get(), 2, tripId);
-    sqlite3_step(stmt.get());
+    if (sqlite3_step(stmt.get()) != SQLITE_DONE || sqlite3_changes(db_) == 0) {
+        // Race condition: another thread set share_id; fetch the real one
+        Statement retryStmt(db_, "SELECT share_id FROM saved_trips WHERE id = ?;");
+        sqlite3_bind_int64(retryStmt.get(), 1, tripId);
+        if (sqlite3_step(retryStmt.get()) == SQLITE_ROW) {
+            const char* actual = reinterpret_cast<const char*>(sqlite3_column_text(retryStmt.get(), 0));
+            if (actual && actual[0]) return actual;
+        }
+    }
     return shareId;
 }
 
