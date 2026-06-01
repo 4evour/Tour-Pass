@@ -9,6 +9,7 @@ import Sidebar from './components/Sidebar';
 import Timeline from './components/Timeline';
 import AiRecommend from './components/AiRecommend';
 import ConflictAlert from './components/ConflictAlert';
+import AiChat from './components/AiChat';
 
 export default function App() {
   const [city, setCity] = useState('');
@@ -124,6 +125,9 @@ export default function App() {
           </div>
         )}
       </DragOverlay>
+
+      {/* AI Chat */}
+      <AiChat city={city} />
     </DndContext>
   );
 }

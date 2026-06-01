@@ -21,6 +21,32 @@ export default function Timeline({ currentDay, onDayChange }: TimelineProps) {
   const totalTravel = stops.reduce((s, st) => s + st.travelMinutes, 0);
   const totalVisit = stops.reduce((s, st) => s + (st.poi.visit_duration || 60), 0);
 
+  const handleOptimize = async () => {
+    if (stops.length < 2) return;
+    try {
+      const res = await fetch('/editor/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          stops: stops.map(s => ({
+            poi_name: s.poi.name,
+            arrival: s.arrival,
+            departure: s.departure,
+            close_minutes: s.poi.close_minutes ?? 24 * 60,
+          })),
+        }),
+      });
+      const data = await res.json();
+      if (data.valid) {
+        alert('行程检查通过，无冲突！');
+      } else {
+        alert('发现 ' + data.issues.length + ' 个问题，请查看冲突提示。');
+      }
+    } catch {
+      alert('检查失败，请稍后重试。');
+    }
+  };
+
   return (
     <div className="flex flex-col h-full bg-white border-l">
       {/* Day tabs */}
@@ -42,10 +68,11 @@ export default function Timeline({ currentDay, onDayChange }: TimelineProps) {
 
       {/* Stats */}
       {stops.length > 0 && (
-        <div className="flex gap-3 px-3 py-1.5 border-b text-xs text-gray-500">
+        <div className="flex items-center gap-3 px-3 py-1.5 border-b text-xs text-gray-500">
           <span>🚶 通勤 {totalTravel} 分</span>
           <span>⏱ 游览 {totalVisit} 分</span>
           <span>📍 {stops.length} 站</span>
+          <button onClick={handleOptimize} className="ml-auto px-2 py-0.5 bg-primary-500 text-white rounded text-xs hover:bg-primary-600">检查行程</button>
         </div>
       )}
 
