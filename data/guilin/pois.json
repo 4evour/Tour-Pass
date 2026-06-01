@@ -20,7 +20,8 @@
     "meal_type": "main",
     "description": "象鼻山景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B030506W0W"
+    "source_id": "B030506W0W",
+    "recommendation": "象鼻山景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_55902460",
@@ -44,7 +45,8 @@
     "meal_type": "main",
     "description": "桂林市两江四湖景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B030507T9Q"
+    "source_id": "B030507T9Q",
+    "recommendation": "桂林市两江四湖景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_7f48e89d",
@@ -67,7 +69,8 @@
     "meal_type": "main",
     "description": "龙脊梯田风景名胜区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B030509AO3"
+    "source_id": "B030509AO3",
+    "recommendation": "龙脊梯田风景名胜区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c3b35520",
@@ -89,7 +92,8 @@
     "meal_type": "main",
     "description": "桂林千古情景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFJCRA6U"
+    "source_id": "B0FFJCRA6U",
+    "recommendation": "桂林千古情景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4a1023b8",
@@ -112,7 +116,8 @@
     "meal_type": "main",
     "description": "漓江景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B030507SVW"
+    "source_id": "B030507SVW",
+    "recommendation": "漓江景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3507bc4f",
@@ -135,7 +140,8 @@
     "meal_type": "main",
     "description": "七星景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B030505166"
+    "source_id": "B030505166",
+    "recommendation": "七星景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5953e379",
@@ -184,7 +190,8 @@
     "meal_type": "main",
     "description": "桂林阳朔如意峰索道景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0GRDOLYSN"
+    "source_id": "B0GRDOLYSN",
+    "recommendation": "桂林阳朔如意峰索道景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_31ef435d",
@@ -206,7 +213,8 @@
     "meal_type": "main",
     "description": "遇龙河景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B03050V0PB"
+    "source_id": "B03050V0PB",
+    "recommendation": "遇龙河景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2b73abd5",
@@ -228,7 +236,8 @@
     "meal_type": "main",
     "description": "兴坪古镇，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B030507XJK"
+    "source_id": "B030507XJK",
+    "recommendation": "兴坪古镇是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_bcea2cfe",
@@ -298,7 +307,8 @@
     "meal_type": "main",
     "description": "九马画山峡谷景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFQ4C8G"
+    "source_id": "B0FFFQ4C8G",
+    "recommendation": "九马画山峡谷景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d248dd8a",
@@ -343,7 +353,8 @@
     "meal_type": "main",
     "description": "大圩古镇，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG6RK2W"
+    "source_id": "B0FFG6RK2W",
+    "recommendation": "大圩古镇是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ce0e0997",
@@ -414,7 +425,8 @@
     "meal_type": "main",
     "description": "十里画廊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFS3J39"
+    "source_id": "B0FFFS3J39",
+    "recommendation": "十里画廊是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_592c0f75",
@@ -437,7 +449,8 @@
     "meal_type": "main",
     "description": "聚龙潭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHNL7UP"
+    "source_id": "B0FFHNL7UP",
+    "recommendation": "聚龙潭是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1ae25335",
@@ -460,7 +473,8 @@
     "meal_type": "main",
     "description": "阳朔天籁·蝴蝶泉，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B03050V0U9"
+    "source_id": "B03050V0U9",
+    "recommendation": "阳朔天籁·蝴蝶泉是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_32c85305",
@@ -507,7 +521,8 @@
     "meal_type": "main",
     "description": "猫儿山国家级自然保护区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B030507UC8"
+    "source_id": "B030507UC8",
+    "recommendation": "猫儿山国家级自然保护区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c26af975",
@@ -529,7 +544,8 @@
     "meal_type": "main",
     "description": "杨堤码头，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B03050VWKP"
+    "source_id": "B03050VWKP",
+    "recommendation": "杨堤码头是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f1c53261",
@@ -576,7 +592,8 @@
     "meal_type": "main",
     "description": "穿山景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0305001D2"
+    "source_id": "B0305001D2",
+    "recommendation": "穿山景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ec3e2360",
@@ -600,7 +617,8 @@
     "meal_type": "main",
     "description": "漓江冠岩风景区-冠岩洞，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFGFYLIZ"
+    "source_id": "B0FFGFYLIZ",
+    "recommendation": "漓江冠岩风景区-冠岩洞是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a5dd2124",
@@ -623,7 +641,8 @@
     "meal_type": "main",
     "description": "漓江冠岩风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B030507HRX"
+    "source_id": "B030507HRX",
+    "recommendation": "漓江冠岩风景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_36e19784",
@@ -717,7 +736,8 @@
     "meal_type": "main",
     "description": "平乐水寨，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFLEW5QQ"
+    "source_id": "B0FFLEW5QQ",
+    "recommendation": "平乐水寨是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_15f1ca10",
@@ -740,7 +760,8 @@
     "meal_type": "main",
     "description": "元宝岩景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B03050W288"
+    "source_id": "B03050W288",
+    "recommendation": "元宝岩景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_fc524e39",
@@ -764,7 +785,8 @@
     "meal_type": "main",
     "description": "龙头山，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG6RK2Z"
+    "source_id": "B0FFG6RK2Z",
+    "recommendation": "龙头山是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f3e87153",
@@ -789,7 +811,8 @@
     "meal_type": "main",
     "description": "漓江阳朔竹筏游船中心，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KUBRP0YO"
+    "source_id": "B0KUBRP0YO",
+    "recommendation": "漓江阳朔竹筏游船中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_37888019",
@@ -813,7 +836,8 @@
     "meal_type": "main",
     "description": "半边渡，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG2E4LB"
+    "source_id": "B0FFG2E4LB",
+    "recommendation": "半边渡是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2345d5fd",
@@ -936,7 +960,8 @@
     "meal_type": "main",
     "description": "甲天下广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B03050W8OE"
+    "source_id": "B03050W8OE",
+    "recommendation": "甲天下广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e740d3d7",
@@ -960,7 +985,8 @@
     "meal_type": "main",
     "description": "爱情岛，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFFUNIV"
+    "source_id": "B0FFFFUNIV",
+    "recommendation": "爱情岛是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_85961b3d",
@@ -984,7 +1010,8 @@
     "meal_type": "main",
     "description": "漓江阳朔竹筏游船中心，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LBCCE9CM"
+    "source_id": "B0LBCCE9CM",
+    "recommendation": "漓江阳朔竹筏游船中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_25635dc1",
@@ -1008,7 +1035,8 @@
     "meal_type": "main",
     "description": "漓江景区-大圩古镇毛州岛，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG0EZ1Q"
+    "source_id": "B0FFG0EZ1Q",
+    "recommendation": "漓江景区-大圩古镇毛州岛是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d17773f1",
@@ -1080,7 +1108,8 @@
     "meal_type": "main",
     "description": "黄牛峡，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG1Q5X0"
+    "source_id": "B0FFG1Q5X0",
+    "recommendation": "黄牛峡是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_fae4d0fb",
@@ -1104,7 +1133,8 @@
     "meal_type": "main",
     "description": "第二亲水营，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHVNHWQ"
+    "source_id": "B0FFHVNHWQ",
+    "recommendation": "第二亲水营是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f9524980",
@@ -1153,7 +1183,8 @@
     "meal_type": "main",
     "description": "漓江古东景区-龙吟在潭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHVNH3X"
+    "source_id": "B0FFHVNH3X",
+    "recommendation": "漓江古东景区-龙吟在潭是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_fa524b13",
@@ -1202,7 +1233,8 @@
     "meal_type": "main",
     "description": "漓江景区-望夫石，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG1PRZD"
+    "source_id": "B0FFG1PRZD",
+    "recommendation": "漓江景区-望夫石是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_87b513d9",
@@ -1226,7 +1258,8 @@
     "meal_type": "main",
     "description": "象鼻山渔人码头，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFJH27UR"
+    "source_id": "B0FFJH27UR",
+    "recommendation": "象鼻山渔人码头是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_7dea99d",
@@ -1250,7 +1283,8 @@
     "meal_type": "main",
     "description": "漓江冠岩-上站，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFIZTCT4"
+    "source_id": "B0FFIZTCT4",
+    "recommendation": "漓江冠岩-上站是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_98db141c",
@@ -1348,7 +1382,8 @@
     "meal_type": "main",
     "description": "生命之花，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG1QAXI"
+    "source_id": "B0FFG1QAXI",
+    "recommendation": "生命之花是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1fd6741c",
@@ -1418,7 +1453,8 @@
     "meal_type": "main",
     "description": "阳朔漓江一线江景观景台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KBKHF92K"
+    "source_id": "B0KBKHF92K",
+    "recommendation": "阳朔漓江一线江景观景台是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9e77d079",
@@ -1492,7 +1528,8 @@
     "meal_type": "main",
     "description": "漓江竹筏-龙门水境，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KBLU0R6N"
+    "source_id": "B0KBLU0R6N",
+    "recommendation": "漓江竹筏-龙门水境是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9593d551",
@@ -1514,7 +1551,8 @@
     "meal_type": "main",
     "description": "漓江大河圩老码头，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KA3UQZ6E"
+    "source_id": "B0KA3UQZ6E",
+    "recommendation": "漓江大河圩老码头是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ded23c10",
@@ -1561,7 +1599,8 @@
     "meal_type": "main",
     "description": "漓江大河背贰拾圆风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LG6D8OYO"
+    "source_id": "B0LG6D8OYO",
+    "recommendation": "漓江大河背贰拾圆风景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_583fae9c",
@@ -1583,7 +1622,8 @@
     "meal_type": "main",
     "description": "兴坪漓江游船，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KUZHGUB1"
+    "source_id": "B0KUZHGUB1",
+    "recommendation": "兴坪漓江游船是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5ff11e54",
@@ -1655,7 +1695,8 @@
     "meal_type": "main",
     "description": "桂林古东景区-将军石，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHVH7ZF"
+    "source_id": "B0FFHVH7ZF",
+    "recommendation": "桂林古东景区-将军石是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f93fcf7a",
@@ -1679,7 +1720,8 @@
     "meal_type": "main",
     "description": "猫头鹰和松鼠，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFGHGIHB"
+    "source_id": "B0FFGHGIHB",
+    "recommendation": "猫头鹰和松鼠是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_23d5aca9",
@@ -1703,7 +1745,8 @@
     "meal_type": "main",
     "description": "漓江古东景区-空谷连理，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHVOD8E"
+    "source_id": "B0FFHVOD8E",
+    "recommendation": "漓江古东景区-空谷连理是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_513f1d0c",
@@ -1727,7 +1770,8 @@
     "meal_type": "main",
     "description": "书生展卷，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHVLDU0"
+    "source_id": "B0FFHVLDU0",
+    "recommendation": "书生展卷是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_11428ec4",
@@ -1774,7 +1818,8 @@
     "meal_type": "main",
     "description": "聚英馆(景区办公室)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG26PHY"
+    "source_id": "B0FFG26PHY",
+    "recommendation": "聚英馆(景区办公室)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_81017fd2",
@@ -1798,7 +1843,8 @@
     "meal_type": "main",
     "description": "绣幕牵丝，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHW9YCC"
+    "source_id": "B0FFHW9YCC",
+    "recommendation": "绣幕牵丝是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_bf0bba63",
@@ -1822,7 +1868,8 @@
     "meal_type": "main",
     "description": "桃林李园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFGHLOO3"
+    "source_id": "B0FFGHLOO3",
+    "recommendation": "桃林李园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a913bd5",
@@ -1846,7 +1893,8 @@
     "meal_type": "main",
     "description": "漓江冠岩风景区-滴水观音，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFG2BANL"
+    "source_id": "B0FFG2BANL",
+    "recommendation": "漓江冠岩风景区-滴水观音是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4ad4ccdd",
@@ -1870,7 +1918,8 @@
     "meal_type": "main",
     "description": "观音放生池，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHWA4A1"
+    "source_id": "B0FFHWA4A1",
+    "recommendation": "观音放生池是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_60d2ac39",
@@ -1945,7 +1994,8 @@
     "meal_type": "main",
     "description": "桂林地学博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0L2XSXQW4"
+    "source_id": "B0L2XSXQW4",
+    "recommendation": "桂林地学博物馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a9980267",
@@ -2101,7 +2151,8 @@
     "meal_type": "main",
     "description": "桂林国际会展中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0IKBLG0ES"
+    "source_id": "B0IKBLG0ES",
+    "recommendation": "桂林国际会展中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d2af9c33",
@@ -2153,7 +2204,8 @@
     "meal_type": "main",
     "description": "桂林市临桂区第三中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0305099YX"
+    "source_id": "B0305099YX",
+    "recommendation": "桂林市临桂区第三中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e7c1829f",
@@ -2179,7 +2231,8 @@
     "meal_type": "main",
     "description": "临桂中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B030506NIM"
+    "source_id": "B030506NIM",
+    "recommendation": "临桂中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9895db3",
@@ -2204,7 +2257,8 @@
     "meal_type": "main",
     "description": "桂林市尚贤学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0GRPAJDC5"
+    "source_id": "B0GRPAJDC5",
+    "recommendation": "桂林市尚贤学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4755a726",
@@ -2230,7 +2284,8 @@
     "meal_type": "main",
     "description": "临桂区第一中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B030507V5Y"
+    "source_id": "B030507V5Y",
+    "recommendation": "临桂区第一中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_324e5780",
@@ -2255,7 +2310,8 @@
     "meal_type": "main",
     "description": "广西壮族自治区桂林图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFHNKHH6"
+    "source_id": "B0FFHNKHH6",
+    "recommendation": "广西壮族自治区桂林图书馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c0d58d54",
@@ -2281,7 +2337,8 @@
     "meal_type": "main",
     "description": "首都师范大学附属桂林实验中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0H3JZ110H"
+    "source_id": "B0H3JZ110H",
+    "recommendation": "首都师范大学附属桂林实验中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_42f82c36",
@@ -2307,7 +2364,8 @@
     "meal_type": "main",
     "description": "桂林市临桂区新龙中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFHR6F7D"
+    "source_id": "B0FFHR6F7D",
+    "recommendation": "桂林市临桂区新龙中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b2fae26c",
@@ -2333,7 +2391,8 @@
     "meal_type": "main",
     "description": "桂林市复兴学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFI8WM8R"
+    "source_id": "B0FFI8WM8R",
+    "recommendation": "桂林市复兴学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_666b28a6",
@@ -2359,7 +2418,8 @@
     "meal_type": "main",
     "description": "汇荣小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFIB4AXW"
+    "source_id": "B0FFIB4AXW",
+    "recommendation": "汇荣小学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_aa7ecfe0",
@@ -2385,7 +2445,8 @@
     "meal_type": "main",
     "description": "三元中学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0G2AA5TYD"
+    "source_id": "B0G2AA5TYD",
+    "recommendation": "三元中学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e0ecda1f",
@@ -2411,7 +2472,8 @@
     "meal_type": "main",
     "description": "桂林中学(临桂校区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B03050WY06"
+    "source_id": "B03050WY06",
+    "recommendation": "桂林中学(临桂校区)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2116f08b",
@@ -2437,7 +2499,8 @@
     "meal_type": "main",
     "description": "桂林市新城宝贤小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFM8BS02"
+    "source_id": "B0FFM8BS02",
+    "recommendation": "桂林市新城宝贤小学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_dfd4991b",
@@ -2463,7 +2526,8 @@
     "meal_type": "main",
     "description": "桂林市临桂区城区第一小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0H1JMPIAX"
+    "source_id": "B0H1JMPIAX",
+    "recommendation": "桂林市临桂区城区第一小学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_91dab84d",
@@ -2489,7 +2553,8 @@
     "meal_type": "main",
     "description": "桂林市临桂区环湖小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFHR3ZBY"
+    "source_id": "B0FFHR3ZBY",
+    "recommendation": "桂林市临桂区环湖小学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_fcba577e",
@@ -2544,7 +2609,8 @@
     "meal_type": "main",
     "description": "桂林市临桂新区国惠幼儿园，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0KR2RM5V2"
+    "source_id": "B0KR2RM5V2",
+    "recommendation": "桂林市临桂新区国惠幼儿园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_69ccc406",
@@ -2944,7 +3010,8 @@
     "meal_type": "main",
     "description": "桂林信息科技学院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0IKJS7XPP"
+    "source_id": "B0IKJS7XPP",
+    "recommendation": "桂林信息科技学院是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_48be49bb",
@@ -3237,7 +3304,8 @@
     "meal_type": "main",
     "description": "市民公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFICY7JN"
+    "source_id": "B0FFICY7JN",
+    "recommendation": "市民公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2902fdf8",
@@ -3262,7 +3330,8 @@
     "meal_type": "main",
     "description": "桂林飞虎队遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFWHXIW"
+    "source_id": "B0FFFWHXIW",
+    "recommendation": "桂林飞虎队遗址公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_77c2904c",
@@ -3287,7 +3356,8 @@
     "meal_type": "main",
     "description": "桂林市永远跟党走党建文化主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0IKVZAOKP"
+    "source_id": "B0IKVZAOKP",
+    "recommendation": "桂林市永远跟党走党建文化主题公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_bf0a9f9b",
@@ -3338,7 +3408,8 @@
     "meal_type": "main",
     "description": "金山体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0MAOXKENN"
+    "source_id": "B0MAOXKENN",
+    "recommendation": "金山体育公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4e74866d",
@@ -3522,7 +3593,8 @@
     "meal_type": "main",
     "description": "瓦窑小游园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFF9QI1G"
+    "source_id": "B0FFF9QI1G",
+    "recommendation": "瓦窑小游园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2c85cbc3",
@@ -3573,7 +3645,8 @@
     "meal_type": "main",
     "description": "四塘镇市民公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0HBNDVPSF"
+    "source_id": "B0HBNDVPSF",
+    "recommendation": "四塘镇市民公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_8fb31300",
@@ -3703,7 +3776,8 @@
     "meal_type": "main",
     "description": "雅斯特象山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFMCUBSO"
+    "source_id": "B0FFMCUBSO",
+    "recommendation": "雅斯特象山公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e69df805",
@@ -3754,7 +3828,8 @@
     "meal_type": "main",
     "description": "塔山旅拍公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L2HBAAXJ"
+    "source_id": "B0L2HBAAXJ",
+    "recommendation": "塔山旅拍公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_58bf9bff",
@@ -3779,7 +3854,8 @@
     "meal_type": "main",
     "description": "长海如月湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0HUFDXAK7"
+    "source_id": "B0HUFDXAK7",
+    "recommendation": "长海如月湖公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_786175b6",
@@ -3856,7 +3932,8 @@
     "meal_type": "main",
     "description": "七星消防主题文化园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFHMDQWD"
+    "source_id": "B0FFHMDQWD",
+    "recommendation": "七星消防主题文化园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3ced1c78",
@@ -3881,7 +3958,8 @@
     "meal_type": "main",
     "description": "桂林园博园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B03050VOV0"
+    "source_id": "B03050VOV0",
+    "recommendation": "桂林园博园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_fe992002",
@@ -3959,7 +4037,8 @@
     "meal_type": "main",
     "description": "鸣翠小区党建微公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0H2XRFJ13"
+    "source_id": "B0H2XRFJ13",
+    "recommendation": "鸣翠小区党建微公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_79e95ad6",
@@ -3985,7 +4064,8 @@
     "meal_type": "main",
     "description": "广西师大附中廉洁文化园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0GKZS8LDX"
+    "source_id": "B0GKZS8LDX",
+    "recommendation": "广西师大附中廉洁文化园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d22fc7e9",
@@ -4010,7 +4090,8 @@
     "meal_type": "main",
     "description": "奶油公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0HRJPNG21"
+    "source_id": "B0HRJPNG21",
+    "recommendation": "奶油公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_259ba35b",
@@ -4035,7 +4116,8 @@
     "meal_type": "main",
     "description": "凤山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFIIG8XS"
+    "source_id": "B0FFIIG8XS",
+    "recommendation": "凤山公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c5309e50",
@@ -4060,7 +4142,8 @@
     "meal_type": "main",
     "description": "六塘观音山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFGAEL64"
+    "source_id": "B0FFGAEL64",
+    "recommendation": "六塘观音山公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_18402bf7",
@@ -4111,7 +4194,8 @@
     "meal_type": "main",
     "description": "竹园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0JDYA0345"
+    "source_id": "B0JDYA0345",
+    "recommendation": "竹园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5388635c",
@@ -4136,7 +4220,8 @@
     "meal_type": "main",
     "description": "永福县中洲公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFLC51CE"
+    "source_id": "B0FFLC51CE",
+    "recommendation": "永福县中洲公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_76ec7fc0",
@@ -4187,7 +4272,8 @@
     "meal_type": "main",
     "description": "松园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0JDYMZGMF"
+    "source_id": "B0JDYMZGMF",
+    "recommendation": "松园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_79c23725",
@@ -4315,7 +4401,7 @@
     "description": "鑫师傅啤酒鱼(江景木楼)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIK3JQZ",
-    "recommendation": "江景"
+    "recommendation": "鑫师傅啤酒鱼(江景木楼)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d47febd2",
@@ -4389,7 +4475,8 @@
     "meal_type": "main",
     "description": "观景楼江景餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0MBOCXENF"
+    "source_id": "B0MBOCXENF",
+    "recommendation": "观景楼江景餐厅是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e2bb81f8",
@@ -4414,7 +4501,8 @@
     "meal_type": "main",
     "description": "老肥乡村大排档，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B03050WWZ7"
+    "source_id": "B03050WWZ7",
+    "recommendation": "老肥乡村大排档是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_9dad1e0d",
@@ -4439,7 +4527,8 @@
     "meal_type": "main",
     "description": "黄大姐啤酒鱼正宗桂林米粉店(蟠桃路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFKVTTKH"
+    "source_id": "B0FFKVTTKH",
+    "recommendation": "黄大姐啤酒鱼正宗桂林米粉店(蟠桃路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_aed087cc",
@@ -4463,7 +4552,8 @@
     "meal_type": "main",
     "description": "渔家园饭店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JDSARPOD"
+    "source_id": "B0JDSARPOD",
+    "recommendation": "渔家园饭店是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6adca00a",
@@ -4513,7 +4603,8 @@
     "meal_type": "main",
     "description": "桂品渔.啤酒鱼.桂林菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KDDHAEGN"
+    "source_id": "B0KDDHAEGN",
+    "recommendation": "桂品渔.啤酒鱼.桂林菜是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_bc17a11b",
@@ -4562,7 +4653,8 @@
     "meal_type": "main",
     "description": "家全美食馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JDV7QERS"
+    "source_id": "B0JDV7QERS",
+    "recommendation": "家全美食馆是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_eb6dd294",
@@ -4638,7 +4730,8 @@
     "meal_type": "main",
     "description": "李记阳朔啤酒鱼·1992年创立 (象山店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFLA68BT"
+    "source_id": "B0FFLA68BT",
+    "recommendation": "李记阳朔啤酒鱼·1992年创立 (象山店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a457aa01",
@@ -4690,7 +4783,8 @@
     "meal_type": "main",
     "description": "大榕树鸡公煲，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LDSKWKUT"
+    "source_id": "B0LDSKWKUT",
+    "recommendation": "大榕树鸡公煲是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a80e3a48",
@@ -4740,7 +4834,8 @@
     "meal_type": "main",
     "description": "鲜桂厨金牌啤酒鱼桂林菜(文化宫店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KD0M13IE"
+    "source_id": "B0KD0M13IE",
+    "recommendation": "鲜桂厨金牌啤酒鱼桂林菜(文化宫店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_5e06bec8",
@@ -4764,7 +4859,8 @@
     "meal_type": "main",
     "description": "李小厨桂林米粉·盖饭·啤酒鱼，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0GUJ4P4SR"
+    "source_id": "B0GUJ4P4SR",
+    "recommendation": "李小厨桂林米粉·盖饭·啤酒鱼是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_158f5250",
@@ -4815,7 +4911,8 @@
     "meal_type": "main",
     "description": "谢三姐金奖啤酒鱼(桃源新店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0IU7YI1Q3"
+    "source_id": "B0IU7YI1Q3",
+    "recommendation": "谢三姐金奖啤酒鱼(桃源新店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_69a66819",
@@ -4865,7 +4962,8 @@
     "meal_type": "main",
     "description": "漓江鱼庄·啤酒鱼(古镇步行街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFL7ANCZ"
+    "source_id": "B0FFL7ANCZ",
+    "recommendation": "漓江鱼庄·啤酒鱼(古镇步行街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_65e27566",
@@ -4914,7 +5012,8 @@
     "meal_type": "main",
     "description": "门师傅·漓江啤酒鱼(地球村店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0IRAYS03Y"
+    "source_id": "B0IRAYS03Y",
+    "recommendation": "门师傅·漓江啤酒鱼(地球村店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d6b3cb11",
@@ -4939,7 +5038,8 @@
     "meal_type": "main",
     "description": "渔逸乡正宗啤酒鱼，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFSEP7E"
+    "source_id": "B0FFFSEP7E",
+    "recommendation": "渔逸乡正宗啤酒鱼是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_81d71de4",
@@ -4963,7 +5063,8 @@
     "meal_type": "main",
     "description": "成富饭店(竹江码头店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HD1G2JIZ"
+    "source_id": "B0HD1G2JIZ",
+    "recommendation": "成富饭店(竹江码头店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_5b618515",
@@ -4989,7 +5090,8 @@
     "meal_type": "main",
     "description": "原老字号胜发啤酒鸭，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIQI0ID"
+    "source_id": "B0FFIQI0ID",
+    "recommendation": "原老字号胜发啤酒鸭是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_7ec1480a",
@@ -5013,7 +5115,8 @@
     "meal_type": "main",
     "description": "老厨师啤酒鱼(千古情店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0GUZ1JJFN"
+    "source_id": "B0GUZ1JJFN",
+    "recommendation": "老厨师啤酒鱼(千古情店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_74959b75",
@@ -5037,7 +5140,8 @@
     "meal_type": "main",
     "description": "陈珍米粉特色啤酒鱼店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KBJN4KII"
+    "source_id": "B0KBJN4KII",
+    "recommendation": "陈珍米粉特色啤酒鱼店是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_af522198",
@@ -5062,7 +5166,8 @@
     "meal_type": "main",
     "description": "旭鲜米粉，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0J3XSTX0K"
+    "source_id": "B0J3XSTX0K",
+    "recommendation": "旭鲜米粉是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_936808b6",
@@ -5086,7 +5191,8 @@
     "meal_type": "main",
     "description": "老廖桂林米粉，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0G3JD60M6"
+    "source_id": "B0G3JD60M6",
+    "recommendation": "老廖桂林米粉是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_698d2102",
@@ -5111,7 +5217,8 @@
     "meal_type": "main",
     "description": "莫爷正宗桂林米粉，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LBT16K5N"
+    "source_id": "B0LBT16K5N",
+    "recommendation": "莫爷正宗桂林米粉是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_8e83f9e6",
@@ -5135,7 +5242,8 @@
     "meal_type": "main",
     "description": "老味道大排档，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0K25CQFTQ"
+    "source_id": "B0K25CQFTQ",
+    "recommendation": "老味道大排档是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_4567efdd",
@@ -5159,7 +5267,8 @@
     "meal_type": "main",
     "description": "莫大姐螺蛳粉(啤酒鱼)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JAHU723N"
+    "source_id": "B0JAHU723N",
+    "recommendation": "莫大姐螺蛳粉(啤酒鱼)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_4b9f0f8a",
@@ -5183,7 +5292,8 @@
     "meal_type": "main",
     "description": "桂香正宗桂林米粉，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0GKPSX40J"
+    "source_id": "B0GKPSX40J",
+    "recommendation": "桂香正宗桂林米粉是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6c91a3db",
@@ -5232,7 +5342,8 @@
     "meal_type": "main",
     "description": "城中啤酒鱼·私房菜(城中城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0J6MLU8L3"
+    "source_id": "B0J6MLU8L3",
+    "recommendation": "城中啤酒鱼·私房菜(城中城店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ebb48c0e",
@@ -5256,7 +5367,8 @@
     "meal_type": "main",
     "description": "唐记振强大排档，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0G25SU1R4"
+    "source_id": "B0G25SU1R4",
+    "recommendation": "唐记振强大排档是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_2870f0ed",
@@ -5335,7 +5447,8 @@
     "meal_type": "main",
     "description": "桂林香格里拉，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B030507QH3"
+    "source_id": "B030507QH3",
+    "recommendation": "桂林香格里拉是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_5633754c",
@@ -5385,7 +5498,8 @@
     "meal_type": "main",
     "description": "泰福居大师傅金奖啤酒鱼，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0J277G3SH"
+    "source_id": "B0J277G3SH",
+    "recommendation": "泰福居大师傅金奖啤酒鱼是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_bb3348e6",
@@ -5485,7 +5599,8 @@
     "meal_type": "main",
     "description": "杨记米粉店(三花小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHNHHFL"
+    "source_id": "B0FFHNHHFL",
+    "recommendation": "杨记米粉店(三花小区店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e83b23e6",
@@ -5509,7 +5624,8 @@
     "meal_type": "main",
     "description": "美美桂林米粉·啤酒鱼，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0J1P94D1N"
+    "source_id": "B0J1P94D1N",
+    "recommendation": "美美桂林米粉·啤酒鱼是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_2f73462e",
@@ -5533,7 +5649,8 @@
     "meal_type": "main",
     "description": "正宗桂林米粉店(广成线店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0G1XCHGE4"
+    "source_id": "B0G1XCHGE4",
+    "recommendation": "正宗桂林米粉店(广成线店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_28f167c1",
@@ -5558,7 +5675,8 @@
     "meal_type": "main",
     "description": "老丁烧烤，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KDBKUM13"
+    "source_id": "B0KDBKUM13",
+    "recommendation": "老丁烧烤是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_1d8b7d6d",
@@ -5582,7 +5700,8 @@
     "meal_type": "main",
     "description": "桂林米粉啤酒鱼，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0L3JPCEU0"
+    "source_id": "B0L3JPCEU0",
+    "recommendation": "桂林米粉啤酒鱼是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a53835f5",
@@ -5607,7 +5726,8 @@
     "meal_type": "main",
     "description": "怡轩食府·猪肚鸡(佳信自由时代店)(暂停营业)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGG0VZ4"
+    "source_id": "B0FFGG0VZ4",
+    "recommendation": "怡轩食府·猪肚鸡(佳信自由时代店)(暂停营业)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d81fa8ed",
@@ -5631,7 +5751,8 @@
     "meal_type": "main",
     "description": "隐沫酒店(桂林两江四湖万象城店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0G3Z5QPW9"
+    "source_id": "B0G3Z5QPW9",
+    "recommendation": "隐沫酒店(桂林两江四湖万象城店)是夜间休闲好去处"
   },
   {
     "id": "amap_2c1c4813",
@@ -5657,7 +5778,8 @@
     "meal_type": "main",
     "description": "汉唐寻味(西山公园店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0I6YCOL71"
+    "source_id": "B0I6YCOL71",
+    "recommendation": "汉唐寻味(西山公园店)是夜间休闲好去处"
   },
   {
     "id": "amap_3f0c4a5e",
@@ -5682,7 +5804,8 @@
     "meal_type": "main",
     "description": "柴火灶系列菜，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0K2CS09RY"
+    "source_id": "B0K2CS09RY",
+    "recommendation": "柴火灶系列菜是夜间休闲好去处"
   },
   {
     "id": "amap_d8169b6c",
@@ -5738,7 +5861,8 @@
     "meal_type": "main",
     "description": "榕湖饭店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0305000AD"
+    "source_id": "B0305000AD",
+    "recommendation": "榕湖饭店是夜间休闲好去处"
   },
   {
     "id": "amap_878ef222",
@@ -5762,7 +5886,8 @@
     "meal_type": "main",
     "description": "白公馆下午茶餐厅，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0LKC51MJH"
+    "source_id": "B0LKC51MJH",
+    "recommendation": "白公馆下午茶餐厅是夜间休闲好去处"
   },
   {
     "id": "amap_f13a3bb3",
@@ -5789,7 +5914,8 @@
     "meal_type": "main",
     "description": "桂林饭店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0305097DZ"
+    "source_id": "B0305097DZ",
+    "recommendation": "桂林饭店是夜间休闲好去处"
   },
   {
     "id": "amap_4218ffb6",
@@ -5813,7 +5939,8 @@
     "meal_type": "main",
     "description": "白公馆咖啡厅，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0J2A78TRA"
+    "source_id": "B0J2A78TRA",
+    "recommendation": "白公馆咖啡厅是夜间休闲好去处"
   },
   {
     "id": "amap_131b8a5c",
@@ -5838,7 +5965,8 @@
     "meal_type": "main",
     "description": "胡记啤酒鱼馆，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0I1JACP85"
+    "source_id": "B0I1JACP85",
+    "recommendation": "胡记啤酒鱼馆是夜间休闲好去处"
   },
   {
     "id": "amap_ab1629f3",
@@ -5890,7 +6018,8 @@
     "meal_type": "main",
     "description": "Black Boots黑靴子咖啡店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0JA7AUJ48"
+    "source_id": "B0JA7AUJ48",
+    "recommendation": "Black Boots黑靴子咖啡店是夜间休闲好去处"
   },
   {
     "id": "amap_402c6800",
@@ -5940,7 +6069,8 @@
     "meal_type": "main",
     "description": "风·咖啡(两江四湖店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0L6ORKM8F"
+    "source_id": "B0L6ORKM8F",
+    "recommendation": "风·咖啡(两江四湖店)是夜间休闲好去处"
   },
   {
     "id": "amap_8de45bdd",
@@ -5966,7 +6096,8 @@
     "meal_type": "main",
     "description": "蜂子油茶(桂林两江四湖象鼻山店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0JKNXKTEO"
+    "source_id": "B0JKNXKTEO",
+    "recommendation": "蜂子油茶(桂林两江四湖象鼻山店)是夜间休闲好去处"
   },
   {
     "id": "amap_c058bf71",
@@ -5990,7 +6121,8 @@
     "meal_type": "main",
     "description": "云雀咖啡(中山南路店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0H16ZXUPJ"
+    "source_id": "B0H16ZXUPJ",
+    "recommendation": "云雀咖啡(中山南路店)是夜间休闲好去处"
   },
   {
     "id": "amap_cc75abe8",
@@ -6014,7 +6146,8 @@
     "meal_type": "main",
     "description": "南环路106号铺面，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0L2RHMLGW"
+    "source_id": "B0L2RHMLGW",
+    "recommendation": "南环路106号铺面是夜间休闲好去处"
   },
   {
     "id": "amap_1344092d",
@@ -6064,7 +6197,8 @@
     "meal_type": "main",
     "description": "王记肠粉皇，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0L027NW5O"
+    "source_id": "B0L027NW5O",
+    "recommendation": "王记肠粉皇是夜间休闲好去处"
   },
   {
     "id": "amap_2e719e3e",
@@ -6089,7 +6223,8 @@
     "meal_type": "main",
     "description": "旭鲜米粉(中山北路店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0JBTOFFKU"
+    "source_id": "B0JBTOFFKU",
+    "recommendation": "旭鲜米粉(中山北路店)是夜间休闲好去处"
   },
   {
     "id": "amap_fd79fd4",
@@ -6114,7 +6249,8 @@
     "meal_type": "main",
     "description": "戊念·如院临江艺宿卤煮cafe小馆，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0LKFUTW4N"
+    "source_id": "B0LKFUTW4N",
+    "recommendation": "戊念·如院临江艺宿卤煮cafe小馆是夜间休闲好去处"
   },
   {
     "id": "amap_9b3464de",
@@ -6166,7 +6302,8 @@
     "meal_type": "main",
     "description": "鸿印昌茶馆，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0M6TR5JMG"
+    "source_id": "B0M6TR5JMG",
+    "recommendation": "鸿印昌茶馆是夜间休闲好去处"
   },
   {
     "id": "amap_ded5ab12",
@@ -6191,7 +6328,8 @@
     "meal_type": "main",
     "description": "正新鸡排(书城店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0FFGPAKXV"
+    "source_id": "B0FFGPAKXV",
+    "recommendation": "正新鸡排(书城店)是夜间休闲好去处"
   },
   {
     "id": "amap_45eb0f3",
@@ -6216,7 +6354,8 @@
     "meal_type": "main",
     "description": "大嘴巴小吃店(麻辣烫清补凉粥油炸小吃)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0IAV1NZ4Y"
+    "source_id": "B0IAV1NZ4Y",
+    "recommendation": "大嘴巴小吃店(麻辣烫清补凉粥油炸小吃)是夜间休闲好去处"
   },
   {
     "id": "amap_eab52040",
@@ -6240,7 +6379,8 @@
     "meal_type": "main",
     "description": "霸哥郴州猪脑壳盒饭专营店(穿山北路店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0IG6ZD8SL"
+    "source_id": "B0IG6ZD8SL",
+    "recommendation": "霸哥郴州猪脑壳盒饭专营店(穿山北路店)是夜间休闲好去处"
   },
   {
     "id": "amap_e304fad2",
@@ -6266,7 +6406,8 @@
     "meal_type": "main",
     "description": "ampm，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0L3A9WMCS"
+    "source_id": "B0L3A9WMCS",
+    "recommendation": "ampm是夜间休闲好去处"
   },
   {
     "id": "amap_ca4f38e1",
@@ -6447,7 +6588,8 @@
     "meal_type": "main",
     "description": "勺得百货大楼店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0KRTUVCOB"
+    "source_id": "B0KRTUVCOB",
+    "recommendation": "勺得百货大楼店是夜间休闲好去处"
   },
   {
     "id": "amap_fbebfeb1",
@@ -6629,7 +6771,8 @@
     "meal_type": "main",
     "description": "桂林小吃街(桂林国际机场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0GKCHS82V"
+    "source_id": "B0GKCHS82V",
+    "recommendation": "桂林小吃街(桂林国际机场店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_f885966b",
@@ -6730,7 +6873,7 @@
     "description": "八里街夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LKXCO4YZ",
-    "recommendation": "烟火气超"
+    "recommendation": "八里街夜市是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_11b53997",
@@ -6880,7 +7023,8 @@
     "meal_type": "main",
     "description": "阳朔县赵记自助烧烤美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0GUPAXE94"
+    "source_id": "B0GUPAXE94",
+    "recommendation": "阳朔县赵记自助烧烤美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b3613202",
@@ -6905,7 +7049,8 @@
     "meal_type": "main",
     "description": "东北美食城(川东三路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFFYR9B9"
+    "source_id": "B0FFFYR9B9",
+    "recommendation": "东北美食城(川东三路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_dd08fa49",
@@ -6930,7 +7075,8 @@
     "meal_type": "main",
     "description": "顾记烧烤美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0IAJX85NU"
+    "source_id": "B0IAJX85NU",
+    "recommendation": "顾记烧烤美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_fde2348a",
@@ -6956,7 +7102,8 @@
     "meal_type": "main",
     "description": "老三海鲜烧烤美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFFOZTCE"
+    "source_id": "B0FFFOZTCE",
+    "recommendation": "老三海鲜烧烤美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_502c54a9",
@@ -7006,7 +7153,8 @@
     "meal_type": "main",
     "description": "好外婆美食城(福隆园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFKV76OB"
+    "source_id": "B0FFKV76OB",
+    "recommendation": "好外婆美食城(福隆园店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6fbb61fc",
@@ -7030,7 +7178,8 @@
     "meal_type": "main",
     "description": "聚福楼油茶美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFG6DBLP"
+    "source_id": "B0FFG6DBLP",
+    "recommendation": "聚福楼油茶美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_2cc1f788",
@@ -7080,7 +7229,8 @@
     "meal_type": "main",
     "description": "老兵烧烤美食城(1号店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0HAOYGXC3"
+    "source_id": "B0HAOYGXC3",
+    "recommendation": "老兵烧烤美食城(1号店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_749f5080",
@@ -7104,7 +7254,8 @@
     "meal_type": "main",
     "description": "好好吃美食城(香格丽城店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFIK30WU"
+    "source_id": "B0FFIK30WU",
+    "recommendation": "好好吃美食城(香格丽城店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_c710ff46",
@@ -7128,7 +7279,8 @@
     "meal_type": "main",
     "description": "美食城(万福广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0IAJHXJ1B"
+    "source_id": "B0IAJHXJ1B",
+    "recommendation": "美食城(万福广场店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_8b846400",
@@ -7152,7 +7304,8 @@
     "meal_type": "main",
     "description": "红太阳大排档煎锅美食城(西城步行街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B030506M08"
+    "source_id": "B030506M08",
+    "recommendation": "红太阳大排档煎锅美食城(西城步行街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_353a7f7d",
@@ -7201,7 +7354,8 @@
     "meal_type": "main",
     "description": "老二烤鱼烧烤美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0GRM71NDY"
+    "source_id": "B0GRM71NDY",
+    "recommendation": "老二烤鱼烧烤美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ee4c30b",
@@ -7301,7 +7455,8 @@
     "meal_type": "main",
     "description": "大师兄美食城(北极广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0JUS5N9PQ"
+    "source_id": "B0JUS5N9PQ",
+    "recommendation": "大师兄美食城(北极广场店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e8a2e2d0",
@@ -7325,7 +7480,8 @@
     "meal_type": "main",
     "description": "源头镇东风美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0MBSCEBJ5"
+    "source_id": "B0MBSCEBJ5",
+    "recommendation": "源头镇东风美食街是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_c12ea22e",
@@ -7349,7 +7505,8 @@
     "meal_type": "main",
     "description": "阿能美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0G3C66G7B"
+    "source_id": "B0G3C66G7B",
+    "recommendation": "阿能美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_909566e",
@@ -7373,7 +7530,8 @@
     "meal_type": "main",
     "description": "莫记烧烤油茶火锅美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0J60ACQV0"
+    "source_id": "B0J60ACQV0",
+    "recommendation": "莫记烧烤油茶火锅美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_f7674aff",
@@ -7397,7 +7555,8 @@
     "meal_type": "main",
     "description": "百汇美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LR6RGQSG"
+    "source_id": "B0LR6RGQSG",
+    "recommendation": "百汇美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_bb2caa5b",
@@ -7447,7 +7606,8 @@
     "meal_type": "main",
     "description": "国展购物公园美食街(国展购物公园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0H2H1J1HI"
+    "source_id": "B0H2H1J1HI",
+    "recommendation": "国展购物公园美食街(国展购物公园店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_937a1bd6",
@@ -7472,7 +7632,8 @@
     "meal_type": "main",
     "description": "大师傅金奖啤酒鱼·西街老店，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFJ92UVA"
+    "source_id": "B0FFJ92UVA",
+    "recommendation": "大师傅金奖啤酒鱼·西街老店是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ccffcc8e",
@@ -7496,7 +7657,8 @@
     "meal_type": "main",
     "description": "袋鼠美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0ID27Z6PY"
+    "source_id": "B0ID27Z6PY",
+    "recommendation": "袋鼠美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_ea2e722c",
@@ -7520,7 +7682,8 @@
     "meal_type": "main",
     "description": "动力广场美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0LGMUF2MS"
+    "source_id": "B0LGMUF2MS",
+    "recommendation": "动力广场美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d6947ccb",
@@ -7544,7 +7707,8 @@
     "meal_type": "main",
     "description": "美食街云之味餐厅，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFKTZBQF"
+    "source_id": "B0FFKTZBQF",
+    "recommendation": "美食街云之味餐厅是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_c823b249",
@@ -7568,7 +7732,8 @@
     "meal_type": "main",
     "description": "潮记美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0L374L2NT"
+    "source_id": "B0L374L2NT",
+    "recommendation": "潮记美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6adfca79",
@@ -7593,7 +7758,8 @@
     "meal_type": "main",
     "description": "食来香美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0FFGJ48DQ"
+    "source_id": "B0FFGJ48DQ",
+    "recommendation": "食来香美食城是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_73ca3fba",
@@ -7617,7 +7783,8 @@
     "meal_type": "main",
     "description": "桂院后街美食，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
-    "source_id": "B0J6ZKBG2E"
+    "source_id": "B0J6ZKBG2E",
+    "recommendation": "桂院后街美食是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_bd93ee3a",
@@ -7697,7 +7864,8 @@
     "meal_type": "main",
     "description": "吾悦广场(桂林店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFJ45YNZ"
+    "source_id": "B0FFJ45YNZ",
+    "recommendation": "吾悦广场(桂林店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e8f7c5a4",
@@ -7778,7 +7946,8 @@
     "meal_type": "main",
     "description": "桂林万象城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFGQ2TDY"
+    "source_id": "B0FFGQ2TDY",
+    "recommendation": "桂林万象城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3a78f809",
@@ -7805,7 +7974,8 @@
     "meal_type": "main",
     "description": "联达商业广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B030509B3T"
+    "source_id": "B030509B3T",
+    "recommendation": "联达商业广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_17f4149a",
@@ -7858,7 +8028,8 @@
     "meal_type": "main",
     "description": "红街商业广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFG0BPOG"
+    "source_id": "B0FFG0BPOG",
+    "recommendation": "红街商业广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2a09cc09",
@@ -7885,7 +8056,8 @@
     "meal_type": "main",
     "description": "桂林微笑堂商厦，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B030504DF6"
+    "source_id": "B030504DF6",
+    "recommendation": "桂林微笑堂商厦是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ff49225",
@@ -7911,7 +8083,8 @@
     "meal_type": "main",
     "description": "小香港商业城(依仁路店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFF9RW8T"
+    "source_id": "B0FFF9RW8T",
+    "recommendation": "小香港商业城(依仁路店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_32308dd4",
@@ -7938,7 +8111,8 @@
     "meal_type": "main",
     "description": "桂林百货大楼，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B030501314"
+    "source_id": "B030501314",
+    "recommendation": "桂林百货大楼是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_57df47f0",
@@ -7965,7 +8139,8 @@
     "meal_type": "main",
     "description": "桂林客世界广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFMBPFV8"
+    "source_id": "B0FFMBPFV8",
+    "recommendation": "桂林客世界广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_de19dbfa",
@@ -7992,7 +8167,8 @@
     "meal_type": "main",
     "description": "王城商厦，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B030501E14"
+    "source_id": "B030501E14",
+    "recommendation": "王城商厦是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1dda6595",
@@ -8018,7 +8194,8 @@
     "meal_type": "main",
     "description": "桂林高新万达广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFG7HGEX"
+    "source_id": "B0FFG7HGEX",
+    "recommendation": "桂林高新万达广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_22374465",
@@ -8045,7 +8222,8 @@
     "meal_type": "main",
     "description": "国展购物公园，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B03050952X"
+    "source_id": "B03050952X",
+    "recommendation": "国展购物公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5beffe87",
@@ -8072,7 +8250,8 @@
     "meal_type": "main",
     "description": "百货大楼B楼，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFF9QUD9"
+    "source_id": "B0FFF9QUD9",
+    "recommendation": "百货大楼B楼是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4241d7b3",
@@ -8098,7 +8277,8 @@
     "meal_type": "main",
     "description": "超级星跨世代体验商业广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFHCJCJH"
+    "source_id": "B0FFHCJCJH",
+    "recommendation": "超级星跨世代体验商业广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_53fc2868",
@@ -8125,7 +8305,8 @@
     "meal_type": "main",
     "description": "国贸天地，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFILB714"
+    "source_id": "B0FFILB714",
+    "recommendation": "国贸天地是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_49debd8d",
@@ -8153,7 +8334,7 @@
     "description": "富城商厦，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFDPSCJ",
-    "recommendation": "老牌"
+    "recommendation": "富城商厦是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_66935ab1",
@@ -8180,7 +8361,8 @@
     "meal_type": "main",
     "description": "华星·城市奥特莱斯(王城商厦店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0J3G5BLDQ"
+    "source_id": "B0J3G5BLDQ",
+    "recommendation": "华星·城市奥特莱斯(王城商厦店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d71ab7d0",
@@ -8261,7 +8443,8 @@
     "meal_type": "main",
     "description": "富城商厦A栋，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFFYX3A8"
+    "source_id": "B0FFFYX3A8",
+    "recommendation": "富城商厦A栋是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a19444f3",
@@ -8288,7 +8471,8 @@
     "meal_type": "main",
     "description": "正阳门商场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0305094BS"
+    "source_id": "B0305094BS",
+    "recommendation": "正阳门商场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1734b3cf",
@@ -8315,7 +8499,8 @@
     "meal_type": "main",
     "description": "正阳广场(桂林市正阳路步行街店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFH228VN"
+    "source_id": "B0FFH228VN",
+    "recommendation": "正阳广场(桂林市正阳路步行街店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9e2c4b62",
@@ -8341,7 +8526,8 @@
     "meal_type": "main",
     "description": "北大街购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFGPCES3"
+    "source_id": "B0FFGPCES3",
+    "recommendation": "北大街购物中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_82d5fc4e",
@@ -8367,7 +8553,8 @@
     "meal_type": "main",
     "description": "德天商业广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0I1XCQBHK"
+    "source_id": "B0I1XCQBHK",
+    "recommendation": "德天商业广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1f9882",
@@ -8394,7 +8581,8 @@
     "meal_type": "main",
     "description": "地下购物中心(江南巷店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFH3MT8G"
+    "source_id": "B0FFH3MT8G",
+    "recommendation": "地下购物中心(江南巷店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_90129a2d",
@@ -8421,7 +8609,8 @@
     "meal_type": "main",
     "description": "百货大楼A楼，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFFDE9C7"
+    "source_id": "B0FFFDE9C7",
+    "recommendation": "百货大楼A楼是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_85d51b4d",
@@ -8447,7 +8636,8 @@
     "meal_type": "main",
     "description": "大学城购物广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFIR2VZ9"
+    "source_id": "B0FFIR2VZ9",
+    "recommendation": "大学城购物广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ae733bbe",
@@ -8501,7 +8691,8 @@
     "meal_type": "main",
     "description": "广泰商厦，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFJ8VGJG"
+    "source_id": "B0FFJ8VGJG",
+    "recommendation": "广泰商厦是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_71263b66",
@@ -8526,7 +8717,8 @@
     "meal_type": "main",
     "description": "金城商业广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFK8CQGC"
+    "source_id": "B0FFK8CQGC",
+    "recommendation": "金城商业广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_70ad0d57",
@@ -8553,7 +8745,8 @@
     "meal_type": "main",
     "description": "桂北亿圣批发城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0G2O7GE6C"
+    "source_id": "B0G2O7GE6C",
+    "recommendation": "桂北亿圣批发城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_90637174",
@@ -8577,7 +8770,8 @@
     "meal_type": "drink",
     "description": "瑶家小院油茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0G211CFKJ"
+    "source_id": "B0G211CFKJ",
+    "recommendation": "瑶家小院油茶馆是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d445ddb7",
@@ -8627,7 +8821,8 @@
     "meal_type": "drink",
     "description": "淡马茶坊(桂林万象城店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0L3MHKHVP"
+    "source_id": "B0L3MHKHVP",
+    "recommendation": "淡马茶坊(桂林万象城店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_901ea6b5",
@@ -8651,7 +8846,8 @@
     "meal_type": "drink",
     "description": "唐记茶锅奶奶灌阳油茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFKVZELJ"
+    "source_id": "B0FFKVZELJ",
+    "recommendation": "唐记茶锅奶奶灌阳油茶馆是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_1341fae8",
@@ -8675,7 +8871,8 @@
     "meal_type": "drink",
     "description": "桂林茶社，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0L1P77ANA"
+    "source_id": "B0L1P77ANA",
+    "recommendation": "桂林茶社是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b6a5d861",
@@ -8749,7 +8946,8 @@
     "meal_type": "drink",
     "description": "麦多茶馆(东华路店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0J2R5TD83"
+    "source_id": "B0J2R5TD83",
+    "recommendation": "麦多茶馆(东华路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b09245c7",
@@ -8773,7 +8971,8 @@
     "meal_type": "drink",
     "description": "瑶境油茶坊，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0H3YD5OFB"
+    "source_id": "B0H3YD5OFB",
+    "recommendation": "瑶境油茶坊是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_11926931",
@@ -8798,7 +8997,8 @@
     "meal_type": "drink",
     "description": "悦茶楼中山北路店，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0JRBR2MFK"
+    "source_id": "B0JRBR2MFK",
+    "recommendation": "悦茶楼中山北路店是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d719316",
@@ -8823,7 +9023,8 @@
     "meal_type": "drink",
     "description": "阳朔漓墨茶坊，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0J0A7809R"
+    "source_id": "B0J0A7809R",
+    "recommendation": "阳朔漓墨茶坊是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_5acec427",
@@ -8847,7 +9048,8 @@
     "meal_type": "drink",
     "description": "一槌之音油茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0IUTH3ANL"
+    "source_id": "B0IUTH3ANL",
+    "recommendation": "一槌之音油茶馆是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_84003210",
@@ -8872,7 +9074,8 @@
     "meal_type": "drink",
     "description": "行闲戏茶，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0LDFAXG6C"
+    "source_id": "B0LDFAXG6C",
+    "recommendation": "行闲戏茶是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_36a5c49e",
@@ -8900,7 +9103,8 @@
     "meal_type": "drink",
     "description": "大沣乐·灃茶馆·观光体验店，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFHJJSKY"
+    "source_id": "B0FFHJJSKY",
+    "recommendation": "大沣乐·灃茶馆·观光体验店是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_91bd3c7c",
@@ -8924,7 +9128,8 @@
     "meal_type": "drink",
     "description": "清欢茶事(彰泰峰誉店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KRHZSYGM"
+    "source_id": "B0KRHZSYGM",
+    "recommendation": "清欢茶事(彰泰峰誉店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d2d2a4e4",
@@ -8948,7 +9153,8 @@
     "meal_type": "drink",
     "description": "老随园恭城油茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFHCJGQP"
+    "source_id": "B0FFHCJGQP",
+    "recommendation": "老随园恭城油茶馆是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_fa1bb858",
@@ -8972,7 +9178,8 @@
     "meal_type": "drink",
     "description": "岁月茶馆(吾悦广场店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0IG75QUOF"
+    "source_id": "B0IG75QUOF",
+    "recommendation": "岁月茶馆(吾悦广场店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_5731afa7",
@@ -8996,7 +9203,8 @@
     "meal_type": "drink",
     "description": "粤尚品茶楼，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0J2Z9HESC"
+    "source_id": "B0J2Z9HESC",
+    "recommendation": "粤尚品茶楼是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_7d32044",
@@ -9020,7 +9228,8 @@
     "meal_type": "drink",
     "description": "天缘茶庄(灵川步行街店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B030506QCA"
+    "source_id": "B030506QCA",
+    "recommendation": "天缘茶庄(灵川步行街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_46c8c9aa",
@@ -9044,7 +9253,8 @@
     "meal_type": "drink",
     "description": "四海饭店油茶坊，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0HAFLYB5F"
+    "source_id": "B0HAFLYB5F",
+    "recommendation": "四海饭店油茶坊是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_2354f42e",
@@ -9069,7 +9279,8 @@
     "meal_type": "drink",
     "description": "靠谱油茶，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0JRHHKOLE"
+    "source_id": "B0JRHHKOLE",
+    "recommendation": "靠谱油茶是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_53d752cc",
@@ -9094,7 +9305,8 @@
     "meal_type": "drink",
     "description": "阿部茶店(三里店新店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFHYL8CE"
+    "source_id": "B0FFHYL8CE",
+    "recommendation": "阿部茶店(三里店新店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6d740f9c",
@@ -9119,7 +9331,8 @@
     "meal_type": "drink",
     "description": "壹岂茶牌社(财富名城店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0JD4ZEY5D"
+    "source_id": "B0JD4ZEY5D",
+    "recommendation": "壹岂茶牌社(财富名城店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_9d6ea1c",
@@ -9169,7 +9382,8 @@
     "meal_type": "drink",
     "description": "彭小猫瑶乡小茶馆(龙船坪店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0LRG7T46F"
+    "source_id": "B0LRG7T46F",
+    "recommendation": "彭小猫瑶乡小茶馆(龙船坪店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_8dd5778b",
@@ -9219,7 +9433,8 @@
     "meal_type": "main",
     "description": "环球国际酒店，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B030502C00"
+    "source_id": "B030502C00",
+    "recommendation": "环球国际酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_33906506",
@@ -9244,7 +9459,8 @@
     "meal_type": "main",
     "description": "桂林宾馆，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0305029BD"
+    "source_id": "B0305029BD",
+    "recommendation": "桂林宾馆位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_ede3b26",
@@ -9269,7 +9485,8 @@
     "meal_type": "main",
     "description": "柏曼酒店(桂林两江四湖象鼻山景区店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0FFHLD99E"
+    "source_id": "B0FFHLD99E",
+    "recommendation": "柏曼酒店(桂林两江四湖象鼻山景区店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_123ee012",
@@ -9293,7 +9510,8 @@
     "meal_type": "main",
     "description": "地球村雅致漓江酒店(桂林两江四湖象鼻山店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0H0VH0ORL"
+    "source_id": "B0H0VH0ORL",
+    "recommendation": "地球村雅致漓江酒店(桂林两江四湖象鼻山店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_bbc4dff0",
@@ -9316,7 +9534,8 @@
     "meal_type": "main",
     "description": "全季酒店(桂林阳朔十里画廊店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0KDC7KF2O"
+    "source_id": "B0KDC7KF2O",
+    "recommendation": "全季酒店(桂林阳朔十里画廊店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_637b71bf",
@@ -9340,7 +9559,8 @@
     "meal_type": "main",
     "description": "麗枫酒店(桂林中心广场象鼻山景区店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0FFJRH45G"
+    "source_id": "B0FFJRH45G",
+    "recommendation": "麗枫酒店(桂林中心广场象鼻山景区店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_ba89557b",
@@ -9389,7 +9609,8 @@
     "meal_type": "main",
     "description": "锦江都城酒店(两江四湖店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0JK3HGJ9H"
+    "source_id": "B0JK3HGJ9H",
+    "recommendation": "锦江都城酒店(两江四湖店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_10e1cf07",
@@ -9412,7 +9633,8 @@
     "meal_type": "main",
     "description": "维纳斯皇家酒店(桂林象鼻山两江四湖店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0FFLEMSUR"
+    "source_id": "B0FFLEMSUR",
+    "recommendation": "维纳斯皇家酒店(桂林象鼻山两江四湖店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_5581cc68",
@@ -9436,7 +9658,8 @@
     "meal_type": "main",
     "description": "希岸酒店(桂林中心广场象鼻山景区店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0KRN1P4TM"
+    "source_id": "B0KRN1P4TM",
+    "recommendation": "希岸酒店(桂林中心广场象鼻山景区店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_832a0361",
@@ -9460,7 +9683,8 @@
     "meal_type": "main",
     "description": "全季酒店(桂林阳朔西街店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0JKHC7TQ6"
+    "source_id": "B0JKHC7TQ6",
+    "recommendation": "全季酒店(桂林阳朔西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_eced5a39",
@@ -9483,7 +9707,8 @@
     "meal_type": "main",
     "description": "SYYF诗与远方·漓江院子酒店(桂林象鼻山两江四湖店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0H64CKMJ5"
+    "source_id": "B0H64CKMJ5",
+    "recommendation": "SYYF诗与远方·漓江院子酒店(桂林象鼻山两江四湖店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_94d7c7eb",
@@ -9506,7 +9731,8 @@
     "meal_type": "main",
     "description": "全季酒店(桂林高新万达广场店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0K1MHN68C"
+    "source_id": "B0K1MHN68C",
+    "recommendation": "全季酒店(桂林高新万达广场店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_63f66920",
@@ -9531,7 +9757,8 @@
     "meal_type": "main",
     "description": "桂林大酒店(东西巷两江四湖店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B030507K2K"
+    "source_id": "B030507K2K",
+    "recommendation": "桂林大酒店(东西巷两江四湖店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_f177e401",
@@ -9555,7 +9782,8 @@
     "meal_type": "main",
     "description": "广悦华阳朔河畔度假酒店，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B03050X9N3"
+    "source_id": "B03050X9N3",
+    "recommendation": "广悦华阳朔河畔度假酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_7a75d990",
@@ -9578,7 +9806,8 @@
     "meal_type": "main",
     "description": "桂林漓江俏CIAO酒店(两江四湖象鼻山店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0G33AV2MT"
+    "source_id": "B0G33AV2MT",
+    "recommendation": "桂林漓江俏CIAO酒店(两江四湖象鼻山店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_27675424",
@@ -9601,7 +9830,8 @@
     "meal_type": "main",
     "description": "漓岸璞闲文旅酒店(阳朔西街漓江店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0FFJ4F9OU"
+    "source_id": "B0FFJ4F9OU",
+    "recommendation": "漓岸璞闲文旅酒店(阳朔西街漓江店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_8ed1c3e5",
@@ -9626,7 +9856,8 @@
     "meal_type": "main",
     "description": "全季酒店(桂林火车站店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0KBZR7U8I"
+    "source_id": "B0KBZR7U8I",
+    "recommendation": "全季酒店(桂林火车站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_1db951c7",
@@ -9650,7 +9881,8 @@
     "meal_type": "main",
     "description": "桂山华星酒店，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B03050VAGL"
+    "source_id": "B03050VAGL",
+    "recommendation": "桂山华星酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_eb674f74",
@@ -9673,7 +9905,8 @@
     "meal_type": "main",
     "description": "世熙天悦江景酒店(阳朔西街漓江店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0H1MSXR06"
+    "source_id": "B0H1MSXR06",
+    "recommendation": "世熙天悦江景酒店(阳朔西街漓江店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_f32812c0",
@@ -9697,7 +9930,8 @@
     "meal_type": "main",
     "description": "荟语酒店(桂林象鼻山两江四湖店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0K6U5SYNF"
+    "source_id": "B0K6U5SYNF",
+    "recommendation": "荟语酒店(桂林象鼻山两江四湖店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_632ee528",
@@ -9721,7 +9955,8 @@
     "meal_type": "main",
     "description": "桂林两江四湖象鼻山亚朵酒店，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0HK9Z051Y"
+    "source_id": "B0HK9Z051Y",
+    "recommendation": "桂林两江四湖象鼻山亚朵酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_32c41d40",
@@ -9744,7 +9979,8 @@
     "meal_type": "main",
     "description": "星程酒店(桂林两江四湖景区店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0L6MCP4UX"
+    "source_id": "B0L6MCP4UX",
+    "recommendation": "星程酒店(桂林两江四湖景区店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_a2ccf0ab",
@@ -9768,7 +10004,8 @@
     "meal_type": "main",
     "description": "维也纳酒店(桂林七星万达广场店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B03050VCGF"
+    "source_id": "B03050VCGF",
+    "recommendation": "维也纳酒店(桂林七星万达广场店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_f307abbd",
@@ -9791,7 +10028,8 @@
     "meal_type": "main",
     "description": "如家睿柏·云酒店(阳朔西街店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0H2TUOEPM"
+    "source_id": "B0H2TUOEPM",
+    "recommendation": "如家睿柏·云酒店(阳朔西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_4226deb7",
@@ -9840,7 +10078,8 @@
     "meal_type": "main",
     "description": "璞隐轻居酒店，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0MB4LZPD6"
+    "source_id": "B0MB4LZPD6",
+    "recommendation": "璞隐轻居酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_7df4b1b5",
@@ -9863,7 +10102,8 @@
     "meal_type": "main",
     "description": "漓江望月·Quiet Holiday湖畔酒店，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0KACLZ0F3"
+    "source_id": "B0KACLZ0F3",
+    "recommendation": "漓江望月·Quiet Holiday湖畔酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_95befb7a",
@@ -9888,7 +10128,8 @@
     "meal_type": "main",
     "description": "维也纳酒店(桂林会展中心漓江河畔店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B03050X8PE"
+    "source_id": "B03050X8PE",
+    "recommendation": "维也纳酒店(桂林会展中心漓江河畔店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_69ebe386",
@@ -9911,7 +10152,8 @@
     "meal_type": "main",
     "description": "美豪丽致酒店(桂林临桂万达广场两江机场店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0IR0UV4PE"
+    "source_id": "B0IR0UV4PE",
+    "recommendation": "美豪丽致酒店(桂林临桂万达广场两江机场店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_6f7cea54",
@@ -9935,7 +10177,8 @@
     "meal_type": "main",
     "description": "SYYF诗与远方·象山有约酒店(桂林象鼻山两江四湖店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0I35COO2E"
+    "source_id": "B0I35COO2E",
+    "recommendation": "SYYF诗与远方·象山有约酒店(桂林象鼻山两江四湖店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_3f8e4a3b",
@@ -9959,7 +10202,8 @@
     "meal_type": "main",
     "description": "正阳璞云酒店(桂林两江四湖象鼻山景区店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0FFJMCTFD"
+    "source_id": "B0FFJMCTFD",
+    "recommendation": "正阳璞云酒店(桂林两江四湖象鼻山景区店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_2e865f27",
@@ -10007,7 +10251,8 @@
     "meal_type": "main",
     "description": "阳朔西街江景温德姆花园酒店，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
-    "source_id": "B0FFGYSRT8"
+    "source_id": "B0FFGYSRT8",
+    "recommendation": "阳朔西街江景温德姆花园酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_7a44921a",
@@ -10030,7 +10275,8 @@
     "meal_type": "main",
     "description": "阳朔华源旅店(20元人民币风景区店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B03050WVS3"
+    "source_id": "B03050WVS3",
+    "recommendation": "阳朔华源旅店(20元人民币风景区店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_95fcdcf6",
@@ -10053,7 +10299,8 @@
     "meal_type": "main",
     "description": "爱琴海主题酒店，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B0FFGRP6R8"
+    "source_id": "B0FFGRP6R8",
+    "recommendation": "爱琴海主题酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_2bbfb661",
@@ -10076,7 +10323,8 @@
     "meal_type": "main",
     "description": "阳朔鑫源酒店(阳朔西街千古情景区店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B030509DYL"
+    "source_id": "B030509DYL",
+    "recommendation": "阳朔鑫源酒店(阳朔西街千古情景区店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_e94ac6a8",
@@ -10148,7 +10396,8 @@
     "meal_type": "main",
     "description": "阳朔驴窝客栈，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B030507UPS"
+    "source_id": "B030507UPS",
+    "recommendation": "阳朔驴窝客栈位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_4c9ecab4",
@@ -10171,7 +10420,8 @@
     "meal_type": "main",
     "description": "格林酒店(阳朔西街店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B0JBKBJ77R"
+    "source_id": "B0JBKBJ77R",
+    "recommendation": "格林酒店(阳朔西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_ec9eadc6",
@@ -10194,7 +10444,8 @@
     "meal_type": "main",
     "description": "阳朔西遇客栈·猫小屋，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B03050X416"
+    "source_id": "B03050X416",
+    "recommendation": "阳朔西遇客栈·猫小屋位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_9cf2145",
@@ -10217,7 +10468,8 @@
     "meal_type": "main",
     "description": "阳朔思安酒店(西街漓江店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B03050WCGK"
+    "source_id": "B03050WCGK",
+    "recommendation": "阳朔思安酒店(西街漓江店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_fba2cc36",
@@ -10240,7 +10492,8 @@
     "meal_type": "main",
     "description": "阳朔懒人堂客栈(西街店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B030506MUE"
+    "source_id": "B030506MUE",
+    "recommendation": "阳朔懒人堂客栈(西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_81bd1418",
@@ -10264,7 +10517,8 @@
     "meal_type": "main",
     "description": "万豪大酒店，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B030507UVA"
+    "source_id": "B030507UVA",
+    "recommendation": "万豪大酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_ca698768",
@@ -10287,7 +10541,8 @@
     "meal_type": "main",
     "description": "阳朔西街老门客栈，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B03050WYBQ"
+    "source_id": "B03050WYBQ",
+    "recommendation": "阳朔西街老门客栈位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_7a4af464",
@@ -10311,7 +10566,8 @@
     "meal_type": "main",
     "description": "M宿源酒店(阳朔店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B03050WYVI"
+    "source_id": "B03050WYVI",
+    "recommendation": "M宿源酒店(阳朔店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_10bf8be0",
@@ -10335,7 +10591,8 @@
     "meal_type": "main",
     "description": "容苑民宿(阳朔西街店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B030509DYW"
+    "source_id": "B030509DYW",
+    "recommendation": "容苑民宿(阳朔西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_ceb1ac70",
@@ -10358,7 +10615,8 @@
     "meal_type": "main",
     "description": "金碧优宿民宿(阳朔西街店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B030509DSU"
+    "source_id": "B030509DSU",
+    "recommendation": "金碧优宿民宿(阳朔西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_1a70004c",
@@ -10382,7 +10640,8 @@
     "meal_type": "main",
     "description": "阳朔罗曼尼·电玩智能影院酒店(阳朔西街店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B03050WZO1"
+    "source_id": "B03050WZO1",
+    "recommendation": "阳朔罗曼尼·电玩智能影院酒店(阳朔西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_56205c8b",
@@ -10405,7 +10664,8 @@
     "meal_type": "main",
     "description": "田园牧歌精品旅舍(阳朔遇龙河景区店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B03050X5VM"
+    "source_id": "B03050X5VM",
+    "recommendation": "田园牧歌精品旅舍(阳朔遇龙河景区店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_254fbdf2",
@@ -10453,7 +10713,8 @@
     "meal_type": "main",
     "description": "阳朔双月桥客栈(西街店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B030506PWQ"
+    "source_id": "B030506PWQ",
+    "recommendation": "阳朔双月桥客栈(西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_4df154c9",
@@ -10476,7 +10737,8 @@
     "meal_type": "main",
     "description": "阳朔昌悦酒店(十里画廊西街店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B0H1SCK981"
+    "source_id": "B0H1SCK981",
+    "recommendation": "阳朔昌悦酒店(十里画廊西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_19f98cc0",
@@ -10499,7 +10761,8 @@
     "meal_type": "main",
     "description": "西街云朵酒店(阳朔西街店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B0IUUDP905"
+    "source_id": "B0IUUDP905",
+    "recommendation": "西街云朵酒店(阳朔西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_6ebca334",
@@ -10522,7 +10785,8 @@
     "meal_type": "main",
     "description": "阳朔印象大酒店(印象刘三姐店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B0J2F15X7P"
+    "source_id": "B0J2F15X7P",
+    "recommendation": "阳朔印象大酒店(印象刘三姐店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_7ff7ca1a",
@@ -10545,7 +10809,8 @@
     "meal_type": "main",
     "description": "阳朔万和酒店(漓江西街店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B0FFFY0ZCG"
+    "source_id": "B0FFFY0ZCG",
+    "recommendation": "阳朔万和酒店(漓江西街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_fc9c9bd4",
@@ -10568,7 +10833,8 @@
     "meal_type": "main",
     "description": "一品山居民宿(阳朔遇龙河店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
     "source": "amap",
-    "source_id": "B03050V70N"
+    "source_id": "B03050V70N",
+    "recommendation": "一品山居民宿(阳朔遇龙河店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_a1fb6c56",

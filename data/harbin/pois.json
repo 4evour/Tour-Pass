@@ -21,7 +21,8 @@
     "meal_type": "main",
     "description": "龙塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C30JLQJ"
+    "source_id": "B01C30JLQJ",
+    "recommendation": "龙塔是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_62ddee1e",
@@ -44,7 +45,8 @@
     "meal_type": "main",
     "description": "东北虎林园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C30J5FG"
+    "source_id": "B01C30J5FG",
+    "recommendation": "东北虎林园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_abef4c30",
@@ -67,7 +69,8 @@
     "meal_type": "main",
     "description": "太阳岛风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C30003A"
+    "source_id": "B01C30003A",
+    "recommendation": "太阳岛风景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_6860639d",
@@ -115,7 +118,8 @@
     "meal_type": "main",
     "description": "帽儿山风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C30IEOV"
+    "source_id": "B01C30IEOV",
+    "recommendation": "帽儿山风景区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_23d5be23",
@@ -139,7 +143,8 @@
     "meal_type": "main",
     "description": "哈尔滨极地公园·极地馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C30IRU3"
+    "source_id": "B01C30IRU3",
+    "recommendation": "哈尔滨极地公园·极地馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4b51488d",
@@ -190,7 +195,8 @@
     "meal_type": "main",
     "description": "中华巴洛克历史文化街区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFFX17PB"
+    "source_id": "B0FFFX17PB",
+    "recommendation": "中华巴洛克历史文化街区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ac75ffef",
@@ -214,7 +220,8 @@
     "meal_type": "main",
     "description": "哈尔滨音乐公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C318A7H"
+    "source_id": "B01C318A7H",
+    "recommendation": "哈尔滨音乐公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_936ca249",
@@ -293,7 +300,8 @@
     "meal_type": "main",
     "description": "哈尔滨伏尔加庄园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C317XIL"
+    "source_id": "B01C317XIL",
+    "recommendation": "哈尔滨伏尔加庄园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_cd45869c",
@@ -340,7 +348,8 @@
     "meal_type": "main",
     "description": "哈尔滨市人民防洪胜利纪念塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C30I9EP"
+    "source_id": "B01C30I9EP",
+    "recommendation": "哈尔滨市人民防洪胜利纪念塔是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_76957a63",
@@ -365,7 +374,8 @@
     "meal_type": "main",
     "description": "冰雪小世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0M6JSDEI6"
+    "source_id": "B0M6JSDEI6",
+    "recommendation": "冰雪小世界是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_da2a4ce8",
@@ -441,7 +451,8 @@
     "meal_type": "main",
     "description": "索菲亚广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C30J89Z"
+    "source_id": "B01C30J89Z",
+    "recommendation": "索菲亚广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_688e06ea",
@@ -514,7 +525,8 @@
     "meal_type": "main",
     "description": "中东铁路公园(江南段)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFH89K3B"
+    "source_id": "B0FFH89K3B",
+    "recommendation": "中东铁路公园(江南段)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_177d75a7",
@@ -562,7 +574,8 @@
     "meal_type": "main",
     "description": "枫叶小镇大雪人，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KKTSVEBD"
+    "source_id": "B0KKTSVEBD",
+    "recommendation": "枫叶小镇大雪人是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_82bb5b26",
@@ -591,7 +604,7 @@
     "description": "枫叶小镇温泉度假村，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFIKLIKW",
-    "recommendation": "冬天必"
+    "recommendation": "枫叶小镇温泉度假村是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_210102d1",
@@ -616,7 +629,8 @@
     "meal_type": "main",
     "description": "哈尔滨融创乐园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0M6LC7BU0"
+    "source_id": "B0M6LC7BU0",
+    "recommendation": "哈尔滨融创乐园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_38b39a36",
@@ -689,7 +703,8 @@
     "meal_type": "main",
     "description": "哈尔滨融创乐园雪山飞车，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LR07NDW9"
+    "source_id": "B0LR07NDW9",
+    "recommendation": "哈尔滨融创乐园雪山飞车是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_54c64da1",
@@ -713,7 +728,8 @@
     "meal_type": "main",
     "description": "火车头广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C31C270"
+    "source_id": "B01C31C270",
+    "recommendation": "火车头广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d5f8ba4a",
@@ -789,7 +805,8 @@
     "meal_type": "main",
     "description": "哈哈民宿(冰雪大世界/融创文旅城/极地馆店)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LK0581ZZ"
+    "source_id": "B0LK0581ZZ",
+    "recommendation": "哈哈民宿(冰雪大世界/融创文旅城/极地馆店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a6a1f7f6",
@@ -838,7 +855,8 @@
     "meal_type": "main",
     "description": "梦想大舞台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKZHEJNM"
+    "source_id": "B0LKZHEJNM",
+    "recommendation": "梦想大舞台是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_eeb09d32",
@@ -888,7 +906,8 @@
     "meal_type": "main",
     "description": "哈尔滨冰雪大世界-大滑梯下站，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0L0DHMW65"
+    "source_id": "B0L0DHMW65",
+    "recommendation": "哈尔滨冰雪大世界-大滑梯下站是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d9f10d8d",
@@ -914,7 +933,8 @@
     "meal_type": "main",
     "description": "冰天雪地大闯关，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKZHEJNP"
+    "source_id": "B0LKZHEJNP",
+    "recommendation": "冰天雪地大闯关是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ee67dd29",
@@ -938,7 +958,8 @@
     "meal_type": "main",
     "description": "冰雪温泉营地，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKZ5EW8V"
+    "source_id": "B0LKZ5EW8V",
+    "recommendation": "冰雪温泉营地是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4f92023e",
@@ -1011,7 +1032,8 @@
     "meal_type": "main",
     "description": "十里冰雪长廊(建设街大舞台)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0KKJHM16L"
+    "source_id": "B0KKJHM16L",
+    "recommendation": "十里冰雪长廊(建设街大舞台)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5add6c16",
@@ -1034,7 +1056,8 @@
     "meal_type": "main",
     "description": "驯鹿部落，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0JKXAL5KG"
+    "source_id": "B0JKXAL5KG",
+    "recommendation": "驯鹿部落是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_826555ad",
@@ -1081,7 +1104,8 @@
     "meal_type": "main",
     "description": "大国重器，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKZHEJNL"
+    "source_id": "B0LKZHEJNL",
+    "recommendation": "大国重器是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e6b0aedd",
@@ -1106,7 +1130,8 @@
     "meal_type": "main",
     "description": "天角星，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LGFOSSBH"
+    "source_id": "B0LGFOSSBH",
+    "recommendation": "天角星是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_10126d31",
@@ -1130,7 +1155,8 @@
     "meal_type": "main",
     "description": "松花江，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0I1N9DX2E"
+    "source_id": "B0I1N9DX2E",
+    "recommendation": "松花江是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_8cd9fdbb",
@@ -1155,7 +1181,8 @@
     "meal_type": "main",
     "description": "江上城堡观光索道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B01C30I0IY"
+    "source_id": "B01C30I0IY",
+    "recommendation": "江上城堡观光索道是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_93f445ba",
@@ -1227,7 +1254,8 @@
     "meal_type": "main",
     "description": "童话小马一家，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKSHI7LM"
+    "source_id": "B0LKSHI7LM",
+    "recommendation": "童话小马一家是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_93bdba6b",
@@ -1251,7 +1279,8 @@
     "meal_type": "main",
     "description": "吉祥迎宾，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKBZS24L"
+    "source_id": "B0LKBZS24L",
+    "recommendation": "吉祥迎宾是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d632bee",
@@ -1273,7 +1302,8 @@
     "meal_type": "main",
     "description": "冰雪黄鹤楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0M6OLN1RJ"
+    "source_id": "B0M6OLN1RJ",
+    "recommendation": "冰雪黄鹤楼是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_dbe4ffbf",
@@ -1322,7 +1352,8 @@
     "meal_type": "main",
     "description": "冰雪大舞台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKZHF09J"
+    "source_id": "B0LKZHF09J",
+    "recommendation": "冰雪大舞台是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_d4b799c4",
@@ -1369,7 +1400,8 @@
     "meal_type": "main",
     "description": "单冰比赛，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKZHF09H"
+    "source_id": "B0LKZHF09H",
+    "recommendation": "单冰比赛是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c379d3df",
@@ -1416,7 +1448,8 @@
     "meal_type": "main",
     "description": "冰上汽车芭蕾秀，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKZHEJNN"
+    "source_id": "B0LKZHEJNN",
+    "recommendation": "冰上汽车芭蕾秀是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5086d441",
@@ -1441,7 +1474,8 @@
     "meal_type": "main",
     "description": "哈尔滨防洪纪念塔广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0FFHF1Q4N"
+    "source_id": "B0FFHF1Q4N",
+    "recommendation": "哈尔滨防洪纪念塔广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_7ade0499",
@@ -1465,7 +1499,8 @@
     "meal_type": "main",
     "description": "童话雪人一家，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKSHI7LL"
+    "source_id": "B0LKSHI7LL",
+    "recommendation": "童话雪人一家是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_fd718885",
@@ -1514,7 +1549,8 @@
     "meal_type": "main",
     "description": "太阳岛大熊猫馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0L1LCEWWC"
+    "source_id": "B0L1LCEWWC",
+    "recommendation": "太阳岛大熊猫馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1bd58cb3",
@@ -1588,7 +1624,8 @@
     "meal_type": "main",
     "description": "哈尔滨冰雪大世界-黄鹤楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKBZSGHJ"
+    "source_id": "B0LKBZSGHJ",
+    "recommendation": "哈尔滨冰雪大世界-黄鹤楼是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5590e836",
@@ -1612,7 +1649,8 @@
     "meal_type": "main",
     "description": "冰雪大世界老园(不对外开放)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0I21ZQ703"
+    "source_id": "B0I21ZQ703",
+    "recommendation": "冰雪大世界老园(不对外开放)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_cde53645",
@@ -1661,7 +1699,8 @@
     "meal_type": "main",
     "description": "雪韵丁香火炬广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
-    "source_id": "B0LKZHECCW"
+    "source_id": "B0LKZHECCW",
+    "recommendation": "雪韵丁香火炬广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5989c181",
@@ -1733,7 +1772,8 @@
     "meal_type": "main",
     "description": "哈尔滨市博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0LUGDAMN1"
+    "source_id": "B0LUGDAMN1",
+    "recommendation": "哈尔滨市博物馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f8689ea3",
@@ -1757,7 +1797,8 @@
     "meal_type": "main",
     "description": "哈尔滨艺术博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B01C30JW31"
+    "source_id": "B01C30JW31",
+    "recommendation": "哈尔滨艺术博物馆是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_237c10df",
@@ -1863,7 +1904,8 @@
     "meal_type": "main",
     "description": "哈尔滨商业大学(北校区)A区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B01C302AB9"
+    "source_id": "B01C302AB9",
+    "recommendation": "哈尔滨商业大学(北校区)A区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_16b1247a",
@@ -1917,7 +1959,8 @@
     "meal_type": "main",
     "description": "哈尔滨市第九中学校松北校区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B01C317HLJ"
+    "source_id": "B01C317HLJ",
+    "recommendation": "哈尔滨市第九中学校松北校区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_edb9bda6",
@@ -1943,7 +1986,8 @@
     "meal_type": "main",
     "description": "哈电集团科研基地，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B01C318IHZ"
+    "source_id": "B01C318IHZ",
+    "recommendation": "哈电集团科研基地是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_93099d12",
@@ -1970,7 +2014,8 @@
     "meal_type": "main",
     "description": "哈尔滨市实验学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFG8KOB6"
+    "source_id": "B0FFG8KOB6",
+    "recommendation": "哈尔滨市实验学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_55ed674f",
@@ -1996,7 +2041,8 @@
     "meal_type": "main",
     "description": "哈尔滨商业大学(北校区)B区，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B01C3176XO"
+    "source_id": "B01C3176XO",
+    "recommendation": "哈尔滨商业大学(北校区)B区是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e7c15f16",
@@ -2022,7 +2068,8 @@
     "meal_type": "main",
     "description": "黑龙江省社会科学院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFJKIM35"
+    "source_id": "B0FFJKIM35",
+    "recommendation": "黑龙江省社会科学院是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_6acd34b3",
@@ -2157,7 +2204,8 @@
     "meal_type": "main",
     "description": "哈尔滨市前进小学，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B01C30IUVU"
+    "source_id": "B01C30IUVU",
+    "recommendation": "哈尔滨市前进小学是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3844882d",
@@ -2183,7 +2231,8 @@
     "meal_type": "main",
     "description": "哈尔滨焊接研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B01C31BU5B"
+    "source_id": "B01C31BU5B",
+    "recommendation": "哈尔滨焊接研究院是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_c2f0c0fb",
@@ -2209,7 +2258,8 @@
     "meal_type": "main",
     "description": "新区第一学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFKRYYQR"
+    "source_id": "B0FFKRYYQR",
+    "recommendation": "新区第一学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_50577277",
@@ -2236,7 +2286,8 @@
     "meal_type": "main",
     "description": "哈尔滨新区花园小学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFMG11HR"
+    "source_id": "B0FFMG11HR",
+    "recommendation": "哈尔滨新区花园小学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2bfdb4bc",
@@ -2263,7 +2314,8 @@
     "meal_type": "main",
     "description": "哈尔滨市第九十五中学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFFOBXC3"
+    "source_id": "B0FFFOBXC3",
+    "recommendation": "哈尔滨市第九十五中学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4ab4d7db",
@@ -2318,7 +2370,8 @@
     "meal_type": "main",
     "description": "大威公考，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0H127AXZ5"
+    "source_id": "B0H127AXZ5",
+    "recommendation": "大威公考是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5cf5d40e",
@@ -2345,7 +2398,8 @@
     "meal_type": "main",
     "description": "哈尔滨商业大学(北校区)C区轻工学院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFIZRCP7"
+    "source_id": "B0FFIZRCP7",
+    "recommendation": "哈尔滨商业大学(北校区)C区轻工学院是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_1c322309",
@@ -2371,7 +2425,8 @@
     "meal_type": "main",
     "description": "哈尔滨石油学院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B01C318YM4"
+    "source_id": "B01C318YM4",
+    "recommendation": "哈尔滨石油学院是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_188e0fb",
@@ -2423,7 +2478,8 @@
     "meal_type": "main",
     "description": "哈尔滨市市场和质量监督管理局特种设备作业人员考试中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFGL3N8W"
+    "source_id": "B0FFGL3N8W",
+    "recommendation": "哈尔滨市市场和质量监督管理局特种设备作业人员考试中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_35d74800",
@@ -2449,7 +2505,8 @@
     "meal_type": "main",
     "description": "黑龙江省质量监督检测研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFGASJIE"
+    "source_id": "B0FFGASJIE",
+    "recommendation": "黑龙江省质量监督检测研究院是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_882b9f0a",
@@ -2474,7 +2531,8 @@
     "meal_type": "main",
     "description": "黑龙江省绿色食品科学研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFHCGR03"
+    "source_id": "B0FFHCGR03",
+    "recommendation": "黑龙江省绿色食品科学研究院是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_766f87d5",
@@ -2501,7 +2559,8 @@
     "meal_type": "main",
     "description": "哈尔滨新区第四小学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFJLKNKF"
+    "source_id": "B0FFJLKNKF",
+    "recommendation": "哈尔滨新区第四小学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a478326",
@@ -2526,7 +2585,8 @@
     "meal_type": "main",
     "description": "哈尔滨市高新技术检测研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFI9NPLK"
+    "source_id": "B0FFI9NPLK",
+    "recommendation": "哈尔滨市高新技术检测研究院是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b5556c1f",
@@ -2552,7 +2612,8 @@
     "meal_type": "main",
     "description": "哈尔滨新区第一小学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFKBFEY3"
+    "source_id": "B0FFKBFEY3",
+    "recommendation": "哈尔滨新区第一小学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_cddc87ca",
@@ -2578,7 +2639,8 @@
     "meal_type": "main",
     "description": "国家检察官学院黑龙江分院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFKOWCLC"
+    "source_id": "B0FFKOWCLC",
+    "recommendation": "国家检察官学院黑龙江分院是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a41e1ee1",
@@ -2604,7 +2666,8 @@
     "meal_type": "main",
     "description": "哈尔滨电工仪表研究所，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0FFG1MDKX"
+    "source_id": "B0FFG1MDKX",
+    "recommendation": "哈尔滨电工仪表研究所是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_204e626f",
@@ -2631,7 +2694,8 @@
     "meal_type": "main",
     "description": "哈尔滨新东方烹饪学校，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
-    "source_id": "B0H017QMMU"
+    "source_id": "B0H017QMMU",
+    "recommendation": "哈尔滨新东方烹饪学校是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2f213bc",
@@ -2657,7 +2721,8 @@
     "meal_type": "main",
     "description": "哈尔滨市儿童公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B01C300040"
+    "source_id": "B01C300040",
+    "recommendation": "哈尔滨市儿童公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_23e5b921",
@@ -2709,7 +2774,8 @@
     "meal_type": "main",
     "description": "新区中心公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFIFGCY6"
+    "source_id": "B0FFIFGCY6",
+    "recommendation": "新区中心公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_2eb0ea02",
@@ -2761,7 +2827,8 @@
     "meal_type": "main",
     "description": "润福公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFHAACZS"
+    "source_id": "B0FFHAACZS",
+    "recommendation": "润福公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_79ec878e",
@@ -2866,7 +2933,8 @@
     "meal_type": "main",
     "description": "松北新区中心公园空竹园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L11MKE4W"
+    "source_id": "B0L11MKE4W",
+    "recommendation": "松北新区中心公园空竹园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9f00ed40",
@@ -2892,7 +2960,8 @@
     "meal_type": "main",
     "description": "丁香公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B01C31AYXG"
+    "source_id": "B01C31AYXG",
+    "recommendation": "丁香公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5b3a5688",
@@ -2943,7 +3012,8 @@
     "meal_type": "main",
     "description": "碧海公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFLA0D42"
+    "source_id": "B0FFLA0D42",
+    "recommendation": "碧海公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_68e10c0c",
@@ -2995,7 +3065,8 @@
     "meal_type": "main",
     "description": "金河公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFHYGHUK"
+    "source_id": "B0FFHYGHUK",
+    "recommendation": "金河公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_96c7c860",
@@ -3021,7 +3092,8 @@
     "meal_type": "main",
     "description": "喀秋莎公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFL8DG68"
+    "source_id": "B0FFL8DG68",
+    "recommendation": "喀秋莎公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e8e7e304",
@@ -3072,7 +3144,8 @@
     "meal_type": "main",
     "description": "滨州铁路水上公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0LAB73WBM"
+    "source_id": "B0LAB73WBM",
+    "recommendation": "滨州铁路水上公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_855e4cf2",
@@ -3097,7 +3170,8 @@
     "meal_type": "main",
     "description": "中东铁路水上公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFMCMB46"
+    "source_id": "B0FFMCMB46",
+    "recommendation": "中东铁路水上公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f57a5583",
@@ -3122,7 +3196,8 @@
     "meal_type": "main",
     "description": "友谊公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0JKNZIGK0"
+    "source_id": "B0JKNZIGK0",
+    "recommendation": "友谊公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f7297fc7",
@@ -3147,7 +3222,8 @@
     "meal_type": "main",
     "description": "河口公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KUFC6Y11"
+    "source_id": "B0KUFC6Y11",
+    "recommendation": "河口公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a9a91514",
@@ -3173,7 +3249,8 @@
     "meal_type": "main",
     "description": "松溪公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFIVUX3J"
+    "source_id": "B0FFIVUX3J",
+    "recommendation": "松溪公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_51949b54",
@@ -3199,7 +3276,8 @@
     "meal_type": "main",
     "description": "安阳河园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B01C319AF5"
+    "source_id": "B01C319AF5",
+    "recommendation": "安阳河园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b1485679",
@@ -3252,7 +3330,8 @@
     "meal_type": "main",
     "description": "四季公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B01C31758E"
+    "source_id": "B01C31758E",
+    "recommendation": "四季公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_99b2434f",
@@ -3278,7 +3357,8 @@
     "meal_type": "main",
     "description": "雨阳公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFFLK9X"
+    "source_id": "B0FFFFLK9X",
+    "recommendation": "雨阳公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f5d54852",
@@ -3303,7 +3383,8 @@
     "meal_type": "main",
     "description": "道外区沿江公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0H23AQP86"
+    "source_id": "B0H23AQP86",
+    "recommendation": "道外区沿江公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e8cca106",
@@ -3328,7 +3409,8 @@
     "meal_type": "main",
     "description": "河柏小区世纪花园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B01C30IZNM"
+    "source_id": "B01C30IZNM",
+    "recommendation": "河柏小区世纪花园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_eeccaa78",
@@ -3379,7 +3461,8 @@
     "meal_type": "main",
     "description": "黑龙江哈尔滨阿勒锦岛国家湿地公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFGLQWEL"
+    "source_id": "B0FFGLQWEL",
+    "recommendation": "黑龙江哈尔滨阿勒锦岛国家湿地公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e417bda0",
@@ -3404,7 +3487,8 @@
     "meal_type": "main",
     "description": "雾凇公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L6NUUVAZ"
+    "source_id": "B0L6NUUVAZ",
+    "recommendation": "雾凇公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_a9f5f18e",
@@ -3429,7 +3513,8 @@
     "meal_type": "main",
     "description": "哈尔滨中东铁路公园2期，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0KUFC5F18"
+    "source_id": "B0KUFC5F18",
+    "recommendation": "哈尔滨中东铁路公园2期是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_5308f10d",
@@ -3481,7 +3566,8 @@
     "meal_type": "main",
     "description": "哈尔滨市关道遗址文化公园(不对外开放)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B01C30KFSV"
+    "source_id": "B01C30KFSV",
+    "recommendation": "哈尔滨市关道遗址文化公园(不对外开放)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ec3e8e15",
@@ -3507,7 +3593,8 @@
     "meal_type": "main",
     "description": "北秀公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0FFFAKVJL"
+    "source_id": "B0FFFAKVJL",
+    "recommendation": "北秀公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9ee37d80",
@@ -3532,7 +3619,8 @@
     "meal_type": "main",
     "description": "口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
-    "source_id": "B0L1YZDVIH"
+    "source_id": "B0L1YZDVIH",
+    "recommendation": "口袋公园是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b814b8eb",
@@ -3558,7 +3646,8 @@
     "meal_type": "main",
     "description": "PARKSON BOX(哈尔滨印象城A座店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0JB6CE4PZ"
+    "source_id": "B0JB6CE4PZ",
+    "recommendation": "PARKSON BOX(哈尔滨印象城A座店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_f7ae64d6",
@@ -3587,7 +3676,8 @@
     "meal_type": "main",
     "description": "中国电信(承德街营业厅)自营店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B0FFIFQCI5"
+    "source_id": "B0FFIFQCI5",
+    "recommendation": "中国电信(承德街营业厅)自营店是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_4230d908",
@@ -3614,7 +3704,8 @@
     "meal_type": "main",
     "description": "旅投·国展购物广场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
-    "source_id": "B01C30JIM8"
+    "source_id": "B01C30JIM8",
+    "recommendation": "旅投·国展购物广场是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_920c1a1d",
@@ -3666,7 +3757,8 @@
     "meal_type": "main",
     "description": "老厨家(中央大街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFH7CLF8"
+    "source_id": "B0FFH7CLF8",
+    "recommendation": "老厨家(中央大街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_cea276f",
@@ -3716,7 +3808,8 @@
     "meal_type": "main",
     "description": "老厨家(友谊路总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFAHU5P"
+    "source_id": "B0FFFAHU5P",
+    "recommendation": "老厨家(友谊路总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a2fa5953",
@@ -3744,7 +3837,8 @@
     "meal_type": "main",
     "description": "知音酒楼(花园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B01C30J7C1"
+    "source_id": "B01C30J7C1",
+    "recommendation": "知音酒楼(花园店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_82cc35b9",
@@ -3769,7 +3863,8 @@
     "meal_type": "main",
     "description": "老厨家旗舰店(中央大街西三道街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JK3A81TB"
+    "source_id": "B0JK3A81TB",
+    "recommendation": "老厨家旗舰店(中央大街西三道街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_99404a35",
@@ -3794,7 +3889,8 @@
     "meal_type": "main",
     "description": "九转小磨(爱建店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIYAGIK"
+    "source_id": "B0FFIYAGIK",
+    "recommendation": "九转小磨(爱建店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_36f4df10",
@@ -3819,7 +3915,8 @@
     "meal_type": "main",
     "description": "老厨家(哈西店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0H24UNA1J"
+    "source_id": "B0H24UNA1J",
+    "recommendation": "老厨家(哈西店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_8591efa8",
@@ -3844,7 +3941,8 @@
     "meal_type": "main",
     "description": "外婆小厨，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFG6FMJ3"
+    "source_id": "B0FFG6FMJ3",
+    "recommendation": "外婆小厨是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_89f60076",
@@ -3869,7 +3967,8 @@
     "meal_type": "main",
     "description": "老厨家(文政街总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B01C3017E1"
+    "source_id": "B01C3017E1",
+    "recommendation": "老厨家(文政街总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_fe5bcb",
@@ -3894,7 +3993,8 @@
     "meal_type": "main",
     "description": "六泰居·尔滨地标·东北菜(松北店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFLCMSAL"
+    "source_id": "B0FFLCMSAL",
+    "recommendation": "六泰居·尔滨地标·东北菜(松北店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b9973603",
@@ -3919,7 +4019,8 @@
     "meal_type": "main",
     "description": "得莫利小雨炖鱼馆(通达店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0J2YAK00O"
+    "source_id": "B0J2YAK00O",
+    "recommendation": "得莫利小雨炖鱼馆(通达店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6f2555e6",
@@ -3944,7 +4045,8 @@
     "meal_type": "main",
     "description": "老厨家78号私房小馆(公司街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIK5O3N"
+    "source_id": "B0FFIK5O3N",
+    "recommendation": "老厨家78号私房小馆(公司街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d5ec5d2f",
@@ -3969,7 +4071,8 @@
     "meal_type": "main",
     "description": "同合居民间菜馆(中央大街松雷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0IUPCJYYE"
+    "source_id": "B0IUPCJYYE",
+    "recommendation": "同合居民间菜馆(中央大街松雷店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_95ad81f8",
@@ -3994,7 +4097,8 @@
     "meal_type": "main",
     "description": "老霍家黑皮肘子锅包肉(总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JK6YU4C5"
+    "source_id": "B0JK6YU4C5",
+    "recommendation": "老霍家黑皮肘子锅包肉(总店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_8fc21e5f",
@@ -4019,7 +4123,8 @@
     "meal_type": "main",
     "description": "百姓人家(群力店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIQCV23"
+    "source_id": "B0FFIQCV23",
+    "recommendation": "百姓人家(群力店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_b10b8e16",
@@ -4043,7 +4148,8 @@
     "meal_type": "main",
     "description": "兰棱杀猪菜(东街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B01C30IEKI"
+    "source_id": "B01C30IEKI",
+    "recommendation": "兰棱杀猪菜(东街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_aca483c5",
@@ -4067,7 +4173,8 @@
     "meal_type": "main",
     "description": "厨掌柜(幸福路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIB4WYG"
+    "source_id": "B0FFIB4WYG",
+    "recommendation": "厨掌柜(幸福路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_27cf758d",
@@ -4092,7 +4199,8 @@
     "meal_type": "main",
     "description": "九转小磨(祥安店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFGZKY1V"
+    "source_id": "B0FFGZKY1V",
+    "recommendation": "九转小磨(祥安店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6b32f387",
@@ -4118,7 +4226,8 @@
     "meal_type": "main",
     "description": "王渔王得莫利炖鱼(群力店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFG5A3AC"
+    "source_id": "B0FFG5A3AC",
+    "recommendation": "王渔王得莫利炖鱼(群力店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_62e15e20",
@@ -4144,7 +4253,8 @@
     "meal_type": "main",
     "description": "老码头黑皮肘子锅包肉文政店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFH899V5"
+    "source_id": "B0FFH899V5",
+    "recommendation": "老码头黑皮肘子锅包肉文政店是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a801ed98",
@@ -4168,7 +4278,8 @@
     "meal_type": "main",
     "description": "四季家宴，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHWOOQW"
+    "source_id": "B0FFHWOOQW",
+    "recommendation": "四季家宴是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_10dfcdb6",
@@ -4192,7 +4303,8 @@
     "meal_type": "main",
     "description": "一品彭氏包子，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B01C30JL2F"
+    "source_id": "B01C30JL2F",
+    "recommendation": "一品彭氏包子是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_f1db0c10",
@@ -4217,7 +4329,8 @@
     "meal_type": "main",
     "description": "九转小磨(群力店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B01C31AYKZ"
+    "source_id": "B01C31AYKZ",
+    "recommendation": "九转小磨(群力店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_7e719425",
@@ -4267,7 +4380,8 @@
     "meal_type": "main",
     "description": "老厨家(松雷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFK9EL81"
+    "source_id": "B0FFK9EL81",
+    "recommendation": "老厨家(松雷店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_393428c2",
@@ -4292,7 +4406,8 @@
     "meal_type": "main",
     "description": "胖姐快餐(六顺街)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFG38YO5"
+    "source_id": "B0FFG38YO5",
+    "recommendation": "胖姐快餐(六顺街)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_5b0e1cd2",
@@ -4317,7 +4432,8 @@
     "meal_type": "main",
     "description": "小胖私厨状元宴东北私房菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0G2RZIHGZ"
+    "source_id": "B0G2RZIHGZ",
+    "recommendation": "小胖私厨状元宴东北私房菜馆是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d143fd9c",
@@ -4393,7 +4509,8 @@
     "meal_type": "main",
     "description": "老厨家(三合路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFHHDLEF"
+    "source_id": "B0FFHHDLEF",
+    "recommendation": "老厨家(三合路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_24326f6a",
@@ -4444,7 +4561,8 @@
     "meal_type": "main",
     "description": "诚诚老松滨(中央大街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0HGHC9EGK"
+    "source_id": "B0HGHC9EGK",
+    "recommendation": "诚诚老松滨(中央大街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_f291d022",
@@ -4469,7 +4587,8 @@
     "meal_type": "main",
     "description": "百一大地锅(赣水路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0K0OZAPK7"
+    "source_id": "B0K0OZAPK7",
+    "recommendation": "百一大地锅(赣水路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_3a6c15e5",
@@ -4494,7 +4613,8 @@
     "meal_type": "main",
     "description": "张包铺(群力店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFF342PY"
+    "source_id": "B0FFF342PY",
+    "recommendation": "张包铺(群力店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_9b89ea2e",
@@ -4519,7 +4639,8 @@
     "meal_type": "main",
     "description": "百一大地锅(群力店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIBWDS2"
+    "source_id": "B0FFIBWDS2",
+    "recommendation": "百一大地锅(群力店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_7471cf3e",
@@ -4544,7 +4665,8 @@
     "meal_type": "main",
     "description": "高粱红了铁锅炖(学院路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0K3FHPJ5V"
+    "source_id": "B0K3FHPJ5V",
+    "recommendation": "高粱红了铁锅炖(学院路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_3e08a443",
@@ -4569,7 +4691,8 @@
     "meal_type": "main",
     "description": "顾乡饭店(建国店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFF5UWW2"
+    "source_id": "B0FFF5UWW2",
+    "recommendation": "顾乡饭店(建国店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_d914a401",
@@ -4594,7 +4717,8 @@
     "meal_type": "main",
     "description": "泰和居•地标•东北菜(革新街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KGTZBFAM"
+    "source_id": "B0KGTZBFAM",
+    "recommendation": "泰和居•地标•东北菜(革新街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_4e4feb89",
@@ -4619,7 +4743,8 @@
     "meal_type": "main",
     "description": "同合居民间菜馆(王府井店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIUS7YI"
+    "source_id": "B0FFIUS7YI",
+    "recommendation": "同合居民间菜馆(王府井店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_f9896c65",
@@ -4643,7 +4768,8 @@
     "meal_type": "main",
     "description": "老姜婆柴火铁锅炖(道里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0L2MMYDL9"
+    "source_id": "B0L2MMYDL9",
+    "recommendation": "老姜婆柴火铁锅炖(道里店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_aaeb40c9",
@@ -4668,7 +4794,8 @@
     "meal_type": "main",
     "description": "李家小馆(菜艺街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFG0340"
+    "source_id": "B0FFFG0340",
+    "recommendation": "李家小馆(菜艺街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_5e2c5d93",
@@ -4770,7 +4897,8 @@
     "meal_type": "main",
     "description": "三尺巷东北杀猪菜锅包肉(道里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFIANDEX"
+    "source_id": "B0FFIANDEX",
+    "recommendation": "三尺巷东北杀猪菜锅包肉(道里店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_9c5e925b",
@@ -4822,7 +4950,8 @@
     "meal_type": "main",
     "description": "双新老菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0L63BU86E"
+    "source_id": "B0L63BU86E",
+    "recommendation": "双新老菜馆是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_a9421f36",
@@ -4873,7 +5002,8 @@
     "meal_type": "main",
     "description": "老韩院杀猪菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0KRTSLFJE"
+    "source_id": "B0KRTSLFJE",
+    "recommendation": "老韩院杀猪菜是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_f5f16e94",
@@ -4898,7 +5028,8 @@
     "meal_type": "main",
     "description": "巴洛克黑皮肘子锅包肉(南二道街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0JDH9AJJY"
+    "source_id": "B0JDH9AJJY",
+    "recommendation": "巴洛克黑皮肘子锅包肉(南二道街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e7049dcb",
@@ -4922,7 +5053,8 @@
     "meal_type": "main",
     "description": "同合居民间菜馆(新阳路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B01C305ISB"
+    "source_id": "B01C305ISB",
+    "recommendation": "同合居民间菜馆(新阳路店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_78c39d31",
@@ -4948,7 +5080,8 @@
     "meal_type": "main",
     "description": "菜根香家常菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFVB9L9"
+    "source_id": "B0FFFVB9L9",
+    "recommendation": "菜根香家常菜是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_cf9538f3",
@@ -4973,7 +5106,8 @@
     "meal_type": "main",
     "description": "丁香小镇，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFFAKGL5"
+    "source_id": "B0FFFAKGL5",
+    "recommendation": "丁香小镇是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_f117784c",
@@ -4998,7 +5132,8 @@
     "meal_type": "main",
     "description": "泰和居·地标·东北菜(中央大街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LDDZBL89"
+    "source_id": "B0LDDZBL89",
+    "recommendation": "泰和居·地标·东北菜(中央大街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_24719be4",
@@ -5023,7 +5158,8 @@
     "meal_type": "main",
     "description": "同合居民间菜馆(西城红场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0FFJY4P7W"
+    "source_id": "B0FFJY4P7W",
+    "recommendation": "同合居民间菜馆(西城红场店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_980977fc",
@@ -5048,7 +5184,8 @@
     "meal_type": "main",
     "description": "同合居·非遗东北菜(中央公园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
-    "source_id": "B0LDLNICCN"
+    "source_id": "B0LDLNICCN",
+    "recommendation": "同合居·非遗东北菜(中央公园店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_53cecfad",
@@ -5204,7 +5341,8 @@
     "meal_type": "main",
     "description": "小啪精酿啤酒馆(师大夜市店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0J2Y6H70S"
+    "source_id": "B0J2Y6H70S",
+    "recommendation": "小啪精酿啤酒馆(师大夜市店)是夜间休闲好去处"
   },
   {
     "id": "amap_e0d5dffd",
@@ -5229,7 +5367,8 @@
     "meal_type": "main",
     "description": "鑫焱烤吧，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0JGDSGW1I"
+    "source_id": "B0JGDSGW1I",
+    "recommendation": "鑫焱烤吧是夜间休闲好去处"
   },
   {
     "id": "amap_9c8e5c20",
@@ -5254,7 +5393,8 @@
     "meal_type": "main",
     "description": "风栖谣烧烤酒馆，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0LDRHD04W"
+    "source_id": "B0LDRHD04W",
+    "recommendation": "风栖谣烧烤酒馆是夜间休闲好去处"
   },
   {
     "id": "amap_5a65862b",
@@ -5279,7 +5419,8 @@
     "meal_type": "main",
     "description": "爱啤士精酿啤酒(中央大街店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0LU975I3J"
+    "source_id": "B0LU975I3J",
+    "recommendation": "爱啤士精酿啤酒(中央大街店)是夜间休闲好去处"
   },
   {
     "id": "amap_dbb2ba08",
@@ -5303,7 +5444,8 @@
     "meal_type": "main",
     "description": "小乐音乐烤吧，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
-    "source_id": "B0K1VDQTGU"
+    "source_id": "B0K1VDQTGU",
+    "recommendation": "小乐音乐烤吧是夜间休闲好去处"
   },
   {
     "id": "amap_a00d077a",
@@ -5442,7 +5584,8 @@
     "meal_type": "main",
     "description": "哈尔滨融创茂，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFKEMC0B"
+    "source_id": "B0FFKEMC0B",
+    "recommendation": "哈尔滨融创茂是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_60c66da2",
@@ -5469,7 +5612,8 @@
     "meal_type": "main",
     "description": "枫叶小镇奥特莱斯，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFF3AW1A"
+    "source_id": "B0FFF3AW1A",
+    "recommendation": "枫叶小镇奥特莱斯是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_3bf8b7d1",
@@ -5778,7 +5922,8 @@
     "meal_type": "main",
     "description": "银泰城购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFHFLEF7"
+    "source_id": "B0FFHFLEF7",
+    "recommendation": "银泰城购物中心是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_9466d520",
@@ -5805,7 +5950,8 @@
     "meal_type": "main",
     "description": "百盛购物中心(道外区太平桥店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFFTE2WC"
+    "source_id": "B0FFFTE2WC",
+    "recommendation": "百盛购物中心(道外区太平桥店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_cd17d5de",
@@ -5860,7 +6006,8 @@
     "meal_type": "main",
     "description": "西城红场生活港，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFI6NSY3"
+    "source_id": "B0FFI6NSY3",
+    "recommendation": "西城红场生活港是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b210ecca",
@@ -5915,7 +6062,8 @@
     "meal_type": "main",
     "description": "秋林公司，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B01C30HZN5"
+    "source_id": "B01C30HZN5",
+    "recommendation": "秋林公司是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_78e37527",
@@ -5942,7 +6090,8 @@
     "meal_type": "main",
     "description": "秋林人和地下商城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B01C31AWX4"
+    "source_id": "B01C31AWX4",
+    "recommendation": "秋林人和地下商城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_262cece4",
@@ -5969,7 +6118,8 @@
     "meal_type": "main",
     "description": "百盛购物中心(中央大街店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B01C30JM0O"
+    "source_id": "B01C30JM0O",
+    "recommendation": "百盛购物中心(中央大街店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_8fd46303",
@@ -6023,7 +6173,8 @@
     "meal_type": "main",
     "description": "哈尔滨印象城C座，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0IKKSU2WO"
+    "source_id": "B0IKKSU2WO",
+    "recommendation": "哈尔滨印象城C座是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b7f2220d",
@@ -6048,7 +6199,8 @@
     "meal_type": "main",
     "description": "哈尔滨海宁皮革城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B01C31AXH1"
+    "source_id": "B01C31AXH1",
+    "recommendation": "哈尔滨海宁皮革城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_94e8d493",
@@ -6075,7 +6227,8 @@
     "meal_type": "main",
     "description": "凯德广场(埃德蒙顿路)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B01C317V5H"
+    "source_id": "B01C317V5H",
+    "recommendation": "凯德广场(埃德蒙顿路)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_6dfabbe5",
@@ -6102,7 +6255,8 @@
     "meal_type": "main",
     "description": "红旗·Mall购物中心(哈尔滨店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B0FFF30RPU"
+    "source_id": "B0FFF30RPU",
+    "recommendation": "红旗·Mall购物中心(哈尔滨店)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_b1df4428",
@@ -6129,7 +6283,8 @@
     "meal_type": "main",
     "description": "南岗区大世界商城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
-    "source_id": "B01C303L9B"
+    "source_id": "B01C303L9B",
+    "recommendation": "南岗区大世界商城是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_13754d2e",
@@ -6154,7 +6309,8 @@
     "meal_type": "drink",
     "description": "鹿鱼咖啡(哈尔滨中央大街店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFG8D76G"
+    "source_id": "B0FFG8D76G",
+    "recommendation": "鹿鱼咖啡(哈尔滨中央大街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_19537e87",
@@ -6179,7 +6335,8 @@
     "meal_type": "drink",
     "description": "漫咖啡MAAN COFFEE(群力店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFFFU2ZG"
+    "source_id": "B0FFFFU2ZG",
+    "recommendation": "漫咖啡MAAN COFFEE(群力店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_c21fb2c0",
@@ -6230,7 +6387,8 @@
     "meal_type": "drink",
     "description": "瑞幸咖啡(中央商城店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0FFLHNIDM"
+    "source_id": "B0FFLHNIDM",
+    "recommendation": "瑞幸咖啡(中央商城店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_6ac7c9f5",
@@ -6255,7 +6413,8 @@
     "meal_type": "drink",
     "description": "要潮人民咖啡馆(中央大街店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0L3NHDTNM"
+    "source_id": "B0L3NHDTNM",
+    "recommendation": "要潮人民咖啡馆(中央大街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_32d824fb",
@@ -6358,7 +6517,8 @@
     "meal_type": "drink",
     "description": "戈雅咖啡馆(哈尔滨中央大街店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0HRPY5DXD"
+    "source_id": "B0HRPY5DXD",
+    "recommendation": "戈雅咖啡馆(哈尔滨中央大街店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_7e8d8e24",
@@ -6384,7 +6544,8 @@
     "meal_type": "drink",
     "description": "瑞幸咖啡(红博中央公园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0GD0B6E49"
+    "source_id": "B0GD0B6E49",
+    "recommendation": "瑞幸咖啡(红博中央公园店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_7ba9d603",
@@ -6436,7 +6597,8 @@
     "meal_type": "drink",
     "description": "吱咖啡(木工街)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B01C317YWM"
+    "source_id": "B01C317YWM",
+    "recommendation": "吱咖啡(木工街)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_db29ba17",
@@ -6461,7 +6623,8 @@
     "meal_type": "drink",
     "description": "橡果咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0G2KOWFRL"
+    "source_id": "B0G2KOWFRL",
+    "recommendation": "橡果咖啡是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e4863ef1",
@@ -6485,7 +6648,8 @@
     "meal_type": "drink",
     "description": "Thank You多谢你甜品咖啡(香坊店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0HG65EE4T"
+    "source_id": "B0HG65EE4T",
+    "recommendation": "Thank You多谢你甜品咖啡(香坊店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_170db805",
@@ -6510,7 +6674,8 @@
     "meal_type": "drink",
     "description": "黄房子咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0L3GUHXQV"
+    "source_id": "B0L3GUHXQV",
+    "recommendation": "黄房子咖啡是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_e0b1a3a3",
@@ -6587,7 +6752,8 @@
     "meal_type": "drink",
     "description": "Tims天好咖啡(哈尔滨西城红场店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
-    "source_id": "B0KUHRJEVD"
+    "source_id": "B0KUHRJEVD",
+    "recommendation": "Tims天好咖啡(哈尔滨西城红场店)是当地人气餐厅，推荐尝试特色菜品"
   },
   {
     "id": "amap_cae7a82b",
@@ -6712,7 +6878,8 @@
     "meal_type": "main",
     "description": "哈尔滨霞光旅馆(中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0K6NZ4YUS"
+    "source_id": "B0K6NZ4YUS",
+    "recommendation": "哈尔滨霞光旅馆(中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_b6fc5064",
@@ -6736,7 +6903,8 @@
     "meal_type": "main",
     "description": "点点高姐民宿(中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0KATSPMKF"
+    "source_id": "B0KATSPMKF",
+    "recommendation": "点点高姐民宿(中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_e3cf9c1d",
@@ -6760,7 +6928,8 @@
     "meal_type": "main",
     "description": "哈尔滨栖月旅店(中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0L1ZXO7GR"
+    "source_id": "B0L1ZXO7GR",
+    "recommendation": "哈尔滨栖月旅店(中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_aa339ec7",
@@ -6784,7 +6953,8 @@
     "meal_type": "main",
     "description": "歇处民宿(哈尔滨中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0KRL1AQ84"
+    "source_id": "B0KRL1AQ84",
+    "recommendation": "歇处民宿(哈尔滨中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_a7d7eb62",
@@ -6859,7 +7029,8 @@
     "meal_type": "main",
     "description": "哈尔滨北岸青年旅店(中央大街索菲亚教堂店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0HUJKZ421"
+    "source_id": "B0HUJKZ421",
+    "recommendation": "哈尔滨北岸青年旅店(中央大街索菲亚教堂店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_43363942",
@@ -6883,7 +7054,8 @@
     "meal_type": "main",
     "description": "丁香假日宾馆，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0FFFAHMHA"
+    "source_id": "B0FFFAHMHA",
+    "recommendation": "丁香假日宾馆位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_fb40abad",
@@ -6907,7 +7079,8 @@
     "meal_type": "main",
     "description": "哈尔滨中央大街松花江畔亚朵酒店，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0I3D41B32"
+    "source_id": "B0I3D41B32",
+    "recommendation": "哈尔滨中央大街松花江畔亚朵酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_8f38930f",
@@ -6931,7 +7104,8 @@
     "meal_type": "main",
     "description": "凯悦民宿(哈尔滨中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0J3R4XO8D"
+    "source_id": "B0J3R4XO8D",
+    "recommendation": "凯悦民宿(哈尔滨中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_5f8a180f",
@@ -6957,7 +7131,8 @@
     "meal_type": "main",
     "description": "红立(红霞街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0JRHNEM0D"
+    "source_id": "B0JRHNEM0D",
+    "recommendation": "红立(红霞街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_76cfa90a",
@@ -6981,7 +7156,8 @@
     "meal_type": "main",
     "description": "禧龙宾馆(哈尔滨中央大街西五道街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B01C30KGDD"
+    "source_id": "B01C30KGDD",
+    "recommendation": "禧龙宾馆(哈尔滨中央大街西五道街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_3c7db9d3",
@@ -7005,7 +7181,8 @@
     "meal_type": "main",
     "description": "哈尔滨风相精选民宿(中央大街红专街早市店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0KK3NK12C"
+    "source_id": "B0KK3NK12C",
+    "recommendation": "哈尔滨风相精选民宿(中央大街红专街早市店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_4176625f",
@@ -7030,7 +7207,8 @@
     "meal_type": "main",
     "description": "勃莱梅酒店(中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B01C30430Z"
+    "source_id": "B01C30430Z",
+    "recommendation": "勃莱梅酒店(中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_3cc8e023",
@@ -7054,7 +7232,8 @@
     "meal_type": "main",
     "description": "哈尔滨麗橙假日酒店，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0L655NSC0"
+    "source_id": "B0L655NSC0",
+    "recommendation": "哈尔滨麗橙假日酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_cf682f7f",
@@ -7078,7 +7257,8 @@
     "meal_type": "main",
     "description": "哈尔滨顽石主题公寓，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0FFHN5E8T"
+    "source_id": "B0FFHN5E8T",
+    "recommendation": "哈尔滨顽石主题公寓位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_5a269520",
@@ -7102,7 +7282,8 @@
     "meal_type": "main",
     "description": "百年俄式老洋房民宿(红专街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0FFGJDN13"
+    "source_id": "B0FFGJDN13",
+    "recommendation": "百年俄式老洋房民宿(红专街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_266e9afb",
@@ -7126,7 +7307,8 @@
     "meal_type": "main",
     "description": "喆啡酒店(哈尔滨中央大街防洪纪念塔店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0FFK60IK7"
+    "source_id": "B0FFK60IK7",
+    "recommendation": "喆啡酒店(哈尔滨中央大街防洪纪念塔店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_3c7e052d",
@@ -7150,7 +7332,8 @@
     "meal_type": "main",
     "description": "哈尔滨润东居民宿(中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0L6NDIC24"
+    "source_id": "B0L6NDIC24",
+    "recommendation": "哈尔滨润东居民宿(中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_e0e56269",
@@ -7175,7 +7358,8 @@
     "meal_type": "main",
     "description": "新上游宾馆，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B01C30J8VG"
+    "source_id": "B01C30J8VG",
+    "recommendation": "新上游宾馆位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_491a3a05",
@@ -7250,7 +7434,8 @@
     "meal_type": "main",
     "description": "栖月民宿(哈尔滨中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0L6L9GMXK"
+    "source_id": "B0L6L9GMXK",
+    "recommendation": "栖月民宿(哈尔滨中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_2475b792",
@@ -7274,7 +7459,8 @@
     "meal_type": "main",
     "description": "如家华驿UP智旅酒店(哈尔滨中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0K2V5V117"
+    "source_id": "B0K2V5V117",
+    "recommendation": "如家华驿UP智旅酒店(哈尔滨中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_88ba146d",
@@ -7323,7 +7509,8 @@
     "meal_type": "main",
     "description": "中央公馆酒店(中央大街地铁站红专街早市店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0FFFOHLCX"
+    "source_id": "B0FFFOHLCX",
+    "recommendation": "中央公馆酒店(中央大街地铁站红专街早市店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_883a5a5",
@@ -7349,7 +7536,8 @@
     "meal_type": "main",
     "description": "哈尔滨瑶遇民宿(中央大街红专街早市店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0K2L7QSKG"
+    "source_id": "B0K2L7QSKG",
+    "recommendation": "哈尔滨瑶遇民宿(中央大街红专街早市店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_e66b8dd2",
@@ -7376,7 +7564,8 @@
     "meal_type": "main",
     "description": "柒朵快捷民宿(中央大街红专街早市店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0KUTLYPTL"
+    "source_id": "B0KUTLYPTL",
+    "recommendation": "柒朵快捷民宿(中央大街红专街早市店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_b26f7f0e",
@@ -7400,7 +7589,8 @@
     "meal_type": "main",
     "description": "暮冬青年旅舍(哈尔滨中央大街索菲亚教堂店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0K37STGD0"
+    "source_id": "B0K37STGD0",
+    "recommendation": "暮冬青年旅舍(哈尔滨中央大街索菲亚教堂店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_56a9054",
@@ -7424,7 +7614,8 @@
     "meal_type": "main",
     "description": "红专25号民宿(中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0KA3ZRPZR"
+    "source_id": "B0KA3ZRPZR",
+    "recommendation": "红专25号民宿(中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_14ff4ee0",
@@ -7449,7 +7640,8 @@
     "meal_type": "main",
     "description": "际丰假日酒店，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B01C30JNOE"
+    "source_id": "B01C30JNOE",
+    "recommendation": "际丰假日酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_22ad059f",
@@ -7499,7 +7691,8 @@
     "meal_type": "main",
     "description": "正阳文华酒店，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0FFG8PD0J"
+    "source_id": "B0FFG8PD0J",
+    "recommendation": "正阳文华酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_d010e16",
@@ -7524,7 +7717,8 @@
     "meal_type": "main",
     "description": "俊朗中央大酒店，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0FFFAL7UH"
+    "source_id": "B0FFFAL7UH",
+    "recommendation": "俊朗中央大酒店位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_f4544910",
@@ -7549,7 +7743,8 @@
     "meal_type": "main",
     "description": "哈尔滨凯瑞酒店(中央大街索菲亚教堂店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B01C31852B"
+    "source_id": "B01C31852B",
+    "recommendation": "哈尔滨凯瑞酒店(中央大街索菲亚教堂店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_f460675e",
@@ -7573,7 +7768,8 @@
     "meal_type": "main",
     "description": "鑫林宾馆(中央大街店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0FFGD2OZ5"
+    "source_id": "B0FFGD2OZ5",
+    "recommendation": "鑫林宾馆(中央大街店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_94ff70c5",
@@ -7622,6 +7818,7 @@
     "meal_type": "main",
     "description": "哈尔滨凯斯顿酒店(中央大街步行街索菲亚教堂店)，来自高德 Web 服务 POI 搜索；分类：中央大街酒店。",
     "source": "amap",
-    "source_id": "B0LK1ZDT1D"
+    "source_id": "B0LK1ZDT1D",
+    "recommendation": "哈尔滨凯斯顿酒店(中央大街步行街索菲亚教堂店)位置便利，适合作为旅行住宿据点"
   }
 ]
