@@ -75,6 +75,23 @@ function leafletReady() {
   return typeof window.L !== "undefined";
 }
 
+function addBaseTileLayer(map) {
+  // 高德地图瓦片（国内快速，中文标注）
+  var amap = L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}", {
+    subdomains: "1234",
+    maxZoom: 18,
+    attribution: '&copy; 高德地图'
+  });
+  // OSM 备用
+  var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution: '&copy; OSM'
+  });
+  amap.addTo(map);
+  // 图层切换控件
+  L.control.layers({"高德地图": amap, "OpenStreetMap": osm}, null, {position: "topright"}).addTo(map);
+}
+
 function renderOverviewMap(candidate) {
   const mapDiv = $("map");
   if (!leafletReady() || !mapDiv || !candidate?.days) return;
@@ -87,10 +104,13 @@ function renderOverviewMap(candidate) {
   if (allCoords.length === 0) return;
   mapMarkerByPoiId = {};
   if (planMap) { planMap.remove(); planMap = null; }
-  planMap = L.map(mapDiv);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; OSM', maxZoom: 18,
-  }).addTo(planMap);
+  planMap = L.map(mapDiv, {
+    zoomControl: true,
+    attributionControl: true,
+    // 禁止通过点击地图添加任何内容
+    tap: true,
+  });
+  addBaseTileLayer(planMap);
 
   const bounds = [];
   mapDayLayers = [];

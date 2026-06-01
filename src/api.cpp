@@ -218,7 +218,7 @@ void setCommonHeaders(httplib::Response& res, const std::string& requestId) {
     res.set_header("X-Content-Type-Options", "nosniff");
     res.set_header("Referrer-Policy", "no-referrer");
     res.set_header("X-Frame-Options", "DENY");
-    res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.tile.openstreetmap.org data:");
+    res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:");
 }
 
 std::string queryString(const httplib::Request& req) {
