@@ -1640,6 +1640,70 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .map-popup { min-width: 120px; }
 .map-popup-name { font-weight: 700; font-size: 13px; margin-bottom: 2px; white-space: nowrap; }
 .map-popup-time { font-size: 11px; color: #65706d; }
+
+/* POI Browse Bar */
+.poi-browse-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0;
+  flex-wrap: wrap;
+}
+.poi-browse-label {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.poi-browse-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.poi-browse-btn:hover { border-color: var(--accent); }
+.poi-browse-btn.active {
+  background: var(--soft);
+  border-color: var(--accent);
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+
+/* POI Browse Markers (semi-transparent dots) */
+.poi-browse-marker-wrap { background: none !important; border: none !important; }
+.poi-browse-marker {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.6;
+  border: 1.5px solid #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: opacity 0.15s, transform 0.15s;
+}
+.poi-browse-marker:hover { opacity: 1; transform: scale(1.5); }
+
+/* POI Browse Popup */
+.poi-browse-popup { min-width: 160px; max-width: 220px; }
+.poi-browse-name { font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+.poi-browse-meta { font-size: 11px; color: #65706d; margin-bottom: 4px; }
+.poi-browse-rec { font-size: 11px; color: #65706d; margin-bottom: 6px; line-height: 1.4; }
+.poi-browse-add {
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+.poi-browse-add:hover { background: var(--accent-dark); }
 .map-marker-num {
   color: #fff;
   font-size: 13px;

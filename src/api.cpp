@@ -342,7 +342,8 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
                          || req.path.find("/assets/") == 0
                          || req.path.find("/images/") == 0
                          || req.path.find("/city/") == 0
-                         || req.path == "/cities";
+                         || req.path == "/cities"
+                         || req.path == "/poi/browse";
 
         // API key bypass (for programmatic access)
         const std::string& apiKey = requiredApiKey();
@@ -775,6 +776,57 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             data.push_back(searchResultToJson(result));
         }
         nlohmann::json result = {{"data", data}};
+        context.cache.put(key, result);
+        setJson(res, result);
+    });
+
+    // GET /poi/browse - browse POIs by type on the map
+    server.Get("/poi/browse", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
+        std::string typeFilter = req.has_param("type") ? req.get_param_value("type") : "";
+        auto* city = context.getCity(cityName);
+        if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+        int limit = 50;
+        if (req.has_param("limit")) {
+            try { limit = std::stoi(req.get_param_value("limit")); } catch (...) { limit = 50; }
+        }
+        limit = std::max(1, std::min(200, limit));
+
+        std::string key = requestCacheKey(req.method, req.path, queryString(req), "");
+        if (serveFromCache(context, res, key)) return;
+
+        // Collect POIs from graph, filter by type, sort by popularity
+        struct PoiEntry { const Poi* poi; };
+        std::vector<PoiEntry> entries;
+        for (const auto& poi : city->graph.pois()) {
+            if (poi.type == PoiType::Hotel || poi.type == PoiType::Transit) continue;
+            if (!typeFilter.empty()) {
+                std::string pType = poiTypeToString(poi.type);
+                if (pType != typeFilter) continue;
+            }
+            entries.push_back({&poi});
+        }
+        std::sort(entries.begin(), entries.end(), [](const PoiEntry& a, const PoiEntry& b) {
+            return a.poi->popularity > b.poi->popularity;
+        });
+        if (static_cast<int>(entries.size()) > limit) entries.resize(limit);
+
+        nlohmann::json data = nlohmann::json::array();
+        for (const auto& e : entries) {
+            nlohmann::json item = {
+                {"id", e.poi->id},
+                {"name", e.poi->name},
+                {"type", poiTypeToString(e.poi->type)},
+                {"meal_type", e.poi->mealType},
+                {"lat", e.poi->lat},
+                {"lng", e.poi->lng},
+                {"area", e.poi->area},
+                {"popularity", e.poi->popularity},
+                {"recommendation", e.poi->description}
+            };
+            data.push_back(item);
+        }
+        nlohmann::json result = {{"data", data}, {"total", static_cast<int>(entries.size())}};
         context.cache.put(key, result);
         setJson(res, result);
     });

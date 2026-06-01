@@ -443,44 +443,152 @@ function addSearchPoiToItinerary(poi) {
   const candidate = state.candidates[state.selectedIndex];
   if (!candidate?.days?.length) { toast("请先生成行程再添加", "info"); return; }
 
-  // Add to the first day's stops as a new stop
-  const firstDay = candidate.days[0];
-  const newStop = {
-    poi_id: "amap_" + (poi.id || Date.now()),
+  // Auto-detect POI type
+  var poiType = poi.type || "attraction";
+  var mealType = poi.meal_type || "main";
+  var visitDuration = 60;
+  if (poiType === "restaurant") {
+    if (mealType === "drink") { visitDuration = 30; }
+    else { visitDuration = 60; }
+  }
+
+  // Find best day to add (prefer day with fewest stops, or day 1)
+  var targetDay = candidate.days[0];
+  var minStops = (targetDay.stops || []).length;
+  candidate.days.forEach(function(d) {
+    var count = (d.stops || []).length;
+    if (count < minStops) { minStops = count; targetDay = d; }
+  });
+
+  var newStop = {
+    poi_id: poi.id || ("browse_" + Date.now()),
     poi_name: poi.name,
-    poi_type: "attraction",
-    area: poi.district || poi.address || "",
+    poi_type: poiType,
+    meal_type: mealType,
+    area: poi.area || poi.district || "",
     lat: poi.lat,
     lng: poi.lng,
     start_time: "00:00",
     end_time: "00:00",
-    visit_duration_minutes: 60,
+    visit_duration_minutes: visitDuration,
     travel_minutes_from_previous: 0,
     score: 0,
-    reason: "地图搜索添加",
-    recommendation: "",
+    reason: "地图浏览添加",
+    recommendation: poi.recommendation || "",
     slot: "自由时间",
     time_window_status: "ok",
   };
-  firstDay.stops = firstDay.stops || [];
-  firstDay.stops.push(newStop);
-  recalcDayTimes(firstDay);
+  targetDay.stops = targetDay.stops || [];
+  targetDay.stops.push(newStop);
+  recalcDayTimes(targetDay);
 
-  // Re-render
   renderPlan();
   saveTripState();
-  toast(`已添加 ${poi.name} 到行程`, "success");
+  toast("已添加 " + poi.name + " 到第 " + targetDay.day + " 天", "success");
 
   // Clean up search markers
   if (searchResultMarkers && planMap) {
     planMap.removeLayer(searchResultMarkers);
     searchResultMarkers = null;
   }
-  const resultsDiv = $("mapSearchResults");
+  var resultsDiv = $("mapSearchResults");
   if (resultsDiv) resultsDiv.hidden = true;
-  const input = $("mapSearchInput");
+  var input = $("mapSearchInput");
   if (input) input.value = "";
 }
+
+// ---- POI Browser: browse all POIs on map by category ----
+let browsePoiLayers = {}; // type -> L.layerGroup
+
+function initPoiBrowse() {
+  const bar = document.getElementById("poiBrowseBar");
+  if (!bar) return;
+  bar.addEventListener("click", function(e) {
+    const btn = e.target.closest(".poi-browse-btn");
+    if (!btn) return;
+    const type = btn.dataset.browseType;
+    const mealFilter = btn.dataset.mealFilter;
+    const key = mealFilter ? type + ":" + mealFilter : type;
+    btn.classList.toggle("active");
+    if (btn.classList.contains("active")) {
+      loadPoiBrowseLayer(type, mealFilter, key);
+    } else {
+      hidePoiBrowseLayer(key);
+    }
+  });
+}
+
+async function loadPoiBrowseLayer(type, mealFilter, key) {
+  if (!planMap) return;
+  if (browsePoiLayers[key]) {
+    browsePoiLayers[key].addTo(planMap);
+    return;
+  }
+  const city = state.lastPayload?.city || "长沙";
+  try {
+    const res = await api("/poi/browse?city=" + encodeURIComponent(city) + "&type=" + type + "&limit=80");
+    const pois = (res.data || []).filter(function(p) {
+      if (mealFilter === "drink") return p.meal_type === "drink";
+      if (mealFilter === "snack") return p.meal_type === "snack";
+      if (type === "restaurant" && !mealFilter) return p.meal_type === "main";
+      return true;
+    });
+    const layer = L.layerGroup();
+    var typeColors = {attraction:"#10b981", restaurant:"#f59e0b", nightlife:"#8b5cf6"};
+    var color = typeColors[type] || "#6b7280";
+    pois.forEach(function(poi) {
+      if (!poi.lat || !poi.lng) return;
+      // Check if already in itinerary
+      var inItinerary = false;
+      var candidate = state.candidates[state.selectedIndex];
+      if (candidate?.days) {
+        candidate.days.forEach(function(d) {
+          (d.stops||[]).forEach(function(s) { if (s.poi_name === poi.name) inItinerary = true; });
+        });
+      }
+      if (inItinerary) return;
+      var icon = L.divIcon({
+        className: "poi-browse-marker-wrap",
+        html: '<div class="poi-browse-marker" style="background:' + color + '"></div>',
+        iconSize: [14, 14],
+        iconAnchor: [7, 7],
+        popupAnchor: [0, -10],
+      });
+      var marker = L.marker([poi.lat, poi.lng], {icon: icon});
+      var rec = poi.recommendation ? '<div class="poi-browse-rec">' + escapeHtml(poi.recommendation.slice(0,60)) + '</div>' : '';
+      marker.bindPopup(
+        '<div class="poi-browse-popup">' +
+          '<div class="poi-browse-name">' + escapeHtml(poi.name) + '</div>' +
+          '<div class="poi-browse-meta">' + typeIcon(poi.type) + ' ' + escapeHtml(poi.area) + ' · 热度 ' + (poi.popularity||0).toFixed(1) + '</div>' +
+          rec +
+          '<button class="poi-browse-add" data-poi=\'' + escapeHtml(JSON.stringify(poi)) + '\'>+ 添加到行程</button>' +
+        '</div>'
+      );
+      marker.addTo(layer);
+    });
+    browsePoiLayers[key] = layer;
+    layer.addTo(planMap);
+    toast("已显示 " + pois.length + " 个" + (mealFilter === "drink" ? "茶饮" : type === "attraction" ? "景点" : type === "restaurant" ? "美食" : "夜生活") + " POI", "info");
+  } catch(e) {
+    console.error("POI browse error:", e);
+  }
+}
+
+function hidePoiBrowseLayer(key) {
+  if (browsePoiLayers[key] && planMap) {
+    planMap.removeLayer(browsePoiLayers[key]);
+  }
+}
+
+// Event delegation for "Add to itinerary" from browse popups
+document.addEventListener("click", function(e) {
+  var btn = e.target.closest(".poi-browse-add");
+  if (!btn) return;
+  try {
+    var poi = JSON.parse(btn.dataset.poi);
+    addSearchPoiToItinerary(poi);
+  } catch(err) { console.error("Browse add error:", err); }
+});
 
 // Initialize map search on first render
 setTimeout(initMapSearch, 100);
@@ -980,6 +1088,7 @@ function renderPlan() {
   initDragDrop();
   initMapDayFilter(candidate);
   initMapSearch();
+  initPoiBrowse();
   // Fetch weather asynchronously
   const city = state.lastPayload?.city || "长沙";
   fetchWeather(city).then(weather => {
@@ -1248,6 +1357,13 @@ function renderOverview(candidate) {
       </div>
       <div class="map-legend">
         ${days.map((d, i) => `<span class="legend-item"><span class="legend-dot" style="background:${DAY_COLORS[i % DAY_COLORS.length]}"></span>Day ${d.day} · ${d.stops?.length || 0} 站</span>`).join("")}
+      </div>
+      <div class="poi-browse-bar" id="poiBrowseBar">
+        <span class="poi-browse-label">浏览 POI：</span>
+        <button class="poi-browse-btn" data-browse-type="attraction">🏛 景点</button>
+        <button class="poi-browse-btn" data-browse-type="restaurant">🍜 美食</button>
+        <button class="poi-browse-btn poi-browse-drink" data-browse-type="restaurant" data-meal-filter="drink">☕ 茶饮</button>
+        <button class="poi-browse-btn" data-browse-type="nightlife">🌙 夜生活</button>
       </div>
     </div>
 
