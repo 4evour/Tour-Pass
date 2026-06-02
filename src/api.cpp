@@ -363,6 +363,8 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
                          || req.path == "/admin.js"
                          || req.path == "/profile.html"
                          || req.path == "/profile.js"
+                         || req.path == "/share.html"
+                         || req.path == "/share-render.js"
                          || req.path.find("/vendor/") == 0
                          || req.path.find("/assets/") == 0
                          || req.path.find("/images/") == 0
