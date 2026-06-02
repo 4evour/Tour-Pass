@@ -698,6 +698,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 return;
             }
         }
+        limit = std::max(1, std::min(200, limit));
         try {
             setJson(res, {{"data", context.store->recentJobs(limit)}});
         } catch (const std::exception& ex) {
@@ -1614,18 +1615,23 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         // Inject trip data as a script tag
         // Use JSON.parse to prevent XSS: data in a non-executing script tag
         std::string escaped = trip->dump();
-        // Escape </script> sequences in JSON to prevent breakout
+        // Escape </ sequences in JSON to prevent script tag breakout
         size_t pos2 = 0;
         while ((pos2 = escaped.find("</", pos2)) != std::string::npos) {
             escaped.replace(pos2, 2, "<\\/");
-            pos2 += 2;
+            pos2 += 3;  // skip past the replaced <\/ (3 chars)
         }
+        // Generate a CSP nonce so the browser allows these specific inline scripts
+        std::string nonce = randomHex(16);
         std::string script = "<script type=\"application/json\" id=\"share-data\">" + escaped + "</script>"
-            "<script>window.__SHARE_DATA__=JSON.parse(document.getElementById('share-data').textContent);</script></head>";
+            "<script nonce=\"" + nonce + "\">window.__SHARE_DATA__=JSON.parse(document.getElementById('share-data').textContent);</script></head>";
         auto pos = html.find("</head>");
         if (pos != std::string::npos) {
             html.replace(pos, 7, script);
         }
+        // Override CSP for this response to allow the nonce'd inline script
+        res.set_header("Content-Security-Policy",
+            "default-src 'self'; script-src 'self' 'nonce-" + nonce + "'; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:");
         res.set_content(html, "text/html; charset=utf-8");
     });
 
@@ -1679,6 +1685,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         if (req.has_param("limit")) {
             try { limit = std::stoi(req.get_param_value("limit")); } catch (...) {}
         }
+        limit = std::max(1, std::min(500, limit));
         setJson(res, {{"data", context.store->listUsers(limit)}});
     });
 

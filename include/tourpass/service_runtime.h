@@ -4,6 +4,7 @@
 #include <chrono>
 #include <condition_variable>
 #include <cstddef>
+#include <deque>
 #include <functional>
 #include <list>
 #include <mutex>
@@ -85,7 +86,7 @@ private:
     struct RouteStats {
         uint64_t count = 0;
         uint64_t totalMs = 0;
-        std::vector<int64_t> samples;
+        std::deque<int64_t> samples;
     };
 
     mutable std::mutex mutex_;

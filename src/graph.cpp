@@ -134,7 +134,7 @@ RouteResult PoiGraph::findRoute(const std::string& from, const std::string& to, 
     struct QueueItem {
         int priority = 0;
         int cost = 0;
-        std::string id;
+        size_t idx = 0;
     };
     struct QueueCompare {
         bool operator()(const QueueItem& a, const QueueItem& b) const {
@@ -142,55 +142,54 @@ RouteResult PoiGraph::findRoute(const std::string& from, const std::string& to, 
         }
     };
     std::priority_queue<QueueItem, std::vector<QueueItem>, QueueCompare> queue;
-    std::unordered_map<std::string, int> dist;
-    std::unordered_map<std::string, std::string> previous;
-    for (const auto& poi : pois_) {
-        dist[poi.id] = std::numeric_limits<int>::max();
-    }
-    dist[start->id] = 0;
-    queue.push({0, 0, start->id});
+    const size_t n = pois_.size();
+    std::vector<int> dist(n, std::numeric_limits<int>::max());
+    std::vector<size_t> previous(n, n); // n = sentinel for "no previous"
+    size_t startIdx = indexById_.at(start->id);
+    size_t targetIdx = indexById_.at(target->id);
+    dist[startIdx] = 0;
+    queue.push({0, 0, startIdx});
 
     while (!queue.empty()) {
         auto item = queue.top();
         queue.pop();
         int cost = item.cost;
-        const std::string& id = item.id;
-        if (cost != dist[id]) continue;
-        if (id == target->id) break;
+        size_t curIdx = item.idx;
+        if (cost != dist[curIdx]) continue;
+        if (curIdx == targetIdx) break;
 
-        auto adjIt = adjacency_.find(id);
+        const std::string& curId = pois_[curIdx].id;
+        auto adjIt = adjacency_.find(curId);
         if (adjIt == adjacency_.end()) continue;
         for (const auto& next : adjIt->second) {
+            auto nextIt = indexById_.find(next.to);
+            if (nextIt == indexById_.end()) continue;
+            size_t nextIdx = nextIt->second;
             int nextCost = cost + next.minutes;
-            if (nextCost < dist[next.to]) {
-                dist[next.to] = nextCost;
-                previous[next.to] = id;
+            if (nextCost < dist[nextIdx]) {
+                dist[nextIdx] = nextCost;
+                previous[nextIdx] = curIdx;
                 int priority = nextCost;
                 if (useHeuristic) {
-                    const Poi* nextPoi = findPoi(next.to);
-                    if (nextPoi) {
-                        priority += static_cast<int>(heuristicMinutes(*nextPoi, *target));
-                    }
+                    priority += static_cast<int>(heuristicMinutes(pois_[nextIdx], *target));
                 }
-                queue.push({priority, nextCost, next.to});
+                queue.push({priority, nextCost, nextIdx});
             }
         }
     }
 
-    if (dist[target->id] == std::numeric_limits<int>::max()) {
+    if (dist[targetIdx] == std::numeric_limits<int>::max()) {
         return route;
     }
 
     route.from = start->id;
     route.to = target->id;
-    route.travelMinutes = dist[target->id];
-    std::string cursor = target->id;
-    while (!cursor.empty()) {
-        route.path.push_back(cursor);
-        if (cursor == start->id) break;
-        auto prevIt = previous.find(cursor);
-        if (prevIt == previous.end()) break;
-        cursor = prevIt->second;
+    route.travelMinutes = dist[targetIdx];
+    size_t cursor = targetIdx;
+    while (cursor < n) {
+        route.path.push_back(pois_[cursor].id);
+        if (cursor == startIdx) break;
+        cursor = previous[cursor];
     }
     std::reverse(route.path.begin(), route.path.end());
     for (const auto& pid : route.path) {

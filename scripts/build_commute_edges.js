@@ -1,6 +1,26 @@
 const fs = require("fs");
 const path = require("path");
 
+if (process.argv.includes("--help") || process.argv.includes("-h")) {
+  console.log(`Usage: node scripts/build_commute_edges.js --pois <path> [options]
+
+Build commute edges between POIs using AMap routing APIs.
+
+Options:
+  --pois <path>           Path to POI JSON array (required)
+  --out-dir <path>        Output directory (default: output/amap-changsha)
+  --neighbors <n>         Nearest neighbors per POI (1-12, default: 6)
+  --cache-dir <path>      API cache directory (default: output/amap-cache)
+  --mock-dir <path>       Use mock data instead of live API
+  --no-amap               Disable AMap routing, use geo estimates only
+  --fallback <mode>       Fallback strategy: geo_estimated or fail (default: geo_estimated)
+  --min-amap-ratio <n>    Minimum ratio of AMap-sourced edges (0-1, default: 0)
+  --mode <mode>           Routing mode: driving, walking, or mixed (default: mixed)
+  --batch-size <n>        Batch size for distance API (1-100, default: 100)
+  --help, -h              Show this help message`);
+  process.exit(0);
+}
+
 function sanitizeAmapResponse(json) {
   if (!json || typeof json !== "object") return json;
   const copy = Array.isArray(json) ? [...json] : { ...json };
@@ -25,7 +45,7 @@ function sleep(ms) {
 async function fetchWithRetry(url, retries = MAX_RETRIES) {
   for (let attempt = 0; attempt <= retries; attempt++) {
     try {
-      const response = await fetch(url);
+      const response = await fetch(url, { signal: AbortSignal.timeout(10000) });
       if (!response.ok) {
         if (attempt < retries) { await sleep(1000 * (attempt + 1)); continue; }
         return null;
@@ -227,7 +247,7 @@ async function fetchAmapRoute({ from, to, mode, apiKey, mockDir, cacheDir }) {
     origin: `${from.lng},${from.lat}`,
     destination: `${to.lng},${to.lat}`,
   });
-  const response = await fetch(`${endpoint}?${params.toString()}`);
+  const response = await fetch(`${endpoint}?${params.toString()}`, { signal: AbortSignal.timeout(10000) });
   if (!response.ok) return null;
   const json = await response.json();
   fs.mkdirSync(cacheDir, { recursive: true });
@@ -248,7 +268,7 @@ async function fetchAmapRouteMetrics({ from, to, mode, apiKey, mockDir, cacheDir
     destination: `${to.lng},${to.lat}`,
     output: "json",
   });
-  const response = await fetch(`${endpoint}?${params.toString()}`);
+  const response = await fetch(`${endpoint}?${params.toString()}`, { signal: AbortSignal.timeout(10000) });
   if (!response.ok) return null;
   const json = await response.json();
   fs.mkdirSync(cacheDir, { recursive: true });

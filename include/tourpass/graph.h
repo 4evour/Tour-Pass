@@ -42,6 +42,11 @@ public:
     PoiGraph(std::vector<Poi> pois, std::vector<Edge> edges);
     PoiGraph(std::vector<Poi> pois, std::vector<Edge> edges, DistanceCacheConfig cacheConfig);
 
+    PoiGraph(const PoiGraph&) = delete;
+    PoiGraph& operator=(const PoiGraph&) = delete;
+    PoiGraph(PoiGraph&&) = delete;
+    PoiGraph& operator=(PoiGraph&&) = delete;
+
     const Poi* findPoi(const std::string& idOrName) const;
     const std::vector<Poi>& pois() const { return pois_; }
     size_t edgeCount() const { return edgeCount_; }

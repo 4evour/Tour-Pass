@@ -3,11 +3,13 @@
 #include <mutex>
 #include <optional>
 #include <string>
+#include <vector>
 
 #include "json.hpp"
 #include "tourpass/data_store.h"
 
 struct pg_conn;
+struct pg_result;
 
 namespace tourpass {
 
@@ -18,6 +20,8 @@ public:
 
     PostgresStore(const PostgresStore&) = delete;
     PostgresStore& operator=(const PostgresStore&) = delete;
+    PostgresStore(PostgresStore&&) = delete;
+    PostgresStore& operator=(PostgresStore&&) = delete;
 
     bool enabled() const override { return conn_ != nullptr; }
 
@@ -74,6 +78,8 @@ private:
     void open();
     void initializeSchema();
     void exec(const std::string& sql);
+    void execP(const std::string& sql, const std::vector<std::string>& params);
+    pg_result* queryP(const std::string& sql, const std::vector<std::string>& params) const;
     std::string queryScalar(const std::string& sql) const;
 
     std::string connStr_;

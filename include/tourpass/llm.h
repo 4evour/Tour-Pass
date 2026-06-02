@@ -1,9 +1,13 @@
 #pragma once
 
+#include <memory>
 #include <string>
 #include <vector>
 
 #include "tourpass/models.h"
+
+// Forward declare in global namespace (httplib lives there)
+namespace httplib { class Client; }
 
 namespace tourpass {
 
@@ -40,6 +44,7 @@ public:
 
 private:
     LlmConfig config_;
+    mutable std::shared_ptr<::httplib::Client> httpClient_;
 
     std::string explainWithTemplate(const Itinerary& itinerary) const;
     std::string explainWithRemote(const Itinerary& itinerary) const;

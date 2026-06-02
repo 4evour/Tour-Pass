@@ -133,7 +133,7 @@ int main() {
         if (const char* envPort = std::getenv("PORT")) {
             try {
                 port = std::stoi(envPort);
-                if (port <= 0) port = 8080;
+                if (port <= 0 || port > 65535) port = 8080;
             } catch (...) {
                 port = 8080;
             }

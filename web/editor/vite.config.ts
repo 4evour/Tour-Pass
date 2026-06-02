@@ -22,6 +22,7 @@ export default defineConfig({
       '/editor': 'http://localhost:8080',
       '/cities': 'http://localhost:8080',
       '/poi': 'http://localhost:8080',
+      '/trip': 'http://localhost:8080',
     },
   },
 });

@@ -20,6 +20,8 @@ public:
 
     SQLiteStore(const SQLiteStore&) = delete;
     SQLiteStore& operator=(const SQLiteStore&) = delete;
+    SQLiteStore(SQLiteStore&&) = delete;
+    SQLiteStore& operator=(SQLiteStore&&) = delete;
 
     bool enabled() const override { return db_ != nullptr; }
     const std::string& path() const { return path_; }

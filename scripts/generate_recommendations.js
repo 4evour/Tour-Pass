@@ -1,6 +1,17 @@
 #!/usr/bin/env node
 // Generate recommendation text for POIs that lack it
-// Usage: node scripts/generate_recommendations.js
+// Usage: node scripts/generate_recommendations.js [--help]
+
+if (process.argv.includes("--help") || process.argv.includes("-h")) {
+  console.log(`Usage: node scripts/generate_recommendations.js
+
+Generates recommendation text for POIs that don't have one.
+Reads and writes POI JSON files in the data/ directory.
+
+Options:
+  --help, -h    Show this help message`);
+  process.exit(0);
+}
 
 const fs = require("fs");
 const path = require("path");
@@ -57,26 +68,34 @@ let totalUpdated = 0;
 let totalSkipped = 0;
 
 for (const city of CITY_DIRS) {
-  const poisPath = path.join(city.dir, city.dir === "data" ? "pois.json" : "pois.json");
+  const poisPath = path.join(city.dir, "pois.json");
   if (!fs.existsSync(poisPath)) {
     console.log(`[SKIP] ${poisPath} not found`);
     continue;
   }
-  const pois = JSON.parse(fs.readFileSync(poisPath, "utf-8"));
-  let updated = 0;
-  for (const poi of pois) {
-    if (!poi.recommendation || poi.recommendation.length < 5) {
-      poi.recommendation = generateRecommendation(poi);
-      updated++;
+  try {
+    const pois = JSON.parse(fs.readFileSync(poisPath, "utf-8"));
+    if (!Array.isArray(pois)) {
+      console.warn(`[WARN] ${poisPath}: expected JSON array, got ${typeof pois}`);
+      continue;
     }
-  }
-  if (updated > 0) {
-    fs.writeFileSync(poisPath, JSON.stringify(pois, null, 2), "utf-8");
-    console.log(`[${city.label}] Updated ${updated}/${pois.length} POIs`);
-    totalUpdated += updated;
-  } else {
-    console.log(`[${city.label}] All ${pois.length} POIs already have recommendations`);
-    totalSkipped += pois.length;
+    let updated = 0;
+    for (const poi of pois) {
+      if (!poi.recommendation || poi.recommendation.length < 5) {
+        poi.recommendation = generateRecommendation(poi);
+        updated++;
+      }
+    }
+    if (updated > 0) {
+      fs.writeFileSync(poisPath, JSON.stringify(pois, null, 2), "utf-8");
+      console.log(`[${city.label}] Updated ${updated}/${pois.length} POIs`);
+      totalUpdated += updated;
+    } else {
+      console.log(`[${city.label}] All ${pois.length} POIs already have recommendations`);
+      totalSkipped += pois.length;
+    }
+  } catch (err) {
+    console.warn(`[WARN] ${city.label}: ${err.message}`);
   }
 }
 

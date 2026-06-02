@@ -1,4 +1,5 @@
 #include "tourpass/sqlite_store.h"
+#include "tourpass/auth.h"
 
 #include <chrono>
 #include <filesystem>
@@ -19,6 +20,11 @@ std::string nowSql() {
 
 void bindText(sqlite3_stmt* stmt, int index, const std::string& value) {
     sqlite3_bind_text(stmt, index, value.c_str(), static_cast<int>(value.size()), SQLITE_TRANSIENT);
+}
+
+const char* safeColumnText(sqlite3_stmt* stmt, int col) {
+    const char* p = reinterpret_cast<const char*>(sqlite3_column_text(stmt, col));
+    return p ? p : "";
 }
 
 class Statement {
@@ -308,12 +314,12 @@ nlohmann::json SQLiteStore::recentJobs(int limit) const {
     nlohmann::json jobs = nlohmann::json::array();
     while (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         jobs.push_back({
-            {"id", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 0))},
-            {"status", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1))},
+            {"id", safeColumnText(stmt.get(), 0)},
+            {"status", safeColumnText(stmt.get(), 1)},
             {"queue_wait_ms", sqlite3_column_int64(stmt.get(), 2)},
             {"execution_ms", sqlite3_column_int64(stmt.get(), 3)},
-            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4))},
-            {"updated_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 5))}
+            {"created_at", safeColumnText(stmt.get(), 4)},
+            {"updated_at", safeColumnText(stmt.get(), 5)}
         });
     }
     return jobs;
@@ -356,12 +362,12 @@ std::optional<UserRecord> SQLiteStore::findUserByUsername(const std::string& use
     if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         UserRecord u;
         u.id = sqlite3_column_int64(stmt.get(), 0);
-        u.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1));
-        u.email = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
-        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
-        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4));
+        u.username = safeColumnText(stmt.get(), 1);
+        u.email = safeColumnText(stmt.get(), 2);
+        u.passwordHash = safeColumnText(stmt.get(), 3);
+        u.role = safeColumnText(stmt.get(), 4);
         u.bonusQueries = sqlite3_column_int(stmt.get(), 5);
-        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 6));
+        u.createdAt = safeColumnText(stmt.get(), 6);
         return u;
     }
     return std::nullopt;
@@ -374,12 +380,12 @@ std::optional<UserRecord> SQLiteStore::findUserByEmail(const std::string& email)
     if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         UserRecord u;
         u.id = sqlite3_column_int64(stmt.get(), 0);
-        u.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1));
-        u.email = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
-        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
-        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4));
+        u.username = safeColumnText(stmt.get(), 1);
+        u.email = safeColumnText(stmt.get(), 2);
+        u.passwordHash = safeColumnText(stmt.get(), 3);
+        u.role = safeColumnText(stmt.get(), 4);
         u.bonusQueries = sqlite3_column_int(stmt.get(), 5);
-        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 6));
+        u.createdAt = safeColumnText(stmt.get(), 6);
         return u;
     }
     return std::nullopt;
@@ -392,12 +398,12 @@ std::optional<UserRecord> SQLiteStore::findUserById(int64_t id) {
     if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         UserRecord u;
         u.id = sqlite3_column_int64(stmt.get(), 0);
-        u.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1));
-        u.email = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
-        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
-        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4));
+        u.username = safeColumnText(stmt.get(), 1);
+        u.email = safeColumnText(stmt.get(), 2);
+        u.passwordHash = safeColumnText(stmt.get(), 3);
+        u.role = safeColumnText(stmt.get(), 4);
         u.bonusQueries = sqlite3_column_int(stmt.get(), 5);
-        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 6));
+        u.createdAt = safeColumnText(stmt.get(), 6);
         return u;
     }
     return std::nullopt;
@@ -411,12 +417,12 @@ std::optional<UserRecord> SQLiteStore::findUserByDeviceId(const std::string& dev
     if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         UserRecord u;
         u.id = sqlite3_column_int64(stmt.get(), 0);
-        u.username = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1));
-        u.email = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2));
-        u.passwordHash = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
-        u.role = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4));
+        u.username = safeColumnText(stmt.get(), 1);
+        u.email = safeColumnText(stmt.get(), 2);
+        u.passwordHash = safeColumnText(stmt.get(), 3);
+        u.role = safeColumnText(stmt.get(), 4);
         u.bonusQueries = sqlite3_column_int(stmt.get(), 5);
-        u.createdAt = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 6));
+        u.createdAt = safeColumnText(stmt.get(), 6);
         return u;
     }
     return std::nullopt;
@@ -569,10 +575,10 @@ nlohmann::json SQLiteStore::listTrips(int64_t userId) {
     while (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         nlohmann::json item = {
             {"id", sqlite3_column_int64(stmt.get(), 0)},
-            {"title", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1))},
-            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2))}
+            {"title", safeColumnText(stmt.get(), 1)},
+            {"created_at", safeColumnText(stmt.get(), 2)}
         };
-        const char* shareId = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3));
+        const char* shareId = safeColumnText(stmt.get(), 3);
         item["share_id"] = shareId ? std::string(shareId) : "";
         arr.push_back(item);
     }
@@ -587,12 +593,12 @@ std::optional<nlohmann::json> SQLiteStore::getTrip(int64_t tripId, int64_t userI
     if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         nlohmann::json item = {
             {"id", sqlite3_column_int64(stmt.get(), 0)},
-            {"title", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1))},
-            {"request_json", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2))},
-            {"response_json", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3))},
-            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 5))}
+            {"title", safeColumnText(stmt.get(), 1)},
+            {"request_json", safeColumnText(stmt.get(), 2)},
+            {"response_json", safeColumnText(stmt.get(), 3)},
+            {"created_at", safeColumnText(stmt.get(), 5)}
         };
-        const char* shareId = reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4));
+        const char* shareId = safeColumnText(stmt.get(), 4);
         item["share_id"] = shareId ? std::string(shareId) : "";
         return item;
     }
@@ -601,31 +607,18 @@ std::optional<nlohmann::json> SQLiteStore::getTrip(int64_t tripId, int64_t userI
 
 std::string SQLiteStore::generateShareId(int64_t tripId) {
     std::lock_guard<std::mutex> lock(mutex_);
-    // Generate a random 12-char share ID using urandom (non-blocking)
     // Check if share_id already exists
     {
         Statement checkStmt(db_, "SELECT share_id FROM saved_trips WHERE id = ?;");
         sqlite3_bind_int64(checkStmt.get(), 1, tripId);
         if (sqlite3_step(checkStmt.get()) == SQLITE_ROW) {
-            const char* existing = reinterpret_cast<const char*>(sqlite3_column_text(checkStmt.get(), 0));
-            if (existing && existing[0]) return existing;
+            std::string existing = safeColumnText(checkStmt.get(), 0);
+            if (!existing.empty()) return existing;
         }
     }
 
-    static const char chars[] = "abcdefghijklmnopqrstuvwxyz0123456789";
-    std::string shareId(12, 'a');
-    {
-        std::ifstream urandom("/dev/urandom", std::ios::binary);
-        if (urandom) {
-            char buf[12];
-            urandom.read(buf, 12);
-            for (int i = 0; i < 12; ++i) shareId[i] = chars[(unsigned char)buf[i] % (sizeof(chars) - 1)];
-        } else {
-            std::mt19937 gen(std::chrono::steady_clock::now().time_since_epoch().count());
-            std::uniform_int_distribution<int> dist(0, sizeof(chars) - 2);
-            for (int i = 0; i < 12; ++i) shareId[i] = chars[dist(gen)];
-        }
-    }
+    // Use cryptographically secure randomHex from auth module (6 bytes = 12 hex chars)
+    std::string shareId = randomHex(6);
 
     Statement stmt(db_, "UPDATE saved_trips SET share_id = ? WHERE id = ? AND share_id IS NULL;");
     bindText(stmt.get(), 1, shareId);
@@ -635,8 +628,8 @@ std::string SQLiteStore::generateShareId(int64_t tripId) {
         Statement retryStmt(db_, "SELECT share_id FROM saved_trips WHERE id = ?;");
         sqlite3_bind_int64(retryStmt.get(), 1, tripId);
         if (sqlite3_step(retryStmt.get()) == SQLITE_ROW) {
-            const char* actual = reinterpret_cast<const char*>(sqlite3_column_text(retryStmt.get(), 0));
-            if (actual && actual[0]) return actual;
+            std::string actual = safeColumnText(retryStmt.get(), 0);
+            if (!actual.empty()) return actual;
         }
     }
     return shareId;
@@ -649,10 +642,10 @@ std::optional<nlohmann::json> SQLiteStore::getTripByShareId(const std::string& s
     if (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         return nlohmann::json{
             {"id", sqlite3_column_int64(stmt.get(), 0)},
-            {"title", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1))},
-            {"request_json", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2))},
-            {"response_json", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3))},
-            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4))}
+            {"title", safeColumnText(stmt.get(), 1)},
+            {"request_json", safeColumnText(stmt.get(), 2)},
+            {"response_json", safeColumnText(stmt.get(), 3)},
+            {"created_at", safeColumnText(stmt.get(), 4)}
         };
     }
     return std::nullopt;
@@ -690,13 +683,13 @@ nlohmann::json SQLiteStore::listFeedback(const std::string& status, int limit) {
         arr.push_back({
             {"id", sqlite3_column_int64(stmt.get(), 0)},
             {"user_id", sqlite3_column_int64(stmt.get(), 1)},
-            {"username", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2))},
-            {"category", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3))},
-            {"content", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 4))},
-            {"contact", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 5))},
-            {"status", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 6))},
-            {"admin_reply", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 7))},
-            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 8))}
+            {"username", safeColumnText(stmt.get(), 2)},
+            {"category", safeColumnText(stmt.get(), 3)},
+            {"content", safeColumnText(stmt.get(), 4)},
+            {"contact", safeColumnText(stmt.get(), 5)},
+            {"status", safeColumnText(stmt.get(), 6)},
+            {"admin_reply", safeColumnText(stmt.get(), 7)},
+            {"created_at", safeColumnText(stmt.get(), 8)}
         });
     }
     return arr;
@@ -749,9 +742,9 @@ nlohmann::json SQLiteStore::listUsers(int limit) {
     while (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         arr.push_back({
             {"id", sqlite3_column_int64(stmt.get(), 0)},
-            {"username", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 1))},
-            {"role", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 2))},
-            {"created_at", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 3))},
+            {"username", safeColumnText(stmt.get(), 1)},
+            {"role", safeColumnText(stmt.get(), 2)},
+            {"created_at", safeColumnText(stmt.get(), 3)},
             {"total_queries", sqlite3_column_int64(stmt.get(), 4)}
         });
     }
@@ -770,7 +763,7 @@ nlohmann::json SQLiteStore::queryStatsByDay(int days) {
     nlohmann::json arr = nlohmann::json::array();
     while (sqlite3_step(stmt.get()) == SQLITE_ROW) {
         arr.push_back({
-            {"date", reinterpret_cast<const char*>(sqlite3_column_text(stmt.get(), 0))},
+            {"date", safeColumnText(stmt.get(), 0)},
             {"total_queries", sqlite3_column_int64(stmt.get(), 1)},
             {"active_users", sqlite3_column_int64(stmt.get(), 2)}
         });

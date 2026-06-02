@@ -1,6 +1,21 @@
 const fs = require("fs");
 const path = require("path");
 
+if (process.argv.includes("--help") || process.argv.includes("-h")) {
+  console.log(`Usage: node scripts/fetch_amap_pois.js [options]
+
+Fetch POI data from AMap (Gaode) and write to output directory.
+
+Options:
+  --config <path>      Config JSON file (default: config/amap.changsha.json)
+  --out-dir <path>     Output directory (default: output/amap-changsha)
+  --cache-dir <path>   Raw API cache directory (default: output/amap-cache)
+  --mock-dir <path>    Use mock data instead of live API
+  --min-pois <n>       Minimum POIs required (default: 0)
+  --help, -h           Show this help message`);
+  process.exit(0);
+}
+
 const AMAP_PLACE_TEXT_URL = "https://restapi.amap.com/v3/place/text";
 const VALID_TYPES = new Set(["attraction", "restaurant", "hotel", "transit", "nightlife"]);
 
@@ -175,7 +190,7 @@ async function fetchSearchPage({ apiKey, city, category, page, pageSize, mockDir
     citylimit: "true",
   });
   const url = `${AMAP_PLACE_TEXT_URL}?${params.toString()}`;
-  const response = await fetch(url);
+  const response = await fetch(url, { signal: AbortSignal.timeout(10000) });
   if (!response.ok) {
     throw new Error(`AMap POI search HTTP ${response.status}`);
   }
@@ -220,6 +235,7 @@ async function collectPois(config, options) {
     let categoryAccepted = 0;
     let categoryDuplicates = 0;
     let categoryFailedPages = 0;
+    try {
     const categoryTarget = Math.max(1, Number(category.target_count || targetCount));
     for (let page = 1; page <= maxPages && categoryAccepted < categoryTarget; page += 1) {
       let json;
@@ -253,6 +269,9 @@ async function collectPois(config, options) {
         }
       });
       if (json.pois.length < pageSize) break;
+    }
+    } catch (error) {
+      console.warn(`[WARN] Category "${category.name || category.keywords || category.types}" failed: ${error.message}`);
     }
     stats.push({
       name: category.name || category.keywords || category.types || "unknown",

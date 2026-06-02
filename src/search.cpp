@@ -86,6 +86,22 @@ SearchEngine::SearchEngine(const PoiGraph& graph) : graph_(graph), averageLength
         index_.push_back(std::move(entry));
     }
     averageLength_ = pois.empty() ? 1.0 : totalLength / static_cast<double>(pois.size());
+
+    // Build inverted index for fast document frequency lookups
+    for (size_t i = 0; i < index_.size(); ++i) {
+        const auto& entry = index_[i];
+        auto addWords = [&](const std::string& text) {
+            std::istringstream iss(text);
+            std::string word;
+            while (iss >> word) {
+                invertedIndex_[word].insert(i);
+            }
+        };
+        addWords(entry.nameLc);
+        addWords(entry.areaLc);
+        addWords(entry.tagsTextLc);
+        addWords(entry.descriptionLc);
+    }
 }
 
 std::vector<SearchResult> SearchEngine::search(const std::string& query, const std::string& type, int limit) const {

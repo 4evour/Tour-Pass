@@ -260,6 +260,23 @@ LlmClient::LlmClient(const std::string& configPath) {
     if (!envKey.empty() && (!hasLocalKey || hasEnvProviderOverride)) config_.apiKey = envKey;
     if (!envBase.empty()) config_.baseUrl = envBase;
     if (!envModel.empty()) config_.model = envModel;
+
+    // Initialize persistent HTTP client for connection reuse
+    if (isConfigured()) {
+        try {
+            Endpoint ep = parseEndpoint(config_.baseUrl);
+            if (!ep.https) {
+                httpClient_ = std::make_shared<httplib::Client>(ep.origin());
+                if (httpClient_->is_valid()) {
+                    httpClient_->set_connection_timeout(5);
+                    httpClient_->set_read_timeout(30);
+                    httpClient_->set_write_timeout(30);
+                } else {
+                    httpClient_.reset();
+                }
+            }
+        } catch (...) {}
+    }
 }
 
 bool LlmClient::isConfigured() const {
@@ -320,18 +337,21 @@ std::string LlmClient::chatCompletion(const std::vector<ChatMessage>& messages, 
 #endif
 #endif
 
-        httplib::Client client(endpoint.origin());
-        if (!client.is_valid()) {
-            return "";
+        httplib::Client* client = httpClient_.get();
+        std::unique_ptr<httplib::Client> fallbackClient;
+        if (!client) {
+            fallbackClient = std::make_unique<httplib::Client>(endpoint.origin());
+            if (!fallbackClient->is_valid()) return "";
+            fallbackClient->set_connection_timeout(5);
+            fallbackClient->set_read_timeout(30);
+            fallbackClient->set_write_timeout(30);
+            client = fallbackClient.get();
         }
-        client.set_connection_timeout(5);
-        client.set_read_timeout(30);
-        client.set_write_timeout(30);
 
         httplib::Headers headers = {
             {"Authorization", "Bearer " + config_.apiKey}
         };
-        auto result = client.Post(path, headers, body.dump(), "application/json");
+        auto result = client->Post(path, headers, body.dump(), "application/json");
         if (!result || result->status < 200 || result->status >= 300) {
             debugLlm("chatCompletion HTTP status=" + std::to_string(result ? result->status : 0));
             return "";

@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 #include "tourpass/graph.h"
@@ -37,6 +39,7 @@ private:
     const PoiGraph& graph_;
     std::vector<PoiSearchIndex> index_;
     double averageLength_;
+    std::unordered_map<std::string, std::unordered_set<size_t>> invertedIndex_;
 };
 
 nlohmann::json searchResultToJson(const SearchResult& result);

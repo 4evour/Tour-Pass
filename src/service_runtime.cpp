@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <cstdint>
+#include <deque>
 #include <iomanip>
 #include <sstream>
 #include <stdexcept>
@@ -13,7 +14,7 @@ namespace tourpass {
 
 namespace {
 
-uint64_t percentile(std::vector<int64_t> values, double p) {
+uint64_t percentile(std::deque<int64_t> values, double p) {
     if (values.empty()) return 0;
     std::sort(values.begin(), values.end());
     size_t index = static_cast<size_t>(std::ceil((p / 100.0) * values.size()));
@@ -123,8 +124,8 @@ void ServiceMetrics::recordRequest(const std::string& route, int status, std::ch
     stats.count += 1;
     stats.totalMs += static_cast<uint64_t>(std::max<int64_t>(0, latency.count()));
     stats.samples.push_back(std::max<int64_t>(0, latency.count()));
-    if (stats.samples.size() > 256) {
-        stats.samples.erase(stats.samples.begin(), stats.samples.begin() + static_cast<long>(stats.samples.size() - 256));
+    while (stats.samples.size() > 256) {
+        stats.samples.pop_front();
     }
 }
 

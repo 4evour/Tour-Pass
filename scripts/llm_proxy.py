@@ -9,11 +9,20 @@ import sys
 LISTEN_PORT = int(os.environ.get("LLM_PROXY_PORT", 8888))
 TARGET_URL = os.environ.get("LLM_TARGET_URL", "https://proxy.monkeycode-ai.com")
 API_KEY = os.environ.get("LLM_PROXY_API_KEY", "")
+MAX_BODY_SIZE = 1024 * 1024  # 1 MB
 
 
 class LLMProxy(http.server.BaseHTTPRequestHandler):
     def do_POST(self):
         content_len = int(self.headers.get("Content-Length", 0))
+        if content_len > MAX_BODY_SIZE:
+            err = json.dumps({"error": f"Request body too large ({content_len} bytes, max {MAX_BODY_SIZE})"}).encode()
+            self.send_response(413)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(err)))
+            self.end_headers()
+            self.wfile.write(err)
+            return
         body = self.rfile.read(content_len)
 
         url = TARGET_URL + self.path

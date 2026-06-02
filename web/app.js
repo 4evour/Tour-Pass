@@ -7,6 +7,7 @@ const state = {
   token: localStorage.getItem("tp_token") || null,
   tripSaved: false,
   savedTripId: null,
+  planAbortController: null,
 };
 
 let planMap = null;
@@ -860,7 +861,8 @@ async function checkAuth() {
     state.user = data;
     showApp();
     handleRoute();
-  } catch {
+  } catch (e) {
+    console.warn("checkAuth:", e.message);
     showAuth();
   }
 }
@@ -990,7 +992,8 @@ async function loadHealth() {
     const health = await api("/health");
     $("serviceStatus").textContent = `已连接 · ${health.poi_count} POI · ${health.llm_configured ? "LLM 已配置" : "模板兜底"}`;
     $("serviceStatus").classList.add("ok");
-  } catch {
+  } catch (e) {
+    console.warn("loadHealth:", e.message);
     $("serviceStatus").textContent = "服务未连接";
     $("serviceStatus").classList.remove("ok");
   }
@@ -1596,6 +1599,9 @@ function timeWindowLabel(status) {
 
 async function generatePlan(event) {
   event.preventDefault();
+  // Cancel any in-flight plan request
+  if (state.planAbortController) state.planAbortController.abort();
+  state.planAbortController = new AbortController();
   const payload = planPayload();
   state.lastPayload = payload;
   $("planOutput").className = "plan-output empty-state";
@@ -1606,6 +1612,7 @@ async function generatePlan(event) {
     const data = await api("/trip/plan", {
       method: "POST",
       body: JSON.stringify(payload),
+      signal: state.planAbortController.signal,
     });
     state.candidates = data.candidates || [data];
     state.selectedIndex = 0;
