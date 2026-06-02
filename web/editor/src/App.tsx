@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { DndContext, DragEndEvent, DragOverlay, DragStartEvent, pointerWithin } from '@dnd-kit/core';
+import { DndContext, DragEndEvent, DragOverlay, DragStartEvent, closestCorners } from '@dnd-kit/core';
 import type { Poi } from './types';
 import { useItineraryStore } from './stores/itineraryStore';
 import { useRoute } from './hooks/useRoute';
@@ -10,27 +10,43 @@ import Timeline from './components/Timeline';
 import AiRecommend from './components/AiRecommend';
 import ConflictAlert from './components/ConflictAlert';
 import AiChat from './components/AiChat';
+import EditorToolbar from './components/EditorToolbar';
+
+const CITY_OPTIONS = [
+  { value: 'wuhan', label: '武汉' },
+  { value: 'changsha', label: '长沙' },
+  { value: 'dali', label: '大理' },
+  { value: 'beijing', label: '北京' },
+  { value: 'chengdu', label: '成都' },
+  { value: 'chongqing', label: '重庆' },
+  { value: 'hangzhou', label: '杭州' },
+  { value: 'nanjing', label: '南京' },
+  { value: 'suzhou', label: '苏州' },
+  { value: 'xian', label: '西安' },
+  { value: 'lijiang', label: '丽江' },
+];
 
 export default function App() {
-  const [city, setCity] = useState('');
   const [pois, setPois] = useState<Poi[]>([]);
   const [currentDay, setCurrentDay] = useState(1);
   const [activePoi, setActivePoi] = useState<Poi | null>(null);
-  const { hotel, addStop } = useItineraryStore();
+  const { city, defaultHotel, setCity, addStop, moveStopBetweenDays, resetEditor } = useItineraryStore();
 
   useRoute();
 
-  // Load city and POIs
+  // Load city list — only set default if no persisted city
   useEffect(() => {
+    if (city) return; // already have a city (from persistence)
     fetch('/cities')
       .then(r => r.json())
       .then(data => {
         const firstCity = data.cities?.[0]?.name || data[0]?.name || '';
-        setCity(firstCity);
+        if (firstCity) setCity(firstCity);
       })
       .catch(() => setCity('wuhan'));
   }, []);
 
+  // Load POIs when city changes
   useEffect(() => {
     if (!city) return;
     fetch(`/poi/search?city=${encodeURIComponent(city)}&limit=500`)
@@ -56,40 +72,78 @@ export default function App() {
     const activeData = active.data.current;
     const overData = over.data.current;
 
-    // Sidebar -> Timeline: add POI
-    if (activeData?.variant === 'sidebar' && overData?.variant === 'timeline') {
-      const poi = activeData.poi as Poi;
-      const day = overData.day as number;
-      addStop(day, poi);
+    // Sidebar -> Timeline: add POI to day
+    if (activeData?.variant === 'sidebar') {
+      let targetDay: number | null = null;
+      if (overData?.variant === 'timeline') {
+        targetDay = overData.day as number;
+      } else if (String(over.id).startsWith('timeline-day-')) {
+        targetDay = parseInt(String(over.id).split('-').pop() || '1');
+      }
+      if (targetDay) {
+        addStop(targetDay, activeData.poi as Poi);
+      }
       return;
     }
 
-    // Sidebar -> Timeline droppable area
-    if (activeData?.variant === 'sidebar' && String(over.id).startsWith('timeline-day-')) {
-      const poi = activeData.poi as Poi;
-      const day = parseInt(String(over.id).split('-').pop() || '1');
-      addStop(day, poi);
+    // Timeline -> Timeline: reorder within day or cross-day move
+    if (activeData?.variant === 'timeline') {
+      const fromDay = activeData.day as number;
+      const fromIndex = activeData.index as number;
+
+      if (overData?.variant === 'timeline') {
+        const toDay = overData.day as number;
+        const toIndex = overData.index as number;
+        if (fromDay === toDay && fromIndex === toIndex) return;
+        if (fromDay === toDay) {
+          useItineraryStore.getState().reorderStops(fromDay, fromIndex, toIndex);
+        } else {
+          moveStopBetweenDays(fromDay, fromIndex, toDay, toIndex);
+          setCurrentDay(toDay);
+        }
+      } else if (String(over.id).startsWith('timeline-day-')) {
+        // Dropped on a day container (not a specific stop)
+        const toDay = parseInt(String(over.id).split('-').pop() || '1');
+        if (fromDay !== toDay) {
+          const toStops = useItineraryStore.getState().getStopsForDay(toDay);
+          moveStopBetweenDays(fromDay, fromIndex, toDay, toStops.length);
+          setCurrentDay(toDay);
+        }
+      }
     }
-  }, [addStop]);
+  }, [addStop, moveStopBetweenDays]);
+
+  const handleCityChange = useCallback((newCity: string) => {
+    setCity(newCity);
+  }, [setCity]);
 
   return (
-    <DndContext collisionDetection={pointerWithin} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+    <DndContext collisionDetection={closestCorners} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
       <div className="flex flex-col h-screen">
         {/* Top bar */}
         <div className="flex items-center gap-4 px-4 py-2 bg-white border-b shadow-sm z-10">
           <h1 className="text-lg font-bold text-primary-700">🗺 Tour Pass 编辑器</h1>
           <select
             value={city}
-            onChange={e => setCity(e.target.value)}
+            onChange={e => handleCityChange(e.target.value)}
             className="px-2 py-1 border rounded text-sm"
           >
-            <option value="wuhan">武汉</option>
-            <option value="changsha">长沙</option>
-            <option value="beijing">北京</option>
-            <option value="shanghai">上海</option>
-            <option value="chengdu">成都</option>
+            {CITY_OPTIONS.map(c => (
+              <option key={c.value} value={c.value}>{c.label}</option>
+            ))}
           </select>
+          <button
+            onClick={resetEditor}
+            className="px-2 py-1 text-xs text-gray-500 hover:text-red-600 border rounded"
+            title="清除所有数据，重新开始"
+          >
+            🗑 重置
+          </button>
           <div className="flex-1" />
+          <span className="text-xs text-gray-400">
+            {defaultHotel ? `🏨 ${defaultHotel.name}` : '未选酒店'}
+          </span>
+          <EditorToolbar allPois={pois} />
           <a href="/" className="text-sm text-gray-500 hover:text-primary-600">← 返回首页</a>
         </div>
 
@@ -112,7 +166,7 @@ export default function App() {
 
           {/* Right: Timeline */}
           <div className="w-72 flex-shrink-0">
-            <Timeline currentDay={currentDay} onDayChange={setCurrentDay} />
+            <Timeline currentDay={currentDay} onDayChange={setCurrentDay} allPois={pois} />
           </div>
         </div>
       </div>

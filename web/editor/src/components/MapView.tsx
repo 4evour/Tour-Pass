@@ -59,10 +59,30 @@ interface MapViewProps {
 }
 
 export default function MapView({ allPois, onAddPoi }: MapViewProps) {
-  const { hotel, days, routes } = useItineraryStore();
+  const defaultHotel = useItineraryStore(s => s.defaultHotel);
+  const days = useItineraryStore(s => s.days);
+  const routes = useItineraryStore(s => s.routes);
+  const getEffectiveHotel = useItineraryStore(s => s.getEffectiveHotel);
 
   const allStops = useMemo(() => days.flatMap(d => d.stops), [days]);
   const stopIds = useMemo(() => new Set(allStops.map(s => s.poi.id)), [allStops]);
+
+  // Collect all unique hotels across days
+  const hotelMarkers = useMemo(() => {
+    const seen = new Set<string>();
+    const markers: { poi: Poi; days: number[] }[] = [];
+    for (const d of days) {
+      const h = d.hotel ?? defaultHotel;
+      if (h && !seen.has(h.id)) {
+        seen.add(h.id);
+        markers.push({ poi: h, days: [d.day] });
+      } else if (h) {
+        const existing = markers.find(m => m.poi.id === h.id);
+        if (existing) existing.days.push(d.day);
+      }
+    }
+    return markers;
+  }, [days, defaultHotel]);
 
   const routeCoords = useMemo(() => {
     return routes.flatMap(r => r.coords.length > 0 ? r.coords : []);
@@ -78,17 +98,21 @@ export default function MapView({ allPois, onAddPoi }: MapViewProps) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <FitBounds pois={hotel ? [hotel, ...allPois.slice(0, 5)] : allPois.slice(0, 5)} />
+      <FitBounds pois={defaultHotel ? [defaultHotel, ...allPois.slice(0, 5)] : allPois.slice(0, 5)} />
 
-      {/* Hotel marker */}
-      {hotel && (
-        <Marker position={[hotel.lat, hotel.lng]} icon={makeIcon('hotel', '🏨')}>
-          <Popup><b>🏨 {hotel.name}</b><br />{hotel.area}</Popup>
+      {/* Hotel markers (unique across all days) */}
+      {hotelMarkers.map(({ poi, days: hotelDays }) => (
+        <Marker key={`hotel-${poi.id}`} position={[poi.lat, poi.lng]} icon={makeIcon('hotel', '🏨')}>
+          <Popup>
+            <b>🏨 {poi.name}</b><br />
+            <span style={{ fontSize: 11 }}>{poi.area}</span><br />
+            <span style={{ fontSize: 11, color: '#65706d' }}>Day {hotelDays.join(', ')} 住宿</span>
+          </Popup>
         </Marker>
-      )}
+      ))}
 
-      {/* All POI markers (non-itinerary) */}
-      {allPois.filter(p => !stopIds.has(p.id) && p.id !== hotel?.id).map(poi => (
+      {/* All POI markers (non-itinerary, non-hotel) */}
+      {allPois.filter(p => !stopIds.has(p.id) && p.type !== 'hotel').map(poi => (
         <Marker key={poi.id} position={[poi.lat, poi.lng]} icon={makeIcon(poi.type, poi.name)}>
           <Popup>
             <div style={{ minWidth: 160 }}>

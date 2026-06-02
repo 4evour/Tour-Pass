@@ -14,7 +14,7 @@ interface AiRecommendProps {
 }
 
 export default function AiRecommend({ allPois, onAdd }: AiRecommendProps) {
-  const { days, hotel } = useItineraryStore();
+  const { days, defaultHotel } = useItineraryStore();
   const [recommendations, setRecommendations] = useState<Recommendation[]>([]);
   const [loading, setLoading] = useState(false);
   const [dismissed, setDismissed] = useState(false);

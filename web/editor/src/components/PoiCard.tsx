@@ -1,6 +1,8 @@
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import type { Poi, Stop } from '../types';
+import { InlineTimeDisplay, InlineDurationEditor } from './InlineTimeEditor';
+import { useItineraryStore } from '../stores/itineraryStore';
 
 const TYPE_ICONS: Record<string, string> = {
   attraction: '🏛', restaurant: '🍜', hotel: '🏨', nightlife: '🌙', transit: '🚌',
@@ -11,6 +13,7 @@ interface PoiCardProps {
   variant: 'sidebar' | 'timeline';
   stop?: Stop;
   index?: number;
+  day?: number;
   onRemove?: () => void;
 }
 
@@ -20,7 +23,8 @@ function formatMin(m: number): string {
   return `${String(h).padStart(2, '0')}:${String(min).padStart(2, '0')}`;
 }
 
-export default function PoiCard({ poi, variant, stop, index, onRemove }: PoiCardProps) {
+export default function PoiCard({ poi, variant, stop, index, day, onRemove }: PoiCardProps) {
+  const updateStopTime = useItineraryStore(s => s.updateStopTime);
   const {
     attributes,
     listeners,
@@ -30,7 +34,7 @@ export default function PoiCard({ poi, variant, stop, index, onRemove }: PoiCard
     isDragging,
   } = useSortable({
     id: variant === 'timeline' ? stop?.id || poi.id : `sidebar-${poi.id}`,
-    data: { poi, variant },
+    data: { poi, variant, day, index },
   });
 
   const style = {
@@ -58,6 +62,18 @@ export default function PoiCard({ poi, variant, stop, index, onRemove }: PoiCard
   }
 
   // Timeline variant
+  const handleArrivalChange = (minutes: number) => {
+    if (day !== undefined && index !== undefined) {
+      updateStopTime(day, index, 'arrival', minutes);
+    }
+  };
+
+  const handleDurationChange = (minutes: number) => {
+    if (day !== undefined && index !== undefined) {
+      updateStopTime(day, index, 'duration', minutes);
+    }
+  };
+
   return (
     <div
       ref={setNodeRef}
@@ -78,7 +94,15 @@ export default function PoiCard({ poi, variant, stop, index, onRemove }: PoiCard
         <div className="text-sm font-medium truncate">{poi.name}</div>
         {stop && (
           <div className="text-xs text-gray-500">
-            {formatMin(stop.arrival)} - {formatMin(stop.departure)}
+            <InlineTimeDisplay value={stop.arrival} onChange={handleArrivalChange} />
+            {' - '}
+            <InlineTimeDisplay value={stop.departure} onChange={(v) => {
+              // Changing departure = changing duration
+              const newDuration = v - stop.arrival;
+              if (newDuration >= 15) handleDurationChange(newDuration);
+            }} />
+            {' · '}
+            <InlineDurationEditor value={stop.poi.visit_duration || 60} onChange={handleDurationChange} />
             {stop.travelMinutes > 0 && <span className="text-gray-400"> · 🚶 {stop.travelMinutes}分</span>}
           </div>
         )}

@@ -23,6 +23,8 @@ export default defineConfig({
       '/cities': 'http://localhost:8080',
       '/poi': 'http://localhost:8080',
       '/trip': 'http://localhost:8080',
+      '/trips': 'http://localhost:8080',
+      '/auth': 'http://localhost:8080',
     },
   },
 });

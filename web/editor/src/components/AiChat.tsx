@@ -7,7 +7,7 @@ interface Message {
 }
 
 export default function AiChat({ city }: { city: string }) {
-  const { days, hotel } = useItineraryStore();
+  const { days, defaultHotel } = useItineraryStore();
   const [messages, setMessages] = useState<Message[]>([
     { role: 'assistant', content: '你好！我是 Tour Pass AI 助手。你可以问我关于行程的问题，比如「附近有什么好吃的」「下午还有空余时间吗」等。' },
   ]);
@@ -30,7 +30,7 @@ export default function AiChat({ city }: { city: string }) {
     const allStops = days.flatMap(d => d.stops);
     const context = {
       city,
-      hotel: hotel?.name || '未选择',
+      hotel: defaultHotel?.name || '未选择',
       stops: allStops.map(s => ({ name: s.poi.name, area: s.poi.area, arrival: s.arrival, departure: s.departure })),
       total_days: days.length,
     };

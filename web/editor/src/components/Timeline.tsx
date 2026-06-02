@@ -1,18 +1,28 @@
+import { useState } from 'react';
 import { useDroppable } from '@dnd-kit/core';
 import { SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import PoiCard from './PoiCard';
+import HotelPicker from './HotelPicker';
+import StartPointSelector from './StartPointSelector';
+import ReplacementSuggestions from './ReplacementSuggestions';
 import { useItineraryStore } from '../stores/itineraryStore';
+import type { Poi } from '../types';
 
 interface TimelineProps {
   currentDay: number;
   onDayChange: (day: number) => void;
+  allPois: Poi[];
 }
 
-export default function Timeline({ currentDay, onDayChange }: TimelineProps) {
-  const { days, hotel, addDay, removeDay, removeStop } = useItineraryStore();
+export default function Timeline({ currentDay, onDayChange, allPois }: TimelineProps) {
+  const { days, defaultHotel, addDay, removeDay, removeStop, getEffectiveHotel } = useItineraryStore();
+  const [showHotelPicker, setShowHotelPicker] = useState(false);
   const currentDayPlan = days.find(d => d.day === currentDay);
   const stops = currentDayPlan?.stops || [];
+  const effectiveHotel = getEffectiveHotel(currentDay);
+  const isHotelOverridden = currentDayPlan?.hotel != null;
 
+  // Cross-day droppable for current day
   const { setNodeRef, isOver } = useDroppable({
     id: `timeline-day-${currentDay}`,
     data: { variant: 'timeline', day: currentDay },
@@ -21,7 +31,7 @@ export default function Timeline({ currentDay, onDayChange }: TimelineProps) {
   const totalTravel = stops.reduce((s, st) => s + st.travelMinutes, 0);
   const totalVisit = stops.reduce((s, st) => s + (st.poi.visit_duration || 60), 0);
 
-  const handleOptimize = async () => {
+  const handleValidate = async () => {
     if (stops.length < 2) return;
     try {
       const res = await fetch('/editor/validate', {
@@ -58,6 +68,7 @@ export default function Timeline({ currentDay, onDayChange }: TimelineProps) {
             className={`px-3 py-1 rounded-lg text-sm font-medium ${d.day === currentDay ? 'bg-primary-500 text-white' : 'bg-gray-200 text-gray-600 hover:bg-gray-300'}`}
           >
             Day {d.day}
+            {d.hotel && <span className="ml-1">🏨</span>}
           </button>
         ))}
         <button onClick={addDay} className="px-2 py-1 rounded-lg text-sm text-gray-500 hover:bg-gray-200">+</button>
@@ -72,16 +83,31 @@ export default function Timeline({ currentDay, onDayChange }: TimelineProps) {
           <span>🚶 通勤 {totalTravel} 分</span>
           <span>⏱ 游览 {totalVisit} 分</span>
           <span>📍 {stops.length} 站</span>
-          <button onClick={handleOptimize} className="ml-auto px-2 py-0.5 bg-primary-500 text-white rounded text-xs hover:bg-primary-600">检查行程</button>
+          <button onClick={handleValidate} className="ml-auto px-2 py-0.5 bg-primary-500 text-white rounded text-xs hover:bg-primary-600">检查行程</button>
         </div>
       )}
 
-      {/* Hotel start */}
-      {hotel && (
-        <div className="px-3 py-2 border-b bg-primary-50 text-xs text-primary-700">
-          🏨 起点：{hotel.name}
+      {/* Day hotel display */}
+      <div className="px-3 py-1.5 border-b bg-primary-50 text-xs">
+        <div className="flex items-center gap-2">
+          <span className={isHotelOverridden ? 'text-amber-700 font-medium' : 'text-primary-700'}>
+            🏨 住宿：{effectiveHotel?.name || '未选择'}
+            {isHotelOverridden && ' (已覆盖默认)'}
+          </span>
+          <button
+            onClick={() => setShowHotelPicker(!showHotelPicker)}
+            className="text-primary-600 hover:underline"
+          >
+            {effectiveHotel ? '更换' : '选择'}
+          </button>
         </div>
-      )}
+        {showHotelPicker && (
+          <HotelPicker city={useItineraryStore.getState().city} day={currentDay} compact onClose={() => setShowHotelPicker(false)} />
+        )}
+      </div>
+
+      {/* Start point selector */}
+      <StartPointSelector day={currentDay} />
 
       {/* Sortable stops */}
       <div
@@ -96,6 +122,7 @@ export default function Timeline({ currentDay, onDayChange }: TimelineProps) {
               variant="timeline"
               stop={stop}
               index={i}
+              day={currentDay}
               onRemove={() => removeStop(currentDay, i)}
             />
           ))}
@@ -109,13 +136,39 @@ export default function Timeline({ currentDay, onDayChange }: TimelineProps) {
             或点击地图上的标记添加
           </div>
         )}
+
+        {/* Smart replacement suggestions after removing a stop */}
+        <ReplacementSuggestions currentDay={currentDay} allPois={allPois} />
       </div>
 
       {/* Hotel end */}
-      {hotel && stops.length > 0 && (
+      {effectiveHotel && stops.length > 0 && (
         <div className="px-3 py-2 border-t bg-primary-50 text-xs text-primary-700">
-          🏨 终点：{hotel.name}
+          🏨 终点：{effectiveHotel.name}
         </div>
+      )}
+
+      {/* Hidden offscreen SortableContext for other days (cross-day drag targets) */}
+      {days.filter(d => d.day !== currentDay).map(d => (
+        <HiddenDayDroppable key={d.day} day={d.day} stops={d.stops} />
+      ))}
+    </div>
+  );
+}
+
+// Hidden droppable for cross-day drag support
+function HiddenDayDroppable({ day, stops }: { day: number; stops: any[] }) {
+  const { setNodeRef } = useDroppable({
+    id: `timeline-day-${day}`,
+    data: { variant: 'timeline', day },
+  });
+
+  return (
+    <div ref={setNodeRef} style={{ position: 'absolute', left: -9999, height: 0, overflow: 'hidden' }}>
+      {stops.length > 0 && (
+        <SortableContext items={stops.map((s: any) => s.id)} strategy={verticalListSortingStrategy}>
+          <div />
+        </SortableContext>
       )}
     </div>
   );
