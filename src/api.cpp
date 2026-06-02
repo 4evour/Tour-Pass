@@ -249,7 +249,7 @@ void setCommonHeaders(httplib::Response& res, const std::string& requestId) {
     res.set_header("X-Content-Type-Options", "nosniff");
     res.set_header("Referrer-Policy", "no-referrer");
     res.set_header("X-Frame-Options", "DENY");
-    res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:");
+    // CSP is set in post_routing_handler so individual routes can override it
 }
 
 std::string queryString(const httplib::Request& req) {
@@ -464,6 +464,10 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - meta.startedAt);
         res.set_header("X-Request-Id", meta.id);
         res.set_header("X-Response-Time-Ms", std::to_string(elapsed.count()));
+        // Set default CSP if the route handler didn't set a custom one
+        if (!res.has_header("Content-Security-Policy")) {
+            res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:");
+        }
         if (req.method == "POST" && req.path == "/trip/plan") {
             std::string cacheStatus = res.has_header("X-Cache") ? res.get_header_value("X-Cache") : "NONE";
             recordDbWrite(context, [&](DataStore& store) {
