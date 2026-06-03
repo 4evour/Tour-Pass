@@ -254,6 +254,7 @@ function initMapDragReorder() {
 function initCardMarkerInteraction() {
   // Hover day card stop -> highlight map marker
   document.addEventListener("mouseenter", (e) => {
+    if (!(e.target instanceof HTMLElement)) return;
     const stopEl = e.target.closest(".day-card-stop[data-poi-id]");
     if (!stopEl || !stopEl.dataset.poiId) return;
     const marker = mapMarkerByPoiId[stopEl.dataset.poiId];
@@ -264,6 +265,7 @@ function initCardMarkerInteraction() {
     stopEl.classList.add("map-highlight");
   }, true);
   document.addEventListener("mouseleave", (e) => {
+    if (!(e.target instanceof HTMLElement)) return;
     const stopEl = e.target.closest(".day-card-stop[data-poi-id]");
     if (!stopEl || !stopEl.dataset.poiId) return;
     const marker = mapMarkerByPoiId[stopEl.dataset.poiId];

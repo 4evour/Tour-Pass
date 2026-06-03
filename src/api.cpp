@@ -174,7 +174,9 @@ struct IpRateLimiter {
         // Evict idle entries, then force-evict oldest if still over limit
         if (hits.size() > maxTotalIps / 2) {
             for (auto it = hits.begin(); it != hits.end();) {
-                if (it->second.empty()) it = hits.erase(it);
+                auto& dq = it->second;
+                while (!dq.empty() && now - dq.front() > window) dq.pop_front();
+                if (dq.empty()) it = hits.erase(it);
                 else ++it;
             }
         }
@@ -468,7 +470,7 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
         res.set_header("X-Response-Time-Ms", std::to_string(elapsed.count()));
         // Set default CSP if the route handler didn't set a custom one
         if (!res.has_header("Content-Security-Policy")) {
-            res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:");
+            res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:; connect-src 'self' https://api.open-meteo.com");
         }
         if (req.method == "POST" && req.path == "/trip/plan") {
             std::string cacheStatus = res.has_header("X-Cache") ? res.get_header_value("X-Cache") : "NONE";
@@ -1456,11 +1458,11 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             if (!context.store || !context.store->enabled()) {
                 setJson(res, errorJson("DB_UNAVAILABLE", "数据库未启用"), 503); return;
             }
-            std::string remoteAddr = req.get_header_value("REMOTE_ADDR");
+
             if (!emailLimiter.allow(email)) {
                 setJson(res, errorJson("RATE_LIMITED", "验证码发送过于频繁，请 60 秒后重试"), 429); return;
             }
-            (void)remoteAddr;
+
             if (context.store->findUserByEmail(email)) {
                 setJson(res, errorJson("EMAIL_TAKEN", "该邮箱已注册"), 409); return;
             }
