@@ -13,21 +13,30 @@ const CITIES = [
   'qingdao','guilin','sanya','harbin','kunming','zhangjiajie'
 ];
 
-// Load LLM config
-let API_KEY = process.env.OPENAI_API_KEY || '';
-let BASE_URL = process.env.LLM_BASE_URL || 'https://api.deepseek.com/v1';
-let MODEL = process.env.LLM_MODEL || 'deepseek-chat';
+// Load LLM config — config file takes priority for api_key
+let API_KEY = '';
+let BASE_URL = process.env.LLM_BASE_URL || '';
+let MODEL = process.env.LLM_MODEL || '';
 
-// Try loading from config file
+// Try loading from config file first
 try {
   const configPath = path.join(__dirname, '..', 'config', 'llm.local.json');
   if (fs.existsSync(configPath)) {
-    const cfg = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-    if (cfg.api_key && !API_KEY) API_KEY = cfg.api_key;
+    const raw = fs.readFileSync(configPath, 'utf-8').replace(/^﻿/, ''); // strip BOM
+    const cfg = JSON.parse(raw);
+    if (cfg.api_key) API_KEY = cfg.api_key;
     if (cfg.base_url) BASE_URL = cfg.base_url;
     if (cfg.model) MODEL = cfg.model;
   }
-} catch {}
+} catch (e) { console.warn('Config load error:', e.message); }
+
+// Env vars as fallback (but config file api_key takes priority)
+if (!API_KEY) API_KEY = process.env.OPENAI_API_KEY || '';
+if (!BASE_URL) BASE_URL = 'https://api.deepseek.com/v1';
+if (!MODEL) MODEL = 'deepseek-chat';
+
+// Ensure base_url ends with /v1 for OpenAI-compatible API
+if (!BASE_URL.endsWith('/v1')) BASE_URL = BASE_URL.replace(/\/+$/, '') + '/v1';
 
 if (!API_KEY) {
   console.error('Error: No LLM API key found. Set OPENAI_API_KEY or create config/llm.local.json');
