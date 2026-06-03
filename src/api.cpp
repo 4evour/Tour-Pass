@@ -373,6 +373,9 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
                          || req.path.find("/city/") == 0
                          || req.path == "/cities"
                          || req.path == "/poi/browse"
+                         || req.path == "/poi/search"
+                         || req.path == "/poi/areas"
+                         || req.path.find("/poi/by-area") == 0
                          || req.path.find("/editor") == 0
                          || req.path.find("/editor-dist/") == 0;
 
