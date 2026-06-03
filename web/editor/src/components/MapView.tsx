@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useCallback } from 'react';
+import { useEffect, useMemo, useCallback, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import type { Poi } from '../types';
@@ -61,14 +61,26 @@ function makeOtherDayIcon(num: number, color: string) {
   });
 }
 
-function FitBounds({ pois }: { pois: Poi[] }) {
+function FitBounds({ pois, day }: { pois: Poi[]; day: number }) {
   const map = useMap();
+  const prevDay = useRef(day);
+  const initialized = useRef(false);
+
   useEffect(() => {
-    if (pois.length > 0) {
-      const bounds = L.latLngBounds(pois.map(p => [p.lat, p.lng] as [number, number]));
-      map.fitBounds(bounds, { padding: [40, 40] });
+    const dayChanged = day !== prevDay.current;
+    prevDay.current = day;
+
+    // Fit on: initial load, or when day changes
+    // Do NOT fit on stop reorder within the same day
+    if (!initialized.current || dayChanged) {
+      initialized.current = true;
+      if (pois.length > 0) {
+        const bounds = L.latLngBounds(pois.map(p => [p.lat, p.lng] as [number, number]));
+        map.fitBounds(bounds, { padding: [40, 40] });
+      }
     }
-  }, [pois.map(p => p.id).join(',')]);
+  }, [day]); // Only depend on day, not on pois
+
   return null;
 }
 
@@ -149,7 +161,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange }: 
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <FitBounds pois={boundsPois} />
+      <FitBounds pois={boundsPois} day={currentDay} />
 
       {/* Hotel markers */}
       {hotelMarkers.map(({ poi, days: hotelDays }) => (
