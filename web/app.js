@@ -1058,7 +1058,7 @@ function renderPlan() {
       ${renderOverview(candidate)}
     </section>
     <section class="stage-section" data-plan-section="itinerary">
-      ${candidate.days.map(renderDay).join("")}
+      ${(candidate.days || []).map(renderDay).join("")}
     </section>
     <section class="stage-section" data-plan-section="debug">
       ${renderComparisonTable()}
@@ -1519,7 +1519,7 @@ function renderDay(day) {
       </div>
       <p class="day-meta">${escapeHtml(day.summary)}</p>
       <div class="stop-list">
-        ${day.stops.map(renderStop).join("")}
+        ${(day.stops || []).map(renderStop).join("")}
       </div>
       <!-- Technical details (collapsed) -->
       <details class="day-tech-details">
