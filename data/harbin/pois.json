@@ -17,7 +17,7 @@
       "华山路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -89,7 +89,7 @@
       "省级景点"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "香炉山国家森林公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -114,7 +114,7 @@
       "水族馆"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "帽儿山风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -139,7 +139,7 @@
       "水族馆"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨极地公园·极地馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -164,7 +164,7 @@
       "旅游景点"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "滨江湿地旅游风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -216,7 +216,7 @@
       "公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨音乐公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -241,7 +241,7 @@
       "旅游景点"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "吊水壶国家森林公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -266,7 +266,7 @@
       "水族馆"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨极地公园·海洋馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -320,7 +320,7 @@
       "国家级景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "凤凰山国家森林公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -344,7 +344,7 @@
       "中央大街"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨市人民防洪胜利纪念塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -370,7 +370,7 @@
       "哈尔滨新区"
     ],
     "popularity": 3,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "冰雪小世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -396,7 +396,7 @@
       "兆麟"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨市兆麟公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -422,7 +422,7 @@
       "群力"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "体育公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -447,7 +447,7 @@
       "城市广场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "索菲亚广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -473,7 +473,7 @@
       "中央大街"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "斯大林公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -496,7 +496,7 @@
       "风景名胜"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "哈尔滨冰雪大世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -521,7 +521,7 @@
       "公园"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中东铁路公园(江南段)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -546,7 +546,7 @@
       "公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨极地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -599,7 +599,7 @@
       "哈尔滨新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "枫叶小镇温泉度假村，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -625,7 +625,7 @@
       "哈尔滨新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "哈尔滨融创乐园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -650,7 +650,7 @@
       "城市广场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "音乐长廊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -675,7 +675,7 @@
       "公园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "九站公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -699,7 +699,7 @@
       "哈尔滨新区"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨融创乐园雪山飞车，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -724,7 +724,7 @@
       "城市广场"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "火车头广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -775,7 +775,7 @@
       "哈尔滨新区"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "雪花广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -801,7 +801,7 @@
       "哈尔滨新区"
     ],
     "popularity": 3,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "哈哈民宿(冰雪大世界/融创文旅城/极地馆店)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -826,7 +826,7 @@
       "城市广场"
     ],
     "popularity": 2.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "冰雪艺术广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -902,7 +902,7 @@
       "旅游景点"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "哈尔滨冰雪大世界-大滑梯下站，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -954,7 +954,7 @@
       "旅游景点"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "冰雪温泉营地，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1075,7 +1075,7 @@
       "风景名胜"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "哈尔滨冰雪大世界文创旗舰店，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1151,7 +1151,7 @@
       "旅游景点"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "松花江，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1177,7 +1177,7 @@
       "通江"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江上城堡观光索道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1202,7 +1202,7 @@
       "旅游景点"
     ],
     "popularity": 2.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "桥头堡冰雪梦幻乐园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1225,7 +1225,7 @@
       "风景名胜"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "亚布力万山红冰雪景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1298,7 +1298,7 @@
       "风景名胜"
     ],
     "popularity": 3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "冰雪黄鹤楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1323,7 +1323,7 @@
       "旅游景点"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "哈尔滨冰雪大世界-雪花冰迷宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1371,7 +1371,7 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "雪乡雾凇十里冰雪画廊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1419,7 +1419,7 @@
       "风景名胜"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "哈尔滨冰雪大世界雪花摩天轮，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1470,7 +1470,7 @@
       "中央大街"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨防洪纪念塔广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1520,7 +1520,7 @@
       "旅游景点"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "哈尔滨冰雪大世界-大滑梯上站，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1545,7 +1545,7 @@
       "动物园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "太阳岛大熊猫馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1620,7 +1620,7 @@
       "旅游景点"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨冰雪大世界-黄鹤楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1645,7 +1645,7 @@
       "旅游景点"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "冰雪大世界老园(不对外开放)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1670,7 +1670,7 @@
       "旅游景点"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "亚布力雪乡游乐园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1695,7 +1695,7 @@
       "旅游景点"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "雪韵丁香火炬广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1897,7 +1897,7 @@
       "文化宫"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黑龙江省科学技术馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -1953,7 +1953,7 @@
       "科教文化场所"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "滨水公园，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2006,7 +2006,7 @@
       "科教文化场所"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨市市场和质量监督管理局特种设备作业人员考试中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2033,7 +2033,7 @@
       "哈尔滨新区"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黑龙江省质量监督检测研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2059,7 +2059,7 @@
       "科研机构"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黑龙江省绿色食品科学研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2112,7 +2112,7 @@
       "哈尔滨新区"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "国家检察官学院黑龙江分院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2166,7 +2166,7 @@
       "花园街"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨市儿童公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2193,7 +2193,7 @@
       "哈尔滨新区"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨新区航天公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2219,7 +2219,7 @@
       "公园广场"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "新区中心公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2245,7 +2245,7 @@
       "公园广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黑龙江哈尔滨太阳岛国家湿地公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2272,7 +2272,7 @@
       "哈尔滨新区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "润福公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2298,7 +2298,7 @@
       "公园广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "太阳岛绿色运动公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2325,7 +2325,7 @@
       "哈尔滨新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨文化中心公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2351,7 +2351,7 @@
       "公园广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "群力外滩生态湿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2378,7 +2378,7 @@
       "哈尔滨新区"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "松北新区中心公园空竹园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2405,7 +2405,7 @@
       "群力"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丁香公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2431,7 +2431,7 @@
       "公园广场"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中东铁路公园(江北段)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2457,7 +2457,7 @@
       "公园广场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "碧海公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2483,7 +2483,7 @@
       "公园广场"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "顾乡公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2510,7 +2510,7 @@
       "群力"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金河公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2537,7 +2537,7 @@
       "哈尔滨新区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "喀秋莎公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2563,7 +2563,7 @@
       "公园广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "太阳岛上坞公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2589,7 +2589,7 @@
       "公园广场"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "滨州铁路水上公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2615,7 +2615,7 @@
       "公园广场"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中东铁路水上公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2641,7 +2641,7 @@
       "公园广场"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "友谊公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2667,7 +2667,7 @@
       "公园广场"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "河口公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2694,7 +2694,7 @@
       "群力"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "松溪公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2721,7 +2721,7 @@
       "群力"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "安阳河园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2748,7 +2748,7 @@
       "南极街"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨市长青公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2775,7 +2775,7 @@
       "学院路"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "四季公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2802,7 +2802,7 @@
       "群力"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "雨阳公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2828,7 +2828,7 @@
       "公园广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "道外区沿江公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2854,7 +2854,7 @@
       "公园广场"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "河柏小区世纪花园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2880,7 +2880,7 @@
       "公园广场"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "松柏生态园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2906,7 +2906,7 @@
       "公园广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黑龙江哈尔滨阿勒锦岛国家湿地公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2932,7 +2932,7 @@
       "公园广场"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "雾凇公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2958,7 +2958,7 @@
       "公园广场"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨中东铁路公园2期，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2985,7 +2985,7 @@
       "学院路"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "凤栖湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3011,7 +3011,7 @@
       "公园广场"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈尔滨市关道遗址文化公园(不对外开放)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3038,7 +3038,7 @@
       "公司街"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "北秀公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3064,7 +3064,7 @@
       "公园广场"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3149,7 +3149,7 @@
       "北京街"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "旅投·国展购物广场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3176,7 +3176,7 @@
       "哈尔滨新区"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "福成厚江鱼壹号(松北旗舰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3202,7 +3202,7 @@
       "尚志"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厨家(中央大街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3228,7 +3228,7 @@
       "学府"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "正阳楼学府店特色东北菜 (地标美食名店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3253,7 +3253,7 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厨家(友谊路总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3279,7 +3279,7 @@
       "尚志"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厨家旗舰店(中央大街西三道街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3305,7 +3305,7 @@
       "经纬"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "九转小磨(爱建店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3331,7 +3331,7 @@
       "哈西"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厨家(哈西店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3357,7 +3357,7 @@
       "世茂大道"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "外婆小厨，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3383,7 +3383,7 @@
       "文政"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厨家(文政街总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3409,7 +3409,7 @@
       "哈尔滨新区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "六泰居·尔滨地标·东北菜(松北店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3435,7 +3435,7 @@
       "通达街"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "得莫利小雨炖鱼馆(通达店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3461,7 +3461,7 @@
       "公司街"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厨家78号私房小馆(公司街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3487,7 +3487,7 @@
       "尚志"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "同合居民间菜馆(中央大街松雷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3513,7 +3513,7 @@
       "抚顺"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老霍家黑皮肘子锅包肉(总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3564,7 +3564,7 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "兰棱杀猪菜(东街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3589,7 +3589,7 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "厨掌柜(幸福路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3615,7 +3615,7 @@
       "哈尔滨新区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "九转小磨(祥安店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3642,7 +3642,7 @@
       "群力"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "王渔王得莫利炖鱼(群力店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3669,7 +3669,7 @@
       "文政"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老码头黑皮肘子锅包肉文政店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3694,7 +3694,7 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "四季家宴，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3719,7 +3719,7 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "一品彭氏包子，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3745,7 +3745,7 @@
       "群力"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "九转小磨(群力店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3771,7 +3771,7 @@
       "北京街"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厨家(国展店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3796,7 +3796,7 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厨家(松雷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3848,7 +3848,7 @@
       "学府"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "小胖私厨状元宴东北私房菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3874,7 +3874,7 @@
       "尚志"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "拾楼壹号哈埠菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3900,7 +3900,7 @@
       "通达街"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "福泰居老菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3925,7 +3925,7 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厨家(三合路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3951,7 +3951,7 @@
       "哈西大街"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "九转小磨 · 非遗东北菜(哈西万达店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3977,7 +3977,7 @@
       "经纬"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "诚诚老松滨(中央大街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4003,7 +4003,7 @@
       "华山路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "百一大地锅(赣水路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4029,7 +4029,7 @@
       "群力"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "张包铺(群力店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4055,7 +4055,7 @@
       "群力"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "百一大地锅(群力店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4081,7 +4081,7 @@
       "哈尔滨新区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "高粱红了铁锅炖(学院路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4107,7 +4107,7 @@
       "康安路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "顾乡饭店(建国店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4133,7 +4133,7 @@
       "奋斗"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "泰和居•地标•东北菜(革新街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4159,7 +4159,7 @@
       "群力"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "同合居民间菜馆(王府井店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4184,7 +4184,7 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老姜婆柴火铁锅炖(道里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4210,7 +4210,7 @@
       "六顺"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "李家小馆(菜艺街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4236,7 +4236,7 @@
       "霁虹街"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "宏达老菜馆东安店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4262,7 +4262,7 @@
       "长春街"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "红升老菜馆(搪瓷小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4288,7 +4288,7 @@
       "学府"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "九转小磨(学府凯德店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4340,7 +4340,7 @@
       "工农"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "天香饺子坊(工农大街总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4366,7 +4366,7 @@
       "工农"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "双新老菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4392,7 +4392,7 @@
       "康安"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "桂萍餐馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4444,7 +4444,7 @@
       "南勋街"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "巴洛克黑皮肘子锅包肉(南二道街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4469,7 +4469,7 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "同合居民间菜馆(新阳路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4496,7 +4496,7 @@
       "哈西大街"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "菜根香家常菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4548,7 +4548,7 @@
       "通江"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "泰和居·地标·东北菜(中央大街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4574,7 +4574,7 @@
       "哈西"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "同合居民间菜馆(西城红场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4600,7 +4600,7 @@
       "泰山路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "同合居·非遗东北菜(中央公园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4626,7 +4626,7 @@
       "世茂大道"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厨家(松北融创店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4652,7 +4652,7 @@
       "珠江路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "哈尔滨市香坊区老码头黑皮肘子锅包肉饭店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4678,7 +4678,7 @@
       "公滨路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "鱼窝棚·铁锅炖(红旗大街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4783,7 +4783,7 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "鑫焱烤吧，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -4835,7 +4835,7 @@
       "尚志"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "爱啤士精酿啤酒(中央大街店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -4888,7 +4888,7 @@
       "哈西"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(哈尔滨哈西店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -4916,7 +4916,7 @@
       "学府"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "凯德广场·学府，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -4944,7 +4944,7 @@
       "泰山路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "红博中央公园，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -4972,7 +4972,7 @@
       "哈尔滨新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "杉杉奥特莱斯广场·哈尔滨，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5058,7 +5058,7 @@
       "专卖店"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "新一百购物广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5114,7 +5114,7 @@
       "购物中心"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "乐松广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5142,7 +5142,7 @@
       "化工"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(哈尔滨香坊店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5198,7 +5198,7 @@
       "群力"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "和泰广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5255,7 +5255,7 @@
       "尚志"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金安国际购物广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5366,7 +5366,7 @@
       "太平"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "百盛购物中心(道外区太平桥店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5450,7 +5450,7 @@
       "香福路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(哈尔滨哈东店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5478,7 +5478,7 @@
       "阿什河"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "秋林公司，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5506,7 +5506,7 @@
       "阿什河"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "秋林人和地下商城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5643,7 +5643,7 @@
       "康安"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "凯德广场(埃德蒙顿路)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5699,7 +5699,7 @@
       "果戈里"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "南岗区大世界商城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5725,7 +5725,7 @@
       "通江"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "鹿鱼咖啡(哈尔滨中央大街店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -5751,7 +5751,7 @@
       "群力"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "漫咖啡MAAN COFFEE(群力店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -5777,7 +5777,7 @@
       "花园街"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "january coffee壹月咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -5855,7 +5855,7 @@
       "群力"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "Unit 6 Coffee单元六咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -5881,7 +5881,7 @@
       "化工"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "January.co壹月咖啡(健龙路店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -5907,7 +5907,7 @@
       "鸿翔路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "漫咖啡MAAN COFFEE(鸿翔路店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -5933,7 +5933,7 @@
       "通江"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "戈雅咖啡馆(哈尔滨中央大街店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -6013,7 +6013,7 @@
       "曲线"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "吱咖啡(木工街)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -6039,7 +6039,7 @@
       "教化"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "橡果咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -6064,7 +6064,7 @@
       "咖啡厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "Thank You多谢你甜品咖啡(香坊店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -6142,7 +6142,7 @@
       "太平"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "漫咖啡MAAN COFFEE(百盛店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -6219,7 +6219,7 @@
       "咖啡厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "ONE太阳岛上咖啡馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -7240,5 +7240,1354 @@
     "source": "amap",
     "source_id": "B0LK1ZDT1D",
     "recommendation": "哈尔滨凯斯顿酒店(中央大街步行街索菲亚教堂店)位置便利，适合作为旅行住宿据点"
+  },
+  {
+    "id": "transit_B01C30JLOR",
+    "name": "哈尔滨太平国际机场",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.611938,
+    "lng": 126.241474,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨太平国际机场，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨太平国际机场是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFJ3IFW7",
+    "name": "哈尔滨太平国际机场T2航站楼",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.621344,
+    "lng": 126.240029,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨太平国际机场T2航站楼，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨太平国际机场T2航站楼是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFJFM8B5",
+    "name": "哈尔滨太平国际机场T2航站楼(国内出发)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.621824,
+    "lng": 126.239748,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨太平国际机场T2航站楼(国内出发)，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨太平国际机场T2航站楼(国内出发)是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KRZRETNO",
+    "name": "哈尔滨太平国际机场T1航站楼",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.622626,
+    "lng": 126.243395,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨太平国际机场T1航站楼，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨太平国际机场T1航站楼是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFJFM8AW",
+    "name": "哈尔滨太平国际机场T2航站楼(国内到达)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.621811,
+    "lng": 126.239777,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨太平国际机场T2航站楼(国内到达)，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨太平国际机场T2航站楼(国内到达)是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KRZR5JV8",
+    "name": "哈尔滨太平国际机场T1航站楼(国际港澳台出发)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.62322,
+    "lng": 126.241482,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨太平国际机场T1航站楼(国际港澳台出发)，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨太平国际机场T1航站楼(国际港澳台出发)是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0I2LUAVEQ",
+    "name": "哈尔滨平房机场",
+    "type": "transit",
+    "area": "平房区",
+    "lat": 45.607521,
+    "lng": 126.672722,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨平房机场，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨平房机场是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0H6D7A84A",
+    "name": "哈尔滨太平国际机场国内贵宾厅",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.620354,
+    "lng": 126.239529,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨太平国际机场国内贵宾厅，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨太平国际机场国内贵宾厅是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KRZR93WC",
+    "name": "哈尔滨太平国际机场T1航站楼(国际港澳台到达)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.62313,
+    "lng": 126.241414,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨太平国际机场T1航站楼(国际港澳台到达)，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨太平国际机场T1航站楼(国际港澳台到达)是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KGPC3GL6",
+    "name": "哈西城市候机楼",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.703061,
+    "lng": 126.578975,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈西城市候机楼，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "哈西城市候机楼是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IA5ZA1WD",
+    "name": "西大桥社区(网约车上车点)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.739772,
+    "lng": 126.621005,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "西大桥社区(网约车上车点)，哈尔滨主要火车站。",
+    "meal_type": "",
+    "recommendation": "西大桥社区(网约车上车点)是哈尔滨的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B01C300049",
+    "name": "哈尔滨站",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.761621,
+    "lng": 126.63269,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B01C319CT5",
+    "name": "哈尔滨西站",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.707228,
+    "lng": 126.577304,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨西站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨西站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B01C30323E",
+    "name": "哈尔滨东站",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.788009,
+    "lng": 126.711692,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨东站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨东站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0H6GSXN21",
+    "name": "哈尔滨站(南进站口)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.76151,
+    "lng": 126.633128,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨站(南进站口)，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨站(南进站口)是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFL9FVBV",
+    "name": "哈尔滨西站(西进站口)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.707628,
+    "lng": 126.576166,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨西站(西进站口)，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨西站(西进站口)是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B01C31ATQ5",
+    "name": "哈尔滨西站(东进站口)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.706266,
+    "lng": 126.579583,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨西站(东进站口)，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨西站(东进站口)是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFEYZK1",
+    "name": "哈尔滨东站(进站口)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.788615,
+    "lng": 126.710573,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨东站(进站口)，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨东站(进站口)是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFG1JQ2K",
+    "name": "哈尔滨北站",
+    "type": "transit",
+    "area": "松北区",
+    "lat": 45.850243,
+    "lng": 126.535657,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨北站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨北站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B01C3029C8",
+    "name": "香坊站",
+    "type": "transit",
+    "area": "香坊区",
+    "lat": 45.721049,
+    "lng": 126.679513,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "香坊站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "香坊站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HRDCWWCG",
+    "name": "哈尔滨站(北进站口)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.762547,
+    "lng": 126.629998,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨站(北进站口)，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨站(北进站口)是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFK15R4H",
+    "name": "尚志南站",
+    "type": "transit",
+    "area": "尚志市",
+    "lat": 45.195919,
+    "lng": 127.953235,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "尚志南站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "尚志南站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B01C304U25",
+    "name": "双城堡站",
+    "type": "transit",
+    "area": "双城区",
+    "lat": 45.397903,
+    "lng": 126.293517,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "双城堡站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "双城堡站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFH9IGME",
+    "name": "哈尔滨北站(进站口)",
+    "type": "transit",
+    "area": "松北区",
+    "lat": 45.850656,
+    "lng": 126.536084,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨北站(进站口)，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨北站(进站口)是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFJG6XJ4",
+    "name": "阿城北站",
+    "type": "transit",
+    "area": "阿城区",
+    "lat": 45.589467,
+    "lng": 127.023687,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "阿城北站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "阿城北站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B01C31DMZB",
+    "name": "王岗站",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.671181,
+    "lng": 126.545198,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "王岗站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "王岗站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B01C3197EO",
+    "name": "双城北站",
+    "type": "transit",
+    "area": "双城区",
+    "lat": 45.426165,
+    "lng": 126.271613,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "双城北站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "双城北站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIZ8D4U",
+    "name": "依兰站",
+    "type": "transit",
+    "area": "依兰县",
+    "lat": 46.279348,
+    "lng": 129.606719,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "依兰站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "依兰站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFJMCT1Z",
+    "name": "宾州站",
+    "type": "transit",
+    "area": "宾县",
+    "lat": 45.774573,
+    "lng": 127.4604,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "宾州站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "宾州站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B01C302ADC",
+    "name": "哈尔滨南站",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.67576,
+    "lng": 126.619002,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨南站，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨南站是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B01C31AXTY",
+    "name": "哈尔滨东站(出站口)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.788855,
+    "lng": 126.710583,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨东站(出站口)，哈尔滨主要飞机场。",
+    "meal_type": "",
+    "recommendation": "哈尔滨东站(出站口)是哈尔滨的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784623",
+    "name": "江北大学城(地铁站)",
+    "type": "transit",
+    "area": "呼兰区",
+    "lat": 45.873058,
+    "lng": 126.543571,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "江北大学城(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "江北大学城(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784636",
+    "name": "中央大街(地铁站)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.768927,
+    "lng": 126.616256,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "中央大街(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "中央大街(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784633",
+    "name": "世茂大道(地铁站)",
+    "type": "transit",
+    "area": "松北区",
+    "lat": 45.806676,
+    "lng": 126.552393,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "世茂大道(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "世茂大道(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784634",
+    "name": "新疆大街(地铁站)",
+    "type": "transit",
+    "area": "平房区",
+    "lat": 45.605905,
+    "lng": 126.632979,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "新疆大街(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "新疆大街(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114361",
+    "name": "太平桥(地铁站)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.783569,
+    "lng": 126.677185,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "太平桥(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "太平桥(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114429",
+    "name": "医大二院(地铁站)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.697491,
+    "lng": 126.615695,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "医大二院(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "医大二院(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784635",
+    "name": "哈尔滨站(地铁站)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.76241,
+    "lng": 126.634916,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨站(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨站(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114318",
+    "name": "博物馆(地铁站)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.758405,
+    "lng": 126.643793,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "博物馆(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "博物馆(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10852543",
+    "name": "哈尔滨西站(地铁站)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.70555,
+    "lng": 126.580851,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨西站(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨西站(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10760276",
+    "name": "凯盛源广场(地铁站)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.701283,
+    "lng": 126.58532,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "凯盛源广场(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "凯盛源广场(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784630",
+    "name": "龙川路(地铁站)",
+    "type": "transit",
+    "area": "松北区",
+    "lat": 45.823373,
+    "lng": 126.549543,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "龙川路(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "龙川路(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114768",
+    "name": "和兴路(地铁站)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.732416,
+    "lng": 126.615449,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "和兴路(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "和兴路(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10760277",
+    "name": "人民广场(地铁站)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.773348,
+    "lng": 126.604011,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "人民广场(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "人民广场(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784621",
+    "name": "太阳岛(地铁站)",
+    "type": "transit",
+    "area": "松北区",
+    "lat": 45.784524,
+    "lng": 126.587862,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "太阳岛(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "太阳岛(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10760272",
+    "name": "进乡街(地铁站)",
+    "type": "transit",
+    "area": "香坊区",
+    "lat": 45.704725,
+    "lng": 126.686287,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "进乡街(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "进乡街(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09150259",
+    "name": "中华巴洛克街区(地铁站)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.78438,
+    "lng": 126.642384,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "中华巴洛克街区(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "中华巴洛克街区(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784622",
+    "name": "尚志大街(地铁站)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.765586,
+    "lng": 126.625999,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "尚志大街(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "尚志大街(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10760260",
+    "name": "工农大街(地铁站)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.718798,
+    "lng": 126.558642,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "工农大街(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "工农大街(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10760273",
+    "name": "珠江路(地铁站)",
+    "type": "transit",
+    "area": "香坊区",
+    "lat": 45.736622,
+    "lng": 126.692716,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "珠江路(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "珠江路(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114323",
+    "name": "哈尔滨东站(地铁站)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.789336,
+    "lng": 126.709138,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈尔滨东站(地铁站)，哈尔滨主要地铁站。",
+    "meal_type": "",
+    "recommendation": "哈尔滨东站(地铁站)是哈尔滨的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09007731",
+    "name": "哈站(公交站)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.756125,
+    "lng": 126.628763,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈站(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "哈站(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114753",
+    "name": "大发市场(公交站)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.737444,
+    "lng": 126.600902,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大发市场(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "大发市场(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10115369",
+    "name": "薛家(公交站)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.66848,
+    "lng": 126.486093,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "薛家(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "薛家(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114512",
+    "name": "哈慈集团(公交站)",
+    "type": "transit",
+    "area": "香坊区",
+    "lat": 45.706551,
+    "lng": 126.687121,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈慈集团(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "哈慈集团(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114570",
+    "name": "河梁街(公交站)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.756209,
+    "lng": 126.593016,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "河梁街(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "河梁街(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09295350",
+    "name": "哈东站(地铁口)(公交站)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.789813,
+    "lng": 126.708819,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈东站(地铁口)(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "哈东站(地铁口)(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114556",
+    "name": "道外三道街(公交站)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.785983,
+    "lng": 126.638172,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "道外三道街(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "道外三道街(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10330342",
+    "name": "学院路(公交站)",
+    "type": "transit",
+    "area": "呼兰区",
+    "lat": 45.871045,
+    "lng": 126.554876,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "学院路(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "学院路(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10115633",
+    "name": "呼兰亿兴小区(公交站)",
+    "type": "transit",
+    "area": "呼兰区",
+    "lat": 45.983924,
+    "lng": 126.608781,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "呼兰亿兴小区(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "呼兰亿兴小区(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114869",
+    "name": "新中新集团(公交站)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.670596,
+    "lng": 126.621451,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "新中新集团(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "新中新集团(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09322270",
+    "name": "锅炉厂(公交站)",
+    "type": "transit",
+    "area": "香坊区",
+    "lat": 45.712625,
+    "lng": 126.670626,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "锅炉厂(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "锅炉厂(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09144558",
+    "name": "平房火车站(公交站)",
+    "type": "transit",
+    "area": "平房区",
+    "lat": 45.586671,
+    "lng": 126.674149,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "平房火车站(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "平房火车站(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114423",
+    "name": "格兰云天小区(公交站)",
+    "type": "transit",
+    "area": "香坊区",
+    "lat": 45.697505,
+    "lng": 126.693753,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "格兰云天小区(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "格兰云天小区(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114505",
+    "name": "阿拉伯广场(公交站)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.787418,
+    "lng": 126.652525,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "阿拉伯广场(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "阿拉伯广场(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09005416",
+    "name": "陶瓷小区(公交站)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.798234,
+    "lng": 126.683147,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "陶瓷小区(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "陶瓷小区(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114302",
+    "name": "西香坊(公交站)",
+    "type": "transit",
+    "area": "香坊区",
+    "lat": 45.726233,
+    "lng": 126.676685,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "西香坊(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "西香坊(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09060900",
+    "name": "哈站(公交站)",
+    "type": "transit",
+    "area": "南岗区",
+    "lat": 45.762966,
+    "lng": 126.63491,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "哈站(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "哈站(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114772",
+    "name": "民安街(公交站)",
+    "type": "transit",
+    "area": "道里区",
+    "lat": 45.748134,
+    "lng": 126.613101,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "民安街(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "民安街(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114603",
+    "name": "红旗家具城(公交站)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.769865,
+    "lng": 126.69431,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "红旗家具城(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "红旗家具城(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10114553",
+    "name": "道台府(公交站)",
+    "type": "transit",
+    "area": "道外区",
+    "lat": 45.793058,
+    "lng": 126.657942,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "道台府(公交站)，哈尔滨主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "道台府(公交站)是哈尔滨的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "哈尔滨"
+    ],
+    "visit_duration": 15
   }
 ]

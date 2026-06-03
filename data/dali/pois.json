@@ -41,7 +41,7 @@
       "旅游景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理古城-南门楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -73,7 +73,9 @@
     "description": "大理古城-总统兵马大元帅府，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B036800H2Q",
-    "recommendation": "推荐在大理市参观大理古城-总统兵马大元帅府，人气评分4.7"
+    "recommendation": "推荐在大理市参观大理古城-总统兵马大元帅府，人气评分4.7",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_9e783326",
@@ -92,12 +94,14 @@
       "寺庙道观"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "崇圣寺三塔文化旅游区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0368000BF",
-    "recommendation": "推荐在大理市参观崇圣寺三塔文化旅游区，人气评分4.8"
+    "recommendation": "推荐在大理市参观崇圣寺三塔文化旅游区，人气评分4.8",
+    "open_minutes": 450,
+    "close_minutes": 1110
   },
   {
     "id": "amap_3b2c3fcc",
@@ -115,7 +119,7 @@
       "风景名胜"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "苍山门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -143,7 +147,9 @@
     "description": "天龙八部影视城，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B036815DC0",
-    "recommendation": "天龙八部影视城带你穿越武侠江湖，建议租套古装拍照，还原剧中经典场景超带感。"
+    "recommendation": "天龙八部影视城带你穿越武侠江湖，建议租套古装拍照，还原剧中经典场景超带感。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9f626e6a",
@@ -186,12 +192,14 @@
       "城市广场"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理篝火打跳广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0MAMU6I2H",
-    "recommendation": "推荐在大理市参观大理篝火打跳广场，人气评分4.3"
+    "recommendation": "推荐在大理市参观大理篝火打跳广场，人气评分4.3",
+    "open_minutes": 1080,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8ab49fe0",
@@ -232,12 +240,14 @@
       "风景名胜"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理苍山中和索道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0LR5UBKYJ",
-    "recommendation": "推荐在大理市参观大理苍山中和索道，人气评分4.7"
+    "recommendation": "推荐在大理市参观大理苍山中和索道，人气评分4.7",
+    "open_minutes": 510,
+    "close_minutes": 960
   },
   {
     "id": "amap_1fe462bb",
@@ -281,12 +291,14 @@
       "教堂"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理天主教堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0368151KS",
-    "recommendation": "推荐在大理市参观大理天主教堂，人气评分4.6"
+    "recommendation": "推荐在大理市参观大理天主教堂，人气评分4.6",
+    "open_minutes": 450,
+    "close_minutes": 1020
   },
   {
     "id": "amap_fee91d39",
@@ -305,12 +317,14 @@
       "寺庙道观"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "崇圣寺三塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0HKLRTS6R",
-    "recommendation": "三塔倒影在晨光中绝美，建议清晨前往，避开人流还能拍到无人的经典角度哦。"
+    "recommendation": "三塔倒影在晨光中绝美，建议清晨前往，避开人流还能拍到无人的经典角度哦。",
+    "open_minutes": 450,
+    "close_minutes": 1110
   },
   {
     "id": "amap_d59aeedc",
@@ -333,7 +347,9 @@
     "description": "大理古城-玉洱园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B036800FFR",
-    "recommendation": "古城里的清静小园子，适合午后溜达发呆，带上本书坐石凳上特别惬意。"
+    "recommendation": "古城里的清静小园子，适合午后溜达发呆，带上本书坐石凳上特别惬意。",
+    "open_minutes": 420,
+    "close_minutes": 1170
   },
   {
     "id": "amap_626016f3",
@@ -351,7 +367,7 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理古城-红龙井门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -381,7 +397,9 @@
     "description": "文庙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGLPT54",
-    "recommendation": "藏在古城里的儒家圣地，建筑古朴免费开放，顺便感受下白族文脉很值。"
+    "recommendation": "藏在古城里的儒家圣地，建筑古朴免费开放，顺便感受下白族文脉很值。",
+    "open_minutes": 450,
+    "close_minutes": 1290
   },
   {
     "id": "amap_d90810ab",
@@ -400,7 +418,7 @@
       "观景点"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙龛码头观景台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -428,7 +446,9 @@
     "description": "天憙园皇家园林景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGSH0S9",
-    "recommendation": "天憙园皇家园林景区适合城市游览、景点爱好者"
+    "recommendation": "天憙园皇家园林景区适合城市游览、景点爱好者",
+    "open_minutes": 510,
+    "close_minutes": 1080
   },
   {
     "id": "amap_bb629a7e",
@@ -446,7 +466,7 @@
       "风景名胜"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "文献楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -471,12 +491,14 @@
       "公园"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三塔倒影公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B036800C0O",
-    "recommendation": "推荐在大理市参观三塔倒影公园，人气评分4.3"
+    "recommendation": "推荐在大理市参观三塔倒影公园，人气评分4.3",
+    "open_minutes": 450,
+    "close_minutes": 1110
   },
   {
     "id": "amap_255ce0ba",
@@ -494,7 +516,7 @@
       "风景名胜"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三月街牌坊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -518,12 +540,14 @@
       "寺庙道观"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "武庙会，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0368151DW",
-    "recommendation": "武庙会适合城市游览、景点爱好者"
+    "recommendation": "武庙会适合城市游览、景点爱好者",
+    "open_minutes": 360,
+    "close_minutes": 1380
   },
   {
     "id": "amap_90c6cbdf",
@@ -546,7 +570,9 @@
     "description": "洗马潭索道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B036815O42",
-    "recommendation": "洗马潭索道是当地热门景点，建议游览90分钟左右"
+    "recommendation": "洗马潭索道是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 960
   },
   {
     "id": "amap_37647fb9",
@@ -590,12 +616,14 @@
       "寺庙道观"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "崇圣寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B03680IDWO",
-    "recommendation": "崇圣寺三塔是大理地标，登高可俯瞰古城全景，清晨人少时去更显庄严肃穆。"
+    "recommendation": "崇圣寺三塔是大理地标，登高可俯瞰古城全景，清晨人少时去更显庄严肃穆。",
+    "open_minutes": 470,
+    "close_minutes": 1090
   },
   {
     "id": "amap_19f47dfd",
@@ -670,7 +698,9 @@
     "description": "大理水花庄园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFL6DPHO",
-    "recommendation": "大理水花庄园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "大理水花庄园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1200
   },
   {
     "id": "amap_96193004",
@@ -689,12 +719,14 @@
       "教堂"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理古城-大理基督教堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0368008UU",
-    "recommendation": "大理古城里的中西合璧教堂，下午光影绝美，拍照打卡超有感觉。"
+    "recommendation": "大理古城里的中西合璧教堂，下午光影绝美，拍照打卡超有感觉。",
+    "open_minutes": 420,
+    "close_minutes": 1290
   },
   {
     "id": "amap_1a9d2b6c",
@@ -713,7 +745,7 @@
       "寺庙道观"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "普贤寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -737,7 +769,7 @@
       "回教寺"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理南门清真寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -807,12 +839,14 @@
       "寺庙道观"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "关帝庙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFE476K",
-    "recommendation": "关帝庙适合城市游览、景点爱好者"
+    "recommendation": "关帝庙适合城市游览、景点爱好者",
+    "open_minutes": 540,
+    "close_minutes": 960
   },
   {
     "id": "amap_9850e3da",
@@ -832,7 +866,7 @@
       "旅游景点"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理古城-人民英雄纪念碑，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -881,7 +915,7 @@
       "寺庙道观"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "苍山景区-中和寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -904,7 +938,7 @@
       "风景名胜"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "双鸳溪，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -928,12 +962,14 @@
       "寺庙道观"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "城隍庙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B036815K33",
-    "recommendation": "古城里的烟火气庙宇"
+    "recommendation": "古城里的烟火气庙宇",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_f897f2d4",
@@ -951,12 +987,14 @@
       "风景名胜"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "木头人世界观，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0KR6RVXDD",
-    "recommendation": "推荐在大理市参观木头人世界观，人气评分4.2"
+    "recommendation": "推荐在大理市参观木头人世界观，人气评分4.2",
+    "open_minutes": 900,
+    "close_minutes": 1320
   },
   {
     "id": "amap_eab886dd",
@@ -1000,7 +1038,7 @@
       "回教寺"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理古城-大理西门清真寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1023,12 +1061,14 @@
       "风景名胜"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "梦回大理南城门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0JUH5T93L",
-    "recommendation": "推荐在大理市参观梦回大理南城门，人气评分4.2"
+    "recommendation": "推荐在大理市参观梦回大理南城门，人气评分4.2",
+    "open_minutes": 870,
+    "close_minutes": 1380
   },
   {
     "id": "amap_56e53c",
@@ -1052,7 +1092,9 @@
     "description": "大理张家花园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B03680J4PL",
-    "recommendation": "大理张家花园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "大理张家花园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_a27563c1",
@@ -1095,7 +1137,7 @@
       "城市广场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大鹏金翅鸟广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1120,7 +1162,7 @@
       "公园"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "红塔公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1192,7 +1234,7 @@
       "寺庙道观"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金甲财神殿，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1263,12 +1305,14 @@
       "风景名胜"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "崇圣寺三塔非遗公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0K63HT3H0",
-    "recommendation": "崇圣寺三塔非遗公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "崇圣寺三塔非遗公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 450,
+    "close_minutes": 1110
   },
   {
     "id": "amap_1c81aa12",
@@ -1334,12 +1378,14 @@
       "旅游景点"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理崇圣寺望海楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B036815SDA",
-    "recommendation": "大理崇圣寺望海楼适合城市游览、景点爱好者"
+    "recommendation": "大理崇圣寺望海楼适合城市游览、景点爱好者",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_fa21858a",
@@ -1364,7 +1410,9 @@
     "description": "大理古城-武庙照壁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFJ2VZJ5",
-    "recommendation": "大理古城-武庙照壁适合城市游览、景点爱好者"
+    "recommendation": "大理古城-武庙照壁适合城市游览、景点爱好者",
+    "open_minutes": 480,
+    "close_minutes": 1020
   },
   {
     "id": "amap_dbba0865",
@@ -1383,7 +1431,7 @@
       "寺庙道观"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "东岳宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1432,7 +1480,7 @@
       "寺庙道观"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天福·财神殿，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1462,7 +1510,9 @@
     "description": "大理白族自治州博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0368003LJ",
-    "recommendation": "大理白族自治州博物馆适合城市游览、历史文化爱好者"
+    "recommendation": "大理白族自治州博物馆适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_94362e42",
@@ -1487,7 +1537,9 @@
     "description": "大理白族自治州非物质文化遗产博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0KGKARBPQ",
-    "recommendation": "大理白族自治州非物质文化遗产博物馆适合城市游览、历史文化爱好者"
+    "recommendation": "大理白族自治州非物质文化遗产博物馆适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 720
   },
   {
     "id": "amap_4fee4a6b",
@@ -1562,7 +1614,9 @@
     "description": "中国大理农村电影历史博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B036815O1H",
-    "recommendation": "中国大理农村电影历史博物馆适合城市游览、历史文化爱好者"
+    "recommendation": "中国大理农村电影历史博物馆适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_38527e1e",
@@ -1587,7 +1641,9 @@
     "description": "大理石空国石博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0GKTCP5ID",
-    "recommendation": "大理石空国石博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "大理石空国石博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 780,
+    "close_minutes": 1260
   },
   {
     "id": "amap_4c2db2c3",
@@ -1612,7 +1668,9 @@
     "description": "国家方志馆南方丝绸之路分馆大理石馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0H3KCZH8G",
-    "recommendation": "国家方志馆南方丝绸之路分馆大理石馆适合城市游览、历史文化爱好者"
+    "recommendation": "国家方志馆南方丝绸之路分馆大理石馆适合城市游览、历史文化爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_d5152e9c",
@@ -1637,7 +1695,9 @@
     "description": "大理中草药博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0KAY73GQD",
-    "recommendation": "推荐在大理市参观大理中草药博物馆，人气评分4.1"
+    "recommendation": "推荐在大理市参观大理中草药博物馆，人气评分4.1",
+    "open_minutes": 540,
+    "close_minutes": 1110
   },
   {
     "id": "amap_e4939480",
@@ -1663,7 +1723,9 @@
     "description": "大理失恋博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFLIIAAE",
-    "recommendation": "大理失恋博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "大理失恋博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1020
   },
   {
     "id": "amap_818738ff",
@@ -1683,12 +1745,14 @@
       "科教文化服务"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "苍山自然影像博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0ID9AIA0O",
-    "recommendation": "苍山自然影像博物馆适合城市游览、历史文化爱好者"
+    "recommendation": "苍山自然影像博物馆适合城市游览、历史文化爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_13d5c8bb",
@@ -1735,12 +1799,14 @@
       "科教文化场所"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理苍山世界地质公园博物馆(暂停营业)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0GKHL3WUW",
-    "recommendation": "大理苍山世界地质公园博物馆(暂停营业)适合城市游览、历史文化爱好者"
+    "recommendation": "大理苍山世界地质公园博物馆(暂停营业)适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_c7c803a8",
@@ -1761,7 +1827,7 @@
       "公园广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "爱在海舌蜜月半岛，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1788,12 +1854,14 @@
       "公园广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大理苍山世界地质公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0368005Z0",
-    "recommendation": "推荐在大理市参观大理苍山世界地质公园，人气评分4.7"
+    "recommendation": "推荐在大理市参观大理苍山世界地质公园，人气评分4.7",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_2d62e486",
@@ -1815,12 +1883,14 @@
       "植物园"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "苍山云雾森林，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFGLWT10",
-    "recommendation": "推荐在大理市参观苍山云雾森林，人气评分4.5"
+    "recommendation": "推荐在大理市参观苍山云雾森林，人气评分4.5",
+    "open_minutes": 510,
+    "close_minutes": 1080
   },
   {
     "id": "amap_29b70464",
@@ -1872,7 +1942,9 @@
     "description": "熙熙家(大理古城人民路地摊街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFK8XVBT",
-    "recommendation": "熙熙家(大理古城人民路地摊街店)适合城市游览、街区爱好者"
+    "recommendation": "熙熙家(大理古城人民路地摊街店)适合城市游览、街区爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1440
   },
   {
     "id": "amap_74024d6a",
@@ -1895,7 +1967,7 @@
       "购物相关场所"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "山里山外(大理古城人民路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -1927,7 +1999,9 @@
     "description": "牛牛角梳(大理古城人民路分店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFGU7IY3",
-    "recommendation": "牛牛角梳(大理古城人民路分店)适合城市游览、街区爱好者"
+    "recommendation": "牛牛角梳(大理古城人民路分店)适合城市游览、街区爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1410
   },
   {
     "id": "amap_518f1e5",
@@ -1949,12 +2023,14 @@
       "蔬菜市场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "古城人民路小菜市场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFGSX5IF",
-    "recommendation": "推荐在大理市参观古城人民路小菜市场，人气评分4.2"
+    "recommendation": "推荐在大理市参观古城人民路小菜市场，人气评分4.2",
+    "open_minutes": 480,
+    "close_minutes": 780
   },
   {
     "id": "amap_dea1fe75",
@@ -1981,7 +2057,9 @@
     "description": "瓦猫福(大理古城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0IK0RVNI7",
-    "recommendation": "瓦猫福满是白族手工艺品，可以淘到独一无二的瓦猫摆件，老板很乐意讲背后的传说。"
+    "recommendation": "瓦猫福满是白族手工艺品，可以淘到独一无二的瓦猫摆件，老板很乐意讲背后的传说。",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_deb1cdad",
@@ -2114,7 +2192,9 @@
     "description": "桃花大理(形象店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0J02CPB76",
-    "recommendation": "桃花大理(形象店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "桃花大理(形象店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1410
   },
   {
     "id": "amap_56e0e8b",
@@ -2141,7 +2221,9 @@
     "description": "徽麻(人民路一店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HKTD6FRU",
-    "recommendation": "推荐在大理市参观徽麻(人民路一店)，人气评分3.9"
+    "recommendation": "推荐在大理市参观徽麻(人民路一店)，人气评分3.9",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_96b616ff",
@@ -2167,7 +2249,9 @@
     "description": "优鲜美佳(古城人民路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0L0JRGSSO",
-    "recommendation": "优鲜美佳(古城人民路店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "优鲜美佳(古城人民路店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a1fbdbe",
@@ -2193,7 +2277,9 @@
     "description": "凡依原创(人民路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFGXNCID",
-    "recommendation": "凡依原创(人民路店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "凡依原创(人民路店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_230ed02b",
@@ -2219,7 +2305,9 @@
     "description": "天天文萃城，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0LRGASZ23",
-    "recommendation": "天天文萃城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天天文萃城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1440
   },
   {
     "id": "amap_2b00bc3c",
@@ -2243,7 +2331,7 @@
       "专营店"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金花牦牛肉干(大理古城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -2275,7 +2363,9 @@
     "description": "原光明眼镜(人民路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFHUILBU",
-    "recommendation": "原光明眼镜(人民路店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "原光明眼镜(人民路店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1410
   },
   {
     "id": "amap_ddd3b3f0",
@@ -2329,7 +2419,9 @@
     "description": "福兽顺玺云南瓦猫(人民路1店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0JUAMHSEF",
-    "recommendation": "推荐在大理市参观福兽顺玺云南瓦猫(人民路1店)，人气评分4.3"
+    "recommendation": "推荐在大理市参观福兽顺玺云南瓦猫(人民路1店)，人气评分4.3",
+    "open_minutes": 570,
+    "close_minutes": 1410
   },
   {
     "id": "amap_cf52bfdd",
@@ -2358,7 +2450,9 @@
     "description": "老兵茶庄(人民路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFFWOCLY",
-    "recommendation": "老兵茶庄(人民路店)适合城市游览、街区爱好者"
+    "recommendation": "老兵茶庄(人民路店)适合城市游览、街区爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_23695d53",
@@ -2379,12 +2473,14 @@
       "购物相关场所"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "应峰鲜奶坊(大理古城洱海门店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0KRAY4GGK",
-    "recommendation": "推荐在大理市参观应峰鲜奶坊(大理古城洱海门店)，人气评分4.6"
+    "recommendation": "推荐在大理市参观应峰鲜奶坊(大理古城洱海门店)，人气评分4.6",
+    "open_minutes": 510,
+    "close_minutes": 30
   },
   {
     "id": "amap_5a91c4a7",
@@ -2410,7 +2506,9 @@
     "description": "造物草木染，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0IDZC7YFH",
-    "recommendation": "推荐在大理市参观造物草木染，人气评分3.9"
+    "recommendation": "推荐在大理市参观造物草木染，人气评分3.9",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_25f58fa2",
@@ -2431,12 +2529,14 @@
       "综合市场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "杨家梅子店(人民路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0KK4UUHMH",
-    "recommendation": "杨家梅子店(人民路店)适合城市游览、街区爱好者"
+    "recommendation": "杨家梅子店(人民路店)适合城市游览、街区爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_abae7ac6",
@@ -2462,7 +2562,9 @@
     "description": "不止冰箱贴，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0KR7OO4E0",
-    "recommendation": "不止冰箱贴适合城市游览、街区爱好者"
+    "recommendation": "不止冰箱贴适合城市游览、街区爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_34af812c",
@@ -2484,12 +2586,14 @@
       "花卉市场"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "耕芸玫瑰园(大理古城店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFG3YIJW",
-    "recommendation": "推荐在大理市参观耕芸玫瑰园(大理古城店)，人气评分3.8"
+    "recommendation": "推荐在大理市参观耕芸玫瑰园(大理古城店)，人气评分3.8",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_c4365143",
@@ -2538,7 +2642,7 @@
       "专营店"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "农夫山泉(人民路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -2598,7 +2702,9 @@
     "description": "如此银作人民路店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFG3V0DJ",
-    "recommendation": "如此银作的手工银饰设计独特，可以定制名字，适合买来做旅行纪念或礼物。"
+    "recommendation": "如此银作的手工银饰设计独特，可以定制名字，适合买来做旅行纪念或礼物。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_821d9105",
@@ -2620,7 +2726,7 @@
       "古玩字画店"
     ],
     "popularity": 3.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "清风文玩阁，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -2646,12 +2752,14 @@
       "云贵菜"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "段公子·大理白族菜·天龙八部店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIP13Z1",
-    "recommendation": "段公子·大理白族菜·天龙八部店口碑很好，建议避开高峰期就餐"
+    "recommendation": "段公子·大理白族菜·天龙八部店口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_719f69d1",
@@ -2671,12 +2779,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "金花小阿妹•白族菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L12STWB3",
-    "recommendation": "在大理市觅食推荐金花小阿妹•白族菜，性价比不错"
+    "recommendation": "在大理市觅食推荐金花小阿妹•白族菜，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_f100a44c",
@@ -2696,12 +2806,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "岛七白族人家火烧猪私房菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G0GCK60Y",
-    "recommendation": "必点火烧猪五花，外焦里嫩超下饭，记得配碗酸梅汤解腻哦。"
+    "recommendation": "必点火烧猪五花，外焦里嫩超下饭，记得配碗酸梅汤解腻哦。",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_e1b9631",
@@ -2726,7 +2838,9 @@
     "description": "徐老二·老白族砂锅私房菜·野生菌(大理古城复兴路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B036815DBE",
-    "recommendation": "徐老二·老白族砂锅私房菜·野生菌(大理古城复兴路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "徐老二·老白族砂锅私房菜·野生菌(大理古城复兴路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_7e96f724",
@@ -2746,12 +2860,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "翠麓野白族庭院私房菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J12S1TC1",
-    "recommendation": "藏在庭院里的白族味道，傍晚来吃能边赏晚霞边品菜，氛围感满分。"
+    "recommendation": "藏在庭院里的白族味道，傍晚来吃能边赏晚霞边品菜，氛围感满分。",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_b669ac7b",
@@ -2771,12 +2887,14 @@
       "中餐厅"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "段家小馆-大理白族美食·云南特色菜(南门文献路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LKHHQLAG",
-    "recommendation": "段家小馆-大理白族美食·云南特色菜(南门文献路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "段家小馆-大理白族美食·云南特色菜(南门文献路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_583003f4",
@@ -2801,7 +2919,9 @@
     "description": "大理市大小爱吃小吃店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJ24SN4",
-    "recommendation": "大理市大小爱吃小吃店口碑很好，建议避开高峰期就餐"
+    "recommendation": "大理市大小爱吃小吃店口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8e6da5b7",
@@ -2822,12 +2942,14 @@
       "综合酒楼"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "白族家常菜鹏亮餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I1LAFN4S",
-    "recommendation": "地道白族家常菜，酸辣鱼和乳扇是必点。价格亲民，像当地人一样吃一顿。"
+    "recommendation": "地道白族家常菜，酸辣鱼和乳扇是必点。价格亲民，像当地人一样吃一顿。",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_8f839587",
@@ -2852,7 +2974,9 @@
     "description": "杨记蒙自过桥米线白族私房菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J6Y4XOUS",
-    "recommendation": "杨记蒙自过桥米线白族私房菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "杨记蒙自过桥米线白族私房菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 390,
+    "close_minutes": 1350
   },
   {
     "id": "amap_b501c9b6",
@@ -2873,12 +2997,14 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "大理白族风味园(文献路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0368005C8",
-    "recommendation": "想吃正宗白族菜？必点酸辣鱼和乳扇，避开饭点去更自在。"
+    "recommendation": "想吃正宗白族菜？必点酸辣鱼和乳扇，避开饭点去更自在。",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_5b067bb9",
@@ -2903,7 +3029,9 @@
     "description": "大理市杨林特色小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJO5O8S",
-    "recommendation": "大理市杨林特色小吃是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大理市杨林特色小吃是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 120
   },
   {
     "id": "amap_7819f1b9",
@@ -2923,12 +3051,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "段公子·特色大理菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JA1HL680",
-    "recommendation": "名字取自天龙八部，酸辣鱼和椒麻鸡是招牌，拍照发朋友圈很吸睛。"
+    "recommendation": "名字取自天龙八部，酸辣鱼和椒麻鸡是招牌，拍照发朋友圈很吸睛。",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_9f8e2a87",
@@ -3004,7 +3134,9 @@
     "description": "通达砂锅小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFTZAMU",
-    "recommendation": "通达砂锅小吃是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "通达砂锅小吃是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 120
   },
   {
     "id": "amap_54e6e841",
@@ -3030,7 +3162,9 @@
     "description": "蔌珂兰清真小吃店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G3KUMW2Z",
-    "recommendation": "蔌珂兰清真小吃店口碑很好，建议避开高峰期就餐"
+    "recommendation": "蔌珂兰清真小吃店口碑很好，建议避开高峰期就餐",
+    "open_minutes": 480,
+    "close_minutes": 1200
   },
   {
     "id": "amap_8bb1c5b5",
@@ -3075,12 +3209,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "四方小吃(护国路)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG3U9XP",
-    "recommendation": "四方小吃(护国路)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "四方小吃(护国路)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1290
   },
   {
     "id": "amap_1c70632",
@@ -3106,7 +3242,9 @@
     "description": "顺清园小吃店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0IU5U131X",
-    "recommendation": "清真白族小吃，牛肉凉米线清爽开胃。别错过他家的卤味，配着吃更香。"
+    "recommendation": "清真白族小吃，牛肉凉米线清爽开胃。别错过他家的卤味，配着吃更香。",
+    "open_minutes": 630,
+    "close_minutes": 1350
   },
   {
     "id": "amap_f516c36d",
@@ -3132,7 +3270,9 @@
     "description": "穆伊清真小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIYTXWA",
-    "recommendation": "在大理市觅食推荐穆伊清真小吃，性价比不错"
+    "recommendation": "在大理市觅食推荐穆伊清真小吃，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_11b9c832",
@@ -3158,7 +3298,9 @@
     "description": "泰舂小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0IKND19Q8",
-    "recommendation": "泰舂小吃口碑很好，建议避开高峰期就餐"
+    "recommendation": "泰舂小吃口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1170
   },
   {
     "id": "amap_627e5c1f",
@@ -3179,12 +3321,14 @@
       "云贵菜"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "全月饭店白族私房菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GRLAKIEA",
-    "recommendation": "白族私房菜正宗，必点酸辣鱼，饭"
+    "recommendation": "白族私房菜正宗，必点酸辣鱼，饭",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_69efe529",
@@ -3204,7 +3348,7 @@
       "中餐厅"
     ],
     "popularity": 3.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "白族菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3229,12 +3373,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "南诏源白族私房菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIXKB50",
-    "recommendation": "南诏源白族私房菜口碑很好，建议避开高峰期就餐"
+    "recommendation": "南诏源白族私房菜口碑很好，建议避开高峰期就餐",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4f29ca1",
@@ -3254,12 +3400,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "觅柚小苑白族私房菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J29UVWX5",
-    "recommendation": "觅柚小苑白族私房菜口碑很好，建议避开高峰期就餐"
+    "recommendation": "觅柚小苑白族私房菜口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1260
   },
   {
     "id": "amap_12bcae1d",
@@ -3279,7 +3427,7 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "特色家常菜舒媛小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3304,12 +3452,14 @@
       "中餐厅"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "滇觅·白族融合菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L36Z9ZLQ",
-    "recommendation": "滇觅的融合菜既保留白族风味又有新意，推荐酸辣鱼配青梅酒，酸爽开胃超解腻。"
+    "recommendation": "滇觅的融合菜既保留白族风味又有新意，推荐酸辣鱼配青梅酒，酸爽开胃超解腻。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b3742d32",
@@ -3354,12 +3504,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "滇小妹·白族石板烧(大理王府店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KR6UVWDH",
-    "recommendation": "在大理市觅食推荐滇小妹·白族石板烧(大理王府店)，性价比不错"
+    "recommendation": "在大理市觅食推荐滇小妹·白族石板烧(大理王府店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_5f1cfca4",
@@ -3410,7 +3562,9 @@
     "description": "云桥客过桥米线(古城人民路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JR97LQMS",
-    "recommendation": "云桥客过桥米线(古城人民路店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "云桥客过桥米线(古城人民路店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 570,
+    "close_minutes": 1380
   },
   {
     "id": "amap_f1ddfd97",
@@ -3455,12 +3609,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "飞香李新疆小吃店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKPE1O5",
-    "recommendation": "在大理市觅食推荐飞香李新疆小吃店，性价比不错"
+    "recommendation": "在大理市觅食推荐飞香李新疆小吃店，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 870
   },
   {
     "id": "amap_badf3325",
@@ -3485,7 +3641,9 @@
     "description": "朵斯提清真小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFLICV4T",
-    "recommendation": "朵斯提清真小吃口碑很好，建议避开高峰期就餐"
+    "recommendation": "朵斯提清真小吃口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1260
   },
   {
     "id": "amap_7c68bc29",
@@ -3505,12 +3663,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "滇小妹·白族石板烧(大理古城总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KG25ZEEK",
-    "recommendation": "在大理市觅食推荐滇小妹·白族石板烧(大理古城总店)，性价比不错"
+    "recommendation": "在大理市觅食推荐滇小妹·白族石板烧(大理古城总店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_988b222",
@@ -3531,12 +3691,14 @@
       "餐饮相关"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "沐府私厨·老大理菜头牌·野生菌汤锅(人民路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KAUHEWQK",
-    "recommendation": "沐府私厨·老大理菜头牌·野生菌汤锅(人民路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "沐府私厨·老大理菜头牌·野生菌汤锅(人民路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_dc44f8ac",
@@ -3562,7 +3724,9 @@
     "description": "树下别院清真小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J3PH3MHL",
-    "recommendation": "树下别院清真小吃是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "树下别院清真小吃是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_7ecc24cb",
@@ -3582,12 +3746,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "尽善(百年古院餐厅)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFA0WMO",
-    "recommendation": "尽善(百年古院餐厅)口碑很好，建议避开高峰期就餐"
+    "recommendation": "尽善(百年古院餐厅)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_20a7850a",
@@ -3612,7 +3778,9 @@
     "description": "S姐过桥米线·山景餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0M6FUZJ1B",
-    "recommendation": "S姐过桥米线·山景餐厅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "S姐过桥米线·山景餐厅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_50e0be08",
@@ -3637,7 +3805,9 @@
     "description": "云禾壹海景庄园餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HKFZX6EW",
-    "recommendation": "坐拥洱海无敌景观，推荐选露台位，傍晚看日落配白族菜一绝。"
+    "recommendation": "坐拥洱海无敌景观，推荐选露台位，傍晚看日落配白族菜一绝。",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_e5a19bb9",
@@ -3657,12 +3827,14 @@
       "中餐厅"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "南诏村·现炒云南菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L3OMXPK8",
-    "recommendation": "在大理市觅食推荐南诏村·现炒云南菜，性价比不错"
+    "recommendation": "在大理市觅食推荐南诏村·现炒云南菜，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3d71e6bd",
@@ -3682,7 +3854,7 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "东味餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3708,12 +3880,14 @@
       "餐饮相关"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "淑团小吃柴火鸡，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JABHVIBH",
-    "recommendation": "在大理市觅食推荐淑团小吃柴火鸡，性价比不错"
+    "recommendation": "在大理市觅食推荐淑团小吃柴火鸡，性价比不错",
+    "open_minutes": 420,
+    "close_minutes": 1440
   },
   {
     "id": "amap_898aa954",
@@ -3733,12 +3907,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "白族小菜园，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HRP62UFX",
-    "recommendation": "白族小菜园是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "白族小菜园是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6d4724c1",
@@ -3759,12 +3935,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "陈氏海稍鱼(古城三月街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B036815KKQ",
-    "recommendation": "在大理市觅食推荐陈氏海稍鱼(古城三月街店)，性价比不错"
+    "recommendation": "在大理市觅食推荐陈氏海稍鱼(古城三月街店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_90edc36f",
@@ -3784,12 +3962,14 @@
       "中餐厅"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "八哥白族火烧生皮，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L3M5KBF4",
-    "recommendation": "勇敢尝试白族火烧生皮，蘸水去腥超美味。提醒：趁热吃，"
+    "recommendation": "勇敢尝试白族火烧生皮，蘸水去腥超美味。提醒：趁热吃，",
+    "open_minutes": 600,
+    "close_minutes": 90
   },
   {
     "id": "amap_f79b1299",
@@ -3834,12 +4014,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "金傣苑现炒云南菜·手抓饭(洱海门店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LKF7U5FJ",
-    "recommendation": "金傣苑现炒云南菜·手抓饭(洱海门店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "金傣苑现炒云南菜·手抓饭(洱海门店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_ee84c9cd",
@@ -3859,12 +4041,14 @@
       "中餐厅"
     ],
     "popularity": 3.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "古滇小楼·白族风味民俗餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GK9CPO1H",
-    "recommendation": "古滇小楼·白族风味民俗餐厅口碑很好，建议避开高峰期就餐"
+    "recommendation": "古滇小楼·白族风味民俗餐厅口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_95921f9a",
@@ -3890,7 +4074,9 @@
     "description": "盛隆东北老味面馆东北菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I3ACTEIA",
-    "recommendation": "盛隆东北老味面馆东北菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "盛隆东北老味面馆东北菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_1cf0c26c",
@@ -3916,7 +4102,9 @@
     "description": "那拉提的月烤肉小酒馆，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0KUUATTPW",
-    "recommendation": "那拉提的月烤肉小酒馆是夜间休闲好去处"
+    "recommendation": "那拉提的月烤肉小酒馆是夜间休闲好去处",
+    "open_minutes": 1140,
+    "close_minutes": 120
   },
   {
     "id": "amap_23cc9d2f",
@@ -3937,12 +4125,14 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "龙龛烤吧，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0K2XM2IKT",
-    "recommendation": "龙龛烤吧适合饭后散步或消遣"
+    "recommendation": "龙龛烤吧适合饭后散步或消遣",
+    "open_minutes": 1140,
+    "close_minutes": 60
   },
   {
     "id": "amap_fca41161",
@@ -3963,12 +4153,14 @@
       "咖啡厅"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "莫催茶室，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFKWGEEC",
-    "recommendation": "莫催茶室背靠苍山，品茶赏景超惬意，推荐午后去，搭配一块手工蛋糕更完美。"
+    "recommendation": "莫催茶室背靠苍山，品茶赏景超惬意，推荐午后去，搭配一块手工蛋糕更完美。",
+    "open_minutes": 600,
+    "close_minutes": 1110
   },
   {
     "id": "amap_63a6e04",
@@ -4895,7 +5087,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "招呼站(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4921,7 +5113,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "裕龙大道口(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4947,7 +5139,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "石房子(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4974,7 +5166,7 @@
       "开发区"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "云龙路口(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -5000,7 +5192,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "裕龙大道东(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -5026,7 +5218,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "环球时代(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -5052,7 +5244,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "怡景尚居(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -5078,7 +5270,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "下庄村(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -5104,7 +5296,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洱海寰球时代(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -5130,11 +5322,904 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "山海湾酒店(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
     "source_id": "BV11499487",
     "recommendation": "山海湾酒店附近的海滨步道很赞，下车后往西走五分钟就是日落观景点。"
+  },
+  {
+    "id": "transit_B0IU5AUZKV",
+    "name": "大理凤仪机场",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.646965,
+    "lng": 100.320952,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理凤仪机场，大理主要火车站。",
+    "meal_type": "",
+    "recommendation": "大理凤仪机场是大理的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IU5ASWOW",
+    "name": "大理凤仪机场(国内出发)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.647149,
+    "lng": 100.323501,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理凤仪机场(国内出发)，大理主要火车站。",
+    "meal_type": "",
+    "recommendation": "大理凤仪机场(国内出发)是大理的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IU5ASWOX",
+    "name": "大理凤仪机场航站楼",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.646772,
+    "lng": 100.323375,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理凤仪机场航站楼，大理主要火车站。",
+    "meal_type": "",
+    "recommendation": "大理凤仪机场航站楼是大理的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IU5ATXYY",
+    "name": "大理凤仪机场(国内到达)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.64674,
+    "lng": 100.323588,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理凤仪机场(国内到达)，大理主要火车站。",
+    "meal_type": "",
+    "recommendation": "大理凤仪机场(国内到达)是大理的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFLPCEV6",
+    "name": "大理机场城市候机楼",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.698586,
+    "lng": 100.173539,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理机场城市候机楼，大理主要火车站。",
+    "meal_type": "",
+    "recommendation": "大理机场城市候机楼是大理的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFLPCF3Z",
+    "name": "大理机场城市候机楼",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.60142,
+    "lng": 100.235502,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理机场城市候机楼，大理主要火车站。",
+    "meal_type": "",
+    "recommendation": "大理机场城市候机楼是大理的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0MGR5K2VH",
+    "name": "大理海西直升机场",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.70443,
+    "lng": 100.141273,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理海西直升机场，大理主要火车站。",
+    "meal_type": "",
+    "recommendation": "大理海西直升机场是大理的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03680030R",
+    "name": "大理站",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.589569,
+    "lng": 100.250635,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "大理站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIA462S",
+    "name": "大理站(进站口)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.589613,
+    "lng": 100.249575,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理站(进站口)，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "大理站(进站口)是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFJ9SI6J",
+    "name": "祥云站",
+    "type": "transit",
+    "area": "祥云县",
+    "lat": 25.450128,
+    "lng": 100.557865,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "祥云站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "祥云站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0368158O7",
+    "name": "大理站(出站口)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.589595,
+    "lng": 100.25025,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理站(出站口)，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "大理站(出站口)是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0G2VSK0OI",
+    "name": "巍山站",
+    "type": "transit",
+    "area": "巍山彝族回族自治县",
+    "lat": 25.229618,
+    "lng": 100.294004,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "巍山站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "巍山站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B036814V6N",
+    "name": "鹤庆站",
+    "type": "transit",
+    "area": "鹤庆县",
+    "lat": 26.55571,
+    "lng": 100.216432,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "鹤庆站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "鹤庆站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFL71NL5",
+    "name": "祥云站(进站口)",
+    "type": "transit",
+    "area": "祥云县",
+    "lat": 25.450532,
+    "lng": 100.558011,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "祥云站(进站口)，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "祥云站(进站口)是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IAGCCN9L",
+    "name": "永平县站",
+    "type": "transit",
+    "area": "永平县",
+    "lat": 25.406003,
+    "lng": 99.541539,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "永平县站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "永平县站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IDLH3AYP",
+    "name": "漾濞站",
+    "type": "transit",
+    "area": "漾濞彝族自治县",
+    "lat": 25.659768,
+    "lng": 99.963244,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "漾濞站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "漾濞站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03680ID00",
+    "name": "上关站",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.968723,
+    "lng": 100.14602,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上关站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上关站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0H2L57AHE",
+    "name": "小湾东站",
+    "type": "transit",
+    "area": "南涧彝族自治县",
+    "lat": 24.71105,
+    "lng": 100.144408,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "小湾东站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "小湾东站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFJ9V721",
+    "name": "云南驿站",
+    "type": "transit",
+    "area": "祥云县",
+    "lat": 25.379319,
+    "lng": 100.70423,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "云南驿站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "云南驿站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B036815W1F",
+    "name": "大理东站",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.569892,
+    "lng": 100.317096,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理东站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "大理东站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFL71HYL",
+    "name": "祥云站(出站口)",
+    "type": "transit",
+    "area": "祥云县",
+    "lat": 25.45074,
+    "lng": 100.55771,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "祥云站(出站口)，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "祥云站(出站口)是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFTCXLM",
+    "name": "鹤庆站(进站口)",
+    "type": "transit",
+    "area": "鹤庆县",
+    "lat": 26.55569,
+    "lng": 100.216452,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "鹤庆站(进站口)，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "鹤庆站(进站口)是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HG7LLK1L",
+    "name": "巍山站(进站口)",
+    "type": "transit",
+    "area": "巍山彝族回族自治县",
+    "lat": 25.229548,
+    "lng": 100.294299,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "巍山站(进站口)，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "巍山站(进站口)是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03680IEIB",
+    "name": "祥云西站",
+    "type": "transit",
+    "area": "祥云县",
+    "lat": 25.470721,
+    "lng": 100.545595,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "祥云西站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "祥云西站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0L1PM4XOZ",
+    "name": "海东镇站",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.713567,
+    "lng": 100.260006,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "海东镇站，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "海东镇站是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IRRMDUUZ",
+    "name": "永平县站(进站口)",
+    "type": "transit",
+    "area": "永平县",
+    "lat": 25.404676,
+    "lng": 99.539377,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "永平县站(进站口)，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "永平县站(进站口)是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HG7LM6LL",
+    "name": "巍山站(出站口)",
+    "type": "transit",
+    "area": "巍山彝族回族自治县",
+    "lat": 25.229421,
+    "lng": 100.294337,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "巍山站(出站口)，大理主要飞机场。",
+    "meal_type": "",
+    "recommendation": "巍山站(出站口)是大理的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10826316",
+    "name": "三月街(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.694607,
+    "lng": 100.155611,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三月街(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "三月街(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09311720",
+    "name": "大理古城东门(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.699559,
+    "lng": 100.173205,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理古城东门(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "大理古城东门(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10288782",
+    "name": "火车站(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.591017,
+    "lng": 100.251532,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "火车站(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "火车站(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10438965",
+    "name": "三月街口(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.694607,
+    "lng": 100.155611,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三月街口(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "三月街口(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10443007",
+    "name": "大理公交4路车站(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.596512,
+    "lng": 100.218391,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理公交4路车站(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "大理公交4路车站(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10421709",
+    "name": "甘家村(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.704424,
+    "lng": 100.168052,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "甘家村(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "甘家村(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09214664",
+    "name": "大理古城南门(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.685401,
+    "lng": 100.159741,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大理古城南门(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "大理古城南门(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09033050",
+    "name": "才村码头(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.715516,
+    "lng": 100.188549,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "才村码头(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "才村码头(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09419768",
+    "name": "州儿童医院东门(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.621402,
+    "lng": 100.224057,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "州儿童医院东门(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "州儿童医院东门(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10466161",
+    "name": "博爱门(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.686181,
+    "lng": 100.162214,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "博爱门(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "博爱门(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10466159",
+    "name": "人民路(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.69208,
+    "lng": 100.159607,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "人民路(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "人民路(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10288905",
+    "name": "人民路口(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.691819,
+    "lng": 100.157424,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "人民路口(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "人民路口(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11396783",
+    "name": "高铁站(公交站)",
+    "type": "transit",
+    "area": "祥云县",
+    "lat": 25.450339,
+    "lng": 100.55691,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "高铁站(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "高铁站(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10467275",
+    "name": "月溪村(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.691469,
+    "lng": 100.176828,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "月溪村(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "月溪村(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10288791",
+    "name": "市法院(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.593647,
+    "lng": 100.246605,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "市法院(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "市法院(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10467261",
+    "name": "客运南站(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.571997,
+    "lng": 100.224083,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "客运南站(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "客运南站(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10288889",
+    "name": "小花园(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.586424,
+    "lng": 100.234375,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "小花园(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "小花园(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09505938",
+    "name": "下关(火车站)(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.591092,
+    "lng": 100.250097,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "下关(火车站)(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "下关(火车站)(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09457341",
+    "name": "下关(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.590824,
+    "lng": 100.250422,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "下关(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "下关(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09168340",
+    "name": "下关(公交站)",
+    "type": "transit",
+    "area": "大理市",
+    "lat": 25.581963,
+    "lng": 100.210866,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "下关(公交站)，大理主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "下关(公交站)是大理的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "大理"
+    ],
+    "visit_duration": 15
   }
 ]

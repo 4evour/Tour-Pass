@@ -50,7 +50,9 @@
     "description": "上海迪士尼度假区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00157AW8O",
-    "recommendation": "上海迪士尼度假区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海迪士尼度假区是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1230
   },
   {
     "id": "amap_a357e438",
@@ -70,12 +72,14 @@
       "城隍庙"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海城隍庙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00155FHOA",
-    "recommendation": "上海城隍庙是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海城隍庙是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_c8f9d2e2",
@@ -95,12 +99,14 @@
       "佘山"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "佘山国家旅游度假区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00155L7QD",
-    "recommendation": "佘山国家旅游度假区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "佘山国家旅游度假区是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_a7b7aca1",
@@ -120,12 +126,14 @@
       "静安寺"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "静安寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00154BDE9",
-    "recommendation": "静安寺是当地热门景点，建议游览90分钟左右"
+    "recommendation": "静安寺是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 450,
+    "close_minutes": 1020
   },
   {
     "id": "amap_e44d15db",
@@ -150,7 +158,9 @@
     "description": "上海豫园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00155MF55",
-    "recommendation": "上海豫园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海豫园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 990
   },
   {
     "id": "amap_fe0ffeeb",
@@ -170,12 +180,14 @@
       "陆家嘴"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "东方明珠广播电视塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00150F6D6",
-    "recommendation": "东方明珠广播电视塔是当地热门景点，建议游览90分钟左右"
+    "recommendation": "东方明珠广播电视塔是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_5ca3f9b",
@@ -219,7 +231,7 @@
       "北京路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海四行仓库抗战纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -244,12 +256,14 @@
       "影视片区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "上海影视乐园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00150744F",
-    "recommendation": "上海影视乐园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海影视乐园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1260
   },
   {
     "id": "amap_982702f0",
@@ -268,12 +282,14 @@
       "观景点"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海花开海上生态园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGRDHAA",
-    "recommendation": "上海花开海上生态园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海花开海上生态园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1020
   },
   {
     "id": "amap_ac31e9ae",
@@ -294,7 +310,7 @@
       "北京路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海人民广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -320,7 +336,7 @@
       "影视片区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "外滩公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -347,7 +363,7 @@
       "桥"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "外白渡桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -377,7 +393,9 @@
     "description": "外滩观光隧道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00155GM1T",
-    "recommendation": "外滩观光隧道是当地热门景点，建议游览90分钟左右"
+    "recommendation": "外滩观光隧道是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_656c5550",
@@ -398,7 +416,7 @@
       "广富林度假区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海广富林文化遗址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -424,12 +442,14 @@
       "周家桥"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海长风公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00155KK03",
-    "recommendation": "上海长风公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海长风公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1020
   },
   {
     "id": "amap_df3fccf7",
@@ -449,12 +469,14 @@
       "中国(上海)自由贸易试验区临港新片区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海海湾国家森林公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00155LYLB",
-    "recommendation": "上海海湾国家森林公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海海湾国家森林公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 990
   },
   {
     "id": "amap_abac857f",
@@ -480,7 +502,9 @@
     "description": "上海M50创意园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFS173H",
-    "recommendation": "上海M50创意园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海M50创意园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e893b0b5",
@@ -500,12 +524,14 @@
       "提篮桥"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "1933老场坊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00155LPBC",
-    "recommendation": "1933老场坊是当地热门景点，建议游览90分钟左右"
+    "recommendation": "1933老场坊是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_406783e6",
@@ -525,12 +551,14 @@
       "曹家渡"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玉佛禅寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00155R1B1",
-    "recommendation": "玉佛禅寺是当地热门景点，建议游览90分钟左右"
+    "recommendation": "玉佛禅寺是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 990
   },
   {
     "id": "amap_d876f89e",
@@ -549,12 +577,14 @@
       "教堂"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天主教上海教区洋泾浜圣若瑟堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00156GKV7",
-    "recommendation": "天主教上海教区洋泾浜圣若瑟堂是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天主教上海教区洋泾浜圣若瑟堂是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 480
   },
   {
     "id": "amap_24fcf2b6",
@@ -574,12 +604,14 @@
       "外滩"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海市人民英雄纪念塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001557POD",
-    "recommendation": "上海市人民英雄纪念塔是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海市人民英雄纪念塔是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_46bffdfa",
@@ -598,7 +630,7 @@
       "北京路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "外滩-观景大道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -623,12 +655,14 @@
       "陆家嘴"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海之巅观光厅，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHLLF0C",
-    "recommendation": "上海之巅观光厅是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海之巅观光厅是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5d8bba30",
@@ -649,12 +683,14 @@
       "提篮桥"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "北外滩滨江绿地，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00156NZVG",
-    "recommendation": "北外滩滨江绿地是当地热门景点，建议游览90分钟左右"
+    "recommendation": "北外滩滨江绿地是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2a6f3110",
@@ -675,7 +711,7 @@
       "湖南路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "武康路历史文化名街，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -725,12 +761,14 @@
       "外滩"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黄浦江游览，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00155QFFH",
-    "recommendation": "黄浦江游览是当地热门景点，建议游览90分钟左右"
+    "recommendation": "黄浦江游览是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_edfecd0b",
@@ -755,7 +793,9 @@
     "description": "金茂大厦88层观光厅，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0015524WX",
-    "recommendation": "金茂大厦88层观光厅是当地热门景点，建议游览90分钟左右"
+    "recommendation": "金茂大厦88层观光厅是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1290
   },
   {
     "id": "amap_2bca5e5a",
@@ -776,12 +816,14 @@
       "北京路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "申报馆旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG00R3Q",
-    "recommendation": "申报馆旧址是当地热门景点，建议游览90分钟左右"
+    "recommendation": "申报馆旧址是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f816e111",
@@ -831,7 +873,9 @@
     "description": "外滩一号艺术中心，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFL8FDBO",
-    "recommendation": "外滩一号艺术中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "外滩一号艺术中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 660,
+    "close_minutes": 1080
   },
   {
     "id": "amap_25998551",
@@ -852,7 +896,7 @@
       "北京路"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "外滩-陈毅广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -878,7 +922,7 @@
       "北京路"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海外滩建筑群汇中饭店大楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -907,7 +951,9 @@
     "description": "外滩轮渡口，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0HACXW5CO",
-    "recommendation": "外滩轮渡口是当地热门景点，建议游览90分钟左右"
+    "recommendation": "外滩轮渡口是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 390,
+    "close_minutes": 720
   },
   {
     "id": "amap_29b63473",
@@ -928,7 +974,7 @@
       "北京路"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大北电报公司旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -954,7 +1000,7 @@
       "世博片区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "世博文化公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -983,7 +1029,9 @@
     "description": "外滩源壹号，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0HRLR19QC",
-    "recommendation": "外滩源壹号是当地热门景点，建议游览90分钟左右"
+    "recommendation": "外滩源壹号是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_960d2174",
@@ -1004,7 +1052,7 @@
       "上海北外滩中心"
     ],
     "popularity": 4.1,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "WOO BAR，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1029,7 +1077,7 @@
       "北京路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "外滩观景台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1055,12 +1103,14 @@
       "世纪大道"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "1192弄老上海风情街(世纪汇广场店)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFK21VOY",
-    "recommendation": "1192弄老上海风情街(世纪汇广场店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "1192弄老上海风情街(世纪汇广场店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_34624dc0",
@@ -1081,12 +1131,14 @@
       "世博片区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "世博文化公园上海温室花园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0IU15ZN3L",
-    "recommendation": "世博文化公园上海温室花园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "世博文化公园上海温室花园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_3191e955",
@@ -1109,7 +1161,9 @@
     "description": "上海千古情景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00156EP9N",
-    "recommendation": "上海千古情景区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海千古情景区是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 630,
+    "close_minutes": 1140
   },
   {
     "id": "amap_d5e1be92",
@@ -1128,7 +1182,7 @@
       "教堂"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "外滩源33-联合教堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1154,7 +1208,7 @@
       "提篮桥"
     ],
     "popularity": 3.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海兆丰纱厂厂房旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1183,7 +1237,9 @@
     "description": "外滩-信号台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGEQZXS",
-    "recommendation": "外滩-信号台是当地热门景点，建议游览90分钟左右"
+    "recommendation": "外滩-信号台是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 1020,
+    "close_minutes": 1320
   },
   {
     "id": "amap_459f55aa",
@@ -1202,7 +1258,7 @@
       "北外滩"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "北外滩滨江绿地小巨蛋，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1250,12 +1306,14 @@
       "外滩"
     ],
     "popularity": 4.5,
-    "price_level": 5,
+    "price_level": 0,
     "meal_type": "main",
     "description": "浦江游轮，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0H25OORPF",
-    "recommendation": "浦江游轮是当地热门景点，建议游览90分钟左右"
+    "recommendation": "浦江游轮是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_c08b88b3",
@@ -1276,7 +1334,7 @@
       "小陆家嘴商圈"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "滨江大道-富都滨江欢乐广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1303,7 +1361,7 @@
       "北京路"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "怡和洋行旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1329,7 +1387,7 @@
       "北京路"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "沙逊大厦旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1380,7 +1438,7 @@
       "上海北外滩中心"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南山爷爷种的茶(瑞泰里店)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1406,7 +1464,7 @@
       "北京路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "外滩金牛广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1458,7 +1516,7 @@
       "北京路"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "日清大楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1489,7 +1547,9 @@
     "description": "北外滩国客中心·虹空间，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0J1975KMM",
-    "recommendation": "北外滩国客中心·虹空间是当地热门景点，建议游览90分钟左右"
+    "recommendation": "北外滩国客中心·虹空间是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_91571ebe",
@@ -1508,7 +1568,7 @@
       "北京路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "亚细亚大楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1563,7 +1623,9 @@
     "description": "东方明珠旅游码头，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00151E2D4",
-    "recommendation": "东方明珠旅游码头是当地热门景点，建议游览90分钟左右"
+    "recommendation": "东方明珠旅游码头是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_5d239d90",
@@ -1584,7 +1646,7 @@
       "提篮桥"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "北外滩滨江绿地置阳段，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1608,7 +1670,7 @@
       "北京路"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "亚洲文会大楼旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1638,7 +1700,9 @@
     "description": "北外滩国客中心，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG8YEO4",
-    "recommendation": "北外滩国客中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "北外滩国客中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d30d7f61",
@@ -1659,12 +1723,14 @@
       "提篮桥"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "北外滩国客中心游艇港，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFJZ0H42",
-    "recommendation": "北外滩国客中心游艇港是当地热门景点，建议游览90分钟左右"
+    "recommendation": "北外滩国客中心游艇港是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 60
   },
   {
     "id": "amap_807e054f",
@@ -1685,7 +1751,7 @@
       "中餐厅"
     ],
     "popularity": 3.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老码头店(12918游艇会所)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1711,12 +1777,14 @@
       "提篮桥"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "北外滩航海公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0J2X7U8HX",
-    "recommendation": "北外滩航海公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "北外滩航海公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_3bf72d51",
@@ -1735,12 +1803,14 @@
       "北京路"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大来大楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00155NME1",
-    "recommendation": "大来大楼是当地热门景点，建议游览90分钟左右"
+    "recommendation": "大来大楼是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ad484203",
@@ -1761,7 +1831,7 @@
       "外滩"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "观景平台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1811,7 +1881,7 @@
       "提篮桥"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海运广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1837,7 +1907,7 @@
       "北京路"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "外滩-气象广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1863,7 +1933,7 @@
       "北外滩"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "北外滩城市花甸，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1889,7 +1959,7 @@
       "北京路"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "麦加利银行旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1915,12 +1985,14 @@
       "提篮桥"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "申城之光黄浦江游船，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0KGZ53NXD",
-    "recommendation": "申城之光黄浦江游船是当地热门景点，建议游览90分钟左右"
+    "recommendation": "申城之光黄浦江游船是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 1140,
+    "close_minutes": 1260
   },
   {
     "id": "amap_3608e95a",
@@ -1941,12 +2013,14 @@
       "北京路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "悠游苏州河外滩源码头，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0M6SC3WLJ",
-    "recommendation": "悠游苏州河外滩源码头是当地热门景点，建议游览90分钟左右"
+    "recommendation": "悠游苏州河外滩源码头是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b577458f",
@@ -1967,7 +2041,7 @@
       "北京路"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "扬子大楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1991,7 +2065,7 @@
       "北京路"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "外滩-步道东方明珠夜景打卡位，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -2017,12 +2091,14 @@
       "北京路"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黄浦公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0JBFLZSCS",
-    "recommendation": "黄浦公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "黄浦公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_eadd65c1",
@@ -2047,7 +2123,9 @@
     "description": "上海博物馆(东馆)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFIFP90V",
-    "recommendation": "上海博物馆(东馆)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海博物馆(东馆)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_ca1e09ed",
@@ -2073,7 +2151,9 @@
     "description": "上海市历史博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFI2885X",
-    "recommendation": "上海市历史博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海市历史博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_db607b38",
@@ -2099,7 +2179,9 @@
     "description": "上海自然博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00156NVZG",
-    "recommendation": "上海自然博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海自然博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_2c14256d",
@@ -2125,7 +2207,9 @@
     "description": "上海市银行博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFGLW6WA",
-    "recommendation": "上海市银行博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海市银行博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 990
   },
   {
     "id": "amap_57150220",
@@ -2147,12 +2231,14 @@
       "人民广场片区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海城市规划展示馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001546728",
-    "recommendation": "上海城市规划展示馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海城市规划展示馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_5a84a7c2",
@@ -2179,7 +2265,9 @@
     "description": "上海展览中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001542F38",
-    "recommendation": "上海展览中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海展览中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1020
   },
   {
     "id": "amap_1509771c",
@@ -2206,7 +2294,9 @@
     "description": "LV路易威登非凡之旅，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0LUZ7YXUM",
-    "recommendation": "LV路易威登非凡之旅是当地热门景点，建议游览90分钟左右"
+    "recommendation": "LV路易威登非凡之旅是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5cfb64d2",
@@ -2233,7 +2323,9 @@
     "description": "GM巨人展，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0K1LLB089",
-    "recommendation": "GM巨人展是当地热门景点，建议游览90分钟左右"
+    "recommendation": "GM巨人展是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_58b87c10",
@@ -2260,7 +2352,9 @@
     "description": "上海工匠馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFLF8U4V",
-    "recommendation": "上海工匠馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海工匠馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 690
   },
   {
     "id": "amap_6e61160f",
@@ -2282,7 +2376,7 @@
       "北京路"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海当代艺术馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2315,7 +2409,9 @@
     "description": "上海市工人文化宫，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFG0685M",
-    "recommendation": "上海市工人文化宫是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海市工人文化宫是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_f1ef113e",
@@ -2337,12 +2433,14 @@
       "北京路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海市黄浦区图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFJ2U14Q",
-    "recommendation": "上海市黄浦区图书馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海市黄浦区图书馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1230
   },
   {
     "id": "amap_a54da264",
@@ -2397,7 +2495,9 @@
     "description": "上海杜莎夫人蜡像馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0015513HA",
-    "recommendation": "上海杜莎夫人蜡像馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海杜莎夫人蜡像馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_d38f507d",
@@ -2424,7 +2524,9 @@
     "description": "Fotografiska影像艺术中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0J3ZSVRBX",
-    "recommendation": "Fotografiska影像艺术中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "Fotografiska影像艺术中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_d3c416d6",
@@ -2451,7 +2553,9 @@
     "description": "上海市交通委员会职业资格中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0G21Y648P",
-    "recommendation": "上海市交通委员会职业资格中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海市交通委员会职业资格中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 960
   },
   {
     "id": "amap_7250a1bd",
@@ -2478,7 +2582,9 @@
     "description": "上海国际会议中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00155L3F8",
-    "recommendation": "上海国际会议中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海国际会议中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 990
   },
   {
     "id": "amap_24630bd0",
@@ -2500,12 +2606,14 @@
       "北京路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "八号桥艺术空间，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFI0Z6U1",
-    "recommendation": "八号桥艺术空间是当地热门景点，建议游览90分钟左右"
+    "recommendation": "八号桥艺术空间是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1020
   },
   {
     "id": "amap_afc54167",
@@ -2527,12 +2635,14 @@
       "提篮桥"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "世界会客厅，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0HB3U9GTJ",
-    "recommendation": "世界会客厅是当地热门景点，建议游览90分钟左右"
+    "recommendation": "世界会客厅是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4e201e88",
@@ -2561,7 +2671,9 @@
     "description": "上海星空艺术馆(外滩店)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0LRJZGVOA",
-    "recommendation": "上海星空艺术馆(外滩店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海星空艺术馆(外滩店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_8cd4a99",
@@ -2588,7 +2700,9 @@
     "description": "路易威登非凡之旅展览，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0LU7SXO0F",
-    "recommendation": "路易威登非凡之旅展览是当地热门景点，建议游览90分钟左右"
+    "recommendation": "路易威登非凡之旅展览是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_487b0933",
@@ -2610,12 +2724,14 @@
       "城隍庙"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海复星艺术中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFHFL9JQ",
-    "recommendation": "上海复星艺术中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海复星艺术中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_a0a9c945",
@@ -2668,7 +2784,9 @@
     "description": "中国证券博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFK2KA0K",
-    "recommendation": "中国证券博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "中国证券博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 960
   },
   {
     "id": "amap_44c71aa3",
@@ -2695,7 +2813,9 @@
     "description": "科学会堂(雁荡路)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00155L36V",
-    "recommendation": "科学会堂(雁荡路)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "科学会堂(雁荡路)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_b347fd73",
@@ -2771,12 +2891,14 @@
       "湖南路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海图书馆(淮海路馆)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00155KHES",
-    "recommendation": "上海图书馆(淮海路馆)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海图书馆(淮海路馆)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1230
   },
   {
     "id": "amap_e0b87ec5",
@@ -2798,7 +2920,7 @@
       "淮海路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海社会科学院(正元里西)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2825,12 +2947,14 @@
       "湖南路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中国福利会少年宫(延安西路)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00155IVYR",
-    "recommendation": "中国福利会少年宫(延安西路)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "中国福利会少年宫(延安西路)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 690
   },
   {
     "id": "amap_86bbc049",
@@ -2856,7 +2980,9 @@
     "description": "青少年活动中心(汉中路店)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00155I7DA",
-    "recommendation": "青少年活动中心(汉中路店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青少年活动中心(汉中路店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_db58f9e4",
@@ -2878,7 +3004,7 @@
       "岳阳"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中国科学院上海生命科学研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2905,12 +3031,14 @@
       "静安寺"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海市静安区图书馆(新闸路馆)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFGFP11M",
-    "recommendation": "上海市静安区图书馆(新闸路馆)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海市静安区图书馆(新闸路馆)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1230
   },
   {
     "id": "amap_a0a459e7",
@@ -2932,12 +3060,14 @@
       "七浦路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "巴金图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0K0TMOWZH",
-    "recommendation": "巴金图书馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "巴金图书馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 990
   },
   {
     "id": "amap_8984ec34",
@@ -2963,7 +3093,9 @@
     "description": "上海体育博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0HRMZI3IU",
-    "recommendation": "上海体育博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海体育博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 990
   },
   {
     "id": "amap_7f15e433",
@@ -2984,7 +3116,7 @@
       "五里桥"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海世博会博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -3010,12 +3142,14 @@
       "公园广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海汽车博览公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155KS2F",
-    "recommendation": "上海汽车博览公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海汽车博览公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1260
   },
   {
     "id": "amap_fb65bac2",
@@ -3037,12 +3171,14 @@
       "浦江"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海浦江郊野公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFGE2F10",
-    "recommendation": "上海浦江郊野公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海浦江郊野公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1020
   },
   {
     "id": "amap_11b70b6c",
@@ -3063,7 +3199,7 @@
       "公园广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海之鱼泡泡公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3090,12 +3226,14 @@
       "七宝"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海闵行体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001508193",
-    "recommendation": "上海闵行体育公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海闵行体育公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 300,
+    "close_minutes": 1260
   },
   {
     "id": "amap_1934343b",
@@ -3117,12 +3255,14 @@
       "北京路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "人民公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155KKQJ",
-    "recommendation": "人民公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "人民公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1200
   },
   {
     "id": "amap_15113f80",
@@ -3144,12 +3284,14 @@
       "淮海路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "辅德里公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155HNA3",
-    "recommendation": "辅德里公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "辅德里公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c460ce0a",
@@ -3171,7 +3313,7 @@
       "淮海路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "静安雕塑公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3198,7 +3340,7 @@
       "淮海路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "太平桥公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3225,7 +3367,7 @@
       "淮海路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "延中广场公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3252,7 +3394,7 @@
       "北京路"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "广场公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3279,12 +3421,14 @@
       "淮海路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "淮海公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155KIAS",
-    "recommendation": "淮海公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "淮海公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 300,
+    "close_minutes": 1260
   },
   {
     "id": "amap_6e5fa5fb",
@@ -3306,12 +3450,14 @@
       "小陆家嘴商圈"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "陆家嘴中心绿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155L3X0",
-    "recommendation": "陆家嘴中心绿地是当地热门景点，建议游览90分钟左右"
+    "recommendation": "陆家嘴中心绿地是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 300,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6d74306",
@@ -3333,7 +3479,7 @@
       "宝山路"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "四川北路公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3360,7 +3506,7 @@
       "南京西路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "蝴蝶湾花园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3387,12 +3533,14 @@
       "陆家嘴"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "东方明珠公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFFS16ZK",
-    "recommendation": "东方明珠公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "东方明珠公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1290
   },
   {
     "id": "amap_32959a13",
@@ -3414,7 +3562,7 @@
       "淮海路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "新天地绿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3441,12 +3589,14 @@
       "北京路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "九子公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155L4QM",
-    "recommendation": "九子公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "九子公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 300,
+    "close_minutes": 1260
   },
   {
     "id": "amap_3982298b",
@@ -3468,7 +3618,7 @@
       "八佰伴"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "东昌滨江绿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3495,7 +3645,7 @@
       "淮海路"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "延中广场公园春之园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3523,7 +3673,7 @@
       "淮海路"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "冬园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3550,12 +3700,14 @@
       "北京路"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "延福绿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155LW4D",
-    "recommendation": "延福绿地是当地热门景点，建议游览90分钟左右"
+    "recommendation": "延福绿地是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_65b8107e",
@@ -3577,12 +3729,14 @@
       "五里桥"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽园公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155HQDA",
-    "recommendation": "丽园公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "丽园公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 300,
+    "close_minutes": 1260
   },
   {
     "id": "amap_64e595c2",
@@ -3604,7 +3758,7 @@
       "宝山路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "交通公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3631,7 +3785,7 @@
       "淮海路"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海玫瑰花园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3658,12 +3812,14 @@
       "淮海路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "绍兴公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00152571E",
-    "recommendation": "绍兴公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "绍兴公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1140
   },
   {
     "id": "amap_96074bfe",
@@ -3685,7 +3841,7 @@
       "世纪大道"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "老白渡滨江绿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3712,12 +3868,14 @@
       "不夜城"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "不夜城绿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155G6EO",
-    "recommendation": "不夜城绿地是当地热门景点，建议游览90分钟左右"
+    "recommendation": "不夜城绿地是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 690
   },
   {
     "id": "amap_f5bfe281",
@@ -3739,12 +3897,14 @@
       "光新"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "苏州河梦清园环保主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155L315",
-    "recommendation": "苏州河梦清园环保主题公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "苏州河梦清园环保主题公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1080
   },
   {
     "id": "amap_199dccca",
@@ -3766,12 +3926,14 @@
       "淮海路"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "同福花园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0I6X5CVQO",
-    "recommendation": "同福花园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "同福花园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1290
   },
   {
     "id": "amap_e0fe5ed7",
@@ -3793,7 +3955,7 @@
       "淮海路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "延中公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3820,12 +3982,14 @@
       "曲阳"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海鲁迅公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155KZKW",
-    "recommendation": "上海鲁迅公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海鲁迅公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 300,
+    "close_minutes": 1260
   },
   {
     "id": "amap_42ff76f9",
@@ -3847,7 +4011,7 @@
       "北京路"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "静安区双拥公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3874,7 +4038,7 @@
       "音乐学院"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "嘉澜庭口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3901,7 +4065,7 @@
       "曹家渡"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "西康公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3929,7 +4093,7 @@
       "淮海路"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "淮茂绿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3956,12 +4120,14 @@
       "北京路"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大观园绿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00155LVZ1",
-    "recommendation": "大观园绿地是当地热门景点，建议游览90分钟左右"
+    "recommendation": "大观园绿地是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1110
   },
   {
     "id": "amap_e58b15a5",
@@ -3983,7 +4149,7 @@
       "曹家渡"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -4010,7 +4176,7 @@
       "枫林路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "日晖绿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -4037,7 +4203,7 @@
       "中山公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -4063,7 +4229,7 @@
       "公园广场"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "琴键春园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -4090,7 +4256,7 @@
       "五里桥"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海田子坊，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4118,12 +4284,14 @@
       "七浦路"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "田子坊(上海新七浦服装市场店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFLNKLU0",
-    "recommendation": "田子坊(上海新七浦服装市场店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "田子坊(上海新七浦服装市场店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_466e2195",
@@ -4145,12 +4313,14 @@
       "五里桥"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "梓园(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFH1X56X",
-    "recommendation": "梓园(上海田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "梓园(上海田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_1471592d",
@@ -4173,12 +4343,14 @@
       "打浦桥"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海全国土特产食品商场(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFLOMO5N",
-    "recommendation": "上海全国土特产食品商场(上海田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海全国土特产食品商场(上海田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1170
   },
   {
     "id": "amap_221ff3",
@@ -4201,7 +4373,7 @@
       "五里桥"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海牌手表田子坊店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4229,12 +4401,14 @@
       "五里桥"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "BiuBiu银饰(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFK0GA7X",
-    "recommendation": "BiuBiu银饰(上海田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "BiuBiu银饰(上海田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b0105f46",
@@ -4257,12 +4431,14 @@
       "五里桥"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "延乐茶集(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B00156YY1B",
-    "recommendation": "延乐茶集(上海田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "延乐茶集(上海田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_5f3ae471",
@@ -4285,12 +4461,14 @@
       "五里桥"
     ],
     "popularity": 0.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "文玩饰集(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HKOUKDWY",
-    "recommendation": "文玩饰集(上海田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "文玩饰集(上海田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_242d894e",
@@ -4313,12 +4491,14 @@
       "五里桥"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "张小泉(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HD1P30IZ",
-    "recommendation": "张小泉(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "张小泉(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3322d39a",
@@ -4341,12 +4521,14 @@
       "五里桥"
     ],
     "popularity": 2.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "吉祥工艺品(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFIVP5FI",
-    "recommendation": "吉祥工艺品(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "吉祥工艺品(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_a5833548",
@@ -4369,7 +4551,7 @@
       "五里桥"
     ],
     "popularity": 2.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "W(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4397,12 +4579,14 @@
       "五里桥"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "京扇子(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFF9ZPRJ",
-    "recommendation": "京扇子(上海田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "京扇子(上海田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_a288e20e",
@@ -4424,12 +4608,14 @@
       "打浦桥"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "一诺(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0IUPHYWXI",
-    "recommendation": "一诺(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "一诺(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_11800dc6",
@@ -4452,12 +4638,14 @@
       "五里桥"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "谢馥春(田子坊2号门店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFMEVWFR",
-    "recommendation": "谢馥春(田子坊2号门店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "谢馥春(田子坊2号门店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8043c27c",
@@ -4480,7 +4668,7 @@
       "五里桥"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "谭木匠(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4507,7 +4695,7 @@
       "五里桥"
     ],
     "popularity": 3.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "吉木缘(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4535,12 +4723,14 @@
       "五里桥"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "画你漫画(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0G3OU8KM3",
-    "recommendation": "画你漫画(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "画你漫画(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2ee1c5b7",
@@ -4562,12 +4752,14 @@
       "五里桥"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "野氛花园Fragrance Jardin(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0LK3CZQUQ",
-    "recommendation": "野氛花园Fragrance Jardin(上海田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "野氛花园Fragrance Jardin(上海田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e76fb09b",
@@ -4590,12 +4782,14 @@
       "五里桥"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "山水琥珀(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFL7LC31",
-    "recommendation": "山水琥珀(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "山水琥珀(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_b38d88ad",
@@ -4618,7 +4812,7 @@
       "五里桥"
     ],
     "popularity": 3.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "联华快客(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4645,12 +4839,14 @@
       "五里桥"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "小木鱼(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFL9PVJ0",
-    "recommendation": "小木鱼(上海田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "小木鱼(上海田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c6e888be",
@@ -4672,12 +4868,14 @@
       "五里桥"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "布兰兔的植物庄园(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFJH537X",
-    "recommendation": "布兰兔的植物庄园(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "布兰兔的植物庄园(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1bf9de61",
@@ -4699,12 +4897,14 @@
       "五里桥"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "老上海旗袍汉服(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0GRGKN3AE",
-    "recommendation": "老上海旗袍汉服(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "老上海旗袍汉服(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_413c620b",
@@ -4727,12 +4927,14 @@
       "五里桥"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "守白艺术·上海(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFF9ZNUP",
-    "recommendation": "守白艺术·上海(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "守白艺术·上海(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_72643abb",
@@ -4754,7 +4956,7 @@
       "五里桥"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三生有信(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4781,12 +4983,14 @@
       "五里桥"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青稚护手霜(上海田子坊一店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0J0NU9HSU",
-    "recommendation": "青稚护手霜(上海田子坊一店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青稚护手霜(上海田子坊一店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_42638d5b",
@@ -4809,12 +5013,14 @@
       "五里桥"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "摩登红人(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFFYR1D8",
-    "recommendation": "摩登红人(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "摩登红人(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1290
   },
   {
     "id": "amap_4faa58d5",
@@ -4836,7 +5042,7 @@
       "五里桥"
     ],
     "popularity": 3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "画色天香(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4864,12 +5070,14 @@
       "五里桥"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "锦囊妙计(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0G3ACF718",
-    "recommendation": "锦囊妙计(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "锦囊妙计(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_643434c2",
@@ -4891,7 +5099,7 @@
       "五里桥"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "柏智莱恩 Prodigious(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4919,12 +5127,14 @@
       "五里桥"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "小陶轩美食城(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0IGK1M5X1",
-    "recommendation": "小陶轩美食城(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "小陶轩美食城(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_23a38b39",
@@ -4947,12 +5157,14 @@
       "五里桥"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "琉璃工房(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFGBUE0O",
-    "recommendation": "琉璃工房(上海田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "琉璃工房(上海田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_5818dc4e",
@@ -4974,12 +5186,14 @@
       "五里桥"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "挽苏旗袍(上海田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0KK05E34L",
-    "recommendation": "挽苏旗袍(上海田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "挽苏旗袍(上海田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_fba06f59",
@@ -5001,12 +5215,14 @@
       "五里桥"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青稚护手霜(上海田子坊四店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0H6LRFR8B",
-    "recommendation": "青稚护手霜(上海田子坊四店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青稚护手霜(上海田子坊四店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_aaca3ccb",
@@ -5029,7 +5245,7 @@
       "五里桥"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "猫馆(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -5056,12 +5272,14 @@
       "五里桥"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "快客便利店(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0I14XI83A",
-    "recommendation": "快客便利店(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "快客便利店(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 390,
+    "close_minutes": 30
   },
   {
     "id": "amap_ad887296",
@@ -5083,12 +5301,14 @@
       "五里桥"
     ],
     "popularity": 3.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "Queena时尚女装(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0G12CLOB3",
-    "recommendation": "Queena时尚女装(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "Queena时尚女装(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1290
   },
   {
     "id": "amap_d6f1c9de",
@@ -5112,12 +5332,14 @@
       "五里桥"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玛雅中古·奢侈品包包手表首饰回收(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0GRGCQH9Z",
-    "recommendation": "玛雅中古·奢侈品包包手表首饰回收(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "玛雅中古·奢侈品包包手表首饰回收(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1140
   },
   {
     "id": "amap_f22ea2dc",
@@ -5139,7 +5361,7 @@
       "枫林路"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海华艺美宿(中山医院田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -5166,12 +5388,14 @@
       "五里桥"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金粉世家(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B00155QFUD",
-    "recommendation": "金粉世家(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "金粉世家(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_6380e611",
@@ -5194,12 +5418,14 @@
       "五里桥"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "Brishine铂瑞珠宝(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HGJ5K5C7",
-    "recommendation": "Brishine铂瑞珠宝(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "Brishine铂瑞珠宝(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_ced55724",
@@ -5222,7 +5448,7 @@
       "五里桥"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "密码眼镜(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -5250,12 +5476,14 @@
       "五里桥"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "石运轩(田子坊店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFLIC4DM",
-    "recommendation": "石运轩(田子坊店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "石运轩(田子坊店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 690,
+    "close_minutes": 1260
   },
   {
     "id": "amap_9724172f",
@@ -5278,12 +5506,14 @@
       "五里桥"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青稚护手霜(上海田子坊三店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0LA6S7CH2",
-    "recommendation": "青稚护手霜(上海田子坊三店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青稚护手霜(上海田子坊三店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_4e0e1d50",
@@ -5306,12 +5536,14 @@
       "五里桥"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "Felix flora风信子花店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0KAMR983Z",
-    "recommendation": "Felix flora风信子花店是当地热门景点，建议游览90分钟左右"
+    "recommendation": "Felix flora风信子花店是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_4b8e5b32",
@@ -5332,12 +5564,14 @@
       "北京路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "蟹小友·蟹黄面·手工点心(南京东路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J2G4CYFX",
-    "recommendation": "蟹小友·蟹黄面·手工点心(南京东路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "蟹小友·蟹黄面·手工点心(南京东路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_4222a5ab",
@@ -5359,12 +5593,14 @@
       "北京路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "上海12弄·本帮菜(人民广场世茂店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J0JA61R4",
-    "recommendation": "上海12弄·本帮菜(人民广场世茂店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "上海12弄·本帮菜(人民广场世茂店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 930
   },
   {
     "id": "amap_128a65c4",
@@ -5386,12 +5622,14 @@
       "塘桥"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "庄氏隆兴·非遗蟹点(陆家嘴滨江店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KKYUJQCK",
-    "recommendation": "庄氏隆兴·非遗蟹点(陆家嘴滨江店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "庄氏隆兴·非遗蟹点(陆家嘴滨江店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_8d6f6a6c",
@@ -5412,12 +5650,14 @@
       "南翔"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "古镇南翔饭店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K24CGER7",
-    "recommendation": "古镇南翔饭店是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "古镇南翔饭店是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_1ab3b089",
@@ -5440,12 +5680,14 @@
       "上南"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "邵松沪味园·海鲜·本帮菜(昌里路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHRQ7BR",
-    "recommendation": "邵松沪味园·海鲜·本帮菜(昌里路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "邵松沪味园·海鲜·本帮菜(昌里路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_fc6e35aa",
@@ -5466,12 +5708,14 @@
       "洋泾"
     ],
     "popularity": 4.4,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "滩外滩·海派本帮菜(旭辉店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KD7OEJ6S",
-    "recommendation": "滩外滩·海派本帮菜(旭辉店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "滩外滩·海派本帮菜(旭辉店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_ba048254",
@@ -5492,12 +5736,14 @@
       "北京路"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "上海家常菜馆(外滩店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LAVUGGS4",
-    "recommendation": "上海家常菜馆(外滩店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "上海家常菜馆(外滩店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_53be86e9",
@@ -5518,12 +5764,14 @@
       "张江"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "苏小柳点心(汇智广场分院)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JKRAS9TH",
-    "recommendation": "苏小柳点心(汇智广场分院)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "苏小柳点心(汇智广场分院)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_e358b122",
@@ -5549,7 +5797,9 @@
     "description": "杜先生腔调bistro本帮面，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LB1C2UQA",
-    "recommendation": "杜先生腔调bistro本帮面是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "杜先生腔调bistro本帮面是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_4e676abc",
@@ -5575,7 +5825,9 @@
     "description": "嘉厨·本帮面·蟹小笼，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KDA7E08G",
-    "recommendation": "嘉厨·本帮面·蟹小笼是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "嘉厨·本帮面·蟹小笼是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ea4be039",
@@ -5597,12 +5849,14 @@
       "泗塘小区"
     ],
     "popularity": 4.4,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "君悦楼·经典本帮菜(共康店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KBLM4Y8Y",
-    "recommendation": "君悦楼·经典本帮菜(共康店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "君悦楼·经典本帮菜(共康店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_a62b1076",
@@ -5623,12 +5877,14 @@
       "广富林度假区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "苏小柳点心(广富林分院)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KDNLUKO5",
-    "recommendation": "苏小柳点心(广富林分院)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "苏小柳点心(广富林分院)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 450,
+    "close_minutes": 1200
   },
   {
     "id": "amap_6cd9340e",
@@ -5650,7 +5906,7 @@
       "康桥"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "苏小柳点心(康桥分院)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -5676,12 +5932,14 @@
       "航头"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "昇月小厨(金地·艺华年店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0IBCCWD5U",
-    "recommendation": "昇月小厨(金地·艺华年店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "昇月小厨(金地·艺华年店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1290
   },
   {
     "id": "amap_3aad435e",
@@ -5708,7 +5966,9 @@
     "description": "老盛兴汤包馆(镇宁店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFK29LA8",
-    "recommendation": "老盛兴汤包馆(镇宁店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老盛兴汤包馆(镇宁店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 1260
   },
   {
     "id": "amap_882c901c",
@@ -5734,7 +5994,9 @@
     "description": "老盛兴汤包馆(北石店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG2WAFT",
-    "recommendation": "老盛兴汤包馆(北石店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老盛兴汤包馆(北石店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 1260
   },
   {
     "id": "amap_b05feeda",
@@ -5760,7 +6022,9 @@
     "description": "老盛兴汤包馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFF5U45L",
-    "recommendation": "老盛兴汤包馆是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老盛兴汤包馆是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1260
   },
   {
     "id": "amap_bea7eab8",
@@ -5781,12 +6045,14 @@
       "长征"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇海鲜皇宫(118店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H2JATPT4",
-    "recommendation": "醉辉皇海鲜皇宫(118店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇海鲜皇宫(118店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_171ef29d",
@@ -5807,12 +6073,14 @@
       "广东菜(粤菜)"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(G60科创云廊店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HG2H1ED9",
-    "recommendation": "醉辉皇(G60科创云廊店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(G60科创云廊店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_c25d9c11",
@@ -5833,12 +6101,14 @@
       "龙柏"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(龙柏店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H0C5VSKF",
-    "recommendation": "醉辉皇(龙柏店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(龙柏店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_e3a0200a",
@@ -5859,12 +6129,14 @@
       "莘庄"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(莘庄万科中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I6D7NQ64",
-    "recommendation": "醉辉皇(莘庄万科中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(莘庄万科中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_b1e277f7",
@@ -5885,12 +6157,14 @@
       "中山公园"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(又又中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K1SR44TW",
-    "recommendation": "醉辉皇(又又中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(又又中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_8bdfaa2a",
@@ -5911,7 +6185,7 @@
       "淮海路"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(博华广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -5937,12 +6211,14 @@
       "淮海路"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(香港广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H6LPCIKE",
-    "recommendation": "醉辉皇(香港广场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(香港广场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_8a5e171e",
@@ -5964,12 +6240,14 @@
       "五角场"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(复旦大学管理学院政立院区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L04LYKV1",
-    "recommendation": "醉辉皇(复旦大学管理学院政立院区店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(复旦大学管理学院政立院区店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_81f419fe",
@@ -5991,12 +6269,14 @@
       "上海北外滩中心"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(友邦金融中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KUFUYNCT",
-    "recommendation": "醉辉皇(友邦金融中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(友邦金融中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 1020,
+    "close_minutes": 1320
   },
   {
     "id": "amap_164f2172",
@@ -6017,12 +6297,14 @@
       "提篮桥"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(北外滩来福士店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HG2R06M9",
-    "recommendation": "醉辉皇(北外滩来福士店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(北外滩来福士店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_bb65dc53",
@@ -6043,12 +6325,14 @@
       "江学路"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(泰晤士小镇店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H07R34MM",
-    "recommendation": "醉辉皇(泰晤士小镇店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(泰晤士小镇店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 960
   },
   {
     "id": "amap_16460529",
@@ -6069,12 +6353,14 @@
       "上海虹桥商务区"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(青浦万科天空之城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I2XS3OY5",
-    "recommendation": "醉辉皇(青浦万科天空之城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(青浦万科天空之城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_92779738",
@@ -6095,12 +6381,14 @@
       "桃浦"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(中以创新园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H1O1VN40",
-    "recommendation": "醉辉皇(中以创新园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(中以创新园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_cfa5acd1",
@@ -6121,12 +6409,14 @@
       "七宝"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "松沪名灶•新上海菜(虹桥枢纽七宝国展店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GD3S28L7",
-    "recommendation": "松沪名灶•新上海菜(虹桥枢纽七宝国展店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "松沪名灶•新上海菜(虹桥枢纽七宝国展店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 810
   },
   {
     "id": "amap_92fc01bd",
@@ -6147,12 +6437,14 @@
       "金沙江路"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(桃源π商业广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GK95QG7O",
-    "recommendation": "醉辉皇(桃源π商业广场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(桃源π商业广场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_a4cc0311",
@@ -6173,12 +6465,14 @@
       "万源城"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(万源城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGRDU8H",
-    "recommendation": "醉辉皇(万源城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(万源城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_66572a0d",
@@ -6199,12 +6493,14 @@
       "长寿路"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(长寿旭辉里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H26C1YTG",
-    "recommendation": "醉辉皇(长寿旭辉里店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(长寿旭辉里店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ca3a0be7",
@@ -6226,12 +6522,14 @@
       "洋泾"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "苏浙汇(联洋广场)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00156DW2M",
-    "recommendation": "苏浙汇(联洋广场)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "苏浙汇(联洋广场)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 870
   },
   {
     "id": "amap_e4961723",
@@ -6251,12 +6549,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "炊江南·上海菜(嘉定店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KDRC86DN",
-    "recommendation": "炊江南·上海菜(嘉定店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "炊江南·上海菜(嘉定店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_b0edd7d5",
@@ -6277,12 +6577,14 @@
       "上海虹桥商务区"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "炊江南·上海菜(华漕店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JKD5UZ9P",
-    "recommendation": "炊江南·上海菜(华漕店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "炊江南·上海菜(华漕店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 810
   },
   {
     "id": "amap_d0b1c36f",
@@ -6303,12 +6605,14 @@
       "徐泾"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "炊江南·上海菜(国展花园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JA2AD3V1",
-    "recommendation": "炊江南·上海菜(国展花园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "炊江南·上海菜(国展花园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 780
   },
   {
     "id": "amap_624831bd",
@@ -6330,7 +6634,7 @@
       "北京路"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "寄畅興·百年蟹黄面·万国建筑群(外滩27号店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -6357,12 +6661,14 @@
       "淮海路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "光明邨大酒家(淮海中路总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00155L02C",
-    "recommendation": "光明邨大酒家(淮海中路总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "光明邨大酒家(淮海中路总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_4d6f9ac9",
@@ -6384,12 +6690,14 @@
       "淮海路"
     ],
     "popularity": 4.7,
-    "price_level": 5,
+    "price_level": 1,
     "meal_type": "main",
     "description": "成隆行蟹王府(淮海国际广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B001579HOM",
-    "recommendation": "成隆行蟹王府(淮海国际广场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "成隆行蟹王府(淮海国际广场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 870
   },
   {
     "id": "amap_bac6d626",
@@ -6410,12 +6718,14 @@
       "北京路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "庄氏隆兴·非遗蟹点(新世界新丸中心)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LURD4Y1B",
-    "recommendation": "庄氏隆兴·非遗蟹点(新世界新丸中心)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "庄氏隆兴·非遗蟹点(新世界新丸中心)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_4da5a044",
@@ -6435,12 +6745,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(后滩SK大厦滨江店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H1OCSY6X",
-    "recommendation": "醉辉皇(后滩SK大厦滨江店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(后滩SK大厦滨江店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_c5b04693",
@@ -6462,12 +6774,14 @@
       "城隍庙"
     ],
     "popularity": 4.7,
-    "price_level": 5,
+    "price_level": 1,
     "meal_type": "main",
     "description": "上海滩餐厅(BFC外滩金融中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIYCS2N",
-    "recommendation": "上海滩餐厅(BFC外滩金融中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "上海滩餐厅(BFC外滩金融中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_506279d5",
@@ -6489,12 +6803,14 @@
       "江川路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "松沪名灶(闵行江川路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KBRUMWQY",
-    "recommendation": "松沪名灶(闵行江川路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "松沪名灶(闵行江川路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 810
   },
   {
     "id": "amap_2a39be08",
@@ -6516,12 +6832,14 @@
       "上海虹桥商务区"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "蟹太太1号店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JUJRTTP6",
-    "recommendation": "蟹太太1号店是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "蟹太太1号店是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1290
   },
   {
     "id": "amap_90b0f6ff",
@@ -6543,12 +6861,14 @@
       "松东路"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "松沪名灶·生日主题餐厅(松东路美食街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JUZM6WO0",
-    "recommendation": "松沪名灶·生日主题餐厅(松东路美食街店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "松沪名灶·生日主题餐厅(松东路美食街店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 810
   },
   {
     "id": "amap_2ed87aeb",
@@ -6570,12 +6890,14 @@
       "七浦路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "庄氏隆兴·非遗蟹点(今潮八弄店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KKOCK9M7",
-    "recommendation": "庄氏隆兴·非遗蟹点(今潮八弄店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "庄氏隆兴·非遗蟹点(今潮八弄店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d5ec4d87",
@@ -6596,12 +6918,14 @@
       "淮海路"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "南翔馒头殿(新天地店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J33OUXRV",
-    "recommendation": "南翔馒头殿(新天地店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "南翔馒头殿(新天地店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_702e798",
@@ -6623,12 +6947,14 @@
       "北京路"
     ],
     "popularity": 4.6,
-    "price_level": 5,
+    "price_level": 1,
     "meal_type": "main",
     "description": "上海和平饭店龙凤厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00156EIBM",
-    "recommendation": "上海和平饭店龙凤厅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "上海和平饭店龙凤厅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 690,
+    "close_minutes": 840
   },
   {
     "id": "amap_b50fdd93",
@@ -6650,12 +6976,14 @@
       "陆家嘴"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(上海中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHV27R9",
-    "recommendation": "醉辉皇(上海中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(上海中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_906f64c2",
@@ -6676,7 +7004,7 @@
       "南翔"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "上海古猗园餐厅(古猗园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -6702,12 +7030,14 @@
       "真如"
     ],
     "popularity": 4.4,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(大都会海逸店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J6V7BDUE",
-    "recommendation": "醉辉皇(大都会海逸店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(大都会海逸店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_12a51851",
@@ -6727,12 +7057,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "百年弄堂·杭帮菜(原弄堂口)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGDTR8Y",
-    "recommendation": "百年弄堂·杭帮菜(原弄堂口)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "百年弄堂·杭帮菜(原弄堂口)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_df9350a8",
@@ -6753,12 +7085,14 @@
       "北京路"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "上海老菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LUB9MB11",
-    "recommendation": "上海老菜馆是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "上海老菜馆是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_e5405bec",
@@ -6781,12 +7115,14 @@
       "五角场"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "蟹榭(五角场合生汇商场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGITG8F",
-    "recommendation": "蟹榭(五角场合生汇商场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "蟹榭(五角场合生汇商场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1260
   },
   {
     "id": "amap_e61d3e04",
@@ -6807,12 +7143,14 @@
       "制造局路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "小绍兴(丽园路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00156CPLL",
-    "recommendation": "小绍兴(丽园路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "小绍兴(丽园路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_79c12773",
@@ -6834,12 +7172,14 @@
       "上南"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "大富贵酒楼(昌里店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00155QEZK",
-    "recommendation": "大富贵酒楼(昌里店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大富贵酒楼(昌里店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_15a1c39b",
@@ -6861,12 +7201,14 @@
       "三林"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "大富贵酒楼(上南路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00156D2ZP",
-    "recommendation": "大富贵酒楼(上南路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大富贵酒楼(上南路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 840
   },
   {
     "id": "amap_fa63b553",
@@ -6893,7 +7235,9 @@
     "description": "大富贵酒楼(博兴路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00155MSXG",
-    "recommendation": "大富贵酒楼(博兴路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大富贵酒楼(博兴路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 1200
   },
   {
     "id": "amap_89aba4c6",
@@ -6914,12 +7258,14 @@
       "嘉定镇"
     ],
     "popularity": 4.4,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉辉皇(信业购物中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HKDL3L16",
-    "recommendation": "醉辉皇(信业购物中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉辉皇(信业购物中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 990,
+    "close_minutes": 1290
   },
   {
     "id": "amap_1bcc22e3",
@@ -6945,7 +7291,9 @@
     "description": "良鹰美食林(高平店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00156F3KX",
-    "recommendation": "良鹰美食林(高平店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "良鹰美食林(高平店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 300,
+    "close_minutes": 840
   },
   {
     "id": "amap_34d74914",
@@ -6966,12 +7314,14 @@
       "古北"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "蟹太太(闵行店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K0RSGTSM",
-    "recommendation": "蟹太太(闵行店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "蟹太太(闵行店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 960
   },
   {
     "id": "amap_330f025b",
@@ -6992,12 +7342,14 @@
       "万源城"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "万源小厨(古美生活购物广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JBSBOBO1",
-    "recommendation": "万源小厨(古美生活购物广场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "万源小厨(古美生活购物广场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 60
   },
   {
     "id": "amap_2c90a847",
@@ -7019,12 +7371,14 @@
       "大宁路"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "蟹榭(上海久光中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JK41T624",
-    "recommendation": "蟹榭(上海久光中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "蟹榭(上海久光中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_193c0965",
@@ -7051,7 +7405,9 @@
     "description": "大富贵酒楼(沪闵路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJULS2H",
-    "recommendation": "大富贵酒楼(沪闵路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大富贵酒楼(沪闵路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1200
   },
   {
     "id": "amap_46427fe5",
@@ -7077,7 +7433,9 @@
     "description": "里巷里(蚂蚁工场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKSDQZ3",
-    "recommendation": "里巷里(蚂蚁工场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "里巷里(蚂蚁工场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 1230
   },
   {
     "id": "amap_e2fcdcc2",
@@ -7098,12 +7456,14 @@
       "四平路"
     ],
     "popularity": 4.4,
-    "price_level": 4,
+    "price_level": 1,
     "meal_type": "main",
     "description": "天宝霖·园林餐厅(百花馆店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I24RS70J",
-    "recommendation": "天宝霖·园林餐厅(百花馆店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "天宝霖·园林餐厅(百花馆店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_80f3060c",
@@ -7125,12 +7485,14 @@
       "北京路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "苏府里，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LBTC0KML",
-    "recommendation": "苏府里是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "苏府里是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e36ac784",
@@ -7151,12 +7513,14 @@
       "洋泾"
     ],
     "popularity": 4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "白凤兰·烧烤·牛蛙·龙虾(联洋店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LD7CU36E",
-    "recommendation": "白凤兰·烧烤·牛蛙·龙虾(联洋店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "白凤兰·烧烤·牛蛙·龙虾(联洋店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_cdb45ab5",
@@ -7182,7 +7546,9 @@
     "description": "大可小点锅贴王(浦驰路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L1T95L0M",
-    "recommendation": "大可小点锅贴王(浦驰路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大可小点锅贴王(浦驰路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 1200
   },
   {
     "id": "amap_103ef747",
@@ -7204,12 +7570,14 @@
       "徐家汇"
     ],
     "popularity": 4.1,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "苏浙汇(上海港汇恒隆广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00156DW0K",
-    "recommendation": "苏浙汇(上海港汇恒隆广场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "苏浙汇(上海港汇恒隆广场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_cfc8cde2",
@@ -7231,12 +7599,14 @@
       "城隍庙"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 2,
     "meal_type": "main",
     "description": "7 Yakitori Bistro 柒号日式融合餐酒馆，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0I3URNHVF",
-    "recommendation": "7 Yakitori Bistro 柒号日式融合餐酒馆是夜间休闲好去处"
+    "recommendation": "7 Yakitori Bistro 柒号日式融合餐酒馆是夜间休闲好去处",
+    "open_minutes": 690,
+    "close_minutes": 60
   },
   {
     "id": "amap_ed69a2e3",
@@ -7257,12 +7627,14 @@
       "小陆家嘴商圈"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 2,
     "meal_type": "main",
     "description": "隐溪茶馆(上海中心)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0H3LAL279",
-    "recommendation": "隐溪茶馆(上海中心)是夜间休闲好去处"
+    "recommendation": "隐溪茶馆(上海中心)是夜间休闲好去处",
+    "open_minutes": 570,
+    "close_minutes": 1410
   },
   {
     "id": "amap_3c36696e",
@@ -7284,7 +7656,7 @@
       "北京路"
     ],
     "popularity": 4.6,
-    "price_level": 5,
+    "price_level": 2,
     "meal_type": "main",
     "description": "Muse Penthouse云端餐厅，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7311,12 +7683,14 @@
       "上海北外滩中心"
     ],
     "popularity": 4.5,
-    "price_level": 5,
+    "price_level": 2,
     "meal_type": "main",
     "description": "Avalon Dutton 阿瓦隆达顿，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0KROZSZ7Z",
-    "recommendation": "Avalon Dutton 阿瓦隆达顿是夜间休闲好去处"
+    "recommendation": "Avalon Dutton 阿瓦隆达顿是夜间休闲好去处",
+    "open_minutes": 690,
+    "close_minutes": 840
   },
   {
     "id": "amap_a5900892",
@@ -7342,7 +7716,9 @@
     "description": "豚乾，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0LBS1MS05",
-    "recommendation": "豚乾是夜间休闲好去处"
+    "recommendation": "豚乾是夜间休闲好去处",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_3d671f14",
@@ -7366,7 +7742,7 @@
       "北京路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "上海锦江都城南京饭店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7395,7 +7771,7 @@
       "北京路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "上海外滩花间堂·愉园，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7424,7 +7800,7 @@
       "小陆家嘴商圈"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "国际会议中心东方滨江大酒店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7454,7 +7830,7 @@
       "北京路"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "上海威斯汀大饭店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7484,7 +7860,7 @@
       "上海北外滩中心"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "上海大厦，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7514,7 +7890,7 @@
       "北京路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "上海半岛酒店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7544,7 +7920,7 @@
       "上海北外滩中心"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "上海外滩茂悦大酒店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7574,7 +7950,7 @@
       "陆家嘴"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "上海浦东香格里拉，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7604,7 +7980,7 @@
       "北京路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "和平饭店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7630,12 +8006,14 @@
       "朱家角"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "城隍庙饭店(漕河街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B00156P758",
-    "recommendation": "城隍庙饭店(漕河街店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "城隍庙饭店(漕河街店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1200
   },
   {
     "id": "amap_62cee4e7",
@@ -7656,7 +8034,7 @@
       "城隍庙"
     ],
     "popularity": 4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老城隍新烟火中华美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -7682,7 +8060,7 @@
       "朱家角镇"
     ],
     "popularity": 3.9,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "知青饭店(北大街)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -7734,12 +8112,14 @@
       "城隍庙"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "3号仓库·创意中国菜(城隍庙·豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LRAS0QFC",
-    "recommendation": "3号仓库·创意中国菜(城隍庙·豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "3号仓库·创意中国菜(城隍庙·豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1290
   },
   {
     "id": "amap_c45aaa82",
@@ -7761,12 +8141,14 @@
       "城隍庙"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "城隍庙家宴·上海菜(豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LKKCNZCC",
-    "recommendation": "城隍庙家宴·上海菜(豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "城隍庙家宴·上海菜(豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_4be2c1f9",
@@ -7788,12 +8170,14 @@
       "朱家角"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "河鲜馆，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFFEKRMQ",
-    "recommendation": "河鲜馆是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "河鲜馆是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 690,
+    "close_minutes": 840
   },
   {
     "id": "amap_3bb79de2",
@@ -7819,7 +8203,9 @@
     "description": "陈记早点(川沙店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0KG9L3RVG",
-    "recommendation": "陈记早点(川沙店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "陈记早点(川沙店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 270,
+    "close_minutes": 780
   },
   {
     "id": "amap_67c73055",
@@ -7845,7 +8231,9 @@
     "description": "牛约堡-牛肉汉堡(城隍庙店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0IDU1NUHD",
-    "recommendation": "牛约堡-牛肉汉堡(城隍庙店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "牛约堡-牛肉汉堡(城隍庙店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 300
   },
   {
     "id": "amap_6bbd773c",
@@ -7866,12 +8254,14 @@
       "城隍庙"
     ],
     "popularity": 3.7,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "遇喜米和牛铁板烧(城隍庙店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LKAOB5ZO",
-    "recommendation": "遇喜米和牛铁板烧(城隍庙店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "遇喜米和牛铁板烧(城隍庙店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c9c861d9",
@@ -7893,12 +8283,14 @@
       "城隍庙"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "孔乙己酒家(文庙店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B001535FF4",
-    "recommendation": "孔乙己酒家(文庙店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "孔乙己酒家(文庙店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_910c2ebc",
@@ -7923,7 +8315,9 @@
     "description": "泰和饭堂(松江万达金街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFG7V276",
-    "recommendation": "泰和饭堂(松江万达金街店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "泰和饭堂(松江万达金街店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6c5ef909",
@@ -7949,7 +8343,9 @@
     "description": "CHAGEE霸王茶姬(上海桥梓湾购物中心店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0KUJHGZDW",
-    "recommendation": "CHAGEE霸王茶姬(上海桥梓湾购物中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "CHAGEE霸王茶姬(上海桥梓湾购物中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 510,
+    "close_minutes": 1350
   },
   {
     "id": "amap_e0cca0dd",
@@ -7971,7 +8367,7 @@
       "北京路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "小绍兴(云南路老字号美食街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -7998,12 +8394,14 @@
       "城隍庙"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "上海老饭店(豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B001549946",
-    "recommendation": "上海老饭店(豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "上海老饭店(豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_f357fbfe",
@@ -8029,7 +8427,9 @@
     "description": "沈大成(豫园商城店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFJQ25K6",
-    "recommendation": "沈大成(豫园商城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "沈大成(豫园商城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ae2408fe",
@@ -8050,12 +8450,14 @@
       "城隍庙"
     ],
     "popularity": 4.4,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "麟1559上海传统本帮菜，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0MBK9R4UO",
-    "recommendation": "麟1559上海传统本帮菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "麟1559上海传统本帮菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_f0093a28",
@@ -8102,12 +8504,14 @@
       "城隍庙"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "外滩家宴·上海菜(外滩豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L1NUX1KY",
-    "recommendation": "外滩家宴·上海菜(外滩豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "外滩家宴·上海菜(外滩豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6872c5d6",
@@ -8128,12 +8532,14 @@
       "城隍庙"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "裕兴记·蟹黄面(豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0KK7PGFJA",
-    "recommendation": "裕兴记·蟹黄面(豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "裕兴记·蟹黄面(豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_a2bfcd21",
@@ -8154,12 +8560,14 @@
       "城隍庙"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "迹叙茶空间(浦江公馆店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFIQXKOF",
-    "recommendation": "迹叙茶空间(浦江公馆店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "迹叙茶空间(浦江公馆店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7cef0604",
@@ -8185,7 +8593,9 @@
     "description": "梦花街馄饨，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFHOQZBA",
-    "recommendation": "梦花街馄饨是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "梦花街馄饨是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 300,
+    "close_minutes": 810
   },
   {
     "id": "amap_c20fbdf9",
@@ -8211,7 +8621,9 @@
     "description": "满巍明生炸鸡架(香港名都店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0K1FYHNZ9",
-    "recommendation": "满巍明生炸鸡架(香港名都店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "满巍明生炸鸡架(香港名都店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e2f38811",
@@ -8263,7 +8675,9 @@
     "description": "东小馆·沈大成小东门街道社区长者食堂，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L61441AU",
-    "recommendation": "东小馆·沈大成小东门街道社区长者食堂是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "东小馆·沈大成小东门街道社区长者食堂是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 600
   },
   {
     "id": "amap_d11af5d7",
@@ -8311,7 +8725,7 @@
       "城隍庙"
     ],
     "popularity": 3.4,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老街平价海鲜(豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -8343,7 +8757,9 @@
     "description": "大壶春(豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LDAAL87Y",
-    "recommendation": "大壶春(豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大壶春(豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_31212e60",
@@ -8365,12 +8781,14 @@
       "北京路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "沪公馆·上海菜(外滩豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L0J5G7SA",
-    "recommendation": "沪公馆·上海菜(外滩豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "沪公馆·上海菜(外滩豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1290
   },
   {
     "id": "amap_ca40e289",
@@ -8391,7 +8809,7 @@
       "城隍庙"
     ],
     "popularity": 2.9,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "SUB-O山野食堂(外滩BFC店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -8448,7 +8866,9 @@
     "description": "沪上阿姨·精选茶饮(上海黄浦豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LKYC55HF",
-    "recommendation": "沪上阿姨·精选茶饮(上海黄浦豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "沪上阿姨·精选茶饮(上海黄浦豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_14b2a077",
@@ -8474,7 +8894,9 @@
     "description": "老上海特色海鲜面馆(豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LRMHY8SG",
-    "recommendation": "老上海特色海鲜面馆(豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老上海特色海鲜面馆(豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_fd42ef9e",
@@ -8579,7 +9001,9 @@
     "description": "和合苑.老上海面馆(方浜中路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0H61KKQJ5",
-    "recommendation": "和合苑.老上海面馆(方浜中路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "和合苑.老上海面馆(方浜中路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_6fd32ba5",
@@ -8606,7 +9030,9 @@
     "description": "吉祥馄饨(上海外滩豫园桔子水晶酒店店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFI4HFZI",
-    "recommendation": "吉祥馄饨(上海外滩豫园桔子水晶酒店店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "吉祥馄饨(上海外滩豫园桔子水晶酒店店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_e142f8b2",
@@ -8628,12 +9054,14 @@
       "董家渡"
     ],
     "popularity": 3.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "陈官庄湘菜馆，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L6JAOSCQ",
-    "recommendation": "陈官庄湘菜馆是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "陈官庄湘菜馆是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_b8bf1584",
@@ -8654,12 +9082,14 @@
       "城隍庙"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "蟹香园蟹黄面，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0KRNSN67B",
-    "recommendation": "蟹香园蟹黄面是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "蟹香园蟹黄面是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_8f94623f",
@@ -8686,7 +9116,9 @@
     "description": "魔柠(豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0IRTXHV5D",
-    "recommendation": "魔柠(豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "魔柠(豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5bb34e71",
@@ -8712,7 +9144,9 @@
     "description": "大食惠超市(豫园小区店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFGILVOI",
-    "recommendation": "大食惠超市(豫园小区店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大食惠超市(豫园小区店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1260
   },
   {
     "id": "amap_fb9112a1",
@@ -8786,12 +9220,14 @@
       "城隍庙"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "蟹珍香·百年蟹黄面(豫园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0K0UZX5AY",
-    "recommendation": "蟹珍香·百年蟹黄面(豫园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "蟹珍香·百年蟹黄面(豫园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1380
   },
   {
     "id": "amap_bb3e0ff1",
@@ -8819,7 +9255,9 @@
     "description": "上海静安大悦城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00155Q45M",
-    "recommendation": "上海静安大悦城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海静安大悦城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 390,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c1e8a4bc",
@@ -8846,7 +9284,9 @@
     "description": "Gate M西岸梦中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0H0OSXDUD",
-    "recommendation": "Gate M西岸梦中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "Gate M西岸梦中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_fa61a8c4",
@@ -8874,7 +9314,9 @@
     "description": "上海月星环球港，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF00NQV",
-    "recommendation": "上海月星环球港是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海月星环球港是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_77c371f2",
@@ -8897,12 +9339,14 @@
       "中山公园"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙之梦城市生活中心(长宁店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001552NYO",
-    "recommendation": "龙之梦城市生活中心(长宁店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "龙之梦城市生活中心(长宁店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b51711c3",
@@ -8924,12 +9368,14 @@
       "购物中心"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "百联奥特莱斯广场(青浦店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001571JFR",
-    "recommendation": "百联奥特莱斯广场(青浦店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "百联奥特莱斯广场(青浦店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_ad64daa5",
@@ -8957,7 +9403,9 @@
     "description": "美罗城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00154DTEG",
-    "recommendation": "美罗城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "美罗城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8abb56b8",
@@ -8985,7 +9433,9 @@
     "description": "环贸iapm商场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00156GS83",
-    "recommendation": "环贸iapm商场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "环贸iapm商场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_32e730a9",
@@ -9012,7 +9462,9 @@
     "description": "比斯特上海购物村，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGNSTVR",
-    "recommendation": "比斯特上海购物村是当地热门景点，建议游览90分钟左右"
+    "recommendation": "比斯特上海购物村是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_36ec091d",
@@ -9035,12 +9487,14 @@
       "小陆家嘴商圈"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "正大广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00155L44U",
-    "recommendation": "正大广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "正大广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1020
   },
   {
     "id": "amap_6cade86b",
@@ -9063,12 +9517,14 @@
       "上海虹桥商务区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(上海江桥店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00155QYJW",
-    "recommendation": "万达广场(上海江桥店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万达广场(上海江桥店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7d1647c1",
@@ -9096,7 +9552,9 @@
     "description": "上海南翔印象城MEGA，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFK8KCHM",
-    "recommendation": "上海南翔印象城MEGA是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海南翔印象城MEGA是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_827e9aeb",
@@ -9119,12 +9577,14 @@
       "七宝"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海七宝领展广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF3ATUI",
-    "recommendation": "上海七宝领展广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海七宝领展广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_ceee57dd",
@@ -9146,12 +9606,14 @@
       "世纪大道"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "世纪汇广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00156NYWT",
-    "recommendation": "世纪汇广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "世纪汇广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_48d215f5",
@@ -9174,12 +9636,14 @@
       "鞍山新村"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "瑞虹新天地太阳宫，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0GU3UK6MZ",
-    "recommendation": "瑞虹新天地太阳宫是当地热门景点，建议游览90分钟左右"
+    "recommendation": "瑞虹新天地太阳宫是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_36c78797",
@@ -9207,7 +9671,9 @@
     "description": "上海ifc商场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00155LGJZ",
-    "recommendation": "上海ifc商场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海ifc商场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_28a38fc5",
@@ -9235,7 +9701,9 @@
     "description": "上海真如环宇城MAX，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0H37CC65S",
-    "recommendation": "上海真如环宇城MAX是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海真如环宇城MAX是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_27af4972",
@@ -9263,7 +9731,9 @@
     "description": "静安嘉里中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFYQI02",
-    "recommendation": "静安嘉里中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "静安嘉里中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5f5cb89e",
@@ -9286,12 +9756,14 @@
       "周浦镇"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(上海周浦店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00155QNWL",
-    "recommendation": "万达广场(上海周浦店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万达广场(上海周浦店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_704c75e4",
@@ -9314,7 +9786,7 @@
       "松江万达广场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(上海松江店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -9346,7 +9818,9 @@
     "description": "前滩太古里，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFIRXH9Z",
-    "recommendation": "前滩太古里是当地热门景点，建议游览90分钟左右"
+    "recommendation": "前滩太古里是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1f3214b0",
@@ -9369,12 +9843,14 @@
       "五角场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(上海五角场店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFR05MK",
-    "recommendation": "万达广场(上海五角场店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万达广场(上海五角场店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e971da63",
@@ -9402,7 +9878,9 @@
     "description": "上海万象城购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00156NVSE",
-    "recommendation": "上海万象城购物中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海万象城购物中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_fc15fdeb",
@@ -9425,12 +9903,14 @@
       "北京路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "新世界城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001539A1D",
-    "recommendation": "新世界城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "新世界城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_270ef48c",
@@ -9453,12 +9933,14 @@
       "徐家汇"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海港汇恒隆广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00155QPSL",
-    "recommendation": "上海港汇恒隆广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海港汇恒隆广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c72fe1bd",
@@ -9481,12 +9963,14 @@
       "北京路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海来福士广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00151BEEE",
-    "recommendation": "上海来福士广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海来福士广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_a0a61f5a",
@@ -9508,12 +9992,14 @@
       "华漕"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海虹桥前湾印象城MEGA，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0JBCMFDFK",
-    "recommendation": "上海虹桥前湾印象城MEGA是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海虹桥前湾印象城MEGA是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3e95be0",
@@ -9536,12 +10022,14 @@
       "北京路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海世茂广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001513C35",
-    "recommendation": "上海世茂广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海世茂广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 810,
+    "close_minutes": 870
   },
   {
     "id": "amap_9e9ad2b",
@@ -9564,7 +10052,7 @@
       "五里桥"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "日月光中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -9597,7 +10085,9 @@
     "description": "CP静安，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00156YMHK",
-    "recommendation": "CP静安是当地热门景点，建议游览90分钟左右"
+    "recommendation": "CP静安是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ed85fae4",
@@ -9625,7 +10115,9 @@
     "description": "第一百货商业中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001548591",
-    "recommendation": "第一百货商业中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "第一百货商业中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_511bb7dc",
@@ -9650,12 +10142,14 @@
       "高境"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(上海宝山店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001577EAC",
-    "recommendation": "万达广场(上海宝山店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万达广场(上海宝山店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_fce0259f",
@@ -9678,12 +10172,14 @@
       "淮海路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "新天地广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00155HPFQ",
-    "recommendation": "新天地广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "新天地广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 630,
+    "close_minutes": 1200
   },
   {
     "id": "amap_cc279f2d",
@@ -9706,12 +10202,14 @@
       "北京路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "新世界新丸中心 NEW ONE，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFSY4NF",
-    "recommendation": "新世界新丸中心 NEW ONE是当地热门景点，建议游览90分钟左右"
+    "recommendation": "新世界新丸中心 NEW ONE是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_239c20a7",
@@ -9734,12 +10232,14 @@
       "北京路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "宏伊国际广场(南京东路)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001550C2J",
-    "recommendation": "宏伊国际广场(南京东路)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "宏伊国际广场(南京东路)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_90f7afe1",
@@ -9767,7 +10267,9 @@
     "description": "上海久光中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFIQXLNJ",
-    "recommendation": "上海久光中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上海久光中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e186e734",
@@ -9788,12 +10290,14 @@
       "上海虹桥商务区"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "半盏青绿·新中式茶馆(北虹桥江桥万达店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0JUG1LIDW",
-    "recommendation": "半盏青绿·新中式茶馆(北虹桥江桥万达店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "半盏青绿·新中式茶馆(北虹桥江桥万达店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1170
   },
   {
     "id": "amap_11b26f8e",
@@ -9814,12 +10318,14 @@
       "莘庄"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "1328轻茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KRNDFIIJ",
-    "recommendation": "1328轻茶馆是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "1328轻茶馆是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f992104c",
@@ -9840,12 +10346,14 @@
       "江湾"
     ],
     "popularity": 3.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "蓉创茶馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0LKMZ5LMC",
-    "recommendation": "蓉创茶馆是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "蓉创茶馆是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_8849c811",
@@ -9866,12 +10374,14 @@
       "金沙江路"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "举茗邑·茶室LUXE TEA(洲际旗下大华长风华邑酒店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0I3VMC4EG",
-    "recommendation": "举茗邑·茶室LUXE TEA(洲际旗下大华长风华邑酒店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "举茗邑·茶室LUXE TEA(洲际旗下大华长风华邑酒店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8145ea32",
@@ -9897,7 +10407,9 @@
     "description": "梦浓茶室咖啡(青浦商城2区店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0H1U91BO8",
-    "recommendation": "梦浓茶室咖啡(青浦商城2区店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "梦浓茶室咖啡(青浦商城2区店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1440
   },
   {
     "id": "amap_b8d70a71",
@@ -9918,12 +10430,14 @@
       "共康"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "漫岛咖啡(康德公寓店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFHIVR72",
-    "recommendation": "漫岛咖啡(康德公寓店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "漫岛咖啡(康德公寓店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 60
   },
   {
     "id": "amap_6f01e823",
@@ -9943,7 +10457,7 @@
       "咖啡厅"
     ],
     "popularity": 4.1,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "阡陌琴苑咖啡屋茶室，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -9970,12 +10484,14 @@
       "上南地区"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "三林咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFFC1ERG",
-    "recommendation": "三林咖啡是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "三林咖啡是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1440
   },
   {
     "id": "amap_6058f07",
@@ -10000,7 +10516,9 @@
     "description": "雅馨咖啡(佳丽花园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFL51S45",
-    "recommendation": "雅馨咖啡(佳丽花园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "雅馨咖啡(佳丽花园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c1e12202",
@@ -10020,12 +10538,14 @@
       "茶艺馆"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "圆芗茶楼·茶与咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0K35YCWSD",
-    "recommendation": "圆芗茶楼·茶与咖啡是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "圆芗茶楼·茶与咖啡是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_3b83a4d3",
@@ -10051,7 +10571,9 @@
     "description": "560咖啡·茶舍，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0L69SMEJN",
-    "recommendation": "560咖啡·茶舍是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "560咖啡·茶舍是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_b78771b",
@@ -10072,7 +10594,7 @@
       "朱家角镇"
     ],
     "popularity": 3.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "小船咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -10099,12 +10621,14 @@
       "枫泾"
     ],
     "popularity": 4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "哈里欧咖啡(枫泾店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFFVEV8F",
-    "recommendation": "哈里欧咖啡(枫泾店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "哈里欧咖啡(枫泾店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 510,
+    "close_minutes": 1440
   },
   {
     "id": "amap_91194890",
@@ -10125,7 +10649,7 @@
       "四平路"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "复兴面王·咖啡铺(太阳宫城市集市店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -10156,7 +10680,9 @@
     "description": "逢尔·茶咖(松江中央公园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KDN9UDRO",
-    "recommendation": "逢尔·茶咖(松江中央公园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "逢尔·茶咖(松江中央公园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_50b9d32d",
@@ -10177,7 +10703,7 @@
       "九亭"
     ],
     "popularity": 4.1,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "维也纳咖啡·棋牌·简餐(秀森大厦店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -10232,12 +10758,14 @@
       "莘庄"
     ],
     "popularity": 4.4,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "紫楠茶楼·咖啡棋牌，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFLFBFIR",
-    "recommendation": "紫楠茶楼·咖啡棋牌是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "紫楠茶楼·咖啡棋牌是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 120
   },
   {
     "id": "amap_76c3c08",
@@ -10264,7 +10792,9 @@
     "description": "木子&茶(政通新苑店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0HRUSFPVK",
-    "recommendation": "木子&茶(政通新苑店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "木子&茶(政通新苑店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1230
   },
   {
     "id": "amap_db6da7bc",
@@ -10288,12 +10818,14 @@
       "朱家角"
     ],
     "popularity": 4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "孙艺坊老房子(漕河街93/2)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KGL73NBA",
-    "recommendation": "孙艺坊老房子(漕河街93/2)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "孙艺坊老房子(漕河街93/2)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_c439e8e7",
@@ -10314,12 +10846,14 @@
       "华漕"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "格韵茶范(龙湖虹桥天街购物中心店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0HUYSSLEK",
-    "recommendation": "格韵茶范(龙湖虹桥天街购物中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "格韵茶范(龙湖虹桥天街购物中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 510,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6c00b960",
@@ -10341,12 +10875,14 @@
       "七宝"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "枕流阁茶楼，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B00156P751",
-    "recommendation": "枕流阁茶楼是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "枕流阁茶楼是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1c9f657c",
@@ -10367,12 +10903,14 @@
       "曹杨"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "TEATIME茶间(绿地世纪春天会所店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFGSUPVJ",
-    "recommendation": "TEATIME茶间(绿地世纪春天会所店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "TEATIME茶间(绿地世纪春天会所店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_9ed7bad",
@@ -10398,7 +10936,9 @@
     "description": "快乐巴士(唐行店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFL812MT",
-    "recommendation": "快乐巴士(唐行店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "快乐巴士(唐行店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_516bee35",
@@ -10419,12 +10959,14 @@
       "南桥"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "椿上 Tea house，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0MB3DFLGE",
-    "recommendation": "椿上 Tea house是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "椿上 Tea house是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1110
   },
   {
     "id": "amap_36e7e815",
@@ -11922,11 +12464,1531 @@
       "古北"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "上海二号线威宁路站近中山公园虹桥机场高铁站普通公寓，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "B0FFI5MP57",
     "recommendation": "上海二号线威宁路站近中山公园虹桥机场高铁站普通公寓是当地热门景点，建议游览90分钟左右"
+  },
+  {
+    "id": "transit_B00151CD61",
+    "name": "上海浦东国际机场",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.142267,
+    "lng": 121.808682,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海浦东国际机场，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海浦东国际机场是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B001559TVX",
+    "name": "上海虹桥国际机场",
+    "type": "transit",
+    "area": "长宁区",
+    "lat": 31.196029,
+    "lng": 121.339775,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥国际机场，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海虹桥国际机场是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156YM58",
+    "name": "上海浦东国际机场2号航站楼",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.151164,
+    "lng": 121.809373,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海浦东国际机场2号航站楼，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海浦东国际机场2号航站楼是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156YASY",
+    "name": "上海虹桥国际机场2号航站楼",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.19418,
+    "lng": 121.328711,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥国际机场2号航站楼，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海虹桥国际机场2号航站楼是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156TJ8O",
+    "name": "上海浦东国际机场1号航站楼",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.149217,
+    "lng": 121.802352,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海浦东国际机场1号航站楼，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海浦东国际机场1号航站楼是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156OFI3",
+    "name": "上海虹桥国际机场1号航站楼",
+    "type": "transit",
+    "area": "长宁区",
+    "lat": 31.195412,
+    "lng": 121.34726,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥国际机场1号航站楼，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海虹桥国际机场1号航站楼是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00155IO9X",
+    "name": "上海浦东国际机场2号航站楼(国内出发)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.151526,
+    "lng": 121.808118,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海浦东国际机场2号航站楼(国内出发)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海浦东国际机场2号航站楼(国内出发)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156F6GH",
+    "name": "上海浦东国际机场2号航站楼(国际港澳台出发)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.149461,
+    "lng": 121.808905,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海浦东国际机场2号航站楼(国际港澳台出发)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海浦东国际机场2号航站楼(国际港澳台出发)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFS2NR1",
+    "name": "上海虹桥国际机场1号航站楼(国内出发)",
+    "type": "transit",
+    "area": "长宁区",
+    "lat": 31.194227,
+    "lng": 121.346537,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥国际机场1号航站楼(国内出发)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海虹桥国际机场1号航站楼(国内出发)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156DBOZ",
+    "name": "上海虹桥国际机场2号航站楼(南出发)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.192555,
+    "lng": 121.327896,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥国际机场2号航站楼(南出发)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海虹桥国际机场2号航站楼(南出发)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00155KPFU",
+    "name": "上海浦东国际机场1号航站楼(国内出发)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.150978,
+    "lng": 121.803302,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海浦东国际机场1号航站楼(国内出发)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海浦东国际机场1号航站楼(国内出发)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00155R1FF",
+    "name": "上海虹桥国际机场2号航站楼(北出发)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.195014,
+    "lng": 121.325577,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥国际机场2号航站楼(北出发)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海虹桥国际机场2号航站楼(北出发)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156F6GI",
+    "name": "上海浦东国际机场1号航站楼(国际港澳台出发)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.149274,
+    "lng": 121.803911,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海浦东国际机场1号航站楼(国际港澳台出发)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海浦东国际机场1号航站楼(国际港澳台出发)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00155IO9Y",
+    "name": "上海浦东国际机场2号航站楼(国内到达)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.150316,
+    "lng": 121.808604,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海浦东国际机场2号航站楼(国内到达)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海浦东国际机场2号航站楼(国内到达)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0015572ND",
+    "name": "上海虹桥国际机场1号航站楼(国际港澳台出发)",
+    "type": "transit",
+    "area": "长宁区",
+    "lat": 31.194909,
+    "lng": 121.34815,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥国际机场1号航站楼(国际港澳台出发)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海虹桥国际机场1号航站楼(国际港澳台出发)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFF3AI6X",
+    "name": "上海浦东国际机场2号航站楼(国际港澳台到达)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.149553,
+    "lng": 121.808906,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海浦东国际机场2号航站楼(国际港澳台到达)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海浦东国际机场2号航站楼(国际港澳台到达)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156D5M5",
+    "name": "上海浦东国际机场1号航站楼(国内到达)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.150945,
+    "lng": 121.803275,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海浦东国际机场1号航站楼(国内到达)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海浦东国际机场1号航站楼(国内到达)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFS2IHX",
+    "name": "上海虹桥国际机场1号航站楼(国内到达)",
+    "type": "transit",
+    "area": "长宁区",
+    "lat": 31.194193,
+    "lng": 121.346545,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥国际机场1号航站楼(国内到达)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海虹桥国际机场1号航站楼(国内到达)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156COU2",
+    "name": "上海虹桥国际机场2号航站楼(南到达)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.193559,
+    "lng": 121.326291,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥国际机场2号航站楼(南到达)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海虹桥国际机场2号航站楼(南到达)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00155MVAG",
+    "name": "上海虹桥国际机场2号航站楼(北到达)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.194971,
+    "lng": 121.326187,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥国际机场2号航站楼(北到达)，上海主要火车站。",
+    "meal_type": "",
+    "recommendation": "上海虹桥国际机场2号航站楼(北到达)是上海的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KD9R7XRY",
+    "name": "上海松江站",
+    "type": "transit",
+    "area": "松江区",
+    "lat": 30.985097,
+    "lng": 121.228778,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海松江站，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海松江站是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00155MPRL",
+    "name": "上海虹桥站",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.193964,
+    "lng": 121.320081,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥站，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海虹桥站是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00155KSDE",
+    "name": "上海站",
+    "type": "transit",
+    "area": "静安区",
+    "lat": 31.24965,
+    "lng": 121.455768,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海站，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海站是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00155DNI5",
+    "name": "上海南站",
+    "type": "transit",
+    "area": "徐汇区",
+    "lat": 31.153127,
+    "lng": 121.429462,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海南站，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海南站是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00155KAZY",
+    "name": "上海西站",
+    "type": "transit",
+    "area": "普陀区",
+    "lat": 31.262802,
+    "lng": 121.402379,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海西站，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海西站是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFH6SYBW",
+    "name": "上海南站(南进站口)",
+    "type": "transit",
+    "area": "徐汇区",
+    "lat": 31.152256,
+    "lng": 121.429771,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海南站(南进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海南站(南进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFF00G7N",
+    "name": "上海站(北进站口)",
+    "type": "transit",
+    "area": "静安区",
+    "lat": 31.250905,
+    "lng": 121.456307,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海站(北进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海站(北进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFDDBA4",
+    "name": "上海站(南进站口)",
+    "type": "transit",
+    "area": "静安区",
+    "lat": 31.248568,
+    "lng": 121.454979,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海站(南进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海站(南进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFG8S5RX",
+    "name": "上海虹桥站(北进站口)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.194597,
+    "lng": 121.320694,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥站(北进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海虹桥站(北进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFM9S4NE",
+    "name": "上海虹桥站(南进站口)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.193573,
+    "lng": 121.320737,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥站(南进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海虹桥站(南进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGPMIVL",
+    "name": "上海南站(北进站口)",
+    "type": "transit",
+    "area": "徐汇区",
+    "lat": 31.154113,
+    "lng": 121.429054,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海南站(北进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海南站(北进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KK75GW37",
+    "name": "上海松江站(北区西进站口)",
+    "type": "transit",
+    "area": "松江区",
+    "lat": 30.986059,
+    "lng": 121.227461,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海松江站(北区西进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海松江站(北区西进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KD9RRTVQ",
+    "name": "上海松江站(南区进站口)",
+    "type": "transit",
+    "area": "松江区",
+    "lat": 30.983133,
+    "lng": 121.230216,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海松江站(南区进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海松江站(南区进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00155QXJZ",
+    "name": "金山北站",
+    "type": "transit",
+    "area": "金山区",
+    "lat": 30.894305,
+    "lng": 121.089517,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "金山北站，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "金山北站是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156CM96",
+    "name": "安亭北站",
+    "type": "transit",
+    "area": "嘉定区",
+    "lat": 31.314374,
+    "lng": 121.158416,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "安亭北站，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "安亭北站是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156GP63",
+    "name": "金山卫站",
+    "type": "transit",
+    "area": "金山区",
+    "lat": 30.728108,
+    "lng": 121.362722,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "金山卫站，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "金山卫站是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KAYU270Z",
+    "name": "练塘站",
+    "type": "transit",
+    "area": "青浦区",
+    "lat": 30.99516,
+    "lng": 121.031857,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "练塘站，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "练塘站是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KK7596PV",
+    "name": "上海松江站(北区东进站口)",
+    "type": "transit",
+    "area": "松江区",
+    "lat": 30.986435,
+    "lng": 121.229235,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海松江站(北区东进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海松江站(北区东进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00156YKII",
+    "name": "金山北站(进站口)",
+    "type": "transit",
+    "area": "金山区",
+    "lat": 30.89423,
+    "lng": 121.089642,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "金山北站(进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "金山北站(进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFDD60U",
+    "name": "上海虹桥站(西进站口)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.194002,
+    "lng": 121.318709,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海虹桥站(西进站口)，上海主要飞机场。",
+    "meal_type": "",
+    "recommendation": "上海虹桥站(西进站口)是上海的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10039905",
+    "name": "虹桥火车站(地铁站)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.193987,
+    "lng": 121.31891,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "虹桥火车站(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "虹桥火车站(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10024601",
+    "name": "上海火车站(地铁站)",
+    "type": "transit",
+    "area": "静安区",
+    "lat": 31.249632,
+    "lng": 121.457939,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海火车站(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "上海火车站(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10039900",
+    "name": "南京东路(地铁站)",
+    "type": "transit",
+    "area": "黄浦区",
+    "lat": 31.238101,
+    "lng": 121.484628,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京东路(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "南京东路(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10029743",
+    "name": "陆家嘴(地铁站)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.238259,
+    "lng": 121.502129,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "陆家嘴(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "陆家嘴(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10024678",
+    "name": "人民广场(地铁站)",
+    "type": "transit",
+    "area": "黄浦区",
+    "lat": 31.232687,
+    "lng": 121.475108,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "人民广场(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "人民广场(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10029707",
+    "name": "徐家汇(地铁站)",
+    "type": "transit",
+    "area": "徐汇区",
+    "lat": 31.195514,
+    "lng": 121.436603,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "徐家汇(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "徐家汇(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10039851",
+    "name": "龙阳路(地铁站)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.203575,
+    "lng": 121.557634,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "龙阳路(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "龙阳路(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10039875",
+    "name": "九亭(地铁站)",
+    "type": "transit",
+    "area": "松江区",
+    "lat": 31.137252,
+    "lng": 121.319423,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "九亭(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "九亭(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10025001",
+    "name": "莘庄(地铁站)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.111152,
+    "lng": 121.385373,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "莘庄(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "莘庄(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10030419",
+    "name": "豫园(地铁站)",
+    "type": "transit",
+    "area": "黄浦区",
+    "lat": 31.228005,
+    "lng": 121.487426,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "豫园(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "豫园(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10027922",
+    "name": "松江大学城(地铁站)",
+    "type": "transit",
+    "area": "松江区",
+    "lat": 31.053984,
+    "lng": 121.232577,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "松江大学城(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "松江大学城(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10039782",
+    "name": "南京西路(地铁站)",
+    "type": "transit",
+    "area": "静安区",
+    "lat": 31.229853,
+    "lng": 121.459971,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京西路(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "南京西路(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10039835",
+    "name": "世纪大道(地铁站)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.228682,
+    "lng": 121.527213,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "世纪大道(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "世纪大道(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10025073",
+    "name": "上海南站(地铁站)",
+    "type": "transit",
+    "area": "徐汇区",
+    "lat": 31.154579,
+    "lng": 121.430041,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海南站(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "上海南站(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10032803",
+    "name": "泗泾(地铁站)",
+    "type": "transit",
+    "area": "松江区",
+    "lat": 31.118272,
+    "lng": 121.260247,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "泗泾(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "泗泾(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10025485",
+    "name": "静安寺(地铁站)",
+    "type": "transit",
+    "area": "静安区",
+    "lat": 31.223231,
+    "lng": 121.446533,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "静安寺(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "静安寺(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10039960",
+    "name": "嘉定北(地铁站)",
+    "type": "transit",
+    "area": "嘉定区",
+    "lat": 31.391549,
+    "lng": 121.23735,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "嘉定北(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "嘉定北(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10039815",
+    "name": "惠南(地铁站)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.053828,
+    "lng": 121.761677,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "惠南(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "惠南(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10032522",
+    "name": "东方体育中心(地铁站)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.153366,
+    "lng": 121.480304,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "东方体育中心(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "东方体育中心(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10025398",
+    "name": "中山公园(地铁站)",
+    "type": "transit",
+    "area": "长宁区",
+    "lat": 31.217948,
+    "lng": 121.415773,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "中山公园(地铁站)，上海主要地铁站。",
+    "meal_type": "",
+    "recommendation": "中山公园(地铁站)是上海的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10026271",
+    "name": "陈家镇(长江大桥)(公交站)",
+    "type": "transit",
+    "area": "崇明区",
+    "lat": 31.513258,
+    "lng": 121.787914,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "陈家镇(长江大桥)(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "陈家镇(长江大桥)(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10342666",
+    "name": "虹桥西交通中心(公交站)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.192796,
+    "lng": 121.317156,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "虹桥西交通中心(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "虹桥西交通中心(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10430171",
+    "name": "五洲大道地铁站(公交站)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.301353,
+    "lng": 121.588274,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "五洲大道地铁站(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "五洲大道地铁站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10387424",
+    "name": "莲花路地铁站(北广场)(公交站)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.129351,
+    "lng": 121.400894,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "莲花路地铁站(北广场)(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "莲花路地铁站(北广场)(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10040065",
+    "name": "浦东机场T2航站楼(公交站)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.151386,
+    "lng": 121.806102,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "浦东机场T2航站楼(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "浦东机场T2航站楼(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10025344",
+    "name": "普安路延安东路(公交站)",
+    "type": "transit",
+    "area": "黄浦区",
+    "lat": 31.226472,
+    "lng": 121.4764,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "普安路延安东路(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "普安路延安东路(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10024727",
+    "name": "上海火车站(北广场)(公交站)",
+    "type": "transit",
+    "area": "静安区",
+    "lat": 31.250623,
+    "lng": 121.457616,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海火车站(北广场)(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "上海火车站(北广场)(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10029854",
+    "name": "汶水路共和新路(公交站)",
+    "type": "transit",
+    "area": "静安区",
+    "lat": 31.292518,
+    "lng": 121.448265,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "汶水路共和新路(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "汶水路共和新路(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10026087",
+    "name": "堡镇汽车站(公交站)",
+    "type": "transit",
+    "area": "崇明区",
+    "lat": 31.523226,
+    "lng": 121.610079,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "堡镇汽车站(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "堡镇汽车站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10026790",
+    "name": "石化汽车站(公交站)",
+    "type": "transit",
+    "area": "金山区",
+    "lat": 30.71739,
+    "lng": 121.336909,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "石化汽车站(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "石化汽车站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10025798",
+    "name": "纪王(公交站)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.238192,
+    "lng": 121.271098,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "纪王(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "纪王(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10024644",
+    "name": "上海火车站(南广场)(公交站)",
+    "type": "transit",
+    "area": "静安区",
+    "lat": 31.247536,
+    "lng": 121.455948,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上海火车站(南广场)(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "上海火车站(南广场)(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10685254",
+    "name": "西公交枢纽站(公交站)",
+    "type": "transit",
+    "area": "浦东新区",
+    "lat": 31.139028,
+    "lng": 121.659627,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "西公交枢纽站(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "西公交枢纽站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11297706",
+    "name": "虹桥高铁站(公交站)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.191664,
+    "lng": 121.3187,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "虹桥高铁站(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "虹桥高铁站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10029535",
+    "name": "吴淞码头(公交站)",
+    "type": "transit",
+    "area": "宝山区",
+    "lat": 31.380317,
+    "lng": 121.499674,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "吴淞码头(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "吴淞码头(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10338456",
+    "name": "虹桥东交通中心(公交站)",
+    "type": "transit",
+    "area": "闵行区",
+    "lat": 31.193747,
+    "lng": 121.326149,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "虹桥东交通中心(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "虹桥东交通中心(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10031528",
+    "name": "淮海中路武康路(公交站)",
+    "type": "transit",
+    "area": "徐汇区",
+    "lat": 31.204397,
+    "lng": 121.438533,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "淮海中路武康路(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "淮海中路武康路(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10026901",
+    "name": "亭林汽车站(公交站)",
+    "type": "transit",
+    "area": "金山区",
+    "lat": 30.888971,
+    "lng": 121.313736,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "亭林汽车站(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "亭林汽车站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11082437",
+    "name": "人民广场(武胜路)(公交站)",
+    "type": "transit",
+    "area": "黄浦区",
+    "lat": 31.22912,
+    "lng": 121.477102,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "人民广场(武胜路)(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "人民广场(武胜路)(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10459086",
+    "name": "外滩·外白渡桥(公交站)",
+    "type": "transit",
+    "area": "黄浦区",
+    "lat": 31.239944,
+    "lng": 121.490105,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "外滩·外白渡桥(公交站)，上海主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "外滩·外白渡桥(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "上海"
+    ],
+    "visit_duration": 15
   }
 ]

@@ -16,12 +16,14 @@
       "解放碑片区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洪崖洞民俗风貌区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG8V7SH",
-    "recommendation": "洪崖洞民俗风貌区适合城市游览、景点爱好者"
+    "recommendation": "洪崖洞民俗风貌区适合城市游览、景点爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_af18b4e7",
@@ -40,7 +42,7 @@
       "解放碑片区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "山城步道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -66,12 +68,14 @@
       "鹅岭二厂"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "鹅岭公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001701EF7",
-    "recommendation": "鹅岭公园适合城市游览、景点爱好者"
+    "recommendation": "鹅岭公园适合城市游览、景点爱好者",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f591ce38",
@@ -91,7 +95,7 @@
       "解放碑片区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "人民解放纪念碑，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -138,12 +142,14 @@
       "观景点"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洪崖洞夜景观景台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG2D40O",
-    "recommendation": "洪崖洞夜景最佳机位，千与千寻同款画面尽收眼底，建议晚上8点后去，灯光全开更震撼。"
+    "recommendation": "洪崖洞夜景最佳机位，千与千寻同款画面尽收眼底，建议晚上8点后去，灯光全开更震撼。",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_7647a35f",
@@ -164,7 +170,7 @@
       "解放碑片区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "魁星楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -189,12 +195,14 @@
       "公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆珊瑚公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0017819T5",
-    "recommendation": "推荐在渝中区参观重庆珊瑚公园，人气评分4.7"
+    "recommendation": "推荐在渝中区参观重庆珊瑚公园，人气评分4.7",
+    "open_minutes": 420,
+    "close_minutes": 1260
   },
   {
     "id": "amap_2c535407",
@@ -213,12 +221,14 @@
       "寺庙道观"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "罗汉寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001702CBC",
-    "recommendation": "罗汉寺藏于闹市却古朴宁静，建议清晨去听早课钟声，感受都市中的禅意。"
+    "recommendation": "罗汉寺藏于闹市却古朴宁静，建议清晨去听早课钟声，感受都市中的禅意。",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_c648bf40",
@@ -237,7 +247,7 @@
       "解放碑片区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "十八梯观景台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -262,7 +272,7 @@
       "城市广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆朝天门广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -286,7 +296,7 @@
       "大溪沟"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "周公馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -316,7 +326,9 @@
     "description": "下浩里，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHS7UNC",
-    "recommendation": "推荐在南岸区参观下浩里，人气评分4.8"
+    "recommendation": "推荐在南岸区参观下浩里，人气评分4.8",
+    "open_minutes": 510,
+    "close_minutes": 1440
   },
   {
     "id": "amap_f728aea8",
@@ -337,7 +349,7 @@
       "两江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙头寺公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -363,7 +375,7 @@
       "两江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洪崖洞-大桥对面拍照打卡点，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -388,12 +400,14 @@
       "南滨路片区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆长江索道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001706L1A",
-    "recommendation": "横跨长江的空中巴士，必坐！建议傍晚去，夕阳和夜景一次看够。"
+    "recommendation": "横跨长江的空中巴士，必坐！建议傍晚去，夕阳和夜景一次看够。",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_bdb2dd75",
@@ -412,12 +426,14 @@
       "国家级景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "湖广会馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0017822LZ",
-    "recommendation": "湖广会馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "湖广会馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_5a4f9bb7",
@@ -435,12 +451,14 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "鹅岭栈桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0L3A1X06S",
-    "recommendation": "小众观景台，两江交汇尽收"
+    "recommendation": "小众观景台，两江交汇尽收",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_b564cae5",
@@ -461,12 +479,14 @@
       "大溪沟"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "马鞍山堂里，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFJUF87Z",
-    "recommendation": "推荐在渝中区参观马鞍山堂里，人气评分4.7"
+    "recommendation": "推荐在渝中区参观马鞍山堂里，人气评分4.7",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_b1a3e568",
@@ -486,7 +506,7 @@
       "南滨路片区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙门浩老街，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -511,12 +531,14 @@
       "南滨路片区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "长嘉汇弹子石老街，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHCL1T9",
-    "recommendation": "长嘉汇弹子石老街是当地热门景点，建议游览90分钟左右"
+    "recommendation": "长嘉汇弹子石老街是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_926cbab",
@@ -535,12 +557,14 @@
       "两路口"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "罗斯福图书馆旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001783RO2",
-    "recommendation": "推荐在渝中区参观罗斯福图书馆旧址，人气评分4.2"
+    "recommendation": "推荐在渝中区参观罗斯福图书馆旧址，人气评分4.2",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_735d6f8c",
@@ -560,7 +584,7 @@
       "公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "戴家巷崖壁步道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -583,7 +607,7 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "临江门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -634,12 +658,14 @@
       "公园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "萤火虫港湾猫猫主题公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0LB2XLJBR",
-    "recommendation": "推荐在南岸区参观萤火虫港湾猫猫主题公园，人气评分4.6"
+    "recommendation": "推荐在南岸区参观萤火虫港湾猫猫主题公园，人气评分4.6",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_7830614b",
@@ -659,7 +685,7 @@
       "城市广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "观音桥步行街中心广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -685,7 +711,7 @@
       "解放碑片区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "两江小渡，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -708,7 +734,7 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "通远门段城门及城墙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -731,7 +757,7 @@
       "风景名胜"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "通远门城墙遗址公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -755,7 +781,7 @@
       "两江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江北a~台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -780,12 +806,14 @@
       "黄桷垭"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "老君洞道观，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00178VU7E",
-    "recommendation": "清幽道观藏于山巅，求个签看看缘分，建议清晨去避开人流。"
+    "recommendation": "清幽道观藏于山巅，求个签看看缘分，建议清晨去避开人流。",
+    "open_minutes": 450,
+    "close_minutes": 1020
   },
   {
     "id": "amap_5112b3fd",
@@ -805,7 +833,7 @@
       "旅游景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "山城巷传统风貌区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -853,7 +881,7 @@
       "大溪沟"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "曾家岩临崖步道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -878,7 +906,7 @@
       "公园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆开埠遗址公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -903,12 +931,14 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆大轰炸遗址群“六·五”隧道惨案遗址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001702FA6",
-    "recommendation": "铭记历史的沉重之地，隧道遗址让人揪心。建议先了解背景，参观时保持肃穆。"
+    "recommendation": "铭记历史的沉重之地，隧道遗址让人揪心。建议先了解背景，参观时保持肃穆。",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_8ca53051",
@@ -929,7 +959,7 @@
       "两江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆市江北嘴中央商务区中央公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -955,7 +985,7 @@
       "南滨路沿江商圈"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南滨路钟楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -979,7 +1009,7 @@
       "国家级景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆南山风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1004,12 +1034,14 @@
       "公园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "人民公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001706G5Q",
-    "recommendation": "闹市中的悠闲角落，老茶馆里看下棋、听鸟叫，一秒回到老重庆的慢生活。"
+    "recommendation": "闹市中的悠闲角落，老茶馆里看下棋、听鸟叫，一秒回到老重庆的慢生活。",
+    "open_minutes": 480,
+    "close_minutes": 1200
   },
   {
     "id": "amap_a714e2fc",
@@ -1030,12 +1062,14 @@
       "黄桷垭"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南山一棵树景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGAMI8G",
-    "recommendation": "看渝中半岛夜景的绝杀机位！日落前上山，从华灯初上"
+    "recommendation": "看渝中半岛夜景的绝杀机位！日落前上山，从华灯初上",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_bfd94ab5",
@@ -1054,7 +1088,7 @@
       "黄桷垭"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黄桷垭老街，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1080,12 +1114,14 @@
       "南滨路沿江商圈"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "后堡公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00170CN1H",
-    "recommendation": "推荐在南岸区参观后堡公园，人气评分4.6"
+    "recommendation": "推荐在南岸区参观后堡公园，人气评分4.6",
+    "open_minutes": 540,
+    "close_minutes": 960
   },
   {
     "id": "amap_21a029b1",
@@ -1106,12 +1142,14 @@
       "九龙街道"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆动物园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001701F98",
-    "recommendation": "重庆动物园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆动物园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 990
   },
   {
     "id": "amap_ced4e2c6",
@@ -1131,7 +1169,7 @@
       "公园"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "李子坝抗战遗址公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1158,12 +1196,14 @@
       "化龙桥"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆欢乐海底世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFZTIWP",
-    "recommendation": "重庆欢乐海底世界是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆欢乐海底世界是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_f5fd6198",
@@ -1184,7 +1224,7 @@
       "上清寺"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆人民广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1208,7 +1248,7 @@
       "化龙桥"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "半山崖线，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1232,7 +1272,7 @@
       "江北(商圈)"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天之椒子，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1255,7 +1295,7 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "嘉陵江石滩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1279,7 +1319,7 @@
       "南滨路沿江商圈"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "下浩里观景打卡平台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1303,7 +1343,7 @@
       "上清寺"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中山四路历史文化街区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1329,7 +1369,7 @@
       "两江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "相国寺滨江公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1355,7 +1395,7 @@
       "五里店"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "曼哈顿广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1380,12 +1420,14 @@
       "旅游景点"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天台131高空观景平台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0KURUZOSX",
-    "recommendation": "天台131高空观景平台适合城市游览、景点爱好者"
+    "recommendation": "天台131高空观景平台适合城市游览、景点爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d21e95d7",
@@ -1404,12 +1446,14 @@
       "鹅岭二厂"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "瞰胜楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFIFQ1BU",
-    "recommendation": "瞰胜楼是鹅岭二厂的制高点，黄昏登顶看城市从金黄渐入夜色，视野无敌。"
+    "recommendation": "瞰胜楼是鹅岭二厂的制高点，黄昏登顶看城市从金黄渐入夜色，视野无敌。",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3cff2b65",
@@ -1430,7 +1474,7 @@
       "两江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "嘉陵公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1455,12 +1499,14 @@
       "两江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙头寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFF6XREZ",
-    "recommendation": "龙头寺藏在闹市里很清静，早晨去听钟声、喝碗寺内素茶，能偷得半日闲。"
+    "recommendation": "龙头寺藏在闹市里很清静，早晨去听钟声、喝碗寺内素茶，能偷得半日闲。",
+    "open_minutes": 420,
+    "close_minutes": 1020
   },
   {
     "id": "amap_1c2b047b",
@@ -1481,12 +1527,14 @@
       "两江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆儿童公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00178VS0E",
-    "recommendation": "重庆儿童公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆儿童公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_f2a3a3ab",
@@ -1506,7 +1554,7 @@
       "观音桥"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "观音桥商圈都市旅游区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1532,12 +1580,14 @@
       "解放碑片区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "滨江公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0LBYHIO08",
-    "recommendation": "推荐在渝中区参观滨江公园，人气评分4.3"
+    "recommendation": "推荐在渝中区参观滨江公园，人气评分4.3",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b81e9b88",
@@ -1558,7 +1608,7 @@
       "两江新区"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江北嘴中央广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1581,7 +1631,7 @@
       "风景名胜"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "时光里枣子岚垭步道(名仕城店)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1606,7 +1656,7 @@
       "两江新区"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "福音堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1630,12 +1680,14 @@
       "两江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "鸿恩阁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001792U7Q",
-    "recommendation": "鸿恩阁夜景超美，建议晚饭后散步上去，还能拍到渝中半岛的灯火与江面倒影。"
+    "recommendation": "鸿恩阁夜景超美，建议晚饭后散步上去，还能拍到渝中半岛的灯火与江面倒影。",
+    "open_minutes": 480,
+    "close_minutes": 1290
   },
   {
     "id": "amap_7cfedc2b",
@@ -1655,7 +1707,7 @@
       "公园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "雅巴洞江滩公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1679,7 +1731,7 @@
       "寺庙道观"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "慈云寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1705,7 +1757,7 @@
       "解放碑片区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大唐广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1730,7 +1782,7 @@
       "大溪沟"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "八路军重庆办事处旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1756,12 +1808,14 @@
       "南滨路沿江商圈"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海棠烟雨公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001703557",
-    "recommendation": "海棠烟雨公园适合城市游览、景点爱好者"
+    "recommendation": "海棠烟雨公园适合城市游览、景点爱好者",
+    "open_minutes": 360,
+    "close_minutes": 1290
   },
   {
     "id": "amap_f3e86171",
@@ -1786,7 +1840,9 @@
     "description": "磁器口古镇，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00170IFE4",
-    "recommendation": "推荐在沙坪坝区参观磁器口古镇，人气评分4.7"
+    "recommendation": "推荐在沙坪坝区参观磁器口古镇，人气评分4.7",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_cc176190",
@@ -1806,7 +1862,7 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "WFC-会仙楼观景台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1829,12 +1885,14 @@
       "风景名胜"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "新华日报营业部旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFWQNBC",
-    "recommendation": "新华日报营业部旧址是当地热门景点，建议游览90分钟左右"
+    "recommendation": "新华日报营业部旧址是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_ea9476a",
@@ -1854,12 +1912,14 @@
       "解放碑片区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "仁爱堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG9MYE2",
-    "recommendation": "仁爱堂是解放碑的老教堂，拍照很有电影感，建议傍晚去，光影超美。"
+    "recommendation": "仁爱堂是解放碑的老教堂，拍照很有电影感，建议傍晚去，光影超美。",
+    "open_minutes": 540,
+    "close_minutes": 1290
   },
   {
     "id": "amap_41a39ffc",
@@ -1880,12 +1940,14 @@
       "两江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "星光68广场Starry Ocean星光海底世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0H15ATRLL",
-    "recommendation": "星光68广场Starry Ocean星光海底世界是当地热门景点，建议游览90分钟左右"
+    "recommendation": "星光68广场Starry Ocean星光海底世界是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_3f7af090",
@@ -1904,12 +1966,14 @@
       "教堂"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天主教重庆总教区若瑟堂主教座堂天主堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001785J57",
-    "recommendation": "天主教重庆总教区若瑟堂主教座堂天主堂适合城市游览、景点爱好者"
+    "recommendation": "天主教重庆总教区若瑟堂主教座堂天主堂适合城市游览、景点爱好者",
+    "open_minutes": 480,
+    "close_minutes": 720
   },
   {
     "id": "amap_7297e8fa",
@@ -1929,7 +1993,7 @@
       "化龙桥"
     ],
     "popularity": 5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "红岩革命纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1953,7 +2017,7 @@
       "两江新区直管区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "照母山森林公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1978,12 +2042,14 @@
       "植物园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆南山植物园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00178TX2P",
-    "recommendation": "推荐在南岸区参观重庆南山植物园，人气评分4.6"
+    "recommendation": "推荐在南岸区参观重庆南山植物园，人气评分4.6",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_8eb797b8",
@@ -2009,7 +2075,9 @@
     "description": "重庆中国三峡博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001709RVF",
-    "recommendation": "重庆中国三峡博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆中国三峡博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_c87dcbaa",
@@ -2034,7 +2102,9 @@
     "description": "重庆自然博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFFCIS0F",
-    "recommendation": "重庆自然博物馆适合城市游览、历史文化爱好者"
+    "recommendation": "重庆自然博物馆适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_b5f16dc0",
@@ -2080,12 +2150,14 @@
       "科教文化服务"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆抗战遗址博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00170BFYO",
-    "recommendation": "抗战遗址博物馆干货满满，能直观感受那段历史。建议跟个讲解，收获更多。"
+    "recommendation": "抗战遗址博物馆干货满满，能直观感受那段历史。建议跟个讲解，收获更多。",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_8fd7f81",
@@ -2107,12 +2179,14 @@
       "大溪沟"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆市人民大礼堂，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00170BPJJ",
-    "recommendation": "推荐在渝中区参观重庆市人民大礼堂，人气评分4.7"
+    "recommendation": "推荐在渝中区参观重庆市人民大礼堂，人气评分4.7",
+    "open_minutes": 480,
+    "close_minutes": 1050
   },
   {
     "id": "amap_f7f75cc7",
@@ -2139,7 +2213,9 @@
     "description": "重庆宋庆龄旧居陈列馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00170AEBD",
-    "recommendation": "重庆宋庆龄旧居陈列馆适合城市游览、历史文化爱好者"
+    "recommendation": "重庆宋庆龄旧居陈列馆适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_3be9080c",
@@ -2192,7 +2268,9 @@
     "description": "重庆国际会议展览中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00170B41U",
-    "recommendation": "会展中心常有前沿展览和演出，去前查好日程，挑个感兴趣的展再出发。"
+    "recommendation": "会展中心常有前沿展览和演出，去前查好日程，挑个感兴趣的展再出发。",
+    "open_minutes": 600,
+    "close_minutes": 1020
   },
   {
     "id": "amap_1c143919",
@@ -2218,7 +2296,9 @@
     "description": "重庆科技馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00178TXGC",
-    "recommendation": "互动展项超有趣，带娃必去。记得提前预约，周末溜娃首选。"
+    "recommendation": "互动展项超有趣，带娃必去。记得提前预约，周末溜娃首选。",
+    "open_minutes": 570,
+    "close_minutes": 1020
   },
   {
     "id": "amap_4bc1b2e1",
@@ -2239,12 +2319,14 @@
       "展览馆"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆大韩民国临时政府旧址陈列馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00178368U",
-    "recommendation": "重庆大韩民国临时政府旧址陈列馆适合城市游览、历史文化爱好者"
+    "recommendation": "重庆大韩民国临时政府旧址陈列馆适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_e1a29e62",
@@ -2271,7 +2353,9 @@
     "description": "中国民主党派历史陈列馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00170L2U6",
-    "recommendation": "推荐在渝中区参观中国民主党派历史陈列馆，人气评分4.6"
+    "recommendation": "推荐在渝中区参观中国民主党派历史陈列馆，人气评分4.6",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_fe27cb50",
@@ -2292,12 +2376,14 @@
       "美术馆"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆美术馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFFYS1T2",
-    "recommendation": "重庆美术馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆美术馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_dc089a9f",
@@ -2319,12 +2405,14 @@
       "两路口"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆市渝中区图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00178VUML",
-    "recommendation": "渝中区图书馆藏书丰富，自习座位抢手，建议早上去占个好位置。"
+    "recommendation": "渝中区图书馆藏书丰富，自习座位抢手，建议早上去占个好位置。",
+    "open_minutes": 840,
+    "close_minutes": 1140
   },
   {
     "id": "amap_1948f814",
@@ -2346,12 +2434,14 @@
       "南滨路沿江商圈"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆市规划展览馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0H2O7F3YC",
-    "recommendation": "用沙盘和互动展板读懂重庆的过去未来，建议留足一小时慢慢逛。"
+    "recommendation": "用沙盘和互动展板读懂重庆的过去未来，建议留足一小时慢慢逛。",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_316c265f",
@@ -2375,12 +2465,14 @@
       "观音桥"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "北仓图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFHN0I29",
-    "recommendation": "旧仓库改造的文艺阅读空间，挑个晴天坐在玻璃顶下看书拍照超惬意。"
+    "recommendation": "旧仓库改造的文艺阅读空间，挑个晴天坐在玻璃顶下看书拍照超惬意。",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_71948b8c",
@@ -2402,12 +2494,14 @@
       "北滨路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆市江北区图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFF2GFIQ",
-    "recommendation": "馆内安静舒适，靠窗座位还能看江景，很适合午后带本书来发呆一整天。"
+    "recommendation": "馆内安静舒适，靠窗座位还能看江景，很适合午后带本书来发呆一整天。",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_9076084b",
@@ -2456,12 +2550,14 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "梵高星空艺术馆(重庆旗舰店)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0JKHS1MVL",
-    "recommendation": "推荐在渝中区参观梵高星空艺术馆(重庆旗舰店)，人气评分4.6"
+    "recommendation": "推荐在渝中区参观梵高星空艺术馆(重庆旗舰店)，人气评分4.6",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_1a88b022",
@@ -2482,12 +2578,14 @@
       "图书馆"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "山城·时光里图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0H3RKE7VC",
-    "recommendation": "山城·时光里图书馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "山城·时光里图书馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_5f62727c",
@@ -2509,12 +2607,14 @@
       "水族馆"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆汉海海洋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFGG76GA",
-    "recommendation": "重庆汉海海洋公园适合城市游览、公园爱好者"
+    "recommendation": "重庆汉海海洋公园适合城市游览、公园爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_85d52a40",
@@ -2535,7 +2635,7 @@
       "公园广场"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆白市驿森林公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2561,12 +2661,14 @@
       "公园广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆铜锣山矿山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFG6HR0B",
-    "recommendation": "重庆铜锣山矿山公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆铜锣山矿山公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1050
   },
   {
     "id": "amap_3fb92742",
@@ -2588,12 +2690,14 @@
       "两江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆悦来会展公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFF3P39F",
-    "recommendation": "会展中心的绿肺，适合晨跑和露营。建议下午四点去，阳光穿过林间超美。"
+    "recommendation": "会展中心的绿肺，适合晨跑和露营。建议下午四点去，阳光穿过林间超美。",
+    "open_minutes": 600,
+    "close_minutes": 960
   },
   {
     "id": "amap_d6a88d0c",
@@ -2615,7 +2719,7 @@
       "上清寺"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "牛角沱滨水公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2642,7 +2746,7 @@
       "五里店"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "莺花渡公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2669,7 +2773,7 @@
       "两江新区"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "绿园公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2696,7 +2800,7 @@
       "大溪沟"
     ],
     "popularity": 2.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "曾家岩社区体育文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2722,7 +2826,7 @@
       "公园广场"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江边生态公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2748,7 +2852,7 @@
       "公园广场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "铜滨公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2775,7 +2879,7 @@
       "两路口"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "邹容公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2802,7 +2906,7 @@
       "鹅岭二厂"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "嘉陵新路公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2829,7 +2933,7 @@
       "南滨路片区"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "呼归石花阶公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2856,12 +2960,14 @@
       "两江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆市花卉园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00170B7I5",
-    "recommendation": "花卉园四季有花展，春天郁金香最惊艳，带个野餐垫可以坐一下午。"
+    "recommendation": "花卉园四季有花展，春天郁金香最惊艳，带个野餐垫可以坐一下午。",
+    "open_minutes": 480,
+    "close_minutes": 1290
   },
   {
     "id": "amap_895afa7",
@@ -2882,7 +2988,7 @@
       "公园广场"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "融侨公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2909,7 +3015,7 @@
       "南滨路沿江商圈"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "CBD滨江公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2936,12 +3042,14 @@
       "化龙桥"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天地湖，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001791SGW",
-    "recommendation": "化龙桥的明珠，夜景灯光倒影绝了。推荐晚餐后散步，吹江风看月亮。"
+    "recommendation": "化龙桥的明珠，夜景灯光倒影绝了。推荐晚餐后散步，吹江风看月亮。",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_1eb0d45a",
@@ -2963,7 +3071,7 @@
       "化龙桥"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "红岩公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2990,7 +3098,7 @@
       "北滨路"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "嘉陵江大桥北桥头公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3019,7 +3127,7 @@
       "两江新区"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "相国寺滨江公园-滨水绿廊，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3046,12 +3154,14 @@
       "总部城"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "虎头岩公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFIZMO8F",
-    "recommendation": "推荐在渝中区参观虎头岩公园，人气评分4.6"
+    "recommendation": "推荐在渝中区参观虎头岩公园，人气评分4.6",
+    "open_minutes": 0,
+    "close_minutes": 1440
   },
   {
     "id": "amap_e647df1a",
@@ -3073,7 +3183,7 @@
       "城市广场"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大水井体育文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3100,12 +3210,14 @@
       "两江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "塔山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFKC76UP",
-    "recommendation": "塔山公园人少清静，登上山顶能俯瞰两江，傍晚看日落绝了。"
+    "recommendation": "塔山公园人少清静，登上山顶能俯瞰两江，傍晚看日落绝了。",
+    "open_minutes": 510,
+    "close_minutes": 990
   },
   {
     "id": "amap_9417aa04",
@@ -3129,7 +3241,7 @@
       "解放碑片区"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "棉花街体育文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3156,7 +3268,7 @@
       "两路口"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "国际村公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3183,7 +3295,7 @@
       "涂山"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "涂山雕塑公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3210,7 +3322,7 @@
       "南坪片区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黄葛渡公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3237,7 +3349,7 @@
       "解放碑片区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "太平门城墙公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3263,12 +3375,14 @@
       "公园广场"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙塔公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0K2CM43HF",
-    "recommendation": "龙塔公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "龙塔公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1200
   },
   {
     "id": "amap_405883d3",
@@ -3289,7 +3403,7 @@
       "公园广场"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "白象街心公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3316,7 +3430,7 @@
       "上清寺"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "桂花园体育文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3342,12 +3456,14 @@
       "公园广场"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黄桷树空中花园(大都会东方广场店)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0KAUUIWX5",
-    "recommendation": "黄桷树空中花园(大都会东方广场店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "黄桷树空中花园(大都会东方广场店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1fc6cde1",
@@ -3369,7 +3485,7 @@
       "五里店"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "对山立交体育文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3395,7 +3511,7 @@
       "公园广场"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "下肖家湾公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3422,7 +3538,7 @@
       "两江新区直管区"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "木桃路社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3449,7 +3565,7 @@
       "两江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "盘溪河公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3476,7 +3592,7 @@
       "南滨路沿江商圈"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "朝天门大桥公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3502,7 +3618,7 @@
       "公园广场"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "肖家湾体育文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3529,7 +3645,7 @@
       "两江新区"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天宫殿公园(泰山大道中段)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3556,12 +3672,14 @@
       "人和屋"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "火凤山生态公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFF2MROC",
-    "recommendation": "火凤山生态公园适合城市游览、公园爱好者"
+    "recommendation": "火凤山生态公园适合城市游览、公园爱好者",
+    "open_minutes": 585,
+    "close_minutes": 1350
   },
   {
     "id": "amap_379a9831",
@@ -3583,7 +3701,7 @@
       "黄泥塝"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "Hang Out Park友谊公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3609,7 +3727,7 @@
       "公园广场"
     ],
     "popularity": 2.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "一匹山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3636,7 +3754,7 @@
       "弹子石"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黄桷湾公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3663,12 +3781,14 @@
       "两江新区"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "石门公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00178218L",
-    "recommendation": "石门公园适合城市游览、公园爱好者"
+    "recommendation": "石门公园适合城市游览、公园爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1140
   },
   {
     "id": "amap_3648c14e",
@@ -3690,7 +3810,7 @@
       "南坪片区"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "滨江大道西段体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3720,12 +3840,14 @@
       "珠宝首饰工艺品"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆解放碑洪崖洞桔子水晶酒店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0G21K5SY7",
-    "recommendation": "推荐在渝中区参观重庆解放碑洪崖洞桔子水晶酒店，人气评分4.0"
+    "recommendation": "推荐在渝中区参观重庆解放碑洪崖洞桔子水晶酒店，人气评分4.0",
+    "open_minutes": 360,
+    "close_minutes": 1020
   },
   {
     "id": "amap_7c3049ab",
@@ -3748,7 +3870,7 @@
       "购物相关场所"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "木文缇酒店(重庆解放碑洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3775,12 +3897,14 @@
       "专营店"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洪崖洞主题邮局(解放碑步行街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HA5UMHYU",
-    "recommendation": "洪崖洞主题邮局(解放碑步行街店)适合城市游览、街区爱好者"
+    "recommendation": "洪崖洞主题邮局(解放碑步行街店)适合城市游览、街区爱好者",
+    "open_minutes": 570,
+    "close_minutes": 1440
   },
   {
     "id": "amap_b37d6d29",
@@ -3802,7 +3926,7 @@
       "解放碑片区"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "国浩·云里(重庆解放碑洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3829,7 +3953,7 @@
       "解放碑片区"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "解放碑步行街，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3856,7 +3980,7 @@
       "解放碑片区"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洪崖洞异国美食街，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3883,7 +4007,7 @@
       "解放碑片区"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海盗街(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3910,12 +4034,14 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洪崖洞夜市街区，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HAZP5XPK",
-    "recommendation": "洪崖洞夜市街区适合城市游览、街区爱好者"
+    "recommendation": "洪崖洞夜市街区适合城市游览、街区爱好者",
+    "open_minutes": 630,
+    "close_minutes": 1230
   },
   {
     "id": "amap_2595f439",
@@ -3938,12 +4064,14 @@
       "解放碑片区"
     ],
     "popularity": 2.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "农家土特产(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFFSOQ7Z",
-    "recommendation": "洪崖洞买特产首选这家，正宗又实惠，推荐尝尝合川桃片，记得比价再下手。"
+    "recommendation": "洪崖洞买特产首选这家，正宗又实惠，推荐尝尝合川桃片，记得比价再下手。",
+    "open_minutes": 510,
+    "close_minutes": 1440
   },
   {
     "id": "amap_3ef390ee",
@@ -3965,7 +4093,7 @@
       "解放碑片区"
     ],
     "popularity": 2.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洪崖洞特色特产店(嘉陵江滨江路店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3991,7 +4119,7 @@
       "便民商店/便利店"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洪崖洞李记百货店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4019,7 +4147,7 @@
       "解放碑片区"
     ],
     "popularity": 1.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洪崖寻梦(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4047,12 +4175,14 @@
       "解放碑片区"
     ],
     "popularity": 2.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "洪崖洞官方礼品屋(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HR411RMU",
-    "recommendation": "洪崖洞官方礼品屋(洪崖洞异国美食街店)适合城市游览、街区爱好者"
+    "recommendation": "洪崖洞官方礼品屋(洪崖洞异国美食街店)适合城市游览、街区爱好者",
+    "open_minutes": 570,
+    "close_minutes": 1380
   },
   {
     "id": "amap_64753920",
@@ -4075,7 +4205,7 @@
       "解放碑片区"
     ],
     "popularity": 3.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大自然水晶(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4103,7 +4233,7 @@
       "解放碑片区"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆沱茶洪崖洞店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4131,12 +4261,14 @@
       "解放碑片区"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆茗茶(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFGJOD4T",
-    "recommendation": "重庆茗茶(洪崖洞异国美食街店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆茗茶(洪崖洞异国美食街店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1410
   },
   {
     "id": "amap_eb1e435b",
@@ -4160,12 +4292,14 @@
       "专营店"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "陈昌银麻花(洪崖洞国潮店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0G35CWCWI",
-    "recommendation": "国潮包装的经典麻花，买来当伴手礼很合适，建议试吃几种口味再决定。"
+    "recommendation": "国潮包装的经典麻花，买来当伴手礼很合适，建议试吃几种口味再决定。",
+    "open_minutes": 570,
+    "close_minutes": 1350
   },
   {
     "id": "amap_689dfbf2",
@@ -4186,7 +4320,7 @@
       "购物相关场所"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "气味日记(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4213,7 +4347,7 @@
       "解放碑片区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "优客家便利店(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4240,12 +4374,14 @@
       "解放碑片区"
     ],
     "popularity": 3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "西藏美(洪崖洞商业街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFK6B9VA",
-    "recommendation": "推荐在渝中区参观西藏美(洪崖洞商业街店)，人气评分3.0"
+    "recommendation": "推荐在渝中区参观西藏美(洪崖洞商业街店)，人气评分3.0",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_850ac5b0",
@@ -4267,12 +4403,14 @@
       "解放碑片区"
     ],
     "popularity": 2.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "段吉祥核雕(洪崖洞商业街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFKGU0T8",
-    "recommendation": "核雕手艺精湛，适合买来当特色伴手礼，建议看师傅现场雕刻，更有纪念意义。"
+    "recommendation": "核雕手艺精湛，适合买来当特色伴手礼，建议看师傅现场雕刻，更有纪念意义。",
+    "open_minutes": 900,
+    "close_minutes": 1380
   },
   {
     "id": "amap_5470a2c2",
@@ -4294,12 +4432,14 @@
       "土特产专卖店"
     ],
     "popularity": 2.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "巴蜀土特产(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B00179265Y",
-    "recommendation": "巴蜀土特产(洪崖洞店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "巴蜀土特产(洪崖洞店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 660,
+    "close_minutes": 1350
   },
   {
     "id": "amap_776f9314",
@@ -4322,12 +4462,14 @@
       "解放碑片区"
     ],
     "popularity": 3.7,
-    "price_level": 2,
+    "price_level": 0,
     "meal_type": "main",
     "description": "居味鲜(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFKC5332",
-    "recommendation": "推荐在渝中区参观居味鲜(洪崖洞异国美食街店)，人气评分3.7"
+    "recommendation": "推荐在渝中区参观居味鲜(洪崖洞异国美食街店)，人气评分3.7",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6eb6c65",
@@ -4349,12 +4491,14 @@
       "解放碑片区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "喜木廊汉服(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFL7MFEK",
-    "recommendation": "喜木廊汉服(洪崖洞店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "喜木廊汉服(洪崖洞店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_f0039fc",
@@ -4377,12 +4521,14 @@
       "解放碑片区"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "食济良重庆特产(洪崖洞一楼店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0J1LYSZ31",
-    "recommendation": "食济良重庆特产(洪崖洞一楼店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "食济良重庆特产(洪崖洞一楼店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1440
   },
   {
     "id": "amap_84d19b12",
@@ -4404,12 +4550,14 @@
       "解放碑片区"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "食济良重庆特产(洪崖洞四楼店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HU1CD0AY",
-    "recommendation": "推荐在渝中区参观食济良重庆特产(洪崖洞四楼店)，人气评分3.3"
+    "recommendation": "推荐在渝中区参观食济良重庆特产(洪崖洞四楼店)，人气评分3.3",
+    "open_minutes": 540,
+    "close_minutes": 1440
   },
   {
     "id": "amap_c484ef09",
@@ -4432,12 +4580,14 @@
       "解放碑片区"
     ],
     "popularity": 2.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆特产总店(洪崖洞)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFIDZWKI",
-    "recommendation": "特产总店品类齐全，想一站式购齐重庆味道就来这，火锅底料是必买！"
+    "recommendation": "特产总店品类齐全，想一站式购齐重庆味道就来这，火锅底料是必买！",
+    "open_minutes": 480,
+    "close_minutes": 1440
   },
   {
     "id": "amap_f1e98a9f",
@@ -4460,7 +4610,7 @@
       "解放碑片区"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "烁漫文创伴手礼(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4486,12 +4636,14 @@
       "特色商业街"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "地方土特产及巴渝名小吃一条街，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B00170L72T",
-    "recommendation": "地方土特产及巴渝名小吃一条街是当地热门景点，建议游览90分钟左右"
+    "recommendation": "地方土特产及巴渝名小吃一条街是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_2f84d8dd",
@@ -4513,7 +4665,7 @@
       "解放碑片区"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "渝吙商用火锅底料洪崖洞品鉴交流中心(大井巷店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4541,12 +4693,14 @@
       "解放碑片区"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "食济良重庆特产(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFIXLNP2",
-    "recommendation": "食济良重庆特产(洪崖洞异国美食街店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "食济良重庆特产(洪崖洞异国美食街店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_5f819380",
@@ -4571,7 +4725,7 @@
       "解放碑片区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆裕博江景酒店(重庆解放碑洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4598,12 +4752,14 @@
       "解放碑片区"
     ],
     "popularity": 3.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆城口农家土猪老腊肉(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0KA4HDYFC",
-    "recommendation": "重庆城口农家土猪老腊肉(洪崖洞店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆城口农家土猪老腊肉(洪崖洞店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1440
   },
   {
     "id": "amap_a60245d4",
@@ -4625,7 +4781,7 @@
       "解放碑片区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "哈哈Home(重庆解放碑步行街洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4653,12 +4809,14 @@
       "解放碑片区"
     ],
     "popularity": 3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "敲洪堂·火锅底料商店(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0M65SH3D2",
-    "recommendation": "敲洪堂·火锅底料商店(洪崖洞店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "敲洪堂·火锅底料商店(洪崖洞店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_21bfb20b",
@@ -4680,12 +4838,14 @@
       "解放碑片区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "张小泉(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0H2D7DHEV",
-    "recommendation": "老字号刀具店，买把小巧的张小泉剪子当纪念品，挑mini款好带。"
+    "recommendation": "老字号刀具店，买把小巧的张小泉剪子当纪念品，挑mini款好带。",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_5f561368",
@@ -4707,7 +4867,7 @@
       "解放碑片区"
     ],
     "popularity": 3.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "百子巷，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4734,12 +4894,14 @@
       "解放碑片区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "全家便利店(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0LDRCD7R0",
-    "recommendation": "全家便利店(洪崖洞店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "全家便利店(洪崖洞店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a80c6932",
@@ -4761,7 +4923,7 @@
       "解放碑片区"
     ],
     "popularity": 3.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "烟茶商行(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4789,7 +4951,7 @@
       "解放碑片区"
     ],
     "popularity": 3.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆火锅底料(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4815,7 +4977,7 @@
       "便民商店/便利店"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "好品客超市(洪崖洞解放碑店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4841,7 +5003,7 @@
       "购物相关场所"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "合家便利店(戴家巷崖壁步道店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4869,12 +5031,14 @@
       "解放碑片区"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "朱砂饰品(洪崖洞异国美食街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFK65JUB",
-    "recommendation": "朱砂饰品(洪崖洞异国美食街店)适合城市游览、街区爱好者"
+    "recommendation": "朱砂饰品(洪崖洞异国美食街店)适合城市游览、街区爱好者",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_d71391a1",
@@ -4895,7 +5059,7 @@
       "便民商店/便利店"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "京东便利店(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -4922,12 +5086,14 @@
       "解放碑片区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "遇见文创伴手礼店(文创礼品店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFGBTEMM",
-    "recommendation": "遇见文创伴手礼店(文创礼品店)适合城市游览、街区爱好者"
+    "recommendation": "遇见文创伴手礼店(文创礼品店)适合城市游览、街区爱好者",
+    "open_minutes": 690,
+    "close_minutes": 1380
   },
   {
     "id": "amap_bab5e0e8",
@@ -4948,12 +5114,14 @@
       "火锅店"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海底捞火锅(来福士广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HDPZK1VQ",
-    "recommendation": "在渝中区觅食推荐海底捞火锅(来福士广场店)，性价比不错"
+    "recommendation": "在渝中区觅食推荐海底捞火锅(来福士广场店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 300
   },
   {
     "id": "amap_be1dc472",
@@ -4975,12 +5143,14 @@
       "解放碑片区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "天棒老火锅(老店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GDUU6NZR",
-    "recommendation": "在渝中区觅食推荐天棒老火锅(老店)，性价比不错"
+    "recommendation": "在渝中区觅食推荐天棒老火锅(老店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_77bffa2a",
@@ -5001,12 +5171,14 @@
       "火锅店"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "最火老火锅(观音桥总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJEFWHI",
-    "recommendation": "最火老火锅(观音桥总店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "最火老火锅(观音桥总店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 180
   },
   {
     "id": "amap_d5679c17",
@@ -5028,12 +5200,14 @@
       "解放碑片区"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "连裆裤本地人老火锅(解放碑店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K3KZFTWJ",
-    "recommendation": "本地人爱去的巷子老火锅，必点屠场毛肚和鹅肠，记得傍晚去避开高峰。"
+    "recommendation": "本地人爱去的巷子老火锅，必点屠场毛肚和鹅肠，记得傍晚去避开高峰。",
+    "open_minutes": 600,
+    "close_minutes": 240
   },
   {
     "id": "amap_9f02902f",
@@ -5055,12 +5229,14 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "陈胖子火锅(临江门店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K3CZZNTY",
-    "recommendation": "在渝中区觅食推荐陈胖子火锅(临江门店)，性价比不错"
+    "recommendation": "在渝中区觅食推荐陈胖子火锅(临江门店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_4c362f26",
@@ -5082,12 +5258,14 @@
       "响水"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海底捞火锅(龙湖重庆江岸天街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L367AJC9",
-    "recommendation": "服务出了名的好！等位时免费美甲、小零食，记得提前线上取号哦。"
+    "recommendation": "服务出了名的好！等位时免费美甲、小零食，记得提前线上取号哦。",
+    "open_minutes": 600,
+    "close_minutes": 420
   },
   {
     "id": "amap_7a6d6a52",
@@ -5109,12 +5287,14 @@
       "解放碑片区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "珮姐老火锅(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFI4W1C5",
-    "recommendation": "珮姐老火锅(洪崖洞店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "珮姐老火锅(洪崖洞店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 90
   },
   {
     "id": "amap_5db8e77f",
@@ -5136,12 +5316,14 @@
       "两江新区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "黄建彬火锅(大剧院总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0IRB5ZEXQ",
-    "recommendation": "紧邻大剧院，吃完火锅散步看江景，建议傍晚去，夜景超赞。"
+    "recommendation": "紧邻大剧院，吃完火锅散步看江景，建议傍晚去，夜景超赞。",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_1ff7399a",
@@ -5163,7 +5345,7 @@
       "解放碑片区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "莲姐火锅(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -5190,12 +5372,14 @@
       "石桥铺"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "飚万火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K15R32HO",
-    "recommendation": "在九龙坡区觅食推荐飚万火锅，性价比不错"
+    "recommendation": "在九龙坡区觅食推荐飚万火锅，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 120
   },
   {
     "id": "amap_b3fef8ee",
@@ -5217,12 +5401,14 @@
       "解放碑片区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "陶婆婆火锅(老店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JD0YZKVC",
-    "recommendation": "来这家就对了，老重庆味道超正！建议傍晚去，边吃边感受老街烟火气。"
+    "recommendation": "来这家就对了，老重庆味道超正！建议傍晚去，边吃边感受老街烟火气。",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_caf0a240",
@@ -5243,12 +5429,14 @@
       "火锅店"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海底捞火锅(龙湖U城天街A馆店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G315Z5IE",
-    "recommendation": "服务好到没话说，带娃或是朋友聚会首选。别忘了薅免费小料和水果的羊毛。"
+    "recommendation": "服务好到没话说，带娃或是朋友聚会首选。别忘了薅免费小料和水果的羊毛。",
+    "open_minutes": 600,
+    "close_minutes": 420
   },
   {
     "id": "amap_fb14b2a4",
@@ -5270,12 +5458,14 @@
       "两江新区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "北火锅(阳光园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JBK7MS8C",
-    "recommendation": "地道重庆老味道，红油锅底香辣浓郁，必点毛肚和鸭"
+    "recommendation": "地道重庆老味道，红油锅底香辣浓郁，必点毛肚和鸭",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_7b5bcec0",
@@ -5297,12 +5487,14 @@
       "解放碑片区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "周师兄大刀腰片火锅(解放碑店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIPDMQ8",
-    "recommendation": "腰片薄如纸、脆嫩没腥"
+    "recommendation": "腰片薄如纸、脆嫩没腥",
+    "open_minutes": 600,
+    "close_minutes": 30
   },
   {
     "id": "amap_d8963d8c",
@@ -5324,12 +5516,14 @@
       "涂山"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "年白老火锅(弹子石店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JR9CLHUB",
-    "recommendation": "年白老火锅(弹子石店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "年白老火锅(弹子石店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_a312caec",
@@ -5350,12 +5544,14 @@
       "火锅店"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "天棒老火锅(总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JDKC62HU",
-    "recommendation": "在渝中区觅食推荐天棒老火锅(总店)，性价比不错"
+    "recommendation": "在渝中区觅食推荐天棒老火锅(总店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_25002e65",
@@ -5376,12 +5572,14 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "火上巴蜀重庆火锅旗舰店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFLKI2W1",
-    "recommendation": "在北碚区觅食推荐火上巴蜀重庆火锅旗舰店，性价比不错"
+    "recommendation": "在北碚区觅食推荐火上巴蜀重庆火锅旗舰店，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_3534d6de",
@@ -5403,12 +5601,14 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "正霞老火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LAZAP3UI",
-    "recommendation": "在渝中区觅食推荐正霞老火锅，性价比不错"
+    "recommendation": "在渝中区觅食推荐正霞老火锅，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1410
   },
   {
     "id": "amap_5ffe28b2",
@@ -5430,12 +5630,14 @@
       "磁器口"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "林耍耍老火锅(磁器口总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KACHSK7I",
-    "recommendation": "林耍耍老火锅(磁器口总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "林耍耍老火锅(磁器口总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1410
   },
   {
     "id": "amap_ed654528",
@@ -5456,12 +5658,14 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "周嬢嬢火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIJSYX0",
-    "recommendation": "周嬢嬢火锅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "周嬢嬢火锅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 60
   },
   {
     "id": "amap_90083677",
@@ -5484,12 +5688,14 @@
       "两江新区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "伊品辣清真重庆火锅(爱里耶赛店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I3DS4BS4",
-    "recommendation": "在两江新区觅食推荐伊品辣清真重庆火锅(爱里耶赛店)，性价比不错"
+    "recommendation": "在两江新区觅食推荐伊品辣清真重庆火锅(爱里耶赛店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_3668c7fc",
@@ -5510,7 +5716,7 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "华一坡蓉姐火锅(观音桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -5537,12 +5743,14 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "珮姐老火锅(较场口店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFAJLA1",
-    "recommendation": "在渝中区觅食推荐珮姐老火锅(较场口店)，性价比不错"
+    "recommendation": "在渝中区觅食推荐珮姐老火锅(较场口店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_57061f03",
@@ -5564,12 +5772,14 @@
       "北滨路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "该歪火锅(北滨路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JR9SFK6G",
-    "recommendation": "在两江新区觅食推荐该歪火锅(北滨路店)，性价比不错"
+    "recommendation": "在两江新区觅食推荐该歪火锅(北滨路店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_df7ed732",
@@ -5590,12 +5800,14 @@
       "火锅店"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "一斗火锅(北温泉九号店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHJ9882",
-    "recommendation": "一斗火锅(北温泉九号店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "一斗火锅(北温泉九号店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 570,
+    "close_minutes": 1350
   },
   {
     "id": "amap_cae12101",
@@ -5616,12 +5828,14 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "丁孃孃火锅(解放碑天台店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0IGTLMMW1",
-    "recommendation": "天台吃火锅看夜景，氛围感拉满！建议傍晚去，边涮边赏解放碑灯火。"
+    "recommendation": "天台吃火锅看夜景，氛围感拉满！建议傍晚去，边涮边赏解放碑灯火。",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_26cd2e04",
@@ -5643,12 +5857,14 @@
       "回龙湾"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "六婶老火锅(回龙湾店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I3RCS9ZB",
-    "recommendation": "回龙湾美食街人气王，本地人常打卡。招牌牛肉必点，辣得过瘾。"
+    "recommendation": "回龙湾美食街人气王，本地人常打卡。招牌牛肉必点，辣得过瘾。",
+    "open_minutes": 600,
+    "close_minutes": 60
   },
   {
     "id": "amap_3d943491",
@@ -5670,12 +5886,14 @@
       "新牌坊"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "见涨UPOT重庆老火锅(人和天地店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGDI45W",
-    "recommendation": "新牌坊品质火锅，汤底浓郁不口干。记得先喝碗番茄汤开胃。"
+    "recommendation": "新牌坊品质火锅，汤底浓郁不口干。记得先喝碗番茄汤开胃。",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_fbe1badc",
@@ -5697,12 +5915,14 @@
       "解放碑片区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "渝富贵火锅(洪崖洞店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J1XHQGVH",
-    "recommendation": "渝富贵火锅(洪崖洞店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "渝富贵火锅(洪崖洞店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_e13f79be",
@@ -5724,12 +5944,14 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "木九格老火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G2FC1H4N",
-    "recommendation": "解放碑巷子里的九宫格老味道，价格亲"
+    "recommendation": "解放碑巷子里的九宫格老味道，价格亲",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_66418949",
@@ -5751,12 +5973,14 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "过道火锅(总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J0PH9GM7",
-    "recommendation": "过道火锅(总店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "过道火锅(总店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_9599835f",
@@ -5778,12 +6002,14 @@
       "涂山"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "33楼火锅(五院店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIRYROQ",
-    "recommendation": "33楼火锅(五院店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "33楼火锅(五院店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 60
   },
   {
     "id": "amap_6b469bf9",
@@ -5804,12 +6030,14 @@
       "沙正街"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "渝厨生态火锅(沙坪坝店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LG0BZGKW",
-    "recommendation": "渝厨生态火锅(沙坪坝店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "渝厨生态火锅(沙坪坝店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_9675e6ca",
@@ -5831,12 +6059,14 @@
       "解放碑片区"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "珮姐老火锅(重庆来福士店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFL70Y4E",
-    "recommendation": "珮姐老火锅(重庆来福士店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "珮姐老火锅(重庆来福士店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_49c69d88",
@@ -5858,7 +6088,7 @@
       "红旗河沟"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "年白老火锅(观音桥旗舰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -5884,12 +6114,14 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "在渝里·重庆火锅(十八梯原址保留单位店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J2G5GASX",
-    "recommendation": "在渝里·重庆火锅(十八梯原址保留单位店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "在渝里·重庆火锅(十八梯原址保留单位店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_55957c24",
@@ -5911,12 +6143,14 @@
       "总部城"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "堂客老火锅(总部城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKKFUC1",
-    "recommendation": "在渝中区觅食推荐堂客老火锅(总部城店)，性价比不错"
+    "recommendation": "在渝中区觅食推荐堂客老火锅(总部城店)，性价比不错",
+    "open_minutes": 570,
+    "close_minutes": 60
   },
   {
     "id": "amap_a80e6ca9",
@@ -5938,12 +6172,14 @@
       "五里店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "庆三元老火锅(珠江太阳城D区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JDPRXBU7",
-    "recommendation": "庆三元老火锅(珠江太阳城D区店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "庆三元老火锅(珠江太阳城D区店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 690,
+    "close_minutes": 840
   },
   {
     "id": "amap_d727c9a9",
@@ -5964,12 +6200,14 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "在渝里·重庆火锅(解放碑好吃街老店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFYFIRP",
-    "recommendation": "在渝里·重庆火锅(解放碑好吃街老店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "在渝里·重庆火锅(解放碑好吃街老店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_a20451a5",
@@ -5991,12 +6229,14 @@
       "两江新区"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "重庆崽儿火锅(江北总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HGY5YIRC",
-    "recommendation": "在两江新区觅食推荐重庆崽儿火锅(江北总店)，性价比不错"
+    "recommendation": "在两江新区觅食推荐重庆崽儿火锅(江北总店)，性价比不错",
+    "open_minutes": 570,
+    "close_minutes": 900
   },
   {
     "id": "amap_95a89df2",
@@ -6018,12 +6258,14 @@
       "南岸区南坪"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "清叫欢老火锅(重庆万达广场铂邸店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I3NUDCOF",
-    "recommendation": "清叫欢老火锅(重庆万达广场铂邸店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "清叫欢老火锅(重庆万达广场铂邸店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 630,
+    "close_minutes": 90
   },
   {
     "id": "amap_a2af6418",
@@ -6045,12 +6287,14 @@
       "五里店"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "九火锅(珠江国际店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JDGSZ5XN",
-    "recommendation": "九火锅(珠江国际店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "九火锅(珠江国际店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_e395254e",
@@ -6072,12 +6316,14 @@
       "九龙街道"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "黄桷坪老火锅(总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I0Z7BRHI",
-    "recommendation": "黄桷坪老火锅(总店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "黄桷坪老火锅(总店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_99d6980d",
@@ -6099,12 +6345,14 @@
       "观音岩"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "渝中区惠姐炫火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JGGHQ9P4",
-    "recommendation": "在渝中区觅食推荐渝中区惠姐炫火锅，性价比不错"
+    "recommendation": "在渝中区觅食推荐渝中区惠姐炫火锅，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1410
   },
   {
     "id": "amap_21d6519",
@@ -6126,12 +6374,14 @@
       "两江新区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "锭子老火锅(观音桥二店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J2HMQYHQ",
-    "recommendation": "在两江新区觅食推荐锭子老火锅(观音桥二店)，性价比不错"
+    "recommendation": "在两江新区觅食推荐锭子老火锅(观音桥二店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_37f6b014",
@@ -6153,12 +6403,14 @@
       "童家桥"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "周师兄重庆火锅(磁器口直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HU1UD62V",
-    "recommendation": "周师兄重庆火锅(磁器口直营店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "周师兄重庆火锅(磁器口直营店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_fb2229ad",
@@ -6179,12 +6431,14 @@
       "火锅店"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "珮姐老火锅(北城天街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGX1XPD",
-    "recommendation": "在两江新区觅食推荐珮姐老火锅(北城天街店)，性价比不错"
+    "recommendation": "在两江新区觅食推荐珮姐老火锅(北城天街店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_e30573ef",
@@ -6205,12 +6459,14 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "周师兄重庆火锅(茶园直营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H2P7SLRZ",
-    "recommendation": "在南岸区觅食推荐周师兄重庆火锅(茶园直营店)，性价比不错"
+    "recommendation": "在南岸区觅食推荐周师兄重庆火锅(茶园直营店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_a968a41c",
@@ -6232,12 +6488,14 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "山城赵二火锅(总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JR3P7HRW",
-    "recommendation": "山城赵二火锅(总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "山城赵二火锅(总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 120
   },
   {
     "id": "amap_c88d3ad7",
@@ -6259,12 +6517,14 @@
       "红旗河沟"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "品健老灶火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00179434F",
-    "recommendation": "品健老灶火锅口碑很好，建议避开高峰期就餐"
+    "recommendation": "品健老灶火锅口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_55f7ed7f",
@@ -6285,7 +6545,7 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "武姐火锅(九街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -6312,12 +6572,14 @@
       "两江新区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "脸谱自助火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKV3TRG",
-    "recommendation": "在两江新区觅食推荐脸谱自助火锅，性价比不错"
+    "recommendation": "在两江新区觅食推荐脸谱自助火锅，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_3bb78f98",
@@ -6339,12 +6601,14 @@
       "回龙湾"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "堂客老火锅(回龙湾店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GRNH7FO2",
-    "recommendation": "回龙湾是重庆夜宵圣地，晚上去最有烟火气。建议点招牌毛肚，配冰啤酒超爽。"
+    "recommendation": "回龙湾是重庆夜宵圣地，晚上去最有烟火气。建议点招牌毛肚，配冰啤酒超爽。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_fccbdb31",
@@ -6365,12 +6629,14 @@
       "火锅店"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "地瓜头等舱火锅料理(璧山店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KK27BLAX",
-    "recommendation": "地瓜头等舱火锅料理(璧山店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "地瓜头等舱火锅料理(璧山店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_33095216",
@@ -6392,12 +6658,14 @@
       "五里店"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "瀾渝重庆火锅(北滨路鎏嘉码头店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J6PZULRT",
-    "recommendation": "瀾渝重庆火锅(北滨路鎏嘉码头店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "瀾渝重庆火锅(北滨路鎏嘉码头店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 570,
+    "close_minutes": 1440
   },
   {
     "id": "amap_c2a4e053",
@@ -6419,12 +6687,14 @@
       "外贸"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "勤道乐重庆火锅(鸿鸥广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KR57P8CN",
-    "recommendation": "勤道乐重庆火锅(鸿鸥广场店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "勤道乐重庆火锅(鸿鸥广场店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7ae5668b",
@@ -6446,12 +6716,14 @@
       "观音岩"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "渝味万全老火锅(纯阳洞小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JR76ESI8",
-    "recommendation": "在渝中区觅食推荐渝味万全老火锅(纯阳洞小区店)，性价比不错"
+    "recommendation": "在渝中区觅食推荐渝味万全老火锅(纯阳洞小区店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_d7393b89",
@@ -6473,7 +6745,7 @@
       "解放碑片区"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "乔家老火锅(解放碑店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -6499,12 +6771,14 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "三巷老火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LU3H9OJN",
-    "recommendation": "藏在巷子里的老火锅，市井氛围拉满。记得要中辣，微辣没灵魂。"
+    "recommendation": "藏在巷子里的老火锅，市井氛围拉满。记得要中辣，微辣没灵魂。",
+    "open_minutes": 660,
+    "close_minutes": 1350
   },
   {
     "id": "amap_c1e31c4",
@@ -6526,12 +6800,14 @@
       "两江新区"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "天赋老火锅(观音桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFAJ77V",
-    "recommendation": "天赋老火锅(观音桥店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "天赋老火锅(观音桥店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_1410d26f",
@@ -6553,7 +6829,7 @@
       "解放碑片区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "虎三火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -6579,12 +6855,14 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "重庆人家火锅(巴国城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J1RRMD8V",
-    "recommendation": "巴国城景区旁的火锅，逛完景点正好"
+    "recommendation": "巴国城景区旁的火锅，逛完景点正好",
+    "open_minutes": 570,
+    "close_minutes": 810
   },
   {
     "id": "amap_4b15d92d",
@@ -6606,7 +6884,7 @@
       "牌楼"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "王珮珮火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -6633,12 +6911,14 @@
       "南滨路沿江商圈"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "渝宗老重庆火锅(长嘉汇店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H3K5YGFH",
-    "recommendation": "渝宗老重庆火锅(长嘉汇店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "渝宗老重庆火锅(长嘉汇店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 630,
+    "close_minutes": 1350
   },
   {
     "id": "amap_e8e80f3b",
@@ -6659,12 +6939,14 @@
       "餐饮相关"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "刘一手重庆火锅(好吃街旗舰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFK70WG0",
-    "recommendation": "在渝中区觅食推荐刘一手重庆火锅(好吃街旗舰店)，性价比不错"
+    "recommendation": "在渝中区觅食推荐刘一手重庆火锅(好吃街旗舰店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1410
   },
   {
     "id": "amap_5aea1fe",
@@ -6686,12 +6968,14 @@
       "两江新区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "夏孃老火锅(总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J0TUX6YA",
-    "recommendation": "夏孃老火锅(总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "夏孃老火锅(总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 60
   },
   {
     "id": "amap_4953b22f",
@@ -6713,12 +6997,14 @@
       "解放碑片区"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "重庆小天鹅火锅传统店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0017926BS",
-    "recommendation": "重庆小天鹅火锅传统店是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "重庆小天鹅火锅传统店是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_2e1d2290",
@@ -6740,12 +7026,14 @@
       "两江新区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "厨东家腰片火锅(南桥寺店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J6GSGV3Y",
-    "recommendation": "在两江新区觅食推荐厨东家腰片火锅(南桥寺店)，性价比不错"
+    "recommendation": "在两江新区觅食推荐厨东家腰片火锅(南桥寺店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 120
   },
   {
     "id": "amap_c643a820",
@@ -6767,12 +7055,14 @@
       "北山"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "勤道乐重庆火锅(北山店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JRLH2JUB",
-    "recommendation": "勤道乐重庆火锅(北山店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "勤道乐重庆火锅(北山店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1290
   },
   {
     "id": "amap_d459958d",
@@ -6794,12 +7084,14 @@
       "高笋塘"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "勤道乐重庆火锅(福斯德店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I03CW56Y",
-    "recommendation": "勤道乐重庆火锅(福斯德店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "勤道乐重庆火锅(福斯德店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_e4de8ca9",
@@ -6820,7 +7112,7 @@
       "小龙坎"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "年白老火锅(小龙坎店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -6846,12 +7138,14 @@
       "火锅店"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "六婶老火锅(金色悦城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K2RDBX1R",
-    "recommendation": "在沙坪坝区觅食推荐六婶老火锅(金色悦城店)，性价比不错"
+    "recommendation": "在沙坪坝区觅食推荐六婶老火锅(金色悦城店)，性价比不错",
+    "open_minutes": 570,
+    "close_minutes": 1440
   },
   {
     "id": "amap_51334b7a",
@@ -6873,12 +7167,14 @@
       "江北(商圈)"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "马姐老火锅(观音桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JUF7KCBM",
-    "recommendation": "马姐老火锅(观音桥店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "马姐老火锅(观音桥店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 720,
+    "close_minutes": 90
   },
   {
     "id": "amap_87d62e1",
@@ -6903,7 +7199,9 @@
     "description": "黎小曼重庆椒麻鸡火锅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H0BC04FY",
-    "recommendation": "黎小曼重庆椒麻鸡火锅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "黎小曼重庆椒麻鸡火锅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_bd227f1a",
@@ -6925,12 +7223,14 @@
       "城北"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "李常在火锅(全国总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G0FZ9GJD",
-    "recommendation": "在合川区觅食推荐李常在火锅(全国总店)，性价比不错"
+    "recommendation": "在合川区觅食推荐李常在火锅(全国总店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1410
   },
   {
     "id": "amap_9991dc8",
@@ -6952,12 +7252,14 @@
       "大坪"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "渝宗老灶火锅(石油路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LRNUMAWO",
-    "recommendation": "在渝中区觅食推荐渝宗老灶火锅(石油路店)，性价比不错"
+    "recommendation": "在渝中区觅食推荐渝宗老灶火锅(石油路店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 180
   },
   {
     "id": "amap_b426c161",
@@ -6979,12 +7281,14 @@
       "九龙街道"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "渝宗老灶火锅(石坪桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H2DLG2ZQ",
-    "recommendation": "在九龙坡区觅食推荐渝宗老灶火锅(石坪桥店)，性价比不错"
+    "recommendation": "在九龙坡区觅食推荐渝宗老灶火锅(石坪桥店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 240
   },
   {
     "id": "amap_8d9af34c",
@@ -7006,12 +7310,14 @@
       "汉渝路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "燕姐老火锅(小龙坎店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0IAH765KZ",
-    "recommendation": "燕姐老火锅(小龙坎店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "燕姐老火锅(小龙坎店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_9ef52186",
@@ -7033,12 +7339,14 @@
       "大礼堂"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "欢火锅(名仕城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KAFAHHM3",
-    "recommendation": "本地人私藏的火锅馆，牛油锅底香得霸道，记得点一份贡菜和脑花，蘸干碟绝了！"
+    "recommendation": "本地人私藏的火锅馆，牛油锅底香得霸道，记得点一份贡菜和脑花，蘸干碟绝了！",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_751b42c9",
@@ -7060,12 +7368,14 @@
       "南滨路沿江商圈"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "庖丁家牛肆.鲜牛肉火锅(铜元局店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFILBYM1",
-    "recommendation": "庖丁家牛肆.鲜牛肉火锅(铜元局店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "庖丁家牛肆.鲜牛肉火锅(铜元局店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_93f537ae",
@@ -7086,7 +7396,7 @@
       "黄桷垭"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "10617星光夜市，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -7117,7 +7427,9 @@
     "description": "王文鱼庄面庄，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B001790S2E",
-    "recommendation": "鲜鱼与劲道面条的宝藏组合，建议试试招牌鱼面，汤底浓郁超满足！"
+    "recommendation": "鲜鱼与劲道面条的宝藏组合，建议试试招牌鱼面，汤底浓郁超满足！",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8c4b1db3",
@@ -7168,7 +7480,9 @@
     "description": "袁洋糊辣壳抄手翘壳鱼庄，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LBO1CNH4",
-    "recommendation": "袁洋糊辣壳抄手翘壳鱼庄是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "袁洋糊辣壳抄手翘壳鱼庄是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 120
   },
   {
     "id": "amap_8a64044d",
@@ -7245,7 +7559,9 @@
     "description": "王记藤椒抄手，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0I07PIJV1",
-    "recommendation": "藤椒味抄手麻辣鲜香，"
+    "recommendation": "藤椒味抄手麻辣鲜香，",
+    "open_minutes": 390,
+    "close_minutes": 1350
   },
   {
     "id": "amap_42cfa8de",
@@ -7346,7 +7662,9 @@
     "description": "水云间肥肠饭，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0KA9RQM8X",
-    "recommendation": "水云间肥肠饭口碑很好，建议避开高峰期就餐"
+    "recommendation": "水云间肥肠饭口碑很好，建议避开高峰期就餐",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_8d01d2b5",
@@ -7369,12 +7687,14 @@
       "两江新区直管区"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆光环购物公园，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0G0XNX46G",
-    "recommendation": "室内巨型植物园太惊艳，拍照圣地。建议工作日去，人少体验更舒服。"
+    "recommendation": "室内巨型植物园太惊艳，拍照圣地。建议工作日去，人少体验更舒服。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_eab3127e",
@@ -7396,12 +7716,14 @@
       "购物中心"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖重庆时代天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001797N7H",
-    "recommendation": "超级大的购物街区，美食潮牌应有尽有，"
+    "recommendation": "超级大的购物街区，美食潮牌应有尽有，",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ff1d5b81",
@@ -7423,12 +7745,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖时代天街A馆，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFG22N0I",
-    "recommendation": "超大型商场吃喝玩乐一站式，建议傍晚"
+    "recommendation": "超大型商场吃喝玩乐一站式，建议傍晚",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a797f2df",
@@ -7450,12 +7774,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖重庆时代天街C馆，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFNQN92",
-    "recommendation": "龙湖重庆时代天街C馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "龙湖重庆时代天街C馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7c824441",
@@ -7483,7 +7809,9 @@
     "description": "重庆万象城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF3O598",
-    "recommendation": "重庆万象城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆万象城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1866d6d9",
@@ -7511,7 +7839,9 @@
     "description": "重庆万象城北区，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0JU6C0TTP",
-    "recommendation": "重庆万象城北区适合城市游览、购物爱好者"
+    "recommendation": "重庆万象城北区适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5daacb7",
@@ -7539,7 +7869,9 @@
     "description": "重庆万象城南区，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFMEJGEX",
-    "recommendation": "重庆万象城南区适合城市游览、购物爱好者"
+    "recommendation": "重庆万象城南区适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1c2dce72",
@@ -7567,7 +7899,9 @@
     "description": "重庆万象城中区，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0G1340C4M",
-    "recommendation": "重庆万象城中区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆万象城中区是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_614c869d",
@@ -7588,12 +7922,14 @@
       "商场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(重庆巴南店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF3P4UD",
-    "recommendation": "万达广场(重庆巴南店)适合城市游览、购物爱好者"
+    "recommendation": "万达广场(重庆巴南店)适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6c0eab8c",
@@ -7616,12 +7952,14 @@
       "解放碑片区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆来福士广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFQLXRT",
-    "recommendation": "来福士超酷的帆船造型，观景台看两江交汇超震撼！建议傍晚去拍夜景。"
+    "recommendation": "来福士超酷的帆船造型，观景台看两江交汇超震撼！建议傍晚去拍夜景。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ff1daed8",
@@ -7644,12 +7982,14 @@
       "南坪片区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(重庆南坪店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGSI3QP",
-    "recommendation": "万达广场(重庆南坪店)适合城市游览、购物爱好者"
+    "recommendation": "万达广场(重庆南坪店)适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1140
   },
   {
     "id": "amap_5bec901f",
@@ -7672,12 +8012,14 @@
       "江北(商圈)"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖重庆北城天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGID9L5",
-    "recommendation": "北城天街是江北潮流地标，好吃好逛又好拍。周末人超多，建议工作日去。"
+    "recommendation": "北城天街是江北潮流地标，好吃好逛又好拍。周末人超多，建议工作日去。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c527a531",
@@ -7699,12 +8041,14 @@
       "江北(商圈)"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "北城天街A馆，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFK7KNLG",
-    "recommendation": "北城天街A馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "北城天街A馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_97f96ed",
@@ -7732,7 +8076,9 @@
     "description": "SKLP(新光里+)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFH7ZJ8Q",
-    "recommendation": "新光里+是文艺新地标，空中连廊和绿植超治愈！推荐顺路去旁边的公园散步。"
+    "recommendation": "新光里+是文艺新地标，空中连廊和绿植超治愈！推荐顺路去旁边的公园散步。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7942d33a",
@@ -7755,12 +8101,14 @@
       "宜奥商圈"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "砂之船(重庆两江)奥莱，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00178371R",
-    "recommendation": "两江奥莱品牌折扣超给力，淘大牌好去处！建议早上去，人少货全。"
+    "recommendation": "两江奥莱品牌折扣超给力，淘大牌好去处！建议早上去，人少货全。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c7f3dbdf",
@@ -7784,12 +8132,14 @@
       "两江新区直管区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "砂之船(重庆两江奥莱砂之船店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF2SCXF",
-    "recommendation": "砂之船(重庆两江奥莱砂之船店)适合城市游览、购物爱好者"
+    "recommendation": "砂之船(重庆两江奥莱砂之船店)适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8d66e8eb",
@@ -7812,12 +8162,14 @@
       "小龙坎"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖重庆金沙天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFI60L1Z",
-    "recommendation": "金沙天街在沙坪坝交通枢纽，逛街同时还能换乘高铁，超方便！推荐试试地下的特色小吃。"
+    "recommendation": "金沙天街在沙坪坝交通枢纽，逛街同时还能换乘高铁，超方便！推荐试试地下的特色小吃。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_34932247",
@@ -7839,12 +8191,14 @@
       "小龙坎"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖重庆金沙天街B馆，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0IAZ5V5OO",
-    "recommendation": "推荐在沙坪坝区参观龙湖重庆金沙天街B馆，人气评分4.6"
+    "recommendation": "推荐在沙坪坝区参观龙湖重庆金沙天街B馆，人气评分4.6",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c7cffb50",
@@ -7867,12 +8221,14 @@
       "两江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大融城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0017876OC",
-    "recommendation": "大融城适合城市游览、购物爱好者"
+    "recommendation": "大融城适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_bfb1642c",
@@ -7895,12 +8251,14 @@
       "两江新区直管区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖重庆礼嘉天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFKNXF8X",
-    "recommendation": "礼嘉天街环境舒适，人少体验好，适合带娃慢慢逛。旁边有湖景，夜景不错。"
+    "recommendation": "礼嘉天街环境舒适，人少体验好，适合带娃慢慢逛。旁边有湖景，夜景不错。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_673ca75b",
@@ -7923,12 +8281,14 @@
       "中央公园"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中央公园光环花园城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0JBOSL39F",
-    "recommendation": "光环花园城像室内植物园，绿植瀑布超震撼！拍照打卡必去，闺蜜游首选。"
+    "recommendation": "光环花园城像室内植物园，绿植瀑布超震撼！拍照打卡必去，闺蜜游首选。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b3ec9bf5",
@@ -7951,12 +8311,14 @@
       "两江新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆金开爱琴海购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHC86WB",
-    "recommendation": "爱琴海购物中心以浪漫海洋主题闻名，穹顶很漂亮。推荐白天去，光线好适合拍照。"
+    "recommendation": "爱琴海购物中心以浪漫海洋主题闻名，穹顶很漂亮。推荐白天去，光线好适合拍照。",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b7abe470",
@@ -7983,7 +8345,9 @@
     "description": "重庆悦荟购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFIUD1LF",
-    "recommendation": "悦荟购物中心在石桥铺，周边美食多，适合逛吃结合。建议晚上来，小吃街热闹。"
+    "recommendation": "悦荟购物中心在石桥铺，周边美食多，适合逛吃结合。建议晚上来，小吃街热闹。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_32fb306a",
@@ -8006,12 +8370,14 @@
       "两江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "新世界百货(重庆店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00178TW57",
-    "recommendation": "新世界百货(重庆店)适合城市游览、购物爱好者"
+    "recommendation": "新世界百货(重庆店)适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2139ea23",
@@ -8036,12 +8402,14 @@
       "商住两用楼宇"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖重庆公园天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFMC8AS4",
-    "recommendation": "公园天街紧邻中央公园，逛街累了可以去公园散步呼吸。适合周末家庭出游。"
+    "recommendation": "公园天街紧邻中央公园，逛街累了可以去公园散步呼吸。适合周末家庭出游。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_92a29789",
@@ -8064,12 +8432,14 @@
       "南坪镇"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "协信星光时代广场(南坪店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00178VT6V",
-    "recommendation": "协信星光时代广场(南坪店)适合城市游览、购物爱好者"
+    "recommendation": "协信星光时代广场(南坪店)适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d0d690fb",
@@ -8093,12 +8463,14 @@
       "九龙街道"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖重庆云领天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0JBHZZOSV",
-    "recommendation": "推荐在九龙坡区参观龙湖重庆云领天街，人气评分4.7"
+    "recommendation": "推荐在九龙坡区参观龙湖重庆云领天街，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_27a41981",
@@ -8123,12 +8495,14 @@
       "两江新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖重庆源著天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFL2JQSJ",
-    "recommendation": "新商圈设计感强，周末人少适合慢慢逛，地下美食街的甜品别错过！"
+    "recommendation": "新商圈设计感强，周末人少适合慢慢逛，地下美食街的甜品别错过！",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_65b016b3",
@@ -8151,12 +8525,14 @@
       "大渡口万达广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(重庆大渡口店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHS7FTT",
-    "recommendation": "推荐在大渡口区参观万达广场(重庆大渡口店)，人气评分4.7"
+    "recommendation": "推荐在大渡口区参观万达广场(重庆大渡口店)，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e9f9d988",
@@ -8178,12 +8554,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(重庆万州店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00178YUFM",
-    "recommendation": "推荐在万州区参观万达广场(重庆万州店)，人气评分4.7"
+    "recommendation": "推荐在万州区参观万达广场(重庆万州店)，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_657300e8",
@@ -8205,12 +8583,14 @@
       "南滨路沿江商圈"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "长嘉汇购物公园，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFH435WX",
-    "recommendation": "推荐在南岸区参观长嘉汇购物公园，人气评分4.7"
+    "recommendation": "推荐在南岸区参观长嘉汇购物公园，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b5554c2f",
@@ -8238,7 +8618,9 @@
     "description": "重庆IFS国金中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF9Q677",
-    "recommendation": "奢侈品云集，门口熊猫雕塑是必打卡点，傍晚亮灯后拍夜景超有氛围。"
+    "recommendation": "奢侈品云集，门口熊猫雕塑是必打卡点，傍晚亮灯后拍夜景超有氛围。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_cbc98b8a",
@@ -8260,12 +8642,14 @@
       "红旗河沟"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "重庆星光68广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00178VSIY",
-    "recommendation": "重庆星光68广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "重庆星光68广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4a5d1830",
@@ -8288,12 +8672,14 @@
       "南岸区南坪"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖重庆江岸天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0LGC5RB6H",
-    "recommendation": "龙湖重庆江岸天街适合城市游览、购物爱好者"
+    "recommendation": "龙湖重庆江岸天街适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_cbb2fc8c",
@@ -8316,12 +8702,14 @@
       "普通商场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(重庆永川店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFS375I",
-    "recommendation": "万达广场(重庆永川店)适合城市游览、购物爱好者"
+    "recommendation": "万达广场(重庆永川店)适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_fcc61607",
@@ -8347,7 +8735,9 @@
     "description": "一根魚咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0K229DUFO",
-    "recommendation": "一根魚咖啡口碑很好，建议避开高峰期就餐"
+    "recommendation": "一根魚咖啡口碑很好，建议避开高峰期就餐",
+    "open_minutes": 450,
+    "close_minutes": 1140
   },
   {
     "id": "amap_70cf7688",
@@ -8367,12 +8757,14 @@
       "咖啡厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "小南山·森林咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KUFZ51P7",
-    "recommendation": "藏在森林里的咖啡秘境，午后阳光透过树叶洒下超美。建议带本书，享受静谧时光。"
+    "recommendation": "藏在森林里的咖啡秘境，午后阳光透过树叶洒下超美。建议带本书，享受静谧时光。",
+    "open_minutes": 570,
+    "close_minutes": 1140
   },
   {
     "id": "amap_6901ba40",
@@ -8398,7 +8790,9 @@
     "description": "四季咖啡馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0I2F5OTB4",
-    "recommendation": "藏身街角的安静咖啡馆，推荐手冲单品，靠窗位坐一下午发呆超惬意。"
+    "recommendation": "藏身街角的安静咖啡馆，推荐手冲单品，靠窗位坐一下午发呆超惬意。",
+    "open_minutes": 420,
+    "close_minutes": 600
   },
   {
     "id": "amap_142aee3d",
@@ -8424,7 +8818,9 @@
     "description": "Peet's皮爷咖啡(重庆万象城店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0JD9ZZDYT",
-    "recommendation": "万象城里歇脚首选，皮爷的深烘豆香浓醇厚。必点澳洲白，搭配可颂绝了。"
+    "recommendation": "万象城里歇脚首选，皮爷的深烘豆香浓醇厚。必点澳洲白，搭配可颂绝了。",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1bf70fb7",
@@ -8471,12 +8867,14 @@
       "黄桷垭"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "三毛印记咖啡馆(三毛故居店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0I2JC5SW3",
-    "recommendation": "在文艺女神的故居旁喝咖啡，氛围感拉满。选个靠窗位，随手拍都是故事感。"
+    "recommendation": "在文艺女神的故居旁喝咖啡，氛围感拉满。选个靠窗位，随手拍都是故事感。",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_b8a9577",
@@ -8523,12 +8921,14 @@
       "上清寺"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "PLAN CO咖啡厅，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0I6N7CUKF",
-    "recommendation": "在渝中区觅食推荐PLAN CO咖啡厅，性价比不错"
+    "recommendation": "在渝中区觅食推荐PLAN CO咖啡厅，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1140
   },
   {
     "id": "amap_87e782e0",
@@ -8554,7 +8954,9 @@
     "description": "库迪咖啡(九龙坡万象里店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0JAOCUTBU",
-    "recommendation": "库迪咖啡(九龙坡万象里店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "库迪咖啡(九龙坡万象里店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 450,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d240f65e",
@@ -8580,7 +8982,9 @@
     "description": "Peet's皮爷咖啡(重庆国金店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0J3GHBV0W",
-    "recommendation": "Peet's皮爷咖啡(重庆国金店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "Peet's皮爷咖啡(重庆国金店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 450,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e08e8bb9",
@@ -8606,7 +9010,9 @@
     "description": "Parachuters Coffee降落伞咖啡(天江鼎城雅园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0IA2H6FND",
-    "recommendation": "Parachuters Coffee降落伞咖啡(天江鼎城雅园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "Parachuters Coffee降落伞咖啡(天江鼎城雅园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1140
   },
   {
     "id": "amap_7fc1c4fc",
@@ -8658,7 +9064,9 @@
     "description": "BLACKSHEEP黑绵羊咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0J1XHSCBV",
-    "recommendation": "在两江新区觅食推荐BLACKSHEEP黑绵羊咖啡，性价比不错"
+    "recommendation": "在两江新区觅食推荐BLACKSHEEP黑绵羊咖啡，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1080
   },
   {
     "id": "amap_16505cca",
@@ -8679,12 +9087,14 @@
       "冉家坝"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "半刻酿造·BackFuture咖啡&精酿(冉家坝店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0HADSCSAT",
-    "recommendation": "半刻酿造·BackFuture咖啡&精酿(冉家坝店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "半刻酿造·BackFuture咖啡&精酿(冉家坝店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 90
   },
   {
     "id": "amap_62d11c12",
@@ -8710,7 +9120,9 @@
     "description": "瑞幸咖啡(爱融荟城店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0I2GCHA67",
-    "recommendation": "瑞幸咖啡(爱融荟城店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "瑞幸咖啡(爱融荟城店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 510,
+    "close_minutes": 1200
   },
   {
     "id": "amap_9fa91b7e",
@@ -8735,7 +9147,9 @@
     "description": "Peet's皮爷咖啡(重庆时代天街店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KDFR77WA",
-    "recommendation": "在渝中区觅食推荐Peet's皮爷咖啡(重庆时代天街店)，性价比不错"
+    "recommendation": "在渝中区觅食推荐Peet's皮爷咖啡(重庆时代天街店)，性价比不错",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3c7a8b10",
@@ -8761,7 +9175,9 @@
     "description": "林卡咖啡馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFF4QXM3",
-    "recommendation": "在九龙坡区觅食推荐林卡咖啡馆，性价比不错"
+    "recommendation": "在九龙坡区觅食推荐林卡咖啡馆，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_f0699618",
@@ -8811,7 +9227,9 @@
     "description": "恩心小镇咖啡馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B00178YN9V",
-    "recommendation": "在沙坪坝区觅食推荐恩心小镇咖啡馆，性价比不错"
+    "recommendation": "在沙坪坝区觅食推荐恩心小镇咖啡馆，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_e803a9dc",
@@ -8832,12 +9250,14 @@
       "鹅岭二厂"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "瓦瓦盏盏·OCT咖啡馆(嘉陵小区店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0HD5ZG53U",
-    "recommendation": "瓦瓦盏盏·OCT咖啡馆(嘉陵小区店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "瓦瓦盏盏·OCT咖啡馆(嘉陵小区店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1080
   },
   {
     "id": "amap_7533cb12",
@@ -8862,7 +9282,9 @@
     "description": "瑞幸咖啡(龙湖时代中心18号楼店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0GD3B1JLL",
-    "recommendation": "瑞幸咖啡(龙湖时代中心18号楼店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "瑞幸咖啡(龙湖时代中心18号楼店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 480,
+    "close_minutes": 1140
   },
   {
     "id": "amap_c2ed8bcd",
@@ -8888,7 +9310,9 @@
     "description": "Peet's Coffee皮爷咖啡(北城天街A馆店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0L23S4MSJ",
-    "recommendation": "在两江新区觅食推荐Peet's Coffee皮爷咖啡(北城天街A馆店)，性价比不错"
+    "recommendation": "在两江新区觅食推荐Peet's Coffee皮爷咖啡(北城天街A馆店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_17714ed7",
@@ -8914,7 +9338,9 @@
     "description": "Tims天好咖啡(光环购物公园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0HG290UFW",
-    "recommendation": "Tims天好咖啡(光环购物公园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "Tims天好咖啡(光环购物公园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4c378ff1",
@@ -8940,7 +9366,9 @@
     "description": "白墨咖啡(源著店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0J6K5880N",
-    "recommendation": "白墨咖啡(源著店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "白墨咖啡(源著店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 480,
+    "close_minutes": 1200
   },
   {
     "id": "amap_4b8ae165",
@@ -8967,7 +9395,9 @@
     "description": "星巴克(重庆袁家岗城开中心店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFIPDMBF",
-    "recommendation": "星巴克(重庆袁家岗城开中心店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "星巴克(重庆袁家岗城开中心店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 450,
+    "close_minutes": 1340
   },
   {
     "id": "amap_8bd9610f",
@@ -10474,7 +10904,7 @@
       "交通服务相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万州机场高铁北站候机楼，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10499,7 +10929,7 @@
       "火车站"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江北机场站，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10525,11 +10955,1531 @@
       "出入口"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "空港广场地铁站2号口，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "BX10022102",
     "recommendation": "从这里去机场超快，记得提前查好地铁班次，避开早晚高峰更轻松哦～"
+  },
+  {
+    "id": "transit_B00170133B",
+    "name": "重庆江北国际机场",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.722563,
+    "lng": 106.657653,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆江北国际机场，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆江北国际机场是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFH44RTO",
+    "name": "重庆江北国际机场T3A航站楼",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.710728,
+    "lng": 106.656124,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆江北国际机场T3A航站楼，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆江北国际机场T3A航站楼是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFKW1Y1G",
+    "name": "重庆江北国际机场T3航站楼",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.710724,
+    "lng": 106.656296,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆江北国际机场T3航站楼，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆江北国际机场T3航站楼是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIA5DCR",
+    "name": "重庆江北国际机场T3A航站楼(国内A出发)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.708904,
+    "lng": 106.655072,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆江北国际机场T3A航站楼(国内A出发)，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆江北国际机场T3A航站楼(国内A出发)是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFI79UOT",
+    "name": "重庆江北国际机场T3A航站楼(国际港澳台A出发)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.708744,
+    "lng": 106.656129,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆江北国际机场T3A航站楼(国际港澳台A出发)，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆江北国际机场T3A航站楼(国际港澳台A出发)是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HG0L3OBG",
+    "name": "重庆江北国际机场T3A航站楼(国内A到达)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.708699,
+    "lng": 106.656179,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆江北国际机场T3A航站楼(国内A到达)，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆江北国际机场T3A航站楼(国内A到达)是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0G02R4ULT",
+    "name": "重庆江北国际机场T3B航站楼",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.728385,
+    "lng": 106.662353,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆江北国际机场T3B航站楼，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆江北国际机场T3B航站楼是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0017820YT",
+    "name": "万州五桥机场",
+    "type": "transit",
+    "area": "万州区",
+    "lat": 30.79858,
+    "lng": 108.438368,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "万州五桥机场，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "万州五桥机场是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFMA0AQ9",
+    "name": "万州五桥机场T2航站楼",
+    "type": "transit",
+    "area": "万州区",
+    "lat": 30.796303,
+    "lng": 108.433382,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "万州五桥机场T2航站楼，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "万州五桥机场T2航站楼是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIA5DCQ",
+    "name": "重庆江北国际机场T3A航站楼(国际港澳台A到达)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.708942,
+    "lng": 106.654313,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆江北国际机场T3A航站楼(国际港澳台A到达)，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆江北国际机场T3A航站楼(国际港澳台A到达)是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFILG6A7",
+    "name": "重庆巫山机场",
+    "type": "transit",
+    "area": "巫山县",
+    "lat": 31.064604,
+    "lng": 109.712168,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆巫山机场，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆巫山机场是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0017875HW",
+    "name": "黔江武陵山机场",
+    "type": "transit",
+    "area": "黔江区",
+    "lat": 29.512883,
+    "lng": 108.835428,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "黔江武陵山机场，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "黔江武陵山机场是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFLHRRAB",
+    "name": "永川大安通用机场",
+    "type": "transit",
+    "area": "永川区",
+    "lat": 29.354044,
+    "lng": 106.012909,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "永川大安通用机场，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "永川大安通用机场是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIA5C7Q",
+    "name": "重庆江北国际机场T3航站楼T3要客服务(东区)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.706172,
+    "lng": 106.65778,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆江北国际机场T3航站楼T3要客服务(东区)，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆江北国际机场T3航站楼T3要客服务(东区)是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFILG4EZ",
+    "name": "重庆仙女山机场",
+    "type": "transit",
+    "area": "武隆区",
+    "lat": 29.463028,
+    "lng": 107.700248,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆仙女山机场，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆仙女山机场是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIA5CW3",
+    "name": "重庆江北国际机场T3航站楼T3要客服务(西区)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.708152,
+    "lng": 106.651937,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆江北国际机场T3航站楼T3要客服务(西区)，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆江北国际机场T3航站楼T3要客服务(西区)是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0I2NALJ7Z",
+    "name": "黔江武陵山机场T2航站楼",
+    "type": "transit",
+    "area": "黔江区",
+    "lat": 29.515881,
+    "lng": 108.834526,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "黔江武陵山机场T2航站楼，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "黔江武陵山机场T2航站楼是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFH0O7SN",
+    "name": "西部航空生产基地",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.733977,
+    "lng": 106.637522,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "西部航空生产基地，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "西部航空生产基地是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IR3HIK73",
+    "name": "重庆龙兴通用机场",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.744397,
+    "lng": 106.804848,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆龙兴通用机场，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆龙兴通用机场是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0J0V5WH4I",
+    "name": "重庆梁平机场",
+    "type": "transit",
+    "area": "梁平区",
+    "lat": 30.676508,
+    "lng": 107.79113,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆梁平机场，重庆主要火车站。",
+    "meal_type": "",
+    "recommendation": "重庆梁平机场是重庆的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFG05MUM",
+    "name": "重庆西站",
+    "type": "transit",
+    "area": "沙坪坝区",
+    "lat": 29.500386,
+    "lng": 106.437901,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆西站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "重庆西站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B001781ZYX",
+    "name": "重庆北站",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.609378,
+    "lng": 106.550953,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆北站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "重庆北站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFI60WX5",
+    "name": "重庆东站",
+    "type": "transit",
+    "area": "南岸区",
+    "lat": 29.484365,
+    "lng": 106.673014,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆东站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "重庆东站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFGQ5M8",
+    "name": "沙坪坝站",
+    "type": "transit",
+    "area": "沙坪坝区",
+    "lat": 29.554118,
+    "lng": 106.460662,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "沙坪坝站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "沙坪坝站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFZXRXR",
+    "name": "万州北站",
+    "type": "transit",
+    "area": "万州区",
+    "lat": 30.862789,
+    "lng": 108.366965,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "万州北站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "万州北站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGFW2I6",
+    "name": "重庆北站(北进站口)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.61119,
+    "lng": 106.551254,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆北站(北进站口)，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "重庆北站(北进站口)是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIRUG9B",
+    "name": "重庆西站(南进站口)",
+    "type": "transit",
+    "area": "沙坪坝区",
+    "lat": 29.499695,
+    "lng": 106.435811,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆西站(南进站口)，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "重庆西站(南进站口)是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFITGPS4",
+    "name": "重庆西站(北进站口)",
+    "type": "transit",
+    "area": "沙坪坝区",
+    "lat": 29.500935,
+    "lng": 106.435815,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆西站(北进站口)，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "重庆西站(北进站口)是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFG8ZE6I",
+    "name": "重庆北站(南进站口)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.607147,
+    "lng": 106.55081,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆北站(南进站口)，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "重庆北站(南进站口)是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIR6WOD",
+    "name": "沙坪坝站(进站口)",
+    "type": "transit",
+    "area": "沙坪坝区",
+    "lat": 29.554303,
+    "lng": 106.460134,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "沙坪坝站(进站口)，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "沙坪坝站(进站口)是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0LUMDD2SL",
+    "name": "重庆东站(南进站口)",
+    "type": "transit",
+    "area": "南岸区",
+    "lat": 29.483482,
+    "lng": 106.672339,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆东站(南进站口)，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "重庆东站(南进站口)是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFYTB44",
+    "name": "永川东站",
+    "type": "transit",
+    "area": "永川区",
+    "lat": 29.371137,
+    "lng": 105.949611,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "永川东站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "永川东站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00178UW79",
+    "name": "合川站",
+    "type": "transit",
+    "area": "合川区",
+    "lat": 29.959733,
+    "lng": 106.278613,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "合川站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "合川站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00179BNKQ",
+    "name": "涪陵北站",
+    "type": "transit",
+    "area": "涪陵区",
+    "lat": 29.770061,
+    "lng": 107.277572,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "涪陵北站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "涪陵北站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0G2OAF2HN",
+    "name": "奉节站",
+    "type": "transit",
+    "area": "奉节县",
+    "lat": 31.024905,
+    "lng": 109.374089,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "奉节站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "奉节站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0H6GZWSH7",
+    "name": "万州北站(进站口)",
+    "type": "transit",
+    "area": "万州区",
+    "lat": 30.862854,
+    "lng": 108.366825,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "万州北站(进站口)，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "万州北站(进站口)是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00170IDHZ",
+    "name": "黔江站",
+    "type": "transit",
+    "area": "黔江区",
+    "lat": 29.441431,
+    "lng": 108.792948,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "黔江站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "黔江站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00179B2Z1",
+    "name": "长寿北站",
+    "type": "transit",
+    "area": "长寿区",
+    "lat": 29.880729,
+    "lng": 107.075457,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长寿北站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长寿北站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0LUMDA350",
+    "name": "重庆东站(北进站口)",
+    "type": "transit",
+    "area": "南岸区",
+    "lat": 29.485179,
+    "lng": 106.673264,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆东站(北进站口)，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "重庆东站(北进站口)是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFYWXRC",
+    "name": "荣昌北站",
+    "type": "transit",
+    "area": "荣昌区",
+    "lat": 29.432575,
+    "lng": 105.636772,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "荣昌北站，重庆主要飞机场。",
+    "meal_type": "",
+    "recommendation": "荣昌北站是重庆的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045271",
+    "name": "观音桥(地铁站)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.573462,
+    "lng": 106.532469,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "观音桥(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "观音桥(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045371",
+    "name": "红旗河沟(地铁站)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.585387,
+    "lng": 106.526215,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "红旗河沟(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "红旗河沟(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045991",
+    "name": "大学城(地铁站)",
+    "type": "transit",
+    "area": "沙坪坝区",
+    "lat": 29.60735,
+    "lng": 106.308908,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大学城(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "大学城(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045919",
+    "name": "微电园(地铁站)",
+    "type": "transit",
+    "area": "沙坪坝区",
+    "lat": 29.609665,
+    "lng": 106.362894,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "微电园(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "微电园(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045861",
+    "name": "冉家坝(地铁站)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.598628,
+    "lng": 106.498821,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "冉家坝(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "冉家坝(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045951",
+    "name": "小什字(地铁站)",
+    "type": "transit",
+    "area": "渝中区",
+    "lat": 29.560028,
+    "lng": 106.583593,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "小什字(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "小什字(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045293",
+    "name": "大坪(地铁站)",
+    "type": "transit",
+    "area": "渝中区",
+    "lat": 29.541886,
+    "lng": 106.519184,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大坪(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "大坪(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045410",
+    "name": "南坪(地铁站)",
+    "type": "transit",
+    "area": "南岸区",
+    "lat": 29.52599,
+    "lng": 106.569885,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南坪(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "南坪(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045556",
+    "name": "杨家坪(地铁站)",
+    "type": "transit",
+    "area": "九龙坡区",
+    "lat": 29.507894,
+    "lng": 106.515931,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "杨家坪(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "杨家坪(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045606",
+    "name": "沙坪坝(地铁站)",
+    "type": "transit",
+    "area": "沙坪坝区",
+    "lat": 29.556003,
+    "lng": 106.460425,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "沙坪坝(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "沙坪坝(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11304021",
+    "name": "璧山(地铁站)",
+    "type": "transit",
+    "area": "璧山区",
+    "lat": 29.61225,
+    "lng": 106.23261,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "璧山(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "璧山(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045316",
+    "name": "石桥铺(地铁站)",
+    "type": "transit",
+    "area": "九龙坡区",
+    "lat": 29.532771,
+    "lng": 106.484891,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "石桥铺(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "石桥铺(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10413737",
+    "name": "上新街(地铁站)",
+    "type": "transit",
+    "area": "南岸区",
+    "lat": 29.556094,
+    "lng": 106.597196,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "上新街(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "上新街(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045690",
+    "name": "李子坝(地铁站)",
+    "type": "transit",
+    "area": "渝中区",
+    "lat": 29.552892,
+    "lng": 106.53766,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "李子坝(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "李子坝(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10668313",
+    "name": "重庆西站(地铁站)",
+    "type": "transit",
+    "area": "沙坪坝区",
+    "lat": 29.500105,
+    "lng": 106.439385,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "重庆西站(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "重庆西站(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045314",
+    "name": "较场口(地铁站)",
+    "type": "transit",
+    "area": "渝中区",
+    "lat": 29.553575,
+    "lng": 106.574352,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "较场口(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "较场口(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10046035",
+    "name": "四公里(地铁站)",
+    "type": "transit",
+    "area": "南岸区",
+    "lat": 29.516665,
+    "lng": 106.576142,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "四公里(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "四公里(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045298",
+    "name": "七星岗(地铁站)",
+    "type": "transit",
+    "area": "渝中区",
+    "lat": 29.554914,
+    "lng": 106.56291,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "七星岗(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "七星岗(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10413738",
+    "name": "茶园(地铁站)",
+    "type": "transit",
+    "area": "南岸区",
+    "lat": 29.487559,
+    "lng": 106.642898,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "茶园(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "茶园(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10046482",
+    "name": "蔡家(地铁站)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.736017,
+    "lng": 106.49227,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "蔡家(地铁站)，重庆主要地铁站。",
+    "meal_type": "",
+    "recommendation": "蔡家(地铁站)是重庆的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045468",
+    "name": "人和(公交站)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.620047,
+    "lng": 106.52747,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "人和(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "人和(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10046501",
+    "name": "菜园坝火车站(公交站)",
+    "type": "transit",
+    "area": "渝中区",
+    "lat": 29.548809,
+    "lng": 106.549428,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "菜园坝火车站(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "菜园坝火车站(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10323554",
+    "name": "大坪医院(公交站)",
+    "type": "transit",
+    "area": "渝中区",
+    "lat": 29.542161,
+    "lng": 106.521749,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大坪医院(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "大坪医院(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10047828",
+    "name": "白市驿五院(公交站)",
+    "type": "transit",
+    "area": "九龙坡区",
+    "lat": 29.482599,
+    "lng": 106.370362,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "白市驿五院(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "白市驿五院(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045334",
+    "name": "江北大石坝(公交站)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.569133,
+    "lng": 106.489539,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "江北大石坝(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "江北大石坝(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11694402",
+    "name": "五公里(公交站)",
+    "type": "transit",
+    "area": "南岸区",
+    "lat": 29.504969,
+    "lng": 106.573967,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "五公里(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "五公里(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10334958",
+    "name": "502车站(公交站)",
+    "type": "transit",
+    "area": "北碚区",
+    "lat": 29.82102,
+    "lng": 106.439392,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "502车站(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "502车站(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10436637",
+    "name": "鱼嘴(公交站)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.624996,
+    "lng": 106.760347,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "鱼嘴(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "鱼嘴(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045608",
+    "name": "汉渝路(公交站)",
+    "type": "transit",
+    "area": "沙坪坝区",
+    "lat": 29.559232,
+    "lng": 106.469193,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "汉渝路(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "汉渝路(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11380523",
+    "name": "石坪桥正街(公交站)",
+    "type": "transit",
+    "area": "九龙坡区",
+    "lat": 29.516514,
+    "lng": 106.495599,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "石坪桥正街(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "石坪桥正街(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11586298",
+    "name": "香港城(公交站)",
+    "type": "transit",
+    "area": "大渡口区",
+    "lat": 29.470328,
+    "lng": 106.477581,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "香港城(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "香港城(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10416323",
+    "name": "马家堡(公交站)",
+    "type": "transit",
+    "area": "渝中区",
+    "lat": 29.534734,
+    "lng": 106.515701,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "马家堡(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "马家堡(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045379",
+    "name": "石门齐祥灯饰(公交站)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.565577,
+    "lng": 106.484136,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "石门齐祥灯饰(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "石门齐祥灯饰(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11694433",
+    "name": "毛线沟(公交站)",
+    "type": "transit",
+    "area": "九龙坡区",
+    "lat": 29.499038,
+    "lng": 106.50718,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "毛线沟(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "毛线沟(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045481",
+    "name": "人和医院(公交站)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.621603,
+    "lng": 106.530693,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "人和医院(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "人和医院(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045397",
+    "name": "五小区(公交站)",
+    "type": "transit",
+    "area": "南岸区",
+    "lat": 29.521254,
+    "lng": 106.552666,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "五小区(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "五小区(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045631",
+    "name": "直港大道(公交站)",
+    "type": "transit",
+    "area": "九龙坡区",
+    "lat": 29.509009,
+    "lng": 106.522379,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "直港大道(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "直港大道(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10045544",
+    "name": "白马凼(公交站)",
+    "type": "transit",
+    "area": "九龙坡区",
+    "lat": 29.529601,
+    "lng": 106.476459,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "白马凼(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "白马凼(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11694371",
+    "name": "大庙(公交站)",
+    "type": "transit",
+    "area": "两江新区",
+    "lat": 29.57943,
+    "lng": 106.52931,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大庙(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "大庙(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10495529",
+    "name": "渝西广场(公交站)",
+    "type": "transit",
+    "area": "永川区",
+    "lat": 29.34784,
+    "lng": 105.895584,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "渝西广场(公交站)，重庆主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "渝西广场(公交站)是重庆的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "重庆"
+    ],
+    "visit_duration": 15
   }
 ]

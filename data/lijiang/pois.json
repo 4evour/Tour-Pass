@@ -15,12 +15,14 @@
       "风景名胜"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-古城大水车，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFF9GOOV",
-    "recommendation": "推荐在古城区参观丽江古城-古城大水车，人气评分4.8"
+    "recommendation": "推荐在古城区参观丽江古城-古城大水车，人气评分4.8",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_f2c50dcb",
@@ -39,12 +41,14 @@
       "世界遗产"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0378008PR",
-    "recommendation": "推荐在古城区参观丽江古城，人气评分4.9"
+    "recommendation": "推荐在古城区参观丽江古城，人气评分4.9",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_b0d94111",
@@ -65,12 +69,14 @@
       "风景名胜"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江千古情景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFIZ1ZFL",
-    "recommendation": "大型歌舞秀超级震撼，"
+    "recommendation": "大型歌舞秀超级震撼，",
+    "open_minutes": 840,
+    "close_minutes": 1260
   },
   {
     "id": "amap_5a401493",
@@ -90,7 +96,7 @@
       "旅游景点"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "蓝月湖，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -114,12 +120,14 @@
       "观景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江之眼观景台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFI19RKS",
-    "recommendation": "丽江之眼观景台适合城市游览、景点爱好者"
+    "recommendation": "丽江之眼观景台适合城市游览、景点爱好者",
+    "open_minutes": 420,
+    "close_minutes": 1380
   },
   {
     "id": "amap_d797c3ac",
@@ -137,7 +145,7 @@
       "风景名胜"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "长江第一湾，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -161,12 +169,14 @@
       "国家级景点"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玉龙雪山国家级风景名胜区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0378008FA",
-    "recommendation": "雪山巍峨壮美，建议坐大索道到冰川公园，别忘了带瓶氧气，拍照超绝。"
+    "recommendation": "雪山巍峨壮美，建议坐大索道到冰川公园，别忘了带瓶氧气，拍照超绝。",
+    "open_minutes": 420,
+    "close_minutes": 1080
   },
   {
     "id": "amap_df0bd49c",
@@ -186,12 +196,14 @@
       "公园"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江拉市海湿地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHEGGA9",
-    "recommendation": "骑马穿过草甸，划船看候鸟，"
+    "recommendation": "骑马穿过草甸，划船看候鸟，",
+    "open_minutes": 480,
+    "close_minutes": 1140
   },
   {
     "id": "amap_76bb71e8",
@@ -215,7 +227,9 @@
     "description": "黑龙潭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFF5TSNO",
-    "recommendation": "黑龙潭适合城市游览、景点爱好者"
+    "recommendation": "黑龙潭适合城市游览、景点爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_f3c50f5e",
@@ -233,12 +247,14 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-狮子山(狮山路)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0378008PQ",
-    "recommendation": "丽江古城-狮子山(狮山路)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "丽江古城-狮子山(狮山路)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1080
   },
   {
     "id": "amap_4939f6e0",
@@ -258,7 +274,7 @@
       "城市广场"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城白龙文化广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -287,7 +303,9 @@
     "description": "观音峡，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0378008X3",
-    "recommendation": "推荐在古城区参观观音峡，人气评分4.5"
+    "recommendation": "推荐在古城区参观观音峡，人气评分4.5",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_5c52bb4",
@@ -306,12 +324,14 @@
       "长水路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-白马龙潭寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0378008PG",
-    "recommendation": "丽江古城-白马龙潭寺适合城市游览、景点爱好者"
+    "recommendation": "丽江古城-白马龙潭寺适合城市游览、景点爱好者",
+    "open_minutes": 450,
+    "close_minutes": 1050
   },
   {
     "id": "amap_74e236",
@@ -359,7 +379,9 @@
     "description": "拉市海茶马古道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFCMBO8",
-    "recommendation": "拉市海茶马古道适合城市游览、景点爱好者"
+    "recommendation": "拉市海茶马古道适合城市游览、景点爱好者",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_839f9c9d",
@@ -378,7 +400,7 @@
       "海滩"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "泸沽湖风景名胜区-里拜情人滩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -401,12 +423,14 @@
       "风景名胜"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江虎跳峡景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B03781591H",
-    "recommendation": "丽江虎跳峡景区适合城市游览、景点爱好者"
+    "recommendation": "丽江虎跳峡景区适合城市游览、景点爱好者",
+    "open_minutes": 510,
+    "close_minutes": 1080
   },
   {
     "id": "amap_e160355e",
@@ -424,12 +448,14 @@
       "风景名胜"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江金塔景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B03781511Q",
-    "recommendation": "金塔日落时"
+    "recommendation": "金塔日落时",
+    "open_minutes": 450,
+    "close_minutes": 1080
   },
   {
     "id": "amap_38c08bb9",
@@ -447,7 +473,7 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "束河牌坊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -495,12 +521,14 @@
       "旅游景点"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "格姆女神山，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFF344BX",
-    "recommendation": "格姆女神山适合城市游览、景点爱好者"
+    "recommendation": "格姆女神山适合城市游览、景点爱好者",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_f2829d23",
@@ -542,7 +570,7 @@
       "公园广场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-玉河广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -570,7 +598,9 @@
     "description": "猎鹰谷景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B037815119",
-    "recommendation": "感受猎鹰文化，还能亲手驯鹰拍照！建议下午去，光线柔和特别出片。"
+    "recommendation": "感受猎鹰文化，还能亲手驯鹰拍照！建议下午去，光线柔和特别出片。",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_f884c712",
@@ -615,12 +645,14 @@
       "旅游景点"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "桃花岛古城第一观景台42米长廊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFDT0J1",
-    "recommendation": "桃花岛古城第一观景台42米长廊是当地热门景点，建议游览90分钟左右"
+    "recommendation": "桃花岛古城第一观景台42米长廊是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1c68ac46",
@@ -638,12 +670,14 @@
       "风景名胜"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城·文昌宫(狮山路)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0378004F3",
-    "recommendation": "古城制高点，俯瞰万家灯火超治愈！傍晚去，看夕阳染红屋顶。"
+    "recommendation": "古城制高点，俯瞰万家灯火超治愈！傍晚去，看夕阳染红屋顶。",
+    "open_minutes": 600,
+    "close_minutes": 1020
   },
   {
     "id": "amap_962b2ed",
@@ -663,7 +697,7 @@
       "公园"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "清溪公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -688,12 +722,14 @@
       "旅游景点"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-东巴宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFPLH6I",
-    "recommendation": "丽江古城-东巴宫是当地热门景点，建议游览90分钟左右"
+    "recommendation": "丽江古城-东巴宫是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_98feb4ae",
@@ -712,7 +748,7 @@
       "教堂"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江市古城区基督教束河聚会点，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -735,7 +771,7 @@
       "风景名胜"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙女湖，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -765,7 +801,9 @@
     "description": "哈里谷酒吧街，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0378157VY",
-    "recommendation": "热闹的酒吧街，边听民谣边喝风花雪月。建议晚上9点后去，氛围最嗨。"
+    "recommendation": "热闹的酒吧街，边听民谣边喝风花雪月。建议晚上9点后去，氛围最嗨。",
+    "open_minutes": 420,
+    "close_minutes": 1140
   },
   {
     "id": "amap_2504cf0a",
@@ -785,7 +823,7 @@
       "旅游景点"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-许愿亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -810,7 +848,7 @@
       "旅游景点"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-网红街，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -834,7 +872,7 @@
       "观景点"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-大研花巷观景台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -859,7 +897,7 @@
       "旅游景点"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-玉龙桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -882,12 +920,14 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "狮子山万古楼景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B037815BZ1",
-    "recommendation": "推荐在古城区参观狮子山万古楼景区，人气评分4.6"
+    "recommendation": "推荐在古城区参观狮子山万古楼景区，人气评分4.6",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c2ee114e",
@@ -906,12 +946,14 @@
       "寺庙道观"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-三清殿，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B037815B7H",
-    "recommendation": "丽江古城-三清殿适合城市游览、景点爱好者"
+    "recommendation": "丽江古城-三清殿适合城市游览、景点爱好者",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_f7d0a1e9",
@@ -931,7 +973,7 @@
       "公园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中济海公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -956,7 +998,7 @@
       "旅游景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "古城南门牌坊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -980,7 +1022,7 @@
       "观景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-文昌宫观景台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1005,12 +1047,14 @@
       "旅游景点"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "黑龙潭-象山，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFL4YX6G",
-    "recommendation": "黑龙潭-象山适合城市游览、景点爱好者"
+    "recommendation": "黑龙潭-象山适合城市游览、景点爱好者",
+    "open_minutes": 420,
+    "close_minutes": 960
   },
   {
     "id": "amap_8d9003aa",
@@ -1030,7 +1074,7 @@
       "旅游景点"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-科贡坊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1055,7 +1099,7 @@
       "购物相关场所"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青龙桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1078,12 +1122,14 @@
       "风景名胜"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-护法殿，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B037815AB8",
-    "recommendation": "丽江古城-护法殿适合城市游览、景点爱好者"
+    "recommendation": "丽江古城-护法殿适合城市游览、景点爱好者",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_87eece87",
@@ -1101,12 +1147,14 @@
       "风景名胜"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-狮山门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG807SW",
-    "recommendation": "登狮山门俯瞰古城全貌，傍晚看落日余晖洒满屋顶，拍照绝佳！"
+    "recommendation": "登狮山门俯瞰古城全貌，傍晚看落日余晖洒满屋顶，拍照绝佳！",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_db0aea0b",
@@ -1126,7 +1174,7 @@
       "旅游景点"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-卖鸡豆桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1151,7 +1199,7 @@
       "城市广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江市红太阳广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1176,7 +1224,7 @@
       "旅游景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大石桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1204,7 +1252,9 @@
     "description": "金茂谷镇，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFKBCIQT",
-    "recommendation": "推荐在古城区参观金茂谷镇，人气评分4.2"
+    "recommendation": "推荐在古城区参观金茂谷镇，人气评分4.2",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_970bec04",
@@ -1224,12 +1274,14 @@
       "旅游景点"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城木府-忠义坊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGSZ7MI",
-    "recommendation": "忠义坊是木府的门面，牌坊雕刻很精美，建议清晨去拍无人的全景，超有历史感。"
+    "recommendation": "忠义坊是木府的门面，牌坊雕刻很精美，建议清晨去拍无人的全景，超有历史感。",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_ebf9bbad",
@@ -1249,7 +1301,7 @@
       "旅游景点"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-卖鸭蛋桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1274,7 +1326,7 @@
       "旅游景点"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "世纪文化遗产丽江古城综合服务亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1299,7 +1351,7 @@
       "旅游景点"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-东巴文化墙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1322,7 +1374,7 @@
       "风景名胜"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-暑古井，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1347,7 +1399,7 @@
       "旅游景点"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-卖草场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1372,7 +1424,7 @@
       "城市广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-古城花园广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1397,12 +1449,14 @@
       "旅游景点"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城议事厅，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG1UANU",
-    "recommendation": "想感受纳西族议事文化？来这里坐在老椅子上，仿佛穿越到古时，建议下午人少时去拍照更有韵味。"
+    "recommendation": "想感受纳西族议事文化？来这里坐在老椅子上，仿佛穿越到古时，建议下午人少时去拍照更有韵味。",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_a53b9447",
@@ -1423,7 +1477,7 @@
       "福慧路"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "古城区昌洛河广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1446,12 +1500,14 @@
       "风景名胜"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城-官门口，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B037814E3H",
-    "recommendation": "古城的地标入口，石板路和流水很有味道，傍晚灯光亮起时拍照最出片。"
+    "recommendation": "古城的地标入口，石板路和流水很有味道，傍晚灯光亮起时拍照最出片。",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_a5ea883",
@@ -1476,7 +1532,9 @@
     "description": "白沙咖啡博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0MDH5RMGT",
-    "recommendation": "想了解云南咖啡文化？这里不仅能看咖啡前世今生，还能亲手品鉴，下午来最棒！"
+    "recommendation": "想了解云南咖啡文化？这里不仅能看咖啡前世今生，还能亲手品鉴，下午来最棒！",
+    "open_minutes": 540,
+    "close_minutes": 1140
   },
   {
     "id": "amap_1254e157",
@@ -1497,7 +1555,7 @@
       "科教文化场所"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玉龙县黄山镇劳摩多肉博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -1522,12 +1580,14 @@
       "科教文化服务"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玉龙雪山冰川博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFFDR6FE",
-    "recommendation": "推荐在玉龙纳西族自治县参观玉龙雪山冰川博物馆，人气评分4.2"
+    "recommendation": "推荐在玉龙纳西族自治县参观玉龙雪山冰川博物馆，人气评分4.2",
+    "open_minutes": 480,
+    "close_minutes": 1050
   },
   {
     "id": "amap_906e9927",
@@ -1547,7 +1607,7 @@
       "科教文化服务"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江宣科纳西古乐，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -1572,12 +1632,14 @@
       "科教文化服务"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江滇四食民俗文化博物园，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0JUYCSBTZ",
-    "recommendation": "丽江滇四食民俗文化博物园适合城市游览、历史文化爱好者"
+    "recommendation": "丽江滇四食民俗文化博物园适合城市游览、历史文化爱好者",
+    "open_minutes": 480,
+    "close_minutes": 1200
   },
   {
     "id": "amap_71024e98",
@@ -1599,7 +1661,7 @@
       "动物园"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "鳄鱼馆，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1626,7 +1688,7 @@
       "城市广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万格广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1652,7 +1714,7 @@
       "公园广场"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽月湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1679,7 +1741,7 @@
       "城市广场"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玉湖村广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1711,7 +1773,9 @@
     "description": "阿明东巴纸坊(四方街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFJOO485",
-    "recommendation": "阿明东巴纸坊(四方街店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "阿明东巴纸坊(四方街店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_e4363dcc",
@@ -1738,7 +1802,9 @@
     "description": "A+饰物(四方街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0J30Y94AM",
-    "recommendation": "推荐在古城区参观A+饰物(四方街店)，人气评分3.9"
+    "recommendation": "推荐在古城区参观A+饰物(四方街店)，人气评分3.9",
+    "open_minutes": 540,
+    "close_minutes": 1440
   },
   {
     "id": "amap_32bdf2e1",
@@ -1816,12 +1882,14 @@
       "糕饼店"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "枣子坊(四方街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFG1B298",
-    "recommendation": "四方街的枣子坊，新鲜烤枣香气扑鼻，买一包边走边吃，记得趁热哦！"
+    "recommendation": "四方街的枣子坊，新鲜烤枣香气扑鼻，买一包边走边吃，记得趁热哦！",
+    "open_minutes": 720,
+    "close_minutes": 1440
   },
   {
     "id": "amap_53cbe24b",
@@ -1847,7 +1915,9 @@
     "description": "辰缘朱砂(四方街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0JRXYSI7H",
-    "recommendation": "辰缘朱砂(四方街店)适合城市游览、街区爱好者"
+    "recommendation": "辰缘朱砂(四方街店)适合城市游览、街区爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1425
   },
   {
     "id": "amap_43e74ce7",
@@ -1873,7 +1943,9 @@
     "description": "杨丽萍生活艺术馆四方街店，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0GR4UH9ML",
-    "recommendation": "杨丽萍的艺术气息融合丽江风情，店内服饰和首饰很有特色，适合闺蜜打卡，记得试试她家的香薰。"
+    "recommendation": "杨丽萍的艺术气息融合丽江风情，店内服饰和首饰很有特色，适合闺蜜打卡，记得试试她家的香薰。",
+    "open_minutes": 540,
+    "close_minutes": 1410
   },
   {
     "id": "amap_61e06473",
@@ -1895,7 +1967,7 @@
       "专营店"
     ],
     "popularity": 2.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江双胞胎碟吧(新义街四方街4店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -1921,12 +1993,14 @@
       "特色商业街"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "四方庙会，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B03780HYUK",
-    "recommendation": "逛四方庙会感受纳西市集风情，淘点手工小玩意，建议傍晚去，灯光更有氛围。"
+    "recommendation": "逛四方庙会感受纳西市集风情，淘点手工小玩意，建议傍晚去，灯光更有氛围。",
+    "open_minutes": 390,
+    "close_minutes": 1350
   },
   {
     "id": "amap_f8c5e7c0",
@@ -1954,7 +2028,9 @@
     "description": "云南小粒咖啡(四方街店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0J23HB6F6",
-    "recommendation": "推荐在古城区参观云南小粒咖啡(四方街店)，人气评分3.9"
+    "recommendation": "推荐在古城区参观云南小粒咖啡(四方街店)，人气评分3.9",
+    "open_minutes": 600,
+    "close_minutes": 1410
   },
   {
     "id": "amap_23852199",
@@ -1975,7 +2051,7 @@
       "购物相关场所"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "四方城第三代麻将机(丽江体验店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -2000,12 +2076,14 @@
       "中餐厅"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "隔壁老王·家常云南菜(丽江旗舰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KBKRDDSK",
-    "recommendation": "招牌汽锅鸡和纳西烤鱼必点，性价比超高，记得提前去排队。"
+    "recommendation": "招牌汽锅鸡和纳西烤鱼必点，性价比超高，记得提前去排队。",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8dc64ad9",
@@ -2025,7 +2103,7 @@
       "中餐厅"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "桥边小楼·手工云南菜·丽江地标美食，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2051,12 +2129,14 @@
       "福慧路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "云雪丽·现炒云南菜(大水车店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFM0KDG3",
-    "recommendation": "云雪丽·现炒云南菜(大水车店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "云雪丽·现炒云南菜(大水车店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1290
   },
   {
     "id": "amap_f99a5ee",
@@ -2078,12 +2158,14 @@
       "祥和"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "隔壁老王·家常云南菜(南门店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KA2LGYOH",
-    "recommendation": "在古城区觅食推荐隔壁老王·家常云南菜(南门店)，性价比不错"
+    "recommendation": "在古城区觅食推荐隔壁老王·家常云南菜(南门店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4e5565a9",
@@ -2104,12 +2186,14 @@
       "餐饮相关"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "则瓦米线·云南小吃集合(花巷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKQ51Q7",
-    "recommendation": "在古城区觅食推荐则瓦米线·云南小吃集合(花巷店)，性价比不错"
+    "recommendation": "在古城区觅食推荐则瓦米线·云南小吃集合(花巷店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6858dc8b",
@@ -2129,12 +2213,14 @@
       "中餐厅"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "则瓦米线·云南小吃集合(一中店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KG4UTTEH",
-    "recommendation": "则瓦米线·云南小吃集合(一中店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "则瓦米线·云南小吃集合(一中店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d7124716",
@@ -2154,12 +2240,14 @@
       "咖啡厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "观雪·阅古楼半山观景餐厅(文昌宫店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFDCVPF",
-    "recommendation": "观雪·阅古楼半山观景餐厅(文昌宫店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "观雪·阅古楼半山观景餐厅(文昌宫店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_721ec28b",
@@ -2180,12 +2268,14 @@
       "云贵菜"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "隔壁老王·家常云南菜(皇冠店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFK4CZZP",
-    "recommendation": "隔壁老王·家常云南菜(皇冠店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "隔壁老王·家常云南菜(皇冠店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_967745cc",
@@ -2205,12 +2295,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "云雪丽·白沙雪山观景餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I3AMRJNQ",
-    "recommendation": "云雪丽·白沙雪山观景餐厅口碑很好，建议避开高峰期就餐"
+    "recommendation": "云雪丽·白沙雪山观景餐厅口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1290
   },
   {
     "id": "amap_e563c204",
@@ -2236,7 +2328,9 @@
     "description": "云雪丽现炒云南菜(四方街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KALU7VRY",
-    "recommendation": "在古城区觅食推荐云雪丽现炒云南菜(四方街店)，性价比不错"
+    "recommendation": "在古城区觅食推荐云雪丽现炒云南菜(四方街店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_15201f07",
@@ -2261,7 +2355,9 @@
     "description": "云雀傣·傣味手抓饭孔雀宴·云南特色民族菜(白沙店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K3MCK2K8",
-    "recommendation": "在玉龙纳西族自治县觅食推荐云雀傣·傣味手抓饭孔雀宴·云南特色民族菜(白沙店)，性价比不错"
+    "recommendation": "在玉龙纳西族自治县觅食推荐云雀傣·傣味手抓饭孔雀宴·云南特色民族菜(白沙店)，性价比不错",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1f828e9b",
@@ -2282,7 +2378,7 @@
       "祥和"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "聚满源饭馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2307,12 +2403,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老滇山寨.云南民族特色菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KGV5GBE8",
-    "recommendation": "在古城区觅食推荐老滇山寨.云南民族特色菜，性价比不错"
+    "recommendation": "在古城区觅食推荐老滇山寨.云南民族特色菜，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1290
   },
   {
     "id": "amap_f976f108",
@@ -2332,12 +2430,14 @@
       "中餐厅"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "菌香时·食神餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG77HB0",
-    "recommendation": "在古城区觅食推荐菌香时·食神餐厅，性价比不错"
+    "recommendation": "在古城区觅食推荐菌香时·食神餐厅，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_baca0128",
@@ -2357,12 +2457,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "云春葵·云南边境家常菜(丽江店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LA6D9Z9X",
-    "recommendation": "云春葵·云南边境家常菜(丽江店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "云春葵·云南边境家常菜(丽江店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_4c5ea7e8",
@@ -2383,12 +2485,14 @@
       "云贵菜"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "滇厨餐厅·小锅巴纳西美食，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GUYA1SJA",
-    "recommendation": "滇厨餐厅·小锅巴纳西美食口碑很好，建议避开高峰期就餐"
+    "recommendation": "滇厨餐厅·小锅巴纳西美食口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b6e4f2f0",
@@ -2413,7 +2517,9 @@
     "description": "悠悠时光小吃店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K35ROVFK",
-    "recommendation": "在玉龙纳西族自治县觅食推荐悠悠时光小吃店，性价比不错"
+    "recommendation": "在玉龙纳西族自治县觅食推荐悠悠时光小吃店，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a44464f7",
@@ -2433,12 +2539,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "品味泸沽湖餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJDSN4A",
-    "recommendation": "品味泸沽湖餐厅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "品味泸沽湖餐厅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1410
   },
   {
     "id": "amap_6487772a",
@@ -2458,12 +2566,14 @@
       "中餐厅"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "滇西公主·云南私房菜·雪山观景餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LGYU11WY",
-    "recommendation": "边吃云南私房菜边看雪山，视野绝了！推荐傍晚来，看雪山日落染成金色。"
+    "recommendation": "边吃云南私房菜边看雪山，视野绝了！推荐傍晚来，看雪山日落染成金色。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2f266fa1",
@@ -2484,12 +2594,14 @@
       "黑龙潭"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "淳味云南特色菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KAF7F6F1",
-    "recommendation": "地道云南家常菜，分量实在味道正，必点他们的招牌酸辣鱼，配米饭绝了。"
+    "recommendation": "地道云南家常菜，分量实在味道正，必点他们的招牌酸辣鱼，配米饭绝了。",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_26e81d2c",
@@ -2534,12 +2646,14 @@
       "中餐厅"
     ],
     "popularity": 4.1,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "仁里阳光私厨·新派云南菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KGZR6XGU",
-    "recommendation": "在古城区觅食推荐仁里阳光私厨·新派云南菜，性价比不错"
+    "recommendation": "在古城区觅食推荐仁里阳光私厨·新派云南菜，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2c586b7a",
@@ -2560,12 +2674,14 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "古楼小吃·纳西烤鱼·云南家常菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HDBXFELZ",
-    "recommendation": "在古城区觅食推荐古楼小吃·纳西烤鱼·云南家常菜，性价比不错"
+    "recommendation": "在古城区觅食推荐古楼小吃·纳西烤鱼·云南家常菜，性价比不错",
+    "open_minutes": 480,
+    "close_minutes": 1380
   },
   {
     "id": "amap_b2693e31",
@@ -2586,7 +2702,7 @@
       "云贵菜"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "云小肴餐厅·云南乡间口味菜餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2616,7 +2732,9 @@
     "description": "福掌柜餐厅·云南菜·腊排骨火锅(红太阳广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KU95HGR6",
-    "recommendation": "腊排骨火锅是丽江灵魂美食，这家汤底浓郁，冬天来一锅暖心暖胃，记得加份水性杨花。"
+    "recommendation": "腊排骨火锅是丽江灵魂美食，这家汤底浓郁，冬天来一锅暖心暖胃，记得加份水性杨花。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_fa792daa",
@@ -2638,12 +2756,14 @@
       "祥和"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "溜溜南·云南菜小馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L0Z5F3S4",
-    "recommendation": "地道纳西风味小馆，推荐试试鸡豆凉粉和烤饵块，饭点人多建议早去。"
+    "recommendation": "地道纳西风味小馆，推荐试试鸡豆凉粉和烤饵块，饭点人多建议早去。",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b6c79b6b",
@@ -2664,12 +2784,14 @@
       "餐饮相关"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "柒玥云南菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K639QJUU",
-    "recommendation": "在古城区觅食推荐柒玥云南菜，性价比不错"
+    "recommendation": "在古城区觅食推荐柒玥云南菜，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_853bc9ed",
@@ -2690,12 +2812,14 @@
       "餐饮相关"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "椿村小吃(忠义路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L66C3BZX",
-    "recommendation": "椿村小吃(忠义路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "椿村小吃(忠义路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_62771236",
@@ -2721,7 +2845,9 @@
     "description": "客哪呢·1994云南小吃名店(丽江国际购物广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HR3RDHQU",
-    "recommendation": "在古城区觅食推荐客哪呢·1994云南小吃名店(丽江国际购物广场店)，性价比不错"
+    "recommendation": "在古城区觅食推荐客哪呢·1994云南小吃名店(丽江国际购物广场店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1290
   },
   {
     "id": "amap_2c113007",
@@ -2746,7 +2872,9 @@
     "description": "妈妈味道云南家常菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B037814HV9",
-    "recommendation": "妈妈味道云南家常菜口碑很好，建议避开高峰期就餐"
+    "recommendation": "妈妈味道云南家常菜口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_2e746fb7",
@@ -2767,7 +2895,7 @@
       "云贵菜"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "好久不见小院，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2792,12 +2920,14 @@
       "中餐厅"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "十城九味(文华店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L6KZFQ4A",
-    "recommendation": "十城九味(文华店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "十城九味(文华店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_9d068ba8",
@@ -2817,12 +2947,14 @@
       "中餐厅"
     ],
     "popularity": 3.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "云南民族菜中餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JUT5J470",
-    "recommendation": "云南民族菜中餐厅口碑很好，建议避开高峰期就餐"
+    "recommendation": "云南民族菜中餐厅口碑很好，建议避开高峰期就餐",
+    "open_minutes": 540,
+    "close_minutes": 720
   },
   {
     "id": "amap_70bb1197",
@@ -2844,7 +2976,7 @@
       "祥和"
     ],
     "popularity": 2.9,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "食福源过桥米线火锅云南菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2876,7 +3008,9 @@
     "description": "丽江风味特色小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B03780IH0C",
-    "recommendation": "丽江风味特色小吃是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "丽江风味特色小吃是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1350
   },
   {
     "id": "amap_531b21d2",
@@ -2896,12 +3030,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "木屿·废墟餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H3YS58ZM",
-    "recommendation": "木屿·废墟餐厅口碑很好，建议避开高峰期就餐"
+    "recommendation": "木屿·废墟餐厅口碑很好，建议避开高峰期就餐",
+    "open_minutes": 300,
+    "close_minutes": 900
   },
   {
     "id": "amap_5147a8c",
@@ -2951,7 +3087,9 @@
     "description": "观雪·阅古楼雪山观景餐厅(万古楼店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LDTMZ2H7",
-    "recommendation": "观雪·阅古楼雪山观景餐厅(万古楼店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "观雪·阅古楼雪山观景餐厅(万古楼店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3383fec2",
@@ -2972,12 +3110,14 @@
       "黑龙潭"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "玖食腊排骨·野生菌(黑龙潭店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JK06M9S7",
-    "recommendation": "腊排骨锅配野生菌超鲜，冬天来一锅暖到心底，记得点份水性杨花解腻。"
+    "recommendation": "腊排骨锅配野生菌超鲜，冬天来一锅暖到心底，记得点份水性杨花解腻。",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_722d3df2",
@@ -2998,12 +3138,14 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "木瓜河小院餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JG9A6VX8",
-    "recommendation": "木瓜河小院餐厅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "木瓜河小院餐厅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a266b336",
@@ -3024,12 +3166,14 @@
       "火锅店"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "阿婆情腊排骨火锅(旗舰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G0YMJVKI",
-    "recommendation": "阿婆情腊排骨火锅(旗舰店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "阿婆情腊排骨火锅(旗舰店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_821f5073",
@@ -3049,12 +3193,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "小喜客·滇菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I6RASEHR",
-    "recommendation": "小喜客·滇菜口碑很好，建议避开高峰期就餐"
+    "recommendation": "小喜客·滇菜口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f4a70795",
@@ -3075,12 +3221,14 @@
       "综合酒楼"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "雨秋小院餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JR0UUDGE",
-    "recommendation": "雨秋小院餐厅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "雨秋小院餐厅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 570
   },
   {
     "id": "amap_35896300",
@@ -3101,12 +3249,14 @@
       "云贵菜"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "滇之韵云南手抓饭(傣族孔雀宴)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFLMH0PD",
-    "recommendation": "孔雀宴造型惊艳，手抓饭体验感满分，拍照记得发朋友圈前先开动。"
+    "recommendation": "孔雀宴造型惊艳，手抓饭体验感满分，拍照记得发朋友圈前先开动。",
+    "open_minutes": 660,
+    "close_minutes": 1290
   },
   {
     "id": "amap_f97b0d30",
@@ -3132,7 +3282,9 @@
     "description": "云南铜瓢小锅米线店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJ6WSFQ",
-    "recommendation": "在古城区觅食推荐云南铜瓢小锅米线店，性价比不错"
+    "recommendation": "在古城区觅食推荐云南铜瓢小锅米线店，性价比不错",
+    "open_minutes": 480,
+    "close_minutes": 1380
   },
   {
     "id": "amap_3c90501",
@@ -3152,7 +3304,7 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "心园餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3178,12 +3330,14 @@
       "火锅店"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "田村·酸汤牦牛肉火锅(古城大水车店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KAHD1IE4",
-    "recommendation": "田村·酸汤牦牛肉火锅(古城大水车店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "田村·酸汤牦牛肉火锅(古城大水车店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_ebac7b15",
@@ -3203,12 +3357,14 @@
       "中餐厅"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "滇西王子.云南26民族文化餐厅(五一街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFK3N21O",
-    "recommendation": "滇西王子.云南26民族文化餐厅(五一街店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "滇西王子.云南26民族文化餐厅(五一街店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6ef49b9e",
@@ -3234,7 +3390,9 @@
     "description": "腾冲傣乡风味小吃(福慧综合集贸市场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHWOZH3",
-    "recommendation": "在古城区觅食推荐腾冲傣乡风味小吃(福慧综合集贸市场店)，性价比不错"
+    "recommendation": "在古城区觅食推荐腾冲傣乡风味小吃(福慧综合集贸市场店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1410
   },
   {
     "id": "amap_cd40eddf",
@@ -3255,12 +3413,14 @@
       "福慧路"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "茄子恰恰·脆皮小麻鸭(丽江国购店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H2YLZ60E",
-    "recommendation": "脆皮小麻鸭是招牌，外酥里嫩超惊艳，建议配个凉拌薄荷，清爽解"
+    "recommendation": "脆皮小麻鸭是招牌，外酥里嫩超惊艳，建议配个凉拌薄荷，清爽解",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2bd2bea9",
@@ -3282,12 +3442,14 @@
       "玉泉路"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "江边酸菜鱼(荣城夜市店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFHM7RFJ",
-    "recommendation": "江边酸菜鱼(荣城夜市店)是夜间休闲好去处"
+    "recommendation": "江边酸菜鱼(荣城夜市店)是夜间休闲好去处",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_e52f0cd2",
@@ -3307,12 +3469,14 @@
       "中餐厅"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "毛大妈带帽饭小吃店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0KG4LGSNI",
-    "recommendation": "毛大妈带帽饭小吃店是夜间休闲好去处"
+    "recommendation": "毛大妈带帽饭小吃店是夜间休闲好去处",
+    "open_minutes": 660,
+    "close_minutes": 900
   },
   {
     "id": "amap_671df86e",
@@ -3338,7 +3502,9 @@
     "description": "茶火火新中式茶.咖啡馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KB7UHQQZ",
-    "recommendation": "新中式茶咖氛围绝了，点杯青梅冷萃坐一下午，窗边位最适合发呆。"
+    "recommendation": "新中式茶咖氛围绝了，点杯青梅冷萃坐一下午，窗边位最适合发呆。",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_d3e6d2b0",
@@ -3358,12 +3524,14 @@
       "咖啡厅"
     ],
     "popularity": 4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "云雀·茶水铺·咖啡店，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0JUSCQAYQ",
-    "recommendation": "古城里的小清新，点杯手冲咖啡发呆一整天，推荐靠窗座位看街景。"
+    "recommendation": "古城里的小清新，点杯手冲咖啡发呆一整天，推荐靠窗座位看街景。",
+    "open_minutes": 660,
+    "close_minutes": 1140
   },
   {
     "id": "amap_cd277955",
@@ -3389,7 +3557,9 @@
     "description": "一饮相思咖啡厅(七星街店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFG3UMGS",
-    "recommendation": "一饮相思咖啡厅(七星街店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "一饮相思咖啡厅(七星街店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 90
   },
   {
     "id": "amap_ebf15ce1",
@@ -3439,7 +3609,9 @@
     "description": "上岛(朝阳路店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFK5A1AZ",
-    "recommendation": "古城逛累了来这坐坐，点杯招牌奶茶配甜品，发呆一下午超惬意！"
+    "recommendation": "古城逛累了来这坐坐，点杯招牌奶茶配甜品，发呆一下午超惬意！",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9a8d1447",
@@ -4371,7 +4543,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江火车站(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4397,7 +4569,7 @@
       "飞机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江三义国际机场，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4422,7 +4594,7 @@
       "火车站"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江站，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4448,7 +4620,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江三义机场(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4475,7 +4647,7 @@
       "祥和"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江古城南门机场大巴乘车点(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4501,7 +4673,7 @@
       "进站口/检票口"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江站(进站口)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4527,7 +4699,7 @@
       "飞机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江三义国际机场国际航站楼，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4553,7 +4725,7 @@
       "飞机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江三义国际机场国内航站楼，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
@@ -4579,11 +4751,600 @@
       "出站口"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽江站(出站口)，来自高德 Web 服务 POI 搜索；分类：交通。",
     "source": "amap",
     "source_id": "B037815BJZ",
     "recommendation": "出站别坐黑车"
+  },
+  {
+    "id": "transit_B03780HUMH",
+    "name": "丽江三义国际机场国内航站楼(国内出发)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.666793,
+    "lng": 100.24861,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "丽江三义国际机场国内航站楼(国内出发)，丽江主要火车站。",
+    "meal_type": "",
+    "recommendation": "丽江三义国际机场国内航站楼(国内出发)是丽江的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFG8OUF0",
+    "name": "宁蒗泸沽湖机场",
+    "type": "transit",
+    "area": "宁蒗彝族自治县",
+    "lat": 27.538409,
+    "lng": 100.76156,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "宁蒗泸沽湖机场，丽江主要火车站。",
+    "meal_type": "",
+    "recommendation": "宁蒗泸沽湖机场是丽江的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03781404A",
+    "name": "丽江三义国际机场国内航站楼(国内到达)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.666844,
+    "lng": 100.24849,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "丽江三义国际机场国内航站楼(国内到达)，丽江主要火车站。",
+    "meal_type": "",
+    "recommendation": "丽江三义国际机场国内航站楼(国内到达)是丽江的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFL7SIL4",
+    "name": "宁蒗泸沽湖机场航站楼",
+    "type": "transit",
+    "area": "宁蒗彝族自治县",
+    "lat": 27.540237,
+    "lng": 100.759884,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "宁蒗泸沽湖机场航站楼，丽江主要火车站。",
+    "meal_type": "",
+    "recommendation": "宁蒗泸沽湖机场航站楼是丽江的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03781404C",
+    "name": "丽江三义国际机场国际航站楼(国际出发)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.668366,
+    "lng": 100.247774,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "丽江三义国际机场国际航站楼(国际出发)，丽江主要火车站。",
+    "meal_type": "",
+    "recommendation": "丽江三义国际机场国际航站楼(国际出发)是丽江的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFL7SLQF",
+    "name": "宁蒗泸沽湖机场航站楼(国内出发)",
+    "type": "transit",
+    "area": "宁蒗彝族自治县",
+    "lat": 27.540179,
+    "lng": 100.759773,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "宁蒗泸沽湖机场航站楼(国内出发)，丽江主要火车站。",
+    "meal_type": "",
+    "recommendation": "宁蒗泸沽湖机场航站楼(国内出发)是丽江的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03781404B",
+    "name": "丽江三义国际机场国际航站楼(国际到达)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.668915,
+    "lng": 100.24804,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "丽江三义国际机场国际航站楼(国际到达)，丽江主要火车站。",
+    "meal_type": "",
+    "recommendation": "丽江三义国际机场国际航站楼(国际到达)是丽江的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFL7SLQC",
+    "name": "宁蒗泸沽湖机场航站楼(国内到达)",
+    "type": "transit",
+    "area": "宁蒗彝族自治县",
+    "lat": 27.540401,
+    "lng": 100.760031,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "宁蒗泸沽湖机场航站楼(国内到达)，丽江主要火车站。",
+    "meal_type": "",
+    "recommendation": "宁蒗泸沽湖机场航站楼(国内到达)是丽江的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0378157KB",
+    "name": "丽江三义国际机场货运楼",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.669546,
+    "lng": 100.248158,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "丽江三义国际机场货运楼，丽江主要火车站。",
+    "meal_type": "",
+    "recommendation": "丽江三义国际机场货运楼是丽江的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B037813YM4",
+    "name": "丽江东站",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.86786,
+    "lng": 100.292417,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "丽江东站，丽江主要飞机场。",
+    "meal_type": "",
+    "recommendation": "丽江东站是丽江的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFL80WWN",
+    "name": "仁和站",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.704221,
+    "lng": 100.265151,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "仁和站，丽江主要飞机场。",
+    "meal_type": "",
+    "recommendation": "仁和站是丽江的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IRT5CYDN",
+    "name": "拉市海站",
+    "type": "transit",
+    "area": "玉龙纳西族自治县",
+    "lat": 26.881174,
+    "lng": 100.168467,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "拉市海站，丽江主要飞机场。",
+    "meal_type": "",
+    "recommendation": "拉市海站是丽江的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0J0X7HHPO",
+    "name": "拉市海站(出站口)",
+    "type": "transit",
+    "area": "玉龙纳西族自治县",
+    "lat": 26.881184,
+    "lng": 100.168257,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "拉市海站(出站口)，丽江主要飞机场。",
+    "meal_type": "",
+    "recommendation": "拉市海站(出站口)是丽江的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0J0X7JD5T",
+    "name": "拉市海站(进站口)",
+    "type": "transit",
+    "area": "玉龙纳西族自治县",
+    "lat": 26.881005,
+    "lng": 100.16844,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "拉市海站(进站口)，丽江主要飞机场。",
+    "meal_type": "",
+    "recommendation": "拉市海站(进站口)是丽江的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10290462",
+    "name": "忠义市场(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.866085,
+    "lng": 100.234642,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "忠义市场(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "忠义市场(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10290418",
+    "name": "古城口(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.872729,
+    "lng": 100.228689,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "古城口(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "古城口(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11161216",
+    "name": "玉龙雪山(公交站)",
+    "type": "transit",
+    "area": "玉龙纳西族自治县",
+    "lat": 27.097713,
+    "lng": 100.258333,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "玉龙雪山(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "玉龙雪山(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10290512",
+    "name": "石油公司(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.875744,
+    "lng": 100.24459,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "石油公司(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "石油公司(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10290417",
+    "name": "红太阳广场(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.879844,
+    "lng": 100.23145,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "红太阳广场(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "红太阳广场(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09320945",
+    "name": "民航蓝天宾馆(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.877863,
+    "lng": 100.221249,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "民航蓝天宾馆(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "民航蓝天宾馆(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10290463",
+    "name": "白龙广场(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.866176,
+    "lng": 100.231037,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "白龙广场(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "白龙广场(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09160473",
+    "name": "白沙古镇(公交站)",
+    "type": "transit",
+    "area": "玉龙纳西族自治县",
+    "lat": 26.953885,
+    "lng": 100.216781,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "白沙古镇(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "白沙古镇(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09166214",
+    "name": "丽江古城口(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.875109,
+    "lng": 100.231007,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "丽江古城口(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "丽江古城口(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10332719",
+    "name": "古管委(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.874419,
+    "lng": 100.240853,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "古管委(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "古管委(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10290536",
+    "name": "南门街(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.865247,
+    "lng": 100.241367,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南门街(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "南门街(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10290516",
+    "name": "玉缘桥(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.877375,
+    "lng": 100.234808,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "玉缘桥(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "玉缘桥(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10372970",
+    "name": "云大旅游学院(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.915365,
+    "lng": 100.227625,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "云大旅游学院(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "云大旅游学院(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10290416",
+    "name": "黑龙潭(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.882669,
+    "lng": 100.231514,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "黑龙潭(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "黑龙潭(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10290491",
+    "name": "束河路口(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.909809,
+    "lng": 100.217318,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "束河路口(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "束河路口(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11596294",
+    "name": "束河南门(公交站)",
+    "type": "transit",
+    "area": "古城区",
+    "lat": 26.914045,
+    "lng": 100.207988,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "束河南门(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "束河南门(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11567026",
+    "name": "蓝月谷(公交站)",
+    "type": "transit",
+    "area": "玉龙纳西族自治县",
+    "lat": 27.123915,
+    "lng": 100.245634,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "蓝月谷(公交站)，丽江主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "蓝月谷(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "丽江"
+    ],
+    "visit_duration": 15
   }
 ]

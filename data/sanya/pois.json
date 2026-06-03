@@ -16,7 +16,7 @@
       "国家级景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南山大小洞天旅游区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -65,7 +65,7 @@
       "水族馆"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "亚特兰蒂斯失落的空间水族馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -90,7 +90,7 @@
       "旅游景点"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "塔赫跳伞三亚基地，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -114,7 +114,7 @@
       "国家级景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "亚龙湾热带天堂森林公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -161,7 +161,7 @@
       "寺庙道观"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南山寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -209,7 +209,7 @@
       "国家级景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚南山文化旅游区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -310,7 +310,7 @@
       "国家级景点"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南山文化旅游区南山海上观音，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -408,7 +408,7 @@
       "鹿回头"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "鹿回头风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -507,7 +507,7 @@
       "城市广场"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天涯海角广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -925,7 +925,7 @@
       "旅游景点"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天涯海角游览区-莲花桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1048,7 +1048,7 @@
       "旅游景点"
     ],
     "popularity": 3.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "滨海摩崖石刻群，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1073,7 +1073,7 @@
       "旅游景点"
     ],
     "popularity": 2.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "怀远亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1198,7 +1198,7 @@
       "旅游景点"
     ],
     "popularity": 3.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "桶井(马岭-羊栏)火车站牌，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1573,7 +1573,7 @@
       "旅游景点"
     ],
     "popularity": 3.1,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "天涯海角游览区-美人鱼海底穿越，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1775,7 +1775,7 @@
       "旅游景点"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天涯海角游览区-观海亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1848,7 +1848,7 @@
       "风景名胜"
     ],
     "popularity": 3.2,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "原爱心大世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1946,7 +1946,7 @@
       "风景名胜"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "人字门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1973,7 +1973,7 @@
       "旅游景点"
     ],
     "popularity": 3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天涯海角非遗商业街，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -2023,7 +2023,7 @@
       "科教文化服务"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚山海贝文化博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2073,7 +2073,7 @@
       "科教文化服务"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚南山非遗博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2100,7 +2100,7 @@
       "河东路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚市图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2127,7 +2127,7 @@
       "河西"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 0,
     "meal_type": "main",
     "description": "贝尔蒙亲子中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2181,7 +2181,7 @@
       "南边海路"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "交通运输部南海救助局三亚水上救助综合训练基地，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2208,7 +2208,7 @@
       "河东路"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚乐雅教育培训中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2288,7 +2288,7 @@
       "河东路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚市24小时自助图书馆(新风街)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2345,7 +2345,7 @@
       "河东路"
     ],
     "popularity": 4.1,
-    "price_level": 4,
+    "price_level": 0,
     "meal_type": "main",
     "description": "回音油画体验馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2372,7 +2372,7 @@
       "河东路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "第六届亚洲沙滩运动会执行工作委员会，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2398,7 +2398,7 @@
       "科研机构"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中国科学院深海科学与工程研究所，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2427,7 +2427,7 @@
       "科教文化场所"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚火车头家具博览中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2454,7 +2454,7 @@
       "海韵路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大东海广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2481,7 +2481,7 @@
       "城市广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海棠广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2508,7 +2508,7 @@
       "城市广场"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "亚龙湾中心广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2534,7 +2534,7 @@
       "公园广场"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚红色娘子军景区，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2560,7 +2560,7 @@
       "公园广场"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "水上公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2586,7 +2586,7 @@
       "服装鞋帽皮具店"
     ],
     "popularity": 4.5,
-    "price_level": 5,
+    "price_level": 1,
     "meal_type": "main",
     "description": "SHAKA SURF沙卡冲浪(后海店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -2611,7 +2611,7 @@
       "外国餐厅"
     ],
     "popularity": 4.4,
-    "price_level": 5,
+    "price_level": 1,
     "meal_type": "main",
     "description": "三亚艾迪逊酒店·天鹭 EGRET·牛排·海鲜·西餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2637,7 +2637,7 @@
       "金鸡岭"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "鲜芒文旅夜市，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2663,7 +2663,7 @@
       "金鸡岭"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "琼禧小馆·海南菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2689,7 +2689,7 @@
       "餐饮相关"
     ],
     "popularity": 4.2,
-    "price_level": 5,
+    "price_level": 1,
     "meal_type": "main",
     "description": "三亚艾迪逊酒店·海滩俱乐部 BEACH CLUB·泳池吧，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2745,7 +2745,7 @@
       "南边海路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "三姐椰奶清补凉，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -2771,7 +2771,7 @@
       "餐饮相关"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海昌不夜城美食街(三亚海昌梦幻海洋不夜城店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -2821,7 +2821,7 @@
       "中餐厅"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "锅两好鱼蛙双拼(海棠68环球美食街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -2902,7 +2902,7 @@
       "餐饮相关"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "博后夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -2953,7 +2953,7 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "后海夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -2979,7 +2979,7 @@
       "海花路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "苏亚美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3005,7 +3005,7 @@
       "金鸡岭"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "星舟中华美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3081,7 +3081,7 @@
       "快餐厅"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "夜市小吃一条街(东榕美食广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3132,7 +3132,7 @@
       "中餐厅"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "阿三靓汤美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3162,7 +3162,7 @@
       "海韵路"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "辉记二棵树海鲜美食城(大东海店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3187,7 +3187,7 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "三亚青年城夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3212,7 +3212,7 @@
       "购物相关场所"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "渔村美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3238,7 +3238,7 @@
       "餐饮相关"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "黎锦美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3264,7 +3264,7 @@
       "亚龙湾"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "亚泰美食街(亚龙湾亚泰商业中心店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3291,7 +3291,7 @@
       "河东路"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "椰都林潮汇美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3343,7 +3343,7 @@
       "港门村"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "港华夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3369,7 +3369,7 @@
       "南边海路"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "南边海夜市(观海海景美食城)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3421,7 +3421,7 @@
       "海棠湾"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "林旺北美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3447,7 +3447,7 @@
       "三亚湾"
     ],
     "popularity": 3.8,
-    "price_level": 4,
+    "price_level": 1,
     "meal_type": "main",
     "description": "一家渔民美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3525,7 +3525,7 @@
       "河西"
     ],
     "popularity": 4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "创新小吃街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3551,7 +3551,7 @@
       "海鲜酒楼"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "清真·凤凰鱼文味海鲜美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3653,7 +3653,7 @@
       "中餐厅"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海螺美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3860,7 +3860,7 @@
       "中餐厅"
     ],
     "popularity": 3.9,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "龙旺旺新派海南菜·平价海鲜美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3911,7 +3911,7 @@
       "解放二路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "步行街小吃城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -3968,7 +3968,7 @@
       "楼宇"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海旅免税城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -3997,7 +3997,7 @@
       "河西路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "国药中服免税三亚店，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5876,7 +5876,7 @@
       "飞机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚凤凰国际机场，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -5902,7 +5902,7 @@
       "直升机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚天涯直升机场，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -5928,7 +5928,7 @@
       "飞机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚凤凰国际机场国际航站楼，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -5953,7 +5953,7 @@
       "火车站"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "凤凰机场站，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -5979,7 +5979,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "凤凰机场(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -6005,7 +6005,7 @@
       "网约车"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚凤凰国际机场T3航站楼网约车上车点，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -6031,7 +6031,7 @@
       "飞机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚凤凰国际机场T2航站楼，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -6057,11 +6057,980 @@
       "出租车"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "三亚凤凰国际机场T3航站楼出租车上客区，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "B0MB6MNDAA",
     "recommendation": "三亚凤凰国际机场T3航站楼出租车上客区是当地热门景点，建议游览90分钟左右"
+  },
+  {
+    "id": "transit_B0G0MUNH91",
+    "name": "三亚凤凰国际机场T1航站楼",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.307529,
+    "lng": 109.412522,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场T1航站楼，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场T1航站楼是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0K3NLLPZX",
+    "name": "三亚凤凰国际机场T3航站楼",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.306647,
+    "lng": 109.403923,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场T3航站楼，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场T3航站楼是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0383011N2",
+    "name": "三亚凤凰国际机场T1航站楼(国内出发)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.307794,
+    "lng": 109.411608,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场T1航站楼(国内出发)，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场T1航站楼(国内出发)是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0MB6MN2IN",
+    "name": "三亚凤凰国际机场T3航站楼(国内出发)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.307188,
+    "lng": 109.403508,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场T3航站楼(国内出发)，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场T3航站楼(国内出发)是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HAO5J4VU",
+    "name": "三亚凤凰国际机场T2航站楼(国内出发)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.307969,
+    "lng": 109.413986,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场T2航站楼(国内出发)，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场T2航站楼(国内出发)是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B038300YSP",
+    "name": "三亚凤凰国际机场T1航站楼(国内到达)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.307785,
+    "lng": 109.411578,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场T1航站楼(国内到达)，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场T1航站楼(国内到达)是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0MB6MNDA9",
+    "name": "三亚凤凰国际机场T3航站楼(国内到达)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.307232,
+    "lng": 109.403978,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场T3航站楼(国内到达)，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场T3航站楼(国内到达)是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HAO5JCGM",
+    "name": "三亚凤凰国际机场T2航站楼(国内到达)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.307989,
+    "lng": 109.414092,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场T2航站楼(国内到达)，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场T2航站楼(国内到达)是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B038300LOU",
+    "name": "三亚凤凰国际机场国际航站楼(国际港澳台出发)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.307668,
+    "lng": 109.408303,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场国际航站楼(国际港澳台出发)，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场国际航站楼(国际港澳台出发)是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0383017OK",
+    "name": "三亚凤凰国际机场国际航站楼(国际港澳台到达)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.307764,
+    "lng": 109.408985,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场国际航站楼(国际港澳台到达)，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场国际航站楼(国际港澳台到达)是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03830NE3N",
+    "name": "三亚凤凰国际机场贵宾楼",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.306385,
+    "lng": 109.42695,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场贵宾楼，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场贵宾楼是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03830MR3U",
+    "name": "三亚凤凰国际机场贵宾楼(B区出发)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.306731,
+    "lng": 109.426806,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场贵宾楼(B区出发)，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场贵宾楼(B区出发)是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03830MR6A",
+    "name": "三亚凤凰国际机场贵宾楼(B区到达)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.306807,
+    "lng": 109.426914,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚凤凰国际机场贵宾楼(B区到达)，三亚主要火车站。",
+    "meal_type": "",
+    "recommendation": "三亚凤凰国际机场贵宾楼(B区到达)是三亚的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03830MO5H",
+    "name": "三亚站",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.296447,
+    "lng": 109.492886,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚站，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "三亚站是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0383017FX",
+    "name": "三亚站(进站口)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.296137,
+    "lng": 109.492733,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚站(进站口)，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "三亚站(进站口)是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0383017RH",
+    "name": "亚龙湾站",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.302184,
+    "lng": 109.602482,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "亚龙湾站，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "亚龙湾站是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03830NMYP",
+    "name": "崖州站",
+    "type": "transit",
+    "area": "崖州区",
+    "lat": 18.376103,
+    "lng": 109.157599,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "崖州站，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "崖州站是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03830NFAX",
+    "name": "亚龙湾站(进站口)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.302438,
+    "lng": 109.602423,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "亚龙湾站(进站口)，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "亚龙湾站(进站口)是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B03830NFAP",
+    "name": "三亚站(出站口)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.296218,
+    "lng": 109.492327,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚站(出站口)，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "三亚站(出站口)是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KALSIOHG",
+    "name": "天涯海角站",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.306265,
+    "lng": 109.339223,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "天涯海角站，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "天涯海角站是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHN3INX",
+    "name": "南山北站",
+    "type": "transit",
+    "area": "崖州区",
+    "lat": 18.317575,
+    "lng": 109.210215,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南山北站，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南山北站是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KGPSWZDT",
+    "name": "崖州湾站",
+    "type": "transit",
+    "area": "崖州区",
+    "lat": 18.353393,
+    "lng": 109.184461,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "崖州湾站，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "崖州湾站是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGZJD47",
+    "name": "崖州站(进站口)",
+    "type": "transit",
+    "area": "崖州区",
+    "lat": 18.376285,
+    "lng": 109.157699,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "崖州站(进站口)，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "崖州站(进站口)是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFH3WJDY",
+    "name": "亚龙湾站(出站口)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.30217,
+    "lng": 109.60196,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "亚龙湾站(出站口)，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "亚龙湾站(出站口)是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KG3SFLQ2",
+    "name": "红塘湾站",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.312033,
+    "lng": 109.29358,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "红塘湾站，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "红塘湾站是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHGOERF",
+    "name": "崖州站(出站口)",
+    "type": "transit",
+    "area": "崖州区",
+    "lat": 18.376269,
+    "lng": 109.157461,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "崖州站(出站口)，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "崖州站(出站口)是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0L2MUZH7K",
+    "name": "凤凰机场站(北出站口)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.30928,
+    "lng": 109.40959,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "凤凰机场站(北出站口)，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "凤凰机场站(北出站口)是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KD0MVKSG",
+    "name": "崖州西站",
+    "type": "transit",
+    "area": "崖州区",
+    "lat": 18.37539,
+    "lng": 109.084255,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "崖州西站，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "崖州西站是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHFNNHW",
+    "name": "天涯站",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.313335,
+    "lng": 109.442668,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "天涯站，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "天涯站是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0K07AFADE",
+    "name": "南山北站(进站口)",
+    "type": "transit",
+    "area": "崖州区",
+    "lat": 18.317527,
+    "lng": 109.209609,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南山北站(进站口)，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南山北站(进站口)是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0K0CZC9BJ",
+    "name": "天涯海角站(进站口)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.306106,
+    "lng": 109.338939,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "天涯海角站(进站口)，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "天涯海角站(进站口)是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0I6FMIEV2",
+    "name": "凤凰机场出发层下车点",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.307753,
+    "lng": 109.411174,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "凤凰机场出发层下车点，三亚主要飞机场。",
+    "meal_type": "",
+    "recommendation": "凤凰机场出发层下车点是三亚的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10428824",
+    "name": "美丽新海岸(公交站)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.282648,
+    "lng": 109.457985,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "美丽新海岸(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "美丽新海岸(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10973966",
+    "name": "三亚火车站(公交站)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.295751,
+    "lng": 109.493372,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚火车站(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "三亚火车站(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291779",
+    "name": "荔枝沟市场(公交站)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.295885,
+    "lng": 109.524727,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "荔枝沟市场(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "荔枝沟市场(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10326756",
+    "name": "301医院(公交站)",
+    "type": "transit",
+    "area": "海棠区",
+    "lat": 18.292743,
+    "lng": 109.713464,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "301医院(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "301医院(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291652",
+    "name": "丹州小区(公交站)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.27747,
+    "lng": 109.511108,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "丹州小区(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "丹州小区(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291598",
+    "name": "夏日百货(公交站)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.224391,
+    "lng": 109.523698,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "夏日百货(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "夏日百货(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291771",
+    "name": "海月广场(公交站)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.260542,
+    "lng": 109.493553,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "海月广场(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "海月广场(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291592",
+    "name": "鲁迅中学(公交站)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.235392,
+    "lng": 109.550186,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "鲁迅中学(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "鲁迅中学(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291597",
+    "name": "大东海广场(公交站)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.223503,
+    "lng": 109.527748,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大东海广场(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "大东海广场(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10506117",
+    "name": "海棠湾免税广场(公交站)",
+    "type": "transit",
+    "area": "海棠区",
+    "lat": 18.370946,
+    "lng": 109.748668,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "海棠湾免税广场(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "海棠湾免税广场(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11440167",
+    "name": "三亚火车站(有轨电车站)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.295814,
+    "lng": 109.49264,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三亚火车站(有轨电车站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "三亚火车站(有轨电车站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11239186",
+    "name": "汽车总站(三亚风情街入口)(公交站)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.249115,
+    "lng": 109.504967,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "汽车总站(三亚风情街入口)(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "汽车总站(三亚风情街入口)(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10987449",
+    "name": "海韵酒店(公交站)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.28631,
+    "lng": 109.445396,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "海韵酒店(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "海韵酒店(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291729",
+    "name": "天涯邮政(公交站)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.304783,
+    "lng": 109.334701,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "天涯邮政(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "天涯邮政(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291851",
+    "name": "金鸡岭社区(公交站)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.283845,
+    "lng": 109.501827,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "金鸡岭社区(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "金鸡岭社区(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291632",
+    "name": "一市场路口(公交站)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.238554,
+    "lng": 109.507172,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "一市场路口(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "一市场路口(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291584",
+    "name": "亚龙湾火车站(公交站)",
+    "type": "transit",
+    "area": "吉阳区",
+    "lat": 18.301325,
+    "lng": 109.603043,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "亚龙湾火车站(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "亚龙湾火车站(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10454394",
+    "name": "立才农场(公交站)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.409923,
+    "lng": 109.309392,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "立才农场(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "立才农场(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10291844",
+    "name": "国光滨海花园(公交站)",
+    "type": "transit",
+    "area": "天涯区",
+    "lat": 18.287027,
+    "lng": 109.441635,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "国光滨海花园(公交站)，三亚主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "国光滨海花园(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "三亚"
+    ],
+    "visit_duration": 15
   }
 ]

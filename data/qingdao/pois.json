@@ -17,12 +17,14 @@
       "崂山风景区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "崂山风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B021407PX0",
-    "recommendation": "崂山风景区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "崂山风景区是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1050
   },
   {
     "id": "amap_8e6663bc",
@@ -42,7 +44,7 @@
       "公园"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "栈桥景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -67,7 +69,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金沙滩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -93,7 +95,7 @@
       "东海路"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "五四广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -143,12 +145,14 @@
       "极地海洋世界"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海合安·青岛极地海洋公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02140WLH8",
-    "recommendation": "海合安·青岛极地海洋公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "海合安·青岛极地海洋公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1020
   },
   {
     "id": "amap_f9aa0b39",
@@ -168,12 +172,14 @@
       "水族馆"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛海底世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0214082FI",
-    "recommendation": "青岛海底世界是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛海底世界是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_def94f75",
@@ -193,12 +199,14 @@
       "公园"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "信号山公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B021401767",
-    "recommendation": "信号山公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "信号山公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1140
   },
   {
     "id": "amap_ed9e357a",
@@ -226,7 +234,9 @@
     "description": "青岛方特梦幻王国，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02140A3J6",
-    "recommendation": "青岛方特梦幻王国是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛方特梦幻王国是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1050
   },
   {
     "id": "amap_f0d6dcd5",
@@ -247,7 +257,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "唐岛湾滨海公园-景观栈桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -273,7 +283,7 @@
       "长江路"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "马濠公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -298,12 +308,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "银沙滩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B021406FUL",
-    "recommendation": "银沙滩是当地热门景点，建议游览90分钟左右"
+    "recommendation": "银沙滩是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1080
   },
   {
     "id": "amap_96f7e897",
@@ -323,7 +335,7 @@
       "旅游景点"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "星海栈桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -348,12 +360,14 @@
       "公园"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "小青岛公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0214069MY",
-    "recommendation": "小青岛公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "小青岛公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1200
   },
   {
     "id": "amap_d5da90d2",
@@ -373,7 +387,7 @@
       "公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "燕儿岛智慧公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -397,12 +411,14 @@
       "国家级景点"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "小鱼山，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B021406XPT",
-    "recommendation": "小鱼山是当地热门景点，建议游览90分钟左右"
+    "recommendation": "小鱼山是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1200
   },
   {
     "id": "amap_62755c2c",
@@ -421,12 +437,14 @@
       "省级景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛德国总督楼旧址博物馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0214017D2",
-    "recommendation": "青岛德国总督楼旧址博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛德国总督楼旧址博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_b5d54d34",
@@ -447,7 +465,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海军公园栈桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -471,12 +489,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛新栈桥-深蓝之光，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0JDS5SVIW",
-    "recommendation": "青岛新栈桥-深蓝之光是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛新栈桥-深蓝之光是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1200
   },
   {
     "id": "amap_476b0727",
@@ -496,7 +516,7 @@
       "旅游景点"
     ],
     "popularity": 3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玫瑰小镇水中小栈桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -544,12 +564,14 @@
       "风景名胜"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "栈桥陶音阁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFLBUFUT",
-    "recommendation": "栈桥陶音阁是当地热门景点，建议游览90分钟左右"
+    "recommendation": "栈桥陶音阁是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1230
   },
   {
     "id": "amap_d6db3277",
@@ -568,12 +590,14 @@
       "太平角"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "花石楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0214024B3",
-    "recommendation": "花石楼是当地热门景点，建议游览90分钟左右"
+    "recommendation": "花石楼是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_4370548d",
@@ -617,12 +641,14 @@
       "湛山"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中山公园太平山观光索道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B021406QLD",
-    "recommendation": "中山公园太平山观光索道是当地热门景点，建议游览90分钟左右"
+    "recommendation": "中山公园太平山观光索道是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1110
   },
   {
     "id": "amap_6faa5620",
@@ -641,7 +667,7 @@
       "纪念馆"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "德国领事馆旧址-德国神甫旧宅，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -667,7 +693,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "唐岛湾滨海公园-观鸟栈桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -691,7 +717,7 @@
       "公园广场"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "胶澳总督府旧址大楼广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -718,7 +744,7 @@
       "体育休闲服务场所"
     ],
     "popularity": 3.5,
-    "price_level": 2,
+    "price_level": 0,
     "meal_type": "main",
     "description": "鱼山鱼海钓鱼俱乐部，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -743,12 +769,14 @@
       "湛山"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛电视塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0214068JZ",
-    "recommendation": "青岛电视塔是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛电视塔是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_6be4d68f",
@@ -774,7 +802,9 @@
     "description": "青岛海上游船观光，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0IUHCP7V8",
-    "recommendation": "青岛海上游船观光是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛海上游船观光是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 960
   },
   {
     "id": "amap_bd6e7745",
@@ -800,7 +830,9 @@
     "description": "飞洋游艇码头，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02140VQ0N",
-    "recommendation": "飞洋游艇码头是当地热门景点，建议游览90分钟左右"
+    "recommendation": "飞洋游艇码头是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 990
   },
   {
     "id": "amap_443b61f0",
@@ -868,7 +900,7 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "回澜阁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -917,12 +949,14 @@
       "城市广场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "栈桥音乐家广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0KUUUXVX6",
-    "recommendation": "栈桥音乐家广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "栈桥音乐家广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_2c48046c",
@@ -967,7 +1001,7 @@
       "旅游景点"
     ],
     "popularity": 3.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "先天桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1014,12 +1048,14 @@
       "湛山"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "云上艺术中心，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0HRY5F2V0",
-    "recommendation": "云上艺术中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "云上艺术中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1050
   },
   {
     "id": "amap_dbd9b630",
@@ -1042,7 +1078,7 @@
       "旅游景点"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "太平山，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1065,12 +1101,14 @@
       "风景名胜"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛湾栈桥海上观光中心，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0KA7KV72A",
-    "recommendation": "青岛湾栈桥海上观光中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛湾栈桥海上观光中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1070
   },
   {
     "id": "amap_ba135c52",
@@ -1088,7 +1126,7 @@
       "风景名胜"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛湾栈桥码头，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1113,7 +1151,7 @@
       "旅游景点"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "栈桥海景花园猫猫民宿(青岛青岛火车站栈桥青岛站店)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1137,7 +1175,7 @@
       "麦岛大学区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "小麦岛公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1162,7 +1200,7 @@
       "公园"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "鲁迅公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1188,7 +1226,7 @@
       "团岛"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "八大峡广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1213,7 +1251,7 @@
       "旅游景点"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "钟表楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1270,7 +1308,9 @@
     "description": "青岛西海岸博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0K6BHC1TM",
-    "recommendation": "青岛西海岸博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛西海岸博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_136a9a92",
@@ -1290,12 +1330,14 @@
       "科教文化服务"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛一战遗址博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFKDW8SZ",
-    "recommendation": "青岛一战遗址博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛一战遗址博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_4ef7e9ba",
@@ -1316,12 +1358,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛黄海学院博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFH8ESBQ",
-    "recommendation": "青岛黄海学院博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛黄海学院博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1020
   },
   {
     "id": "amap_c94e2fd9",
@@ -1343,12 +1387,14 @@
       "湛山"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海信探索中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFKSTP2B",
-    "recommendation": "海信探索中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "海信探索中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1020
   },
   {
     "id": "amap_5b3b2147",
@@ -1374,7 +1420,9 @@
     "description": "青岛啤酒博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B021401A45",
-    "recommendation": "青岛啤酒博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛啤酒博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1050
   },
   {
     "id": "amap_40bfe7d2",
@@ -1395,12 +1443,14 @@
       "图书馆"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛市图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02140851R",
-    "recommendation": "青岛市图书馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛市图书馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1440
   },
   {
     "id": "amap_3140967b",
@@ -1427,7 +1477,9 @@
     "description": "青岛国际会议中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFJ5Y5QR",
-    "recommendation": "青岛国际会议中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛国际会议中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_78664d8b",
@@ -1477,7 +1529,7 @@
       "浮山所"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中国水产科学研究院黄海水产研究所，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -1504,12 +1556,14 @@
       "湛山"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛市妇女儿童活动中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B021405KIU",
-    "recommendation": "青岛市妇女儿童活动中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛市妇女儿童活动中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 990
   },
   {
     "id": "amap_83d70f43",
@@ -1531,7 +1585,7 @@
       "湛山"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛大学心血管病研究所(芝泉路)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -1557,7 +1611,7 @@
       "图书馆"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "亚朵竹居流动图书馆(青岛五四广场市政府店)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -1611,12 +1665,14 @@
       "浮山所"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "半岛都市报社，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B021406QZD",
-    "recommendation": "半岛都市报社是当地热门景点，建议游览90分钟左右"
+    "recommendation": "半岛都市报社是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 450,
+    "close_minutes": 1290
   },
   {
     "id": "amap_8e8b5471",
@@ -1638,12 +1694,14 @@
       "浮山"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "市南区图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02140255A",
-    "recommendation": "市南区图书馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "市南区图书馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_a3e925a6",
@@ -1665,7 +1723,7 @@
       "浮山所"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海洋化工研究院(金湖路)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -1697,7 +1755,9 @@
     "description": "太平角18号艺术中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0H21U9GFO",
-    "recommendation": "太平角18号艺术中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "太平角18号艺术中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1200
   },
   {
     "id": "amap_3a59d6b6",
@@ -1719,7 +1779,7 @@
       "湛山"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中国石化安全工程研究院(延安三路)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -1746,7 +1806,7 @@
       "太平角"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中国科学院海洋研究所，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -1777,7 +1837,9 @@
     "description": "青岛市档案馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0214014B3",
-    "recommendation": "青岛市档案馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛市档案馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 690
   },
   {
     "id": "amap_6f4d0829",
@@ -1798,7 +1860,7 @@
       "公园广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "滨海公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1825,7 +1887,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海滨公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1853,7 +1915,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛西海岸金沙滩啤酒城，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1881,7 +1943,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "风帆广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1908,7 +1970,7 @@
       "珠山"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "肖家庄橡树林公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1935,7 +1997,7 @@
       "杭州路"
     ],
     "popularity": 2.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青小园滨河口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1963,7 +2025,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金沙滩-半圆广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -1991,7 +2053,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海军雕塑广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2018,7 +2080,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "城市阳台景区-会展公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2045,7 +2107,7 @@
       "湛山"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛太平角公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2072,7 +2134,7 @@
       "城市广场"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "波浪广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2100,7 +2162,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 3.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "禁毒文化广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2126,7 +2188,7 @@
       "公园广场"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "流清PARK，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2152,7 +2214,7 @@
       "公园广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海晏园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2180,7 +2242,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "东啤酒文化广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2208,12 +2270,14 @@
       "即墨"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海滨广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0H0ZSV932",
-    "recommendation": "海滨广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "海滨广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 720
   },
   {
     "id": "amap_4b70e2de",
@@ -2235,7 +2299,7 @@
       "石老人村"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青小园-石老人滨海公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2262,12 +2326,14 @@
       "湛山"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海趣园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B021406QH8",
-    "recommendation": "海趣园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "海趣园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_24139324",
@@ -2288,7 +2354,7 @@
       "公园广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "小三角公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2315,7 +2381,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "唐岛湾滨海公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2343,7 +2409,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海浪广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2371,7 +2437,7 @@
       "湛山"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海涛园-天地间，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2398,7 +2464,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "温山生态公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2425,7 +2491,7 @@
       "湛山"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青小园海遇园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2452,7 +2518,7 @@
       "麦岛大学区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青小园小麦岛入口东园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2482,7 +2548,7 @@
       "阜安"
     ],
     "popularity": 3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "睿美水族世界(钱市街)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2509,7 +2575,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海滨公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2533,7 +2599,7 @@
       "城市漫步"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "山东省青岛市市南区劈柴院，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -2560,12 +2626,14 @@
       "湛山"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "开海·红岛海鲜虾水饺店(八大关店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02140ZLVR",
-    "recommendation": "开海·红岛海鲜虾水饺店(八大关店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "开海·红岛海鲜虾水饺店(八大关店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 870
   },
   {
     "id": "amap_fc5e27ce",
@@ -2586,12 +2654,14 @@
       "中韩"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "广开·尚宴·海鲜·青岛菜(万象汇店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0ID9AKN2W",
-    "recommendation": "广开·尚宴·海鲜·青岛菜(万象汇店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "广开·尚宴·海鲜·青岛菜(万象汇店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_65b854b5",
@@ -2613,12 +2683,14 @@
       "海泊桥"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "清真老马家海鲜大排档(台东八路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B021405SO4",
-    "recommendation": "清真老马家海鲜大排档(台东八路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "清真老马家海鲜大排档(台东八路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1380
   },
   {
     "id": "amap_5f6e619",
@@ -2639,12 +2711,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "永红源大排档(台柳路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHM4J0U",
-    "recommendation": "永红源大排档(台柳路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "永红源大排档(台柳路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 120
   },
   {
     "id": "amap_a0719d4d",
@@ -2666,12 +2740,14 @@
       "海泊桥"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "森林海鲜大排档·原马哥森林啤酒屋(丹阳路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFMEXCLC",
-    "recommendation": "森林海鲜大排档·原马哥森林啤酒屋(丹阳路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "森林海鲜大排档·原马哥森林啤酒屋(丹阳路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 90
   },
   {
     "id": "amap_3846e3d0",
@@ -2693,12 +2769,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "悦港海鲜(五台山路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JUYRXI9I",
-    "recommendation": "悦港海鲜(五台山路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "悦港海鲜(五台山路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 840
   },
   {
     "id": "amap_1b68178a",
@@ -2720,7 +2798,7 @@
       "海泊桥"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "尹记鸿运啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2747,12 +2825,14 @@
       "香港东路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "广开海鲜舫(石老人海水浴场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFI9XC0I",
-    "recommendation": "广开海鲜舫(石老人海水浴场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "广开海鲜舫(石老人海水浴场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 870
   },
   {
     "id": "amap_88924d35",
@@ -2773,12 +2853,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "悦港海鲜大酒店(七墩山路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H1X97XXO",
-    "recommendation": "悦港海鲜大酒店(七墩山路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "悦港海鲜大酒店(七墩山路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_db5e14e4",
@@ -2802,7 +2884,7 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海岛啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -2828,12 +2910,14 @@
       "台东"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "旺角海鲜啤酒屋(台东七路)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGRMUF2",
-    "recommendation": "旺角海鲜啤酒屋(台东七路)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "旺角海鲜啤酒屋(台东七路)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 60
   },
   {
     "id": "amap_843a5cc6",
@@ -2854,12 +2938,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "鸿顺啤酒屋海鲜大排档(台东八路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHJK5Q6",
-    "recommendation": "鸿顺啤酒屋海鲜大排档(台东八路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鸿顺啤酒屋海鲜大排档(台东八路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_49db1e70",
@@ -2880,12 +2966,14 @@
       "燕儿岛路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "青啤海边人家·青岛本帮菜(奥帆中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JGH6N63O",
-    "recommendation": "青啤海边人家·青岛本帮菜(奥帆中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "青啤海边人家·青岛本帮菜(奥帆中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_7f51000c",
@@ -2907,12 +2995,14 @@
       "麦岛大学区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "船歌·鱼水饺青岛菜(麦岛店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02140WFX1",
-    "recommendation": "船歌·鱼水饺青岛菜(麦岛店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "船歌·鱼水饺青岛菜(麦岛店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_3658de1d",
@@ -2934,12 +3024,14 @@
       "燕儿岛路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "渔港小厨大锅蒸鲜(燕儿岛路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIY75DD",
-    "recommendation": "渔港小厨大锅蒸鲜(燕儿岛路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "渔港小厨大锅蒸鲜(燕儿岛路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_ce7fb043",
@@ -2960,12 +3052,14 @@
       "海泊桥"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "王家吉祥啤酒屋(大名路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIB3DN2",
-    "recommendation": "王家吉祥啤酒屋(大名路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "王家吉祥啤酒屋(大名路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_21e1753a",
@@ -2986,7 +3080,7 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老街里戳子肉·海鲜大排档(大成路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3013,12 +3107,14 @@
       "即墨路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "五阿哥海鲜啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGSLPIS",
-    "recommendation": "五阿哥海鲜啤酒屋是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "五阿哥海鲜啤酒屋是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_fdb9f9b5",
@@ -3065,12 +3161,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "一九八八啤酒屋海鲜烧烤，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HGAZ1CUG",
-    "recommendation": "一九八八啤酒屋海鲜烧烤是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "一九八八啤酒屋海鲜烧烤是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_90a4796b",
@@ -3092,12 +3190,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "冰城啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I14B63XI",
-    "recommendation": "冰城啤酒屋是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "冰城啤酒屋是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_f08dd631",
@@ -3118,12 +3218,14 @@
       "台东"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "鲜岛啤酒屋·海鲜烧烤·大排档(台东七路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0IAAUAC5Y",
-    "recommendation": "鲜岛啤酒屋·海鲜烧烤·大排档(台东七路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鲜岛啤酒屋·海鲜烧烤·大排档(台东七路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 120
   },
   {
     "id": "amap_1e1444d3",
@@ -3144,12 +3246,14 @@
       "青特上豪"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "永红源大排档(青特店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFI8APB6",
-    "recommendation": "永红源大排档(青特店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "永红源大排档(青特店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_ef7d85be",
@@ -3171,12 +3275,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海嘉啤酒屋·青岛戳子肉，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HRV97H90",
-    "recommendation": "海嘉啤酒屋·青岛戳子肉是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "海嘉啤酒屋·青岛戳子肉是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_7e5b1506",
@@ -3199,12 +3305,14 @@
       "海泊桥"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "爱来客海鲜大排档(顺兴路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKHDEMD",
-    "recommendation": "爱来客海鲜大排档(顺兴路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "爱来客海鲜大排档(顺兴路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_4b13bc16",
@@ -3225,12 +3333,14 @@
       "团岛"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "万喜啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J2S7JLPG",
-    "recommendation": "万喜啤酒屋是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "万喜啤酒屋是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_6066ecd",
@@ -3254,7 +3364,7 @@
       "海泊桥"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "爽爽啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3280,12 +3390,14 @@
       "山东菜(鲁菜)"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "山海菜馆·海肠捞饭·青岛菜(栈桥店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFLWBN7",
-    "recommendation": "山海菜馆·海肠捞饭·青岛菜(栈桥店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "山海菜馆·海肠捞饭·青岛菜(栈桥店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_c0ab539",
@@ -3306,12 +3418,14 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "美达尔烧烤海鲜家常菜(中山路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B021407P22",
-    "recommendation": "美达尔烧烤海鲜家常菜(中山路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "美达尔烧烤海鲜家常菜(中山路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_5541eab0",
@@ -3332,12 +3446,14 @@
       "台东"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老味道啤酒屋(昌平路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L0RU5C6D",
-    "recommendation": "老味道啤酒屋(昌平路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老味道啤酒屋(昌平路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 60
   },
   {
     "id": "amap_286675c5",
@@ -3357,12 +3473,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "红姐啤酒屋烧烤炒菜海鲜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LDYU0G4K",
-    "recommendation": "红姐啤酒屋烧烤炒菜海鲜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "红姐啤酒屋烧烤炒菜海鲜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_7af658e5",
@@ -3382,12 +3500,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "星海湾青岛菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LA7MLKNN",
-    "recommendation": "星海湾青岛菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "星海湾青岛菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_9ff42c39",
@@ -3408,12 +3528,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "汇丰苑·青岛宴(信息城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I3ZDTQJO",
-    "recommendation": "汇丰苑·青岛宴(信息城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "汇丰苑·青岛宴(信息城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_977f0d8",
@@ -3435,12 +3557,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "悦港·中太海鲜大酒店(灵山湾路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LG5N07QG",
-    "recommendation": "悦港·中太海鲜大酒店(灵山湾路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "悦港·中太海鲜大酒店(灵山湾路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_32f25ba2",
@@ -3461,12 +3585,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "振宇啤酒屋·手抓海鲜·青岛戳子肉(台东店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG4K8KR",
-    "recommendation": "振宇啤酒屋·手抓海鲜·青岛戳子肉(台东店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "振宇啤酒屋·手抓海鲜·青岛戳子肉(台东店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 180
   },
   {
     "id": "amap_c8e0f373",
@@ -3488,12 +3614,14 @@
       "四川路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老地方啤酒屋(嘉祥路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KUKC5IP4",
-    "recommendation": "老地方啤酒屋(嘉祥路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老地方啤酒屋(嘉祥路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_61498c6a",
@@ -3517,12 +3645,14 @@
       "浮山后"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "金豆啤酒屋(海鲜加工)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KKJ18C9J",
-    "recommendation": "金豆啤酒屋(海鲜加工)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "金豆啤酒屋(海鲜加工)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 90
   },
   {
     "id": "amap_3f8cab23",
@@ -3544,12 +3674,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "午阳啤酒屋(台东七路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LG5MO4KA",
-    "recommendation": "午阳啤酒屋(台东七路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "午阳啤酒屋(台东七路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_c0ec419d",
@@ -3570,12 +3702,14 @@
       "台东"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "树刚啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFF9PMWI",
-    "recommendation": "树刚啤酒屋是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "树刚啤酒屋是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6cabaa81",
@@ -3597,12 +3731,14 @@
       "台东"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "大名海鲜烧烤炒菜海鲜大咖，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHRRUXK",
-    "recommendation": "大名海鲜烧烤炒菜海鲜大咖是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大名海鲜烧烤炒菜海鲜大咖是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 240
   },
   {
     "id": "amap_34587e80",
@@ -3623,12 +3759,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "龙润海鲜·青岛菜·海肠捞饭(鲁迅公园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JRB51PXM",
-    "recommendation": "龙润海鲜·青岛菜·海肠捞饭(鲁迅公园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "龙润海鲜·青岛菜·海肠捞饭(鲁迅公园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_fedbb3a9",
@@ -3650,12 +3788,14 @@
       "长江路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉东北烧烤海鲜家常菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFMDNUTB",
-    "recommendation": "醉东北烧烤海鲜家常菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉东北烧烤海鲜家常菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_95c160b1",
@@ -3676,12 +3816,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "二胖啤酒屋海鲜大排档，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHULIY9",
-    "recommendation": "二胖啤酒屋海鲜大排档是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "二胖啤酒屋海鲜大排档是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 150
   },
   {
     "id": "amap_f38208a0",
@@ -3703,12 +3845,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉青岛烧烤工厂(丰盛路单位宿舍店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J0OC5MFM",
-    "recommendation": "醉青岛烧烤工厂(丰盛路单位宿舍店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉青岛烧烤工厂(丰盛路单位宿舍店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 960,
+    "close_minutes": 240
   },
   {
     "id": "amap_706ec4e4",
@@ -3729,12 +3873,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "都源家宴小厨(三美云街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GR7GFDQY",
-    "recommendation": "都源家宴小厨(三美云街店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "都源家宴小厨(三美云街店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1290
   },
   {
     "id": "amap_835a7090",
@@ -3756,12 +3902,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "0532啤酒屋.本帮菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G2JSJC9Q",
-    "recommendation": "0532啤酒屋.本帮菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "0532啤酒屋.本帮菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_91d06c17",
@@ -3782,12 +3930,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "二姐海鲜烧烤大排档(台东店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJ1IT1G",
-    "recommendation": "二姐海鲜烧烤大排档(台东店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "二姐海鲜烧烤大排档(台东店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 90
   },
   {
     "id": "amap_ab3771de",
@@ -3809,12 +3959,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老青岛戳子肉海鲜大咖，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K0RSN0KP",
-    "recommendation": "老青岛戳子肉海鲜大咖是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老青岛戳子肉海鲜大咖是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 900
   },
   {
     "id": "amap_54958990",
@@ -3835,7 +3987,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "A8小馆·海鲜烧烤大排档(海王路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -3862,12 +4014,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "晓伟海鲜大排档，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GKMDSY5N",
-    "recommendation": "晓伟海鲜大排档是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "晓伟海鲜大排档是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 60
   },
   {
     "id": "amap_f185d0df",
@@ -3889,12 +4043,14 @@
       "燕儿岛路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "甄鲜小厨·蒸汽海鲜(奥帆中心店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GRAC4YOG",
-    "recommendation": "甄鲜小厨·蒸汽海鲜(奥帆中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "甄鲜小厨·蒸汽海鲜(奥帆中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_636c997",
@@ -3914,12 +4070,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "山海经大乐之野精酿啤酒餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJA4ZF7",
-    "recommendation": "山海经大乐之野精酿啤酒餐厅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "山海经大乐之野精酿啤酒餐厅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_74ac7c9",
@@ -3941,12 +4099,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "思思佳啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K0TCOL74",
-    "recommendation": "思思佳啤酒屋是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "思思佳啤酒屋是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_a2160c25",
@@ -3968,12 +4128,14 @@
       "海泊桥"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "大城码头海鲜台东店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I6OH9DN7",
-    "recommendation": "大城码头海鲜台东店是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大城码头海鲜台东店是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1380
   },
   {
     "id": "amap_44f264a6",
@@ -3994,12 +4156,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "悦港船宴海鲜大酒店(喜鹊山路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JDURX8K1",
-    "recommendation": "悦港船宴海鲜大酒店(喜鹊山路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "悦港船宴海鲜大酒店(喜鹊山路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_c1c8a171",
@@ -4021,12 +4185,14 @@
       "九水东路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "九水精酿·鲜味儿餐厅·青岛海鲜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HUJS0P55",
-    "recommendation": "九水精酿·鲜味儿餐厅·青岛海鲜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "九水精酿·鲜味儿餐厅·青岛海鲜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_f4cb6ee0",
@@ -4046,12 +4212,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老地方啤酒屋(市南区总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HG0CZIN8",
-    "recommendation": "老地方啤酒屋(市南区总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老地方啤酒屋(市南区总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_4e942738",
@@ -4073,12 +4241,14 @@
       "海泊桥"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老东镇啤酒屋海鲜大咖(顺兴路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGZG4TC",
-    "recommendation": "老东镇啤酒屋海鲜大咖(顺兴路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老东镇啤酒屋海鲜大咖(顺兴路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 240
   },
   {
     "id": "amap_61d555fd",
@@ -4100,7 +4270,7 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "開海宴•海鲜戳子肉•青啤直供大排档(宏海阁)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4127,12 +4297,14 @@
       "九水东路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "佰蒸鲜大锅海鲜(九水路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG2S1I5",
-    "recommendation": "佰蒸鲜大锅海鲜(九水路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "佰蒸鲜大锅海鲜(九水路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_bf954aff",
@@ -4153,12 +4325,14 @@
       "丽达购物广场"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "观海·小船海鲜•青岛菜(石老人店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HAFATVRZ",
-    "recommendation": "观海·小船海鲜•青岛菜(石老人店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "观海·小船海鲜•青岛菜(石老人店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_8236d712",
@@ -4180,12 +4354,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老青岛海鲜大排档(台东总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J0MAXWP0",
-    "recommendation": "老青岛海鲜大排档(台东总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老青岛海鲜大排档(台东总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 120
   },
   {
     "id": "amap_ebdf15da",
@@ -4207,12 +4383,14 @@
       "台东"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "岛城一鲜·海鲜大排档(台东店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HA21R75S",
-    "recommendation": "岛城一鲜·海鲜大排档(台东店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "岛城一鲜·海鲜大排档(台东店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 120
   },
   {
     "id": "amap_b349b868",
@@ -4236,12 +4414,14 @@
       "宁夏路大润发"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "心萍啤酒屋(南京路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFH71C2P",
-    "recommendation": "心萍啤酒屋(南京路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "心萍啤酒屋(南京路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 990,
+    "close_minutes": 1440
   },
   {
     "id": "amap_4b35db49",
@@ -4263,12 +4443,14 @@
       "海泊桥"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "客林啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LK3L12S4",
-    "recommendation": "客林啤酒屋是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "客林啤酒屋是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_e27ca543",
@@ -4292,12 +4474,14 @@
       "台东"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "喜洋洋啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFF9PFST",
-    "recommendation": "喜洋洋啤酒屋是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "喜洋洋啤酒屋是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_34ee8e2c",
@@ -4326,7 +4510,9 @@
     "description": "大胡子海鲜啤酒屋(广州路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JA3MW2KP",
-    "recommendation": "大胡子海鲜啤酒屋(广州路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大胡子海鲜啤酒屋(广州路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1440
   },
   {
     "id": "amap_f2ccc8c4",
@@ -4349,12 +4535,14 @@
       "台东"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "渔佳小厨·海鲜锅贴(啤酒博物馆店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHWDRSY",
-    "recommendation": "渔佳小厨·海鲜锅贴(啤酒博物馆店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "渔佳小厨·海鲜锅贴(啤酒博物馆店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 120
   },
   {
     "id": "amap_f113938b",
@@ -4378,12 +4566,14 @@
       "即墨路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海探长啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JAKZGPU2",
-    "recommendation": "海探长啤酒屋是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "海探长啤酒屋是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_d206cd6f",
@@ -4404,12 +4594,14 @@
       "台东"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "大福啤酒屋·海鲜·戳子肉(台东店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HR5CAV9L",
-    "recommendation": "大福啤酒屋·海鲜·戳子肉(台东店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大福啤酒屋·海鲜·戳子肉(台东店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_5a525882",
@@ -4430,12 +4622,14 @@
       "台东"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老地方烧烤活海鲜大咖(台东总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJAXCRY",
-    "recommendation": "老地方烧烤活海鲜大咖(台东总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老地方烧烤活海鲜大咖(台东总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 120
   },
   {
     "id": "amap_e8e2611c",
@@ -4456,7 +4650,7 @@
       "浮山后"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "酒鹊伊啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4483,12 +4677,14 @@
       "中韩"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "甄啤酒馆海鲜烧烤，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JR2RK93F",
-    "recommendation": "甄啤酒馆海鲜烧烤是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "甄啤酒馆海鲜烧烤是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 870
   },
   {
     "id": "amap_94fb5a22",
@@ -4511,12 +4707,14 @@
       "宾馆酒店"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "新广开·海鲜鲁菜·非遗渔家宴(苗岭路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H6O5TLF7",
-    "recommendation": "新广开·海鲜鲁菜·非遗渔家宴(苗岭路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "新广开·海鲜鲁菜·非遗渔家宴(苗岭路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_cbb3acfc",
@@ -4537,12 +4735,14 @@
       "台东"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老青岛戳子肉·海鲜大排挡(青岛啤酒一厂店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JDYCQAMN",
-    "recommendation": "老青岛戳子肉·海鲜大排挡(青岛啤酒一厂店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老青岛戳子肉·海鲜大排挡(青岛啤酒一厂店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_611fc74b",
@@ -4564,7 +4764,7 @@
       "台东"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "彩虹小酒馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4590,12 +4790,14 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "里院臻鲜·海鲜烧烤青岛菜(栈桥天主教堂店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KGKHZ76H",
-    "recommendation": "里院臻鲜·海鲜烧烤青岛菜(栈桥天主教堂店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "里院臻鲜·海鲜烧烤青岛菜(栈桥天主教堂店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1440
   },
   {
     "id": "amap_cbc262e2",
@@ -4616,12 +4818,14 @@
       "台东"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "酒香源·精酿·海鲜·青岛菜(啤酒博物馆店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02140VX2X",
-    "recommendation": "酒香源·精酿·海鲜·青岛菜(啤酒博物馆店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "酒香源·精酿·海鲜·青岛菜(啤酒博物馆店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_65fb186a",
@@ -4642,12 +4846,14 @@
       "餐饮相关"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "靓湾码头·老船蒸鲜·海鲜锅贴，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LRTS9JUH",
-    "recommendation": "靓湾码头·老船蒸鲜·海鲜锅贴是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "靓湾码头·老船蒸鲜·海鲜锅贴是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1410
   },
   {
     "id": "amap_47b5ccb7",
@@ -4667,12 +4873,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "石头啤酒屋，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KRTYVY0I",
-    "recommendation": "石头啤酒屋是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "石头啤酒屋是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_79c54d20",
@@ -4697,7 +4905,7 @@
       "万象城"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "府新大厦，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -4722,12 +4930,14 @@
       "中餐厅"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "青岛美食街(机场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0H0OSYKW5",
-    "recommendation": "青岛美食街(机场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "青岛美食街(机场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 300,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ce04ae65",
@@ -4749,7 +4959,7 @@
       "台东"
     ],
     "popularity": 4.9,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "台东小吃街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -4776,12 +4986,14 @@
       "京口"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "青岛李村夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0I259HQL3",
-    "recommendation": "青岛李村夜市是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "青岛李村夜市是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 1020,
+    "close_minutes": 1440
   },
   {
     "id": "amap_3da92aa6",
@@ -4802,12 +5014,14 @@
       "正阳路"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "吕家庄夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFFAMKLD",
-    "recommendation": "吕家庄夜市是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "吕家庄夜市是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_57c00c07",
@@ -4834,7 +5048,9 @@
     "description": "徐州路步行街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B02140851I",
-    "recommendation": "徐州路步行街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "徐州路步行街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 1410
   },
   {
     "id": "amap_3727c512",
@@ -4856,7 +5072,7 @@
       "海泊桥"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "清真马家火锅海鲜美食城(镇江北路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -4883,12 +5099,14 @@
       "浮山"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "清真马家火锅美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0H1S5IHGK",
-    "recommendation": "清真马家火锅美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "清真马家火锅美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1380
   },
   {
     "id": "amap_64ac8e01",
@@ -4909,7 +5127,7 @@
       "长江路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "嚎洼夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -4935,12 +5153,14 @@
       "云霄路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "云霄路美食街(香港中路)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0214093TR",
-    "recommendation": "云霄路美食街(香港中路)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "云霄路美食街(香港中路)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1440
   },
   {
     "id": "amap_67884f98",
@@ -4966,7 +5186,9 @@
     "description": "濠洼夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0MBAD9ALU",
-    "recommendation": "濠洼夜市是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "濠洼夜市是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1200
   },
   {
     "id": "amap_b282a8c",
@@ -4987,12 +5209,14 @@
       "闽江路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "闽江路美食城(贵合花园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B021409T70",
-    "recommendation": "闽江路美食城(贵合花园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "闽江路美食城(贵合花园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1350
   },
   {
     "id": "amap_2a9b26ab",
@@ -5013,12 +5237,14 @@
       "海泊桥"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "瑶瑶火锅美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0J0FSOUJI",
-    "recommendation": "瑶瑶火锅美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "瑶瑶火锅美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_4752e6e",
@@ -5039,12 +5265,14 @@
       "同安路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "回民小吃街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFL19AOY",
-    "recommendation": "回民小吃街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "回民小吃街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_4634dff2",
@@ -5064,12 +5292,14 @@
       "外国餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "暹罗街东南亚美食(凯德旗舰店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0GKV73CWG",
-    "recommendation": "暹罗街东南亚美食(凯德旗舰店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "暹罗街东南亚美食(凯德旗舰店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 960
   },
   {
     "id": "amap_7f243c9b",
@@ -5095,7 +5325,9 @@
     "description": "浮山巷美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0J64RTD9E",
-    "recommendation": "浮山巷美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "浮山巷美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e3168383",
@@ -5121,7 +5353,9 @@
     "description": "中苑美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B021407TXV",
-    "recommendation": "中苑美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "中苑美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 1260
   },
   {
     "id": "amap_25fd8873",
@@ -5173,7 +5407,9 @@
     "description": "好望角美食城(长江国际店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFKG5NG1",
-    "recommendation": "好望角美食城(长江国际店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "好望角美食城(长江国际店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_139d6fd6",
@@ -5195,12 +5431,14 @@
       "明阳路"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "青岛华夏烧烤火锅美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B02140WOOS",
-    "recommendation": "青岛华夏烧烤火锅美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "青岛华夏烧烤火锅美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 360
   },
   {
     "id": "amap_e613cc4b",
@@ -5225,7 +5463,9 @@
     "description": "福泰食街美食广场，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFGSLC05",
-    "recommendation": "福泰食街美食广场是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "福泰食街美食广场是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_978db6a8",
@@ -5245,7 +5485,7 @@
       "中餐厅"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "太和海鲜烧烤美食城(吉上太和城店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -5271,12 +5511,14 @@
       "浮山"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "弘晟翔美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0HUBACRPZ",
-    "recommendation": "弘晟翔美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "弘晟翔美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_9c860115",
@@ -5322,12 +5564,14 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "朱记烧烤海鲜美食城(南泉总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF4YWHV",
-    "recommendation": "朱记烧烤海鲜美食城(南泉总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "朱记烧烤海鲜美食城(南泉总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 690,
+    "close_minutes": 780
   },
   {
     "id": "amap_b91991fb",
@@ -5376,12 +5620,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "红日海鲜美食城(灵海路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B02140WDIE",
-    "recommendation": "红日海鲜美食城(灵海路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "红日海鲜美食城(灵海路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_f0991535",
@@ -5427,12 +5673,14 @@
       "中餐厅"
     ],
     "popularity": 4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "世源美食城酒店(世园美墅店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFHFHQIY",
-    "recommendation": "世源美食城酒店(世园美墅店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "世源美食城酒店(世园美墅店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 840
   },
   {
     "id": "amap_56da6713",
@@ -5453,12 +5701,14 @@
       "火锅店"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "永明美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B02140WPQ9",
-    "recommendation": "永明美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "永明美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1350
   },
   {
     "id": "amap_716b8b2e",
@@ -5479,12 +5729,14 @@
       "浮山后"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "泰元美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFKGS602",
-    "recommendation": "泰元美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "泰元美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 525,
+    "close_minutes": 1290
   },
   {
     "id": "amap_a0dff3cf",
@@ -5506,12 +5758,14 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 3.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "好望角美食城(兴邦杰座店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B021407A7F",
-    "recommendation": "好望角美食城(兴邦杰座店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "好望角美食城(兴邦杰座店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 510,
+    "close_minutes": 810
   },
   {
     "id": "amap_9039ac2c",
@@ -5533,7 +5787,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海韵美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -5564,7 +5818,9 @@
     "description": "地铁小吃街(青岛书院万达广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFIBI40F",
-    "recommendation": "地铁小吃街(青岛书院万达广场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "地铁小吃街(青岛书院万达广场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9e959b9c",
@@ -5585,12 +5841,14 @@
       "国信体育中心"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "易乐广场美食街(易乐广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFG1BUOC",
-    "recommendation": "易乐广场美食街(易乐广场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "易乐广场美食街(易乐广场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_839fc3fb",
@@ -5612,12 +5870,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "世纪海鲜美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0214078KW",
-    "recommendation": "世纪海鲜美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "世纪海鲜美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 330,
+    "close_minutes": 1320
   },
   {
     "id": "amap_475ddf51",
@@ -5643,7 +5903,9 @@
     "description": "新利乐美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFGHBP3P",
-    "recommendation": "新利乐美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "新利乐美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_c25500b2",
@@ -5665,12 +5927,14 @@
       "北安"
     ],
     "popularity": 3.9,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "天天海鲜美食城(熙鼎祥路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFIB2VWK",
-    "recommendation": "天天海鲜美食城(熙鼎祥路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "天天海鲜美食城(熙鼎祥路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1440
   },
   {
     "id": "amap_956cc772",
@@ -5696,7 +5960,9 @@
     "description": "长生美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L1SCQGK1",
-    "recommendation": "长生美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "长生美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_ad453a9",
@@ -5716,12 +5982,14 @@
       "中餐厅"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "优庄美食城(佳乐家店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0GU71N7HK",
-    "recommendation": "优庄美食城(佳乐家店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "优庄美食城(佳乐家店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_760dfb0",
@@ -5746,7 +6014,9 @@
     "description": "书苑美食城(龙泽书苑店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFGIWL8P",
-    "recommendation": "书苑美食城(龙泽书苑店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "书苑美食城(龙泽书苑店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 510,
+    "close_minutes": 1260
   },
   {
     "id": "amap_9f66c18d",
@@ -5796,12 +6066,14 @@
       "长江路"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "武夷山美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0214077VS",
-    "recommendation": "武夷山美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "武夷山美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_bf4f709f",
@@ -5879,7 +6151,9 @@
     "description": "新疆古丽烤串·火锅·美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L3RLOVA9",
-    "recommendation": "新疆古丽烤串·火锅·美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "新疆古丽烤串·火锅·美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 900,
+    "close_minutes": 120
   },
   {
     "id": "amap_a69adb60",
@@ -5902,12 +6176,14 @@
       "湛山"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛万象城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0214110TT",
-    "recommendation": "青岛万象城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛万象城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_59f371c0",
@@ -5930,12 +6206,14 @@
       "湛山"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万象城2期，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0JA7CVT0J",
-    "recommendation": "万象城2期是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万象城2期是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7a90318c",
@@ -5958,7 +6236,7 @@
       "湛山"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛万象城1期，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -5991,7 +6269,9 @@
     "description": "伟东·乐客城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02140ZW8K",
-    "recommendation": "伟东·乐客城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "伟东·乐客城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7b507eab",
@@ -6013,12 +6293,14 @@
       "购物中心"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(青岛CBD店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02140ZI26",
-    "recommendation": "万达广场(青岛CBD店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万达广场(青岛CBD店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a6c26d8e",
@@ -6073,7 +6355,9 @@
     "description": "青岛凯德MALL，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0HDRCUX9J",
-    "recommendation": "青岛凯德MALL是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛凯德MALL是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8f568913",
@@ -6097,12 +6381,14 @@
       "中韩"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "崂山万象汇，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0G04R8CBN",
-    "recommendation": "崂山万象汇是当地热门景点，建议游览90分钟左右"
+    "recommendation": "崂山万象汇是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d0f59bdd",
@@ -6125,12 +6411,14 @@
       "香港东路"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "Lion Mall金狮广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGI1V72",
-    "recommendation": "Lion Mall金狮广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "Lion Mall金狮广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_2941c496",
@@ -6153,12 +6441,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "吾悦广场(青岛西海岸店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHOD9D9",
-    "recommendation": "吾悦广场(青岛西海岸店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "吾悦广场(青岛西海岸店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1290
   },
   {
     "id": "amap_9f5a954c",
@@ -6181,7 +6471,7 @@
       "中崂路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(青岛李沧店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -6214,7 +6504,9 @@
     "description": "览秀城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFKY8999",
-    "recommendation": "览秀城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "览秀城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8d6fa757",
@@ -6242,7 +6534,9 @@
     "description": "丽达购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B021409J64",
-    "recommendation": "丽达购物中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "丽达购物中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_268dad04",
@@ -6271,7 +6565,9 @@
     "description": "城阳万象汇，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHOZ86Z",
-    "recommendation": "城阳万象汇是当地热门景点，建议游览90分钟左右"
+    "recommendation": "城阳万象汇是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b3b41a6e",
@@ -6301,7 +6597,9 @@
     "description": "银座，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGYD5VP",
-    "recommendation": "银座是当地热门景点，建议游览90分钟左右"
+    "recommendation": "银座是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a7e5dad6",
@@ -6328,7 +6626,9 @@
     "description": "首创奥特莱斯，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0GRM5Z86R",
-    "recommendation": "首创奥特莱斯是当地热门景点，建议游览90分钟左右"
+    "recommendation": "首创奥特莱斯是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_7e122474",
@@ -6356,7 +6656,9 @@
     "description": "利群商厦，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B021407P7V",
-    "recommendation": "利群商厦是当地热门景点，建议游览90分钟左右"
+    "recommendation": "利群商厦是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2974d0bd",
@@ -6379,12 +6681,14 @@
       "燕儿岛路"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛海信广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02140A2XH",
-    "recommendation": "青岛海信广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛海信广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_b1085479",
@@ -6409,12 +6713,14 @@
       "浮山后"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "丽达茂，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0H0FSLPXG",
-    "recommendation": "丽达茂是当地热门景点，建议游览90分钟左右"
+    "recommendation": "丽达茂是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2e22b554",
@@ -6437,12 +6743,14 @@
       "新业广场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "新业广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02140WFKP",
-    "recommendation": "新业广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "新业广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_81b082e8",
@@ -6465,12 +6773,14 @@
       "即墨"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛即墨宝龙广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGM50FD",
-    "recommendation": "青岛即墨宝龙广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青岛即墨宝龙广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1290
   },
   {
     "id": "amap_74dcc1a4",
@@ -6498,7 +6808,9 @@
     "description": "悦荟，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFFPUASX",
-    "recommendation": "悦荟是当地热门景点，建议游览90分钟左右"
+    "recommendation": "悦荟是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2f890bdc",
@@ -6521,12 +6833,14 @@
       "万科广场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "未来城万科广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFLJX5XR",
-    "recommendation": "未来城万科广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "未来城万科广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ce73363c",
@@ -6549,12 +6863,14 @@
       "正阳路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青特万达广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFMGZDHC",
-    "recommendation": "青特万达广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青特万达广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4ffa2516",
@@ -6582,7 +6898,9 @@
     "description": "永旺梦乐城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFLJHBXK",
-    "recommendation": "永旺梦乐城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "永旺梦乐城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d0878356",
@@ -6609,7 +6927,9 @@
     "description": "永旺梦乐城东馆，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0IRFZ7J96",
-    "recommendation": "永旺梦乐城东馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "永旺梦乐城东馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2368c203",
@@ -6636,7 +6956,9 @@
     "description": "永旺梦乐城西馆(永旺梦乐城店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0LRAS0IOZ",
-    "recommendation": "永旺梦乐城西馆(永旺梦乐城店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "永旺梦乐城西馆(永旺梦乐城店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6d6efc76",
@@ -6659,12 +6981,14 @@
       "夏庄"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "鑫江东方城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02140WSLV",
-    "recommendation": "鑫江东方城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "鑫江东方城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_ca594fb8",
@@ -6686,12 +7010,14 @@
       "普通商场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "悦喜客来购物广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02140WE2X",
-    "recommendation": "悦喜客来购物广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "悦喜客来购物广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8c0cee99",
@@ -6714,12 +7040,14 @@
       "李村"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "和谐广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B021411OXD",
-    "recommendation": "和谐广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "和谐广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b7b7ea2c",
@@ -6742,12 +7070,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "嘉年华·海信广场VILLAGE，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFG7WNE3",
-    "recommendation": "嘉年华·海信广场VILLAGE是当地热门景点，建议游览90分钟左右"
+    "recommendation": "嘉年华·海信广场VILLAGE是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_c07a585c",
@@ -6769,7 +7099,7 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "宝龙广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
@@ -6796,12 +7126,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金鼎广场(西海岸店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0H2A76DOT",
-    "recommendation": "金鼎广场(西海岸店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "金鼎广场(西海岸店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_42014f42",
@@ -6824,12 +7156,14 @@
       "李村"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(青岛书院店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFG8RO6Y",
-    "recommendation": "万达广场(青岛书院店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万达广场(青岛书院店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_4f93cc04",
@@ -6857,7 +7191,9 @@
     "description": "金茂湾购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGB8BR2",
-    "recommendation": "金茂湾购物中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "金茂湾购物中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_d362bec1",
@@ -6879,7 +7215,7 @@
       "青岛西海岸新区"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "小茶馆coffee&tea(欧美·世纪花园店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -6905,12 +7241,14 @@
       "通济"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "胡同咖啡·新中式养生茶馆(佳乐家店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KURL9892",
-    "recommendation": "胡同咖啡·新中式养生茶馆(佳乐家店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "胡同咖啡·新中式养生茶馆(佳乐家店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1140
   },
   {
     "id": "amap_f949a7fc",
@@ -6935,7 +7273,9 @@
     "description": "希庭植物仓·咖啡·茶室，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0H1VCTERV",
-    "recommendation": "希庭植物仓·咖啡·茶室是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "希庭植物仓·咖啡·茶室是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1050
   },
   {
     "id": "amap_24cc9345",
@@ -6956,12 +7296,14 @@
       "茶艺馆"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "One Cottage一庐咖啡(尚德名都店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0IDT5WT3X",
-    "recommendation": "One Cottage一庐咖啡(尚德名都店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "One Cottage一庐咖啡(尚德名都店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_355d275c",
@@ -6982,12 +7324,14 @@
       "九水东路"
     ],
     "popularity": 3.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "青岛·拾香茶舍，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFM5IOVM",
-    "recommendation": "青岛·拾香茶舍是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "青岛·拾香茶舍是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 840,
+    "close_minutes": 1080
   },
   {
     "id": "amap_7f8ac921",
@@ -7039,7 +7383,9 @@
     "description": "邱生生茶事，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0K23RZALS",
-    "recommendation": "邱生生茶事是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "邱生生茶事是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 750,
+    "close_minutes": 1290
   },
   {
     "id": "amap_854251ca",
@@ -7090,12 +7436,14 @@
       "青岛西海岸新区"
     ],
     "popularity": 3.1,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "DEMIAN TEA&BAR 德米安会客厅(日茶夜酒)(装修中)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KKM7B2MZ",
-    "recommendation": "DEMIAN TEA&BAR 德米安会客厅(日茶夜酒)(装修中)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "DEMIAN TEA&BAR 德米安会客厅(日茶夜酒)(装修中)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 840,
+    "close_minutes": 1380
   },
   {
     "id": "amap_27c04fe9",
@@ -7217,7 +7565,7 @@
       "湛山"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "今鲜源大酒店(青岛湛山市场店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
     "source": "amap",
@@ -8605,7 +8953,7 @@
       "飞机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛胶东国际机场，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8630,7 +8978,7 @@
       "火车站"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛机场站，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8656,7 +9004,7 @@
       "出站口"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛机场站(出站口)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8682,7 +9030,7 @@
       "飞机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛慈航机场，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8708,7 +9056,7 @@
       "流亭"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛流亭国际机场(已关闭)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8734,7 +9082,7 @@
       "飞机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "莱西店埠机场，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8760,7 +9108,7 @@
       "机场出发/到达"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛胶东国际机场(青岛胶东国际机场航站楼-4号门国内到达口)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8786,7 +9134,7 @@
       "机场出发/到达"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛胶东国际机场(青岛胶东国际机场航站楼-4号门国内出发口)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8812,7 +9160,7 @@
       "机场出发/到达"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛胶东国际机场(青岛胶东国际机场航站楼-5号门国内出发口)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8838,7 +9186,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛胶东国际机场(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8864,7 +9212,7 @@
       "机场出发/到达"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛胶东国际机场(青岛胶东国际机场航站楼-3号门国内到达口)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8890,7 +9238,7 @@
       "机场出发/到达"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛胶东国际机场(青岛胶东国际机场航站楼-3号门国内出发口)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8916,7 +9264,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "胶东机场(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -8941,11 +9289,1360 @@
       "长途汽车站"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "青岛胶东国际机场长途客运站，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "B0H07Z4Q13",
     "recommendation": "青岛胶东国际机场长途客运站是当地热门景点，建议游览90分钟左右"
+  },
+  {
+    "id": "transit_B0HG97Q3OX",
+    "name": "青岛胶东国际机场航站楼(国内出发)",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.361323,
+    "lng": 120.093747,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛胶东国际机场航站楼(国内出发)，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛胶东国际机场航站楼(国内出发)是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HG97PW1P",
+    "name": "青岛胶东国际机场航站楼(国际港澳台出发)",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.361367,
+    "lng": 120.09532,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛胶东国际机场航站楼(国际港澳台出发)，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛胶东国际机场航站楼(国际港澳台出发)是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HG97Q3PO",
+    "name": "青岛胶东国际机场航站楼(国内到达)",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.361054,
+    "lng": 120.093397,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛胶东国际机场航站楼(国内到达)，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛胶东国际机场航站楼(国内到达)是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0G14REPFJ",
+    "name": "青岛胶东国际机场航站楼",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.362832,
+    "lng": 120.093102,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛胶东国际机场航站楼，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛胶东国际机场航站楼是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HG97P1DP",
+    "name": "青岛胶东国际机场航站楼(国际港澳台到达)",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.361355,
+    "lng": 120.094783,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛胶东国际机场航站楼(国际港澳台到达)，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛胶东国际机场航站楼(国际港澳台到达)是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0I1VMRN9D",
+    "name": "青岛即墨通用机场",
+    "type": "transit",
+    "area": "即墨区",
+    "lat": 36.525191,
+    "lng": 120.539516,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛即墨通用机场，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛即墨通用机场是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0I1J9IRO7",
+    "name": "青岛胶东国际机场(青岛胶东国际机场航站楼-3号国内出发口)",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.361223,
+    "lng": 120.093708,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛胶东国际机场(青岛胶东国际机场航站楼-3号国内出发口)，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛胶东国际机场(青岛胶东国际机场航站楼-3号国内出发口)是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KRRUR06I",
+    "name": "青岛慈航机场航站楼",
+    "type": "transit",
+    "area": "平度市",
+    "lat": 36.987292,
+    "lng": 120.272372,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛慈航机场航站楼，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛慈航机场航站楼是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HRRAS7K1",
+    "name": "青岛胶东国际机场贵宾区",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.360859,
+    "lng": 120.097473,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛胶东国际机场贵宾区，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛胶东国际机场贵宾区是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0MGDCQSFT",
+    "name": "青岛机场府新大厦城市航站楼",
+    "type": "transit",
+    "area": "市南区",
+    "lat": 36.068536,
+    "lng": 120.382399,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛机场府新大厦城市航站楼，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛机场府新大厦城市航站楼是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0MAH7MQ1F",
+    "name": "青岛胶东国际机场(青岛胶东国际机场航站楼-1号门国际,港澳台出发口)",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.361333,
+    "lng": 120.095026,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛胶东国际机场(青岛胶东国际机场航站楼-1号门国际,港澳台出发口)，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛胶东国际机场(青岛胶东国际机场航站楼-1号门国际,港澳台出发口)是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0MAH7M6G4",
+    "name": "青岛胶东国际机场(青岛胶东国际机场航站楼-1号门国际,港澳台到达口)",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.361285,
+    "lng": 120.094581,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛胶东国际机场(青岛胶东国际机场航站楼-1号门国际,港澳台到达口)，青岛主要火车站。",
+    "meal_type": "",
+    "recommendation": "青岛胶东国际机场(青岛胶东国际机场航站楼-1号门国际,港澳台到达口)是青岛的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFF6PXF2",
+    "name": "青岛北站",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.168977,
+    "lng": 120.375693,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛北站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "青岛北站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0214082PH",
+    "name": "青岛站",
+    "type": "transit",
+    "area": "市南区",
+    "lat": 36.064812,
+    "lng": 120.312786,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "青岛站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFJANJXQ",
+    "name": "青岛西站",
+    "type": "transit",
+    "area": "黄岛区",
+    "lat": 35.901455,
+    "lng": 119.956267,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛西站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "青岛西站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGPMIU5",
+    "name": "青岛站(西进站口)",
+    "type": "transit",
+    "area": "市南区",
+    "lat": 36.064025,
+    "lng": 120.311719,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛站(西进站口)，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "青岛站(西进站口)是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFH2BCP7",
+    "name": "青岛北站(东进站口)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.169718,
+    "lng": 120.376341,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛北站(东进站口)，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "青岛北站(东进站口)是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0H6S50OAJ",
+    "name": "青岛西站(进站口)",
+    "type": "transit",
+    "area": "黄岛区",
+    "lat": 35.902233,
+    "lng": 119.955886,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛西站(进站口)，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "青岛西站(进站口)是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HG1CRYF8",
+    "name": "青岛北站(西进站口)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.169385,
+    "lng": 120.373222,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛北站(西进站口)，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "青岛北站(西进站口)是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGPMF3Q",
+    "name": "青岛站(东进站口)",
+    "type": "transit",
+    "area": "市南区",
+    "lat": 36.064693,
+    "lng": 120.313563,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛站(东进站口)，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "青岛站(东进站口)是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B021407PUN",
+    "name": "城阳站",
+    "type": "transit",
+    "area": "城阳区",
+    "lat": 36.299725,
+    "lng": 120.364918,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "城阳站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "城阳站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHOU7QO",
+    "name": "红岛站",
+    "type": "transit",
+    "area": "城阳区",
+    "lat": 36.247186,
+    "lng": 120.19192,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "红岛站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "红岛站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02140VXZV",
+    "name": "胶州北站",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.396033,
+    "lng": 120.055737,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "胶州北站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "胶州北站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFDFL76",
+    "name": "即墨北站",
+    "type": "transit",
+    "area": "即墨区",
+    "lat": 36.404231,
+    "lng": 120.39461,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "即墨北站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "即墨北站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0214038AE",
+    "name": "胶州站",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.298628,
+    "lng": 119.998481,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "胶州站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "胶州站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0G0FA85VD",
+    "name": "莱西站",
+    "type": "transit",
+    "area": "莱西市",
+    "lat": 36.823897,
+    "lng": 120.529797,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "莱西站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "莱西站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0G23ZD3T9",
+    "name": "平度站",
+    "type": "transit",
+    "area": "平度市",
+    "lat": 36.806514,
+    "lng": 119.977786,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "平度站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "平度站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B021407PSY",
+    "name": "蓝村站",
+    "type": "transit",
+    "area": "即墨区",
+    "lat": 36.394914,
+    "lng": 120.183328,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "蓝村站，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "蓝村站是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IU37JJG3",
+    "name": "城阳站(进站口)",
+    "type": "transit",
+    "area": "城阳区",
+    "lat": 36.300149,
+    "lng": 120.365482,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "城阳站(进站口)，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "城阳站(进站口)是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFLMMRZX",
+    "name": "青岛西站(出站口)",
+    "type": "transit",
+    "area": "黄岛区",
+    "lat": 35.902411,
+    "lng": 119.95621,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛西站(出站口)，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "青岛西站(出站口)是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFI9U4XJ",
+    "name": "青岛北站(东出站口)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.16969,
+    "lng": 120.375541,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛北站(东出站口)，青岛主要飞机场。",
+    "meal_type": "",
+    "recommendation": "青岛北站(东出站口)是青岛的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10425279",
+    "name": "李村(地铁站)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.159472,
+    "lng": 120.42543,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "李村(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "李村(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10425305",
+    "name": "台东(地铁站)",
+    "type": "transit",
+    "area": "市北区",
+    "lat": 36.0822,
+    "lng": 120.35412,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "台东(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "台东(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10425284",
+    "name": "青岛北站(地铁站)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.169797,
+    "lng": 120.376728,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛北站(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "青岛北站(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10606461",
+    "name": "青岛站(地铁站)",
+    "type": "transit",
+    "area": "市南区",
+    "lat": 36.064199,
+    "lng": 120.314543,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛站(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "青岛站(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10425290",
+    "name": "五四广场(地铁站)",
+    "type": "transit",
+    "area": "市南区",
+    "lat": 36.06475,
+    "lng": 120.380343,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "五四广场(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "五四广场(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11455388",
+    "name": "胶东(地铁站)",
+    "type": "transit",
+    "area": "胶州市",
+    "lat": 36.313674,
+    "lng": 120.117612,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "胶东(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "胶东(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10843254",
+    "name": "东郭庄(地铁站)",
+    "type": "transit",
+    "area": "城阳区",
+    "lat": 36.33515,
+    "lng": 120.412486,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "东郭庄(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "东郭庄(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10829327",
+    "name": "王家港(地铁站)",
+    "type": "transit",
+    "area": "黄岛区",
+    "lat": 35.942382,
+    "lng": 120.161956,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "王家港(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "王家港(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10829355",
+    "name": "井冈山路(地铁站)",
+    "type": "transit",
+    "area": "黄岛区",
+    "lat": 35.953437,
+    "lng": 120.18763,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "井冈山路(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "井冈山路(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10425282",
+    "name": "麦岛(地铁站)",
+    "type": "transit",
+    "area": "崂山区",
+    "lat": 36.066344,
+    "lng": 120.423718,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "麦岛(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "麦岛(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10425294",
+    "name": "李村公园(地铁站)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.167794,
+    "lng": 120.425954,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "李村公园(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "李村公园(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10829324",
+    "name": "小村庄(地铁站)",
+    "type": "transit",
+    "area": "市北区",
+    "lat": 36.105608,
+    "lng": 120.360961,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "小村庄(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "小村庄(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10829313",
+    "name": "中山路(地铁站)",
+    "type": "transit",
+    "area": "市北区",
+    "lat": 36.072184,
+    "lng": 120.32169,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "中山路(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "中山路(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10829311",
+    "name": "海泊桥(海慈医疗)(地铁站)",
+    "type": "transit",
+    "area": "市北区",
+    "lat": 36.094558,
+    "lng": 120.361371,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "海泊桥(海慈医疗)(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "海泊桥(海慈医疗)(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10843267",
+    "name": "正阳中路(地铁站)",
+    "type": "transit",
+    "area": "城阳区",
+    "lat": 36.307324,
+    "lng": 120.390742,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "正阳中路(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "正阳中路(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10606457",
+    "name": "人民会堂(地铁站)",
+    "type": "transit",
+    "area": "市南区",
+    "lat": 36.059871,
+    "lng": 120.329579,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "人民会堂(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "人民会堂(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10425285",
+    "name": "燕儿岛路(地铁站)",
+    "type": "transit",
+    "area": "市南区",
+    "lat": 36.065017,
+    "lng": 120.402021,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "燕儿岛路(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "燕儿岛路(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10425293",
+    "name": "苗岭路(地铁站)",
+    "type": "transit",
+    "area": "崂山区",
+    "lat": 36.100537,
+    "lng": 120.465017,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "苗岭路(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "苗岭路(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10832403",
+    "name": "中山公园(地铁站)",
+    "type": "transit",
+    "area": "市南区",
+    "lat": 36.058427,
+    "lng": 120.351731,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "中山公园(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "中山公园(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10829328",
+    "name": "薛家岛(地铁站)",
+    "type": "transit",
+    "area": "黄岛区",
+    "lat": 35.961575,
+    "lng": 120.219133,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "薛家岛(地铁站)，青岛主要地铁站。",
+    "meal_type": "",
+    "recommendation": "薛家岛(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10154931",
+    "name": "仰口(公交站)",
+    "type": "transit",
+    "area": "崂山区",
+    "lat": 36.241098,
+    "lng": 120.668173,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "仰口(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "仰口(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11058482",
+    "name": "中韩(公交站)",
+    "type": "transit",
+    "area": "崂山区",
+    "lat": 36.128888,
+    "lng": 120.431679,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "中韩(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "中韩(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10156031",
+    "name": "垭口(公交站)",
+    "type": "transit",
+    "area": "崂山区",
+    "lat": 36.146016,
+    "lng": 120.683394,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "垭口(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "垭口(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10154471",
+    "name": "李村公园(公交站)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.168355,
+    "lng": 120.425916,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "李村公园(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "李村公园(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11022739",
+    "name": "连心渔港(公交站)",
+    "type": "transit",
+    "area": "黄岛区",
+    "lat": 35.742118,
+    "lng": 120.017535,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "连心渔港(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "连心渔港(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11594291",
+    "name": "新街口(公交站)",
+    "type": "transit",
+    "area": "黄岛区",
+    "lat": 36.02645,
+    "lng": 120.16951,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "新街口(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "新街口(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10155318",
+    "name": "海大崂山校区(公交站)",
+    "type": "transit",
+    "area": "崂山区",
+    "lat": 36.164518,
+    "lng": 120.494838,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "海大崂山校区(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "海大崂山校区(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10154505",
+    "name": "小村庄(公交站)",
+    "type": "transit",
+    "area": "市北区",
+    "lat": 36.103045,
+    "lng": 120.361042,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "小村庄(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "小村庄(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10340105",
+    "name": "曲哥庄(公交站)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.149523,
+    "lng": 120.411159,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "曲哥庄(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "曲哥庄(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10399582",
+    "name": "李村大集(公交站)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.143643,
+    "lng": 120.406146,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "李村大集(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "李村大集(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10393118",
+    "name": "华山镇政府(公交站)",
+    "type": "transit",
+    "area": "即墨区",
+    "lat": 36.546238,
+    "lng": 120.537895,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "华山镇政府(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "华山镇政府(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11096558",
+    "name": "水清沟(公交站)",
+    "type": "transit",
+    "area": "市北区",
+    "lat": 36.131758,
+    "lng": 120.373242,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "水清沟(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "水清沟(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10154584",
+    "name": "汽车北站(公交站)",
+    "type": "transit",
+    "area": "城阳区",
+    "lat": 36.240608,
+    "lng": 120.393181,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "汽车北站(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "汽车北站(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11329119",
+    "name": "青岛科技大学西(公交站)",
+    "type": "transit",
+    "area": "崂山区",
+    "lat": 36.116372,
+    "lng": 120.474558,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛科技大学西(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "青岛科技大学西(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10708376",
+    "name": "青岛四方长途汽车站(公交站)",
+    "type": "transit",
+    "area": "市北区",
+    "lat": 36.100723,
+    "lng": 120.353653,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "青岛四方长途汽车站(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "青岛四方长途汽车站(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10154799",
+    "name": "惜福镇(公交站)",
+    "type": "transit",
+    "area": "城阳区",
+    "lat": 36.309384,
+    "lng": 120.484076,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "惜福镇(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "惜福镇(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10154622",
+    "name": "大村庄(公交站)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.172148,
+    "lng": 120.407789,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大村庄(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "大村庄(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10154529",
+    "name": "四方小学(公交站)",
+    "type": "transit",
+    "area": "市北区",
+    "lat": 36.113197,
+    "lng": 120.351973,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "四方小学(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "四方小学(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10155205",
+    "name": "板桥坊(公交站)",
+    "type": "transit",
+    "area": "李沧区",
+    "lat": 36.194461,
+    "lng": 120.3806,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "板桥坊(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "板桥坊(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10154912",
+    "name": "西小水(公交站)",
+    "type": "transit",
+    "area": "城阳区",
+    "lat": 36.237635,
+    "lng": 120.426875,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "西小水(公交站)，青岛主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "西小水(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "青岛"
+    ],
+    "visit_duration": 15
   }
 ]

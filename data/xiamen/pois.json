@@ -42,12 +42,14 @@
       "水族馆"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门海底世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B025000C50",
-    "recommendation": "厦门海底世界是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门海底世界是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_1d420b19",
@@ -91,12 +93,14 @@
       "植物园"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门园林植物园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B025003OPX",
-    "recommendation": "厦门园林植物园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门园林植物园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_84126a96",
@@ -115,7 +119,7 @@
       "海滩"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-鼓浪屿沙滩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -167,7 +171,9 @@
     "description": "钟鼓索道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02500SK4B",
-    "recommendation": "钟鼓索道是当地热门景点，建议游览90分钟左右"
+    "recommendation": "钟鼓索道是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_7a7cbccf",
@@ -186,12 +192,14 @@
       "寺庙道观"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南普陀寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B025003QZU",
-    "recommendation": "南普陀寺是当地热门景点，建议游览90分钟左右"
+    "recommendation": "南普陀寺是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_b0b1114a",
@@ -211,7 +219,7 @@
       "公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海湾公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -235,7 +243,7 @@
       "国家级景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "胡里山炮台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -259,7 +267,7 @@
       "海滩"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "白城沙滩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -284,12 +292,14 @@
       "旅游景点"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "观音山，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFF37I7X",
-    "recommendation": "观音山是当地热门景点，建议游览90分钟左右"
+    "recommendation": "观音山是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1080
   },
   {
     "id": "amap_330ebbb3",
@@ -314,7 +324,9 @@
     "description": "日光岩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0250045AI",
-    "recommendation": "日光岩是当地热门景点，建议游览90分钟左右"
+    "recommendation": "日光岩是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_f4ea620d",
@@ -339,7 +351,9 @@
     "description": "菽庄花园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0250043TN",
-    "recommendation": "菽庄花园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "菽庄花园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_474b9084",
@@ -358,12 +372,14 @@
       "国家级景点"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万石山，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B025003J74",
-    "recommendation": "万石山是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万石山是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1080
   },
   {
     "id": "amap_b2fd30e5",
@@ -382,7 +398,7 @@
       "纪念馆"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "秋瑾故居，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -407,7 +423,7 @@
       "旅游景点"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "燕尾山午炮台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -432,12 +448,14 @@
       "旅游景点"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "屿见厦门海上游(鹭江夜游)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02500USLM",
-    "recommendation": "屿见厦门海上游(鹭江夜游)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "屿见厦门海上游(鹭江夜游)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1110
   },
   {
     "id": "amap_e38194a8",
@@ -456,7 +474,7 @@
       "海滩"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "港仔后海滨沙滩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -481,7 +499,7 @@
       "旅游景点"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-菽庄藏海，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -505,7 +523,7 @@
       "海滩"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "观海园沙滩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -530,7 +548,7 @@
       "旅游景点"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-时钟楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -555,7 +573,7 @@
       "旅游景点"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-十二洞天，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -580,7 +598,7 @@
       "旅游景点"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-四落大厝，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -605,12 +623,14 @@
       "旅游景点"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "贝壳梦幻世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFF4IT0D",
-    "recommendation": "贝壳梦幻世界是当地热门景点，建议游览90分钟左右"
+    "recommendation": "贝壳梦幻世界是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1140
   },
   {
     "id": "amap_15f952ea",
@@ -630,7 +650,7 @@
       "公园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "忠仑公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -654,7 +674,7 @@
       "纪念馆"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市郑成功纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -684,7 +704,9 @@
     "description": "黄荣远堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02500QEL7",
-    "recommendation": "黄荣远堂是当地热门景点，建议游览90分钟左右"
+    "recommendation": "黄荣远堂是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_248cb025",
@@ -704,7 +726,7 @@
       "旅游景点"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "笔山洞，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -729,7 +751,7 @@
       "旅游景点"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-皓月雄风，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -759,7 +781,9 @@
     "description": "海天堂构，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B025004136",
-    "recommendation": "海天堂构是当地热门景点，建议游览90分钟左右"
+    "recommendation": "海天堂构是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_256f2ef3",
@@ -804,7 +828,7 @@
       "旅游景点"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙山洞，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -829,7 +853,7 @@
       "旅游景点"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-番婆楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -854,7 +878,7 @@
       "旅游景点"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-笔架山，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -884,7 +908,9 @@
     "description": "百年鼓浪屿博物馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B025004740",
-    "recommendation": "百年鼓浪屿博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "百年鼓浪屿博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_96b26a9e",
@@ -904,7 +930,7 @@
       "旅游景点"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-鼓声洞，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -929,7 +955,7 @@
       "公园"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-笔山公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -952,12 +978,14 @@
       "风景名胜"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "日本领事馆2号楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02500VPSI",
-    "recommendation": "日本领事馆2号楼是当地热门景点，建议游览90分钟左右"
+    "recommendation": "日本领事馆2号楼是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 660
   },
   {
     "id": "amap_f8676640",
@@ -977,7 +1005,7 @@
       "旅游景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门世茂双子塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1002,12 +1030,14 @@
       "旅游景点"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-英雄岩，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02500SJUV",
-    "recommendation": "厦门市鼓浪屿风景名胜区-英雄岩是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市鼓浪屿风景名胜区-英雄岩是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_46716e0b",
@@ -1052,7 +1082,7 @@
       "中华"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门各界抗敌后援会会址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1077,7 +1107,7 @@
       "旅游景点"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-杨家园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1102,7 +1132,7 @@
       "旅游景点"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "安献楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1127,7 +1157,7 @@
       "旅游景点"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市海沧区海上巴士赶海休闲观光部，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1177,7 +1207,7 @@
       "旅游景点"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "观彩楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1225,7 +1255,7 @@
       "旅游景点"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-听涛崖，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1250,7 +1280,7 @@
       "公园"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-延平公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1275,12 +1305,14 @@
       "旅游景点"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "日光岩顶峰，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02500SK1J",
-    "recommendation": "日光岩顶峰是当地热门景点，建议游览90分钟左右"
+    "recommendation": "日光岩顶峰是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1050
   },
   {
     "id": "amap_fabf21d1",
@@ -1300,7 +1332,7 @@
       "旅游景点"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-枕流石，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1325,7 +1357,7 @@
       "旅游景点"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-海藏亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1350,7 +1382,7 @@
       "旅游景点"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-百年美园故事馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1375,7 +1407,7 @@
       "旅游景点"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "英国领事馆旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1425,12 +1457,14 @@
       "生活服务场所"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "世茂云上厦门观光厅，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHZPTX3",
-    "recommendation": "世茂云上厦门观光厅是当地热门景点，建议游览90分钟左右"
+    "recommendation": "世茂云上厦门观光厅是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_f7c54542",
@@ -1450,7 +1484,7 @@
       "旅游景点"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-琴廊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1474,7 +1508,7 @@
       "红色景区"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中共福建省委机关旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1499,12 +1533,14 @@
       "旅游景点"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-英雄园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFF6RET",
-    "recommendation": "厦门市鼓浪屿风景名胜区-英雄园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市鼓浪屿风景名胜区-英雄园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_654e79bd",
@@ -1523,12 +1559,14 @@
       "国家级景点"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万石山国家重点风景名胜区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFZ5L0I",
-    "recommendation": "万石山国家重点风景名胜区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万石山国家重点风景名胜区是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 390,
+    "close_minutes": 1080
   },
   {
     "id": "amap_5b5ae40e",
@@ -1547,7 +1585,7 @@
       "纪念馆"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "汇丰银行公馆旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1572,12 +1610,14 @@
       "旅游景点"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-古避暑洞，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02500SK48",
-    "recommendation": "厦门市鼓浪屿风景名胜区-古避暑洞是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市鼓浪屿风景名胜区-古避暑洞是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 450,
+    "close_minutes": 1050
   },
   {
     "id": "amap_b3c718cd",
@@ -1597,7 +1637,7 @@
       "旅游景点"
     ],
     "popularity": 3.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "潮音亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1627,7 +1667,9 @@
     "description": "怡园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02500THEA",
-    "recommendation": "怡园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "怡园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 450,
+    "close_minutes": 1020
   },
   {
     "id": "amap_c62d93d1",
@@ -1697,12 +1739,14 @@
       "旅游景点"
     ],
     "popularity": 3.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "怡韵楼，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02500SJT2",
-    "recommendation": "怡韵楼是当地热门景点，建议游览90分钟左右"
+    "recommendation": "怡韵楼是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 630,
+    "close_minutes": 1350
   },
   {
     "id": "amap_fc7a9a1",
@@ -1722,7 +1766,7 @@
       "旅游景点"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-观海曲桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1747,7 +1791,7 @@
       "旅游景点"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-心亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1772,7 +1816,7 @@
       "旅游景点"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "亦足山庄，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1845,7 +1889,7 @@
       "旅游景点"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-东升拱照，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1870,7 +1914,7 @@
       "旅游景点"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门海关通讯塔旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1996,12 +2040,14 @@
       "体育路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B025004043",
-    "recommendation": "厦门市博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_8ecc020",
@@ -2021,12 +2067,14 @@
       "科教文化服务"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门奥林匹克博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0250043SD",
-    "recommendation": "厦门奥林匹克博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门奥林匹克博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_c945bf38",
@@ -2046,7 +2094,7 @@
       "科教文化服务"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门香道博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2073,7 +2121,7 @@
       "印斗路"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "凹凸影象中心厦门摄影博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2100,12 +2148,14 @@
       "体育路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市图书馆(文化艺术中心馆区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02500429B",
-    "recommendation": "厦门市图书馆(文化艺术中心馆区)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市图书馆(文化艺术中心馆区)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_9600b0a5",
@@ -2127,12 +2177,14 @@
       "体育路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门科技馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02500408Y",
-    "recommendation": "厦门科技馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门科技馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_99f63cea",
@@ -2181,12 +2233,14 @@
       "体育路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门文化艺术中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0250047RA",
-    "recommendation": "厦门文化艺术中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门文化艺术中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1230
   },
   {
     "id": "amap_de1789a3",
@@ -2208,7 +2262,7 @@
       "东渡路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市食品药品质量检验研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2234,12 +2288,14 @@
       "图书馆"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市思明区图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B025004P86",
-    "recommendation": "厦门市思明区图书馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市思明区图书馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1230
   },
   {
     "id": "amap_2a6a0186",
@@ -2265,7 +2321,9 @@
     "description": "鼓浪屿故宫文物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFI5WI8U",
-    "recommendation": "鼓浪屿故宫文物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "鼓浪屿故宫文物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_2ee183ed",
@@ -2286,7 +2344,7 @@
       "科教文化场所"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市人事考试培训基地，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2339,12 +2397,14 @@
       "体育路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门美术馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02500408Z",
-    "recommendation": "厦门美术馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门美术馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_4593e21a",
@@ -2366,12 +2426,14 @@
       "禾祥东路沿线"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市少年儿童图书馆(金榜西三路)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02500063C",
-    "recommendation": "厦门市少年儿童图书馆(金榜西三路)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市少年儿童图书馆(金榜西三路)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1140
   },
   {
     "id": "amap_c943ceb8",
@@ -2397,7 +2459,9 @@
     "description": "华侨博物院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02500183D",
-    "recommendation": "华侨博物院是当地热门景点，建议游览90分钟左右"
+    "recommendation": "华侨博物院是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_28ff0aba",
@@ -2419,12 +2483,14 @@
       "体育路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市工人文化宫，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02500U5KS",
-    "recommendation": "厦门市工人文化宫是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市工人文化宫是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_a87f0b34",
@@ -2451,7 +2517,9 @@
     "description": "BUTTON CONNECTION，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0HAMY380K",
-    "recommendation": "BUTTON CONNECTION是当地热门景点，建议游览90分钟左右"
+    "recommendation": "BUTTON CONNECTION是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 660,
+    "close_minutes": 1260
   },
   {
     "id": "amap_eb5d219e",
@@ -2472,7 +2540,7 @@
       "科研机构"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市教育科学研究院(励志院区)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2499,12 +2567,14 @@
       "斗西路口"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市少年儿童图书馆(中山公园馆)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B025003SPM",
-    "recommendation": "厦门市少年儿童图书馆(中山公园馆)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市少年儿童图书馆(中山公园馆)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1140
   },
   {
     "id": "amap_b10d2a26",
@@ -2529,7 +2599,9 @@
     "description": "鼓浪屿风琴博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0H2DUEVKD",
-    "recommendation": "鼓浪屿风琴博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "鼓浪屿风琴博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_20a00d85",
@@ -2551,12 +2623,14 @@
       "体育路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市规划展览馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFHFSA71",
-    "recommendation": "厦门市规划展览馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市规划展览馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_f449c598",
@@ -2578,12 +2652,14 @@
       "兴湖路沿线"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门城市森林主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFKPG8C0",
-    "recommendation": "厦门城市森林主题公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门城市森林主题公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_efb6fa6a",
@@ -2604,7 +2680,7 @@
       "公园广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门白鹭洲公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2630,7 +2706,7 @@
       "公园广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "狐尾山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2656,7 +2732,7 @@
       "公园广场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门白鹭洲公园西公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2682,12 +2758,14 @@
       "公园广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0250043NC",
-    "recommendation": "南湖公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "南湖公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1c2a0dbb",
@@ -2708,7 +2786,7 @@
       "公园广场"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "白鹭洲公园东公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2735,7 +2813,7 @@
       "鹭江"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海滨公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2761,7 +2839,7 @@
       "公园广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金榜公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2787,7 +2865,7 @@
       "公园广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "湖里公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2813,7 +2891,7 @@
       "公园广场"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "嘉禾园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2839,7 +2917,7 @@
       "公园广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "海沧湾公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2866,12 +2944,14 @@
       "东渡路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "牛头山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0LBMCQ795",
-    "recommendation": "牛头山公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "牛头山公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 450,
+    "close_minutes": 1020
   },
   {
     "id": "amap_e5d1b0d9",
@@ -2892,7 +2972,7 @@
       "公园广场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "1955铁路公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2919,7 +2999,7 @@
       "文园路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "国贸凤凰园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2946,12 +3026,14 @@
       "嘉莲"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "莲花公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0250033BH",
-    "recommendation": "莲花公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "莲花公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1e609f03",
@@ -2972,7 +3054,7 @@
       "公园广场"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "槟榔健康公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2999,7 +3081,7 @@
       "厦港"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "铁路文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3025,7 +3107,7 @@
       "公园广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "铁路文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3051,12 +3133,14 @@
       "公园广场"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "38度温泉口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0JD9SZE01",
-    "recommendation": "38度温泉口袋公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "38度温泉口袋公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 720
   },
   {
     "id": "amap_ab24267c",
@@ -3078,7 +3162,7 @@
       "开元"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "美仁园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3105,7 +3189,7 @@
       "开元"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "老剧场文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3131,7 +3215,7 @@
       "公园广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "燕尾山生态公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3157,7 +3241,7 @@
       "公园广场"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "石头皮山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3184,7 +3268,7 @@
       "江头"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江头公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3211,7 +3295,7 @@
       "斗西路口"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "连心园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3237,7 +3321,7 @@
       "公园广场"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "白鹭园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3263,7 +3347,7 @@
       "公园广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "双拥主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3289,7 +3373,7 @@
       "公园广场"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "仙岳公园-福隆体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3316,7 +3400,7 @@
       "莲花"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "不争公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3342,7 +3426,7 @@
       "公园广场"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "街心公园(龙头路)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3369,7 +3453,7 @@
       "康乐"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "塘边公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3395,12 +3479,14 @@
       "公园广场"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门儿童公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFIJOHUF",
-    "recommendation": "厦门儿童公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门儿童公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_3819292c",
@@ -3421,7 +3507,7 @@
       "公园广场"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门白鹭洲公园-中公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3447,7 +3533,7 @@
       "公园广场"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "跑跑公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3473,7 +3559,7 @@
       "公园广场"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "蔡尖尾山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3500,7 +3586,7 @@
       "开元"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "鹭江社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3526,7 +3612,7 @@
       "公园广场"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "火炬公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3552,12 +3638,14 @@
       "公园广场"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门市鼓浪屿风景名胜区-琴园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B025004RLJ",
-    "recommendation": "厦门市鼓浪屿风景名胜区-琴园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门市鼓浪屿风景名胜区-琴园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_8a5cd72f",
@@ -3579,7 +3667,7 @@
       "兴湖路沿线"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "佛祖山社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3606,7 +3694,7 @@
       "开元"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "祥滨文明园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3633,7 +3721,7 @@
       "开元"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中山路步行街，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3660,12 +3748,14 @@
       "开元"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "缇花影旗袍(厦门店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0L17Z7OST",
-    "recommendation": "缇花影旗袍(厦门店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "缇花影旗袍(厦门店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_960262c6",
@@ -3692,7 +3782,9 @@
     "description": "见福便利店(大同学府店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFH1UKDF",
-    "recommendation": "见福便利店(大同学府店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "见福便利店(大同学府店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 120
   },
   {
     "id": "amap_f8de5c4a",
@@ -3713,12 +3805,14 @@
       "福建菜"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "林四喜·闽南传家菜(鼓浪屿店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFLBC538",
-    "recommendation": "林四喜·闽南传家菜(鼓浪屿店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "林四喜·闽南传家菜(鼓浪屿店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 870
   },
   {
     "id": "amap_a6a845de",
@@ -3739,12 +3833,14 @@
       "开元"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "好食来大排档(32年美食航标店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B025002K49",
-    "recommendation": "好食来大排档(32年美食航标店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "好食来大排档(32年美食航标店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1410
   },
   {
     "id": "amap_ed2430a7",
@@ -3765,12 +3861,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.8,
-    "price_level": 4,
+    "price_level": 1,
     "meal_type": "main",
     "description": "兴旺海鲜城(五缘湾店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0IU65PYCY",
-    "recommendation": "兴旺海鲜城(五缘湾店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "兴旺海鲜城(五缘湾店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_1f6ac25f",
@@ -3792,12 +3890,14 @@
       "禾山"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "球风海鲜餐厅(五缘湾店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G3DZ0WUD",
-    "recommendation": "球风海鲜餐厅(五缘湾店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "球风海鲜餐厅(五缘湾店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_47237add",
@@ -3819,12 +3919,14 @@
       "开元"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉壹号海鲜大排档·老厦门特色菜(厦门美食地标店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFF4K6DO",
-    "recommendation": "醉壹号海鲜大排档·老厦门特色菜(厦门美食地标店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉壹号海鲜大排档·老厦门特色菜(厦门美食地标店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_6b0bd5c6",
@@ -3845,12 +3947,14 @@
       "福建菜"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "闽南大院-款待贵宾的闽南菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H6FC2WZG",
-    "recommendation": "闽南大院-款待贵宾的闽南菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "闽南大院-款待贵宾的闽南菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_28044f0",
@@ -3877,7 +3981,9 @@
     "description": "相约厦门平价海鲜城·姜母鸭厦门菜(八市美食地标店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFLCHERM",
-    "recommendation": "相约厦门平价海鲜城·姜母鸭厦门菜(八市美食地标店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "相约厦门平价海鲜城·姜母鸭厦门菜(八市美食地标店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 60
   },
   {
     "id": "amap_62aec636",
@@ -3898,12 +4004,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "上屿水产(鼓浪屿店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GKK5YLS7",
-    "recommendation": "上屿水产(鼓浪屿店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "上屿水产(鼓浪屿店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 900
   },
   {
     "id": "amap_ca7ca6b4",
@@ -3929,7 +4037,9 @@
     "description": "阿呆姜母鸭(大同路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJ5AIDL",
-    "recommendation": "阿呆姜母鸭(大同路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "阿呆姜母鸭(大同路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1200
   },
   {
     "id": "amap_1801d3b",
@@ -3951,12 +4061,14 @@
       "禾山"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "同安饭店•闽南土菜•23年老品牌(金尚店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02500TK3E",
-    "recommendation": "同安饭店•闽南土菜•23年老品牌(金尚店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "同安饭店•闽南土菜•23年老品牌(金尚店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 900
   },
   {
     "id": "amap_16664a63",
@@ -3978,12 +4090,14 @@
       "黄厝社"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海渔家餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFA0ML2",
-    "recommendation": "海渔家餐厅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "海渔家餐厅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_7664480f",
@@ -4004,12 +4118,14 @@
       "悦华路"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "同安饭店(联发东南天地店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HKT7KD1F",
-    "recommendation": "同安饭店(联发东南天地店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "同安饭店(联发东南天地店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 990,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3aabbb99",
@@ -4031,12 +4147,14 @@
       "开元"
     ],
     "popularity": 4.6,
-    "price_level": 4,
+    "price_level": 1,
     "meal_type": "main",
     "description": "上青本港海鲜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02500TRVM",
-    "recommendation": "上青本港海鲜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "上青本港海鲜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_eead85a3",
@@ -4058,12 +4176,14 @@
       "厦港"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "妞妞餐厅老厦门特色菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGTQ774",
-    "recommendation": "妞妞餐厅老厦门特色菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "妞妞餐厅老厦门特色菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_7ae3ee94",
@@ -4085,12 +4205,14 @@
       "开元"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "鑫阿强姜母鸭阿强煎蟹，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGPFIHW",
-    "recommendation": "鑫阿强姜母鸭阿强煎蟹是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鑫阿强姜母鸭阿强煎蟹是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_9b0e634",
@@ -4111,12 +4233,14 @@
       "吕岭路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "球风海鲜餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFDQWFI",
-    "recommendation": "球风海鲜餐厅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "球风海鲜餐厅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_be249deb",
@@ -4139,7 +4263,7 @@
       "兴湖路沿线"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "鑫悦楼煎蟹·16年海鲜大排档(机场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4164,12 +4288,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "上青夜市，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KD49K52D",
-    "recommendation": "上青夜市是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "上青夜市是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_82672b39",
@@ -4190,12 +4316,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.6,
-    "price_level": 4,
+    "price_level": 1,
     "meal_type": "main",
     "description": "兴旺海鲜城(高崎店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGYX0KS",
-    "recommendation": "兴旺海鲜城(高崎店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "兴旺海鲜城(高崎店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_adcb8261",
@@ -4217,12 +4345,14 @@
       "禾山"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "日月鲜海鲜大排档·厦门美食地标店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02500S51V",
-    "recommendation": "日月鲜海鲜大排档·厦门美食地标店是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "日月鲜海鲜大排档·厦门美食地标店是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 90
   },
   {
     "id": "amap_cfc06a9b",
@@ -4242,12 +4372,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "味友·闽宴(杏林湾店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG7PBSU",
-    "recommendation": "味友·闽宴(杏林湾店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "味友·闽宴(杏林湾店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_befd5dd7",
@@ -4269,12 +4401,14 @@
       "马巷"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "球风海鲜大排档(马巷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J6CCOV8I",
-    "recommendation": "球风海鲜大排档(马巷店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "球风海鲜大排档(马巷店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_b40e5d1b",
@@ -4294,12 +4428,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "889特色排档，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFLI08IR",
-    "recommendation": "889特色排档是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "889特色排档是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 1020,
+    "close_minutes": 480
   },
   {
     "id": "amap_86535cf4",
@@ -4320,12 +4456,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.7,
-    "price_level": 5,
+    "price_level": 1,
     "meal_type": "main",
     "description": "兴旺海鲜城(厦门星河COCO Park店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J067QOLV",
-    "recommendation": "兴旺海鲜城(厦门星河COCO Park店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "兴旺海鲜城(厦门星河COCO Park店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_dac66bbf",
@@ -4346,12 +4484,14 @@
       "七星西路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老宋·闽南排档，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LGALB56M",
-    "recommendation": "老宋·闽南排档是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老宋·闽南排档是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_6695fa23",
@@ -4372,12 +4512,14 @@
       "马巷"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "南山客家，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFI7WVGN",
-    "recommendation": "南山客家是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "南山客家是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_b45d26f",
@@ -4398,12 +4540,14 @@
       "中华"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "桃喜·老厦门私厨(中山路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K6BCBQ6K",
-    "recommendation": "桃喜·老厦门私厨(中山路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "桃喜·老厦门私厨(中山路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_42efc514",
@@ -4425,12 +4569,14 @@
       "鹭江"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "阿强海鲜加工·大排档(八市店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GK1DXKBA",
-    "recommendation": "阿强海鲜加工·大排档(八市店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "阿强海鲜加工·大排档(八市店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 60
   },
   {
     "id": "amap_ed4c43ae",
@@ -4456,7 +4602,9 @@
     "description": "大洋海鲜餐厅·锋味厦门菜(鼓浪屿总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KKMSJ9YY",
-    "recommendation": "大洋海鲜餐厅·锋味厦门菜(鼓浪屿总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大洋海鲜餐厅·锋味厦门菜(鼓浪屿总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1290
   },
   {
     "id": "amap_d7e7afc7",
@@ -4477,12 +4625,14 @@
       "鹭江"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "林锦记·闽菜(八市总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LB2CQZZP",
-    "recommendation": "林锦记·闽菜(八市总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "林锦记·闽菜(八市总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_c2ba27fc",
@@ -4504,12 +4654,14 @@
       "莲坂"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "佳丽海鲜酒楼(厦门宝福大厦店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0250041NE",
-    "recommendation": "佳丽海鲜酒楼(厦门宝福大厦店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "佳丽海鲜酒楼(厦门宝福大厦店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_8dc583cf",
@@ -4531,12 +4683,14 @@
       "莲花"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "悦来福东山海鲜(莲花店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFYGRKE",
-    "recommendation": "悦来福东山海鲜(莲花店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "悦来福东山海鲜(莲花店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1410
   },
   {
     "id": "amap_a33b84e2",
@@ -4556,12 +4710,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "听鹭洲-新闽菜(白鹭洲天鹅酒店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LAUS1LZW",
-    "recommendation": "听鹭洲-新闽菜(白鹭洲天鹅酒店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "听鹭洲-新闽菜(白鹭洲天鹅酒店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 810
   },
   {
     "id": "amap_6fd2fb40",
@@ -4583,12 +4739,14 @@
       "开元"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "鹭江一号海鲜大排档•厦门美食地标，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J01R4IP3",
-    "recommendation": "鹭江一号海鲜大排档•厦门美食地标是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鹭江一号海鲜大排档•厦门美食地标是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_bbdd6274",
@@ -4609,12 +4767,14 @@
       "福建菜"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "大拇指海鲜闽菜(园博湾·景店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JBYZSCKS",
-    "recommendation": "大拇指海鲜闽菜(园博湾·景店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大拇指海鲜闽菜(园博湾·景店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_91bb095b",
@@ -4635,12 +4795,14 @@
       "杏林"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "202特色排档(杏林分店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFLJBZZP",
-    "recommendation": "202特色排档(杏林分店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "202特色排档(杏林分店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 810
   },
   {
     "id": "amap_5645722e",
@@ -4661,7 +4823,7 @@
       "开元"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "欣悦家·闽南小馆(中山路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4688,12 +4850,14 @@
       "莲花"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "阿里元·海鲜闽菜(明发店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GUNAGUG9",
-    "recommendation": "阿里元·海鲜闽菜(明发店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "阿里元·海鲜闽菜(明发店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_887d77fb",
@@ -4715,12 +4879,14 @@
       "兴湖路沿线"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "友强海鲜大排档(湖里闽菜海鲜地标店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B025003T1I",
-    "recommendation": "友强海鲜大排档(湖里闽菜海鲜地标店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "友强海鲜大排档(湖里闽菜海鲜地标店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_5ef6378b",
@@ -4742,12 +4908,14 @@
       "厦港"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "闽南行闽菜·海鲜·姜母鸭(沙尾坡店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LGRXF8Q4",
-    "recommendation": "闽南行闽菜·海鲜·姜母鸭(沙尾坡店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "闽南行闽菜·海鲜·姜母鸭(沙尾坡店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5f54866",
@@ -4768,12 +4936,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海集鲜·闽菜·海鲜·农家菜(大学城商业街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HU9S5Q57",
-    "recommendation": "海集鲜·闽菜·海鲜·农家菜(大学城商业街店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "海集鲜·闽菜·海鲜·农家菜(大学城商业街店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 810
   },
   {
     "id": "amap_efd28922",
@@ -4795,7 +4965,7 @@
       "滨海"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "闽南行闽菜·海鲜·姜母鸭(曾厝垵总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4823,12 +4993,14 @@
       "禾祥东路沿线"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "鑫东兴特色排档•35年老店(万象城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LUZUUJU7",
-    "recommendation": "鑫东兴特色排档•35年老店(万象城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鑫东兴特色排档•35年老店(万象城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_6f86ffc1",
@@ -4850,12 +5022,14 @@
       "马巷"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "农夫岛海鲜餐厅(翔安区马巷店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKRU73D",
-    "recommendation": "农夫岛海鲜餐厅(翔安区马巷店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "农夫岛海鲜餐厅(翔安区马巷店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 840
   },
   {
     "id": "amap_fe4204a8",
@@ -4879,12 +5053,14 @@
       "开元"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "杨鑫丽厦门家常菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JRUYZ8O0",
-    "recommendation": "杨鑫丽厦门家常菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "杨鑫丽厦门家常菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9b424b22",
@@ -4904,12 +5080,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "厦门渔港(仙岳店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFH1DA8W",
-    "recommendation": "厦门渔港(仙岳店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "厦门渔港(仙岳店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_805b6a9a",
@@ -4930,12 +5108,14 @@
       "集美学村"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "此食·陈氏传家菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K3MCMLC7",
-    "recommendation": "此食·陈氏传家菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "此食·陈氏传家菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_12cd2867",
@@ -4956,12 +5136,14 @@
       "鹭江"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "夏氏·姜母鸭·厦门菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JGUCGUGL",
-    "recommendation": "夏氏·姜母鸭·厦门菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "夏氏·姜母鸭·厦门菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 1380
   },
   {
     "id": "amap_a8d49fb9",
@@ -4983,12 +5165,14 @@
       "兴湖路沿线"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海中鲜平价活鲜大排档(湖里美食地标店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02500418D",
-    "recommendation": "海中鲜平价活鲜大排档(湖里美食地标店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "海中鲜平价活鲜大排档(湖里美食地标店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_2a238be5",
@@ -5010,12 +5194,14 @@
       "兴湖路沿线"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "来嘉海鲜酱油水，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02500SYU2",
-    "recommendation": "来嘉海鲜酱油水是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "来嘉海鲜酱油水是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_e9ba0e4e",
@@ -5036,12 +5222,14 @@
       "观音山"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "红厝灶咖.赖记小厨(观音山美食地标店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LUM7FQ3X",
-    "recommendation": "红厝灶咖.赖记小厨(观音山美食地标店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "红厝灶咖.赖记小厨(观音山美食地标店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_3f6342c2",
@@ -5063,12 +5251,14 @@
       "四川菜(川菜)"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "川湘人家珍味阁，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGC449F",
-    "recommendation": "川湘人家珍味阁是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "川湘人家珍味阁是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5f89e491",
@@ -5089,12 +5279,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "环季海鲜软件园店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HKJZX5SY",
-    "recommendation": "环季海鲜软件园店是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "环季海鲜软件园店是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_a59b77fa",
@@ -5115,12 +5307,14 @@
       "城南路"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "南山客家·客家菜(同安店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KB2PJ7LC",
-    "recommendation": "南山客家·客家菜(同安店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "南山客家·客家菜(同安店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_40fdfa92",
@@ -5141,12 +5335,14 @@
       "中华"
     ],
     "popularity": 4.1,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "海边人家·闽菜海鲜餐厅，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GDLCJ4XS",
-    "recommendation": "海边人家·闽菜海鲜餐厅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "海边人家·闽菜海鲜餐厅是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 60
   },
   {
     "id": "amap_2e2d517d",
@@ -5167,12 +5363,14 @@
       "中华"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "厦玖小厨，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KKXDV767",
-    "recommendation": "厦玖小厨是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "厦玖小厨是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3c05aebe",
@@ -5194,12 +5392,14 @@
       "开元"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "一家海鲜.就是新鲜(后江埭店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GUBCO5J8",
-    "recommendation": "一家海鲜.就是新鲜(后江埭店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "一家海鲜.就是新鲜(后江埭店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1290
   },
   {
     "id": "amap_79e74d51",
@@ -5221,7 +5421,7 @@
       "中华"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老厦门鼓新一品本港海鲜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -5247,12 +5447,14 @@
       "湖里大道"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "舒味姜母鸭闽南排挡(湖里大道店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L2ZD3JK5",
-    "recommendation": "舒味姜母鸭闽南排挡(湖里大道店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "舒味姜母鸭闽南排挡(湖里大道店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b15326a3",
@@ -5273,12 +5475,14 @@
       "黄厝社"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "吕妈妈私房菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GRHBORFP",
-    "recommendation": "吕妈妈私房菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "吕妈妈私房菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_1b212b0a",
@@ -5300,12 +5504,14 @@
       "莲坂"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "欣林兵煎蟹海鲜餐厅(明发商业广场旗舰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B025003GNL",
-    "recommendation": "欣林兵煎蟹海鲜餐厅(明发商业广场旗舰店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "欣林兵煎蟹海鲜餐厅(明发商业广场旗舰店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_d26fd5ec",
@@ -5326,12 +5532,14 @@
       "火锅店"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "古味轩·闽菜海鲜餐厅(万科云城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LRN1MRY2",
-    "recommendation": "古味轩·闽菜海鲜餐厅(万科云城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "古味轩·闽菜海鲜餐厅(万科云城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 810
   },
   {
     "id": "amap_b84e415f",
@@ -5352,12 +5560,14 @@
       "祥平"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "迎客松家宴，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFLMCWNM",
-    "recommendation": "迎客松家宴是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "迎客松家宴是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 810
   },
   {
     "id": "amap_975d6707",
@@ -5378,12 +5588,14 @@
       "福建菜"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "芙蓉苑私房菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIQVP7U",
-    "recommendation": "芙蓉苑私房菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "芙蓉苑私房菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 690,
+    "close_minutes": 870
   },
   {
     "id": "amap_12b1db25",
@@ -5405,12 +5617,14 @@
       "思北路口"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "怡味·闽菜·海鲜餐厅(中山路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J607DLJW",
-    "recommendation": "怡味·闽菜·海鲜餐厅(中山路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "怡味·闽菜·海鲜餐厅(中山路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_49676f83",
@@ -5431,12 +5645,14 @@
       "滨海"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "曾有味闽菜·海鲜·湘菜(曾厝垵店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02500TQ8V",
-    "recommendation": "曾有味闽菜·海鲜·湘菜(曾厝垵店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "曾有味闽菜·海鲜·湘菜(曾厝垵店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_3a44cc00",
@@ -5458,12 +5674,14 @@
       "滨海"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "八号渔市闽菜·海鲜(曾厝垵美食地标店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G2Z7I4ES",
-    "recommendation": "八号渔市闽菜·海鲜(曾厝垵美食地标店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "八号渔市闽菜·海鲜(曾厝垵美食地标店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1410
   },
   {
     "id": "amap_d14f786c",
@@ -5483,12 +5701,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "小眼镜大排档(万佳东方店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02500QE7A",
-    "recommendation": "小眼镜大排档(万佳东方店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "小眼镜大排档(万佳东方店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_5d975444",
@@ -5510,12 +5730,14 @@
       "瑞景"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "520东山海鲜城·夜宵排档聚会(洪文店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFSMXTW",
-    "recommendation": "520东山海鲜城·夜宵排档聚会(洪文店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "520东山海鲜城·夜宵排档聚会(洪文店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_bdb4a7e1",
@@ -5536,12 +5758,14 @@
       "曾厝垵"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "仙海阁|闽菜小海鲜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G0RNA2XZ",
-    "recommendation": "仙海阁|闽菜小海鲜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "仙海阁|闽菜小海鲜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_9ca34b91",
@@ -5562,12 +5786,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "嵩屿9号海景餐厅|海鲜闽菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFK4UNBH",
-    "recommendation": "嵩屿9号海景餐厅|海鲜闽菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "嵩屿9号海景餐厅|海鲜闽菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_a8e9d26d",
@@ -5589,12 +5815,14 @@
       "吕岭路"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "鑫林滨餐厅(江头东路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0250040ZG",
-    "recommendation": "鑫林滨餐厅(江头东路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鑫林滨餐厅(江头东路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 300
   },
   {
     "id": "amap_99bf3bc6",
@@ -5615,7 +5843,7 @@
       "餐饮相关"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "阿兰小厨，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -5641,12 +5869,14 @@
       "海鲜酒楼"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "厦门有亿海鲜酒楼，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LURC2YY1",
-    "recommendation": "厦门有亿海鲜酒楼是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "厦门有亿海鲜酒楼是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6543b27f",
@@ -5667,12 +5897,14 @@
       "开元"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "小眼镜大排档(汇成总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B025003TAE",
-    "recommendation": "小眼镜大排档(汇成总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "小眼镜大排档(汇成总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_39260765",
@@ -5694,12 +5926,14 @@
       "莲坂"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "永记深海鱼(火车站店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFPA0CF",
-    "recommendation": "永记深海鱼(火车站店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "永记深海鱼(火车站店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_46cf2d27",
@@ -5720,12 +5954,14 @@
       "杏东路"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "义尚食宁宝店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L311W0XD",
-    "recommendation": "义尚食宁宝店是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "义尚食宁宝店是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 810
   },
   {
     "id": "amap_b08b22f5",
@@ -5746,12 +5982,14 @@
       "黄厝社"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "珍鲜(黄厝店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFK1T78I",
-    "recommendation": "珍鲜(黄厝店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "珍鲜(黄厝店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_67966f98",
@@ -5773,12 +6011,14 @@
       "厦港"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "闽南味道姜母鸭总店(顶澳仔店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIOS60J",
-    "recommendation": "闽南味道姜母鸭总店(顶澳仔店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "闽南味道姜母鸭总店(顶澳仔店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_97c666a7",
@@ -5798,7 +6038,7 @@
       "中餐厅"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "民间瓦罐(高崎店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -5823,12 +6063,14 @@
       "快餐厅"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "小鱼号酸菜鱼(湖里海涵时代店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0I3F9142O",
-    "recommendation": "小鱼号酸菜鱼(湖里海涵时代店)是夜间休闲好去处"
+    "recommendation": "小鱼号酸菜鱼(湖里海涵时代店)是夜间休闲好去处",
+    "open_minutes": 600,
+    "close_minutes": 1230
   },
   {
     "id": "amap_d2d26067",
@@ -5848,12 +6090,14 @@
       "中餐厅"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "猪角·闽南猪脚饭(海涵时代店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFM8Y5YB",
-    "recommendation": "猪角·闽南猪脚饭(海涵时代店)是夜间休闲好去处"
+    "recommendation": "猪角·闽南猪脚饭(海涵时代店)是夜间休闲好去处",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_67891312",
@@ -5873,12 +6117,14 @@
       "咖啡厅"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "瑞幸咖啡(厦门大学南门白城沙滩店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFK65OW9",
-    "recommendation": "瑞幸咖啡(厦门大学南门白城沙滩店)是夜间休闲好去处"
+    "recommendation": "瑞幸咖啡(厦门大学南门白城沙滩店)是夜间休闲好去处",
+    "open_minutes": 420,
+    "close_minutes": 1200
   },
   {
     "id": "amap_c77aaac2",
@@ -5898,7 +6144,7 @@
       "咖啡厅"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "瑞幸咖啡(曾厝垵店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -5923,12 +6169,14 @@
       "中餐厅"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "闽南特色小吃(珍珠湾店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFIRAYL6",
-    "recommendation": "闽南特色小吃(珍珠湾店)是夜间休闲好去处"
+    "recommendation": "闽南特色小吃(珍珠湾店)是夜间休闲好去处",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6ebab02d",
@@ -5953,7 +6201,9 @@
     "description": "厦大鱿鱼姐·菠萝鸡肉饭(珍珠湾店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0G3DY0D2S",
-    "recommendation": "厦大鱿鱼姐·菠萝鸡肉饭(珍珠湾店)是夜间休闲好去处"
+    "recommendation": "厦大鱿鱼姐·菠萝鸡肉饭(珍珠湾店)是夜间休闲好去处",
+    "open_minutes": 660,
+    "close_minutes": 1110
   },
   {
     "id": "amap_1cf18a2",
@@ -5974,7 +6224,7 @@
       "滨海"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "碗碗香面庄，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -6005,7 +6255,9 @@
     "description": "鑫鑫落日海景海鲜餐厅(胡里山炮台地标店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0LUBOONEP",
-    "recommendation": "鑫鑫落日海景海鲜餐厅(胡里山炮台地标店)是夜间休闲好去处"
+    "recommendation": "鑫鑫落日海景海鲜餐厅(胡里山炮台地标店)是夜间休闲好去处",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_977c9fd6",
@@ -6026,12 +6278,14 @@
       "福建菜"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 2,
     "meal_type": "main",
     "description": "鲤鱼门食府(珍珠湾店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B025000BAA",
-    "recommendation": "鲤鱼门食府(珍珠湾店)是夜间休闲好去处"
+    "recommendation": "鲤鱼门食府(珍珠湾店)是夜间休闲好去处",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_e004a148",
@@ -6058,7 +6312,9 @@
     "description": "祝名平价海鲜古树海景餐厅(曾厝垵店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0LGZ5TMMS",
-    "recommendation": "祝名平价海鲜古树海景餐厅(曾厝垵店)是夜间休闲好去处"
+    "recommendation": "祝名平价海鲜古树海景餐厅(曾厝垵店)是夜间休闲好去处",
+    "open_minutes": 660,
+    "close_minutes": 150
   },
   {
     "id": "amap_9da396c4",
@@ -6080,7 +6336,7 @@
       "滨海"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "栩程·唯纳海景酒店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -6106,12 +6362,14 @@
       "曾厝垵"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "古茗(曾厝垵环岛路店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0LB2RS460",
-    "recommendation": "古茗(曾厝垵环岛路店)是夜间休闲好去处"
+    "recommendation": "古茗(曾厝垵环岛路店)是夜间休闲好去处",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_50444a69",
@@ -6132,12 +6390,14 @@
       "曾厝垵"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "蜜雪冰城(曾厝垵社店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFHK0QCQ",
-    "recommendation": "蜜雪冰城(曾厝垵社店)是夜间休闲好去处"
+    "recommendation": "蜜雪冰城(曾厝垵社店)是夜间休闲好去处",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_df537d2a",
@@ -6158,12 +6418,14 @@
       "餐饮相关"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 2,
     "meal_type": "main",
     "description": "无味舒食(环岛路店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFIQFZUV",
-    "recommendation": "无味舒食(环岛路店)是夜间休闲好去处"
+    "recommendation": "无味舒食(环岛路店)是夜间休闲好去处",
+    "open_minutes": 630,
+    "close_minutes": 1260
   },
   {
     "id": "amap_e42e752f",
@@ -6185,7 +6447,7 @@
       "曾厝垵"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "半夏时光民宿(曾厝垵店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -6210,12 +6472,14 @@
       "冷饮店"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "椰岛巴士，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0KRN5KTRV",
-    "recommendation": "椰岛巴士是夜间休闲好去处"
+    "recommendation": "椰岛巴士是夜间休闲好去处",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_e4aac8db",
@@ -6236,12 +6500,14 @@
       "滨海"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "蜜雪冰城(曾厝垵社二店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0L31NUXSL",
-    "recommendation": "蜜雪冰城(曾厝垵社二店)是夜间休闲好去处"
+    "recommendation": "蜜雪冰城(曾厝垵社二店)是夜间休闲好去处",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_562e7930",
@@ -6267,7 +6533,9 @@
     "description": "陈伯沙茶面，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0L6N4R4RY",
-    "recommendation": "陈伯沙茶面是夜间休闲好去处"
+    "recommendation": "陈伯沙茶面是夜间休闲好去处",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9d7d48f6",
@@ -6289,12 +6557,14 @@
       "曾厝垵"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "库迪咖啡(曾厝垵牌坊店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0L6PR56WO",
-    "recommendation": "库迪咖啡(曾厝垵牌坊店)是夜间休闲好去处"
+    "recommendation": "库迪咖啡(曾厝垵牌坊店)是夜间休闲好去处",
+    "open_minutes": 420,
+    "close_minutes": 1080
   },
   {
     "id": "amap_abc6921f",
@@ -6314,7 +6584,7 @@
       "咖啡厅"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "肯悦咖啡会展北天虹店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -6365,12 +6635,14 @@
       "快餐厅"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "会民牛记·烩面羊肉汤(紫金店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0JU5RG5T0",
-    "recommendation": "会民牛记·烩面羊肉汤(紫金店)是夜间休闲好去处"
+    "recommendation": "会民牛记·烩面羊肉汤(紫金店)是夜间休闲好去处",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_55dcf923",
@@ -6390,12 +6662,14 @@
       "咖啡厅"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "库迪咖啡(JFC品尚中心店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0LR3SC9Z6",
-    "recommendation": "库迪咖啡(JFC品尚中心店)是夜间休闲好去处"
+    "recommendation": "库迪咖啡(JFC品尚中心店)是夜间休闲好去处",
+    "open_minutes": 450,
+    "close_minutes": 1080
   },
   {
     "id": "amap_a475052c",
@@ -6416,12 +6690,14 @@
       "餐饮相关"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "鑫海滩便民服务部(一国两制沙滩)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFL5KNN9",
-    "recommendation": "鑫海滩便民服务部(一国两制沙滩)是夜间休闲好去处"
+    "recommendation": "鑫海滩便民服务部(一国两制沙滩)是夜间休闲好去处",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_af186a55",
@@ -6447,7 +6723,9 @@
     "description": "厦门帝元维多利亚大酒店·中餐厅，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFFF0HRP",
-    "recommendation": "厦门帝元维多利亚大酒店·中餐厅是夜间休闲好去处"
+    "recommendation": "厦门帝元维多利亚大酒店·中餐厅是夜间休闲好去处",
+    "open_minutes": 660,
+    "close_minutes": 810
   },
   {
     "id": "amap_be4f24ed",
@@ -6468,12 +6746,14 @@
       "观音山"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "汀小厨·客家蒸菜(观音山店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0H3LZL2FC",
-    "recommendation": "汀小厨·客家蒸菜(观音山店)是夜间休闲好去处"
+    "recommendation": "汀小厨·客家蒸菜(观音山店)是夜间休闲好去处",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_2e3e98b5",
@@ -6494,12 +6774,14 @@
       "西餐厅(综合风味)"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "尊宝比萨(JFC店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFKJSJ8F",
-    "recommendation": "尊宝比萨(JFC店)是夜间休闲好去处"
+    "recommendation": "尊宝比萨(JFC店)是夜间休闲好去处",
+    "open_minutes": 570,
+    "close_minutes": 1290
   },
   {
     "id": "amap_ade8c129",
@@ -6526,7 +6808,9 @@
     "description": "豪客来牛排(厦门君尚广场餐厅)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFJGV5BF",
-    "recommendation": "豪客来牛排(厦门君尚广场餐厅)是夜间休闲好去处"
+    "recommendation": "豪客来牛排(厦门君尚广场餐厅)是夜间休闲好去处",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4f37031e",
@@ -6552,7 +6836,9 @@
     "description": "潮·餐(厦门艾尼·壹水湾度假酒店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFJHEVY3",
-    "recommendation": "潮·餐(厦门艾尼·壹水湾度假酒店)是夜间休闲好去处"
+    "recommendation": "潮·餐(厦门艾尼·壹水湾度假酒店)是夜间休闲好去处",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_5f9885a7",
@@ -6572,7 +6858,7 @@
       "冷饮店"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "古茗(会展北天虹店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -6603,7 +6889,9 @@
     "description": "二喜兄自助烤肉(会展天虹店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0LKJG0EDA",
-    "recommendation": "二喜兄自助烤肉(会展天虹店)是夜间休闲好去处"
+    "recommendation": "二喜兄自助烤肉(会展天虹店)是夜间休闲好去处",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_3d6cd6e5",
@@ -6625,12 +6913,14 @@
       "禾山"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "茶山派(湖里创新园店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0KA7D39LW",
-    "recommendation": "茶山派(湖里创新园店)是夜间休闲好去处"
+    "recommendation": "茶山派(湖里创新园店)是夜间休闲好去处",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_3d6fbd91",
@@ -6656,7 +6946,9 @@
     "description": "六号私房菜(曾厝垵店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0HAU5SIQN",
-    "recommendation": "六号私房菜(曾厝垵店)是夜间休闲好去处"
+    "recommendation": "六号私房菜(曾厝垵店)是夜间休闲好去处",
+    "open_minutes": 630,
+    "close_minutes": 1350
   },
   {
     "id": "amap_5d3e3b0c",
@@ -6682,7 +6974,9 @@
     "description": "阿吉仔饼铺(JFC品尚中心店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0ID9AI4XK",
-    "recommendation": "阿吉仔饼铺(JFC品尚中心店)是夜间休闲好去处"
+    "recommendation": "阿吉仔饼铺(JFC品尚中心店)是夜间休闲好去处",
+    "open_minutes": 510,
+    "close_minutes": 1290
   },
   {
     "id": "amap_2fc290e",
@@ -6707,7 +7001,9 @@
     "description": "闽南美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFH1URB9",
-    "recommendation": "闽南美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "闽南美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1350
   },
   {
     "id": "amap_be9209cf",
@@ -6727,7 +7023,7 @@
       "购物相关场所"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "石鼓路美食一条街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -6758,7 +7054,9 @@
     "description": "龙头路小吃街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFHTZM64",
-    "recommendation": "龙头路小吃街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "龙头路小吃街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1200
   },
   {
     "id": "amap_4e5e04ed",
@@ -6784,7 +7082,9 @@
     "description": "中山路小吃街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0IBFU2PQE",
-    "recommendation": "中山路小吃街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "中山路小吃街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 555,
+    "close_minutes": 1440
   },
   {
     "id": "amap_c8416003",
@@ -6811,7 +7111,9 @@
     "description": "曾厝垵步行街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFKATOFU",
-    "recommendation": "曾厝垵步行街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "曾厝垵步行街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1440
   },
   {
     "id": "amap_ba84bfc2",
@@ -6832,7 +7134,7 @@
       "滨海"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "厝岸两岸民俗文化美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -6862,7 +7164,9 @@
     "description": "沙美美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0JUHUTPEC",
-    "recommendation": "沙美美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "沙美美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_56cea2ae",
@@ -6882,12 +7186,14 @@
       "中餐厅"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "前埔不夜城美食广场，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B025000FDB",
-    "recommendation": "前埔不夜城美食广场是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "前埔不夜城美食广场是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 120
   },
   {
     "id": "amap_bdae4698",
@@ -6938,7 +7244,9 @@
     "description": "西洪塘美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFG0R12H",
-    "recommendation": "西洪塘美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "西洪塘美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1380
   },
   {
     "id": "amap_a83acd5a",
@@ -6964,7 +7272,9 @@
     "description": "维品食尚美食城(中山路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0J245VA1R",
-    "recommendation": "维品食尚美食城(中山路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "维品食尚美食城(中山路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_24df3e9b",
@@ -6990,7 +7300,9 @@
     "description": "清真西北手抓美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0HA4CRQKP",
-    "recommendation": "清真西北手抓美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "清真西北手抓美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_db9683b",
@@ -7011,7 +7323,7 @@
       "吕岭路"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "天地美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -7041,7 +7353,9 @@
     "description": "鹿叮堡餐饮美食城(建发·翔城国际2期店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0H19ZJGEU",
-    "recommendation": "鹿叮堡餐饮美食城(建发·翔城国际2期店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鹿叮堡餐饮美食城(建发·翔城国际2期店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1a219f35",
@@ -7066,7 +7380,9 @@
     "description": "拾前美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0I1BDYDPA",
-    "recommendation": "拾前美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "拾前美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1410
   },
   {
     "id": "amap_4af66b3",
@@ -7115,7 +7431,7 @@
       "斗西路口"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "斗西美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -7171,7 +7487,9 @@
     "description": "纳德福美食反诈一条街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0I01UX42Z",
-    "recommendation": "纳德福美食反诈一条街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "纳德福美食反诈一条街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a3a83a3c",
@@ -7196,7 +7514,9 @@
     "description": "万舜汇·明馆美食商业街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0GUR9PGH5",
-    "recommendation": "万舜汇·明馆美食商业街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "万舜汇·明馆美食商业街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1230
   },
   {
     "id": "amap_34e31bb0",
@@ -7217,12 +7537,14 @@
       "瑞景"
     ],
     "popularity": 3.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "加州美食街(加州商业广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B02500SEXB",
-    "recommendation": "加州美食街(加州商业广场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "加州美食街(加州商业广场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1140
   },
   {
     "id": "amap_b5d21bd2",
@@ -7248,7 +7570,9 @@
     "description": "镓城美食，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L3DH52RC",
-    "recommendation": "镓城美食是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "镓城美食是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_5d85daf1",
@@ -7326,7 +7650,9 @@
     "description": "S1美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LD9H5SGO",
-    "recommendation": "S1美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "S1美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 30
   },
   {
     "id": "amap_7b53adeb",
@@ -7351,7 +7677,9 @@
     "description": "东北菜美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LA171DYQ",
-    "recommendation": "东北菜美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "东北菜美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_6d4ffd05",
@@ -7428,7 +7756,9 @@
     "description": "杏东美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0HB458UYY",
-    "recommendation": "杏东美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "杏东美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_869c3635",
@@ -7479,7 +7809,9 @@
     "description": "四川麻辣卤味西洪塘美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0G0PYBIHO",
-    "recommendation": "四川麻辣卤味西洪塘美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "四川麻辣卤味西洪塘美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 990,
+    "close_minutes": 1440
   },
   {
     "id": "amap_dd717efa",
@@ -7505,7 +7837,9 @@
     "description": "官浔美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L2FH1TX0",
-    "recommendation": "官浔美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "官浔美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 1020,
+    "close_minutes": 180
   },
   {
     "id": "amap_e58b8174",
@@ -7560,7 +7894,9 @@
     "description": "梅园海鲜美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFK4BFIS",
-    "recommendation": "梅园海鲜美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "梅园海鲜美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1380
   },
   {
     "id": "amap_c3977b1",
@@ -7633,7 +7969,7 @@
       "五显"
     ],
     "popularity": 3.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "东海美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -7713,7 +8049,9 @@
     "description": "瑞荣美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0K2XC4E7G",
-    "recommendation": "瑞荣美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "瑞荣美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_52af3ad4",
@@ -7839,12 +8177,14 @@
       "购物中心"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "SM城市广场(厦门湖里店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B025003MZA",
-    "recommendation": "SM城市广场(厦门湖里店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "SM城市广场(厦门湖里店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f39ed659",
@@ -7866,12 +8206,14 @@
       "禾山"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "SM城市广场1期，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0IR3UICYL",
-    "recommendation": "SM城市广场1期是当地热门景点，建议游览90分钟左右"
+    "recommendation": "SM城市广场1期是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_567c6ad9",
@@ -7893,12 +8235,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "SM新生活广场(厦门思明店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02500Q9VU",
-    "recommendation": "SM新生活广场(厦门思明店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "SM新生活广场(厦门思明店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_cd722375",
@@ -7919,12 +8263,14 @@
       "商场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "SM厦门三期，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHIF15O",
-    "recommendation": "SM厦门三期是当地热门景点，建议游览90分钟左右"
+    "recommendation": "SM厦门三期是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_37b75689",
@@ -7947,12 +8293,14 @@
       "禾祥东路沿线"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门万象城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFH1EGRI",
-    "recommendation": "厦门万象城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门万象城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5423e772",
@@ -7974,12 +8322,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(厦门湖里店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B025004GJM",
-    "recommendation": "万达广场(厦门湖里店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万达广场(厦门湖里店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_77b7a262",
@@ -8001,12 +8351,14 @@
       "购物中心"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门大悦城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0HBT756MH",
-    "recommendation": "厦门大悦城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门大悦城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_505e7ae0",
@@ -8033,7 +8385,9 @@
     "description": "宝龙一城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFG6OC6N",
-    "recommendation": "宝龙一城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "宝龙一城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_454580e",
@@ -8055,12 +8409,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "SM厦门海沧城市广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0I0MZ0DVC",
-    "recommendation": "SM厦门海沧城市广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "SM厦门海沧城市广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_232ca710",
@@ -8089,7 +8445,9 @@
     "description": "银泰百货(集美店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFJRGLJ2",
-    "recommendation": "银泰百货(集美店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "银泰百货(集美店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_98f46823",
@@ -8111,12 +8469,14 @@
       "购物中心"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门海上世界购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFKBCHUM",
-    "recommendation": "厦门海上世界购物中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门海上世界购物中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1e16def8",
@@ -8138,12 +8498,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(厦门集美店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02500TB6V",
-    "recommendation": "万达广场(厦门集美店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万达广场(厦门集美店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_696e9b39",
@@ -8166,12 +8528,14 @@
       "鹭江"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中华城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02500QG1F",
-    "recommendation": "中华城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "中华城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6426c3cb",
@@ -8200,7 +8564,9 @@
     "description": "中华城北区，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHNUGIY",
-    "recommendation": "中华城北区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "中华城北区是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_bc9dda58",
@@ -8227,7 +8593,9 @@
     "description": "iOi MALL，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0GKGC8U3M",
-    "recommendation": "iOi MALL是当地热门景点，建议游览90分钟左右"
+    "recommendation": "iOi MALL是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_598cb500",
@@ -8249,12 +8617,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门同安宝龙广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0I6TDNWWT",
-    "recommendation": "厦门同安宝龙广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门同安宝龙广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_77ec3518",
@@ -8281,7 +8651,9 @@
     "description": "银泰百货(国贸中心店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFIPFRD6",
-    "recommendation": "银泰百货(国贸中心店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "银泰百货(国贸中心店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c54a2b4e",
@@ -8303,12 +8675,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门海沧招商花园城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0I6B7XOH0",
-    "recommendation": "厦门海沧招商花园城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门海沧招商花园城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f4f4be33",
@@ -8331,12 +8705,14 @@
       "后溪"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门尚柏奥特莱斯，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFJXVDLH",
-    "recommendation": "厦门尚柏奥特莱斯是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门尚柏奥特莱斯是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6dddd275",
@@ -8358,12 +8734,14 @@
       "购物中心"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "sm新生活广场2期，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0H2NLJ1DE",
-    "recommendation": "sm新生活广场2期是当地热门景点，建议游览90分钟左右"
+    "recommendation": "sm新生活广场2期是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e8de18e9",
@@ -8386,12 +8764,14 @@
       "禾山"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "天虹购物中心(五缘湾店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFJSN6HK",
-    "recommendation": "天虹购物中心(五缘湾店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天虹购物中心(五缘湾店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1320
   },
   {
     "id": "amap_be048278",
@@ -8413,12 +8793,14 @@
       "普通商场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门集美世茂广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0G07767UP",
-    "recommendation": "厦门集美世茂广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门集美世茂广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f61a75a2",
@@ -8440,12 +8822,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门同安爱琴海购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0IATCTEUP",
-    "recommendation": "厦门同安爱琴海购物中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门同安爱琴海购物中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_697c366",
@@ -8468,12 +8852,14 @@
       "新店"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "汇景购物广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02500Q9YE",
-    "recommendation": "汇景购物广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "汇景购物广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8dfd89a7",
@@ -8501,7 +8887,9 @@
     "description": "杏林万科里，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHITSMY",
-    "recommendation": "杏林万科里是当地热门景点，建议游览90分钟左右"
+    "recommendation": "杏林万科里是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1d1013ac",
@@ -8525,12 +8913,14 @@
       "禾山"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "五缘湾悦都汇购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02500QTU6",
-    "recommendation": "五缘湾悦都汇购物中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "五缘湾悦都汇购物中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b7600488",
@@ -8552,12 +8942,14 @@
       "普通商场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门星河COCO Park，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0H0VAY1AO",
-    "recommendation": "厦门星河COCO Park是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门星河COCO Park是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_cf205a40",
@@ -8585,7 +8977,9 @@
     "description": "思明欢乐颂商场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFJMR9VC",
-    "recommendation": "思明欢乐颂商场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "思明欢乐颂商场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_fd1e2513",
@@ -8608,12 +9002,14 @@
       "莲坂"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "明发商业广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B025002NP3",
-    "recommendation": "明发商业广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "明发商业广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_5c8d8297",
@@ -8636,12 +9032,14 @@
       "莲花"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "明发商业广场-北区，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFG285FL",
-    "recommendation": "明发商业广场-北区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "明发商业广场-北区是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 450,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9015a2fc",
@@ -8663,12 +9061,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "罗宾森广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02500Q8QF",
-    "recommendation": "罗宾森广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "罗宾森广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_54c8adc6",
@@ -8691,12 +9091,14 @@
       "城西"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "乐海城市广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFG3XLL1",
-    "recommendation": "乐海城市广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "乐海城市广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_38bd7162",
@@ -8719,12 +9121,14 @@
       "瑞景"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "瑞景商业广场(莲前东路)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B025003N2E",
-    "recommendation": "瑞景商业广场(莲前东路)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "瑞景商业广场(莲前东路)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9902ef5",
@@ -8746,12 +9150,14 @@
       "长浩路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门鹭港，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0IGMH5CF3",
-    "recommendation": "厦门鹭港是当地热门景点，建议游览90分钟左右"
+    "recommendation": "厦门鹭港是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9c64c57c",
@@ -8773,12 +9179,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "阿罗海城市广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02500QIS1",
-    "recommendation": "阿罗海城市广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "阿罗海城市广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_608b7195",
@@ -8802,12 +9210,14 @@
       "餐饮相关"
     ],
     "popularity": 4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "叁也间·茶室·茶馆(罗宾森店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0IAV7JPQH",
-    "recommendation": "叁也间·茶室·茶馆(罗宾森店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "叁也间·茶室·茶馆(罗宾森店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_c250456e",
@@ -8827,7 +9237,7 @@
       "茶艺馆"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "六羽茶馆(软二观日路16号店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -8856,7 +9266,7 @@
       "嘉莲"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "雀悦禧茶馆&CHEERS咖啡(莲花广场公寓店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -8881,12 +9291,14 @@
       "茶艺馆"
     ],
     "popularity": 4.1,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "沫然茶舍，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0J3BRXL12",
-    "recommendation": "沫然茶舍是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "沫然茶舍是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5691f8be",
@@ -8913,7 +9325,9 @@
     "description": "名堂咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0GKAMZS59",
-    "recommendation": "名堂咖啡是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "名堂咖啡是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 510,
+    "close_minutes": 1290
   },
   {
     "id": "amap_a429e22e",
@@ -8934,12 +9348,14 @@
       "城西"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "名磨坊研磨咖啡(新安店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFFOKRN3",
-    "recommendation": "名磨坊研磨咖啡(新安店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "名磨坊研磨咖啡(新安店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1350
   },
   {
     "id": "amap_65de4760",
@@ -8966,7 +9382,9 @@
     "description": "库迪咖啡(蓝湾半岛酒店店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KRYCZM5B",
-    "recommendation": "库迪咖啡(蓝湾半岛酒店店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "库迪咖啡(蓝湾半岛酒店店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_df71e033",
@@ -9015,12 +9433,14 @@
       "东孚"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "岸理居酒屋(海沧店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0H0X75PU7",
-    "recommendation": "岸理居酒屋(海沧店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "岸理居酒屋(海沧店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8187a280",
@@ -9046,7 +9466,9 @@
     "description": "鲜翠茶(东溪里店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B02500TK05",
-    "recommendation": "鲜翠茶(东溪里店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鲜翠茶(东溪里店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5a3963b0",
@@ -9071,7 +9493,9 @@
     "description": "发光的树cafe&bar，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KR4HCNU2",
-    "recommendation": "发光的树cafe&bar是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "发光的树cafe&bar是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1440
   },
   {
     "id": "amap_d69a44d1",
@@ -9123,7 +9547,9 @@
     "description": "鹭鹭茶(厦门金尚总店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0I6BULUWI",
-    "recommendation": "鹭鹭茶(厦门金尚总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鹭鹭茶(厦门金尚总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_65d704ab",
@@ -9149,7 +9575,9 @@
     "description": "沫厘(新景中心B栋店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFKS8D64",
-    "recommendation": "沫厘(新景中心B栋店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "沫厘(新景中心B栋店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 120
   },
   {
     "id": "amap_729e0672",
@@ -9175,7 +9603,9 @@
     "description": "甜觅COFFEE&TEA(屿后里小区北里店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0JD6S1NP9",
-    "recommendation": "甜觅COFFEE&TEA(屿后里小区北里店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "甜觅COFFEE&TEA(屿后里小区北里店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 120
   },
   {
     "id": "amap_6f05c67d",
@@ -10714,7 +11144,7 @@
       "高崎"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门高崎国际机场，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10740,7 +11170,7 @@
       "飞机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门高崎国际机场T4航站楼，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10766,7 +11196,7 @@
       "直升机场"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门厦金湾直升机场，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10792,7 +11222,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "高崎机场(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10819,7 +11249,7 @@
       "高崎"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门高崎国际机场T3航站楼，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10846,7 +11276,7 @@
       "黄厝社"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "环梦直升机场，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10872,7 +11302,7 @@
       "快速公交站"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "高崎机场(BRT)(快速公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10898,7 +11328,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "BRT高崎机场(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10924,7 +11354,7 @@
       "快速公交站"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "高崎机场站(快速公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10950,7 +11380,7 @@
       "公交车站相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门高崎国际机场T4候机楼(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
@@ -10977,11 +11407,1398 @@
       "禾山"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "厦门高崎国际机场T3航站楼(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "BV10553975",
     "recommendation": "厦门高崎国际机场T3航站楼(公交站)是当地热门景点，建议游览90分钟左右"
+  },
+  {
+    "id": "transit_B0FFGCIGBA",
+    "name": "厦门高崎国际机场T4航站楼(国内出发)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.54446,
+    "lng": 118.148628,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场T4航站楼(国内出发)，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场T4航站楼(国内出发)是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0250041VZ",
+    "name": "厦门高崎国际机场T3航站楼(国内出发)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.53407,
+    "lng": 118.131879,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场T3航站楼(国内出发)，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场T3航站楼(国内出发)是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGCIGB8",
+    "name": "厦门高崎国际机场T4航站楼(国内到达)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.544139,
+    "lng": 118.147793,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场T4航站楼(国内到达)，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场T4航站楼(国内到达)是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B025003KZA",
+    "name": "厦门高崎国际机场T3航站楼(国内到达)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.534085,
+    "lng": 118.131887,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场T3航站楼(国内到达)，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场T3航站楼(国内到达)是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02500QI1A",
+    "name": "厦门高崎国际机场T3航站楼(国际港澳台出发)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.53467,
+    "lng": 118.132715,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场T3航站楼(国际港澳台出发)，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场T3航站楼(国际港澳台出发)是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGAQGAX",
+    "name": "厦门高崎国际机场t4航站楼贵宾候机室",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.543317,
+    "lng": 118.146609,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场t4航站楼贵宾候机室，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场t4航站楼贵宾候机室是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02500QI0Q",
+    "name": "厦门高崎国际机场T3航站楼(国际港澳台到达)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.534688,
+    "lng": 118.132722,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场T3航站楼(国际港澳台到达)，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场T3航站楼(国际港澳台到达)是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02500VCS1",
+    "name": "厦门高崎国际机场T3航站楼-贵宾候机室",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.533153,
+    "lng": 118.12902,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场T3航站楼-贵宾候机室，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场T3航站楼-贵宾候机室是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KD4M1AUN",
+    "name": "厦门高崎国际机场厦门北站城市候机厅",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.634924,
+    "lng": 118.073763,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场厦门北站城市候机厅，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场厦门北站城市候机厅是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFRRM7I",
+    "name": "厦门高崎国际机场T3航站楼-转机T4航站楼候车室",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.535205,
+    "lng": 118.133633,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场T3航站楼-转机T4航站楼候车室，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场T3航站楼-转机T4航站楼候车室是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFKQNT7M",
+    "name": "厦门翔安国际机场(建设中)",
+    "type": "transit",
+    "area": "翔安区",
+    "lat": 24.54134,
+    "lng": 118.362781,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门翔安国际机场(建设中)，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门翔安国际机场(建设中)是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0I6XZB7I7",
+    "name": "厦门高崎国际机场T2航站楼(暂停营业)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.532712,
+    "lng": 118.127775,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎国际机场T2航站楼(暂停营业)，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门高崎国际机场T2航站楼(暂停营业)是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFLFK7S1",
+    "name": "厦门翔安国际机场T1航站楼(建设中)",
+    "type": "transit",
+    "area": "翔安区",
+    "lat": 24.541421,
+    "lng": 118.363674,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门翔安国际机场T1航站楼(建设中)，厦门主要火车站。",
+    "meal_type": "",
+    "recommendation": "厦门翔安国际机场T1航站楼(建设中)是厦门的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B025004DVF",
+    "name": "厦门北站",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.636977,
+    "lng": 118.073909,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门北站，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门北站是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0250043J1",
+    "name": "厦门站",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.467462,
+    "lng": 118.115895,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门站，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门站是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02500T5L0",
+    "name": "厦门北站(南进站口)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.635153,
+    "lng": 118.074667,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门北站(南进站口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门北站(南进站口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGTHQAI",
+    "name": "厦门站(南进站口)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.467099,
+    "lng": 118.116609,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门站(南进站口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门站(南进站口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0J2TMSW5G",
+    "name": "厦门北站(北进站口)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.63944,
+    "lng": 118.072159,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门北站(北进站口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门北站(北进站口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02500T5KT",
+    "name": "厦门站(北进站口)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.468258,
+    "lng": 118.115603,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门站(北进站口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门站(北进站口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHJRS3M",
+    "name": "厦门北站(南出站口)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.635215,
+    "lng": 118.074322,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门北站(南出站口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门北站(南出站口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B025004L6X",
+    "name": "厦门站(北出站口)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.468204,
+    "lng": 118.115617,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门站(北出站口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门站(北出站口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02500QG7Z",
+    "name": "厦门高崎站",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.53779,
+    "lng": 118.114374,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门高崎站，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门高崎站是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0J10C8CJN",
+    "name": "厦门北站(北出站口)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.639736,
+    "lng": 118.073071,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门北站(北出站口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门北站(北出站口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGTHQAJ",
+    "name": "厦门站(南出站口)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.467008,
+    "lng": 118.11652,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门站(南出站口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门站(南出站口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0J2TY4ZK0",
+    "name": "厦门北站(东进站口)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.637843,
+    "lng": 118.075221,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门北站(东进站口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门北站(东进站口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHIGIB3",
+    "name": "前场站",
+    "type": "transit",
+    "area": "海沧区",
+    "lat": 24.569832,
+    "lng": 117.97785,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "前场站，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "前场站是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFKO1MNU",
+    "name": "东孚站",
+    "type": "transit",
+    "area": "海沧区",
+    "lat": 24.544702,
+    "lng": 117.931368,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "东孚站，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "东孚站是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0J2TYP1DH",
+    "name": "厦门北站(西进站口)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.636346,
+    "lng": 118.071818,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门北站(西进站口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门北站(西进站口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGSEW1S",
+    "name": "前场站",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.579892,
+    "lng": 117.993578,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "前场站，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "前场站是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHJRS3D",
+    "name": "南进站大厅(厦门北站)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.635137,
+    "lng": 118.074187,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南进站大厅(厦门北站)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南进站大厅(厦门北站)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFG32GNS",
+    "name": "杏林站",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.577319,
+    "lng": 118.028639,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "杏林站，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "杏林站是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHJRS3C",
+    "name": "厦门北站(1检票口)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.63524,
+    "lng": 118.073787,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门北站(1检票口)，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门北站(1检票口)是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIA270F",
+    "name": "厦门北站候车区",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.636266,
+    "lng": 118.073436,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门北站候车区，厦门主要飞机场。",
+    "meal_type": "",
+    "recommendation": "厦门北站候车区是厦门的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677765",
+    "name": "集美学村(地铁站)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.563902,
+    "lng": 118.092434,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "集美学村(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "集美学村(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677773",
+    "name": "镇海路(地铁站)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.450496,
+    "lng": 118.082837,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "镇海路(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "镇海路(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677767",
+    "name": "殿前(地铁站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.524893,
+    "lng": 118.11617,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "殿前(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "殿前(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677766",
+    "name": "吕厝(地铁站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.49068,
+    "lng": 118.127959,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "吕厝(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "吕厝(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677757",
+    "name": "火炬园(地铁站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.511879,
+    "lng": 118.118777,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "火炬园(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "火炬园(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10873271",
+    "name": "安兜(地铁站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.5178,
+    "lng": 118.138383,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "安兜(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "安兜(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10946730",
+    "name": "后埔(地铁站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.489755,
+    "lng": 118.145838,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "后埔(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "后埔(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10873277",
+    "name": "五缘湾(地铁站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.532477,
+    "lng": 118.167067,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "五缘湾(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "五缘湾(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10789636",
+    "name": "厦门北站(地铁站)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.636379,
+    "lng": 118.073982,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门北站(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "厦门北站(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11290382",
+    "name": "马青路(地铁站)",
+    "type": "transit",
+    "area": "海沧区",
+    "lat": 24.493865,
+    "lng": 118.030109,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "马青路(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "马青路(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677774",
+    "name": "园博苑(地铁站)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.570056,
+    "lng": 118.06685,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "园博苑(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "园博苑(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677777",
+    "name": "乌石浦(地铁站)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.498734,
+    "lng": 118.126403,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "乌石浦(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "乌石浦(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677779",
+    "name": "高崎(地铁站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.53753,
+    "lng": 118.116833,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "高崎(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "高崎(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10873273",
+    "name": "林前(地铁站)",
+    "type": "transit",
+    "area": "翔安区",
+    "lat": 24.576048,
+    "lng": 118.231969,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "林前(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "林前(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677771",
+    "name": "中山公园(地铁站)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.455683,
+    "lng": 118.089851,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "中山公园(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "中山公园(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677759",
+    "name": "文灶(地铁站)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.467703,
+    "lng": 118.103441,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "文灶(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "文灶(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10873267",
+    "name": "鼓锣(地铁站)",
+    "type": "transit",
+    "area": "翔安区",
+    "lat": 24.578474,
+    "lng": 118.24417,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "鼓锣(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "鼓锣(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10873263",
+    "name": "厦门火车站(地铁站)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.469258,
+    "lng": 118.114674,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦门火车站(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "厦门火车站(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10873260",
+    "name": "湖里创新园(地铁站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.522939,
+    "lng": 118.156149,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "湖里创新园(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "湖里创新园(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10677775",
+    "name": "集美软件园(地铁站)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.613351,
+    "lng": 118.047934,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "集美软件园(地铁站)，厦门主要地铁站。",
+    "meal_type": "",
+    "recommendation": "集美软件园(地铁站)是厦门的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10212337",
+    "name": "马巷车站(公交站)",
+    "type": "transit",
+    "area": "翔安区",
+    "lat": 24.665087,
+    "lng": 118.252708,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "马巷车站(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "马巷车站(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09084570",
+    "name": "城南站(快速公交站)",
+    "type": "transit",
+    "area": "同安区",
+    "lat": 24.715569,
+    "lng": 118.146771,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "城南站(快速公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "城南站(快速公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11688841",
+    "name": "BRT双十中学(公交站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.521967,
+    "lng": 118.156341,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "BRT双十中学(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "BRT双十中学(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11689247",
+    "name": "殿前村口(公交站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.525483,
+    "lng": 118.107808,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "殿前村口(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "殿前村口(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11688840",
+    "name": "林后站(公交站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.528785,
+    "lng": 118.136743,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "林后站(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "林后站(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10919096",
+    "name": "BRT潘涂(公交站)",
+    "type": "transit",
+    "area": "同安区",
+    "lat": 24.638304,
+    "lng": 118.151313,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "BRT潘涂(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "BRT潘涂(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10211082",
+    "name": "马垅(公交站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.513201,
+    "lng": 118.118385,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "马垅(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "马垅(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09000604",
+    "name": "孙厝路口(公交站)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.584127,
+    "lng": 118.100693,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "孙厝路口(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "孙厝路口(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09008068",
+    "name": "嘉庚体育馆站(快速公交站)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.585357,
+    "lng": 118.108512,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "嘉庚体育馆站(快速公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "嘉庚体育馆站(快速公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11433020",
+    "name": "BRT官浔(公交站)",
+    "type": "transit",
+    "area": "同安区",
+    "lat": 24.654571,
+    "lng": 118.152572,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "BRT官浔(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "BRT官浔(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10211312",
+    "name": "第一码头(公交站)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.465336,
+    "lng": 118.073057,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "第一码头(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "第一码头(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09210390",
+    "name": "尚忠(公交站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.520956,
+    "lng": 118.148852,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "尚忠(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "尚忠(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10792928",
+    "name": "围里(公交站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.529622,
+    "lng": 118.141931,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "围里(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "围里(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09160732",
+    "name": "浒井西里(公交站)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.603035,
+    "lng": 118.097064,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "浒井西里(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "浒井西里(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11688816",
+    "name": "小西门(公交站)",
+    "type": "transit",
+    "area": "同安区",
+    "lat": 24.735977,
+    "lng": 118.148897,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "小西门(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "小西门(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10955606",
+    "name": "BRT蔡塘(公交站)",
+    "type": "transit",
+    "area": "湖里区",
+    "lat": 24.487953,
+    "lng": 118.153943,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "BRT蔡塘(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "BRT蔡塘(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11101875",
+    "name": "厦大(南普陀)站(公交站)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.439032,
+    "lng": 118.097544,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "厦大(南普陀)站(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "厦大(南普陀)站(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10211696",
+    "name": "潘涂(公交站)",
+    "type": "transit",
+    "area": "同安区",
+    "lat": 24.644572,
+    "lng": 118.140551,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "潘涂(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "潘涂(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10211298",
+    "name": "曾厝垵(公交站)",
+    "type": "transit",
+    "area": "思明区",
+    "lat": 24.4256,
+    "lng": 118.123734,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "曾厝垵(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "曾厝垵(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11556003",
+    "name": "白泉市场(公交站)",
+    "type": "transit",
+    "area": "集美区",
+    "lat": 24.56447,
+    "lng": 118.04303,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "白泉市场(公交站)，厦门主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "白泉市场(公交站)是厦门的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "厦门"
+    ],
+    "visit_duration": 15
   }
 ]

@@ -16,12 +16,14 @@
       "湘江新区"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "橘子洲风景名胜区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB05Z1Q",
     "meal_type": "main",
-    "recommendation": "傍晚去橘子洲看日落和毛爷爷雕像，坐小火车"
+    "recommendation": "傍晚去橘子洲看日落和毛爷爷雕像，坐小火车",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5d12c025",
@@ -42,7 +44,7 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "咸嘉湖景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0X2IG",
@@ -68,7 +70,7 @@
       "五一广场"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "五一广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB066DT",
@@ -93,12 +95,14 @@
       "湘江新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "岳麓山风景名胜区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG0BPT6",
     "meal_type": "main",
-    "recommendation": "推荐在岳麓区参观岳麓山风景名胜区，人气评分4.8"
+    "recommendation": "推荐在岳麓区参观岳麓山风景名胜区，人气评分4.8",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6599ae42",
@@ -119,7 +123,7 @@
       "桐梓坡路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙市望月公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB02DFO",
@@ -143,7 +147,7 @@
       "中山亭/中山路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "潮宗街区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0G0PUFVAN",
@@ -169,7 +173,7 @@
       "五一广场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "太平老街历史文化街区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFF2FZC7",
@@ -198,7 +202,9 @@
     "source": "amap",
     "source_id": "B02DB02EK6",
     "meal_type": "main",
-    "recommendation": "古开福寺适合城市游览、景点爱好者"
+    "recommendation": "古开福寺适合城市游览、景点爱好者",
+    "open_minutes": 390,
+    "close_minutes": 1050
   },
   {
     "id": "amap_dbae32dd",
@@ -217,12 +223,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "橘子洲头，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0G3AACD5T",
     "meal_type": "main",
-    "recommendation": "推荐在岳麓区参观橘子洲头，人气评分4.7"
+    "recommendation": "推荐在岳麓区参观橘子洲头，人气评分4.7",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_26ce7248",
@@ -241,12 +249,14 @@
       "湘江中路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "杜甫江阁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFYEF1T",
     "meal_type": "main",
-    "recommendation": "杜甫江阁是看湘江夜景的绝佳位置，傍晚时分登楼，等一场日落和灯光秀。"
+    "recommendation": "杜甫江阁是看湘江夜景的绝佳位置，傍晚时分登楼，等一场日落和灯光秀。",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3ff4bb33",
@@ -266,12 +276,14 @@
       "湘江新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "岳麓书院，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB05TQH",
     "meal_type": "main",
-    "recommendation": "岳麓书院的千年文脉让人心静，建议清晨去，还能顺便爬岳麓山呼吸新鲜空气。"
+    "recommendation": "岳麓书院的千年文脉让人心静，建议清晨去，还能顺便爬岳麓山呼吸新鲜空气。",
+    "open_minutes": 470,
+    "close_minutes": 1050
   },
   {
     "id": "amap_850b5853",
@@ -292,7 +304,7 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "梅溪湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0VNQG",
@@ -318,7 +330,7 @@
       "开福商务中心区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湖南烈士公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0TWXG",
@@ -344,7 +356,7 @@
       "湘江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "杜鹃广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB068ZI",
@@ -370,7 +382,7 @@
       "观沙路"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "八方公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGRKGDD",
@@ -396,12 +408,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "东方红广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0TH84",
     "meal_type": "main",
-    "recommendation": "东方红广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "东方红广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1200
   },
   {
     "id": "amap_7c1bf584",
@@ -421,7 +435,7 @@
       "湘江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "麓山景区-观景台，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0KUFCRUOZ",
@@ -446,12 +460,14 @@
       "城南路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "天心阁，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB03ZUX",
     "meal_type": "main",
-    "recommendation": "古城墙上的阁楼很有历史感，傍晚灯笼亮起时拍照超出片。"
+    "recommendation": "古城墙上的阁楼很有历史感，傍晚灯笼亮起时拍照超出片。",
+    "open_minutes": 480,
+    "close_minutes": 1050
   },
   {
     "id": "amap_3f3e4539",
@@ -470,7 +486,7 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "中国·长沙后湖国际艺术区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFH5HU5M",
@@ -494,12 +510,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙橘子洲，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0LACDDMX3",
     "meal_type": "main",
-    "recommendation": "长沙橘子洲适合城市游览、景点爱好者"
+    "recommendation": "长沙橘子洲适合城市游览、景点爱好者",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_731f66d0",
@@ -519,12 +537,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "谷山宝宁寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFH57TPA",
     "meal_type": "main",
-    "recommendation": "谷山宝宁寺是当地热门景点，建议游览90分钟左右"
+    "recommendation": "谷山宝宁寺是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 960
   },
   {
     "id": "amap_49bcd328",
@@ -543,12 +563,14 @@
       "黄兴路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "中山亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB045MO",
     "meal_type": "main",
-    "recommendation": "老长沙的地标钟楼，周边藏着许多地道小吃，记得去嗦一碗粉。"
+    "recommendation": "老长沙的地标钟楼，周边藏着许多地道小吃，记得去嗦一碗粉。",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_2fb6eafd",
@@ -568,12 +590,14 @@
       "湘江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "云麓宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFP9QA9",
     "meal_type": "main",
-    "recommendation": "藏在山腰的道教宫观，求签灵验，还能俯瞰湘江，记得穿舒服的鞋爬坡。"
+    "recommendation": "藏在山腰的道教宫观，求签灵验，还能俯瞰湘江，记得穿舒服的鞋爬坡。",
+    "open_minutes": 360,
+    "close_minutes": 1020
   },
   {
     "id": "amap_9b05db18",
@@ -596,12 +620,14 @@
       "五一广场"
     ],
     "popularity": 4.8,
-    "price_level": 4,
+    "price_level": 0,
     "description": "zoolung zoolung动物主题乐园(海信广场长沙店)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFL2V0EN",
     "meal_type": "main",
-    "recommendation": "zoolung动物乐园适合亲子游，互动区的小动物超萌，记得提前预约哦！"
+    "recommendation": "zoolung动物乐园适合亲子游，互动区的小动物超萌，记得提前预约哦！",
+    "open_minutes": 600,
+    "close_minutes": 1230
   },
   {
     "id": "amap_e65aa9fc",
@@ -621,7 +647,7 @@
       "司门口"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "火神庙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFP3OAB",
@@ -647,7 +673,7 @@
       "湘江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "麓谷公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB06633",
@@ -673,7 +699,7 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "尖山湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGXN49T",
@@ -699,12 +725,14 @@
       "湘江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "月亮岛，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB06NNZ",
     "meal_type": "main",
-    "recommendation": "月亮岛适合城市游览、景点爱好者"
+    "recommendation": "月亮岛适合城市游览、景点爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_70b3ac70",
@@ -723,12 +751,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "毛泽东青年艺术雕塑，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0W8QW",
     "meal_type": "main",
-    "recommendation": "毛泽东青年艺术雕塑适合城市游览、景点爱好者"
+    "recommendation": "毛泽东青年艺术雕塑适合城市游览、景点爱好者",
+    "open_minutes": 405,
+    "close_minutes": 1260
   },
   {
     "id": "amap_5e727ca8",
@@ -749,7 +779,7 @@
       "湘江新区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "黄陂塘公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHLPCT6",
@@ -774,7 +804,7 @@
       "公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "鸭嘴公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0IAAS5MWU",
@@ -800,7 +830,7 @@
       "开福商务中心区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "北辰滨江公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHMGU4B",
@@ -823,7 +853,7 @@
       "风景名胜"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "浏阳河风光带，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFF4GK4K",
@@ -849,7 +879,7 @@
       "开福商务中心区"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湘江中路沿江风光带，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0KRK9C1S9",
@@ -875,12 +905,14 @@
       "湘江新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙湘江海洋王国，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFIOVNMN",
     "meal_type": "main",
-    "recommendation": "湘江海洋王国的海底隧道很梦幻，避开周末去体验更佳，还能看精彩的海豚表演。"
+    "recommendation": "湘江海洋王国的海底隧道很梦幻，避开周末去体验更佳，还能看精彩的海豚表演。",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_d17bd790",
@@ -899,7 +931,7 @@
       "湘江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "潇湘风光带，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFK8MGAO",
@@ -925,7 +957,7 @@
       "湘江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湖南金融中心，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFIOVN0F",
@@ -954,7 +986,9 @@
     "source": "amap",
     "source_id": "B0FFJ1FMW5",
     "meal_type": "main",
-    "recommendation": "三馆一厅旅游码头适合城市游览、景点爱好者"
+    "recommendation": "三馆一厅旅游码头适合城市游览、景点爱好者",
+    "open_minutes": 1140,
+    "close_minutes": 1230
   },
   {
     "id": "amap_e25952d5",
@@ -974,12 +1008,14 @@
       "湘江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "古麓山寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0699V",
     "meal_type": "main",
-    "recommendation": "推荐在岳麓区参观古麓山寺，人气评分4.6"
+    "recommendation": "推荐在岳麓区参观古麓山寺，人气评分4.6",
+    "open_minutes": 390,
+    "close_minutes": 1020
   },
   {
     "id": "amap_a5e9c05e",
@@ -999,7 +1035,7 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "洋湖国家湿地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0W7IB",
@@ -1025,7 +1061,7 @@
       "月湖公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "月湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB05NPU",
@@ -1051,7 +1087,7 @@
       "湘江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "银星湾公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFIOVO0U",
@@ -1076,12 +1112,14 @@
       "湘江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "新民学会成立会旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB068Y9",
     "meal_type": "main",
-    "recommendation": "红色文化必访地，了解青年毛泽东的奋斗史，建议听讲解收获更多。"
+    "recommendation": "红色文化必访地，了解青年毛泽东的奋斗史，建议听讲解收获更多。",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_dc4a3ed9",
@@ -1102,12 +1140,14 @@
       "新开铺"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "南郊公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0697L",
     "meal_type": "main",
-    "recommendation": "南郊公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "南郊公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1260
   },
   {
     "id": "amap_eee46f69",
@@ -1126,12 +1166,14 @@
       "月湖公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙世界之窗，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB068W5",
     "meal_type": "main",
-    "recommendation": "推荐在开福区参观长沙世界之窗，人气评分4.7"
+    "recommendation": "推荐在开福区参观长沙世界之窗，人气评分4.7",
+    "open_minutes": 540,
+    "close_minutes": 1140
   },
   {
     "id": "amap_62b39666",
@@ -1152,7 +1194,7 @@
       "湘江新区"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "望江亭，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0W8QE",
@@ -1176,7 +1218,7 @@
       "长沙经济技术开发区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湖南松雅湖国家湿地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGB559R",
@@ -1202,12 +1244,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "大泽湖近自然湿地公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0IKFC8BUJ",
     "meal_type": "main",
-    "recommendation": "大泽湖近自然湿地公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "大泽湖近自然湿地公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1440
   },
   {
     "id": "amap_10929ad0",
@@ -1227,12 +1271,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "橘子洲头碑，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFAGIKO",
     "meal_type": "main",
-    "recommendation": "橘子洲头碑适合城市游览、景点爱好者"
+    "recommendation": "橘子洲头碑适合城市游览、景点爱好者",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_bf217ad9",
@@ -1251,12 +1297,14 @@
       "火星"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "马王堆汉墓，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0TONC",
     "meal_type": "main",
-    "recommendation": "马王堆汉墓适合城市游览、景点爱好者"
+    "recommendation": "马王堆汉墓适合城市游览、景点爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_86aa002a",
@@ -1275,7 +1323,7 @@
       "月湖公园"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "马栏山月湖文创小镇，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFLGLBB0",
@@ -1300,7 +1348,7 @@
       "清水塘"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "清水塘毛泽东杨开慧故居，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGDTJOM",
@@ -1326,12 +1374,14 @@
       "湘江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "望城谷山体育公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGIDILP",
     "meal_type": "main",
-    "recommendation": "望城谷山体育公园适合城市游览、景点爱好者"
+    "recommendation": "望城谷山体育公园适合城市游览、景点爱好者",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6388bc73",
@@ -1352,7 +1402,7 @@
       "山语城"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "秀峰山公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0TQZC",
@@ -1376,12 +1426,14 @@
       "湘江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "观光长廊，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB06DVZ",
     "meal_type": "main",
-    "recommendation": "观光长廊是当地热门景点，建议游览90分钟左右"
+    "recommendation": "观光长廊是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1260
   },
   {
     "id": "amap_d0d52c7",
@@ -1405,7 +1457,9 @@
     "source": "amap",
     "source_id": "B02DB0URIF",
     "meal_type": "main",
-    "recommendation": "推荐在天心区参观白沙古井，人气评分4.6"
+    "recommendation": "推荐在天心区参观白沙古井，人气评分4.6",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_32e577e",
@@ -1426,7 +1480,7 @@
       "湘江新区"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "description": "保利·麓谷体育公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0U57L",
@@ -1452,12 +1506,14 @@
       "湘江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "岳麓山旅游码头，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFI2MRFU",
     "meal_type": "main",
-    "recommendation": "岳麓山旅游码头适合城市游览、景点爱好者"
+    "recommendation": "岳麓山旅游码头适合城市游览、景点爱好者",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_62574f4c",
@@ -1476,7 +1532,7 @@
       "湘江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "大王山国际旅游度假区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFDZFZ5",
@@ -1502,12 +1558,14 @@
       "湘江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "橘子洲小火车，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0LG3H8KTB",
     "meal_type": "main",
-    "recommendation": "轻松游览橘子洲的神器，省力又好玩，推荐坐最后一排看风景。"
+    "recommendation": "轻松游览橘子洲的神器，省力又好玩，推荐坐最后一排看风景。",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6375598e",
@@ -1528,12 +1586,14 @@
       "天际岭"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湖南省植物园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB027D2",
     "meal_type": "main",
-    "recommendation": "四季皆景，春天樱花烂漫超好拍，建议带野餐垫晒太阳。"
+    "recommendation": "四季皆景，春天樱花烂漫超好拍，建议带野餐垫晒太阳。",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_73638bff",
@@ -1552,12 +1612,14 @@
       "湘江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙梅溪欢乐谷，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0L2PSQNAG",
     "meal_type": "main",
-    "recommendation": "长沙梅溪欢乐谷适合城市游览、景点爱好者"
+    "recommendation": "长沙梅溪欢乐谷适合城市游览、景点爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_e641ffd2",
@@ -1576,12 +1638,14 @@
       "湘江新区"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙电视塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0690P",
     "meal_type": "main",
-    "recommendation": "推荐在岳麓区参观长沙电视塔，人气评分4.2"
+    "recommendation": "推荐在岳麓区参观长沙电视塔，人气评分4.2",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_d727c326",
@@ -1604,7 +1668,9 @@
     "source": "amap",
     "source_id": "B02DB079NA",
     "meal_type": "main",
-    "recommendation": "漫步园林生态园就像在城市里洗肺，春秋季花卉盛开时最值得来拍照。"
+    "recommendation": "漫步园林生态园就像在城市里洗肺，春秋季花卉盛开时最值得来拍照。",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_5b817bff",
@@ -1625,7 +1691,7 @@
       "城南路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "白沙广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB04LL0",
@@ -1677,12 +1743,14 @@
       "火车站/车站北路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "晓园公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB02690",
     "meal_type": "main",
-    "recommendation": "晓园公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "晓园公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_49f4caf1",
@@ -1702,7 +1770,7 @@
       "湘江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湖南雷锋纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB05TQB",
@@ -1728,12 +1796,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "梅溪海洋公园(步步高·梅溪新天地店)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0IAFC8XTG",
     "meal_type": "main",
-    "recommendation": "遛娃圣地，梦幻海底隧道超治愈，工作日去人少体验更佳。"
+    "recommendation": "遛娃圣地，梦幻海底隧道超治愈，工作日去人少体验更佳。",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_3c22fafd",
@@ -1754,7 +1824,7 @@
       "东屯渡"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "浏阳河婚庆文化园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0WSD4",
@@ -1779,12 +1849,14 @@
       "开福商务中心区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湖南烈士纪念塔，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFM0Y4VO",
     "meal_type": "main",
-    "recommendation": "缅怀先烈的庄严之地，建议上午去，人少安静更肃穆。"
+    "recommendation": "缅怀先烈的庄严之地，建议上午去，人少安静更肃穆。",
+    "open_minutes": 540,
+    "close_minutes": 990
   },
   {
     "id": "amap_e84c3574",
@@ -1805,7 +1877,7 @@
       "湘江新区"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "滨江景观道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0GUJBNZSD",
@@ -1831,12 +1903,14 @@
       "世界之窗"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙海底世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB068WE",
     "meal_type": "main",
-    "recommendation": "海洋动物表演超精彩，孩子最爱企鹅馆，提前查好演出时间。"
+    "recommendation": "海洋动物表演超精彩，孩子最爱企鹅馆，提前查好演出时间。",
+    "open_minutes": 510,
+    "close_minutes": 1110
   },
   {
     "id": "amap_18b23e01",
@@ -1857,7 +1931,7 @@
       "湘江新区"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "description": "汉王陵公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0L625QD97",
@@ -1882,7 +1956,7 @@
       "湘江新区"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "肖劲光故居，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFDU02J",
@@ -1908,12 +1982,14 @@
       "开福寺"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "开福寺文化广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB0WYUF",
     "meal_type": "main",
-    "recommendation": "开福寺旁的文化广场，傍晚散步能拍到寺庙与华灯交织的美景，记得带上相机。"
+    "recommendation": "开福寺旁的文化广场，傍晚散步能拍到寺庙与华灯交织的美景，记得带上相机。",
+    "open_minutes": 390,
+    "close_minutes": 1050
   },
   {
     "id": "amap_84dd487c",
@@ -1932,7 +2008,7 @@
       "五一广场"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "黄兴铜像，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0MDS5EKJX",
@@ -1957,7 +2033,7 @@
       "书院路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "毛泽东与第一师范纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB06IM2",
@@ -1983,12 +2059,14 @@
       "湘江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "岳王亭景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02DB05LRI",
     "meal_type": "main",
-    "recommendation": "幽静古亭适合发呆拍照，岳飞文化爱好者必"
+    "recommendation": "幽静古亭适合发呆拍照，岳飞文化爱好者必",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_14f2df3c",
@@ -2007,7 +2085,7 @@
       "湘江新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "谷山森林公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFV225Z",
@@ -2038,7 +2116,9 @@
     "source": "amap",
     "source_id": "B0FFFH94ZB",
     "meal_type": "main",
-    "recommendation": "免费看辛追夫人和千年文物，租个讲解器慢慢逛。"
+    "recommendation": "免费看辛追夫人和千年文物，租个讲解器慢慢逛。",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_44d15a4e",
@@ -2059,12 +2139,14 @@
       "五一广场"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙银博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0K0K13S1S",
     "meal_type": "main",
-    "recommendation": "想了解长沙白银历史？这里展品精巧，建议预约讲解，半小时就能逛透。"
+    "recommendation": "想了解长沙白银历史？这里展品精巧，建议预约讲解，半小时就能逛透。",
+    "open_minutes": 540,
+    "close_minutes": 1440
   },
   {
     "id": "amap_3407bf92",
@@ -2085,12 +2167,14 @@
       "开福商务中心区"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湖南省博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02DB00018",
     "meal_type": "main",
-    "recommendation": "湖南省博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "湖南省博物馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_b712b3ee",
@@ -2138,7 +2222,7 @@
       "观沙岭"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "description": "达丰空间(锦秀拾光店)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0JGGKLXAJ",
@@ -2170,7 +2254,9 @@
     "source": "amap",
     "source_id": "B02DB02518",
     "meal_type": "main",
-    "recommendation": "推荐在岳麓区参观长沙市会议中心，人气评分0.0"
+    "recommendation": "推荐在岳麓区参观长沙市会议中心，人气评分0.0",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_d0cbd6ad",
@@ -2192,12 +2278,14 @@
       "湘江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湖南省长沙市第四工人文化宫汇体运动馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0IB2CV4RR",
     "meal_type": "main",
-    "recommendation": "湖南省长沙市第四工人文化宫汇体运动馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "湖南省长沙市第四工人文化宫汇体运动馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_2da756ec",
@@ -2219,7 +2307,7 @@
       "湘江新区"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "description": "中共长沙市委党史研究室，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0GRDMF1SA",
@@ -2246,12 +2334,14 @@
       "开福商务中心区"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙市图书馆(新馆)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFFH94ZC",
     "meal_type": "main",
-    "recommendation": "长沙市图书馆(新馆)适合城市游览、历史文化爱好者"
+    "recommendation": "长沙市图书馆(新馆)适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_57c24a43",
@@ -2273,7 +2363,7 @@
       "湘江新区"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙人民会堂，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02DB07EOM",
@@ -2300,12 +2390,14 @@
       "开福商务中心区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙滨江文化园，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02DB0Y57L",
     "meal_type": "main",
-    "recommendation": "滨江文化园里博物馆、图书馆扎堆，提前预约免费展览，傍晚"
+    "recommendation": "滨江文化园里博物馆、图书馆扎堆，提前预约免费展览，傍晚",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_e1f9ad1d",
@@ -2327,7 +2419,7 @@
       "湘江新区"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湖南省中医药研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0J30ZBDET",
@@ -2354,7 +2446,7 @@
       "湘江新区"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "description": "毛泽东文学院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B02DB068XZ",
@@ -2407,12 +2499,14 @@
       "公园广场"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙狮子山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFK9OOAI",
     "meal_type": "main",
-    "recommendation": "长沙狮子山公园适合城市游览、公园爱好者"
+    "recommendation": "长沙狮子山公园适合城市游览、公园爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4a457f33",
@@ -2433,7 +2527,7 @@
       "公园广场"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙市青竹湖休闲公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB0TSGN",
@@ -2460,7 +2554,7 @@
       "湘江新区"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "施家港水上公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB0W8R3",
@@ -2487,7 +2581,7 @@
       "湘江新区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "观沙岭公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFI475JA",
@@ -2514,7 +2608,7 @@
       "湘江新区"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "金峰公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB06905",
@@ -2541,7 +2635,7 @@
       "湘江新区"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "远大住工体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0MGLAN60V",
@@ -2568,7 +2662,7 @@
       "湘江新区"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "湖南金融中心公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0LKTCWHGC",
@@ -2595,7 +2689,7 @@
       "湘江新区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "滨江新城茶山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFGWMQBW",
@@ -2622,7 +2716,7 @@
       "湘江新区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "岳鞍阁公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB05JU0",
@@ -2649,7 +2743,7 @@
       "湘江新区"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "山体公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFHMFQPX",
@@ -2676,7 +2770,7 @@
       "开福商务中心区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "紫凤园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB045VK",
@@ -2703,7 +2797,7 @@
       "湘江新区"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "description": "山顶公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFHSPTYK",
@@ -2730,7 +2824,7 @@
       "咸嘉湖"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "英才园社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFF4KE3U",
@@ -2757,12 +2851,14 @@
       "咸嘉新村"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "PawPark爪爪公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0L6OCE61P",
     "meal_type": "main",
-    "recommendation": "爪爪公园是毛孩子的"
+    "recommendation": "爪爪公园是毛孩子的",
+    "open_minutes": 690,
+    "close_minutes": 1260
   },
   {
     "id": "amap_934dfad4",
@@ -2784,7 +2880,7 @@
       "湘江新区"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "滨江新城坦山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFK716M9",
@@ -2811,7 +2907,7 @@
       "湘江新区"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "橘洲新苑社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB0TOEB",
@@ -2838,7 +2934,7 @@
       "观沙岭"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "黄泥塘社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFFDTYTO",
@@ -2865,7 +2961,7 @@
       "湘江新区"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "梅岭公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB0UHOD",
@@ -2892,7 +2988,7 @@
       "湘江新区"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "庆达谷丰路体育文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0HDR5SUHU",
@@ -2919,7 +3015,7 @@
       "湘江新区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "滨江新城古樟公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFGA1L36",
@@ -2946,7 +3042,7 @@
       "湘江新区"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "银杏公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFGX1SOY",
@@ -2973,7 +3069,7 @@
       "湘江新区"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "南家塘社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB0UQN6",
@@ -3000,7 +3096,7 @@
       "湘江新区"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFH26XHU",
@@ -3027,7 +3123,7 @@
       "湘江新区"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "谷山山体公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0LG151Y9O",
@@ -3055,7 +3151,7 @@
       "湘江新区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "中央绿轴，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFFDZ9K0",
@@ -3082,7 +3178,7 @@
       "观沙岭"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "金岭社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB0UJP0",
@@ -3109,7 +3205,7 @@
       "湘江新区"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "道坡公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB0UH66",
@@ -3136,7 +3232,7 @@
       "湘江新区"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "description": "白石湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFIOVO0V",
@@ -3163,7 +3259,7 @@
       "湘江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "文轩公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFGLMHCW",
@@ -3190,7 +3286,7 @@
       "珠江花城"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "捞刀河滨水市民公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0JR95HA4Z",
@@ -3217,7 +3313,7 @@
       "湘江新区"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "下柏家塘公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFHF89B1",
@@ -3243,7 +3339,7 @@
       "公园广场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "爱民公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB0UGFY",
@@ -3270,7 +3366,7 @@
       "雷锋大道"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "博云公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFGRFZBG",
@@ -3296,7 +3392,7 @@
       "公园广场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙望江公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFFA9PN0",
@@ -3323,7 +3419,7 @@
       "开福商务中心区"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "月岛-河畔社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFG27XJC",
@@ -3350,7 +3446,7 @@
       "湘江新区"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "三石戌遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFIAYCXL",
@@ -3377,7 +3473,7 @@
       "湘江新区"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "星悦湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFIOVP2F",
@@ -3404,7 +3500,7 @@
       "开福商务中心区"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "东风路桥下运动公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0LKKLOBB6",
@@ -3431,7 +3527,7 @@
       "湘江新区"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "月亮岛星空露营公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFMEEKMR",
@@ -3458,7 +3554,7 @@
       "湘江新区"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "箭弓山社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFFDYUBH",
@@ -3485,7 +3581,7 @@
       "人民中路"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "骄杨公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0L34ZF7B0",
@@ -3512,7 +3608,7 @@
       "湘湖"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "九道湾社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B02DB0W8QB",
@@ -3539,7 +3635,7 @@
       "开福商务中心区"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "东风路社区法治主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFL4BGA5",
@@ -3566,7 +3662,7 @@
       "湘江新区"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "谷峰社区公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFH8VU30",
@@ -3596,12 +3692,14 @@
       "楼宇"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "IFS国金购物中心，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HAK9J7KY",
     "meal_type": "main",
-    "recommendation": "IFS的KAWS大熊是网红打卡点，建议早上去人少，逛街购物还能顺便拍美照。"
+    "recommendation": "IFS的KAWS大熊是网红打卡点，建议早上去人少，逛街购物还能顺便拍美照。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_cba236a0",
@@ -3624,7 +3722,7 @@
       "湘江新区"
     ],
     "popularity": 2.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "玉潭街道春城万象商圈党群服务中心(天虹商场湖南宁乡店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0LKMO7LY8",
@@ -3681,12 +3779,14 @@
       "远大路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "东盈商业广场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFHOUCGZ",
     "meal_type": "main",
-    "recommendation": "推荐在芙蓉区参观东盈商业广场，人气评分4.6"
+    "recommendation": "推荐在芙蓉区参观东盈商业广场，人气评分4.6",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_7d833e67",
@@ -3709,12 +3809,14 @@
       "东屯渡"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "万家丽国际购物广场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFJQ3LYQ",
     "meal_type": "main",
-    "recommendation": "推荐在芙蓉区参观万家丽国际购物广场，人气评分4.9"
+    "recommendation": "推荐在芙蓉区参观万家丽国际购物广场，人气评分4.9",
+    "open_minutes": 570,
+    "close_minutes": 1350
   },
   {
     "id": "amap_1a57876f",
@@ -3736,12 +3838,14 @@
       "湘江新区"
     ],
     "popularity": 2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "红色之家(宁乡吾悦广场商圈站)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0LRX5ZA0L",
     "meal_type": "main",
-    "recommendation": "商圈里的“红色”地标，吃喝购物一站搞定。建议傍晚逛，夜景灯光很出片！"
+    "recommendation": "商圈里的“红色”地标，吃喝购物一站搞定。建议傍晚逛，夜景灯光很出片！",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_eca6899c",
@@ -3764,12 +3868,14 @@
       "咸嘉湖"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "雅迪电动车(神骑二手酷车)租车换电，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0HK2AX8RW",
     "meal_type": "main",
-    "recommendation": "雅迪电动车(神骑二手酷车)租车换电适合城市游览、街区爱好者"
+    "recommendation": "雅迪电动车(神骑二手酷车)租车换电适合城市游览、街区爱好者",
+    "open_minutes": 480,
+    "close_minutes": 1260
   },
   {
     "id": "amap_e992b2b1",
@@ -3823,7 +3929,9 @@
     "source": "amap",
     "source_id": "B0J35ZP1HT",
     "meal_type": "main",
-    "recommendation": "推荐在开福区参观HXTIDE男装(开福区一店)，人气评分3.9"
+    "recommendation": "推荐在开福区参观HXTIDE男装(开福区一店)，人气评分3.9",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_e2c817d2",
@@ -3846,12 +3954,14 @@
       "解放西路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 0,
     "description": "坡子街(星月楼店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0LK2YQ031",
     "meal_type": "main",
-    "recommendation": "坡子街(星月楼店)适合城市游览、街区爱好者"
+    "recommendation": "坡子街(星月楼店)适合城市游览、街区爱好者",
+    "open_minutes": 690,
+    "close_minutes": 120
   },
   {
     "id": "amap_28610757",
@@ -3879,7 +3989,9 @@
     "source": "amap",
     "source_id": "B0FFG4BSBV",
     "meal_type": "main",
-    "recommendation": "逛完步行街顺路去这家小CK，款式新折扣多，记得试下当季新款包包。"
+    "recommendation": "逛完步行街顺路去这家小CK，款式新折扣多，记得试下当季新款包包。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b9dfec07",
@@ -3902,12 +4014,14 @@
       "中山亭/中山路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "宝南二手机批发市场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFHPF7MN",
     "meal_type": "main",
-    "recommendation": "宝南二手机批发市场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "宝南二手机批发市场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1110
   },
   {
     "id": "amap_d12e9ff2",
@@ -3932,7 +4046,7 @@
       "体育休闲服务"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "壹号座品，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFF535LL",
@@ -3960,12 +4074,14 @@
       "韶山中路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "description": "中设广场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFKRPKCV",
     "meal_type": "main",
-    "recommendation": "推荐在雨花区参观中设广场，人气评分4.5"
+    "recommendation": "推荐在雨花区参观中设广场，人气评分4.5",
+    "open_minutes": 450,
+    "close_minutes": 1170
   },
   {
     "id": "amap_5301cd96",
@@ -4014,12 +4130,14 @@
       "砂子塘"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "凯宾商业广场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFGAK6KZ",
     "meal_type": "main",
-    "recommendation": "凯宾商业广场适合城市游览、街区爱好者"
+    "recommendation": "凯宾商业广场适合城市游览、街区爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3bf31473",
@@ -4041,7 +4159,7 @@
       "韶山中路"
     ],
     "popularity": 0.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "大众数码，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0LKB6S3SL",
@@ -4103,7 +4221,9 @@
     "source": "amap",
     "source_id": "B0HGC7JLI3",
     "meal_type": "main",
-    "recommendation": "三星粉别错过！环宇城这家体验店可以亲手玩最新款手机，店员超耐心讲解。"
+    "recommendation": "三星粉别错过！环宇城这家体验店可以亲手玩最新款手机，店员超耐心讲解。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f792ee5",
@@ -4156,7 +4276,9 @@
     "source": "amap",
     "source_id": "B0FFHX9GSK",
     "meal_type": "main",
-    "recommendation": "推荐在天心区参观鑫悦汇，人气评分4.6"
+    "recommendation": "推荐在天心区参观鑫悦汇，人气评分4.6",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7d595667",
@@ -4179,12 +4301,14 @@
       "火星"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "万锋门业，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0J2HM7CWR",
     "meal_type": "main",
-    "recommendation": "家里装修买门可以过来看看，款式挺多，建议先量好门洞尺寸再逛。"
+    "recommendation": "家里装修买门可以过来看看，款式挺多，建议先量好门洞尺寸再逛。",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_4c67eb8b",
@@ -4211,7 +4335,9 @@
     "source": "amap",
     "source_id": "B0LB57LKEZ",
     "meal_type": "main",
-    "recommendation": "推荐在芙蓉区参观戴永红零食(长沙市扬帆小区2店)，人气评分4.3"
+    "recommendation": "推荐在芙蓉区参观戴永红零食(长沙市扬帆小区2店)，人气评分4.3",
+    "open_minutes": 420,
+    "close_minutes": 1425
   },
   {
     "id": "amap_a8986d04",
@@ -4232,7 +4358,7 @@
       "购物相关场所"
     ],
     "popularity": 2.3,
-    "price_level": 1,
+    "price_level": 0,
     "description": "红色之家(智慧浏阳河商圈)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0LRTC9MUM",
@@ -4259,12 +4385,14 @@
       "湘江新区"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "description": "橘洲1925湖湘菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFPOSEC",
     "meal_type": "main",
-    "recommendation": "在岳麓区觅食推荐橘洲1925湖湘菜，性价比不错"
+    "recommendation": "在岳麓区觅食推荐橘洲1925湖湘菜，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_25f5a82f",
@@ -4286,12 +4414,14 @@
       "武广高铁"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "满堂红国民湘菜(高铁南站店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J0UH4IN6",
     "meal_type": "main",
-    "recommendation": "满堂红国民湘菜(高铁南站店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "满堂红国民湘菜(高铁南站店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 510,
+    "close_minutes": 1260
   },
   {
     "id": "amap_c586cfeb",
@@ -4313,12 +4443,14 @@
       "麓谷"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "金禾湘老饭铺(和馨园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFL9RMG3",
     "meal_type": "main",
-    "recommendation": "本地人私藏的麓谷湘菜馆，招牌辣椒炒肉一绝，记得错开饭点高峰去。"
+    "recommendation": "本地人私藏的麓谷湘菜馆，招牌辣椒炒肉一绝，记得错开饭点高峰去。",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_35d66a83",
@@ -4338,12 +4470,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "南府飘湘·传家湘菜·家宴之选(云塘理工大学店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I69576TH",
     "meal_type": "main",
-    "recommendation": "家宴首选，剁椒鱼头鲜辣入味，最好提前一天订包厢才能有座。"
+    "recommendation": "家宴首选，剁椒鱼头鲜辣入味，最好提前一天订包厢才能有座。",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_9bf61d00",
@@ -4364,12 +4498,14 @@
       "解放西路"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "description": "笨罗卜浏阳菜馆(太平街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H02DG81U",
     "meal_type": "main",
-    "recommendation": "笨罗卜的酸菜炒粉皮超下饭，饭点排队人多，建议错峰或打包带走吃。"
+    "recommendation": "笨罗卜的酸菜炒粉皮超下饭，饭点排队人多，建议错峰或打包带走吃。",
+    "open_minutes": 650,
+    "close_minutes": 1260
   },
   {
     "id": "amap_683fbf8c",
@@ -4390,12 +4526,14 @@
       "天际岭"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "映象潇湘·小瑶村(植物园店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGMBZYV",
     "meal_type": "main",
-    "recommendation": "地道湘菜馆，口味虾超入味，晚上小院氛围更惬意。"
+    "recommendation": "地道湘菜馆，口味虾超入味，晚上小院氛围更惬意。",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_323ee2f",
@@ -4416,12 +4554,14 @@
       "黄兴路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "龙锦人家·长沙家菜馆(黄兴店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JAUUR20I",
     "meal_type": "main",
-    "recommendation": "黄兴路旁的老牌家菜馆，口味虾超赞，晚上去更有市井烟火气。"
+    "recommendation": "黄兴路旁的老牌家菜馆，口味虾超赞，晚上去更有市井烟火气。",
+    "open_minutes": 660,
+    "close_minutes": 120
   },
   {
     "id": "amap_85d90551",
@@ -4442,12 +4582,14 @@
       "文艺路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "友聚饭真香•市井湘菜(五一店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKTTTIH",
     "meal_type": "main",
-    "recommendation": "在芙蓉区觅食推荐友聚饭真香•市井湘菜(五一店)，性价比不错"
+    "recommendation": "在芙蓉区觅食推荐友聚饭真香•市井湘菜(五一店)，性价比不错",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c414c1a3",
@@ -4467,12 +4609,14 @@
       "中餐厅"
     ],
     "popularity": 4.8,
-    "price_level": 3,
+    "price_level": 1,
     "description": "喜座·湖南美食村落(总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K6PHYZUA",
     "meal_type": "main",
-    "recommendation": "喜座能尝到地道的湖南村落风味，砂锅鱼头是必点，记得配一碗米饭才过瘾！"
+    "recommendation": "喜座能尝到地道的湖南村落风味，砂锅鱼头是必点，记得配一碗米饭才过瘾！",
+    "open_minutes": 660,
+    "close_minutes": 180
   },
   {
     "id": "amap_aa47a529",
@@ -4493,12 +4637,14 @@
       "五一广场"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "老颜家砂锅湘菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KGZU4465",
     "meal_type": "main",
-    "recommendation": "老颜家砂锅湘菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老颜家砂锅湘菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1290
   },
   {
     "id": "amap_70b1c479",
@@ -4520,12 +4666,14 @@
       "司门口"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "火宫殿(坡子街总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02DB02DH4",
     "meal_type": "main",
-    "recommendation": "火宫殿(坡子街总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "火宫殿(坡子街总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1440
   },
   {
     "id": "amap_d49f28e8",
@@ -4545,12 +4693,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "我家小院(高云店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HDCZJFWC",
     "meal_type": "main",
-    "recommendation": "环境雅致像私家花园，剁椒鱼头必点，记得提前订位。"
+    "recommendation": "环境雅致像私家花园，剁椒鱼头必点，记得提前订位。",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_fa03118f",
@@ -4572,12 +4722,14 @@
       "解放西路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "炊烟小炒黄牛肉升级店(步行街黄兴铜像店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJKK192",
     "meal_type": "main",
-    "recommendation": "招牌小炒黄牛肉嫩到爆，饭点排队夸张，建议错峰"
+    "recommendation": "招牌小炒黄牛肉嫩到爆，饭点排队夸张，建议错峰",
+    "open_minutes": 660,
+    "close_minutes": 1410
   },
   {
     "id": "amap_33583b0e",
@@ -4598,12 +4750,14 @@
       "开福商务中心区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "家常风味馆(营盘路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFP1JUS",
     "meal_type": "main",
-    "recommendation": "家常风味馆(营盘路店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "家常风味馆(营盘路店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 870
   },
   {
     "id": "amap_698e113f",
@@ -4624,7 +4778,7 @@
       "黄兴路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "玉楼东(北正街旗舰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFL6OU59",
@@ -4651,12 +4805,14 @@
       "圭塘"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "宴长沙(五江天街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHBR4EE",
     "meal_type": "main",
-    "recommendation": "宴长沙(五江天街店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "宴长沙(五江天街店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_2fa18e10",
@@ -4678,12 +4834,14 @@
       "金盆岭"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "description": "俏八嗲炉边菜·市井小店涂家冲店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KK067V0B",
     "meal_type": "main",
-    "recommendation": "炉边菜热腾腾的很有烟火气，记得早点去排队，招牌菜闭眼点！"
+    "recommendation": "炉边菜热腾腾的很有烟火气，记得早点去排队，招牌菜闭眼点！",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_acb0c41e",
@@ -4703,12 +4861,14 @@
       "中餐厅"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "我家小院开福店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJ03KQT",
     "meal_type": "main",
-    "recommendation": "小院环境清幽，闹中取静，适合家庭聚餐；建议傍晚去，还能在院子里吹风聊天。"
+    "recommendation": "小院环境清幽，闹中取静，适合家庭聚餐；建议傍晚去，还能在院子里吹风聊天。",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_a3314bd6",
@@ -4737,7 +4897,9 @@
     "source": "amap",
     "source_id": "B0K6K5ZP4R",
     "meal_type": "main",
-    "recommendation": "高铁站旁的好选择，赶车前也能吃顿地道湘菜；推荐点招牌菜，出餐快不误车。"
+    "recommendation": "高铁站旁的好选择，赶车前也能吃顿地道湘菜；推荐点招牌菜，出餐快不误车。",
+    "open_minutes": 1140,
+    "close_minutes": 1260
   },
   {
     "id": "amap_a093822a",
@@ -4758,12 +4920,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "耕渔小院·湖南鱼鲜(望城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HR9D7Z2S",
     "meal_type": "main",
-    "recommendation": "主打湖南鱼鲜，现杀现做特别鲜美；建议中午去，食材最新鲜。"
+    "recommendation": "主打湖南鱼鲜，现杀现做特别鲜美；建议中午去，食材最新鲜。",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_7d929a87",
@@ -4784,12 +4948,14 @@
       "五一广场"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 1,
     "description": "宴长沙(五一广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G10UEAPG",
     "meal_type": "main",
-    "recommendation": "五一广场C位餐厅，装修大气有特色；适合请客，拍照也出片。"
+    "recommendation": "五一广场C位餐厅，装修大气有特色；适合请客，拍照也出片。",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_b2c4670b",
@@ -4812,12 +4978,14 @@
       "劳动中路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "火宫殿(东塘分店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02DB05UHN",
     "meal_type": "main",
-    "recommendation": "火宫殿(东塘分店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "火宫殿(东塘分店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_c971517f",
@@ -4839,12 +5007,14 @@
       "湘江中路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "毛家饭店(湘江店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02DB04DMO",
     "meal_type": "main",
-    "recommendation": "毛家饭店(湘江店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "毛家饭店(湘江店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 1020,
+    "close_minutes": 1260
   },
   {
     "id": "amap_30b5464c",
@@ -4865,12 +5035,14 @@
       "芙蓉南路"
     ],
     "popularity": 4.8,
-    "price_level": 3,
+    "price_level": 1,
     "description": "院里寻菜(省府店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J1SMSJZG",
     "meal_type": "main",
-    "recommendation": "环境幽静的私房菜馆，适合带家人来吃，推荐试试他们家剁椒鱼头。"
+    "recommendation": "环境幽静的私房菜馆，适合带家人来吃，推荐试试他们家剁椒鱼头。",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_1ed17c3c",
@@ -4891,12 +5063,14 @@
       "湘湖"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "玉楼东(火车站旗舰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HRPD3M3B",
     "meal_type": "main",
-    "recommendation": "玉楼东(火车站旗舰店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "玉楼东(火车站旗舰店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_316a586e",
@@ -4918,12 +5092,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "筷乐潇湘(金星店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02DB05M2G",
     "meal_type": "main",
-    "recommendation": "筷乐潇湘(金星店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "筷乐潇湘(金星店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_2e45571f",
@@ -4944,12 +5120,14 @@
       "高桥"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "山小炒·大集市，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JRPNC3VN",
     "meal_type": "main",
-    "recommendation": "山小炒·大集市口碑很好，建议避开高峰期就餐"
+    "recommendation": "山小炒·大集市口碑很好，建议避开高峰期就餐",
+    "open_minutes": 540,
+    "close_minutes": 1440
   },
   {
     "id": "amap_d1b1c6e2",
@@ -4971,7 +5149,7 @@
       "黄兴路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "老街鱼嘴巴(解放西路老店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02DB0TJHI",
@@ -4997,12 +5175,14 @@
       "四方坪"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "光脑壳家菜馆，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0IACSN7BE",
     "meal_type": "main",
-    "recommendation": "在开福区觅食推荐光脑壳家菜馆，性价比不错"
+    "recommendation": "在开福区觅食推荐光脑壳家菜馆，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1290
   },
   {
     "id": "amap_ff4cc8e7",
@@ -5023,12 +5203,14 @@
       "咸嘉湖"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "裕民巷饭店(王府井店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0G0D62WYE",
     "meal_type": "main",
-    "recommendation": "裕民巷饭店(王府井店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "裕民巷饭店(王府井店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_47a779c7",
@@ -5054,7 +5236,9 @@
     "source": "amap",
     "source_id": "B0FFHPOKLB",
     "meal_type": "main",
-    "recommendation": "新华楼(五一店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "新华楼(五一店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 60
   },
   {
     "id": "amap_f644d67b",
@@ -5074,12 +5258,14 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "甘小生城南小院，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JRF5RWV0",
     "meal_type": "main",
-    "recommendation": "甘小生城南小院是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "甘小生城南小院是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 840
   },
   {
     "id": "amap_8ec1c1dd",
@@ -5101,12 +5287,14 @@
       "解放西路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "炊烟小炒黄牛肉(五一广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJXPGZA",
     "meal_type": "main",
-    "recommendation": "招牌小炒黄牛肉嫩滑入味，记得趁热吃，配碗米饭绝了！"
+    "recommendation": "招牌小炒黄牛肉嫩滑入味，记得趁热吃，配碗米饭绝了！",
+    "open_minutes": 660,
+    "close_minutes": 960
   },
   {
     "id": "amap_8b78e4c5",
@@ -5127,12 +5315,14 @@
       "湘江新区"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "今蘭宴(福晟·翡翠湾店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I0UC7SWJ",
     "meal_type": "main",
-    "recommendation": "今蘭宴(福晟·翡翠湾店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "今蘭宴(福晟·翡翠湾店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_fc265b21",
@@ -5153,12 +5343,14 @@
       "城西安置小区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "红斧头·长沙小炒(龙塘小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KAAH8ORT",
     "meal_type": "main",
-    "recommendation": "藏在安置小区的本地小炒，现炒现卖锅气足，别错过每日限定菜。"
+    "recommendation": "藏在安置小区的本地小炒，现炒现卖锅气足，别错过每日限定菜。",
+    "open_minutes": 660,
+    "close_minutes": 1290
   },
   {
     "id": "amap_2a39ab6d",
@@ -5179,12 +5371,14 @@
       "解放西路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "老街鱼嘴巴(湘江中路总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JKP7VBZZ",
     "meal_type": "main",
-    "recommendation": "在天心区觅食推荐老街鱼嘴巴(湘江中路总店)，性价比不错"
+    "recommendation": "在天心区觅食推荐老街鱼嘴巴(湘江中路总店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7675c6f2",
@@ -5205,12 +5399,14 @@
       "狮子山"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "朋伢子.老长沙街坊菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K1MSPI9A",
     "meal_type": "main",
-    "recommendation": "朋伢子.老长沙街坊菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "朋伢子.老长沙街坊菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1260
   },
   {
     "id": "amap_2b81baa5",
@@ -5236,7 +5432,9 @@
     "source": "amap",
     "source_id": "B0FFHUM8N6",
     "meal_type": "main",
-    "recommendation": "在天心区觅食推荐小谷哥湘菜小馆(韶山南路店)，性价比不错"
+    "recommendation": "在天心区觅食推荐小谷哥湘菜小馆(韶山南路店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_aeac2ccb",
@@ -5258,12 +5456,14 @@
       "五一广场"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "朱师傅老长沙口味虾(太平街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFH8VU3R",
     "meal_type": "main",
-    "recommendation": "老长沙口味虾个头饱满，虾黄满满，吃完记得加份清水面拌汁。"
+    "recommendation": "老长沙口味虾个头饱满，虾黄满满，吃完记得加份清水面拌汁。",
+    "open_minutes": 660,
+    "close_minutes": 1410
   },
   {
     "id": "amap_290250b9",
@@ -5285,7 +5485,7 @@
       "湘江新区"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "description": "老湘菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JK17F6M0",
@@ -5312,12 +5512,14 @@
       "湘江新区"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "味上湘菜馆(金茂览秀城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHCMOID",
     "meal_type": "main",
-    "recommendation": "味上湘菜馆(金茂览秀城店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "味上湘菜馆(金茂览秀城店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_2d8a9cfc",
@@ -5338,12 +5540,14 @@
       "开福商务中心区"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "味上湘菜馆(长沙北辰荟店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H2B7LEMP",
     "meal_type": "main",
-    "recommendation": "味上湘菜馆(长沙北辰荟店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "味上湘菜馆(长沙北辰荟店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1260
   },
   {
     "id": "amap_80764be0",
@@ -5370,7 +5574,9 @@
     "source": "amap",
     "source_id": "B0H6FA296E",
     "meal_type": "main",
-    "recommendation": "和记粉馆(韭菜园店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "和记粉馆(韭菜园店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 420,
+    "close_minutes": 1260
   },
   {
     "id": "amap_1a7cfe4c",
@@ -5392,12 +5598,14 @@
       "开福商务中心区"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "description": "味上湘菜馆(泊富国际广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGPD2ZD",
     "meal_type": "main",
-    "recommendation": "地道湘菜馆，推荐剁椒鱼头配米饭，中午去不用排队还更入味～"
+    "recommendation": "地道湘菜馆，推荐剁椒鱼头配米饭，中午去不用排队还更入味～",
+    "open_minutes": 660,
+    "close_minutes": 930
   },
   {
     "id": "amap_5170fa4c",
@@ -5418,12 +5626,14 @@
       "湖南菜(湘菜)"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "乡村吊锅(沁园总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B02DB0VPDO",
     "meal_type": "main",
-    "recommendation": "乡村吊锅(沁园总店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "乡村吊锅(沁园总店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 1020,
+    "close_minutes": 120
   },
   {
     "id": "amap_a2cada39",
@@ -5445,12 +5655,14 @@
       "解放西路"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "description": "徐蝦客快乐长沙菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJOB38N",
     "meal_type": "main",
-    "recommendation": "徐蝦客快乐长沙菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "徐蝦客快乐长沙菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_577c4da3",
@@ -5471,12 +5683,14 @@
       "城南路"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "description": "扶记小吃货(都正街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG8130Y",
     "meal_type": "main",
-    "recommendation": "藏在都正街的宝藏小吃店，晚上去边逛边吃，糖油粑粑必点。"
+    "recommendation": "藏在都正街的宝藏小吃店，晚上去边逛边吃，糖油粑粑必点。",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_6be55529",
@@ -5502,7 +5716,9 @@
     "source": "amap",
     "source_id": "B0J6JC993L",
     "meal_type": "main",
-    "recommendation": "紫砂煲锁住米饭香气，记得加个溏心蛋拌匀，人均不到20元超满足！"
+    "recommendation": "紫砂煲锁住米饭香气，记得加个溏心蛋拌匀，人均不到20元超满足！",
+    "open_minutes": 660,
+    "close_minutes": 1260
   },
   {
     "id": "amap_80f74bff",
@@ -5529,7 +5745,9 @@
     "source": "amap",
     "source_id": "B0FFKJNY44",
     "meal_type": "main",
-    "recommendation": "潘厨(上味舫店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "潘厨(上味舫店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_5250de9d",
@@ -5555,7 +5773,9 @@
     "source": "amap",
     "source_id": "B0GUSNK2AU",
     "meal_type": "main",
-    "recommendation": "盖码饭现炒浇头喷香，推荐招牌辣椒炒肉加个煎蛋，工作日午餐首选！"
+    "recommendation": "盖码饭现炒浇头喷香，推荐招牌辣椒炒肉加个煎蛋，工作日午餐首选！",
+    "open_minutes": 660,
+    "close_minutes": 1250
   },
   {
     "id": "amap_3c7bda68",
@@ -5577,12 +5797,14 @@
       "五一广场"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "description": "老大湘菜馆(西牌楼店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGDS0KL",
     "meal_type": "main",
-    "recommendation": "在天心区觅食推荐老大湘菜馆(西牌楼店)，性价比不错"
+    "recommendation": "在天心区觅食推荐老大湘菜馆(西牌楼店)，性价比不错",
+    "open_minutes": 540,
+    "close_minutes": 300
   },
   {
     "id": "amap_816463a2",
@@ -5608,7 +5830,9 @@
     "source": "amap",
     "source_id": "B0FFL03AU4",
     "meal_type": "main",
-    "recommendation": "在望城区觅食推荐老长沙湘菜馆(铜官窑分店)，性价比不错"
+    "recommendation": "在望城区觅食推荐老长沙湘菜馆(铜官窑分店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_a3b95d73",
@@ -5634,7 +5858,9 @@
     "source": "amap",
     "source_id": "B0FFIU4I47",
     "meal_type": "main",
-    "recommendation": "想吃地道长沙粉面就来这家，汤头鲜掉眉毛！推荐扁粉+酸豆角码子。"
+    "recommendation": "想吃地道长沙粉面就来这家，汤头鲜掉眉毛！推荐扁粉+酸豆角码子。",
+    "open_minutes": 300,
+    "close_minutes": 1440
   },
   {
     "id": "amap_de5a4a62",
@@ -5656,12 +5882,14 @@
       "解放中路"
     ],
     "popularity": 3.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "叶美丽川湘菜小炒盖码饭，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KKUZAJST",
     "meal_type": "main",
-    "recommendation": "盖码饭锅气十足，推荐招牌辣椒炒肉，饭点一定早早去不然要排队。"
+    "recommendation": "盖码饭锅气十足，推荐招牌辣椒炒肉，饭点一定早早去不然要排队。",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_bc32ea69",
@@ -5688,7 +5916,9 @@
     "source": "amap",
     "source_id": "B0FFK68VDS",
     "meal_type": "main",
-    "recommendation": "藏在小区里的宝藏小吃店，找本地人带路才能吃到最正宗的湘式小吃，建议避开饭点。"
+    "recommendation": "藏在小区里的宝藏小吃店，找本地人带路才能吃到最正宗的湘式小吃，建议避开饭点。",
+    "open_minutes": 660,
+    "close_minutes": 870
   },
   {
     "id": "amap_5f9ed313",
@@ -5742,7 +5972,9 @@
     "source": "amap",
     "source_id": "B0M6YRSZNE",
     "meal_type": "main",
-    "recommendation": "辣椒炒肉拌饭是绝配，油润入味"
+    "recommendation": "辣椒炒肉拌饭是绝配，油润入味",
+    "open_minutes": 540,
+    "close_minutes": 1290
   },
   {
     "id": "amap_fcb0d0b8",
@@ -5769,7 +6001,9 @@
     "source": "amap",
     "source_id": "B0LAJUSQ3R",
     "meal_type": "main",
-    "recommendation": "浏阳蒸菜健康又下饭，逛完橘子洲来一桌。必点腊味合蒸，锅气十足。"
+    "recommendation": "浏阳蒸菜健康又下饭，逛完橘子洲来一桌。必点腊味合蒸，锅气十足。",
+    "open_minutes": 570,
+    "close_minutes": 1260
   },
   {
     "id": "amap_2dc85e9b",
@@ -5796,7 +6030,9 @@
     "source": "amap",
     "source_id": "B02DB0VO1Z",
     "meal_type": "main",
-    "recommendation": "豆夫酥酥臭名远扬臭豆腐(总店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "豆夫酥酥臭名远扬臭豆腐(总店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 630,
+    "close_minutes": 1350
   },
   {
     "id": "amap_9ac9a63c",
@@ -5823,7 +6059,9 @@
     "source": "amap",
     "source_id": "B0JU41CY50",
     "meal_type": "main",
-    "recommendation": "魏饱饱湘菜小炒口碑很好，建议避开高峰期就餐"
+    "recommendation": "魏饱饱湘菜小炒口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7ef9861c",
@@ -5849,7 +6087,9 @@
     "source": "amap",
     "source_id": "B0L0J1GTXS",
     "meal_type": "main",
-    "recommendation": "闻湘月辣椒炒肉拌饭·小吃(侯家塘店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "闻湘月辣椒炒肉拌饭·小吃(侯家塘店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1290
   },
   {
     "id": "amap_d720d48c",
@@ -5876,7 +6116,9 @@
     "source": "amap",
     "source_id": "B0LK7546TL",
     "meal_type": "main",
-    "recommendation": "辣椒炒肉拌饭超香，记得加个煎蛋，午饭来这一碗特满足！"
+    "recommendation": "辣椒炒肉拌饭超香，记得加个煎蛋，午饭来这一碗特满足！",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6dfd051f",
@@ -5902,7 +6144,9 @@
     "source": "amap",
     "source_id": "B0LBCCZO6W",
     "meal_type": "main",
-    "recommendation": "西北风味在"
+    "recommendation": "西北风味在",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7f244fea",
@@ -5928,7 +6172,9 @@
     "source": "amap",
     "source_id": "B0FFKTDZKE",
     "meal_type": "main",
-    "recommendation": "蛙肉嫩滑紫苏味浓，中午去人少不用排队，记得配一碗冰镇酸梅汤解辣。"
+    "recommendation": "蛙肉嫩滑紫苏味浓，中午去人少不用排队，记得配一碗冰镇酸梅汤解辣。",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9e70bfc4",
@@ -5954,7 +6200,9 @@
     "source": "amap",
     "source_id": "B0FFF4LIVL",
     "meal_type": "main",
-    "recommendation": "传统湘菜馆子，推荐必点剁椒鱼头，人多可提前预约包厢。"
+    "recommendation": "传统湘菜馆子，推荐必点剁椒鱼头，人多可提前预约包厢。",
+    "open_minutes": 360,
+    "close_minutes": 60
   },
   {
     "id": "amap_fa2bcef",
@@ -5980,7 +6228,9 @@
     "source": "amap",
     "source_id": "B0LR0HMFMD",
     "meal_type": "main",
-    "recommendation": "西北风味在长沙，肉夹馍配凉皮绝了，饭点常排队建议错峰。"
+    "recommendation": "西北风味在长沙，肉夹馍配凉皮绝了，饭点常排队建议错峰。",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_b9f20077",
@@ -6001,12 +6251,14 @@
       "泉塘"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "红记星沙地标大排档，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFJFNVAK",
     "meal_type": "main",
-    "recommendation": "地标性大排档，体验地道长沙烟火气，建议晚上去，点份口味虾配啤酒。"
+    "recommendation": "地标性大排档，体验地道长沙烟火气，建议晚上去，点份口味虾配啤酒。",
+    "open_minutes": 1110,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e92bc8fd",
@@ -6059,7 +6311,9 @@
     "source": "amap",
     "source_id": "B0LRU5BZMW",
     "meal_type": "main",
-    "recommendation": "在雨花区觅食推荐闻湘月辣椒炒肉拌饭小吃店，性价比不错"
+    "recommendation": "在雨花区觅食推荐闻湘月辣椒炒肉拌饭小吃店，性价比不错",
+    "open_minutes": 540,
+    "close_minutes": 1290
   },
   {
     "id": "amap_dd068164",
@@ -6080,12 +6334,14 @@
       "中山亭/中山路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "天下客饭店(中山路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFH3QCZH",
     "meal_type": "main",
-    "recommendation": "老字号湘菜馆，本地人私藏，必点酸菜鱼和辣椒炒"
+    "recommendation": "老字号湘菜馆，本地人私藏，必点酸菜鱼和辣椒炒",
+    "open_minutes": 630,
+    "close_minutes": 900
   },
   {
     "id": "amap_e0146309",
@@ -6106,12 +6362,14 @@
       "湘江新区"
     ],
     "popularity": 4.1,
-    "price_level": 2,
+    "price_level": 1,
     "description": "寒野柴火鸡(6分店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKPEPWQ",
     "meal_type": "main",
-    "recommendation": "柴火鸡现炒现炖超有烟火气，适合朋友聚餐。建议提前预约，免得排队。"
+    "recommendation": "柴火鸡现炒现炖超有烟火气，适合朋友聚餐。建议提前预约，免得排队。",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_3d5249fc",
@@ -6132,7 +6390,7 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 2.9,
-    "price_level": 2,
+    "price_level": 1,
     "description": "隆港·湘味名小吃(B店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JKX1LUKQ",
@@ -6164,7 +6422,9 @@
     "source": "amap",
     "source_id": "B0G35ZVLKS",
     "meal_type": "main",
-    "recommendation": "甜罗的招牌"
+    "recommendation": "甜罗的招牌",
+    "open_minutes": 420,
+    "close_minutes": 1140
   },
   {
     "id": "amap_7ea0537a",
@@ -6217,7 +6477,9 @@
     "source": "amap",
     "source_id": "B0L025NCBU",
     "meal_type": "main",
-    "recommendation": "陕王爷·西北名小吃(长沙凯德广场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "陕王爷·西北名小吃(长沙凯德广场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_39f9456d",
@@ -6244,7 +6506,9 @@
     "source": "amap",
     "source_id": "B0L2XLYYOW",
     "meal_type": "main",
-    "recommendation": "辣椒炒肉拌饭酱汁包裹每粒米，加点酸豆角更开胃，下午两点后人少更惬意。"
+    "recommendation": "辣椒炒肉拌饭酱汁包裹每粒米，加点酸豆角更开胃，下午两点后人少更惬意。",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_76d0c41f",
@@ -6271,7 +6535,9 @@
     "source": "amap",
     "source_id": "B0L0793UZV",
     "meal_type": "main",
-    "recommendation": "在开福区觅食推荐肖掌柜粉面小吃店，性价比不错"
+    "recommendation": "在开福区觅食推荐肖掌柜粉面小吃店，性价比不错",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b8fe6238",
@@ -6320,12 +6586,14 @@
       "芙蓉南路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "小湘钵(竹塘西路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHY9XX2",
     "meal_type": "main",
-    "recommendation": "在天心区觅食推荐小湘钵(竹塘西路店)，性价比不错"
+    "recommendation": "在天心区觅食推荐小湘钵(竹塘西路店)，性价比不错",
+    "open_minutes": 540,
+    "close_minutes": 840
   },
   {
     "id": "amap_1e17b1d7",
@@ -6372,12 +6640,14 @@
       "四方坪"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 2,
     "description": "四方坪夜市，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0HKA5JCJX",
     "meal_type": "main",
-    "recommendation": "四方坪夜市是吃货天堂，空着肚子来，小龙虾和烧烤不能错过！"
+    "recommendation": "四方坪夜市是吃货天堂，空着肚子来，小龙虾和烧烤不能错过！",
+    "open_minutes": 1020,
+    "close_minutes": 240
   },
   {
     "id": "amap_f567cbbb",
@@ -6398,12 +6668,14 @@
       "东屯渡"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 2,
     "description": "扬帆夜市，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0GUY743Q4",
     "meal_type": "main",
-    "recommendation": "扬帆夜市本地人爱去，糖油粑粑和臭豆腐超正，建议晚8点后逛。"
+    "recommendation": "扬帆夜市本地人爱去，糖油粑粑和臭豆腐超正，建议晚8点后逛。",
+    "open_minutes": 1050,
+    "close_minutes": 1440
   },
   {
     "id": "amap_f9d8aaa5",
@@ -6430,7 +6702,9 @@
     "source": "amap",
     "source_id": "B0H0DR7OEI",
     "meal_type": "main",
-    "recommendation": "地摊风云夜市(西站店)适合饭后散步或消遣"
+    "recommendation": "地摊风云夜市(西站店)适合饭后散步或消遣",
+    "open_minutes": 1020,
+    "close_minutes": 150
   },
   {
     "id": "amap_f5644b2e",
@@ -6452,7 +6726,7 @@
       "圭塘"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 2,
     "description": "大塘夜市规范点(大塘村长塘安置小区店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFKL4DH2",
@@ -6484,7 +6758,9 @@
     "source": "amap",
     "source_id": "B0JUXDNWIV",
     "meal_type": "main",
-    "recommendation": "萍姐火锅·公路夜市(长沙首店)适合饭后散步或消遣"
+    "recommendation": "萍姐火锅·公路夜市(长沙首店)适合饭后散步或消遣",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_a192d7f9",
@@ -6504,7 +6780,7 @@
       "中餐厅"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 2,
     "description": "城东夜市，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFFGLQ1U",
@@ -6531,12 +6807,14 @@
       "黄兴路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 2,
     "description": "南门口夜市，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0J265OXTE",
     "meal_type": "main",
-    "recommendation": "小吃集中地，臭豆腐和炸"
+    "recommendation": "小吃集中地，臭豆腐和炸",
+    "open_minutes": 1020,
+    "close_minutes": 60
   },
   {
     "id": "amap_1672dec",
@@ -6558,12 +6836,14 @@
       "东屯渡"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 2,
     "description": "方松院(扬帆夜市店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0K10RWLGO",
     "meal_type": "main",
-    "recommendation": "晚上去方松院(扬帆夜市店)感受当地夜生活氛围"
+    "recommendation": "晚上去方松院(扬帆夜市店)感受当地夜生活氛围",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_5b8f78b7",
@@ -6590,7 +6870,9 @@
     "source": "amap",
     "source_id": "B0K0JR4W4J",
     "meal_type": "main",
-    "recommendation": "萍姐火锅·公路夜市(月亮岛天街店)是夜间休闲好去处"
+    "recommendation": "萍姐火锅·公路夜市(月亮岛天街店)是夜间休闲好去处",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_af4ed94a",
@@ -6617,7 +6899,9 @@
     "source": "amap",
     "source_id": "B0J0T5XCGF",
     "meal_type": "main",
-    "recommendation": "晚上去萍姐火锅·公路夜市(万家丽店)感受当地夜生活氛围"
+    "recommendation": "晚上去萍姐火锅·公路夜市(万家丽店)感受当地夜生活氛围",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1866458a",
@@ -6644,7 +6928,9 @@
     "source": "amap",
     "source_id": "B0K2D7D5AA",
     "meal_type": "main",
-    "recommendation": "麓谷东塘夜市是夜间休闲好去处"
+    "recommendation": "麓谷东塘夜市是夜间休闲好去处",
+    "open_minutes": 1020,
+    "close_minutes": 90
   },
   {
     "id": "amap_79cc1574",
@@ -6665,12 +6951,14 @@
       "开福商务中心区"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 2,
     "description": "柠季手打柠檬茶(四方坪夜市店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0HDNAF3SV",
     "meal_type": "main",
-    "recommendation": "柠季手打柠檬茶(四方坪夜市店)是夜间休闲好去处"
+    "recommendation": "柠季手打柠檬茶(四方坪夜市店)是夜间休闲好去处",
+    "open_minutes": 570,
+    "close_minutes": 90
   },
   {
     "id": "amap_f31bf577",
@@ -6723,7 +7011,9 @@
     "source": "amap",
     "source_id": "B0JKXCNVO1",
     "meal_type": "main",
-    "recommendation": "晚上去萍姐火锅·公路夜市(汇金天虹店)感受当地夜生活氛围"
+    "recommendation": "晚上去萍姐火锅·公路夜市(汇金天虹店)感受当地夜生活氛围",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e03dc52b",
@@ -6744,12 +7034,14 @@
       "东屯渡"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 2,
     "description": "爷爷不泡茶NOYEYENOTEA(长沙扬帆夜市店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0LB45EEH5",
     "meal_type": "main",
-    "recommendation": "爷爷不泡茶NOYEYENOTEA(长沙扬帆夜市店)是夜间休闲好去处"
+    "recommendation": "爷爷不泡茶NOYEYENOTEA(长沙扬帆夜市店)是夜间休闲好去处",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_87374052",
@@ -6770,12 +7062,14 @@
       "四方坪"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 2,
     "description": "桂湘缘卤味螺蛳粉(四方坪夜市中心街店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0J0KD01I2",
     "meal_type": "main",
-    "recommendation": "桂湘缘卤味螺蛳粉(四方坪夜市中心街店)是夜间休闲好去处"
+    "recommendation": "桂湘缘卤味螺蛳粉(四方坪夜市中心街店)是夜间休闲好去处",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_f6776467",
@@ -6796,12 +7090,14 @@
       "东屯渡"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 2,
     "description": "柠季.手打柠檬茶(扬帆夜市西门店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0IBYAG2AC",
     "meal_type": "main",
-    "recommendation": "晚上去柠季.手打柠檬茶(扬帆夜市西门店)感受当地夜生活氛围"
+    "recommendation": "晚上去柠季.手打柠檬茶(扬帆夜市西门店)感受当地夜生活氛围",
+    "open_minutes": 660,
+    "close_minutes": 1440
   },
   {
     "id": "amap_403c501f",
@@ -6823,7 +7119,7 @@
       "东屯渡"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 2,
     "description": "古茗(芙蓉扬帆夜市店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0H0NMRFJ5",
@@ -6849,12 +7145,14 @@
       "东瓜山"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 2,
     "description": "东瓜山夜市，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0FFK0WDJJ",
     "meal_type": "main",
-    "recommendation": "晚上去东瓜山夜市感受当地夜生活氛围"
+    "recommendation": "晚上去东瓜山夜市感受当地夜生活氛围",
+    "open_minutes": 540,
+    "close_minutes": 240
   },
   {
     "id": "amap_f161bf27",
@@ -6880,7 +7178,9 @@
     "source": "amap",
     "source_id": "B0LR5SARAD",
     "meal_type": "main",
-    "recommendation": "晚上去烙滋滋贵州烙锅(扬帆夜市店)感受当地夜生活氛围"
+    "recommendation": "晚上去烙滋滋贵州烙锅(扬帆夜市店)感受当地夜生活氛围",
+    "open_minutes": 720,
+    "close_minutes": 300
   },
   {
     "id": "amap_b953c1bf",
@@ -6901,12 +7201,14 @@
       "东屯渡"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 2,
     "description": "蜜雪冰城(扬帆夜市南口店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0G04U7OUQ",
     "meal_type": "main",
-    "recommendation": "晚上去蜜雪冰城(扬帆夜市南口店)感受当地夜生活氛围"
+    "recommendation": "晚上去蜜雪冰城(扬帆夜市南口店)感受当地夜生活氛围",
+    "open_minutes": 600,
+    "close_minutes": 180
   },
   {
     "id": "amap_6d8da9d9",
@@ -6927,7 +7229,7 @@
       "桂花坪"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 2,
     "description": "金桂夜市，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0J17CH8LS",
@@ -6953,12 +7255,14 @@
       "四方坪"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 2,
     "description": "蜜雪冰城(四方坪夜市中心街店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0G3LUJ400",
     "meal_type": "main",
-    "recommendation": "蜜雪冰城(四方坪夜市中心街店)是夜间休闲好去处"
+    "recommendation": "蜜雪冰城(四方坪夜市中心街店)是夜间休闲好去处",
+    "open_minutes": 570,
+    "close_minutes": 1440
   },
   {
     "id": "amap_9d8b6771",
@@ -6980,12 +7284,14 @@
       "大众传媒"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 2,
     "description": "呆呆卤味螺蛳粉(灰埠夜市)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0K32D75NL",
     "meal_type": "main",
-    "recommendation": "螺蛳粉配卤味，酸辣上头！建议加份炸蛋，晚上九点后人少不用排队。"
+    "recommendation": "螺蛳粉配卤味，酸辣上头！建议加份炸蛋，晚上九点后人少不用排队。",
+    "open_minutes": 1020,
+    "close_minutes": 1440
   },
   {
     "id": "amap_3aa6474",
@@ -7011,7 +7317,9 @@
     "source": "amap",
     "source_id": "B0KA59FWAU",
     "meal_type": "main",
-    "recommendation": "地道长沙烟火气大排档，推荐招牌口味虾配冰啤酒，深夜档最热闹。"
+    "recommendation": "地道长沙烟火气大排档，推荐招牌口味虾配冰啤酒，深夜档最热闹。",
+    "open_minutes": 990,
+    "close_minutes": 180
   },
   {
     "id": "amap_f9b2de44",
@@ -7032,7 +7340,7 @@
       "湘江新区"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 2,
     "description": "长沙知食青年街区(咸嘉夜市)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0LR9LPXHX",
@@ -7058,12 +7366,14 @@
       "芙蓉南路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 2,
     "description": "常青藤夜市摊点，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0LRO6UFNA",
     "meal_type": "main",
-    "recommendation": "大学城旁的平价夜市，烤串炒粉是灵魂，傍晚去能尝到最新鲜的小吃。"
+    "recommendation": "大学城旁的平价夜市，烤串炒粉是灵魂，傍晚去能尝到最新鲜的小吃。",
+    "open_minutes": 1020,
+    "close_minutes": 1380
   },
   {
     "id": "amap_fc83fe2e",
@@ -7084,12 +7394,14 @@
       "金盆岭"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 2,
     "description": "赤岭夜市，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0J2SMPQ60",
     "meal_type": "main",
-    "recommendation": "赤岭夜市适合饭后散步或消遣"
+    "recommendation": "赤岭夜市适合饭后散步或消遣",
+    "open_minutes": 960,
+    "close_minutes": 60
   },
   {
     "id": "amap_b8cc1962",
@@ -7111,7 +7423,7 @@
       "麓谷"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 2,
     "description": "柠季·手打柠檬茶(长沙麓谷东塘夜市店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0K0GHZ9C9",
@@ -7136,12 +7448,14 @@
       "中餐厅"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 2,
     "description": "良果芭东山夜市店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0LKCU1NOG",
     "meal_type": "main",
-    "recommendation": "良果芭东山夜市店是夜间休闲好去处"
+    "recommendation": "良果芭东山夜市店是夜间休闲好去处",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8343207e",
@@ -7163,12 +7477,14 @@
       "东屯渡"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 2,
     "description": "ARTEASG啊T·新加坡奶茶(扬帆夜市店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0J64A6ACH",
     "meal_type": "main",
-    "recommendation": "ARTEASG啊T·新加坡奶茶(扬帆夜市店)适合饭后散步或消遣"
+    "recommendation": "ARTEASG啊T·新加坡奶茶(扬帆夜市店)适合饭后散步或消遣",
+    "open_minutes": 600,
+    "close_minutes": 150
   },
   {
     "id": "amap_ec5c37b8",
@@ -7194,7 +7510,9 @@
     "source": "amap",
     "source_id": "B0IAVZF3UI",
     "meal_type": "main",
-    "recommendation": "街边边夜市(金桥国际食品城店)是夜间休闲好去处"
+    "recommendation": "街边边夜市(金桥国际食品城店)是夜间休闲好去处",
+    "open_minutes": 960,
+    "close_minutes": 180
   },
   {
     "id": "amap_9bf93835",
@@ -7220,7 +7538,9 @@
     "source": "amap",
     "source_id": "B0K3CNZDYF",
     "meal_type": "main",
-    "recommendation": "灯煌夜市是夜间休闲好去处"
+    "recommendation": "灯煌夜市是夜间休闲好去处",
+    "open_minutes": 1020,
+    "close_minutes": 60
   },
   {
     "id": "amap_b0dbf28f",
@@ -7241,7 +7561,7 @@
       "解放中路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 2,
     "description": "浆小白豆浆夜市(五一广场店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0HRVRYV72",
@@ -7268,7 +7588,7 @@
       "汽车东站片区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 2,
     "description": "兰园夜市，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B0G1XRGN7C",
@@ -7299,7 +7619,9 @@
     "source": "amap",
     "source_id": "B0K2DN9MNJ",
     "meal_type": "main",
-    "recommendation": "机场候机也不无聊！来碗现炸臭豆腐，边吃边看飞机起降，超有长沙味。"
+    "recommendation": "机场候机也不无聊！来碗现炸臭豆腐，边吃边看飞机起降，超有长沙味。",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f43fae2f",
@@ -7320,12 +7642,14 @@
       "解放西路"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "description": "文和里大长沙美食城寨，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFM9K8BY",
     "meal_type": "main",
-    "recommendation": "解放西路的霓虹招牌下藏着地道湘味，建议傍晚"
+    "recommendation": "解放西路的霓虹招牌下藏着地道湘味，建议傍晚",
+    "open_minutes": 600,
+    "close_minutes": 1410
   },
   {
     "id": "amap_4e57930a",
@@ -7347,7 +7671,7 @@
       "汽车东站片区"
     ],
     "popularity": 3.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "老长沙烧烤美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFKKNQ06",
@@ -7378,7 +7702,9 @@
     "source": "amap",
     "source_id": "B0JAJLSDZG",
     "meal_type": "main",
-    "recommendation": "美食集结地，从早吃到晚不重样，晚上去更有烟火气。"
+    "recommendation": "美食集结地，从早吃到晚不重样，晚上去更有烟火气。",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_8f172124",
@@ -7404,7 +7730,9 @@
     "source": "amap",
     "source_id": "B0KR09D90F",
     "meal_type": "main",
-    "recommendation": "林科大后街是学生"
+    "recommendation": "林科大后街是学生",
+    "open_minutes": 720,
+    "close_minutes": 180
   },
   {
     "id": "amap_e9bedaf1",
@@ -7425,12 +7753,14 @@
       "五一广场"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "description": "文和友(海信广场)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFJ0SCDN",
     "meal_type": "main",
-    "recommendation": "文和友(海信广场)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "文和友(海信广场)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 120
   },
   {
     "id": "amap_6fc67e1a",
@@ -7452,12 +7782,14 @@
       "解放西路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "坡子街美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFK5A4QK",
     "meal_type": "main",
-    "recommendation": "坡子街美食城口碑很好，建议避开高峰期就餐"
+    "recommendation": "坡子街美食城口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_1bb12bc8",
@@ -7478,12 +7810,14 @@
       "马栏山小区"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "西湖楼美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFL17ZLK",
     "meal_type": "main",
-    "recommendation": "西湖楼美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "西湖楼美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 990,
+    "close_minutes": 1230
   },
   {
     "id": "amap_467229c1",
@@ -7509,7 +7843,9 @@
     "source": "amap",
     "source_id": "B0HGJHHKNR",
     "meal_type": "main",
-    "recommendation": "在岳麓区觅食推荐大学城美食场，性价比不错"
+    "recommendation": "在岳麓区觅食推荐大学城美食场，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 270
   },
   {
     "id": "amap_eac18b80",
@@ -7557,12 +7893,14 @@
       "黄兴路"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "description": "南门口美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0G0YPJG5S",
     "meal_type": "main",
-    "recommendation": "在天心区觅食推荐南门口美食城，性价比不错"
+    "recommendation": "在天心区觅食推荐南门口美食城，性价比不错",
+    "open_minutes": 570,
+    "close_minutes": 1350
   },
   {
     "id": "amap_b1bd9414",
@@ -7583,12 +7921,14 @@
       "湘江世纪城"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "虾讲究美食城(世纪城店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0IB15GZJC",
     "meal_type": "main",
-    "recommendation": "虾讲究美食城(世纪城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "虾讲究美食城(世纪城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 1020,
+    "close_minutes": 150
   },
   {
     "id": "amap_ccb0a2bc",
@@ -7609,12 +7949,14 @@
       "咸嘉新村"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "长沙六和溪街美食(麓景路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF622K8",
     "meal_type": "main",
-    "recommendation": "在岳麓区觅食推荐长沙六和溪街美食(麓景路店)，性价比不错"
+    "recommendation": "在岳麓区觅食推荐长沙六和溪街美食(麓景路店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1410
   },
   {
     "id": "amap_b68c9c54",
@@ -7635,12 +7977,14 @@
       "星沙通程广场"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "黄胖子美食城(星沙总店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFIIMIQ6",
     "meal_type": "main",
-    "recommendation": "在长沙县觅食推荐黄胖子美食城(星沙总店)，性价比不错"
+    "recommendation": "在长沙县觅食推荐黄胖子美食城(星沙总店)，性价比不错",
+    "open_minutes": 1020,
+    "close_minutes": 210
   },
   {
     "id": "amap_2c619d49",
@@ -7660,12 +8004,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "毛哥美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFIZ8YJ8",
     "meal_type": "main",
-    "recommendation": "毛哥美食城口碑很好，建议避开高峰期就餐"
+    "recommendation": "毛哥美食城口碑很好，建议避开高峰期就餐",
+    "open_minutes": 1020,
+    "close_minutes": 180
   },
   {
     "id": "amap_271d9a80",
@@ -7687,12 +8033,14 @@
       "咸嘉湖"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "不夜天美食城(裕民小区店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFI0QBK2",
     "meal_type": "main",
-    "recommendation": "不夜天美食城(裕民小区店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "不夜天美食城(裕民小区店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 990,
+    "close_minutes": 150
   },
   {
     "id": "amap_8cbecf23",
@@ -7717,7 +8065,9 @@
     "source": "amap",
     "source_id": "B0G2UP1FL5",
     "meal_type": "main",
-    "recommendation": "沁园美食街(新桥·沁园C区店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "沁园美食街(新桥·沁园C区店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 1140,
+    "close_minutes": 120
   },
   {
     "id": "amap_24371cb3",
@@ -7743,7 +8093,9 @@
     "source": "amap",
     "source_id": "B0IRDAK3D2",
     "meal_type": "main",
-    "recommendation": "在开福区觅食推荐庙街旅游美食广场(五一广场店)，性价比不错"
+    "recommendation": "在开福区觅食推荐庙街旅游美食广场(五一广场店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_63c1d53b",
@@ -7765,12 +8117,14 @@
       "四方坪"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "description": "朝阳烧烤美食城(四方商贸城店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFG3NXH4",
     "meal_type": "main",
-    "recommendation": "朝阳烧烤美食城(四方商贸城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "朝阳烧烤美食城(四方商贸城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 1050,
+    "close_minutes": 120
   },
   {
     "id": "amap_9cf64af2",
@@ -7792,12 +8146,14 @@
       "中海环宇城"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "3毛传奇烧烤美食城(中信·文化广场雅居店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0HK0DD4GM",
     "meal_type": "main",
-    "recommendation": "在天心区觅食推荐3毛传奇烧烤美食城(中信·文化广场雅居店)，性价比不错"
+    "recommendation": "在天心区觅食推荐3毛传奇烧烤美食城(中信·文化广场雅居店)，性价比不错",
+    "open_minutes": 1020,
+    "close_minutes": 180
   },
   {
     "id": "amap_9ce8a6a3",
@@ -7818,12 +8174,14 @@
       "餐饮相关"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "护航兄弟美食城(机场金鹏名都店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LGZSU8WX",
     "meal_type": "main",
-    "recommendation": "护航兄弟美食城(机场金鹏名都店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "护航兄弟美食城(机场金鹏名都店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 960,
+    "close_minutes": 180
   },
   {
     "id": "amap_ab7c5697",
@@ -7845,7 +8203,7 @@
       "赤岭路"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "description": "胖哥油爆虾·三毛烧烤美食城(赤岭路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0K3UHLKZH",
@@ -7871,12 +8229,14 @@
       "高桥"
     ],
     "popularity": 4.5,
-    "price_level": 3,
+    "price_level": 1,
     "description": "特色美食七街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFGDRSS5",
     "meal_type": "main",
-    "recommendation": "特色美食七街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "特色美食七街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_9bdcee4d",
@@ -7902,7 +8262,9 @@
     "source": "amap",
     "source_id": "B0FFL6N0J4",
     "meal_type": "main",
-    "recommendation": "植物园美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "植物园美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 30,
+    "close_minutes": 1440
   },
   {
     "id": "amap_123c19c",
@@ -7923,12 +8285,14 @@
       "武广高铁"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "description": "强霸子美食城(黎郡商业街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0HA1LGDD6",
     "meal_type": "main",
-    "recommendation": "在雨花区觅食推荐强霸子美食城(黎郡商业街店)，性价比不错"
+    "recommendation": "在雨花区觅食推荐强霸子美食城(黎郡商业街店)，性价比不错",
+    "open_minutes": 1050,
+    "close_minutes": 180
   },
   {
     "id": "amap_581caf66",
@@ -7949,7 +8313,7 @@
       "五一广场"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "小吃一条街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFHBHGEE",
@@ -7975,7 +8339,7 @@
       "解放西路"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "文和里太平街美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0G0RK8JOE",
@@ -8001,12 +8365,14 @@
       "雨花亭"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "description": "向阳美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFH8NG82",
     "meal_type": "main",
-    "recommendation": "在雨花区觅食推荐向阳美食街，性价比不错"
+    "recommendation": "在雨花区觅食推荐向阳美食街，性价比不错",
+    "open_minutes": 480,
+    "close_minutes": 1410
   },
   {
     "id": "amap_a1c3d210",
@@ -8032,7 +8398,9 @@
     "source": "amap",
     "source_id": "B0FFH2LTRE",
     "meal_type": "main",
-    "recommendation": "美食街(天马路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "美食街(天马路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6c0b8ff6",
@@ -8052,12 +8420,14 @@
       "中餐厅"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "萝卜美食城(火炬北三片店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFMCUC8W",
     "meal_type": "main",
-    "recommendation": "在芙蓉区觅食推荐萝卜美食城(火炬北三片店)，性价比不错"
+    "recommendation": "在芙蓉区觅食推荐萝卜美食城(火炬北三片店)，性价比不错",
+    "open_minutes": 960,
+    "close_minutes": 240
   },
   {
     "id": "amap_e514ad0",
@@ -8078,12 +8448,14 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "description": "牙痒痒烧烤美食城(星沙一区店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFG55CSL",
     "meal_type": "main",
-    "recommendation": "牙痒痒烧烤美食城(星沙一区店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "牙痒痒烧烤美食城(星沙一区店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 1050,
+    "close_minutes": 180
   },
   {
     "id": "amap_5fcefe63",
@@ -8104,12 +8476,14 @@
       "湘江新区"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "description": "不贰夜宵美食城(望城店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFJ3YVRJ",
     "meal_type": "main",
-    "recommendation": "不贰夜宵美食城(望城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "不贰夜宵美食城(望城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 960,
+    "close_minutes": 120
   },
   {
     "id": "amap_d83f93c0",
@@ -8135,7 +8509,9 @@
     "source": "amap",
     "source_id": "B0J19Z25CM",
     "meal_type": "main",
-    "recommendation": "3毛传奇·岳阳烧烤美食城(滨河嘉园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "3毛传奇·岳阳烧烤美食城(滨河嘉园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 1080,
+    "close_minutes": 240
   },
   {
     "id": "amap_cde43528",
@@ -8155,7 +8531,7 @@
       "中餐厅"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "description": "萝卜美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0LRYXW2VQ",
@@ -8181,12 +8557,14 @@
       "金洲大道"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "description": "大湘和美食城(金叶家园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFHOAOH1",
     "meal_type": "main",
-    "recommendation": "大湘和美食城(金叶家园店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大湘和美食城(金叶家园店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_8fbd0e1",
@@ -8208,12 +8586,14 @@
       "运达中央广场"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "description": "岳阳三毛烧烤美食城(大桥社区店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFMG79GK",
     "meal_type": "main",
-    "recommendation": "岳阳三毛烧烤美食城(大桥社区店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "岳阳三毛烧烤美食城(大桥社区店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 1020,
+    "close_minutes": 180
   },
   {
     "id": "amap_20eb985",
@@ -8234,12 +8614,14 @@
       "雨花亭"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "description": "岳阳三毛烧烤美食城(向阳美食街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0J6G9V4TT",
     "meal_type": "main",
-    "recommendation": "在雨花区觅食推荐岳阳三毛烧烤美食城(向阳美食街店)，性价比不错"
+    "recommendation": "在雨花区觅食推荐岳阳三毛烧烤美食城(向阳美食街店)，性价比不错",
+    "open_minutes": 960,
+    "close_minutes": 300
   },
   {
     "id": "amap_9f10b303",
@@ -8259,7 +8641,7 @@
       "中餐厅"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "description": "老兵美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0H25ZMQWL",
@@ -8285,12 +8667,14 @@
       "特色/地方风味餐厅"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "description": "朝阳烧烤美食城(黄花店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFKTP9UP",
     "meal_type": "main",
-    "recommendation": "在长沙县觅食推荐朝阳烧烤美食城(黄花店)，性价比不错"
+    "recommendation": "在长沙县觅食推荐朝阳烧烤美食城(黄花店)，性价比不错",
+    "open_minutes": 960,
+    "close_minutes": 180
   },
   {
     "id": "amap_7ed200e3",
@@ -8317,7 +8701,9 @@
     "source": "amap",
     "source_id": "B02DB0ZRVV",
     "meal_type": "main",
-    "recommendation": "三久美食城(车站路总店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "三久美食城(车站路总店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a3d83263",
@@ -8340,12 +8726,14 @@
       "伍家岭"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "description": "木屋子忆湘味美食城(伍家岭店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFI0XF3L",
     "meal_type": "main",
-    "recommendation": "木屋子忆湘味美食城(伍家岭店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "木屋子忆湘味美食城(伍家岭店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 960,
+    "close_minutes": 120
   },
   {
     "id": "amap_2ea9af28",
@@ -8398,7 +8786,9 @@
     "source": "amap",
     "source_id": "B0FFGMRKUP",
     "meal_type": "main",
-    "recommendation": "罗妹美食城烧烤夜宵口碑很好，建议避开高峰期就餐"
+    "recommendation": "罗妹美食城烧烤夜宵口碑很好，建议避开高峰期就餐",
+    "open_minutes": 1020,
+    "close_minutes": 1440
   },
   {
     "id": "amap_ae053dc6",
@@ -8444,12 +8834,14 @@
       "浏阳工业园"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "description": "成都美食城(锦绣嘉苑店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF4JTAE",
     "meal_type": "main",
-    "recommendation": "成都美食城(锦绣嘉苑店)——在长沙也能吃地道川味，推荐担担面配冰粉，避开饭点更从容。"
+    "recommendation": "成都美食城(锦绣嘉苑店)——在长沙也能吃地道川味，推荐担担面配冰粉，避开饭点更从容。",
+    "open_minutes": 1020,
+    "close_minutes": 120
   },
   {
     "id": "amap_14913fdf",
@@ -8500,7 +8892,7 @@
       "湘江新区"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "description": "步步高梅溪新天地，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHRXORE",
@@ -8528,12 +8920,14 @@
       "湘江中路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "海信广场(长沙店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGFQ9U3",
     "meal_type": "main",
-    "recommendation": "坐拥湘江一线江景，拍照超绝！建议傍晚来，看落日余晖映江面。"
+    "recommendation": "坐拥湘江一线江景，拍照超绝！建议傍晚来，看落日余晖映江面。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_76b61b18",
@@ -8556,7 +8950,7 @@
       "湘江新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "Livat荟聚，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFIOVMVT",
@@ -8584,12 +8978,14 @@
       "开福商务中心区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "万达广场(长沙开福店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF9TRSF",
     "meal_type": "main",
-    "recommendation": "开福核心商圈，吃喝玩乐一站搞定。周末常有主题集市，淘点小玩意儿。"
+    "recommendation": "开福核心商圈，吃喝玩乐一站搞定。周末常有主题集市，淘点小玩意儿。",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_e48ac4c",
@@ -8640,12 +9036,14 @@
       "湘江中路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "description": "悦方ID Mall南区，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHWG18A",
     "meal_type": "main",
-    "recommendation": "悦方ID Mall南区适合城市游览、购物爱好者"
+    "recommendation": "悦方ID Mall南区适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1a4fee56",
@@ -8673,7 +9071,9 @@
     "source": "amap",
     "source_id": "B0FFITMQHN",
     "meal_type": "main",
-    "recommendation": "体育新城片区新地标，运动品牌齐全。带娃来有亲子乐园，适合全家出动。"
+    "recommendation": "体育新城片区新地标，运动品牌齐全。带娃来有亲子乐园，适合全家出动。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2cf979b6",
@@ -8700,7 +9100,9 @@
     "source": "amap",
     "source_id": "B0HU1SD2V6",
     "meal_type": "main",
-    "recommendation": "长沙星沙永旺梦乐城适合城市游览、购物爱好者"
+    "recommendation": "长沙星沙永旺梦乐城适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_53b09c5",
@@ -8723,12 +9125,14 @@
       "湘江新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙砂之船奥特莱斯，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFIUY73Q",
     "meal_type": "main",
-    "recommendation": "长沙砂之船奥特莱斯是当地热门景点，建议游览90分钟左右"
+    "recommendation": "长沙砂之船奥特莱斯是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_67bb8c2a",
@@ -8756,7 +9160,9 @@
     "source": "amap",
     "source_id": "B0FFJGPHTZ",
     "meal_type": "main",
-    "recommendation": "推荐在开福区参观CFC富兴时代，人气评分4.7"
+    "recommendation": "推荐在开福区参观CFC富兴时代，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_417aeac5",
@@ -8779,12 +9185,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "永旺梦乐城(湘江新区店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0J1975KMZ",
     "meal_type": "main",
-    "recommendation": "永旺梦乐城(湘江新区店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "永旺梦乐城(湘江新区店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_99ea7273",
@@ -8812,7 +9220,9 @@
     "source": "amap",
     "source_id": "B0FFL52LB1",
     "meal_type": "main",
-    "recommendation": "推荐在天心区参观长沙印象汇，人气评分4.7"
+    "recommendation": "推荐在天心区参观长沙印象汇，人气评分4.7",
+    "open_minutes": 630,
+    "close_minutes": 420
   },
   {
     "id": "amap_417d701e",
@@ -8834,12 +9244,14 @@
       "运达中央广场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "运达汇，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02DB0TXFI",
     "meal_type": "main",
-    "recommendation": "运达汇适合城市游览、购物爱好者"
+    "recommendation": "运达汇适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e1c52c65",
@@ -8862,12 +9274,14 @@
       "长沙经济技术开发区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "吾悦广场(长沙松雅湖店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHYDGO1",
     "meal_type": "main",
-    "recommendation": "吾悦广场(长沙松雅湖店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "吾悦广场(长沙松雅湖店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ea54ec8b",
@@ -8890,12 +9304,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "金茂览秀城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFH9NRGX",
     "meal_type": "main",
-    "recommendation": "金茂览秀城是当地热门景点，建议游览90分钟左右"
+    "recommendation": "金茂览秀城是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c5ab2fae",
@@ -8925,7 +9341,9 @@
     "source": "amap",
     "source_id": "B0FFM8ZR2N",
     "meal_type": "main",
-    "recommendation": "推荐在雨花区参观步步高·星城天地，人气评分4.8"
+    "recommendation": "推荐在雨花区参观步步高·星城天地，人气评分4.8",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e1e71516",
@@ -8948,12 +9366,14 @@
       "武广高铁"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "吾悦广场(长沙高铁店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFJX9EY4",
     "meal_type": "main",
-    "recommendation": "推荐在雨花区参观吾悦广场(长沙高铁店)，人气评分4.7"
+    "recommendation": "推荐在雨花区参观吾悦广场(长沙高铁店)，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ff9b13e6",
@@ -8976,7 +9396,7 @@
       "湖南农业大学"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "description": "龙湖长沙芙蓉天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0HGMUX7MV",
@@ -9004,12 +9424,14 @@
       "咸嘉新村"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙王府井FAMILY PARK购物中心(河西店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02DB0ZDR8",
     "meal_type": "main",
-    "recommendation": "长沙王府井FAMILY PARK购物中心(河西店)适合城市游览、购物爱好者"
+    "recommendation": "长沙王府井FAMILY PARK购物中心(河西店)适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9a90b8ff",
@@ -9032,12 +9454,14 @@
       "雨花亭"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "凯德广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02DB0TI4E",
     "meal_type": "main",
-    "recommendation": "雨花亭的凯德广场吃喝玩乐一站搞定，周末去逛折扣多，建议晚上去还能看夜景。"
+    "recommendation": "雨花亭的凯德广场吃喝玩乐一站搞定，周末去逛折扣多，建议晚上去还能看夜景。",
+    "open_minutes": 570,
+    "close_minutes": 1290
   },
   {
     "id": "amap_b73b25ae",
@@ -9060,12 +9484,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "观沙岭招商花园城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0IR0ZU9IY",
     "meal_type": "main",
-    "recommendation": "观沙岭新开的招商花园城设计感十足，适合遛娃拍照，傍晚去人少停车方便。"
+    "recommendation": "观沙岭新开的招商花园城设计感十足，适合遛娃拍照，傍晚去人少停车方便。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_69fd777e",
@@ -9092,7 +9518,9 @@
     "source": "amap",
     "source_id": "B0FFGKRE2H",
     "meal_type": "main",
-    "recommendation": "长沙友阿奥特莱斯是当地热门景点，建议游览90分钟左右"
+    "recommendation": "长沙友阿奥特莱斯是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 570,
+    "close_minutes": 1290
   },
   {
     "id": "amap_e1087f95",
@@ -9114,12 +9542,14 @@
       "燕山街"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙佳兆业广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFI685T2",
     "meal_type": "main",
-    "recommendation": "商场内部设计时尚，适合拍照打卡；建议傍晚去，人流较少购物更舒适。"
+    "recommendation": "商场内部设计时尚，适合拍照打卡；建议傍晚去，人流较少购物更舒适。",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_78552b20",
@@ -9142,12 +9572,14 @@
       "五一广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "7mall美食潮地标，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGZUKMY",
     "meal_type": "main",
-    "recommendation": "7mall就是五一广场的美食天堂，各种网红小吃扎堆，记得空着肚子来扫街。"
+    "recommendation": "7mall就是五一广场的美食天堂，各种网红小吃扎堆，记得空着肚子来扫街。",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_b2e45642",
@@ -9169,12 +9601,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙杉杉奥特莱斯广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0KUKCI2UO",
     "meal_type": "main",
-    "recommendation": "想淘大牌折扣就来杉杉奥莱，运动品牌超划算，建议工作日去慢慢逛。"
+    "recommendation": "想淘大牌折扣就来杉杉奥莱，运动品牌超划算，建议工作日去慢慢逛。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d737263",
@@ -9202,7 +9636,9 @@
     "source": "amap",
     "source_id": "B0FFGOD91T",
     "meal_type": "main",
-    "recommendation": "星沙万象汇的室内空间超大气，亲子活动多，周末有市集可以淘小玩意。"
+    "recommendation": "星沙万象汇的室内空间超大气，亲子活动多，周末有市集可以淘小玩意。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_45ce7e4",
@@ -9225,12 +9661,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "龙湖长沙月亮岛天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0JBUS7AAB",
     "meal_type": "main",
-    "recommendation": "月亮岛天街的空中花园超适合约会，傍晚看夕阳美翻，记得带相机。"
+    "recommendation": "月亮岛天街的空中花园超适合约会，傍晚看夕阳美翻，记得带相机。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_75e29ca",
@@ -9253,12 +9691,14 @@
       "银盆岭"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "万达广场(长沙银盆岭店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02DB0UFF0",
     "meal_type": "main",
-    "recommendation": "银盆岭万达的影院和餐厅都很棒，逛累了去顶楼吹风看湘江，推荐下午去。"
+    "recommendation": "银盆岭万达的影院和餐厅都很棒，逛累了去顶楼吹风看湘江，推荐下午去。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_936ae74c",
@@ -9281,12 +9721,14 @@
       "湘江世纪城"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙方圆荟，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0HD7HOU3Q",
     "meal_type": "main",
-    "recommendation": "湘江世纪城的方圆荟是家庭休闲好去处，儿童乐园超大，建议早上去避开人流。"
+    "recommendation": "湘江世纪城的方圆荟是家庭休闲好去处，儿童乐园超大，建议早上去避开人流。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_3cfbbf6e",
@@ -9309,12 +9751,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "凯德·壹中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFJ0CKTW",
     "meal_type": "main",
-    "recommendation": "凯德·壹中心的轻奢品牌多，环境安静适合认真逛街，下午茶推荐楼下几家。"
+    "recommendation": "凯德·壹中心的轻奢品牌多，环境安静适合认真逛街，下午茶推荐楼下几家。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_475655ac",
@@ -9337,12 +9781,14 @@
       "解放西路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "王府井百货(五一广场店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02DB040BC",
     "meal_type": "main",
-    "recommendation": "王府井五一店是老牌百货，美妆护肤品常有满减，建议先领券再血拼。"
+    "recommendation": "王府井五一店是老牌百货，美妆护肤品常有满减，建议先领券再血拼。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5757b443",
@@ -9367,12 +9813,14 @@
       "生活服务"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "平和堂百货(湖南平和堂商务楼店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0HDGBKJPP",
     "meal_type": "main",
-    "recommendation": "推荐在芙蓉区参观平和堂百货(湖南平和堂商务楼店)，人气评分4.7"
+    "recommendation": "推荐在芙蓉区参观平和堂百货(湖南平和堂商务楼店)，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c4b77ae7",
@@ -9396,12 +9844,14 @@
       "五一广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "长沙春天，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHFVYRO",
     "meal_type": "main",
-    "recommendation": "长沙春天是当地热门景点，建议游览90分钟左右"
+    "recommendation": "长沙春天是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_81050faa",
@@ -9424,12 +9874,14 @@
       "圭塘"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "溪悦荟，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0GUO53F0T",
     "meal_type": "main",
-    "recommendation": "推荐在雨花区参观溪悦荟，人气评分4.7"
+    "recommendation": "推荐在雨花区参观溪悦荟，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_fbd4bb03",
@@ -9451,12 +9903,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "百联奥特莱斯广场(湖南∙长沙)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFIQITMJ",
     "meal_type": "main",
-    "recommendation": "百联奥特莱斯广场(湖南∙长沙)适合城市游览、购物爱好者"
+    "recommendation": "百联奥特莱斯广场(湖南∙长沙)适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_bba77d2d",
@@ -9481,12 +9935,14 @@
       "生活服务场所"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "龙湖长沙洋湖天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFIOVMLU",
     "meal_type": "main",
-    "recommendation": "龙湖长沙洋湖天街适合城市游览、购物爱好者"
+    "recommendation": "龙湖长沙洋湖天街适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_593993ed",
@@ -9514,7 +9970,9 @@
     "source": "amap",
     "source_id": "B0JGR589LA",
     "meal_type": "main",
-    "recommendation": "长沙汇金天虹购物中心适合城市游览、购物爱好者"
+    "recommendation": "长沙汇金天虹购物中心适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_9b9bc7f5",
@@ -9570,7 +10028,9 @@
     "source": "amap",
     "source_id": "B0FFGODCOA",
     "meal_type": "main",
-    "recommendation": "德思勤四季汇适合城市游览、购物爱好者"
+    "recommendation": "德思勤四季汇适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f83b9f1c",
@@ -9595,12 +10055,14 @@
       "开福商务中心区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "description": "Hipark凤凰海购物公园，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHMO50L",
     "meal_type": "main",
-    "recommendation": "Hipark凤凰海购物公园适合城市游览、购物爱好者"
+    "recommendation": "Hipark凤凰海购物公园适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_77d7254e",
@@ -9628,7 +10090,9 @@
     "source": "amap",
     "source_id": "B0KDTRJXUU",
     "meal_type": "main",
-    "recommendation": "长沙北辰荟适合城市游览、购物爱好者"
+    "recommendation": "长沙北辰荟适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d7fde04c",
@@ -9651,12 +10115,14 @@
       "湘江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "吾悦广场(长沙宁乡店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFKR7WQO",
     "meal_type": "main",
-    "recommendation": "吾悦广场(长沙宁乡店)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "吾悦广场(长沙宁乡店)是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c7758c9a",
@@ -9679,12 +10145,14 @@
       "咸嘉新村"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "步步高广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B02DB081DB",
     "meal_type": "main",
-    "recommendation": "推荐在岳麓区参观步步高广场，人气评分4.7"
+    "recommendation": "推荐在岳麓区参观步步高广场，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_79a245b6",
@@ -9707,12 +10175,14 @@
       "珠江花城"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "description": "珠江·星环购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0JU3S31VT",
     "meal_type": "main",
-    "recommendation": "珠江·星环购物中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "珠江·星环购物中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_cbaf61f6",
@@ -9738,7 +10208,9 @@
     "source": "amap",
     "source_id": "B0G109H37H",
     "meal_type": "drink",
-    "recommendation": "在岳麓区觅食推荐茶颜悦色(金星路步步高店)，性价比不错"
+    "recommendation": "在岳麓区觅食推荐茶颜悦色(金星路步步高店)，性价比不错",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9f9986b0",
@@ -9764,7 +10236,9 @@
     "source": "amap",
     "source_id": "B0G2AOD1N1",
     "meal_type": "drink",
-    "recommendation": "在岳麓区觅食推荐茶颜悦色(岳北和苑店)，性价比不错"
+    "recommendation": "在岳麓区觅食推荐茶颜悦色(岳北和苑店)，性价比不错",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4f2724d7",
@@ -9791,7 +10265,9 @@
     "source": "amap",
     "source_id": "B0L6ZU307Y",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(万象城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "茶颜悦色(万象城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_981680e",
@@ -9818,7 +10294,9 @@
     "source": "amap",
     "source_id": "B0G1N96327",
     "meal_type": "drink",
-    "recommendation": "在岳麓区觅食推荐茶颜悦色(六沟垅站5号店)，性价比不错"
+    "recommendation": "在岳麓区觅食推荐茶颜悦色(六沟垅站5号店)，性价比不错",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b588cf45",
@@ -9844,7 +10322,9 @@
     "source": "amap",
     "source_id": "B0GUJBOBA2",
     "meal_type": "drink",
-    "recommendation": "不用排队太久，推荐试试新品“桂花弄”；记得少糖，口感更清爽。"
+    "recommendation": "不用排队太久，推荐试试新品“桂花弄”；记得少糖，口感更清爽。",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_31fa1331",
@@ -9870,7 +10350,9 @@
     "source": "amap",
     "source_id": "B0KKV738H8",
     "meal_type": "drink",
-    "recommendation": "在岳麓区觅食推荐茶颜悦色(保利时光汇一楼店)，性价比不错"
+    "recommendation": "在岳麓区觅食推荐茶颜悦色(保利时光汇一楼店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_61d6d58c",
@@ -9896,7 +10378,9 @@
     "source": "amap",
     "source_id": "B0FFK64G9J",
     "meal_type": "drink",
-    "recommendation": "凯德壹中心店人少不排队，逛街歇脚首选，推荐现萃幽兰拿铁，记得少冰。"
+    "recommendation": "凯德壹中心店人少不排队，逛街歇脚首选，推荐现萃幽兰拿铁，记得少冰。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1b2f28a6",
@@ -9923,7 +10407,9 @@
     "source": "amap",
     "source_id": "B0LG173OIE",
     "meal_type": "drink",
-    "recommendation": "在岳麓区觅食推荐茶颜悦色(湖南金融中心凯里亚德全套房酒店店)，性价比不错"
+    "recommendation": "在岳麓区觅食推荐茶颜悦色(湖南金融中心凯里亚德全套房酒店店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9bedb7ae",
@@ -9975,7 +10461,9 @@
     "source": "amap",
     "source_id": "B0FFMDHIQT",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(汽车西站人人乐店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "茶颜悦色(汽车西站人人乐店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1380
   },
   {
     "id": "amap_50c678a1",
@@ -10001,7 +10489,9 @@
     "source": "amap",
     "source_id": "B0G2UX660R",
     "meal_type": "drink",
-    "recommendation": "星悦A区店靠近地铁口，等杯奶茶还能顺道逛商场，最佳时间下午两点后。"
+    "recommendation": "星悦A区店靠近地铁口，等杯奶茶还能顺道逛商场，最佳时间下午两点后。",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_b447a47a",
@@ -10027,7 +10517,9 @@
     "source": "amap",
     "source_id": "B0FFM6U5KY",
     "meal_type": "drink",
-    "recommendation": "绿地缤纷荟店环境清幽，适合带本书发呆，招牌声声乌龙下午茶时段更清新。"
+    "recommendation": "绿地缤纷荟店环境清幽，适合带本书发呆，招牌声声乌龙下午茶时段更清新。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6940d6a6",
@@ -10053,7 +10545,9 @@
     "source": "amap",
     "source_id": "B0H3TSG0RP",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(长沙北辰荟店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "茶颜悦色(长沙北辰荟店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_32f6c217",
@@ -10080,7 +10574,9 @@
     "source": "amap",
     "source_id": "B0FFIW330J",
     "meal_type": "drink",
-    "recommendation": "潮宗街镖局店古风满满，拍照打卡绝了，推荐桂花弄，傍晚来人不挤。"
+    "recommendation": "潮宗街镖局店古风满满，拍照打卡绝了，推荐桂花弄，傍晚来人不挤。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d9e1a289",
@@ -10106,7 +10602,9 @@
     "source": "amap",
     "source_id": "B0FFLICV75",
     "meal_type": "drink",
-    "recommendation": "凤凰海购物公园店毗邻江景，逛街渴了来一杯，建议选栀子生椰，配江风超惬意。"
+    "recommendation": "凤凰海购物公园店毗邻江景，逛街渴了来一杯，建议选栀子生椰，配江风超惬意。",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_438be6b2",
@@ -10132,7 +10630,9 @@
     "source": "amap",
     "source_id": "B0HUBBCWNF",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(富兴时代店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "茶颜悦色(富兴时代店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2ce80d10",
@@ -10158,7 +10658,9 @@
     "source": "amap",
     "source_id": "B0FFIW09MK",
     "meal_type": "drink",
-    "recommendation": "华创国际店商务区白领聚集，工作日午后人少，点杯筝筝纸鸢配轻食刚好。"
+    "recommendation": "华创国际店商务区白领聚集，工作日午后人少，点杯筝筝纸鸢配轻食刚好。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_5b631758",
@@ -10184,7 +10686,9 @@
     "source": "amap",
     "source_id": "B0FFJREUKF",
     "meal_type": "drink",
-    "recommendation": "在天心区觅食推荐茶颜悦色(翻书阅岭茶叶子店)，性价比不错"
+    "recommendation": "在天心区觅食推荐茶颜悦色(翻书阅岭茶叶子店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_98f65d70",
@@ -10211,7 +10715,9 @@
     "source": "amap",
     "source_id": "B0LUZUUJQU",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(开福万达广场一楼三号门口)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "茶颜悦色(开福万达广场一楼三号门口)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_80f93419",
@@ -10237,7 +10743,9 @@
     "source": "amap",
     "source_id": "B0FFI9QCGQ",
     "meal_type": "drink",
-    "recommendation": "在芙蓉区觅食推荐茶颜悦色(粉巢镖局店)，性价比不错"
+    "recommendation": "在芙蓉区觅食推荐茶颜悦色(粉巢镖局店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1410
   },
   {
     "id": "amap_f3a03908",
@@ -10263,7 +10771,9 @@
     "source": "amap",
     "source_id": "B0LUZCUKHY",
     "meal_type": "drink",
-    "recommendation": "中山亭店靠近老城区，逛完坡子街来歇脚，推荐蔓越阑珊，酸甜解腻。"
+    "recommendation": "中山亭店靠近老城区，逛完坡子街来歇脚，推荐蔓越阑珊，酸甜解腻。",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_32f009df",
@@ -10289,7 +10799,9 @@
     "source": "amap",
     "source_id": "B0L0THB0G3",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(太平街四店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "茶颜悦色(太平街四店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1410
   },
   {
     "id": "amap_3b1a1890",
@@ -10315,7 +10827,9 @@
     "source": "amap",
     "source_id": "B0L0TZACM0",
     "meal_type": "drink",
-    "recommendation": "在芙蓉区觅食推荐茶颜悦色(国金街游园会店)，性价比不错"
+    "recommendation": "在芙蓉区觅食推荐茶颜悦色(国金街游园会店)，性价比不错",
+    "open_minutes": 570,
+    "close_minutes": 1350
   },
   {
     "id": "amap_296838fe",
@@ -10341,7 +10855,9 @@
     "source": "amap",
     "source_id": "B0FFHWI5AI",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(长沙方圆荟店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "茶颜悦色(长沙方圆荟店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_bdcb4a9d",
@@ -10367,7 +10883,9 @@
     "source": "amap",
     "source_id": "B0FFHHYQJF",
     "meal_type": "drink",
-    "recommendation": "金茂三楼茶叶子店装修文艺，适合闺蜜小聚，必试三季虫，春季限定更好喝。"
+    "recommendation": "金茂三楼茶叶子店装修文艺，适合闺蜜小聚，必试三季虫，春季限定更好喝。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_84393b3e",
@@ -10393,7 +10911,9 @@
     "source": "amap",
     "source_id": "B0L0THATPD",
     "meal_type": "drink",
-    "recommendation": "在天心区觅食推荐茶颜悦色(嘉顿店)，性价比不错"
+    "recommendation": "在天心区觅食推荐茶颜悦色(嘉顿店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4440aea0",
@@ -10419,7 +10939,9 @@
     "source": "amap",
     "source_id": "B0L02COH0E",
     "meal_type": "drink",
-    "recommendation": "五一广场游园会店能玩周边游戏，买茶送贴纸，推荐烟花易冷，加冰更过瘾。"
+    "recommendation": "五一广场游园会店能玩周边游戏，买茶送贴纸，推荐烟花易冷，加冰更过瘾。",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_40fa0338",
@@ -10446,7 +10968,9 @@
     "source": "amap",
     "source_id": "B0H3TSG82B",
     "meal_type": "drink",
-    "recommendation": "IFS国金店位置核心，等杯奶茶顺便看长沙天际线，推荐幽兰拿铁，记得双倍奶油。"
+    "recommendation": "IFS国金店位置核心，等杯奶茶顺便看长沙天际线，推荐幽兰拿铁，记得双倍奶油。",
+    "open_minutes": 660,
+    "close_minutes": 1410
   },
   {
     "id": "amap_d0171c0",
@@ -10472,7 +10996,9 @@
     "source": "amap",
     "source_id": "B0L1A5IF6A",
     "meal_type": "drink",
-    "recommendation": "在天心区觅食推荐茶颜悦色(长沙海信广场店)，性价比不错"
+    "recommendation": "在天心区觅食推荐茶颜悦色(长沙海信广场店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d8a7912",
@@ -10498,7 +11024,9 @@
     "source": "amap",
     "source_id": "B0H0BO4CPY",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(突兀店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "茶颜悦色(突兀店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_db79c9d4",
@@ -10524,7 +11052,9 @@
     "source": "amap",
     "source_id": "B0HU4CM5OL",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(蝴蝶大厦店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "茶颜悦色(蝴蝶大厦店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_ba599bce",
@@ -10578,7 +11108,9 @@
     "source": "amap",
     "source_id": "B0H1O9VSZH",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(爱晚亭店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "茶颜悦色(爱晚亭店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 540,
+    "close_minutes": 1140
   },
   {
     "id": "amap_b069cc6d",
@@ -10604,7 +11136,9 @@
     "source": "amap",
     "source_id": "B0HU5CNY8H",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(星月楼西北角游园会店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "茶颜悦色(星月楼西北角游园会店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_328126c8",
@@ -10630,7 +11164,9 @@
     "source": "amap",
     "source_id": "B0M6VDJBYM",
     "meal_type": "drink",
-    "recommendation": "茶颜悦色(药王街店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "茶颜悦色(药王街店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d0197c46",
@@ -12265,5 +12801,1525 @@
     "source_id": "B02DB04U6H",
     "meal_type": "main",
     "recommendation": "紧邻岳麓山和大学城，性价比高，自驾的朋友停车很方便哦！"
+  },
+  {
+    "id": "transit_B02DB0694I",
+    "name": "长沙黄花国际机场",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.179749,
+    "lng": 113.235474,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02DB0W8L8",
+    "name": "长沙黄花国际机场T2航站楼",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.18663,
+    "lng": 113.220293,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场T2航站楼，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场T2航站楼是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02DB0UM5U",
+    "name": "长沙黄花国际机场T2航站楼(国内出发)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.186346,
+    "lng": 113.219324,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场T2航站楼(国内出发)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场T2航站楼(国内出发)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFG8QXFS",
+    "name": "长沙黄花国际机场T1航站楼",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.191377,
+    "lng": 113.220379,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场T1航站楼，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场T1航站楼是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0G22UVS7Q",
+    "name": "长沙黄花国际机场T1航站楼(国内出发)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.192978,
+    "lng": 113.21968,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场T1航站楼(国内出发)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场T1航站楼(国内出发)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02DB0VRMF",
+    "name": "长沙黄花国际机场T2航站楼(国内到达)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.186447,
+    "lng": 113.219327,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场T2航站楼(国内到达)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场T2航站楼(国内到达)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0G22UTW8Q",
+    "name": "长沙黄花国际机场T1航站楼(国内到达)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.193583,
+    "lng": 113.219628,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场T1航站楼(国内到达)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场T1航站楼(国内到达)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02DB0UM7L",
+    "name": "长沙黄花国际机场T2航站楼(国际港澳台出发)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.186027,
+    "lng": 113.219361,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场T2航站楼(国际港澳台出发)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场T2航站楼(国际港澳台出发)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFLKV7X0",
+    "name": "长沙开慧通用机场",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.589006,
+    "lng": 113.193343,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙开慧通用机场，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙开慧通用机场是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HDH5E0QD",
+    "name": "宁乡巷子口通用机场",
+    "type": "transit",
+    "area": "宁乡市",
+    "lat": 28.111697,
+    "lng": 111.959995,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "宁乡巷子口通用机场，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "宁乡巷子口通用机场是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02DB0VRMI",
+    "name": "长沙黄花国际机场T2航站楼(国际港澳台到达)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.185866,
+    "lng": 113.219374,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场T2航站楼(国际港澳台到达)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场T2航站楼(国际港澳台到达)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGU7IDF",
+    "name": "长沙黄花国际机场T2航站楼(F1国内到达6号门)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.187145,
+    "lng": 113.219199,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场T2航站楼(F1国内到达6号门)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场T2航站楼(F1国内到达6号门)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KRXSYJJW",
+    "name": "长沙黄花国际机场(国内出发2号门)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.193073,
+    "lng": 113.219579,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场(国内出发2号门)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场(国内出发2号门)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFH14X2",
+    "name": "长沙黄花国际机场T2航站楼(国际港澳台贵宾出发)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.18399,
+    "lng": 113.22018,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场T2航站楼(国际港澳台贵宾出发)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场T2航站楼(国际港澳台贵宾出发)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFL9PMQH",
+    "name": "磁浮城市航站楼",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.149267,
+    "lng": 113.067628,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "磁浮城市航站楼，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "磁浮城市航站楼是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0MAHXN7VU",
+    "name": "长沙黄花国际机场(到达3号门)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.193655,
+    "lng": 113.219531,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场(到达3号门)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场(到达3号门)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFME6C3C",
+    "name": "长沙黄花国际机场(出入口)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.187035,
+    "lng": 113.219191,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场(出入口)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场(出入口)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0MAHXNFRV",
+    "name": "长沙黄花国际机场(到达4号门)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.193107,
+    "lng": 113.219572,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场(到达4号门)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场(到达4号门)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0KRXS3NKZ",
+    "name": "长沙黄花国际机场(国内出发1号门)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.193632,
+    "lng": 113.219538,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙黄花国际机场(国内出发1号门)，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "长沙黄花国际机场(国内出发1号门)是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0J10SAXFV",
+    "name": "航班保障处置中心",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.192517,
+    "lng": 113.219566,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "航班保障处置中心，长沙主要火车站。",
+    "meal_type": "",
+    "recommendation": "航班保障处置中心是长沙的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02DB07MDA",
+    "name": "长沙南站",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.147093,
+    "lng": 113.06551,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙南站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙南站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02DB0696H",
+    "name": "长沙站",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.19358,
+    "lng": 113.014603,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGDHBEA",
+    "name": "长沙站-西进站口",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.193874,
+    "lng": 113.012504,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙站-西进站口，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙站-西进站口是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHP0537",
+    "name": "长沙站-东进站口(锦泰广场)",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.193306,
+    "lng": 113.016321,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙站-东进站口(锦泰广场)，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙站-东进站口(锦泰广场)是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHSJA97",
+    "name": "长沙南站(东进站口)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.146991,
+    "lng": 113.067328,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙南站(东进站口)，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙南站(东进站口)是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0J6BST644",
+    "name": "长沙南站(西进站口)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.146672,
+    "lng": 113.063621,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙南站(西进站口)，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙南站(西进站口)是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHJT0FM",
+    "name": "先锋站",
+    "type": "transit",
+    "area": "天心区",
+    "lat": 28.073231,
+    "lng": 112.990947,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "先锋站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "先锋站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFJUYSLY",
+    "name": "尖山站",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.236598,
+    "lng": 112.887539,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "尖山站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "尖山站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFH6L4E9",
+    "name": "长沙南站(南出站口)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.146712,
+    "lng": 113.065279,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙南站(南出站口)，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙南站(南出站口)是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0HGHU8ZKL",
+    "name": "宁乡西站",
+    "type": "transit",
+    "area": "宁乡市",
+    "lat": 28.295449,
+    "lng": 112.535809,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "宁乡西站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "宁乡西站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02DB0X2VA",
+    "name": "长沙南站(西出站口)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.146331,
+    "lng": 113.063556,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙南站(西出站口)，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙南站(西出站口)是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02DB0ZQP3",
+    "name": "长沙站(西出站口)",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.194893,
+    "lng": 113.012668,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙站(西出站口)，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙站(西出站口)是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIQT2JT",
+    "name": "麓谷站",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.247852,
+    "lng": 112.864394,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "麓谷站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "麓谷站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B02DB068YF",
+    "name": "宁乡站",
+    "type": "transit",
+    "area": "宁乡市",
+    "lat": 28.289094,
+    "lng": 112.580623,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "宁乡站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "宁乡站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFKGMX6M",
+    "name": "开福寺站",
+    "type": "transit",
+    "area": "开福区",
+    "lat": 28.223169,
+    "lng": 112.980234,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "开福寺站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "开福寺站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHDDZ0T",
+    "name": "芙蓉南站",
+    "type": "transit",
+    "area": "天心区",
+    "lat": 28.033751,
+    "lng": 112.996648,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "芙蓉南站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "芙蓉南站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFJUE9AF",
+    "name": "长沙站(东出站口)",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.192856,
+    "lng": 113.016132,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙站(东出站口)，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙站(东出站口)是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFI65Z2F",
+    "name": "长沙东站",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.17646,
+    "lng": 113.01553,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙东站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙东站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFG4LIF8",
+    "name": "暮云站",
+    "type": "transit",
+    "area": "天心区",
+    "lat": 27.99034,
+    "lng": 113.00599,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "暮云站，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "暮云站是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFI567OJ",
+    "name": "长沙站城际列车候车室",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.193469,
+    "lng": 113.01344,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙站城际列车候车室，长沙主要飞机场。",
+    "meal_type": "",
+    "recommendation": "长沙站城际列车候车室是长沙的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230535",
+    "name": "长沙火车站(地铁站)",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.193633,
+    "lng": 113.010987,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙火车站(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "长沙火车站(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10231156",
+    "name": "五一广场(地铁站)",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.195317,
+    "lng": 112.976433,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "五一广场(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "五一广场(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230115",
+    "name": "锦泰广场(地铁站)",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.191855,
+    "lng": 113.017587,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "锦泰广场(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "锦泰广场(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230231",
+    "name": "长沙火车南站(地铁站)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.146879,
+    "lng": 113.065216,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙火车南站(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "长沙火车南站(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10783888",
+    "name": "阜埠河(地铁站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.16519,
+    "lng": 112.947552,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "阜埠河(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "阜埠河(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784666",
+    "name": "罐子岭(地铁站)",
+    "type": "transit",
+    "area": "望城区",
+    "lat": 28.294837,
+    "lng": 112.923179,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "罐子岭(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "罐子岭(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10424916",
+    "name": "黄兴广场(地铁站)",
+    "type": "transit",
+    "area": "天心区",
+    "lat": 28.189421,
+    "lng": 112.976431,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "黄兴广场(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "黄兴广场(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10783877",
+    "name": "阳光(地铁站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.141393,
+    "lng": 112.937036,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "阳光(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "阳光(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10783882",
+    "name": "星沙(地铁站)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.245605,
+    "lng": 113.086892,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "星沙(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "星沙(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784668",
+    "name": "树木岭(地铁站)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.156351,
+    "lng": 113.021491,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "树木岭(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "树木岭(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230974",
+    "name": "万家丽广场(地铁站)",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.191502,
+    "lng": 113.030591,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "万家丽广场(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "万家丽广场(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10229926",
+    "name": "侯家塘(地铁站)",
+    "type": "transit",
+    "area": "天心区",
+    "lat": 28.173771,
+    "lng": 112.982137,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "侯家塘(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "侯家塘(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784651",
+    "name": "毛竹塘(地铁站)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.095228,
+    "lng": 113.036767,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "毛竹塘(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "毛竹塘(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230021",
+    "name": "望城坡(汽车西站)(地铁站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.207479,
+    "lng": 112.913704,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "望城坡(汽车西站)(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "望城坡(汽车西站)(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10424906",
+    "name": "北辰三角洲(地铁站)",
+    "type": "transit",
+    "area": "开福区",
+    "lat": 28.236228,
+    "lng": 112.983575,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "北辰三角洲(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "北辰三角洲(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10613402",
+    "name": "梅溪湖西(地铁站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.185907,
+    "lng": 112.881887,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "梅溪湖西(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "梅溪湖西(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10854319",
+    "name": "长丰(地铁站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.220778,
+    "lng": 112.872006,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长丰(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "长丰(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10784654",
+    "name": "六沟垅(地铁站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.221049,
+    "lng": 112.954316,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "六沟垅(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "六沟垅(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10424908",
+    "name": "黄土岭(地铁站)",
+    "type": "transit",
+    "area": "天心区",
+    "lat": 28.160534,
+    "lng": 112.985503,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "黄土岭(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "黄土岭(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10231737",
+    "name": "西湖公园(地铁站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.202632,
+    "lng": 112.939929,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "西湖公园(地铁站)，长沙主要地铁站。",
+    "meal_type": "",
+    "recommendation": "西湖公园(地铁站)是长沙的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230133",
+    "name": "国防科大(公交站)",
+    "type": "transit",
+    "area": "开福区",
+    "lat": 28.229822,
+    "lng": 112.999384,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "国防科大(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "国防科大(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11346124",
+    "name": "宁乡汽车南站(公交站)",
+    "type": "transit",
+    "area": "宁乡市",
+    "lat": 28.234696,
+    "lng": 112.547475,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "宁乡汽车南站(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "宁乡汽车南站(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10770079",
+    "name": "长沙汽车西站(公交站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.206398,
+    "lng": 112.915054,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙汽车西站(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "长沙汽车西站(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10546629",
+    "name": "长沙高铁南站(公交站)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.146933,
+    "lng": 113.068242,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙高铁南站(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "长沙高铁南站(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230534",
+    "name": "长沙火车站(公交站)",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.195076,
+    "lng": 113.011535,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "长沙火车站(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "长沙火车站(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230545",
+    "name": "星沙汽车站(公交站)",
+    "type": "transit",
+    "area": "长沙县",
+    "lat": 28.231595,
+    "lng": 113.082868,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "星沙汽车站(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "星沙汽车站(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11596039",
+    "name": "国防科大3号院(公交站)",
+    "type": "transit",
+    "area": "开福区",
+    "lat": 28.251603,
+    "lng": 113.046012,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "国防科大3号院(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "国防科大3号院(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10440492",
+    "name": "汽车西站(公交站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.206789,
+    "lng": 112.914744,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "汽车西站(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "汽车西站(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230238",
+    "name": "阳光100国际新城(公交站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.13944,
+    "lng": 112.94157,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "阳光100国际新城(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "阳光100国际新城(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09000396",
+    "name": "铁道学院(公交站)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.143356,
+    "lng": 112.994919,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "铁道学院(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "铁道学院(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10897963",
+    "name": "伍家岭南(公交站)",
+    "type": "transit",
+    "area": "开福区",
+    "lat": 28.224943,
+    "lng": 112.987428,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "伍家岭南(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "伍家岭南(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09000372",
+    "name": "汽车南站综合交通枢纽(公交站)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.098564,
+    "lng": 113.01359,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "汽车南站综合交通枢纽(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "汽车南站综合交通枢纽(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230148",
+    "name": "桔园立交桥北(公交站)",
+    "type": "transit",
+    "area": "雨花区",
+    "lat": 28.152187,
+    "lng": 112.994064,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "桔园立交桥北(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "桔园立交桥北(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10877124",
+    "name": "白马桥汽车站(公交站)",
+    "type": "transit",
+    "area": "宁乡市",
+    "lat": 28.234864,
+    "lng": 112.545987,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "白马桥汽车站(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "白马桥汽车站(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10229982",
+    "name": "王家垅(公交站)",
+    "type": "transit",
+    "area": "开福区",
+    "lat": 28.221185,
+    "lng": 112.992698,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "王家垅(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "王家垅(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230134",
+    "name": "九尾冲(公交站)",
+    "type": "transit",
+    "area": "开福区",
+    "lat": 28.229718,
+    "lng": 112.998075,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "九尾冲(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "九尾冲(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230862",
+    "name": "浏城桥(公交站)",
+    "type": "transit",
+    "area": "芙蓉区",
+    "lat": 28.18974,
+    "lng": 112.987448,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "浏城桥(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "浏城桥(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11347445",
+    "name": "玉兰路重阳路口(公交站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.211688,
+    "lng": 112.91134,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "玉兰路重阳路口(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "玉兰路重阳路口(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10230578",
+    "name": "新民学会旧址(公交站)",
+    "type": "transit",
+    "area": "岳麓区",
+    "lat": 28.192873,
+    "lng": 112.951603,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "新民学会旧址(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "新民学会旧址(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11005105",
+    "name": "华夏(公交站)",
+    "type": "transit",
+    "area": "开福区",
+    "lat": 28.224688,
+    "lng": 112.98281,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "华夏(公交站)，长沙主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "华夏(公交站)是长沙的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "长沙"
+    ],
+    "visit_duration": 15
   }
 ]

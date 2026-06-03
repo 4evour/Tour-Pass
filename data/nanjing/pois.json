@@ -17,12 +17,14 @@
       "九华山"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "古鸡鸣寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFH62KNA",
-    "recommendation": "古鸡鸣寺是当地热门景点，建议游览90分钟左右"
+    "recommendation": "古鸡鸣寺是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 450,
+    "close_minutes": 1020
   },
   {
     "id": "amap_6e59d138",
@@ -42,7 +44,7 @@
       "玄武湖"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -72,7 +74,9 @@
     "description": "总统府，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190BMRC",
-    "recommendation": "推荐在玄武区参观总统府，人气评分4.9"
+    "recommendation": "推荐在玄武区参观总统府，人气评分4.9",
+    "open_minutes": 510,
+    "close_minutes": 1080
   },
   {
     "id": "amap_deefbea1",
@@ -116,7 +120,7 @@
       "中央路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京城墙景区-玄武门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -140,12 +144,14 @@
       "九华山"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京城墙台城景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHB821F",
-    "recommendation": "站上台城能拍到紫峰大厦与玄武湖同框，建议傍晚去，等落日余晖洒在城墙上，超有金陵气韵。"
+    "recommendation": "站上台城能拍到紫峰大厦与玄武湖同框，建议傍晚去，等落日余晖洒在城墙上，超有金陵气韵。",
+    "open_minutes": 510,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9e33310f",
@@ -166,12 +172,14 @@
       "玄武湖"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖景区情侣园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0019067HC",
-    "recommendation": "（注：ID重复，但分类不同，仍按情侣园处理）情侣园适合约会，春日郁金香花田超治愈，记得带块野餐垫。"
+    "recommendation": "（注：ID重复，但分类不同，仍按情侣园处理）情侣园适合约会，春日郁金香花田超治愈，记得带块野餐垫。",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_549ee6fc",
@@ -189,12 +197,14 @@
       "风景名胜"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京城墙景区(神策门至太平门)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001909FV4",
-    "recommendation": "神策门到太平门这段城墙人少景美，可以骑行看城景，推荐从神策门上，顺便打卡原汁原味的城门。"
+    "recommendation": "神策门到太平门这段城墙人少景美，可以骑行看城景，推荐从神策门上，顺便打卡原汁原味的城门。",
+    "open_minutes": 510,
+    "close_minutes": 1020
   },
   {
     "id": "amap_cc7fe175",
@@ -215,12 +225,14 @@
       "红山"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "红山森林动物园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001905DFY",
-    "recommendation": "红山动物园动物都在原生环境里，早点去能赶上小熊猫喂食，记得带望远镜。"
+    "recommendation": "红山动物园动物都在原生环境里，早点去能赶上小熊猫喂食，记得带望远镜。",
+    "open_minutes": 510,
+    "close_minutes": 990
   },
   {
     "id": "amap_9731c610",
@@ -245,7 +257,9 @@
     "description": "南京夫子庙，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190ANHZ",
-    "recommendation": "夫子庙白天拜孔子，晚上逛灯会，科举博物馆和江南贡院值得一看，避开周末人流。"
+    "recommendation": "夫子庙白天拜孔子，晚上逛灯会，科举博物馆和江南贡院值得一看，避开周末人流。",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e554029d",
@@ -264,7 +278,7 @@
       "国家级景点"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "钟山风景名胜区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -290,12 +304,14 @@
       "九华山"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "白马公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190517A",
-    "recommendation": "推荐在玄武区参观白马公园，人气评分4.7"
+    "recommendation": "推荐在玄武区参观白马公园，人气评分4.7",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7f437d99",
@@ -315,7 +331,7 @@
       "梅园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中共代表团梅园新村纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -345,7 +361,9 @@
     "description": "瞻园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190536A",
-    "recommendation": "推荐在秦淮区参观瞻园，人气评分4.7"
+    "recommendation": "推荐在秦淮区参观瞻园，人气评分4.7",
+    "open_minutes": 510,
+    "close_minutes": 1020
   },
   {
     "id": "amap_8f445fbc",
@@ -364,12 +382,14 @@
       "玄武湖"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "太阳宫广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001912D6Z",
-    "recommendation": "太阳宫广场适合城市游览、景点爱好者"
+    "recommendation": "太阳宫广场适合城市游览、景点爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_64bb748d",
@@ -387,12 +407,14 @@
       "风景名胜"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中山陵景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHVEECG",
-    "recommendation": "推荐在玄武区参观中山陵景区，人气评分4.9"
+    "recommendation": "推荐在玄武区参观中山陵景区，人气评分4.9",
+    "open_minutes": 510,
+    "close_minutes": 1020
   },
   {
     "id": "amap_c4d6150b",
@@ -411,12 +433,14 @@
       "世界遗产"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "明孝陵景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFFFKG55",
-    "recommendation": "明孝陵神道石象路秋色一绝，建议清晨去人少，还能听见鸟鸣，感受皇家陵寝的静谧。"
+    "recommendation": "明孝陵神道石象路秋色一绝，建议清晨去人少，还能听见鸟鸣，感受皇家陵寝的静谧。",
+    "open_minutes": 390,
+    "close_minutes": 1110
   },
   {
     "id": "amap_d8581e92",
@@ -436,12 +460,14 @@
       "植物园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京中山植物园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001907K76",
-    "recommendation": "南京中山植物园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "南京中山植物园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_c7eb5760",
@@ -459,7 +485,7 @@
       "风景名胜"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京梧桐大道(陵园路)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -484,7 +510,7 @@
       "九华山"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "武庙遗址(不对外开放)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -508,7 +534,7 @@
       "中华门"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "老门东，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -538,7 +564,9 @@
     "description": "朝天宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190AMPT",
-    "recommendation": "推荐在秦淮区参观朝天宫，人气评分4.7"
+    "recommendation": "推荐在秦淮区参观朝天宫，人气评分4.7",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_9081162e",
@@ -559,12 +587,14 @@
       "玄武湖"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖景区-樱洲，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190BBS8",
-    "recommendation": "玄武湖景区-樱洲适合城市游览、景点爱好者"
+    "recommendation": "玄武湖景区-樱洲适合城市游览、景点爱好者",
+    "open_minutes": 420,
+    "close_minutes": 1260
   },
   {
     "id": "amap_f47bd6dc",
@@ -585,12 +615,14 @@
       "南大"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "鼓楼公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001905178",
-    "recommendation": "鼓楼公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "鼓楼公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1140
   },
   {
     "id": "amap_54f3aaeb",
@@ -610,12 +642,14 @@
       "公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "清凉山公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001905364",
-    "recommendation": "清凉山公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "清凉山公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 360,
+    "close_minutes": 1080
   },
   {
     "id": "amap_5d601f07",
@@ -634,7 +668,7 @@
       "纪念馆"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "侵华日军南京大屠杀遇难同胞纪念馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -658,12 +692,14 @@
       "月牙湖"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京明故宫遗址公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190BC3Q",
-    "recommendation": "明故宫遗址保留着历史的厚重感，推荐黄昏时分去，夕阳下的残垣断壁特别有氛围，记得穿平底鞋走石板路。"
+    "recommendation": "明故宫遗址保留着历史的厚重感，推荐黄昏时分去，夕阳下的残垣断壁特别有氛围，记得穿平底鞋走石板路。",
+    "open_minutes": 390,
+    "close_minutes": 1230
   },
   {
     "id": "amap_f78445ef",
@@ -684,12 +720,14 @@
       "九华山"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "九华山公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190001A",
-    "recommendation": "九华山公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "九华山公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_32754941",
@@ -710,12 +748,14 @@
       "汉中门"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "莫愁湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190BBTX",
-    "recommendation": "莫愁湖公园是南京人的后花园，春天海棠花开得超美，建议带点面包喂湖里的鸳鸯，傍晚散步最惬意。"
+    "recommendation": "莫愁湖公园是南京人的后花园，春天海棠花开得超美，建议带点面包喂湖里的鸳鸯，傍晚散步最惬意。",
+    "open_minutes": 360,
+    "close_minutes": 1260
   },
   {
     "id": "amap_f8d1443f",
@@ -735,12 +775,14 @@
       "公园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "灵谷景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHDXY5Z",
-    "recommendation": "灵谷景区藏着“金陵桂花王”，秋天去满园飘香，还能登灵谷塔俯瞰钟山，记得早点去避开人流。"
+    "recommendation": "灵谷景区藏着“金陵桂花王”，秋天去满园飘香，还能登灵谷塔俯瞰钟山，记得早点去避开人流。",
+    "open_minutes": 390,
+    "close_minutes": 1110
   },
   {
     "id": "amap_8ab2efab",
@@ -762,12 +804,14 @@
       "大行宫"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京利济巷慰安所旧址陈列馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFIWL1DU",
-    "recommendation": "利济巷慰安所旧址展览很震撼，建议预留1-2小时静心参观，出口有留言簿可以写下感悟。"
+    "recommendation": "利济巷慰安所旧址展览很震撼，建议预留1-2小时静心参观，出口有留言簿可以写下感悟。",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_5e2f18e",
@@ -812,7 +856,7 @@
       "玄武湖"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖景区十里长堤，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -838,7 +882,7 @@
       "玄武湖"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖景区-菱洲，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -886,12 +930,14 @@
       "纪念馆"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "美龄宫，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFF0AJVN",
-    "recommendation": "美龄宫里的“远东第一别墅”名不虚传，秋日梧桐环绕时拍照最美，建议下午去光线柔和。"
+    "recommendation": "美龄宫里的“远东第一别墅”名不虚传，秋日梧桐环绕时拍照最美，建议下午去光线柔和。",
+    "open_minutes": 450,
+    "close_minutes": 1050
   },
   {
     "id": "amap_9f217e36",
@@ -911,7 +957,7 @@
       "公园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "琵琶湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -937,12 +983,14 @@
       "虎踞北路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "古林公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190BBS0",
-    "recommendation": "古林公园的牡丹园是南京赏花秘境，4月去最值，园内还有明代古城墙遗迹，记得带广角镜头拍全景。"
+    "recommendation": "古林公园的牡丹园是南京赏花秘境，4月去最值，园内还有明代古城墙遗迹，记得带广角镜头拍全景。",
+    "open_minutes": 390,
+    "close_minutes": 1200
   },
   {
     "id": "amap_6ea80b7b",
@@ -963,7 +1011,7 @@
       "玄武湖"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "莲花广场，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1011,12 +1059,14 @@
       "汉中门"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "乌龙潭公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001905179",
-    "recommendation": "乌龙潭公园适合城市游览、景点爱好者"
+    "recommendation": "乌龙潭公园适合城市游览、景点爱好者",
+    "open_minutes": 360,
+    "close_minutes": 1290
   },
   {
     "id": "amap_cc18f51f",
@@ -1036,12 +1086,14 @@
       "水族馆"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京海底世界，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190827M",
-    "recommendation": "南京海底世界有超长的海底隧道，企鹅喂食秀萌翻全场，建议避开周末，下午2点的海豚表演最精彩。"
+    "recommendation": "南京海底世界有超长的海底隧道，企鹅喂食秀萌翻全场，建议避开周末，下午2点的海豚表演最精彩。",
+    "open_minutes": 510,
+    "close_minutes": 1020
   },
   {
     "id": "amap_b6cd6b1b",
@@ -1062,7 +1114,7 @@
       "玄武湖"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖景区-南京城墙武庙闸，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1086,12 +1138,14 @@
       "玄武湖"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖景区-月季园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001915CTC",
-    "recommendation": "推荐在玄武区参观玄武湖景区-月季园，人气评分4.4"
+    "recommendation": "推荐在玄武区参观玄武湖景区-月季园，人气评分4.4",
+    "open_minutes": 510,
+    "close_minutes": 1080
   },
   {
     "id": "amap_6a7a1e97",
@@ -1112,12 +1166,14 @@
       "高楼门"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "北极阁公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190BBVD",
-    "recommendation": "北极阁是城中秘境，爬上小坡能俯瞰鸡鸣寺和紫峰大厦，清晨去人少空气好。"
+    "recommendation": "北极阁是城中秘境，爬上小坡能俯瞰鸡鸣寺和紫峰大厦，清晨去人少空气好。",
+    "open_minutes": 540,
+    "close_minutes": 960
   },
   {
     "id": "amap_341042f1",
@@ -1137,7 +1193,7 @@
       "中华门"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中华门，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1161,12 +1217,14 @@
       "中华门"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大报恩寺遗址景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGYKCUJ",
-    "recommendation": "大报恩寺遗址的琉璃塔拱门超震撼，地宫里的感应佛灯很有禅意，建议晚上去，光影秀效果比白天更惊艳。"
+    "recommendation": "大报恩寺遗址的琉璃塔拱门超震撼，地宫里的感应佛灯很有禅意，建议晚上去，光影秀效果比白天更惊艳。",
+    "open_minutes": 510,
+    "close_minutes": 1215
   },
   {
     "id": "amap_73fa0223",
@@ -1211,7 +1269,7 @@
       "中央路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "明城墙公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1234,12 +1292,14 @@
       "风景名胜"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "钟山风景名胜区-紫金山索道，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001904B8B",
-    "recommendation": "坐索道上山省力又浪漫，俯瞰钟山全貌；建议傍晚坐，看落日余晖洒遍山林。"
+    "recommendation": "坐索道上山省力又浪漫，俯瞰钟山全貌；建议傍晚坐，看落日余晖洒遍山林。",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_525febb2",
@@ -1260,7 +1320,7 @@
       "夫子庙"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "白鹭洲公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1285,12 +1345,14 @@
       "草场门"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京国防园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190513A",
-    "recommendation": "军事迷别错过！退役飞机大炮随便摸；带娃来能涨知识，还能玩真人CS。"
+    "recommendation": "军事迷别错过！退役飞机大炮随便摸；带娃来能涨知识，还能玩真人CS。",
+    "open_minutes": 360,
+    "close_minutes": 1080
   },
   {
     "id": "amap_e669f1a4",
@@ -1310,12 +1372,14 @@
       "植物园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京中山植物园北园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0IARCAYW5",
-    "recommendation": "植物控的天堂，北园有罕见温室植物；春天郁金香开成海，记得穿浅色衣服拍照。"
+    "recommendation": "植物控的天堂，北园有罕见温室植物；春天郁金香开成海，记得穿浅色衣服拍照。",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_c3e9cc4c",
@@ -1335,12 +1399,14 @@
       "建宁路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "阅江楼景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001905325",
-    "recommendation": "登楼远眺长江大桥，气势磅礴；推荐夕阳时分去，江面金光闪闪超震撼。"
+    "recommendation": "登楼远眺长江大桥，气势磅礴；推荐夕阳时分去，江面金光闪闪超震撼。",
+    "open_minutes": 480,
+    "close_minutes": 1050
   },
   {
     "id": "amap_f93dc446",
@@ -1360,12 +1426,14 @@
       "湖南路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "基督教江苏路堂，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001906PB9",
-    "recommendation": "藏在胡同里的百年教堂，哥特式尖顶超美；周日有唱诗班，适合安静发呆。"
+    "recommendation": "藏在胡同里的百年教堂，哥特式尖顶超美；周日有唱诗班，适合安静发呆。",
+    "open_minutes": 510,
+    "close_minutes": 600
   },
   {
     "id": "amap_5d132874",
@@ -1391,7 +1459,9 @@
     "description": "甘熙宅第，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190BGYQ",
-    "recommendation": "推荐在秦淮区参观甘熙宅第，人气评分4.6"
+    "recommendation": "推荐在秦淮区参观甘熙宅第，人气评分4.6",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_ba57c513",
@@ -1412,12 +1482,14 @@
       "苜蓿园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "月牙湖公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190BC3R",
-    "recommendation": "月牙湖公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "月牙湖公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 480,
+    "close_minutes": 1020
   },
   {
     "id": "amap_be37f2ce",
@@ -1435,7 +1507,7 @@
       "风景名胜"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "台菱桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1458,12 +1530,14 @@
       "风景名胜"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "梅花山，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001905156",
-    "recommendation": "早春赏梅圣地，梅花品种超多；2月去最好，满山粉白，拍照自带滤镜。"
+    "recommendation": "早春赏梅圣地，梅花品种超多；2月去最好，满山粉白，拍照自带滤镜。",
+    "open_minutes": 390,
+    "close_minutes": 1080
   },
   {
     "id": "amap_8343d25d",
@@ -1481,12 +1555,14 @@
       "风景名胜"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "明孝陵景区-明孝陵，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFHE3I6U",
-    "recommendation": "朱元璋的陵墓，神道石像生超有气势；秋天银杏铺路，像走进历史画卷。"
+    "recommendation": "朱元璋的陵墓，神道石像生超有气势；秋天银杏铺路，像走进历史画卷。",
+    "open_minutes": 390,
+    "close_minutes": 1110
   },
   {
     "id": "amap_8fdd1a91",
@@ -1507,12 +1583,14 @@
       "红山"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "红山森林动物园-南京熊猫馆，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG2PZI8",
-    "recommendation": "国宝熊猫的豪华别墅，看它们啃竹子超解压；建议上午去，熊猫更活跃。"
+    "recommendation": "国宝熊猫的豪华别墅，看它们啃竹子超解压；建议上午去，熊猫更活跃。",
+    "open_minutes": 510,
+    "close_minutes": 990
   },
   {
     "id": "amap_4a80aa2e",
@@ -1530,7 +1608,7 @@
       "风景名胜"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "头陀岭景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1556,7 +1634,7 @@
       "中央路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "大钟亭公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1579,12 +1657,14 @@
       "风景名胜"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "梅花谷公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001906YDM",
-    "recommendation": "梅花谷公园适合城市游览、景点爱好者"
+    "recommendation": "梅花谷公园适合城市游览、景点爱好者",
+    "open_minutes": 390,
+    "close_minutes": 1110
   },
   {
     "id": "amap_6df820d0",
@@ -1605,12 +1685,14 @@
       "建宁路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "狮子山风景区，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFGRP6PT",
-    "recommendation": "爬到狮子山顶可以看长江大桥和阅江楼，建议选个能"
+    "recommendation": "爬到狮子山顶可以看长江大桥和阅江楼，建议选个能",
+    "open_minutes": 510,
+    "close_minutes": 1080
   },
   {
     "id": "amap_a4c3a7bb",
@@ -1634,7 +1716,9 @@
     "description": "愚园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0019169OY",
-    "recommendation": "愚园适合城市游览、景点爱好者"
+    "recommendation": "愚园适合城市游览、景点爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_110ae594",
@@ -1653,12 +1737,14 @@
       "夫子庙"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中国科举博物馆(江南贡院)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0KUO6U0QZ",
-    "recommendation": "中国科举博物馆(江南贡院)适合城市游览、景点爱好者"
+    "recommendation": "中国科举博物馆(江南贡院)适合城市游览、景点爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4a127773",
@@ -1677,7 +1763,7 @@
       "玄武湖"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖景区-翠洲，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1701,7 +1787,7 @@
       "九华山"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京城墙太平门登城口，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1727,12 +1813,14 @@
       "中央门"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "神策门公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001904615",
-    "recommendation": "神策门公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "神策门公园是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 510,
+    "close_minutes": 1020
   },
   {
     "id": "amap_7f308bc2",
@@ -1774,7 +1862,7 @@
       "玄武湖"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖景区-梁洲，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1799,12 +1887,14 @@
       "梅园"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "国立美术陈列馆旧址，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B00190ANNJ",
-    "recommendation": "推荐在玄武区参观国立美术陈列馆旧址，人气评分4.3"
+    "recommendation": "推荐在玄武区参观国立美术陈列馆旧址，人气评分4.3",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_d14e3ca9",
@@ -1824,7 +1914,7 @@
       "旅游景点"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "钟山风景名胜区-紫金山顶，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1850,7 +1940,7 @@
       "玄武湖"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "芳桥，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1876,12 +1966,14 @@
       "玄武湖"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "沃普·玄武湖探险营地 (Welope Camp 玄武湖)，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0G2Z5F4AE",
-    "recommendation": "玄武湖畔的户外探险乐园，适合带娃放电或团队拓展，提前预约更省心。"
+    "recommendation": "玄武湖畔的户外探险乐园，适合带娃放电或团队拓展，提前预约更省心。",
+    "open_minutes": 480,
+    "close_minutes": 1080
   },
   {
     "id": "amap_9e449d69",
@@ -1903,12 +1995,14 @@
       "草场门"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京石头城遗址公园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0H017SB12",
-    "recommendation": "南京石头城遗址公园适合城市游览、景点爱好者"
+    "recommendation": "南京石头城遗址公园适合城市游览、景点爱好者",
+    "open_minutes": 360,
+    "close_minutes": 1080
   },
   {
     "id": "amap_25a30231",
@@ -1927,12 +2021,14 @@
       "寺庙道观"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "灵谷寺，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B001909G6F",
-    "recommendation": "千年古刹，夏天萤火虫飞舞"
+    "recommendation": "千年古刹，夏天萤火虫飞舞",
+    "open_minutes": 480,
+    "close_minutes": 990
   },
   {
     "id": "amap_574cb070",
@@ -1953,7 +2049,7 @@
       "红山"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "红山森林动物园-新虎园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -1979,7 +2075,7 @@
       "玄武湖"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖公园-台菱堤，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
@@ -2005,12 +2101,14 @@
       "月牙湖"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京博物院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001907TGR",
-    "recommendation": "南京博物院适合城市游览、历史文化爱好者"
+    "recommendation": "南京博物院适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_8fa75559",
@@ -2036,7 +2134,9 @@
     "description": "南京市博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00190B8ZD",
-    "recommendation": "推荐在秦淮区参观南京市博物馆，人气评分4.7"
+    "recommendation": "推荐在秦淮区参观南京市博物馆，人气评分4.7",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_c66df8b6",
@@ -2057,12 +2157,14 @@
       "安德门"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京民间抗日战争博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00190ADV8",
-    "recommendation": "南京民间抗日战争博物馆适合城市游览、历史文化爱好者"
+    "recommendation": "南京民间抗日战争博物馆适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 960
   },
   {
     "id": "amap_32014ed9",
@@ -2083,12 +2185,14 @@
       "九华山"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京古生物博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001906KX9",
-    "recommendation": "推荐在玄武区参观南京古生物博物馆，人气评分4.7"
+    "recommendation": "推荐在玄武区参观南京古生物博物馆，人气评分4.7",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_bd57c9cc",
@@ -2110,12 +2214,14 @@
       "玄武湖"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京国际展览中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00190BC3W",
-    "recommendation": "常有大展和漫展的宝藏馆，提前查好档期再去，逛完还能去玄武湖散步消食。"
+    "recommendation": "常有大展和漫展的宝藏馆，提前查好档期再去，逛完还能去玄武湖散步消食。",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_3954b43a",
@@ -2137,12 +2243,14 @@
       "高楼门"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京世界文学客厅，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0IBZZ4ZUG",
-    "recommendation": "推荐在玄武区参观南京世界文学客厅，人气评分4.6"
+    "recommendation": "推荐在玄武区参观南京世界文学客厅，人气评分4.6",
+    "open_minutes": 570,
+    "close_minutes": 990
   },
   {
     "id": "amap_368fc2f5",
@@ -2164,12 +2272,14 @@
       "大行宫"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京图书馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00190B67M",
-    "recommendation": "南京图书馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "南京图书馆是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_2e0a3fb0",
@@ -2192,12 +2302,14 @@
       "南大"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江苏省广播电视总台(集团)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001908WA3",
-    "recommendation": "推荐在玄武区参观江苏省广播电视总台(集团)，人气评分0.0"
+    "recommendation": "推荐在玄武区参观江苏省广播电视总台(集团)，人气评分0.0",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_bbcbf602",
@@ -2223,7 +2335,9 @@
     "description": "六朝博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0019135C5",
-    "recommendation": "六朝博物馆适合城市游览、历史文化爱好者"
+    "recommendation": "六朝博物馆适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_23330c5",
@@ -2250,7 +2364,9 @@
     "description": "南京市规划建设展览馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001906LDF",
-    "recommendation": "推荐在玄武区参观南京市规划建设展览馆，人气评分4.7"
+    "recommendation": "推荐在玄武区参观南京市规划建设展览馆，人气评分4.7",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_bc96955a",
@@ -2299,7 +2415,7 @@
       "梅园"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江苏省会议中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2326,12 +2442,14 @@
       "玄武湖"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "武庙闸展览馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFMA0FRZ",
-    "recommendation": "武庙闸展览馆适合城市游览、历史文化爱好者"
+    "recommendation": "武庙闸展览馆适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 990
   },
   {
     "id": "amap_12e455a9",
@@ -2352,12 +2470,14 @@
       "大行宫"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江宁织造博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B001911KPA",
-    "recommendation": "江宁织造博物馆适合城市游览、历史文化爱好者"
+    "recommendation": "江宁织造博物馆适合城市游览、历史文化爱好者",
+    "open_minutes": 540,
+    "close_minutes": 1050
   },
   {
     "id": "amap_798a9abf",
@@ -2379,12 +2499,14 @@
       "大行宫"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江苏省美术馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00190D1I8",
-    "recommendation": "免费看大师真迹的好地方，近期有特展的话别错过，馆内旋转楼梯超适合拍照。"
+    "recommendation": "免费看大师真迹的好地方，近期有特展的话别错过，馆内旋转楼梯超适合拍照。",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_f2e78bd0",
@@ -2406,7 +2528,7 @@
       "樱驼花园"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中国医学科学院皮肤病医院(研究所)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
@@ -2438,7 +2560,9 @@
     "description": "南京文化艺术中心，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0019079MI",
-    "recommendation": "南京文化艺术中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "南京文化艺术中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 630,
+    "close_minutes": 900
   },
   {
     "id": "amap_f46b1583",
@@ -2459,12 +2583,14 @@
       "新街口"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "德基艺术博物馆(德基广场二期店)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0K2JNZED0",
-    "recommendation": "德基艺术博物馆(德基广场二期店)适合城市游览、历史文化爱好者"
+    "recommendation": "德基艺术博物馆(德基广场二期店)适合城市游览、历史文化爱好者",
+    "open_minutes": 720,
+    "close_minutes": 0
   },
   {
     "id": "amap_112fbb15",
@@ -2486,12 +2612,14 @@
       "新街口"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京市文化馆(长江路)，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0FFGSN91X",
-    "recommendation": "长江路上文化宝地，常有免费展览和活动。出发前查官网节目单，周末或许能遇上非遗体验。"
+    "recommendation": "长江路上文化宝地，常有免费展览和活动。出发前查官网节目单，周末或许能遇上非遗体验。",
+    "open_minutes": 540,
+    "close_minutes": 1140
   },
   {
     "id": "amap_d38163f8",
@@ -2517,7 +2645,9 @@
     "description": "南京地质博物馆，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B00190BD4M",
-    "recommendation": "带孩子来认识地质宝藏吧！馆藏恐龙化石超震撼，免费开放，建议预留2小时慢慢逛。"
+    "recommendation": "带孩子来认识地质宝藏吧！馆藏恐龙化石超震撼，免费开放，建议预留2小时慢慢逛。",
+    "open_minutes": 570,
+    "close_minutes": 960
   },
   {
     "id": "amap_21cf2a07",
@@ -2538,7 +2668,7 @@
       "公园广场"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京鱼嘴湿地公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2565,12 +2695,14 @@
       "江北新区"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京青奥体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFFA24Z8",
-    "recommendation": "推荐在浦口区参观南京青奥体育公园，人气评分4.9"
+    "recommendation": "推荐在浦口区参观南京青奥体育公园，人气评分4.9",
+    "open_minutes": 480,
+    "close_minutes": 1410
   },
   {
     "id": "amap_a460a7e7",
@@ -2592,12 +2724,14 @@
       "徐庄软件园"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京聚宝山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00190ZDUG",
-    "recommendation": "推荐在玄武区参观南京聚宝山公园，人气评分4.6"
+    "recommendation": "推荐在玄武区参观南京聚宝山公园，人气评分4.6",
+    "open_minutes": 360,
+    "close_minutes": 1380
   },
   {
     "id": "amap_d1387ac4",
@@ -2619,7 +2753,7 @@
       "九华山"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "和平公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2646,7 +2780,7 @@
       "锁金村"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "营盘山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2674,7 +2808,7 @@
       "玄武湖"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武湖公园-花卉园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2701,7 +2835,7 @@
       "梅园"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "511公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2728,12 +2862,14 @@
       "夫子庙"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "东水关遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00190B58H",
-    "recommendation": "推荐在秦淮区参观东水关遗址公园，人气评分4.5"
+    "recommendation": "推荐在秦淮区参观东水关遗址公园，人气评分4.5",
+    "open_minutes": 540,
+    "close_minutes": 1020
   },
   {
     "id": "amap_e9ff7a44",
@@ -2754,7 +2890,7 @@
       "公园广场"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "中山门入口公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2781,7 +2917,7 @@
       "城市广场"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "山顶公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2808,7 +2944,7 @@
       "卫岗"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "下马坊遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2835,7 +2971,7 @@
       "红山"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京市花卉公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2862,7 +2998,7 @@
       "大光路"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "明御河公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2889,7 +3025,7 @@
       "大光路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "永银体育公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2916,12 +3052,14 @@
       "挹江门"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "小桃园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B00190BTV1",
-    "recommendation": "小桃园适合城市游览、公园爱好者"
+    "recommendation": "小桃园适合城市游览、公园爱好者",
+    "open_minutes": 390,
+    "close_minutes": 870
   },
   {
     "id": "amap_bb1f93ec",
@@ -2943,7 +3081,7 @@
       "汉中门"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "正大园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2970,7 +3108,7 @@
       "阅江楼"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "绣球公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -2997,7 +3135,7 @@
       "升州路"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "建邺路滨河游园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3024,7 +3162,7 @@
       "月牙湖"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "柳树湾文化公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3051,7 +3189,7 @@
       "秦虹"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "武定门公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3078,7 +3216,7 @@
       "湖南路"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万荣园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3105,7 +3243,7 @@
       "中华门"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "东干长巷公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3132,12 +3270,14 @@
       "梅园"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "香铺花园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0IKPHYH8S",
-    "recommendation": "香铺花园藏在闹市里，梅花季超美！建议傍晚去，人少光线柔，拍照很出片。"
+    "recommendation": "香铺花园藏在闹市里，梅花季超美！建议傍晚去，人少光线柔，拍照很出片。",
+    "open_minutes": 540,
+    "close_minutes": 1140
   },
   {
     "id": "amap_c624856f",
@@ -3159,12 +3299,14 @@
       "阅江楼"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "下关西火车主题街区(南京店)，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0FFII9RY8",
-    "recommendation": "推荐在鼓楼区参观下关西火车主题街区(南京店)，人气评分4.6"
+    "recommendation": "推荐在鼓楼区参观下关西火车主题街区(南京店)，人气评分4.6",
+    "open_minutes": 600,
+    "close_minutes": 1200
   },
   {
     "id": "amap_1cf7f042",
@@ -3186,7 +3328,7 @@
       "月牙湖"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "西玉带河水系流域花园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3213,7 +3355,7 @@
       "梅园"
     ],
     "popularity": 3.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "解放路口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3240,7 +3382,7 @@
       "挹江门"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "八字山公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3267,7 +3409,7 @@
       "夫子庙"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "武定门北园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3294,7 +3436,7 @@
       "夫子庙"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "太白遗址公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3321,7 +3463,7 @@
       "植物园"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "明孝陵生态湿地，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3348,7 +3490,7 @@
       "板仓村"
     ],
     "popularity": 3.1,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3375,7 +3517,7 @@
       "秦虹"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "雅居乐公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3402,7 +3544,7 @@
       "月牙湖"
     ],
     "popularity": 3.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京航空航天大学(明故宫校区)御园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3428,7 +3570,7 @@
       "公园广场"
     ],
     "popularity": 4.4,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万景园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3455,7 +3597,7 @@
       "南大"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "牛顿公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3482,7 +3624,7 @@
       "红山"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "十字杉林公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3509,7 +3651,7 @@
       "江北新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "桥北滨江生态公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3536,7 +3678,7 @@
       "宁南"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "花神湖公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3563,7 +3705,7 @@
       "幕府西路"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "水关桥青年广场，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3590,12 +3732,14 @@
       "江北新区"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "浦口公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001905328",
-    "recommendation": "推荐在浦口区参观浦口公园，人气评分4.6"
+    "recommendation": "推荐在浦口区参观浦口公园，人气评分4.6",
+    "open_minutes": 480,
+    "close_minutes": 360
   },
   {
     "id": "amap_128d5221",
@@ -3617,7 +3761,7 @@
       "江北新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "扬子江生态公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3643,12 +3787,14 @@
       "公园广场"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京中国绿化博览园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B001908WFY",
-    "recommendation": "绿植迷宫和温室花园是拍照宝地，春季郁金香展必打卡。带娃的话别忘了去儿童沙坑。"
+    "recommendation": "绿植迷宫和温室花园是拍照宝地，春季郁金香展必打卡。带娃的话别忘了去儿童沙坑。",
+    "open_minutes": 510,
+    "close_minutes": 1050
   },
   {
     "id": "amap_fabdda1a",
@@ -3670,7 +3816,7 @@
       "红山"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "言和路健康主题公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3697,12 +3843,14 @@
       "汉中门"
     ],
     "popularity": 3.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "棠芳阆苑，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
     "source_id": "B0I1YM6QHQ",
-    "recommendation": "棠芳阆苑是当地热门景点，建议游览90分钟左右"
+    "recommendation": "棠芳阆苑是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 630,
+    "close_minutes": 1200
   },
   {
     "id": "amap_8e5baa8d",
@@ -3723,7 +3871,7 @@
       "公园广场"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江心洲口袋公园，来自高德 Web 服务 POI 搜索；分类：公园与户外。",
     "source": "amap",
@@ -3751,7 +3899,7 @@
       "江浦"
     ],
     "popularity": 3.2,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "凤凰大街商圈，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3779,7 +3927,7 @@
       "麒麟门"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京江宁宝龙广场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3812,7 +3960,9 @@
     "description": "南京新百A座，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFLAIJ44",
-    "recommendation": "新街口核心老牌商场，品牌齐全，扫货必去！建议避开中午用餐高峰。"
+    "recommendation": "新街口核心老牌商场，品牌齐全，扫货必去！建议避开中午用餐高峰。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_66f4b337",
@@ -3834,12 +3984,14 @@
       "新街口"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "商茂世纪广场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0019073XH",
-    "recommendation": "新街口老牌商场，地下美食街卧虎藏龙。周末折扣多，逛街累了去顶层露台看城市天际线。"
+    "recommendation": "新街口老牌商场，地下美食街卧虎藏龙。周末折扣多，逛街累了去顶层露台看城市天际线。",
+    "open_minutes": 510,
+    "close_minutes": 1350
   },
   {
     "id": "amap_a3c5f500",
@@ -3861,12 +4013,14 @@
       "江北新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京弘阳广场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B00190ZCXV",
-    "recommendation": "江北的巨型综合体，有室内摩天轮"
+    "recommendation": "江北的巨型综合体，有室内摩天轮",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_550f1946",
@@ -3888,7 +4042,7 @@
       "铁心桥"
     ],
     "popularity": 3.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "托乐嘉购物小镇(乐尚天地店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
@@ -3916,12 +4070,14 @@
       "中央商场"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "小米之家(南京建邺区河西中央专卖店)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0K39DENU3",
-    "recommendation": "推荐在建邺区参观小米之家(南京建邺区河西中央专卖店)，人气评分3.9"
+    "recommendation": "推荐在建邺区参观小米之家(南京建邺区河西中央专卖店)，人气评分3.9",
+    "open_minutes": 630,
+    "close_minutes": 1200
   },
   {
     "id": "amap_d9218f09",
@@ -3943,12 +4099,14 @@
       "麒麟门"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "宇业·东方红郡天赋广场，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
     "source": "amap",
     "source_id": "B0FFF032JI",
-    "recommendation": "宇业·东方红郡天赋广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "宇业·东方红郡天赋广场是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_1c658a93",
@@ -3974,7 +4132,9 @@
     "description": "鸡鸣汤包(南京总店)南京菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFF3AKNC",
-    "recommendation": "皮薄汁多的经典汤包，咬开小心烫嘴！推荐搭配"
+    "recommendation": "皮薄汁多的经典汤包，咬开小心烫嘴！推荐搭配",
+    "open_minutes": 510,
+    "close_minutes": 1290
   },
   {
     "id": "amap_d5278e48",
@@ -3996,12 +4156,14 @@
       "夫子庙"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "烟雨枕河·巷子里的南京菜(夫子庙白鹭洲公园西门灯会店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K0CHDIPX",
-    "recommendation": "在秦淮区觅食推荐烟雨枕河·巷子里的南京菜(夫子庙白鹭洲公园西门灯会店)，性价比不错"
+    "recommendation": "在秦淮区觅食推荐烟雨枕河·巷子里的南京菜(夫子庙白鹭洲公园西门灯会店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_cfa446d9",
@@ -4022,7 +4184,7 @@
       "安德门"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "金陵后厨·南京菜(雨花客厅店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
@@ -4048,12 +4210,14 @@
       "夫子庙"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "醉枕河·蟹黄面·南京菜(夫子庙店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LGCSMKFY",
-    "recommendation": "醉枕河·蟹黄面·南京菜(夫子庙店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "醉枕河·蟹黄面·南京菜(夫子庙店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1380
   },
   {
     "id": "amap_d100a4c8",
@@ -4075,12 +4239,14 @@
       "板仓村"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "傻根·小渔村·市井南京菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K3DUQ0F7",
-    "recommendation": "傻根·小渔村·市井南京菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "傻根·小渔村·市井南京菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_df954e65",
@@ -4102,12 +4268,14 @@
       "紫荆广场"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "福味家宴·南京菜·鱼鲜(雨花东路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K24AHL7A",
-    "recommendation": "福味家宴·南京菜·鱼鲜(雨花东路店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "福味家宴·南京菜·鱼鲜(雨花东路店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_5d7db1d3",
@@ -4128,12 +4296,14 @@
       "新街口"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "十朝院子·南京菜(新街口店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKU6XU1",
-    "recommendation": "十朝院子·南京菜(新街口店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "十朝院子·南京菜(新街口店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_41479a2b",
@@ -4154,12 +4324,14 @@
       "孝陵卫"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "应天大明王朝南京菜(中山陵店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFMFT773",
-    "recommendation": "应天大明王朝南京菜(中山陵店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "应天大明王朝南京菜(中山陵店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1260
   },
   {
     "id": "amap_1c794082",
@@ -4181,12 +4353,14 @@
       "孝陵卫"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "褚记烤鸭·南京家常菜(小卫街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGCB7SE",
-    "recommendation": "在玄武区觅食推荐褚记烤鸭·南京家常菜(小卫街店)，性价比不错"
+    "recommendation": "在玄武区觅食推荐褚记烤鸭·南京家常菜(小卫街店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_3e354c66",
@@ -4207,12 +4381,14 @@
       "双龙大道"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老南京南京菜(竹山路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K1246BE2",
-    "recommendation": "老南京南京菜(竹山路店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "老南京南京菜(竹山路店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_392c65ce",
@@ -4234,12 +4410,14 @@
       "安德门"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "褚记烤鸭·南京家常菜(雨花客厅店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JK1HHMX0",
-    "recommendation": "褚记烤鸭·南京家常菜(雨花客厅店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "褚记烤鸭·南京家常菜(雨花客厅店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_86b4adae",
@@ -4260,12 +4438,14 @@
       "大学城"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老南京南京菜(南广店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K60H32RE",
-    "recommendation": "在江宁区觅食推荐老南京南京菜(南广店)，性价比不错"
+    "recommendation": "在江宁区觅食推荐老南京南京菜(南广店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_53523d3a",
@@ -4286,12 +4466,14 @@
       "南苑"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "陈香汇·陈年香味南京菜(南湖店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LUVHEAYY",
-    "recommendation": "陈香汇·陈年香味南京菜(南湖店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "陈香汇·陈年香味南京菜(南湖店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_1d1b1ac",
@@ -4312,12 +4494,14 @@
       "夫子庙"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老盛庆排档•南京菜(夫子庙店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0JKP5VYLN",
-    "recommendation": "在秦淮区觅食推荐老盛庆排档•南京菜(夫子庙店)，性价比不错"
+    "recommendation": "在秦淮区觅食推荐老盛庆排档•南京菜(夫子庙店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1410
   },
   {
     "id": "amap_7e2329f9",
@@ -4343,7 +4527,9 @@
     "description": "南京沉香鸭馆·盐水鸭(山西路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J6SZ2W1S",
-    "recommendation": "正宗南京盐水鸭，肉质鲜嫩不腻，推荐真空包装带一只回家当伴手礼。"
+    "recommendation": "正宗南京盐水鸭，肉质鲜嫩不腻，推荐真空包装带一只回家当伴手礼。",
+    "open_minutes": 480,
+    "close_minutes": 1200
   },
   {
     "id": "amap_1eb45a54",
@@ -4369,7 +4555,9 @@
     "description": "古都历食南京菜(中山陵店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K0HMD6RU",
-    "recommendation": "古都历食南京菜(中山陵店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "古都历食南京菜(中山陵店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 570,
+    "close_minutes": 1260
   },
   {
     "id": "amap_f972233d",
@@ -4395,7 +4583,9 @@
     "description": "颂食记南京小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L2OMV6W1",
-    "recommendation": "颂食记南京小吃是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "颂食记南京小吃是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_e89270dc",
@@ -4417,12 +4607,14 @@
       "夫子庙"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "老门东老谢家南京菜(夫子庙店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LDZDN8L5",
-    "recommendation": "老门东老谢家南京菜(夫子庙店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "老门东老谢家南京菜(夫子庙店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_2855b01b",
@@ -4448,7 +4640,9 @@
     "description": "江南春小吃部(南湾营店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG50YWX",
-    "recommendation": "在栖霞区觅食推荐江南春小吃部(南湾营店)，性价比不错"
+    "recommendation": "在栖霞区觅食推荐江南春小吃部(南湾营店)，性价比不错",
+    "open_minutes": 330,
+    "close_minutes": 1200
   },
   {
     "id": "amap_8b3e643",
@@ -4470,12 +4664,14 @@
       "铁心桥"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "春江新城·南京菜·鱼鲜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LG2HDXDI",
-    "recommendation": "在雨花台区觅食推荐春江新城·南京菜·鱼鲜，性价比不错"
+    "recommendation": "在雨花台区觅食推荐春江新城·南京菜·鱼鲜，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_76541970",
@@ -4501,7 +4697,9 @@
     "description": "擀擀面皮菜煎饼(托乐嘉店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGT9KRJ",
-    "recommendation": "擀擀面皮菜煎饼(托乐嘉店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "擀擀面皮菜煎饼(托乐嘉店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 510,
+    "close_minutes": 1290
   },
   {
     "id": "amap_4c28c1b5",
@@ -4548,12 +4746,14 @@
       "夫子庙"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "江南小院·南京菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L23A4163",
-    "recommendation": "江南小院·南京菜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "江南小院·南京菜是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_1050edf5",
@@ -4574,12 +4774,14 @@
       "孝陵卫"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "悦金陵·南京菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFMGPGZO",
-    "recommendation": "来南京必尝地道淮扬风味，推荐必点软兜长鱼和狮子头，错过饭点去更清净哦！"
+    "recommendation": "来南京必尝地道淮扬风味，推荐必点软兜长鱼和狮子头，错过饭点去更清净哦！",
+    "open_minutes": 630,
+    "close_minutes": 810
   },
   {
     "id": "amap_6450fd7e",
@@ -4601,12 +4803,14 @@
       "夫子庙"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "晚晴楼·南京菜(夫子庙大成殿店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B00190B3WE",
-    "recommendation": "在秦淮区觅食推荐晚晴楼·南京菜(夫子庙大成殿店)，性价比不错"
+    "recommendation": "在秦淮区觅食推荐晚晴楼·南京菜(夫子庙大成殿店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 840
   },
   {
     "id": "amap_e2cc8021",
@@ -4654,12 +4858,14 @@
       "大行宫"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "科巷以北·南京家常菜·小吃大排档(长发中心CFC商业广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LGUZCY44",
-    "recommendation": "在秦淮区觅食推荐科巷以北·南京家常菜·小吃大排档(长发中心CFC商业广场店)，性价比不错"
+    "recommendation": "在秦淮区觅食推荐科巷以北·南京家常菜·小吃大排档(长发中心CFC商业广场店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8b40d9dc",
@@ -4681,12 +4887,14 @@
       "夫子庙"
     ],
     "popularity": 4.1,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "乌衣人家南京菜，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K1TUVBLT",
-    "recommendation": "在秦淮区觅食推荐乌衣人家南京菜，性价比不错"
+    "recommendation": "在秦淮区觅食推荐乌衣人家南京菜，性价比不错",
+    "open_minutes": 540,
+    "close_minutes": 1380
   },
   {
     "id": "amap_946eb090",
@@ -4707,12 +4915,14 @@
       "汉中门"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "馨方园食府·市井老南京菜(南京总店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFH8NOT0",
-    "recommendation": "老南京人私藏的市井菜馆，招牌什锦豆腐盒一绝，记得提前预约避免排队。"
+    "recommendation": "老南京人私藏的市井菜馆，招牌什锦豆腐盒一绝，记得提前预约避免排队。",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_886043f2",
@@ -4739,7 +4949,9 @@
     "description": "沙县小吃(华天菜市场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KUORWT52",
-    "recommendation": "在高淳区觅食推荐沙县小吃(华天菜市场店)，性价比不错"
+    "recommendation": "在高淳区觅食推荐沙县小吃(华天菜市场店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b7777e05",
@@ -4765,7 +4977,9 @@
     "description": "谷田稻香·砂锅菜(南京雨花吾悦广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LKAS89Y3",
-    "recommendation": "谷田稻香砂锅菜性价比超高，招牌牛腩煲必点！饭点人多，建议提前半小时去占座。"
+    "recommendation": "谷田稻香砂锅菜性价比超高，招牌牛腩煲必点！饭点人多，建议提前半小时去占座。",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_fc57fda8",
@@ -4817,7 +5031,9 @@
     "description": "苏北小吃店(尧化菜市场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HD9L27QU",
-    "recommendation": "在栖霞区觅食推荐苏北小吃店(尧化菜市场店)，性价比不错"
+    "recommendation": "在栖霞区觅食推荐苏北小吃店(尧化菜市场店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a06b54e1",
@@ -4843,7 +5059,9 @@
     "description": "满堂春菜面馆(南京酿造公司七里街96号168小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KD5MSQ3X",
-    "recommendation": "满堂春菜面馆(南京酿造公司七里街96号168小区店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "满堂春菜面馆(南京酿造公司七里街96号168小区店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 840
   },
   {
     "id": "amap_858c90c6",
@@ -4864,12 +5082,14 @@
       "后标营"
     ],
     "popularity": 4.6,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "小厨娘淮扬菜 (南京博物院月牙湖店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J3XU0PXK",
-    "recommendation": "小厨娘淮扬菜 (南京博物院月牙湖店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "小厨娘淮扬菜 (南京博物院月牙湖店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 840
   },
   {
     "id": "amap_fd560fad",
@@ -4896,7 +5116,9 @@
     "description": "阿蛮菜煎饼卷饼(南京大学店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J1RPI3KN",
-    "recommendation": "阿蛮菜煎饼卷饼(南京大学店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "阿蛮菜煎饼卷饼(南京大学店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 450,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ca94c859",
@@ -4917,12 +5139,14 @@
       "江北新区"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "南京大牌档(长江大桥印象汇店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIGHVUO",
-    "recommendation": "南京大牌档(长江大桥印象汇店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "南京大牌档(长江大桥印象汇店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 660,
+    "close_minutes": 870
   },
   {
     "id": "amap_4c7366a",
@@ -4949,7 +5173,9 @@
     "description": "沙县小吃(南京将军大道河海大学锦江都城酒店店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFS6FSS",
-    "recommendation": "沙县小吃(南京将军大道河海大学锦江都城酒店店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "沙县小吃(南京将军大道河海大学锦江都城酒店店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9d23104e",
@@ -4975,7 +5201,9 @@
     "description": "沙县小吃(南京第55店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFK6I700",
-    "recommendation": "在浦口区觅食推荐沙县小吃(南京第55店)，性价比不错"
+    "recommendation": "在浦口区觅食推荐沙县小吃(南京第55店)，性价比不错",
+    "open_minutes": 480,
+    "close_minutes": 1230
   },
   {
     "id": "amap_7a3ce32e",
@@ -5001,7 +5229,9 @@
     "description": "崔姐小吃(东井村小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J1PS1V51",
-    "recommendation": "崔姐小吃(东井村小区店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "崔姐小吃(东井村小区店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 360,
+    "close_minutes": 1170
   },
   {
     "id": "amap_eb706c28",
@@ -5027,7 +5257,9 @@
     "description": "芳姐重庆名小吃(五福街店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GKXRG350",
-    "recommendation": "芳姐重庆名小吃(五福街店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "芳姐重庆名小吃(五福街店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_58bc2fe8",
@@ -5049,12 +5281,14 @@
       "大学城"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "泡红枣新疆特色小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFKNGMBH",
-    "recommendation": "泡红枣新疆特色小吃是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "泡红枣新疆特色小吃是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1230
   },
   {
     "id": "amap_6871e9b1",
@@ -5081,7 +5315,9 @@
     "description": "芳姐重庆名小吃(公园新寓店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H1MRYXA2",
-    "recommendation": "麻辣控别错过！他们家的酸辣粉配冰汤圆解辣绝了，喜欢重口味的建议加双倍辣。"
+    "recommendation": "麻辣控别错过！他们家的酸辣粉配冰汤圆解辣绝了，喜欢重口味的建议加双倍辣。",
+    "open_minutes": 390,
+    "close_minutes": 1200
   },
   {
     "id": "amap_b8b128dd",
@@ -5107,7 +5343,9 @@
     "description": "又见炊烟柴火馄饨爱心小吃店，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFGCB9AT",
-    "recommendation": "在秦淮区觅食推荐又见炊烟柴火馄饨爱心小吃店，性价比不错"
+    "recommendation": "在秦淮区觅食推荐又见炊烟柴火馄饨爱心小吃店，性价比不错",
+    "open_minutes": 510,
+    "close_minutes": 1230
   },
   {
     "id": "amap_34e61437",
@@ -5128,12 +5366,14 @@
       "岔路口"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "君姐贵州名小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0HRLU1K3Z",
-    "recommendation": "君姐贵州名小吃是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "君姐贵州名小吃是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 1440
   },
   {
     "id": "amap_a8888687",
@@ -5159,7 +5399,9 @@
     "description": "南京菜鱼头泡饼，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0J32D2VXS",
-    "recommendation": "南京菜鱼头泡饼是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "南京菜鱼头泡饼是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 630,
+    "close_minutes": 810
   },
   {
     "id": "amap_f0fe5eef",
@@ -5185,7 +5427,9 @@
     "description": "豫皖特色小吃啥汤，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0H147TREO",
-    "recommendation": "名字就很有趣的啥汤，浓稠鲜香配油条绝了！建议早上八点前去不排队。"
+    "recommendation": "名字就很有趣的啥汤，浓稠鲜香配油条绝了！建议早上八点前去不排队。",
+    "open_minutes": 360,
+    "close_minutes": 1230
   },
   {
     "id": "amap_ca0c68bf",
@@ -5232,12 +5476,14 @@
       "江苏菜"
     ],
     "popularity": 4.1,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "金陵美食汇(禄口机场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFG6L6HV",
-    "recommendation": "金陵美食汇(禄口机场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "金陵美食汇(禄口机场店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ecf585e6",
@@ -5288,7 +5534,9 @@
     "description": "福州风味小吃(证大喜马拉雅店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0K6JZP7P1",
-    "recommendation": "地道福州风味，鱼丸Q弹肉燕爽口，推荐点套餐更划算。"
+    "recommendation": "地道福州风味，鱼丸Q弹肉燕爽口，推荐点套餐更划算。",
+    "open_minutes": 540,
+    "close_minutes": 1290
   },
   {
     "id": "amap_792434b1",
@@ -5310,12 +5558,14 @@
       "建宁路"
     ],
     "popularity": 4.7,
-    "price_level": 3,
+    "price_level": 1,
     "meal_type": "main",
     "description": "小厨娘淮扬菜 (红山动物园南京商厦店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFLIP8BM",
-    "recommendation": "下山后直奔小厨娘，清炖狮子"
+    "recommendation": "下山后直奔小厨娘，清炖狮子",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_9796244a",
@@ -5336,12 +5586,14 @@
       "汉中门"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "兰兰家小吃(万达店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFIAQ5FU",
-    "recommendation": "万达旁性价比超高的家常小吃，招牌小笼包汁水足，适合赶路时快速填肚。"
+    "recommendation": "万达旁性价比超高的家常小吃，招牌小笼包汁水足，适合赶路时快速填肚。",
+    "open_minutes": 600,
+    "close_minutes": 1230
   },
   {
     "id": "amap_d30e2b2b",
@@ -5389,12 +5641,14 @@
       "仙林"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "君姐贵州名小吃(水平方店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LD3CI2B7",
-    "recommendation": "在栖霞区觅食推荐君姐贵州名小吃(水平方店)，性价比不错"
+    "recommendation": "在栖霞区觅食推荐君姐贵州名小吃(水平方店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1380
   },
   {
     "id": "amap_249acd2a",
@@ -5421,7 +5675,9 @@
     "description": "泰摆啰泰式砂锅小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LU963ZQS",
-    "recommendation": "泰摆啰泰式砂锅小吃口碑很好，建议避开高峰期就餐"
+    "recommendation": "泰摆啰泰式砂锅小吃口碑很好，建议避开高峰期就餐",
+    "open_minutes": 630,
+    "close_minutes": 1050
   },
   {
     "id": "amap_f9827ee2",
@@ -5474,7 +5730,9 @@
     "description": "徐州小吃(原明瓦廊店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHIW6LI",
-    "recommendation": "徐州小吃(原明瓦廊店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "徐州小吃(原明瓦廊店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_80f22b0b",
@@ -5496,12 +5754,14 @@
       "板仓村"
     ],
     "popularity": 4.2,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "徐州风味小吃(锁金北路)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFA067X",
-    "recommendation": "在玄武区觅食推荐徐州风味小吃(锁金北路)，性价比不错"
+    "recommendation": "在玄武区觅食推荐徐州风味小吃(锁金北路)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 900
   },
   {
     "id": "amap_6e7fe5a3",
@@ -5526,7 +5786,9 @@
     "description": "台州小吃(栖霞绿地缤纷天地店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0KRD1P3V3",
-    "recommendation": "清新台州小海鲜，黄鱼面汤鲜味美，建议晚上来配啤酒当夜宵。"
+    "recommendation": "清新台州小海鲜，黄鱼面汤鲜味美，建议晚上来配啤酒当夜宵。",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_58d7a99",
@@ -5551,7 +5813,9 @@
     "description": "陕王爷·西北名小吃(金陵天地店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LRSC5SGS",
-    "recommendation": "在建邺区觅食推荐陕王爷·西北名小吃(金陵天地店)，性价比不错"
+    "recommendation": "在建邺区觅食推荐陕王爷·西北名小吃(金陵天地店)，性价比不错",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_40b0ee28",
@@ -5604,7 +5868,9 @@
     "description": "樟荣·沙县手工小吃(文体路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFHFRWU0",
-    "recommendation": "樟荣·沙县手工小吃(文体路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "樟荣·沙县手工小吃(文体路店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d7a093e2",
@@ -5630,7 +5896,9 @@
     "description": "陕王爷·西北名小吃(仙林金鹰店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LRDZ74EU",
-    "recommendation": "在栖霞区觅食推荐陕王爷·西北名小吃(仙林金鹰店)，性价比不错"
+    "recommendation": "在栖霞区觅食推荐陕王爷·西北名小吃(仙林金鹰店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_95d08da3",
@@ -5731,12 +5999,14 @@
       "新街口"
     ],
     "popularity": 4.1,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "非常小吃(银海大厦店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B001909FZT",
-    "recommendation": "在鼓楼区觅食推荐非常小吃(银海大厦店)，性价比不错"
+    "recommendation": "在鼓楼区觅食推荐非常小吃(银海大厦店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 810
   },
   {
     "id": "amap_c968daad",
@@ -5762,7 +6032,9 @@
     "description": "樟荣·沙县手工小吃(新壹城店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFMGI28S",
-    "recommendation": "樟荣·沙县手工小吃(新壹城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "樟荣·沙县手工小吃(新壹城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 390,
+    "close_minutes": 120
   },
   {
     "id": "amap_126bb55a",
@@ -5788,7 +6060,9 @@
     "description": "沙县小吃，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFEZ59T",
-    "recommendation": "沙县小吃是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "沙县小吃是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 450,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f1be6973",
@@ -5814,7 +6088,9 @@
     "description": "赵敢当四川小吃铺(禄口店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0I3MHMNQE",
-    "recommendation": "禄口店川味正宗，冒脑花和冰粉是绝配，辣度可选微"
+    "recommendation": "禄口店川味正宗，冒脑花和冰粉是绝配，辣度可选微",
+    "open_minutes": 480,
+    "close_minutes": 1290
   },
   {
     "id": "amap_9b6a52ff",
@@ -5867,7 +6143,9 @@
     "description": "陕王爷·西北名小吃(雨花吾悦店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0LRDZ5B3J",
-    "recommendation": "西北风味地道，肉夹馍超赞，逛完雨花吾悦顺路来一份，记得趁热吃！"
+    "recommendation": "西北风味地道，肉夹馍超赞，逛完雨花吾悦顺路来一份，记得趁热吃！",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_2b4fa4a6",
@@ -5919,7 +6197,9 @@
     "description": "樟荣·沙县手工小吃(龙飞路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0FFFLIH2R",
-    "recommendation": "这家店的柳叶蒸饺皮薄馅大，蘸上花生酱绝了，记得趁热吃口感最佳。"
+    "recommendation": "这家店的柳叶蒸饺皮薄馅大，蘸上花生酱绝了，记得趁热吃口感最佳。",
+    "open_minutes": 450,
+    "close_minutes": 660
   },
   {
     "id": "amap_5ffa9689",
@@ -5946,7 +6226,9 @@
     "description": "樟荣·沙县手工小吃(徐家洼紫悦广场店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GUACAG4F",
-    "recommendation": "藏在紫悦广场的手工小吃店，拌面酱香浓郁，加个卤蛋就是完美登山补给。"
+    "recommendation": "藏在紫悦广场的手工小吃店，拌面酱香浓郁，加个卤蛋就是完美登山补给。",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_db129a2f",
@@ -5973,7 +6255,9 @@
     "description": "樟荣·沙县手工小吃(九家圩路店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0L21OTYZ1",
-    "recommendation": "手工扁肉和拌面现做现吃，小店烟火气十足，傍晚去刚好避开高峰。"
+    "recommendation": "手工扁肉和拌面现做现吃，小店烟火气十足，傍晚去刚好避开高峰。",
+    "open_minutes": 540,
+    "close_minutes": 1260
   },
   {
     "id": "amap_27206ec2",
@@ -6025,7 +6309,9 @@
     "description": "沙县小吃(兰德店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
     "source": "amap",
     "source_id": "B0GRGSPZRB",
-    "recommendation": "经典蒸饺配炖罐，深夜解馋好去处，经济实惠暖胃又暖心。"
+    "recommendation": "经典蒸饺配炖罐，深夜解馋好去处，经济实惠暖胃又暖心。",
+    "open_minutes": 570,
+    "close_minutes": 1380
   },
   {
     "id": "amap_93ceb93d",
@@ -6073,7 +6359,7 @@
       "大光路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 2,
     "meal_type": "main",
     "description": "浆小白豆浆夜市(夫子庙店)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
@@ -6105,7 +6391,9 @@
     "description": "淮清桥烧烤南京长白街店，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
     "source": "amap",
     "source_id": "B00190B58L",
-    "recommendation": "淮清桥烧烤南京长白街店是夜间休闲好去处"
+    "recommendation": "淮清桥烧烤南京长白街店是夜间休闲好去处",
+    "open_minutes": 0,
+    "close_minutes": 270
   },
   {
     "id": "amap_b4d47b4a",
@@ -6126,12 +6414,14 @@
       "义乌小商品城"
     ],
     "popularity": 4.9,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "南京义乌美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFGER593",
-    "recommendation": "在江宁区觅食推荐南京义乌美食街，性价比不错"
+    "recommendation": "在江宁区觅食推荐南京义乌美食街，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 90
   },
   {
     "id": "amap_7f08f6bc",
@@ -6157,7 +6447,9 @@
     "description": "塔斯汀中国汉堡(南京市新民路美食街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0JRUC2LQD",
-    "recommendation": "塔斯汀中国汉堡(南京市新民路美食街店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "塔斯汀中国汉堡(南京市新民路美食街店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 540,
+    "close_minutes": 120
   },
   {
     "id": "amap_1aebabb4",
@@ -6185,7 +6477,9 @@
     "description": "科巷美食市集，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0J16NQIFB",
-    "recommendation": "科巷美食市集是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "科巷美食市集是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_93ac9a44",
@@ -6211,7 +6505,9 @@
     "description": "下马坊夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0IKVRI25S",
-    "recommendation": "在玄武区觅食推荐下马坊夜市，性价比不错"
+    "recommendation": "在玄武区觅食推荐下马坊夜市，性价比不错",
+    "open_minutes": 1080,
+    "close_minutes": 120
   },
   {
     "id": "amap_3c5dc688",
@@ -6237,7 +6533,9 @@
     "description": "明瓦廊美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF4RTG4",
-    "recommendation": "在秦淮区觅食推荐明瓦廊美食街，性价比不错"
+    "recommendation": "在秦淮区觅食推荐明瓦廊美食街，性价比不错",
+    "open_minutes": 480,
+    "close_minutes": 1410
   },
   {
     "id": "amap_693ae84c",
@@ -6292,12 +6590,14 @@
       "中央路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "湖南路狮子桥美食步行街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF2UP8P",
-    "recommendation": "湖南路狮子桥美食步行街口碑很好，建议避开高峰期就餐"
+    "recommendation": "湖南路狮子桥美食步行街口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_64b33640",
@@ -6323,7 +6623,9 @@
     "description": "天尝喱脊肉串(湖南路狮子桥美食步行街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B001911R72",
-    "recommendation": "在鼓楼区觅食推荐天尝喱脊肉串(湖南路狮子桥美食步行街店)，性价比不错"
+    "recommendation": "在鼓楼区觅食推荐天尝喱脊肉串(湖南路狮子桥美食步行街店)，性价比不错",
+    "open_minutes": 660,
+    "close_minutes": 1320
   },
   {
     "id": "amap_17a19d34",
@@ -6350,7 +6652,9 @@
     "description": "U2美食购物街区，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFK06XQ5",
-    "recommendation": "美食购物两不误的潮人街区，推荐傍晚来打卡，灯光夜景超适合拍照。"
+    "recommendation": "美食购物两不误的潮人街区，推荐傍晚来打卡，灯光夜景超适合拍照。",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_fc3cdc9e",
@@ -6372,12 +6676,14 @@
       "新民路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "萨尔塔手抓美食城(南京店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0L1UU3J7R",
-    "recommendation": "萨尔塔手抓美食城(南京店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "萨尔塔手抓美食城(南京店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 840,
+    "close_minutes": 120
   },
   {
     "id": "amap_54546ea6",
@@ -6403,7 +6709,9 @@
     "description": "殷巷夜市美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0HU4HJUKH",
-    "recommendation": "夜宵天堂，热闹非凡！推荐晚上去，尝遍各地小吃，记得空肚子。"
+    "recommendation": "夜宵天堂，热闹非凡！推荐晚上去，尝遍各地小吃，记得空肚子。",
+    "open_minutes": 960,
+    "close_minutes": 180
   },
   {
     "id": "amap_4ece30d5",
@@ -6429,7 +6737,9 @@
     "description": "秣陵托乐嘉商业街区夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0GUB7P44W",
-    "recommendation": "秣陵托乐嘉商业街区夜市口碑很好，建议避开高峰期就餐"
+    "recommendation": "秣陵托乐嘉商业街区夜市口碑很好，建议避开高峰期就餐",
+    "open_minutes": 1020,
+    "close_minutes": 1440
   },
   {
     "id": "amap_57e350e9",
@@ -6455,7 +6765,9 @@
     "description": "夫子庙美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B00190BOP9",
-    "recommendation": "夫子庙美食街：秦淮河畔逛吃首选，建议傍晚去边看灯边尝小吃，别忘了来份赤豆元宵。"
+    "recommendation": "夫子庙美食街：秦淮河畔逛吃首选，建议傍晚去边看灯边尝小吃，别忘了来份赤豆元宵。",
+    "open_minutes": 600,
+    "close_minutes": 1350
   },
   {
     "id": "amap_6a239775",
@@ -6482,7 +6794,9 @@
     "description": "新四方美食城(丰富路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B001909YKC",
-    "recommendation": "在秦淮区觅食推荐新四方美食城(丰富路店)，性价比不错"
+    "recommendation": "在秦淮区觅食推荐新四方美食城(丰富路店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_9d596c6e",
@@ -6508,7 +6822,9 @@
     "description": "大成名店公园美食城(大成名店公园店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B001911H2Y",
-    "recommendation": "大成名店公园美食城(大成名店公园店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "大成名店公园美食城(大成名店公园店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_2d5d3fd7",
@@ -6530,12 +6846,14 @@
       "仙林"
     ],
     "popularity": 3.9,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "成都美食川菜馆(大成名店负一层店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFFHB9RK",
-    "recommendation": "成都美食川菜馆(大成名店负一层店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "成都美食川菜馆(大成名店负一层店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_f568dcb2",
@@ -6561,7 +6879,9 @@
     "description": "新四方美食城(螃蟹一条街店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B001912XSG",
-    "recommendation": "新四方美食城(螃蟹一条街店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "新四方美食城(螃蟹一条街店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_d9b73f78",
@@ -6588,7 +6908,9 @@
     "description": "新四方美食城(水佐店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B00190ZCFL",
-    "recommendation": "品种超多的平价美食城，适合朋友聚餐。推荐中午去，避开高峰。"
+    "recommendation": "品种超多的平价美食城，适合朋友聚餐。推荐中午去，避开高峰。",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_774bf2d9",
@@ -6614,7 +6936,9 @@
     "description": "新四方美食城(千晨静阅城店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B00190Z5SB",
-    "recommendation": "环境干净，选择丰富。建议工作日去，人少体验好。"
+    "recommendation": "环境干净，选择丰富。建议工作日去，人少体验好。",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_1ef56cd7",
@@ -6640,7 +6964,9 @@
     "description": "客来福美食城(大厂店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF2HU9B",
-    "recommendation": "在六合区觅食推荐客来福美食城(大厂店)，性价比不错"
+    "recommendation": "在六合区觅食推荐客来福美食城(大厂店)，性价比不错",
+    "open_minutes": 630,
+    "close_minutes": 840
   },
   {
     "id": "amap_e886da8",
@@ -6719,7 +7045,9 @@
     "description": "新四方美食城(秦虹路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B00190CZGS",
-    "recommendation": "新四方美食城(秦虹路店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "新四方美食城(秦虹路店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 840
   },
   {
     "id": "amap_6eb87fcc",
@@ -6746,7 +7074,9 @@
     "description": "淮海美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFG9BJ7H",
-    "recommendation": "在秦淮区觅食推荐淮海美食城，性价比不错"
+    "recommendation": "在秦淮区觅食推荐淮海美食城，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_6c17ed70",
@@ -6776,7 +7106,9 @@
     "description": "高淳八佰伴美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0JRBU3W00",
-    "recommendation": "高淳八佰伴美食城是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "高淳八佰伴美食城是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1260
   },
   {
     "id": "amap_37db7439",
@@ -6796,12 +7128,14 @@
       "特色商业街"
     ],
     "popularity": 4.4,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "兴智美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFG6939N",
-    "recommendation": "兴智美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "兴智美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4f774f32",
@@ -6827,7 +7161,9 @@
     "description": "新起点美食城(铜井巷店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFF5VTGK",
-    "recommendation": "新起点美食城(铜井巷店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "新起点美食城(铜井巷店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 360,
+    "close_minutes": 1320
   },
   {
     "id": "amap_db071147",
@@ -6848,7 +7184,7 @@
       "新民路"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "新民路美食街(大桥南路店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
@@ -6906,7 +7242,9 @@
     "description": "文鼎美食街(文鼎广场店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFGER632",
-    "recommendation": "大学城里的宝藏美食街，价格亲民。推荐傍晚逛，烟火气十足。"
+    "recommendation": "大学城里的宝藏美食街，价格亲民。推荐傍晚逛，烟火气十足。",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_1682f0c1",
@@ -6983,7 +7321,9 @@
     "description": "新四方美食城(凤凰店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0KD71OCGZ",
-    "recommendation": "在鼓楼区觅食推荐新四方美食城(凤凰店)，性价比不错"
+    "recommendation": "在鼓楼区觅食推荐新四方美食城(凤凰店)，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c91b4565",
@@ -7004,12 +7344,14 @@
       "月苑"
     ],
     "popularity": 4.5,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "云慈美食集市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0KR2CGZY4",
-    "recommendation": "新晋网红美食集市，"
+    "recommendation": "新晋网红美食集市，",
+    "open_minutes": 600,
+    "close_minutes": 90
   },
   {
     "id": "amap_a3da8581",
@@ -7034,7 +7376,9 @@
     "description": "金宝城东夜市，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0K2D6819I",
-    "recommendation": "在江宁区觅食推荐金宝城东夜市，性价比不错"
+    "recommendation": "在江宁区觅食推荐金宝城东夜市，性价比不错",
+    "open_minutes": 420,
+    "close_minutes": 1290
   },
   {
     "id": "amap_352f4f3d",
@@ -7060,7 +7404,9 @@
     "description": "中国兰州拉面美食城(天景山公寓瑞庭苑东)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFIW9C5U",
-    "recommendation": "中国兰州拉面美食城(天景山公寓瑞庭苑东)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "中国兰州拉面美食城(天景山公寓瑞庭苑东)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 540,
+    "close_minutes": 1350
   },
   {
     "id": "amap_80bf60f2",
@@ -7108,12 +7454,14 @@
       "溧水开发区"
     ],
     "popularity": 4.3,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "main",
     "description": "大宝美食城，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0H04K2YM4",
-    "recommendation": "大宝美食城口碑很好，建议避开高峰期就餐"
+    "recommendation": "大宝美食城口碑很好，建议避开高峰期就餐",
+    "open_minutes": 480,
+    "close_minutes": 1200
   },
   {
     "id": "amap_927e0425",
@@ -7139,7 +7487,9 @@
     "description": "丰泰城美食广场，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0K2O573GJ",
-    "recommendation": "在雨花台区觅食推荐丰泰城美食广场，性价比不错"
+    "recommendation": "在雨花台区觅食推荐丰泰城美食广场，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_deb5a5e3",
@@ -7165,7 +7515,9 @@
     "description": "鸿雁明居美食街，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFFDCTCR",
-    "recommendation": "鸿雁明居美食街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鸿雁明居美食街是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1230
   },
   {
     "id": "amap_993acc9",
@@ -7243,7 +7595,9 @@
     "description": "水游城美食广场(南京鹏欣·水游城店)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0FFHJXI7V",
-    "recommendation": "水游城美食广场(南京鹏欣·水游城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "水游城美食广场(南京鹏欣·水游城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_4416bea3",
@@ -7295,7 +7649,9 @@
     "description": "西道口新食汇美食城(小刘板面王)，来自高德 Web 服务 POI 搜索；分类：美食街区。",
     "source": "amap",
     "source_id": "B0I0CZCA4G",
-    "recommendation": "在建邺区觅食推荐西道口新食汇美食城(小刘板面王)，性价比不错"
+    "recommendation": "在建邺区觅食推荐西道口新食汇美食城(小刘板面王)，性价比不错",
+    "open_minutes": 570,
+    "close_minutes": 1290
   },
   {
     "id": "amap_5d50a970",
@@ -7318,12 +7674,14 @@
       "新街口"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京德基广场，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B001906FVA",
-    "recommendation": "推荐在玄武区参观南京德基广场，人气评分4.9"
+    "recommendation": "推荐在玄武区参观南京德基广场，人气评分4.9",
+    "open_minutes": 630,
+    "close_minutes": 1350
   },
   {
     "id": "amap_61bc4363",
@@ -7347,12 +7705,14 @@
       "新街口"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "德基广场二期，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00190BP7Y",
-    "recommendation": "推荐在玄武区参观德基广场二期，人气评分4.8"
+    "recommendation": "推荐在玄武区参观德基广场二期，人气评分4.8",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_bac94b87",
@@ -7380,7 +7740,9 @@
     "description": "景枫中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFH431LX",
-    "recommendation": "景枫中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "景枫中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_50a14d60",
@@ -7402,12 +7764,14 @@
       "购物中心"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京金陵天地，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0K3DCUITJ",
-    "recommendation": "南京金陵天地是当地热门景点，建议游览90分钟左右"
+    "recommendation": "南京金陵天地是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8f001823",
@@ -7430,12 +7794,14 @@
       "西善桥"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京雨花万象天地，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0KU7A3X8U",
-    "recommendation": "推荐在雨花台区参观南京雨花万象天地，人气评分4.9"
+    "recommendation": "推荐在雨花台区参观南京雨花万象天地，人气评分4.9",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_fc5dde3e",
@@ -7458,12 +7824,14 @@
       "安德门"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "雨花客厅E·PARK，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFL6ED4R",
-    "recommendation": "雨花客厅E·PARK适合城市游览、购物爱好者"
+    "recommendation": "雨花客厅E·PARK适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_386573fd",
@@ -7491,7 +7859,9 @@
     "description": "南京万象天地，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0IBS7OMSP",
-    "recommendation": "南京万象天地是当地热门景点，建议游览90分钟左右"
+    "recommendation": "南京万象天地是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_7b9ed0cf",
@@ -7514,12 +7884,14 @@
       "竹山路沿线"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(南京江宁店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF2HLQW",
-    "recommendation": "江宁万达吃喝玩乐一站搞定，周末去逛负一层美食街，记得试试新开的网红奶茶！"
+    "recommendation": "江宁万达吃喝玩乐一站搞定，周末去逛负一层美食街，记得试试新开的网红奶茶！",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_f9e2c93e",
@@ -7547,7 +7919,9 @@
     "description": "南京城北万象汇，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0I1K509BV",
-    "recommendation": "城北万象汇超好逛，室内设计有特色，傍晚去顶楼看江景绝了，拍照记得开广角。"
+    "recommendation": "城北万象汇超好逛，室内设计有特色，傍晚去顶楼看江景绝了，拍照记得开广角。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d91a92fb",
@@ -7574,7 +7948,9 @@
     "description": "南京城北万象汇B馆，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0JUDRR0LG",
-    "recommendation": "推荐在栖霞区参观南京城北万象汇B馆，人气评分4.7"
+    "recommendation": "推荐在栖霞区参观南京城北万象汇B馆，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_31070614",
@@ -7597,12 +7973,14 @@
       "江北新区直管区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖南京江北天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFJEOSQG",
-    "recommendation": "江北天街适合亲子家庭，户外广场常有市集活动，晚上灯光秀别错过，停车位充足。"
+    "recommendation": "江北天街适合亲子家庭，户外广场常有市集活动，晚上灯光秀别错过，停车位充足。",
+    "open_minutes": 450,
+    "close_minutes": 1320
   },
   {
     "id": "amap_756b8f9c",
@@ -7624,12 +8002,14 @@
       "应天西路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "main",
     "description": "金鹰世界，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFI9T2RC",
-    "recommendation": "金鹰世界是河西逛街首选，品牌全且环境舒适，下午茶推荐负一楼的甜品店，不踩雷。"
+    "recommendation": "金鹰世界是河西逛街首选，品牌全且环境舒适，下午茶推荐负一楼的甜品店，不踩雷。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8cbfd025",
@@ -7657,7 +8037,9 @@
     "description": "华采天地，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFJRS5RT",
-    "recommendation": "华采天地是当地热门景点，建议游览90分钟左右"
+    "recommendation": "华采天地是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_da60239e",
@@ -7680,12 +8062,14 @@
       "江北新区"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "江北虹悦城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFITUTMH",
-    "recommendation": "江北虹悦城吃喝玩乐一站搞定，推荐傍晚去顶层露台看夜景，拍照超美！"
+    "recommendation": "江北虹悦城吃喝玩乐一站搞定，推荐傍晚去顶层露台看夜景，拍照超美！",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6ad45674",
@@ -7708,12 +8092,14 @@
       "江东"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "万达广场(南京建邺店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00190BPMZ",
-    "recommendation": "推荐在建邺区参观万达广场(南京建邺店)，人气评分4.7"
+    "recommendation": "推荐在建邺区参观万达广场(南京建邺店)，人气评分4.7",
+    "open_minutes": 570,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c9b9bcd8",
@@ -7742,7 +8128,9 @@
     "description": "砂之船(南京)奥莱，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0I36N7YTY",
-    "recommendation": "砂之船奥莱折扣力度大，淘运动品牌超划算，建议开业前就去抢，周末人超多。"
+    "recommendation": "砂之船奥莱折扣力度大，淘运动品牌超划算，建议开业前就去抢，周末人超多。",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_4e10bbd7",
@@ -7770,7 +8158,9 @@
     "description": "中央商场(新街口店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00190684X",
-    "recommendation": "推荐在秦淮区参观中央商场(新街口店)，人气评分4.7"
+    "recommendation": "推荐在秦淮区参观中央商场(新街口店)，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_6dce847f",
@@ -7793,12 +8183,14 @@
       "江北新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京万汇城(北区)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0J3RZ0VMP",
-    "recommendation": "推荐在浦口区参观南京万汇城(北区)，人气评分4.7"
+    "recommendation": "推荐在浦口区参观南京万汇城(北区)，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b1d3d59a",
@@ -7821,12 +8213,14 @@
       "赛虹桥"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京虹悦城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B00190ZINX",
-    "recommendation": "虹悦城老牌商场美食多，六楼露台适合拍照，晚上灯光超美，记得提前领停车券。"
+    "recommendation": "虹悦城老牌商场美食多，六楼露台适合拍照，晚上灯光超美，记得提前领停车券。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_8b1dc2d1",
@@ -7849,12 +8243,14 @@
       "小行"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖南京河西天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFL3HYAC",
-    "recommendation": "河西天街设计感十足，中庭常办艺术展，逛街路过记得抬头看发光楼梯，超适合打卡。"
+    "recommendation": "河西天街设计感十足，中庭常办艺术展，逛街路过记得抬头看发光楼梯，超适合打卡。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_9aa826be",
@@ -7877,12 +8273,14 @@
       "开发区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金鹰国际购物中心(江宁店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHD3FCA",
-    "recommendation": "推荐在江宁区参观金鹰国际购物中心(江宁店)，人气评分4.7"
+    "recommendation": "推荐在江宁区参观金鹰国际购物中心(江宁店)，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4bfa3c9f",
@@ -7904,12 +8302,14 @@
       "汉中路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "JLC金陵中環，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0H06MD6J7",
-    "recommendation": "金陵中环高端品牌聚集，适合拍照发朋友圈，建议平日下午去，人少安静体验好。"
+    "recommendation": "金陵中环高端品牌聚集，适合拍照发朋友圈，建议平日下午去，人少安静体验好。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_4ef90586",
@@ -7932,12 +8332,14 @@
       "汉中门"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "吾悦广场(南京建邺店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0HBTG267K",
-    "recommendation": "建邺吾悦广场新晋网红，负一楼有复古街区，拍照超出片，傍晚去还能看落日余晖。"
+    "recommendation": "建邺吾悦广场新晋网红，负一楼有复古街区，拍照超出片，傍晚去还能看落日余晖。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c4a8196b",
@@ -7962,12 +8364,14 @@
       "商务写字楼"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金茂览秀城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0G1PGISSV",
-    "recommendation": "推荐在鼓楼区参观金茂览秀城，人气评分4.7"
+    "recommendation": "推荐在鼓楼区参观金茂览秀城，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_611ab8d9",
@@ -7990,12 +8394,14 @@
       "红山动物园"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "玄武招商花园城，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0KAKCV3IV",
-    "recommendation": "靠近红山动物园，逛累了来这吃喝一站式解决，推荐B1美食广场的鸭血粉丝汤。"
+    "recommendation": "靠近红山动物园，逛累了来这吃喝一站式解决，推荐B1美食广场的鸭血粉丝汤。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_365e6d94",
@@ -8023,7 +8429,9 @@
     "description": "21世纪太阳城购物中心，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFHBVFGJ",
-    "recommendation": "21世纪太阳城购物中心是当地热门景点，建议游览90分钟左右"
+    "recommendation": "21世纪太阳城购物中心是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_c192e64f",
@@ -8051,7 +8459,9 @@
     "description": "东方福来德，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0HBXCRWBZ",
-    "recommendation": "东方福来德是当地热门景点，建议游览90分钟左右"
+    "recommendation": "东方福来德是当地热门景点，建议游览90分钟左右",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_1d9cd866",
@@ -8073,12 +8483,14 @@
       "江北新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "砂之船(南京江北新区奥莱店)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0GKP709VI",
-    "recommendation": "砂之船(南京江北新区奥莱店)适合城市游览、购物爱好者"
+    "recommendation": "砂之船(南京江北新区奥莱店)适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1260
   },
   {
     "id": "amap_cdc0a9c0",
@@ -8101,12 +8513,14 @@
       "仙林"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金鹰湖滨天地，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF2JR67",
-    "recommendation": "金鹰湖滨天地适合城市游览、购物爱好者"
+    "recommendation": "金鹰湖滨天地适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_a7a13e2",
@@ -8129,12 +8543,14 @@
       "仙林"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "金鹰湖滨天地B区，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFI71BDJ",
-    "recommendation": "金鹰湖滨天地B区适合城市游览、购物爱好者"
+    "recommendation": "金鹰湖滨天地B区适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_b71d080d",
@@ -8157,12 +8573,14 @@
       "竹山路沿线"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖南京龙湾天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFKBX3YE",
-    "recommendation": "龙湖南京龙湾天街适合城市游览、购物爱好者"
+    "recommendation": "龙湖南京龙湾天街适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1380
   },
   {
     "id": "amap_60cdd32a",
@@ -8185,12 +8603,14 @@
       "江北新区"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "龙湖南京雨山天街，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0H32R4VGK",
-    "recommendation": "龙湖南京雨山天街适合城市游览、购物爱好者"
+    "recommendation": "龙湖南京雨山天街适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d2c3bcd5",
@@ -8212,12 +8632,14 @@
       "购物中心"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "百联奥特莱斯广场(南京·汤山)，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFF3M1NS",
-    "recommendation": "百联奥特莱斯广场(南京·汤山)适合城市游览、购物爱好者"
+    "recommendation": "百联奥特莱斯广场(南京·汤山)适合城市游览、购物爱好者",
+    "open_minutes": 600,
+    "close_minutes": 1290
   },
   {
     "id": "amap_4d92126",
@@ -8240,12 +8662,14 @@
       "新街口"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "德基广场一期，来自高德 Web 服务 POI 搜索；分类：购物中心。",
     "source": "amap",
     "source_id": "B0FFGCYLKO",
-    "recommendation": "推荐在玄武区参观德基广场一期，人气评分4.7"
+    "recommendation": "推荐在玄武区参观德基广场一期，人气评分4.7",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_ad1036a4",
@@ -8270,7 +8694,9 @@
     "description": "ROCHO灯塔咖啡馆，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0K1RL294H",
-    "recommendation": "ROCHO灯塔咖啡馆口碑很好，建议避开高峰期就餐"
+    "recommendation": "ROCHO灯塔咖啡馆口碑很好，建议避开高峰期就餐",
+    "open_minutes": 540,
+    "close_minutes": 1170
   },
   {
     "id": "amap_d8d345cc",
@@ -8296,7 +8722,9 @@
     "description": "茶颜悦色(东方福来德店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0IK1BDSEP",
-    "recommendation": "在秦淮区觅食推荐茶颜悦色(东方福来德店)，性价比不错"
+    "recommendation": "在秦淮区觅食推荐茶颜悦色(东方福来德店)，性价比不错",
+    "open_minutes": 540,
+    "close_minutes": 1320
   },
   {
     "id": "amap_51853cc4",
@@ -8317,12 +8745,14 @@
       "新街口"
     ],
     "popularity": 4.8,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "两口咖啡LIANGKOU，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0K3KOMLIA",
-    "recommendation": "两口咖啡LIANGKOU口碑很好，建议避开高峰期就餐"
+    "recommendation": "两口咖啡LIANGKOU口碑很好，建议避开高峰期就餐",
+    "open_minutes": 600,
+    "close_minutes": 120
   },
   {
     "id": "amap_9fb2ba31",
@@ -8348,7 +8778,9 @@
     "description": "莫愁咖啡·花植·空间，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0H0KUPYRU",
-    "recommendation": "莫愁咖啡·花植·空间：被绿植包围"
+    "recommendation": "莫愁咖啡·花植·空间：被绿植包围",
+    "open_minutes": 600,
+    "close_minutes": 1440
   },
   {
     "id": "amap_260439da",
@@ -8374,7 +8806,9 @@
     "description": "叁咖啡3coffee，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFHBOMIF",
-    "recommendation": "靠近南大的静谧咖啡角，适合登山后歇脚。推荐点一杯手冲，搭配窗外梧桐影。"
+    "recommendation": "靠近南大的静谧咖啡角，适合登山后歇脚。推荐点一杯手冲，搭配窗外梧桐影。",
+    "open_minutes": 600,
+    "close_minutes": 1140
   },
   {
     "id": "amap_e37ecc8e",
@@ -8394,7 +8828,7 @@
       "咖啡厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "浅滩咖啡(Coffee Beach)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
@@ -8425,7 +8859,9 @@
     "description": "LAVAZZA拉瓦萨咖啡(南京金轮新天地店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0IGGZVCUU",
-    "recommendation": "LAVAZZA拉瓦萨咖啡(南京金轮新天地店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "LAVAZZA拉瓦萨咖啡(南京金轮新天地店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 450,
+    "close_minutes": 1260
   },
   {
     "id": "amap_206475d9",
@@ -8446,12 +8882,14 @@
       "大行宫"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "Pelican鹈鹕咖啡(香铺营小区店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KRCH3TO0",
-    "recommendation": "藏身小区的社区咖啡馆，氛围私密。午后阳光洒进窗台，点杯招牌Dirty超治愈。"
+    "recommendation": "藏身小区的社区咖啡馆，氛围私密。午后阳光洒进窗台，点杯招牌Dirty超治愈。",
+    "open_minutes": 540,
+    "close_minutes": 1140
   },
   {
     "id": "amap_b0cb77ab",
@@ -8477,7 +8915,9 @@
     "description": "luckin coffee 瑞幸咖啡(景枫中心店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0K2C5VTJ7",
-    "recommendation": "luckin coffee 瑞幸咖啡(景枫中心店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "luckin coffee 瑞幸咖啡(景枫中心店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_61e5ab8f",
@@ -8498,12 +8938,14 @@
       "南大"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "晚风来信咖啡店，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0K6VMUAVT",
-    "recommendation": "在鼓楼区觅食推荐晚风来信咖啡店，性价比不错"
+    "recommendation": "在鼓楼区觅食推荐晚风来信咖啡店，性价比不错",
+    "open_minutes": 540,
+    "close_minutes": 1080
   },
   {
     "id": "amap_c1d816d4",
@@ -8524,12 +8966,14 @@
       "南大"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "见舍咖啡·西餐(上海路店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFL0MUD7",
-    "recommendation": "上海路的文艺结合体，咖啡+西餐一站搞定。推荐早午餐时段，班尼迪克蛋配拿铁绝配。"
+    "recommendation": "上海路的文艺结合体，咖啡+西餐一站搞定。推荐早午餐时段，班尼迪克蛋配拿铁绝配。",
+    "open_minutes": 600,
+    "close_minutes": 1230
   },
   {
     "id": "amap_1fcba6b4",
@@ -8555,7 +8999,9 @@
     "description": "MOCHA猫咪咖啡(老门东店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0KGF74EDK",
-    "recommendation": "老门东里的猫咪天堂，撸猫解压圣地。建议工作日去人少，猫猫更愿意亲近你。"
+    "recommendation": "老门东里的猫咪天堂，撸猫解压圣地。建议工作日去人少，猫猫更愿意亲近你。",
+    "open_minutes": 750,
+    "close_minutes": 1200
   },
   {
     "id": "amap_5bdf661e",
@@ -8576,12 +9022,14 @@
       "梅园"
     ],
     "popularity": 4.7,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "COMFORT COFFEE小康咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0G29MN6XF",
-    "recommendation": "梅园新村的宝藏小店，名字就让人安心。周末下午来杯燕麦拿铁，发呆一整天。"
+    "recommendation": "梅园新村的宝藏小店，名字就让人安心。周末下午来杯燕麦拿铁，发呆一整天。",
+    "open_minutes": 480,
+    "close_minutes": 1140
   },
   {
     "id": "amap_fcb6b5e",
@@ -8607,7 +9055,9 @@
     "description": "瑞幸咖啡(悠谷店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFL2MPSO",
-    "recommendation": "瑞幸咖啡(悠谷店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "瑞幸咖啡(悠谷店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 420,
+    "close_minutes": 1200
   },
   {
     "id": "amap_4c8bf306",
@@ -8633,7 +9083,9 @@
     "description": "LAVAZZA拉瓦萨咖啡(南京金陵店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0J6PZUEEX",
-    "recommendation": "LAVAZZA拉瓦萨咖啡(南京金陵店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "LAVAZZA拉瓦萨咖啡(南京金陵店)口碑很好，建议避开高峰期就餐",
+    "open_minutes": 450,
+    "close_minutes": 1230
   },
   {
     "id": "amap_76e5c60d",
@@ -8659,7 +9111,9 @@
     "description": "Peet'sCoffee皮爷咖啡(中央商城店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0H1VDSIBG",
-    "recommendation": "Peet'sCoffee皮爷咖啡(中央商城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "Peet'sCoffee皮爷咖啡(中央商城店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 480,
+    "close_minutes": 1320
   },
   {
     "id": "amap_d627b5bd",
@@ -8679,12 +9133,14 @@
       "咖啡厅"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "小山咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0HKGRGGNF",
-    "recommendation": "爬完山来这儿歇脚，手冲咖啡配山景，午后阳光最惬意。"
+    "recommendation": "爬完山来这儿歇脚，手冲咖啡配山景，午后阳光最惬意。",
+    "open_minutes": 510,
+    "close_minutes": 1020
   },
   {
     "id": "amap_426c03c4",
@@ -8709,7 +9165,9 @@
     "description": "有光咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFKKWAX3",
-    "recommendation": "藏在山里的文艺小店，推荐点一杯拿铁坐窗边发呆。"
+    "recommendation": "藏在山里的文艺小店，推荐点一杯拿铁坐窗边发呆。",
+    "open_minutes": 570,
+    "close_minutes": 1050
   },
   {
     "id": "amap_55772ea4",
@@ -8736,7 +9194,9 @@
     "description": "星巴克(南京IFCX店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFFDZ0TE",
-    "recommendation": "星巴克(南京IFCX店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "星巴克(南京IFCX店)是当地人气餐厅，推荐尝试特色菜品",
+    "open_minutes": 420,
+    "close_minutes": 1320
   },
   {
     "id": "amap_48a39a66",
@@ -8762,7 +9222,9 @@
     "description": "瑞幸咖啡(水平方店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0FFKPI7SS",
-    "recommendation": "下山后直奔夫子庙，来杯标准生椰拿铁续命，性价比很高。"
+    "recommendation": "下山后直奔夫子庙，来杯标准生椰拿铁续命，性价比很高。",
+    "open_minutes": 600,
+    "close_minutes": 1320
   },
   {
     "id": "amap_dd8246ba",
@@ -8788,7 +9250,9 @@
     "description": "W.container玄武湖文创咖啡，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0H6LGCQLZ",
-    "recommendation": "在玄武区觅食推荐W.container玄武湖文创咖啡，性价比不错"
+    "recommendation": "在玄武区觅食推荐W.container玄武湖文创咖啡，性价比不错",
+    "open_minutes": 600,
+    "close_minutes": 1080
   },
   {
     "id": "amap_fadcc518",
@@ -8810,12 +9274,14 @@
       "义乌小商品城"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "DOKA狗咖·宠物友好咖啡厅(南京店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0K2X780Z3",
-    "recommendation": "爱狗人士的天堂！边喝咖啡边撸狗，治愈力满分。"
+    "recommendation": "爱狗人士的天堂！边喝咖啡边撸狗，治愈力满分。",
+    "open_minutes": 780,
+    "close_minutes": 1290
   },
   {
     "id": "amap_3ce33d08",
@@ -8836,12 +9302,14 @@
       "板仓村"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 1,
     "meal_type": "drink",
     "description": "懒生活·小径咖啡(板仓街店)，来自高德 Web 服务 POI 搜索；分类：茶饮甜品。",
     "source": "amap",
     "source_id": "B0J1LUUYO4",
-    "recommendation": "从山上下来顺路拐进，点杯特调坐一下午，慵懒感拉满。"
+    "recommendation": "从山上下来顺路拐进，点杯特调坐一下午，慵懒感拉满。",
+    "open_minutes": 480,
+    "close_minutes": 1020
   },
   {
     "id": "amap_37ce8193",
@@ -10377,11 +10845,1512 @@
       "机场出发/到达"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 0,
     "meal_type": "main",
     "description": "南京禄口国际机场T2航站楼(国内到达)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
     "source": "amap",
     "source_id": "B0FFF6X2UV",
     "recommendation": "国内到达出口旁就是地铁，接机超方便。提前查航班动态，在咖啡店等更惬意。"
+  },
+  {
+    "id": "transit_B00190YOCU",
+    "name": "南京禄口国际机场",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.731634,
+    "lng": 118.871181,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFF6Y5T8",
+    "name": "南京禄口国际机场T2航站楼",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.72999,
+    "lng": 118.875764,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T2航站楼，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T2航站楼是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFF6Y5U6",
+    "name": "南京禄口国际机场T1航站楼",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.73301,
+    "lng": 118.870471,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T1航站楼，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T1航站楼是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0G1Y5UGUL",
+    "name": "南京禄口国际机场T1航站楼(国内出发)",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.733857,
+    "lng": 118.871282,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T1航站楼(国内出发)，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T1航站楼(国内出发)是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFF6Y5TL",
+    "name": "南京禄口国际机场T2航站楼(国内出发)",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.730584,
+    "lng": 118.875195,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T2航站楼(国内出发)，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T2航站楼(国内出发)是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0G1Y5TF63",
+    "name": "南京禄口国际机场T1航站楼(国内到达)",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.733857,
+    "lng": 118.871282,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T1航站楼(国内到达)，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T1航站楼(国内到达)是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFF6X2U9",
+    "name": "南京禄口国际机场T2航站楼(国际港澳台出发)",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.731244,
+    "lng": 118.876811,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T2航站楼(国际港澳台出发)，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T2航站楼(国际港澳台出发)是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFF6X2UA",
+    "name": "南京禄口国际机场T2航站楼(国际港澳台到达)",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.731482,
+    "lng": 118.877091,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T2航站楼(国际港澳台到达)，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T2航站楼(国际港澳台到达)是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0019175DH",
+    "name": "南京老山直升机场",
+    "type": "transit",
+    "area": "浦口区",
+    "lat": 32.055942,
+    "lng": 118.577717,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京老山直升机场，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京老山直升机场是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0LDJSWFGX",
+    "name": "南京南站城市候机楼",
+    "type": "transit",
+    "area": "雨花台区",
+    "lat": 31.969774,
+    "lng": 118.796132,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京南站城市候机楼，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京南站城市候机楼是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0LD7S135W",
+    "name": "南京禄口国际机场溧水城市候机楼",
+    "type": "transit",
+    "area": "溧水区",
+    "lat": 31.663177,
+    "lng": 119.04587,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场溧水城市候机楼，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场溧水城市候机楼是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0M64RKBPF",
+    "name": "南京禄口机场国际人才创新港城市候机楼",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.867364,
+    "lng": 118.830225,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口机场国际人才创新港城市候机楼，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口机场国际人才创新港城市候机楼是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGHO5E4",
+    "name": "南京禄口国际机场T2航站楼国内贵宾候机室",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.73023,
+    "lng": 118.876995,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T2航站楼国内贵宾候机室，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T2航站楼国内贵宾候机室是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0L6MMVEXF",
+    "name": "江北新区城市候机楼",
+    "type": "transit",
+    "area": "浦口区",
+    "lat": 32.038504,
+    "lng": 118.643777,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "江北新区城市候机楼，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "江北新区城市候机楼是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0L6FCARKZ",
+    "name": "南京机场水游城假日酒店城市候机楼",
+    "type": "transit",
+    "area": "秦淮区",
+    "lat": 32.024248,
+    "lng": 118.786072,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京机场水游城假日酒店城市候机楼，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京机场水游城假日酒店城市候机楼是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFKL4KSX",
+    "name": "南京禄口国际机场T2航站楼(4号检票口)",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.731521,
+    "lng": 118.873003,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T2航站楼(4号检票口)，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T2航站楼(4号检票口)是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0LKA1AYOT",
+    "name": "南京禄口国际机场T2航站楼候机区",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.728427,
+    "lng": 118.8741,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T2航站楼候机区，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T2航站楼候机区是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFH9NRQL",
+    "name": "南京禄口国际机场T2航站楼贵宾候机B区",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.730056,
+    "lng": 118.874969,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T2航站楼贵宾候机B区，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T2航站楼贵宾候机B区是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFIP702P",
+    "name": "南京禄口国际机场T2航站楼候机区",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.727258,
+    "lng": 118.872011,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京禄口国际机场T2航站楼候机区，南京主要火车站。",
+    "meal_type": "",
+    "recommendation": "南京禄口国际机场T2航站楼候机区是南京的火车站，适合作为行程起点或终点。",
+    "tags": [
+      "火车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B00190YPLY",
+    "name": "南京南站",
+    "type": "transit",
+    "area": "雨花台区",
+    "lat": 31.968763,
+    "lng": 118.798034,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京南站，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京南站是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B001905HYA",
+    "name": "南京站",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.087125,
+    "lng": 118.79751,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京站，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京站是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFF381MW",
+    "name": "南京南站(南进站口)",
+    "type": "transit",
+    "area": "雨花台区",
+    "lat": 31.967359,
+    "lng": 118.799038,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京南站(南进站口)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京南站(南进站口)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFH4XM53",
+    "name": "南京站(南进站口)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.086118,
+    "lng": 118.796804,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京站(南进站口)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京站(南进站口)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFG56XEN",
+    "name": "南京南站(北进站口)",
+    "type": "transit",
+    "area": "雨花台区",
+    "lat": 31.97037,
+    "lng": 118.796921,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京南站(北进站口)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京南站(北进站口)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFHFSGLX",
+    "name": "南京站(北进站口)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.088284,
+    "lng": 118.79808,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京站(北进站口)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京站(北进站口)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B001913WHS",
+    "name": "溧水站",
+    "type": "transit",
+    "area": "溧水区",
+    "lat": 31.679428,
+    "lng": 119.096298,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "溧水站，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "溧水站是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFZDDOP",
+    "name": "仙林站",
+    "type": "transit",
+    "area": "栖霞区",
+    "lat": 32.122882,
+    "lng": 118.914673,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "仙林站，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "仙林站是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0H22AJCXO",
+    "name": "南京南站(南出站口)",
+    "type": "transit",
+    "area": "雨花台区",
+    "lat": 31.967254,
+    "lng": 118.79894,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京南站(南出站口)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京南站(南出站口)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFGPMESN",
+    "name": "南京站(南出站口)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.086736,
+    "lng": 118.795728,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京站(南出站口)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京站(南出站口)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B001913Q9X",
+    "name": "江宁站",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.936032,
+    "lng": 118.898894,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "江宁站，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "江宁站是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFYT2GW",
+    "name": "江宁西站",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.824074,
+    "lng": 118.5955,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "江宁西站，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "江宁西站是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFG7M1ZH",
+    "name": "南京南站(东出站口)",
+    "type": "transit",
+    "area": "雨花台区",
+    "lat": 31.968137,
+    "lng": 118.79901,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京南站(东出站口)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京南站(东出站口)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IKVCJBT8",
+    "name": "溧水站(进站口)",
+    "type": "transit",
+    "area": "溧水区",
+    "lat": 31.67929,
+    "lng": 119.095951,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "溧水站(进站口)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "溧水站(进站口)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B001905HF7",
+    "name": "南京东站",
+    "type": "transit",
+    "area": "栖霞区",
+    "lat": 32.118803,
+    "lng": 118.888919,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京东站，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京东站是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0019098RU",
+    "name": "铜井站",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.799044,
+    "lng": 118.566746,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "铜井站，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "铜井站是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFFA4VFJ",
+    "name": "南京站(1F进站口南)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.085822,
+    "lng": 118.797341,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京站(1F进站口南)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京站(1F进站口南)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0019098F4",
+    "name": "江宁镇站",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.860193,
+    "lng": 118.610883,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "江宁镇站，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "江宁镇站是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0IKVCIGZ6",
+    "name": "仙林站(进站口)",
+    "type": "transit",
+    "area": "栖霞区",
+    "lat": 32.122534,
+    "lng": 118.912739,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "仙林站(进站口)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "仙林站(进站口)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_B0FFH83FRD",
+    "name": "南京站(东出站口)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.086111,
+    "lng": 118.79689,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京站(东出站口)，南京主要飞机场。",
+    "meal_type": "",
+    "recommendation": "南京站(东出站口)是南京的飞机场，适合作为行程起点或终点。",
+    "tags": [
+      "飞机场",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10057753",
+    "name": "新街口(地铁站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.041806,
+    "lng": 118.784136,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "新街口(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "新街口(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10053672",
+    "name": "南京南站(地铁站)",
+    "type": "transit",
+    "area": "雨花台区",
+    "lat": 31.970968,
+    "lng": 118.796786,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京南站(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "南京南站(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10052282",
+    "name": "西善桥(地铁站)",
+    "type": "transit",
+    "area": "雨花台区",
+    "lat": 31.947161,
+    "lng": 118.690861,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "西善桥(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "西善桥(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10055550",
+    "name": "夫子庙(地铁站)",
+    "type": "transit",
+    "area": "秦淮区",
+    "lat": 32.023567,
+    "lng": 118.791072,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "夫子庙(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "夫子庙(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10052240",
+    "name": "马群(地铁站)",
+    "type": "transit",
+    "area": "栖霞区",
+    "lat": 32.049649,
+    "lng": 118.894721,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "马群(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "马群(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10055287",
+    "name": "大行宫(地铁站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.041737,
+    "lng": 118.794787,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "大行宫(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "大行宫(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10057650",
+    "name": "苜蓿园(地铁站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.040239,
+    "lng": 118.83531,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "苜蓿园(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "苜蓿园(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10904099",
+    "name": "三山街(地铁站)",
+    "type": "transit",
+    "area": "秦淮区",
+    "lat": 32.023021,
+    "lng": 118.781583,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "三山街(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "三山街(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10431631",
+    "name": "鸡鸣寺(地铁站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.057266,
+    "lng": 118.798082,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "鸡鸣寺(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "鸡鸣寺(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10057660",
+    "name": "南京站(地铁站)",
+    "type": "transit",
+    "area": "鼓楼区",
+    "lat": 32.089322,
+    "lng": 118.796509,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京站(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "南京站(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10052577",
+    "name": "百家湖(地铁站)",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.931941,
+    "lng": 118.820843,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "百家湖(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "百家湖(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09448202",
+    "name": "中山陵·下马坊(地铁站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.037578,
+    "lng": 118.848373,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "中山陵·下马坊(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "中山陵·下马坊(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10055207",
+    "name": "玄武门(地铁站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.070381,
+    "lng": 118.784221,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "玄武门(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "玄武门(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10053853",
+    "name": "迈皋桥(地铁站)",
+    "type": "transit",
+    "area": "栖霞区",
+    "lat": 32.102712,
+    "lng": 118.809677,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "迈皋桥(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "迈皋桥(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10052278",
+    "name": "油坊桥(地铁站)",
+    "type": "transit",
+    "area": "建邺区",
+    "lat": 31.966454,
+    "lng": 118.721361,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "油坊桥(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "油坊桥(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10053938",
+    "name": "安德门(地铁站)",
+    "type": "transit",
+    "area": "雨花台区",
+    "lat": 31.990862,
+    "lng": 118.762136,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "安德门(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "安德门(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10431630",
+    "name": "武定门(地铁站)",
+    "type": "transit",
+    "area": "秦淮区",
+    "lat": 32.013747,
+    "lng": 118.794632,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "武定门(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "武定门(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10431628",
+    "name": "柳洲东路(地铁站)",
+    "type": "transit",
+    "area": "浦口区",
+    "lat": 32.139965,
+    "lng": 118.746237,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "柳洲东路(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "柳洲东路(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10056679",
+    "name": "元通(地铁站)",
+    "type": "transit",
+    "area": "建邺区",
+    "lat": 31.995471,
+    "lng": 118.721449,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "元通(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "元通(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10054808",
+    "name": "鼓楼(地铁站)",
+    "type": "transit",
+    "area": "鼓楼区",
+    "lat": 32.058667,
+    "lng": 118.783701,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "鼓楼(地铁站)，南京主要地铁站。",
+    "meal_type": "",
+    "recommendation": "鼓楼(地铁站)是南京的地铁站，适合作为行程起点或终点。",
+    "tags": [
+      "地铁站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10397002",
+    "name": "八一医院(公交站)",
+    "type": "transit",
+    "area": "秦淮区",
+    "lat": 32.034119,
+    "lng": 118.793434,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "八一医院(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "八一医院(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV11000430",
+    "name": "刘村地铁站(公交站)",
+    "type": "transit",
+    "area": "雨花台区",
+    "lat": 31.94438,
+    "lng": 118.66494,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "刘村地铁站(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "刘村地铁站(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10053891",
+    "name": "万寿(公交站)",
+    "type": "transit",
+    "area": "栖霞区",
+    "lat": 32.119592,
+    "lng": 118.838468,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "万寿(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "万寿(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10877845",
+    "name": "临江地铁站(公交站)",
+    "type": "transit",
+    "area": "浦口区",
+    "lat": 32.058475,
+    "lng": 118.664755,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "临江地铁站(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "临江地铁站(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10052432",
+    "name": "新庄广场东(公交站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.080102,
+    "lng": 118.811271,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "新庄广场东(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "新庄广场东(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10447750",
+    "name": "乌江客运站(公交站)",
+    "type": "transit",
+    "area": "浦口区",
+    "lat": 31.864085,
+    "lng": 118.468134,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "乌江客运站(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "乌江客运站(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10055565",
+    "name": "后宰门(公交站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.046316,
+    "lng": 118.818644,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "后宰门(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "后宰门(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10052339",
+    "name": "浦厂小区(公交站)",
+    "type": "transit",
+    "area": "浦口区",
+    "lat": 32.110237,
+    "lng": 118.691908,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "浦厂小区(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "浦厂小区(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV09166011",
+    "name": "下马坊地铁站(公交站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.038137,
+    "lng": 118.848253,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "下马坊地铁站(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "下马坊地铁站(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10056761",
+    "name": "南京站·南广场东(公交站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.084847,
+    "lng": 118.797682,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京站·南广场东(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "南京站·南广场东(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10053961",
+    "name": "集庆门(公交站)",
+    "type": "transit",
+    "area": "秦淮区",
+    "lat": 32.018768,
+    "lng": 118.772392,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "集庆门(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "集庆门(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10410744",
+    "name": "中华门城堡(公交站)",
+    "type": "transit",
+    "area": "秦淮区",
+    "lat": 32.013759,
+    "lng": 118.782339,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "中华门城堡(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "中华门城堡(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10052468",
+    "name": "南京义乌小商品城(公交站)",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.939943,
+    "lng": 118.876521,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "南京义乌小商品城(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "南京义乌小商品城(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10053927",
+    "name": "气象学院(公交站)",
+    "type": "transit",
+    "area": "江宁区",
+    "lat": 31.970521,
+    "lng": 118.812824,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "气象学院(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "气象学院(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10054694",
+    "name": "陆军指挥学院(公交站)",
+    "type": "transit",
+    "area": "浦口区",
+    "lat": 32.175353,
+    "lng": 118.683384,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "陆军指挥学院(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "陆军指挥学院(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10052416",
+    "name": "太平门(公交站)",
+    "type": "transit",
+    "area": "玄武区",
+    "lat": 32.057088,
+    "lng": 118.812704,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "太平门(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "太平门(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10568815",
+    "name": "八卦洲总站(公交站)",
+    "type": "transit",
+    "area": "栖霞区",
+    "lat": 32.178196,
+    "lng": 118.801666,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "八卦洲总站(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "八卦洲总站(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10053809",
+    "name": "水关桥(公交站)",
+    "type": "transit",
+    "area": "鼓楼区",
+    "lat": 32.099377,
+    "lng": 118.758293,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "水关桥(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "水关桥(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10807897",
+    "name": "新街口南(公交站)",
+    "type": "transit",
+    "area": "秦淮区",
+    "lat": 32.036385,
+    "lng": 118.784149,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "新街口南(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "新街口南(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
+  },
+  {
+    "id": "transit_BV10056884",
+    "name": "秦虹小区(公交站)",
+    "type": "transit",
+    "area": "秦淮区",
+    "lat": 32.013679,
+    "lng": 118.808733,
+    "popularity": 4,
+    "price_level": 0,
+    "description": "秦虹小区(公交站)，南京主要长途汽车站。",
+    "meal_type": "",
+    "recommendation": "秦虹小区(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
+    "tags": [
+      "长途汽车站",
+      "交通",
+      "南京"
+    ],
+    "visit_duration": 15
   }
 ]
