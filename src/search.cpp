@@ -6,6 +6,7 @@
 #include <set>
 #include <sstream>
 #include <unordered_map>
+#include <unordered_set>
 
 namespace tourpass {
 
@@ -129,6 +130,40 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
         const auto& poi = *entry.poi;
         if (!type.empty() && poiTypeToString(poi.type) != type) {
             continue;
+        }
+
+        // Skip non-tourist POIs (schools, companies, factories, etc.)
+        static const std::unordered_set<std::string> blacklistTags = {
+            "学校", "职业技术学校", "职业技术学院", "中学", "小学", "幼儿园", "大学", "学院",
+            "公司企业", "公司", "工厂", "政府机构", "派出所", "消防队",
+            "医院", "诊所", "药店", "殡仪馆", "墓地",
+            "加油站", "停车场", "收费站", "住宅区", "小区"
+        };
+        bool blacklisted = false;
+        for (const auto& tag : poi.tags) {
+            if (blacklistTags.count(tag)) { blacklisted = true; break; }
+        }
+        if (blacklisted) continue;
+
+        // Skip POIs with non-tourist names (schools, etc.) unless whitelisted
+        static const std::vector<std::string> nameBlacklist = {
+            "职业学院", "职业技术", "中学", "小学", "幼儿园", "学校"
+        };
+        static const std::vector<std::string> nameWhitelist = {
+            "博物馆", "美术馆", "科技馆"
+        };
+        {
+            bool nameBlacklisted = false;
+            bool nameWhitelisted = false;
+            for (const auto& wl : nameWhitelist) {
+                if (poi.name.find(wl) != std::string::npos) { nameWhitelisted = true; break; }
+            }
+            if (!nameWhitelisted) {
+                for (const auto& bl : nameBlacklist) {
+                    if (poi.name.find(bl) != std::string::npos) { nameBlacklisted = true; break; }
+                }
+            }
+            if (nameBlacklisted) continue;
         }
 
         double score = 0.0;

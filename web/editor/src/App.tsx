@@ -159,7 +159,7 @@ export default function App() {
 
           {/* Center: Map */}
           <div className="flex-1 relative">
-            <MapView allPois={pois} onAddPoi={handleAddFromMap} />
+            <MapView allPois={pois} onAddPoi={handleAddFromMap} currentDay={currentDay} onDayChange={setCurrentDay} />
             <AiRecommend allPois={pois} onAdd={(poi) => addStop(currentDay, poi)} />
             <ConflictAlert />
           </div>
