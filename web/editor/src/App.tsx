@@ -13,17 +13,27 @@ import AiChat from './components/AiChat';
 import EditorToolbar from './components/EditorToolbar';
 
 const CITY_OPTIONS = [
-  { value: 'wuhan', label: '武汉' },
-  { value: 'changsha', label: '长沙' },
-  { value: 'dali', label: '大理' },
-  { value: 'beijing', label: '北京' },
-  { value: 'chengdu', label: '成都' },
-  { value: 'chongqing', label: '重庆' },
-  { value: 'hangzhou', label: '杭州' },
-  { value: 'nanjing', label: '南京' },
-  { value: 'suzhou', label: '苏州' },
-  { value: 'xian', label: '西安' },
-  { value: 'lijiang', label: '丽江' },
+  { value: '武汉', label: '武汉' },
+  { value: '长沙', label: '长沙' },
+  { value: '大理', label: '大理' },
+  { value: '北京', label: '北京' },
+  { value: '成都', label: '成都' },
+  { value: '重庆', label: '重庆' },
+  { value: '杭州', label: '杭州' },
+  { value: '南京', label: '南京' },
+  { value: '苏州', label: '苏州' },
+  { value: '西安', label: '西安' },
+  { value: '丽江', label: '丽江' },
+  { value: '上海', label: '上海' },
+  { value: '广州', label: '广州' },
+  { value: '深圳', label: '深圳' },
+  { value: '厦门', label: '厦门' },
+  { value: '青岛', label: '青岛' },
+  { value: '桂林', label: '桂林' },
+  { value: '三亚', label: '三亚' },
+  { value: '哈尔滨', label: '哈尔滨' },
+  { value: '昆明', label: '昆明' },
+  { value: '张家界', label: '张家界' },
 ];
 
 export default function App() {
@@ -43,7 +53,7 @@ export default function App() {
         const firstCity = data.cities?.[0]?.name || data[0]?.name || '';
         if (firstCity) setCity(firstCity);
       })
-      .catch(() => setCity('wuhan'));
+      .catch(() => setCity('武汉'));
   }, []);
 
   // Load POIs when city changes
