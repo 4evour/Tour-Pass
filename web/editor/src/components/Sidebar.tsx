@@ -5,9 +5,11 @@ import PoiCard from './PoiCard';
 
 const FILTERS: { key: PoiTypeFilter; label: string }[] = [
   { key: 'all', label: '全部' },
-  { key: 'attraction', label: '景点' },
-  { key: 'restaurant', label: '餐饮' },
-  { key: 'nightlife', label: '夜生活' },
+  { key: 'attraction', label: '🏛 景点' },
+  { key: 'restaurant', label: '🍜 餐饮' },
+  { key: 'nightlife', label: '🌙 夜生活' },
+  { key: 'hotel', label: '🏨 酒店' },
+  { key: 'transit', label: '🚌 交通' },
 ];
 
 interface SidebarProps {

@@ -53,4 +53,4 @@ export interface ItineraryState {
   lastRemovedStop: { day: number; poi: Poi; index: number } | null; // for F3 replacement suggestions
 }
 
-export type PoiTypeFilter = 'all' | 'attraction' | 'restaurant' | 'nightlife';
+export type PoiTypeFilter = 'all' | 'attraction' | 'restaurant' | 'nightlife' | 'hotel' | 'transit';

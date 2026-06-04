@@ -44,18 +44,23 @@ export default function PoiCard({ poi, variant, stop, index, day, onRemove }: Po
   };
 
   if (variant === 'sidebar') {
+    const shortDesc = poi.description && poi.description.length > 10
+      ? poi.description.substring(0, 40) + (poi.description.length > 40 ? '...' : '')
+      : '';
     return (
       <div
         ref={setNodeRef}
         style={style}
         {...attributes}
         {...listeners}
+        title={poi.description || ''}
         className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-gray-200 cursor-grab hover:border-primary-400 hover:shadow-sm active:cursor-grabbing"
       >
         <span className="text-lg">{TYPE_ICONS[poi.type] || '📍'}</span>
         <div className="flex-1 min-w-0">
           <div className="text-sm font-medium truncate">{poi.name}</div>
-          <div className="text-xs text-gray-500 truncate">{poi.area}</div>
+          <div className="text-xs text-gray-500 truncate">{poi.area}{poi.open_minutes != null ? ` · ${formatMin(poi.open_minutes)}-${formatMin(poi.close_minutes || 0)}` : ''}</div>
+          {shortDesc && <div className="text-xs text-gray-400 truncate mt-0.5">{shortDesc}</div>}
         </div>
       </div>
     );
