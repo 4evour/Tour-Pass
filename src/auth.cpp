@@ -14,6 +14,7 @@
 #ifdef CPPHTTPLIB_OPENSSL_SUPPORT
 #include <openssl/evp.h>
 #include <openssl/hmac.h>
+#include <openssl/rand.h>
 #else
 #pragma message("WARNING: Building without OpenSSL. Password hashing and JWT signatures use insecure fallbacks. Production deployments MUST enable TOURPASS_ENABLE_OPENSSL.")
 #endif
