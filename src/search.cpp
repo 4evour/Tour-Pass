@@ -59,7 +59,7 @@ double bm25Contribution(double tf, double documentCount, double documentFrequenc
 std::string joinTerms(const std::vector<std::string>& terms) {
     std::ostringstream out;
     for (size_t i = 0; i < terms.size(); ++i) {
-        if (i > 0) out << "、";
+        if (i > 0) out << "�?;
         out << terms[i];
     }
     return out.str();
@@ -134,10 +134,10 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
 
         // Skip non-tourist POIs (schools, companies, factories, etc.)
         static const std::unordered_set<std::string> blacklistTags = {
-            "学校", "职业技术学校", "职业技术学院", "中学", "小学", "幼儿园", "大学", "学院",
-            "公司企业", "公司", "工厂", "政府机构", "派出所", "消防队",
-            "医院", "诊所", "药店", "殡仪馆", "墓地",
-            "加油站", "停车场", "收费站", "住宅区", "小区"
+            "学校", "职业技术学�?, "职业技术学�?, "中学", "小学", "幼儿�?, "大学", "学院",
+            "公司企业", "公司", "工厂", "政府机构", "派出所", "消防�?,
+            "医院", "诊所", "药店", "殡仪�?, "墓地",
+            "加油�?, "停车�?, "收费�?, "住宅�?, "小区"
         };
         bool blacklisted = false;
         for (const auto& tag : poi.tags) {
@@ -147,10 +147,10 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
 
         // Skip POIs with non-tourist names (schools, etc.) unless whitelisted
         static const std::vector<std::string> nameBlacklist = {
-            "职业学院", "职业技术", "中学", "小学", "幼儿园", "学校"
+            "职业学院", "职业技�?, "中学", "小学", "幼儿�?, "学校"
         };
         static const std::vector<std::string> nameWhitelist = {
-            "博物馆", "美术馆", "科技馆"
+            "博物�?, "美术�?, "科技�?
         };
         {
             bool nameBlacklisted = false;
@@ -189,26 +189,26 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
                 score += tokenScore;
 
                 if (nameTf > 0.0) {
-                    contributions.push_back({"名称BM25", std::round(bm25Contribution(nameTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词「" + token + "」命中名称字段。"});
+                    contributions.push_back({"名称BM25", std::round(bm25Contribution(nameTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词�? + token + "」命中名称字段�?});
                 }
                 if (tagsTf > 0.0) {
-                    contributions.push_back({"标签BM25", std::round(bm25Contribution(tagsTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词「" + token + "」命中标签字段。"});
+                    contributions.push_back({"标签BM25", std::round(bm25Contribution(tagsTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词�? + token + "」命中标签字段�?});
                 }
                 if (areaTf > 0.0) {
-                    contributions.push_back({"区域BM25", std::round(bm25Contribution(areaTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词「" + token + "」命中区域字段。"});
+                    contributions.push_back({"区域BM25", std::round(bm25Contribution(areaTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词�? + token + "」命中区域字段�?});
                 }
                 if (descriptionTf > 0.0) {
-                    contributions.push_back({"描述BM25", std::round(bm25Contribution(descriptionTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词「" + token + "」命中描述字段。"});
+                    contributions.push_back({"描述BM25", std::round(bm25Contribution(descriptionTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词�? + token + "」命中描述字段�?});
                 }
             }
         }
         if (tokens.empty()) {
             score = entry.poi->popularity;
             matchedTerms.push_back("热度");
-            contributions.push_back({"热度", poi.popularity, "空查询按 POI 热度排序。"});
+            contributions.push_back({"热度", poi.popularity, "空查询按 POI 热度排序�?});
         }
         score += entry.poi->popularity;
-        contributions.push_back({"热度加权", entry.poi->popularity, "检索排序叠加 POI 热度，避免低质量文本匹配靠前。"});
+        contributions.push_back({"热度加权", entry.poi->popularity, "检索排序叠�?POI 热度，避免低质量文本匹配靠前�?});
 
         if (score > 0.0) {
             SearchResult result;
@@ -217,11 +217,12 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
             result.type = poiTypeToString(entry.poi->type);
             result.area = entry.poi->area;
             result.score = std::round(score * 10.0) / 10.0;
+            result.popularity = entry.poi->popularity;
             result.description = entry.poi->description;
             result.matchedTerms = matchedTerms;
             result.scoreExplanation = tokens.empty()
-                ? "空查询按 POI 热度排序。"
-                : "BM25 + 字段权重：名称、标签、区域和描述共同贡献，匹配词为「" + joinTerms(matchedTerms) + "」。";
+                ? "空查询按 POI 热度排序�?
+                : "BM25 + 字段权重：名称、标签、区域和描述共同贡献，匹配词为�? + joinTerms(matchedTerms) + "」�?;
             result.scoreContributions = contributions;
             results.push_back(result);
         }
@@ -247,6 +248,7 @@ nlohmann::json searchResultToJson(const SearchResult& result) {
         {"type", result.type},
         {"area", result.area},
         {"score", result.score},
+        {"popularity", result.popularity},
         {"description", result.description},
         {"matched_terms", result.matchedTerms},
         {"score_explanation", result.scoreExplanation},
