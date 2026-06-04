@@ -357,6 +357,7 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
         bool isPublicPath = req.path == "/health" || req.path == "/metrics"
                          || req.path.find("/auth/") == 0
                          || req.path.find("/s/") == 0
+                         || req.path.find("/api/share/") == 0
                          || req.method == "OPTIONS"
                          || req.path == "/" || req.path == "/index.html"
                          || req.path == "/app.js" || req.path == "/styles.css"
@@ -1600,6 +1601,18 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         } catch (const std::exception& e) {
             setJson(res, errorJson("INTERNAL_ERROR", std::string("分享失败: ") + e.what()), 500);
         }
+    });
+
+
+    // JSON API for share data (used by main app hash routing)
+    server.Get(R"(/api/share/([a-z0-9]+))", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string shareId = req.matches[1];
+        auto trip = context.store->getTripByShareId(shareId);
+        if (!trip) {
+            setJson(res, errorJson("NOT_FOUND", "分享链接无效或已过期"), 404);
+            return;
+        }
+        setJson(res, *trip);
     });
 
     server.Get(R"(/s/([a-z0-9]+))", [&](const httplib::Request& req, httplib::Response& res) {

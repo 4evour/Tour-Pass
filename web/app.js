@@ -2049,7 +2049,7 @@ async function shareTrip() {
     if (!tripId) { toast("未找到已保存的行�?, "error"); return; }
     // Generate share link
     const shareData = await api(`/trips/${tripId}/share`, { method: "POST", body: "{}" });
-    const url = location.origin + shareData.share_url;
+    const url = location.origin + "/#/share/" + shareData.share_id;
     try { await navigator.clipboard.writeText(url); } catch {}
     toast("分享链接已复�?, "success",
       `<a href="${shareData.share_url}" target="_blank" class="toast-link">预览分享�?/a>`);
@@ -2533,7 +2533,31 @@ function navigateTo(hash) {
   window.location.hash = hash;
 }
 
+
+async function loadSharedTrip(shareId) {
+  try {
+    const trip = await api("/api/share/" + shareId);
+    if (!trip || !trip.days) { toast("分享链接无效", "error"); return; }
+    // Convert trip data to candidate format
+    state.candidates = [trip];
+    state.selectedIndex = 0;
+    state.lastPayload = { city: trip.city || "" };
+    renderPlan();
+    setStage("result");
+    toast("已加载分享的行程", "success");
+  } catch (e) {
+    toast("加载分享行程失败: " + e.message, "error");
+  }
+}
+
 function handleRoute() {
+  // Check for share route
+  if (hash.startsWith("#/share/")) {
+    const shareId = hash.replace("#/share/", "");
+    if (shareId) loadSharedTrip(shareId);
+    return;
+  }
+
   const hash = window.location.hash || "#/";
   const mainApp = $("mainApp");
   const profileView = $("profileView");
@@ -2639,7 +2663,7 @@ async function loadProfileView() {
       const shareBtn = e.target.closest(".pv-share-btn");
 
       if (copyBtn) {
-        const url = location.origin + "/s/" + copyBtn.dataset.shareId;
+        const url = location.origin + "/#/share/" + copyBtn.dataset.shareId;
         try { await navigator.clipboard.writeText(url); copyBtn.textContent = "�?已复�?; } catch {}
         setTimeout(() => { copyBtn.textContent = "📋 复制链接"; }, 2000);
         return;
