@@ -18,6 +18,7 @@ if (-not (Test-Path $AppPath)) {
 
 $env:PORT = "$Port"
 $env:LLM_DISABLED = "1"
+$env:TOURPASS_JWT_SECRET = "ci-smoke-test-secret-32chars!"
 $env:TOURPASS_DB_PATH = Join-Path $root "output\api-smoke-tourpass.sqlite"
 $expectedPoiCount = 466
 $expectedEdgeCount = 1728
