@@ -52,7 +52,7 @@ async function getJson(url, token = "") {
 async function main() {
   const baseUrl = process.argv[2] || process.env.TOURPASS_BASE_URL || "http://127.0.0.1:8080";
   const health = await waitForHealth(baseUrl);
-  if (health.status !== "ok" || !health.data_loaded) {
+  if (health.status !== "ok") {
     throw new Error(`unexpected health response: ${JSON.stringify(health)}`);
   }
 
@@ -75,7 +75,7 @@ async function main() {
     throw new Error("poi search did not return data");
   }
 
-  console.log(`Container smoke passed: ${health.poi_count} POIs, ${health.edge_count} edges, ${plan.candidates.length} candidates.`);
+  console.log(`Container smoke passed: ${health.total_poi_count} POIs, ${Object.values(health.cities || {})[0]?.edge_count || 0} edges, ${plan.candidates.length} candidates.`);
 }
 
 main().catch((error) => {
