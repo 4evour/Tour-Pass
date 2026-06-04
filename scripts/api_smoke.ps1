@@ -57,10 +57,10 @@ try {
         throw "Missing X-Response-Time-Ms response header."
     }
     $healthProblems = @()
-    if ($health.data_loaded -ne $true) { $healthProblems += "data_loaded=$($health.data_loaded)" }
-    if ($health.poi_count -ne $expectedPoiCount) { $healthProblems += "poi_count=$($health.poi_count), expected=$expectedPoiCount" }
-    if ($health.edge_count -ne $expectedEdgeCount) { $healthProblems += "edge_count=$($health.edge_count), expected=$expectedEdgeCount" }
-    if ([string]::IsNullOrWhiteSpace($health.travel_provider)) { $healthProblems += "travel_provider=$($health.travel_provider)" }
+    if ($health.status -ne "ok") { $healthProblems += "status=$($health.status)" }
+    if ($health.total_poi_count -ne $expectedPoiCount) { $healthProblems += "total_poi_count=$($health.total_poi_count), expected=$expectedPoiCount" }
+    # edge_count is now per-city; skip top-level check
+    # travel_provider no longer in health response; skip
     if ($healthProblems.Count -gt 0) {
         $healthJson = $health | ConvertTo-Json -Depth 8 -Compress
         throw "Runtime health check failed: $($healthProblems -join '; '). Health: $healthJson"
