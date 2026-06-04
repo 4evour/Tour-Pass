@@ -69,6 +69,7 @@ jobs:
             --name tour-pass-ci \
             -p 8080:8080 \
             -e LLM_DISABLED=1 \
+            -e TOURPASS_JWT_SECRET=ci-smoke-test-secret-32chars! \
             tour-pass:ci
 
       - name: Container API smoke
