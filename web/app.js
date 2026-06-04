@@ -77,7 +77,7 @@ function leafletReady() {
 }
 
 function addBaseTileLayer(map) {
-  // 高德浅色底图（减少路�?小区名标注，更清爽）
+  // 高德浅色底图（减少路�?小区名标注，更清爽）
   var amapLight = L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}", {
     subdomains: "1234", maxZoom: 18, attribution: '&copy; 高德地图'
   });
@@ -244,7 +244,7 @@ function initMapDragReorder() {
           recalcDayTimes(day);
           // Re-render cards and map
           renderPlan();
-          toast("行程顺序已更�?, "info");
+          toast("行程顺序已更�?, "info");
         }
       });
     }
@@ -338,14 +338,14 @@ async function doMapSearch(query) {
   const resultsDiv = $("mapSearchResults");
   if (!resultsDiv) return;
   resultsDiv.hidden = false;
-  resultsDiv.innerHTML = '<div style="padding:10px;font-size:12px;color:var(--muted);">搜索�?..</div>';
+  resultsDiv.innerHTML = '<div style="padding:10px;font-size:12px;color:var(--muted);">搜索�?..</div>';
 
   try {
     const city = state.lastPayload?.city || "长沙";
     const data = await api(`/poi/amap-search?q=${encodeURIComponent(query)}&city=${encodeURIComponent(city)}&limit=10`);
     const pois = data.data || [];
     if (pois.length === 0) {
-      resultsDiv.innerHTML = '<div style="padding:10px;font-size:12px;color:var(--muted);">未找到结�?/div>';
+      resultsDiv.innerHTML = '<div style="padding:10px;font-size:12px;color:var(--muted);">未找到结�?/div>';
       return;
     }
 
@@ -407,8 +407,8 @@ function showSearchResultsOnMap(pois) {
       <div style="min-width:160px;">
         <div style="font-weight:700;font-size:13px;">${escapeHtml(poi.name)}</div>
         <div style="font-size:11px;color:#65706d;">${escapeHtml(poi.district || "")} ${escapeHtml(poi.address || "")}</div>
-        ${poi.rating ? `<div style="font-size:11px;margin-top:2px;">�?${poi.rating}</div>` : ""}
-        <button data-poi-id="${popupId}" style="margin-top:6px;padding:4px 10px;border:1px solid #146b5d;border-radius:4px;background:#146b5d;color:#fff;font-size:11px;cursor:pointer;">+ 添加到行�?/button>
+        ${poi.rating ? `<div style="font-size:11px;margin-top:2px;">�?${poi.rating}</div>` : ""}
+        <button data-poi-id="${popupId}" style="margin-top:6px;padding:4px 10px;border:1px solid #146b5d;border-radius:4px;background:#146b5d;color:#fff;font-size:11px;cursor:pointer;">+ 添加到行�?/button>
       </div>
     `);
     marker.on('popupopen', function() {
@@ -423,7 +423,7 @@ function showSearchResultsOnMap(pois) {
 function addSearchPoiToItinerary(poi) {
   if (!poi || !poi.lat || !poi.lng) return;
   const candidate = state.candidates[state.selectedIndex];
-  if (!candidate?.days?.length) { toast("请先生成行程再添�?, "info"); return; }
+  if (!candidate?.days?.length) { toast("请先生成行程再添�?, "info"); return; }
 
   // Auto-detect POI type
   var poiType = poi.type || "attraction";
@@ -466,7 +466,7 @@ function addSearchPoiToItinerary(poi) {
 
   renderPlan();
   saveTripState();
-  toast("已添�?" + poi.name + " 到第 " + targetDay.day + " �?, "success");
+  toast("已添�?" + poi.name + " 到第 " + targetDay.day + " �?, "success");
 
   // Clean up search markers
   if (searchResultMarkers && planMap) {
@@ -543,14 +543,14 @@ async function loadPoiBrowseLayer(type, mealFilter, key) {
           '<div class="poi-browse-name">' + escapeHtml(poi.name) + '</div>' +
           '<div class="poi-browse-meta">' + typeIcon(poi.type) + ' ' + escapeHtml(poi.area) + ' · 热度 ' + (poi.popularity||0).toFixed(1) + '</div>' +
           rec +
-          '<button class="poi-browse-add" data-poi=\'' + escapeHtml(JSON.stringify(poi)) + '\'>+ 添加到行�?/button>' +
+          '<button class="poi-browse-add" data-poi=\'' + escapeHtml(JSON.stringify(poi)) + '\'>+ 添加到行�?/button>' +
         '</div>'
       );
       marker.addTo(layer);
     });
     browsePoiLayers[key] = layer;
     layer.addTo(planMap);
-    toast("已显�?" + pois.length + " �? + (mealFilter === "drink" ? "茶饮" : type === "attraction" ? "景点" : type === "restaurant" ? "美食" : "夜生�?) + " POI", "info");
+    toast("已显�?" + pois.length + " �? + (mealFilter === "drink" ? "茶饮" : type === "attraction" ? "景点" : type === "restaurant" ? "美食" : "夜生�?) + " POI", "info");
   } catch(e) {
     console.error("POI browse error:", e);
   }
@@ -726,12 +726,12 @@ async function api(path, options = {}) {
   if (remaining !== null) updateQueryCounter(parseInt(remaining));
   if (!response.ok) {
     if (response.status === 401 && !path.startsWith("/auth")) {
-      // Don't auto-logout �?show confirmation to preserve user state
-      const shouldRelogin = confirm("登录已过期，是否重新登录？\n（取消可继续浏览当前页面�?);
+      // Don't auto-logout �?show confirmation to preserve user state
+      const shouldRelogin = confirm("登录已过期，是否重新登录？\n（取消可继续浏览当前页面�?);
       if (shouldRelogin) {
         logout();
       }
-      throw new Error("登录已过期，请重新登�?);
+      throw new Error("登录已过期，请重新登�?);
     }
     throw new Error(data?.error?.message || `请求失败 (${response.status})`);
   }
@@ -778,7 +778,7 @@ function showApp() {
       guestBanner = document.createElement("div");
       guestBanner.id = "guestRetentionBanner";
       guestBanner.className = "guest-retention-banner";
-      guestBanner.innerHTML = `<span>游客数据保留 7 天，<a href="/?show=register">注册账号</a>可长期保�?/span>`;
+      guestBanner.innerHTML = `<span>游客数据保留 7 天，<a href="/?show=register">注册账号</a>可长期保�?/span>`;
       document.querySelector(".app-shell")?.insertBefore(guestBanner, document.querySelector(".workspace"));
     }
     guestBanner.hidden = false;
@@ -812,7 +812,7 @@ async function doLogin() {
   const password = $("authPassword").value;
   const errEl = $("authError");
   errEl.hidden = true;
-  if (!username || !password) { errEl.textContent = "请输入用户名和密�?; errEl.hidden = false; return; }
+  if (!username || !password) { errEl.textContent = "请输入用户名和密�?; errEl.hidden = false; return; }
   try {
     $("authLoginBtn").disabled = true;
     const data = await api("/auth/login", {
@@ -836,7 +836,7 @@ async function doRegister() {
   const password = $("regPassword").value;
   const errEl = $("regError");
   errEl.hidden = true;
-  if (!username || !password) { errEl.textContent = "请输入用户名和密�?; errEl.hidden = false; return; }
+  if (!username || !password) { errEl.textContent = "请输入用户名和密�?; errEl.hidden = false; return; }
   try {
     $("authRegisterBtn").disabled = true;
     const data = await api("/auth/register", {
@@ -910,7 +910,7 @@ function initEasterEgg() {
       const data = await api("/easter-egg");
       showFireworks();
       setTimeout(() => {
-        $("easterMessage").textContent = "🎉 " + data.message + " +5 次查�?;
+        $("easterMessage").textContent = "🎉 " + data.message + " +5 次查�?;
         $("easterMessage").hidden = false;
         if (state.user) {
           state.user.query_remaining = (state.user.query_remaining || 0) + 5;
@@ -922,7 +922,7 @@ function initEasterEgg() {
         $("fireworksCanvas").hidden = true;
       }, 5000);
     } catch (e) {
-      if (e.message.includes("已领�?)) {
+      if (e.message.includes("已领�?)) {
         $("easterMessage").textContent = "🎁 今日彩蛋已领取，明天再来~";
         $("easterMessage").hidden = false;
         setTimeout(() => { $("easterMessage").hidden = true; }, 3000);
@@ -992,11 +992,11 @@ function showFireworks() {
 async function loadHealth() {
   try {
     const health = await api("/health");
-    $("serviceStatus").textContent = `已连�?· ${health.poi_count} POI · ${health.llm_configured ? "LLM 已配�? : "模板兜底"}`;
+    $("serviceStatus").textContent = `已连�?· ${health.poi_count} POI · ${health.llm_configured ? "LLM 已配�? : "模板兜底"}`;
     $("serviceStatus").classList.add("ok");
   } catch (e) {
     console.warn("loadHealth:", e.message);
-    $("serviceStatus").textContent = "服务未连�?;
+    $("serviceStatus").textContent = "服务未连�?;
     $("serviceStatus").classList.remove("ok");
   }
 }
@@ -1012,11 +1012,11 @@ function renderTabs() {
   $("candidateSummary").innerHTML = `
     <div>
       <strong>${escapeHtml(selected.variant_name) || "推荐方案"}</strong>
-      <span>${escapeHtml(selected.days?.[0]?.summary) || "等待生成可解释摘要�?}</span>
+      <span>${escapeHtml(selected.days?.[0]?.summary) || "等待生成可解释摘要�?}</span>
     </div>
     <div class="metric-row">
       <span>评分 ${selected.total_score ?? 0}</span>
-      <span>${selected.days?.length || 0} �?/span>
+      <span>${selected.days?.length || 0} �?/span>
       <span>${totalTravel(selected)} 分钟通勤</span>
     </div>
   `;
@@ -1026,7 +1026,7 @@ function renderTabs() {
     button.type = "button";
     button.setAttribute("role", "tab");
     button.setAttribute("aria-selected", index === state.selectedIndex ? "true" : "false");
-    button.textContent = candidate.variant_name || `候�?${index + 1}`;
+    button.textContent = candidate.variant_name || `候�?${index + 1}`;
     button.addEventListener("click", () => {
       state.selectedIndex = index;
       renderPlan();
@@ -1045,12 +1045,14 @@ function timeToMinutes(value) {
 }
 
 function renderPlan() {
+  window.__currentCandidate = (state.candidates || [])[state.selectedIndex] || (state.candidates || [])[0] || null;
+
   renderTabs();
   const output = $("planOutput");
   const candidate = state.candidates[state.selectedIndex];
   if (!candidate) {
     output.className = "plan-output empty-state";
-    output.textContent = "暂无行程�?;
+    output.textContent = "暂无行程�?;
     return;
   }
 
@@ -1313,8 +1315,8 @@ function renderOverview(candidate) {
   return `
     <div class="overview-header">
       <div class="overview-stats">
-        <div class="overview-stat"><strong>${days.length}</strong><span>�?/span></div>
-        <div class="overview-stat"><strong>${totalStops}</strong><span>�?/span></div>
+        <div class="overview-stat"><strong>${days.length}</strong><span>�?/span></div>
+        <div class="overview-stat"><strong>${totalStops}</strong><span>�?/span></div>
         <div class="overview-stat"><strong>${totalTravelMin}</strong><span>分钟通勤</span></div>
         <div class="overview-stat accent"><strong>¥${totalLo}-${totalHi}</strong><span>预估花费</span></div>
       </div>
@@ -1322,8 +1324,8 @@ function renderOverview(candidate) {
         <button class="primary-action small" id="saveTripBtn" type="button">💾 保存行程</button>
         <button class="secondary-action small" id="shareTripBtn" type="button">🔗 分享</button>
         <button class="secondary-action small" id="shareImageBtn" type="button">📸 生成图片</button>
-        <button class="secondary-action small" id="exportBtn" type="button">🖨�?导出/打印</button>
-        <button class="secondary-action small" id="navAmapBtn" type="button">🗺�?导航到高�?/button>
+        <button class="secondary-action small" id="exportBtn" type="button">🖨�?导出/打印</button>
+        <button class="secondary-action small" id="navAmapBtn" type="button">🗺�?导航到高�?/button>
       </div>
     </div>
 
@@ -1331,7 +1333,7 @@ function renderOverview(candidate) {
       <div id="overviewMapWrap" class="overview-map-wrap">
         <div id="map"></div>
         <div class="map-search-box" id="mapSearchBox">
-          <input id="mapSearchInput" type="text" placeholder="🔍 搜索景点、餐�?.." />
+          <input id="mapSearchInput" type="text" placeholder="🔍 搜索景点、餐�?.." />
           <div id="mapSearchResults" class="map-search-results" hidden></div>
         </div>
         <div class="map-day-filter" id="mapDayFilter">
@@ -1340,14 +1342,14 @@ function renderOverview(candidate) {
         </div>
       </div>
       <div class="map-legend">
-        ${days.map((d, i) => `<span class="legend-item"><span class="legend-dot" style="background:${DAY_COLORS[i % DAY_COLORS.length]}"></span>Day ${d.day} · ${d.stops?.length || 0} �?/span>`).join("")}
+        ${days.map((d, i) => `<span class="legend-item"><span class="legend-dot" style="background:${DAY_COLORS[i % DAY_COLORS.length]}"></span>Day ${d.day} · ${d.stops?.length || 0} �?/span>`).join("")}
       </div>
       <div class="poi-browse-bar" id="poiBrowseBar">
-        <span class="poi-browse-label">浏览 POI�?/span>
+        <span class="poi-browse-label">浏览 POI�?/span>
         <button class="poi-browse-btn" data-browse-type="attraction">🏛 景点</button>
         <button class="poi-browse-btn" data-browse-type="restaurant">🍜 美食</button>
-        <button class="poi-browse-btn poi-browse-drink" data-browse-type="restaurant" data-meal-filter="drink">�?茶饮</button>
-        <button class="poi-browse-btn" data-browse-type="nightlife">🌙 夜生�?/button>
+        <button class="poi-browse-btn poi-browse-drink" data-browse-type="restaurant" data-meal-filter="drink">�?茶饮</button>
+        <button class="poi-browse-btn" data-browse-type="nightlife">🌙 夜生�?/button>
       </div>
     </div>
 
@@ -1363,9 +1365,15 @@ function renderOverview(candidate) {
         <div class="day-card" data-day-index="${day.day - 1}">
           <div class="day-card-header" style="border-left: 4px solid ${DAY_COLORS[(day.day - 1) % DAY_COLORS.length]}">
             <strong>Day ${day.day}</strong>
-            <span class="day-card-stats">${stops.length} �?· ≈�?{cost.lo}-${cost.hi}${actual ? ` · 实际 ¥${actual}` : ""}</span>
+            <span class="day-card-stats">${stops.length} �?· ≈�?{cost.lo}-${cost.hi}${actual ? ` · 实际 ¥${actual}` : ""}</span>
           </div>
           <div class="day-card-timeline">
+            <div class="day-card-stop day-card-hotel" style="opacity:0.85;">
+              <span class="stop-icon">🏨</span>
+              <span class="stop-time"></span>
+              <span class="stop-name" style="color:#059669;font-weight:600;">🏨 ​</span>
+            </div>
+
             ${stops.map((stop, j) => `
               <div class="day-card-stop" data-poi-id="${stop.poi_id || ""}" data-day-idx="${day.day - 1}" data-stop-idx="${j}">
                 <span class="stop-icon">${typeIcon(stop.poi_type)}</span>
@@ -1393,11 +1401,11 @@ function renderAlgorithmDebug(candidate) {
     <section class="debug-panel" aria-label="算法调试输出">
       <div class="section-heading">
         <h2>算法调试</h2>
-        <span>展示 Beam Search、Pareto 和候选多样性的可解释中间结�?/span>
+        <span>展示 Beam Search、Pareto 和候选多样性的可解释中间结�?/span>
       </div>
       <div class="debug-grid">
         <div>
-          <h3>Beam Search 保留状�?/h3>
+          <h3>Beam Search 保留状�?/h3>
           <div class="beam-steps">
             ${beamTrace.length ? beamTrace.map(renderBeamStep).join("") : `<div class="debug-empty">暂无 Beam Trace</div>`}
           </div>
@@ -1405,18 +1413,18 @@ function renderAlgorithmDebug(candidate) {
         <div>
           <h3>Pareto 分层依据</h3>
           <div class="pareto-debug">
-            <strong>L${comparison.pareto_rank || 1} · ${comparison.dominated ? "被支配候�? : "非支配前�?}</strong>
-            <p>${escapeHtml(comparison.tradeoff_summary) || "暂无多目标解释�?}</p>
+            <strong>L${comparison.pareto_rank || 1} · ${comparison.dominated ? "被支配候�? : "非支配前�?}</strong>
+            <p>${escapeHtml(comparison.tradeoff_summary) || "暂无多目标解释�?}</p>
             ${(comparison.pareto_debug || []).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
           </div>
-          <h3>多样性指�?/h3>
+          <h3>多样性指�?/h3>
           <div class="diversity-debug">
             <div class="diversity-metrics">
               <span><strong>${formatPercent(comparison.poi_overlap_with_baseline)}</strong>POI 重合</span>
               <span><strong>${formatPercent(comparison.area_overlap_with_baseline)}</strong>区域重合</span>
               <span><strong>${comparison.unique_poi_count ?? 0}</strong>独有 POI</span>
             </div>
-            <p>${escapeHtml(comparison.diversity_summary) || "暂无候选多样性说明�?}</p>
+            <p>${escapeHtml(comparison.diversity_summary) || "暂无候选多样性说明�?}</p>
             <div class="diversity-tags">
               ${(comparison.diversity_tags || []).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}
             </div>
@@ -1433,7 +1441,7 @@ function renderBeamStep(step) {
     <article class="beam-step">
       <div>
         <strong>${escapeHtml(step.slot)}</strong>
-        <span>${step.input_states} �?· ${step.expanded_states} 展开 · ${step.kept_states} �?/span>
+        <span>${step.input_states} �?· ${step.expanded_states} 展开 · ${step.kept_states} �?/span>
       </div>
       <p>${escapeHtml(step.decision)}</p>
       <div class="beam-state-list">
@@ -1445,13 +1453,13 @@ function renderBeamStep(step) {
 
 function renderComparisonTable() {
   if (state.candidates.length <= 1) {
-    return `<div class="empty-state compact-empty">生成多个候选后展示对比�?/div>`;
+    return `<div class="empty-state compact-empty">生成多个候选后展示对比�?/div>`;
   }
   return `
-    <section class="comparison-panel" aria-label="候选方案对�?>
+    <section class="comparison-panel" aria-label="候选方案对�?>
       <div class="section-heading">
-        <h2>候选对�?/h2>
-        <span>多目标指标用于解释方案取�?/span>
+        <h2>候选对�?/h2>
+        <span>多目标指标用于解释方案取�?/span>
       </div>
       <div class="comparison-grid">
         ${state.candidates.map((candidate, index) => renderComparisonCard(candidate, index)).join("")}
@@ -1464,23 +1472,23 @@ function renderComparisonCard(candidate, index) {
   const metrics = candidate.comparison || {};
   return `
     <button class="comparison-card${index === state.selectedIndex ? " active" : ""}" type="button" data-candidate-index="${index}">
-      <strong>${escapeHtml(candidate.variant_name) || `候�?${index + 1}`}</strong>
+      <strong>${escapeHtml(candidate.variant_name) || `候�?${index + 1}`}</strong>
       <span>策略 ${escapeHtml(strategyLabel(candidate.strategy))}</span>
-      <span>Pareto L${metrics.pareto_rank || 1}${metrics.dominated ? " · 被支�? : " · 前沿"}</span>
+      <span>Pareto L${metrics.pareto_rank || 1}${metrics.dominated ? " · 被支�? : " · 前沿"}</span>
       <span>评分 ${metrics.total_score ?? candidate.total_score ?? 0}</span>
       <span>通勤 ${metrics.total_travel_minutes ?? totalTravel(candidate)} 分钟</span>
       <span>POI 重合 ${formatPercent(metrics.poi_overlap_with_baseline)}</span>
-      <span>独有 ${metrics.unique_poi_count ?? 0} �?/span>
+      <span>独有 ${metrics.unique_poi_count ?? 0} �?/span>
       <span>必去 ${metrics.must_visit_covered ?? 0}/${state.lastPayload?.must_visit?.length || 0}</span>
-      <span>风险 ${metrics.open_time_risks ?? 0} · 未安�?${metrics.unscheduled_count ?? 0}</span>
-      <em>${escapeHtml(metrics.tradeoff_summary) || "多目标指标用于解释方案取舍�?}</em>
+      <span>风险 ${metrics.open_time_risks ?? 0} · 未安�?${metrics.unscheduled_count ?? 0}</span>
+      <em>${escapeHtml(metrics.tradeoff_summary) || "多目标指标用于解释方案取舍�?}</em>
     </button>
   `;
 }
 
 function strategyLabel(strategy) {
   const labels = {
-    low_travel: "少走�?,
+    low_travel: "少走�?,
     compact: "紧凑",
     culture: "文化",
     food: "美食",
@@ -1511,12 +1519,12 @@ function renderDay(day) {
   return `
     <section class="day-block">
       <div class="day-header">
-        <h2>�?${day.day} �?/h2>
+        <h2>�?${day.day} �?/h2>
         <div class="day-stats">
           <span>🚶 ${day.total_travel_minutes || 0}min 通勤</span>
           <span>⏱️ ${day.total_visit_minutes || 0}min 游玩</span>
-          <span>💰 ≈�?{cost.lo}-${cost.hi}</span>
-          <span class="${day.time_window_feasible ? "ok-chip" : "risk-chip"}">${day.time_window_feasible ? "�?可行" : "⚠️ 注意"}</span>
+          <span>💰 ≈�?{cost.lo}-${cost.hi}</span>
+          <span class="${day.time_window_feasible ? "ok-chip" : "risk-chip"}">${day.time_window_feasible ? "�?可行" : "⚠️ 注意"}</span>
         </div>
       </div>
       <p class="day-meta">${escapeHtml(day.summary)}</p>
@@ -1528,7 +1536,7 @@ function renderDay(day) {
         <summary>🔧 算法详情</summary>
         <div class="insight-strip">
           <strong>${escapeHtml(day.optimization_summary) || "暂无优化摘要"}</strong>
-          <span>优化�?${day.original_travel_minutes || 0} 分钟 · 优化�?${day.optimized_travel_minutes || day.total_travel_minutes} 分钟</span>
+          <span>优化�?${day.original_travel_minutes || 0} 分钟 · 优化�?${day.optimized_travel_minutes || day.total_travel_minutes} 分钟</span>
         </div>
         <div class="explain-grid">
           <div>
@@ -1538,13 +1546,13 @@ function renderDay(day) {
             </div>
           </div>
           <div>
-            <h3>时间窗复�?/h3>
+            <h3>时间窗复�?/h3>
             <div class="explain-list ${day.time_window_feasible ? "" : "warn-list"}">
               ${(day.time_window_diagnostics || []).slice(0, 5).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
             </div>
           </div>
           <div>
-            <h3>未安排说�?/h3>
+            <h3>未安排说�?/h3>
             <div class="explain-list warn-list">
               ${(day.unscheduled_reasons || []).slice(0, 3).map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
             </div>
@@ -1558,7 +1566,7 @@ function renderDay(day) {
 function renderStop(stop) {
   const travel = stop.travel_minutes_from_previous || 0;
   const hasRisk = stop.time_window_status && stop.time_window_status !== "ok";
-  const isMeal = stop.slot === "午餐" || stop.slot === "晚餐" || stop.slot === "下午�?;
+  const isMeal = stop.slot === "午餐" || stop.slot === "晚餐" || stop.slot === "下午�?;
   const mealLabel = isMeal ? `<div class="stop-meal-badge">${stop.slot}</div>` : "";
   return `
     <article class="stop-card type-${stop.poi_type || "attraction"} ${hasRisk ? "stop-risk" : ""} ${isMeal ? "stop-meal" : ""}" draggable="true" data-poi-id="${stop.poi_id || ""}">
@@ -1572,14 +1580,14 @@ function renderStop(stop) {
             <span class="stop-time-badge">${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)}</span>
           </div>
           <div class="stop-meta">${escapeHtml(stop.area)}${hasRisk ? ` · ⚠️ ${escapeHtml(timeWindowLabel(stop.time_window_status))}` : ""}</div>
-          ${isMeal ? `<div class="stop-area-hint">📍 建议�?<strong>${escapeHtml(stop.area)}</strong> 一带用�?/div>` : ""}
+          ${isMeal ? `<div class="stop-area-hint">📍 建议�?<strong>${escapeHtml(stop.area)}</strong> 一带用�?/div>` : ""}
           <div class="stop-reason">${escapeHtml(stop.reason) || ""}</div>
           ${stop.recommendation ? `<div class="stop-tip">💡 ${escapeHtml(stop.recommendation)}</div>` : ""}
         </div>
       </div>
       <div class="stop-actions">
-        ${isMeal ? `<button class="stop-action-btn stop-swap-btn" data-poi-id="${stop.poi_id || ""}" data-area="${escapeHtml(stop.area || "")}" data-slot="${escapeHtml(stop.slot || "")}" title="查看该区域其他餐�?>🔄 换一�?/button>` : ""}
-        <button class="stop-action-btn stop-remove-btn" data-poi-id="${stop.poi_id || ""}" title="移除此站�?>�?移除</button>
+        ${isMeal ? `<button class="stop-action-btn stop-swap-btn" data-poi-id="${stop.poi_id || ""}" data-area="${escapeHtml(stop.area || "")}" data-slot="${escapeHtml(stop.slot || "")}" title="查看该区域其他餐�?>🔄 换一�?/button>` : ""}
+        <button class="stop-action-btn stop-remove-btn" data-poi-id="${stop.poi_id || ""}" title="移除此站�?>�?移除</button>
       </div>
       ${isMeal ? `<div class="stop-alternatives" data-poi-id="${stop.poi_id || ""}" hidden></div>` : ""}
     </article>
@@ -1596,7 +1604,7 @@ function timeWindowLabel(status) {
     day_end: "超出当日",
     missing_poi: "数据缺失",
   };
-  return labels[status] || "时间�?;
+  return labels[status] || "时间�?;
 }
 
 async function generatePlan(event) {
@@ -1609,7 +1617,7 @@ async function generatePlan(event) {
   $("planOutput").className = "plan-output empty-state";
   $("candidateSummary").innerHTML = "";
   $("candidateTabs").innerHTML = "";
-  $("planOutput").textContent = `正在生成 ${payload.candidate_count} 个候选行�?..`;
+  $("planOutput").textContent = `正在生成 ${payload.candidate_count} 个候选行�?..`;
   try {
     const data = await api("/trip/plan", {
       method: "POST",
@@ -1626,12 +1634,12 @@ async function generatePlan(event) {
   } catch (error) {
     state.candidates = [];
     $("planOutput").className = "plan-output empty-state error-state";
-    $("planOutput").textContent = `生成失败�?{error.message}`;
+    $("planOutput").textContent = `生成失败�?{error.message}`;
   }
 }
 
 async function queryRoute() {
-  $("routeOutput").textContent = "查询�?..";
+  $("routeOutput").textContent = "查询�?..";
   try {
     const from = encodeURIComponent($("routeFrom").value.trim());
     const to = encodeURIComponent($("routeTo").value.trim());
@@ -1639,13 +1647,13 @@ async function queryRoute() {
     $("routeOutput").textContent = `${route.algorithm.toUpperCase()} · ${route.travel_minutes} 分钟\n${route.path.join(" -> ")}`;
     renderRouteMap(route);
   } catch (error) {
-    $("routeOutput").textContent = `查询失败�?{error.message}`;
+    $("routeOutput").textContent = `查询失败�?{error.message}`;
     renderRouteMap(null);
   }
 }
 
 async function queryAlternatives() {
-  $("alternativeOutput").textContent = "查询�?..";
+  $("alternativeOutput").textContent = "查询�?..";
   try {
     const data = await api("/trip/alternatives", {
       method: "POST",
@@ -1659,9 +1667,9 @@ async function queryAlternatives() {
         </div>
       `)
       .join("")
-      : `<div class="mini-item"><strong>暂无结果</strong><span>可以换一个场景或放宽关键词�?/span></div>`;
+      : `<div class="mini-item"><strong>暂无结果</strong><span>可以换一个场景或放宽关键词�?/span></div>`;
   } catch (error) {
-    $("alternativeOutput").textContent = `查询失败�?{error.message}`;
+    $("alternativeOutput").textContent = `查询失败�?{error.message}`;
   }
 }
 
@@ -1673,7 +1681,7 @@ async function querySearch() {
     const data = await api(`/poi/search?q=${query}&type=${type}&limit=4`);
     $("searchOutput").innerHTML = data.data.length
       ? data.data.map(renderSearchResult).join("")
-      : `<div class="mini-item"><strong>暂无结果</strong><span>可以换一个关键词或类型�?/span></div>`;
+      : `<div class="mini-item"><strong>暂无结果</strong><span>可以换一个关键词或类型�?/span></div>`;
   } catch (error) {
     $("searchOutput").textContent = `检索失败：${error.message}`;
   }
@@ -1697,10 +1705,10 @@ function renderSearchResult(item) {
 async function explainPlan() {
   const candidate = state.candidates[state.selectedIndex];
   if (!candidate) {
-    $("explainOutput").textContent = "请先生成行程�?;
+    $("explainOutput").textContent = "请先生成行程�?;
     return;
   }
-  $("explainOutput").textContent = "生成解释�?..";
+  $("explainOutput").textContent = "生成解释�?..";
   try {
     const data = await api("/itinerary/explain", {
       method: "POST",
@@ -1708,7 +1716,7 @@ async function explainPlan() {
     });
     $("explainOutput").textContent = data.explanation;
   } catch (error) {
-    $("explainOutput").textContent = `解释失败�?{error.message}`;
+    $("explainOutput").textContent = `解释失败�?{error.message}`;
   }
 }
 
@@ -1769,9 +1777,9 @@ async function chatPlan() {
       saveTripState();
       // Update guidebook for the planned city
       loadGuidebook(state.lastPayload.city);
-      html += `<p style="font-size:13px;color:var(--muted);">已生�?${data.candidates.length} 个方案，切换查看详情�?/p>`;
+      html += `<p style="font-size:13px;color:var(--muted);">已生�?${data.candidates.length} 个方案，切换查看详情�?/p>`;
     }
-    $("chatOutput").innerHTML = html || "规划完成�?;
+    $("chatOutput").innerHTML = html || "规划完成�?;
     $("chatOutput").hidden = false;
   } catch (error) {
     hideLoading();
@@ -1813,14 +1821,14 @@ document.addEventListener("click", async function(e) {
   if (!area) return;
 
   altContainer.hidden = false;
-  altContainer.innerHTML = '<div style="font-size:12px;color:var(--muted);">加载�?..</div>';
+  altContainer.innerHTML = '<div style="font-size:12px;color:var(--muted);">加载�?..</div>';
 
   try {
     var city = state.lastPayload?.city || "长沙";
     var data = await api(`/poi/by-area?city=${encodeURIComponent(city)}&area=${encodeURIComponent(area)}&type=restaurant&limit=5`);
     var restaurants = data.data || [];
     if (restaurants.length === 0) {
-      altContainer.innerHTML = '<div style="font-size:12px;color:var(--muted);">该区域暂无其他餐�?/div>';
+      altContainer.innerHTML = '<div style="font-size:12px;color:var(--muted);">该区域暂无其他餐�?/div>';
       return;
     }
     var currentPoiId = swapBtn.dataset.poiId;
@@ -1829,7 +1837,7 @@ document.addEventListener("click", async function(e) {
       return '<div class="alt-restaurant-item' + (isCurrent ? ' map-highlight' : '') + '" data-poi-id="' + r.id + '" data-name="' + escapeHtml(r.name) + '">' +
         '<span>🍜</span>' +
         '<span class="alt-name">' + escapeHtml(r.name) + (isCurrent ? ' (当前)' : '') + '</span>' +
-        '<span class="alt-score">�?' + (r.popularity || 0).toFixed(1) + '</span>' +
+        '<span class="alt-score">�?' + (r.popularity || 0).toFixed(1) + '</span>' +
       '</div>';
     }).join("");
 
@@ -1912,27 +1920,27 @@ document.querySelectorAll(".city-card").forEach((card) => {
     loadGuidebook(card.dataset.city);
     // Update hotel default
     const hotelDefaults = {
-      "长沙": "7天优品酒�?长沙橘子洲五一广场地铁站店)",
-      "武汉": "7天优品酒�?武汉江汉路步行街�?",
+      "长沙": "7天优品酒�?长沙橘子洲五一广场地铁站店)",
+      "武汉": "7天优品酒�?武汉江汉路步行街�?",
       "大理": "大理古城客栈",
       "丽江": "丽江古城民宿",
-      "南京": "新街口附近酒�?,
-      "苏州": "观前街附近酒�?,
-      "北京": "王府井附近酒�?,
-      "成都": "春熙路附近酒�?,
-      "重庆": "解放碑附近酒�?,
+      "南京": "新街口附近酒�?,
+      "苏州": "观前街附近酒�?,
+      "北京": "王府井附近酒�?,
+      "成都": "春熙路附近酒�?,
+      "重庆": "解放碑附近酒�?,
       "杭州": "西湖附近酒店",
       "西安": "钟楼附近酒店",
-      "上海": "南京路附近酒�?,
-      "广州": "北京路附近酒�?,
-      "深圳": "华强北附近酒�?,
-      "厦门": "中山路附近酒�?,
+      "上海": "南京路附近酒�?,
+      "广州": "北京路附近酒�?,
+      "深圳": "华强北附近酒�?,
+      "厦门": "中山路附近酒�?,
       "青岛": "栈桥附近酒店",
-      "桂林": "桂林市中心酒�?,
-      "三亚": "三亚湾附近酒�?,
-      "哈尔�?: "中央大街附近酒店",
+      "桂林": "桂林市中心酒�?,
+      "三亚": "三亚湾附近酒�?,
+      "哈尔�?: "中央大街附近酒店",
       "昆明": "翠湖附近酒店",
-      "张家�?: "武陵源附近酒�?,
+      "张家�?: "武陵源附近酒�?,
     };
     $("hotelLocation").value = hotelDefaults[card.dataset.city] || "";
   });
@@ -1953,7 +1961,7 @@ document.querySelectorAll(".interest-tags .tag").forEach((tag) => {
 let allHotels = [];
 async function loadHotels() {
   try {
-    const city = state.lastPayload?.city || "��ɳ";`n    const data = await api(`/poi/search?type=hotel&city=${encodeURIComponent(city)}&limit=100`);
+    const city = state.lastPayload?.city || "��ɳ";`n    const data = await api(`/poi/search?type=hotel&city=${encodeURIComponent(city)}&limit=100`);
     allHotels = data.data || [];
     renderHotelList(allHotels);
   } catch (e) { console.warn("loadHotels failed:", e); }
@@ -1962,7 +1970,7 @@ function renderHotelList(hotels) {
   $("hotelList").innerHTML = hotels.map(h => `
     <div class="hotel-item" data-id="${h.id}" data-name="${escapeHtml(h.name)}">
       <strong>${escapeHtml(h.name)}</strong>
-      <span>${escapeHtml(h.area || "")} · �?${(h.popularity || 0).toFixed(1)}</span>
+      <span>${escapeHtml(h.area || "")} · �?${(h.popularity || 0).toFixed(1)}</span>
     </div>
   `).join("") || '<div class="hotel-item"><span>暂无酒店数据</span></div>';
   document.querySelectorAll(".hotel-item").forEach(item => {
@@ -1993,7 +2001,7 @@ async function saveTrip() {
   if (now < saveCooldownUntil) { toast("请勿频繁操作", "info"); return; }
   if (state.tripSaved) { toast("该行程已保存", "info"); return; }
   const saveBtn = document.getElementById("saveTripBtn");
-  if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = "保存�?.."; }
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = "保存�?.."; }
   saveCooldownUntil = now + 2000;
   try {
     const res = await api("/trips/save", {
@@ -2011,12 +2019,12 @@ async function saveTrip() {
     });
     state.tripSaved = true;
     state.savedTripId = res?.id;
-    if (saveBtn) { saveBtn.textContent = "�?已保�?; }
+    if (saveBtn) { saveBtn.textContent = "�?已保�?; }
     const guestHint = state.user?.role === "guest" ? " (游客数据保留 7 天，注册后可长期保存)" : "";
     toast(`行程已保存！${guestHint}`, "success",
-      `<a href="/profile.html" class="toast-link">查看已保�?/a>`);
+      `<a href="/profile.html" class="toast-link">查看已保�?/a>`);
   } catch (e) {
-    toast("保存失败�? + e.message, "error");
+    toast("保存失败�? + e.message, "error");
     if (saveBtn) { saveBtn.disabled = false; saveBtn.textContent = "💾 保存行程"; }
   }
 }
@@ -2024,7 +2032,7 @@ async function shareTrip() {
   const candidate = state.candidates[state.selectedIndex];
   if (!candidate) return;
   const shareBtn = document.getElementById("shareTripBtn");
-  if (shareBtn) { shareBtn.disabled = true; shareBtn.textContent = "分享�?.."; }
+  if (shareBtn) { shareBtn.disabled = true; shareBtn.textContent = "分享�?.."; }
   try {
     // Save first if not already saved
     if (!state.tripSaved) {
@@ -2032,78 +2040,78 @@ async function shareTrip() {
     }
     // If still not saved (e.g. save failed), abort
     if (!state.tripSaved) {
-      toast("请先保存行程再分�?, "info");
+      toast("请先保存行程再分�?, "info");
       return;
     }
     // Get latest trip ID
     const trips = await api("/trips/list");
     const tripId = state.savedTripId || (trips.data?.[0]?.id);
-    if (!tripId) { toast("未找到已保存的行�?, "error"); return; }
+    if (!tripId) { toast("未找到已保存的行�?, "error"); return; }
     // Generate share link
     const shareData = await api(`/trips/${tripId}/share`, { method: "POST", body: "{}" });
     const url = location.origin + shareData.share_url;
     try { await navigator.clipboard.writeText(url); } catch {}
-    toast("分享链接已复�?, "success",
-      `<a href="${shareData.share_url}" target="_blank" class="toast-link">预览分享�?/a>`);
+    toast("分享链接已复�?, "success",
+      `<a href="${shareData.share_url}" target="_blank" class="toast-link">预览分享�?/a>`);
     if (shareBtn) {
       shareBtn.textContent = "🔗 复制链接";
       shareBtn.disabled = false;
-      shareBtn.onclick = () => { navigator.clipboard.writeText(url).catch(() => {}); toast("链接已复�?, "success"); };
+      shareBtn.onclick = () => { navigator.clipboard.writeText(url).catch(() => {}); toast("链接已复�?, "success"); };
     }
   } catch (e) {
-    toast("分享失败�? + e.message, "error");
+    toast("分享失败�? + e.message, "error");
     if (shareBtn) { shareBtn.textContent = "🔗 分享"; shareBtn.disabled = false; }
   }
 }
 
 // ---- Itinerary templates ----
 const TEMPLATES = [
-  { city: "长沙", days: 2, icon: "🏙�?, name: "长沙文化之旅", theme: "历史文化",
-    msg: "2天长沙行，想去橘子洲和岳麓山，喜欢历史文�?, spots: "橘子�?· 岳麓�?· 湖南省博物馆" },
+  { city: "长沙", days: 2, icon: "🏙�?, name: "长沙文化之旅", theme: "历史文化",
+    msg: "2天长沙行，想去橘子洲和岳麓山，喜欢历史文�?, spots: "橘子�?· 岳麓�?· 湖南省博物馆" },
   { city: "长沙", days: 2, icon: "🍜", name: "长沙美食探索", theme: "美食",
-    msg: "2天长沙行，主要吃美食，不要太�?, spots: "坡子�?· 太平�?· 文和�? },
-  { city: "长沙", days: 3, icon: "🌙", name: "长沙深度�?, theme: "文化+美食+夜景",
-    msg: "3天长沙行，想去橘子洲、岳麓山、湖南省博物馆，也要吃地道美食，看夜�?, spots: "橘子�?· 岳麓�?· 博物�?· 解放�? },
-  { city: "武汉", days: 2, icon: "🌉", name: "武汉经典�?, theme: "历史文化+美食",
-    msg: "2天武汉行，想去黄鹤楼和户部巷，尝热干�?, spots: "黄鹤�?· 户部�?· 东湖" },
-  { city: "大理", days: 3, icon: "🏔�?, name: "大理风光�?, theme: "自然风光+文化",
-    msg: "3天大理行，想去洱海和古城，喜欢自然风�?, spots: "洱海 · 大理古城 · 崇圣寺三�? },
-  { city: "丽江", days: 3, icon: "🏘�?, name: "丽江古城�?, theme: "古镇+自然",
+    msg: "2天长沙行，主要吃美食，不要太�?, spots: "坡子�?· 太平�?· 文和�? },
+  { city: "长沙", days: 3, icon: "🌙", name: "长沙深度�?, theme: "文化+美食+夜景",
+    msg: "3天长沙行，想去橘子洲、岳麓山、湖南省博物馆，也要吃地道美食，看夜�?, spots: "橘子�?· 岳麓�?· 博物�?· 解放�? },
+  { city: "武汉", days: 2, icon: "🌉", name: "武汉经典�?, theme: "历史文化+美食",
+    msg: "2天武汉行，想去黄鹤楼和户部巷，尝热干�?, spots: "黄鹤�?· 户部�?· 东湖" },
+  { city: "大理", days: 3, icon: "🏔�?, name: "大理风光�?, theme: "自然风光+文化",
+    msg: "3天大理行，想去洱海和古城，喜欢自然风�?, spots: "洱海 · 大理古城 · 崇圣寺三�? },
+  { city: "丽江", days: 3, icon: "🏘�?, name: "丽江古城�?, theme: "古镇+自然",
     msg: "3天丽江行，想去古城和玉龙雪山", spots: "丽江古城 · 玉龙雪山 · 束河古镇" },
-  { city: "南京", days: 2, icon: "🏛�?, name: "南京历史�?, theme: "历史文化",
-    msg: "2天南京行，想去中山陵和夫子庙，喜欢历史文�?, spots: "中山�?· 夫子�?· 明孝�? },
-  { city: "苏州", days: 2, icon: "🏡", name: "苏州园林�?, theme: "园林+古镇",
-    msg: "2天苏州行，想去拙政园和虎丘，看看江南园林", spots: "拙政�?· 虎丘 · 平江�? },
-  { city: "北京", days: 3, icon: "🏯", name: "北京经典�?, theme: "历史文化",
-    msg: "3天北京行，想去故宫、长城和天安�?, spots: "故宫 · 长城 · 天安�?· 颐和�? },
-  { city: "成都", days: 3, icon: "🐼", name: "成都休闲�?, theme: "美食+熊猫",
-    msg: "3天成都行，想看大熊猫，吃火锅和串�?, spots: "大熊猫基�?· 宽窄巷子 · 锦里" },
-  { city: "重庆", days: 2, icon: "🔥", name: "重庆山城�?, theme: "美食+夜景",
-    msg: "2天重庆行，想吃火锅看夜景，体验山�?, spots: "洪崖�?· 解放�?· 磁器�? },
-  { city: "杭州", days: 2, icon: "🌊", name: "杭州西湖�?, theme: "自然+文化",
-    msg: "2天杭州行，想去西湖和灵隐�?, spots: "西湖 · 灵隐�?· 河坊�? },
-  { city: "西安", days: 3, icon: "🏛�?, name: "西安古都�?, theme: "历史+美食",
-    msg: "3天西安行，想看兵马俑和古城墙，吃肉夹�?, spots: "兵马�?· 古城�?· 回民�?· 大雁�? },
-  { city: "上海", days: 3, icon: "🌃", name: "上海都市�?, theme: "都市+文化",
-    msg: "3天上海行，想去外滩、豫园和迪士�?, spots: "外滩 · 豫园 · 南京�?· 东方明珠" },
-  { city: "广州", days: 2, icon: "🥘", name: "广州美食�?, theme: "美食+文化",
-    msg: "2天广州行，想吃早茶和粤菜，看看广州塔", spots: "广州�?· 北京�?· 上下�?· 沙面" },
-  { city: "深圳", days: 2, icon: "🏙�?, name: "深圳科技�?, theme: "科技+休闲",
-    msg: "2天深圳行，想去世界之窗和欢乐海岸", spots: "世界之窗 · 欢乐海岸 · 华侨�?· 大梅�? },
-  { city: "厦门", days: 3, icon: "🏖�?, name: "厦门海岛�?, theme: "海岛+文艺",
-    msg: "3天厦门行，想去鼓浪屿和曾厝垵，看海吃海鲜", spots: "鼓浪�?· 曾厝�?· 环岛�?· 南普陀�? },
-  { city: "青岛", days: 2, icon: "🍺", name: "青岛海滨�?, theme: "海滨+啤酒",
-    msg: "2天青岛行，想去栈桥和八大关，喝啤酒吃海鲜", spots: "栈桥 · 八大�?· 五四广场 · 崂山" },
-  { city: "桂林", days: 3, icon: "🏞�?, name: "桂林山水�?, theme: "自然风光",
-    msg: "3天桂林行，想去漓江和阳朔，看山水风光", spots: "漓江 · 阳朔 · 象鼻�?· 龙脊梯田" },
-  { city: "三亚", days: 3, icon: "🌊", name: "三亚海滨�?, theme: "海滨度假",
-    msg: "3天三亚行，想去亚龙湾和天涯海角，看海吃海�?, spots: "亚龙�?· 天涯海角 · 南山�?· 蜈支洲岛" },
-  { city: "哈尔�?, days: 2, icon: "❄️", name: "哈尔滨冰雪游", theme: "冰雪+建筑",
-    msg: "2天哈尔滨行，想去冰雪大世界和中央大街", spots: "冰雪大世�?· 中央大街 · 圣索菲亚教堂 · 太阳�? },
-  { city: "昆明", days: 3, icon: "🌸", name: "昆明春城�?, theme: "自然+民族",
-    msg: "3天昆明行，想去滇池和石林，感受春�?, spots: "滇池 · 石林 · 翠湖 · 西山" },
-  { city: "张家�?, days: 3, icon: "🏔�?, name: "张家界奇峰游", theme: "自然奇观",
-    msg: "3天张家界行，想去天门山和玻璃桥，看奇�?, spots: "天门�?· 玻璃�?· 袁家�?· 金鞭�? },
+  { city: "南京", days: 2, icon: "🏛�?, name: "南京历史�?, theme: "历史文化",
+    msg: "2天南京行，想去中山陵和夫子庙，喜欢历史文�?, spots: "中山�?· 夫子�?· 明孝�? },
+  { city: "苏州", days: 2, icon: "🏡", name: "苏州园林�?, theme: "园林+古镇",
+    msg: "2天苏州行，想去拙政园和虎丘，看看江南园林", spots: "拙政�?· 虎丘 · 平江�? },
+  { city: "北京", days: 3, icon: "🏯", name: "北京经典�?, theme: "历史文化",
+    msg: "3天北京行，想去故宫、长城和天安�?, spots: "故宫 · 长城 · 天安�?· 颐和�? },
+  { city: "成都", days: 3, icon: "🐼", name: "成都休闲�?, theme: "美食+熊猫",
+    msg: "3天成都行，想看大熊猫，吃火锅和串�?, spots: "大熊猫基�?· 宽窄巷子 · 锦里" },
+  { city: "重庆", days: 2, icon: "🔥", name: "重庆山城�?, theme: "美食+夜景",
+    msg: "2天重庆行，想吃火锅看夜景，体验山�?, spots: "洪崖�?· 解放�?· 磁器�? },
+  { city: "杭州", days: 2, icon: "🌊", name: "杭州西湖�?, theme: "自然+文化",
+    msg: "2天杭州行，想去西湖和灵隐�?, spots: "西湖 · 灵隐�?· 河坊�? },
+  { city: "西安", days: 3, icon: "🏛�?, name: "西安古都�?, theme: "历史+美食",
+    msg: "3天西安行，想看兵马俑和古城墙，吃肉夹�?, spots: "兵马�?· 古城�?· 回民�?· 大雁�? },
+  { city: "上海", days: 3, icon: "🌃", name: "上海都市�?, theme: "都市+文化",
+    msg: "3天上海行，想去外滩、豫园和迪士�?, spots: "外滩 · 豫园 · 南京�?· 东方明珠" },
+  { city: "广州", days: 2, icon: "🥘", name: "广州美食�?, theme: "美食+文化",
+    msg: "2天广州行，想吃早茶和粤菜，看看广州塔", spots: "广州�?· 北京�?· 上下�?· 沙面" },
+  { city: "深圳", days: 2, icon: "🏙�?, name: "深圳科技�?, theme: "科技+休闲",
+    msg: "2天深圳行，想去世界之窗和欢乐海岸", spots: "世界之窗 · 欢乐海岸 · 华侨�?· 大梅�? },
+  { city: "厦门", days: 3, icon: "🏖�?, name: "厦门海岛�?, theme: "海岛+文艺",
+    msg: "3天厦门行，想去鼓浪屿和曾厝垵，看海吃海鲜", spots: "鼓浪�?· 曾厝�?· 环岛�?· 南普陀�? },
+  { city: "青岛", days: 2, icon: "🍺", name: "青岛海滨�?, theme: "海滨+啤酒",
+    msg: "2天青岛行，想去栈桥和八大关，喝啤酒吃海鲜", spots: "栈桥 · 八大�?· 五四广场 · 崂山" },
+  { city: "桂林", days: 3, icon: "🏞�?, name: "桂林山水�?, theme: "自然风光",
+    msg: "3天桂林行，想去漓江和阳朔，看山水风光", spots: "漓江 · 阳朔 · 象鼻�?· 龙脊梯田" },
+  { city: "三亚", days: 3, icon: "🌊", name: "三亚海滨�?, theme: "海滨度假",
+    msg: "3天三亚行，想去亚龙湾和天涯海角，看海吃海�?, spots: "亚龙�?· 天涯海角 · 南山�?· 蜈支洲岛" },
+  { city: "哈尔�?, days: 2, icon: "❄️", name: "哈尔滨冰雪游", theme: "冰雪+建筑",
+    msg: "2天哈尔滨行，想去冰雪大世界和中央大街", spots: "冰雪大世�?· 中央大街 · 圣索菲亚教堂 · 太阳�? },
+  { city: "昆明", days: 3, icon: "🌸", name: "昆明春城�?, theme: "自然+民族",
+    msg: "3天昆明行，想去滇池和石林，感受春�?, spots: "滇池 · 石林 · 翠湖 · 西山" },
+  { city: "张家�?, days: 3, icon: "🏔�?, name: "张家界奇峰游", theme: "自然奇观",
+    msg: "3天张家界行，想去天门山和玻璃桥，看奇�?, spots: "天门�?· 玻璃�?· 袁家�?· 金鞭�? },
 ];
 
 function renderHotRecommendations() {
@@ -2112,13 +2120,13 @@ function renderHotRecommendations() {
   output.innerHTML = `
     <div class="hot-recs">
       <h3>🔥 热门行程模板</h3>
-      <p class="hot-rec-subtitle">选择一个模板快速开始，或在上方聊天框描述你的旅行计�?/p>
+      <p class="hot-rec-subtitle">选择一个模板快速开始，或在上方聊天框描述你的旅行计�?/p>
       <div class="hot-rec-grid">
         ${TEMPLATES.map((t, i) => `
           <button class="hot-rec-card" type="button" data-index="${i}">
             <div class="hot-rec-icon">${t.icon}</div>
             <div class="hot-rec-info">
-              <strong>${t.city} ${t.days}�?· ${t.name}</strong>
+              <strong>${t.city} ${t.days}�?· ${t.name}</strong>
               <span class="hot-rec-theme">${t.theme}</span>
               <span class="hot-rec-spots">${t.spots}</span>
             </div>
@@ -2161,7 +2169,7 @@ function toggleTheme() {
 }
 function updateThemeIcon() {
   const btn = $("themeToggle");
-  if (btn) btn.textContent = document.documentElement.dataset.theme === "dark" ? "☀�? : "🌙";
+  if (btn) btn.textContent = document.documentElement.dataset.theme === "dark" ? "☀�? : "🌙";
 }
 $("themeToggle")?.addEventListener("click", toggleTheme);
 initTheme();
@@ -2189,7 +2197,7 @@ function removeStop(poiId) {
   }
   if (removed) {
     renderPlan();
-    toast("已移除站�?, "info");
+    toast("已移除站�?, "info");
   }
 }
 
@@ -2209,14 +2217,14 @@ function exportToAmap() {
       if (stop.lat && stop.lng) stops.push(stop);
     }
   }
-  if (stops.length === 0) { toast("行程中没有可导航的地�?, "info"); return; }
+  if (stops.length === 0) { toast("行程中没有可导航的地�?, "info"); return; }
 
   // Generate Amap web navigation links for each segment
   const links = [];
   for (let i = 0; i < stops.length; i++) {
     const s = stops[i];
     const dest = `${s.lng},${s.lat}`;
-    const name = encodeURIComponent(s.poi_name || "目的�?);
+    const name = encodeURIComponent(s.poi_name || "目的�?);
     if (i === 0) {
       // First stop: navigate from current location
       links.push({ name: s.poi_name, url: `https://uri.amap.com/navigation?to=${dest},${name}&mode=car&coordinate=gaode` });
@@ -2228,7 +2236,7 @@ function exportToAmap() {
       const to = `${next.lng},${next.lat}`;
       const fromName = encodeURIComponent(s.poi_name || "起点");
       const toName = encodeURIComponent(next.poi_name || "终点");
-      links.push({ name: `${s.poi_name} �?${next.poi_name}`, url: `https://uri.amap.com/route/plan/?from=${from},${fromName}&to=${to},${toName}&mode=car&coordinate=gaode` });
+      links.push({ name: `${s.poi_name} �?${next.poi_name}`, url: `https://uri.amap.com/route/plan/?from=${from},${fromName}&to=${to},${toName}&mode=car&coordinate=gaode` });
     }
   }
 
@@ -2243,14 +2251,14 @@ async function generateShareImage() {
   const candidate = state.candidates[state.selectedIndex];
   if (!candidate) { toast("请先生成行程", "info"); return; }
   const btn = document.getElementById("shareImageBtn");
-  if (btn) { btn.disabled = true; btn.textContent = "生成�?.."; }
+  if (btn) { btn.disabled = true; btn.textContent = "生成�?.."; }
   try {
     // Switch to overview to ensure it's visible
     setStage("overview");
     await new Promise(r => setTimeout(r, 300));
     const target = document.querySelector(".overview-section") || document.querySelector("[data-plan-section='overview']");
-    if (!target) { toast("未找到行程内�?, "error"); return; }
-    if (typeof html2canvas === "undefined") { toast("图片生成组件未加�?, "error"); return; }
+    if (!target) { toast("未找到行程内�?, "error"); return; }
+    if (typeof html2canvas === "undefined") { toast("图片生成组件未加�?, "error"); return; }
     const canvas = await html2canvas(target, {
       backgroundColor: "#ffffff",
       scale: 2,
@@ -2260,13 +2268,13 @@ async function generateShareImage() {
     const city = state.lastPayload?.city || "旅行";
     const days = candidate.days?.length || 1;
     const link = document.createElement("a");
-    link.download = `TourPass_${city}_${days}天行�?png`;
+    link.download = `TourPass_${city}_${days}天行�?png`;
     link.href = canvas.toDataURL("image/png");
     link.click();
     toast("图片已下载！", "success");
   } catch (e) {
     console.error("Share image error:", e);
-    toast("图片生成失败�? + e.message, "error");
+    toast("图片生成失败�? + e.message, "error");
   } finally {
     if (btn) { btn.disabled = false; btn.textContent = "📸 生成图片"; }
   }
@@ -2295,7 +2303,7 @@ document.addEventListener("change", (e) => {
     if (card) {
       const stats = card.querySelector(".day-card-stats");
       const cost = estimateDayCost(state.candidates[state.selectedIndex]?.days?.[day - 1]?.stops || []);
-      if (stats) stats.textContent = `${(state.candidates[state.selectedIndex]?.days?.[day - 1]?.stops || []).length} �?· ≈�?{cost.lo}-${cost.hi}${amount ? ` · 实际 ¥${amount}` : ""}`;
+      if (stats) stats.textContent = `${(state.candidates[state.selectedIndex]?.days?.[day - 1]?.stops || []).length} �?· ≈�?{cost.lo}-${cost.hi}${amount ? ` · 实际 ¥${amount}` : ""}`;
     }
   }
 });
@@ -2320,16 +2328,16 @@ const CITY_COORDS = {
   "青岛": { lat: 36.07, lon: 120.38 }, "qingdao": { lat: 36.07, lon: 120.38 },
   "桂林": { lat: 25.27, lon: 110.29 }, "guilin": { lat: 25.27, lon: 110.29 },
   "三亚": { lat: 18.25, lon: 109.50 }, "sanya": { lat: 18.25, lon: 109.50 },
-  "哈尔�?: { lat: 45.75, lon: 126.65 }, "harbin": { lat: 45.75, lon: 126.65 },
+  "哈尔�?: { lat: 45.75, lon: 126.65 }, "harbin": { lat: 45.75, lon: 126.65 },
   "昆明": { lat: 25.04, lon: 102.68 }, "kunming": { lat: 25.04, lon: 102.68 },
-  "张家�?: { lat: 29.12, lon: 110.48 }, "zhangjiajie": { lat: 29.12, lon: 110.48 },
+  "张家�?: { lat: 29.12, lon: 110.48 }, "zhangjiajie": { lat: 29.12, lon: 110.48 },
 };
 
 const WEATHER_CODES = {
-  0: "☀�?�?, 1: "🌤�?晴间多云", 2: "�?多云", 3: "☁️ �?,
-  45: "🌫�?�?, 48: "🌫�?雾凇", 51: "🌦�?小雨", 53: "🌧�?中雨", 55: "🌧�?大雨",
-  61: "🌧�?小雨", 63: "🌧�?中雨", 65: "🌧�?大雨", 71: "🌨�?小雪", 73: "❄️ 中雪",
-  75: "❄️ 大雪", 80: "🌦�?阵雨", 81: "🌧�?阵雨", 82: "⛈️ 暴雨",
+  0: "☀�?�?, 1: "🌤�?晴间多云", 2: "�?多云", 3: "☁️ �?,
+  45: "🌫�?�?, 48: "🌫�?雾凇", 51: "🌦�?小雨", 53: "🌧�?中雨", 55: "🌧�?大雨",
+  61: "🌧�?小雨", 63: "🌧�?中雨", 65: "🌧�?大雨", 71: "🌨�?小雪", 73: "❄️ 中雪",
+  75: "❄️ 大雪", 80: "🌦�?阵雨", 81: "🌧�?阵雨", 82: "⛈️ 暴雨",
   95: "⛈️ 雷暴", 96: "⛈️ 雷暴冰雹", 99: "⛈️ 雷暴冰雹"
 };
 
@@ -2358,8 +2366,8 @@ const CITY_KEY_MAP = {
   "重庆": "chongqing", "杭州": "hangzhou", "西安": "xian",
   "上海": "shanghai", "广州": "guangzhou", "深圳": "shenzhen",
   "厦门": "xiamen", "青岛": "qingdao",
-  "桂林": "guilin", "三亚": "sanya", "哈尔�?: "harbin",
-  "昆明": "kunming", "张家�?: "zhangjiajie",
+  "桂林": "guilin", "三亚": "sanya", "哈尔�?: "harbin",
+  "昆明": "kunming", "张家�?: "zhangjiajie",
   "changsha": "changsha", "wuhan": "wuhan", "dali": "dali", "lijiang": "lijiang",
   "nanjing": "nanjing", "suzhou": "suzhou", "beijing": "beijing", "chengdu": "chengdu",
   "chongqing": "chongqing", "hangzhou": "hangzhou", "xian": "xian",
@@ -2386,16 +2394,16 @@ async function loadGuidebook(city) {
 function renderGuidebook(data) {
   const sections = data.sections || {};
   const items = [
-    { key: "overview", icon: "📖", title: "城市简�? },
+    { key: "overview", icon: "📖", title: "城市简�? },
     { key: "activities", icon: "🎯", title: "推荐活动" },
-    { key: "nightlife", icon: "🌙", title: "夜生�? },
+    { key: "nightlife", icon: "🌙", title: "夜生�? },
     { key: "accommodation", icon: "🏨", title: "住宿建议" },
-    { key: "safety", icon: "🛡�?, title: "安全提示" },
+    { key: "safety", icon: "🛡�?, title: "安全提示" },
   ].filter(s => sections[s.key]);
   if (!items.length) return "";
   return `
     <details class="guidebook-panel">
-      <summary>📘 ${data.city || ""} 旅行攻略 <small>（来�?Wikivoyage�?/small></summary>
+      <summary>📘 ${data.city || ""} 旅行攻略 <small>（来�?Wikivoyage�?/small></summary>
       <div class="guidebook-content">
         ${items.map(s => `
           <div class="guidebook-section">
@@ -2416,12 +2424,12 @@ function renderWeatherBar(weather, days) {
     <div class="weather-bar">
       ${dayWeathers.map((w, i) => `
         <div class="weather-day">
-          <span class="weather-icon">${WEATHER_CODES[w.code] || "🌤�?}</span>
+          <span class="weather-icon">${WEATHER_CODES[w.code] || "🌤�?}</span>
           <span class="weather-temp">${Math.round(w.tempMin)}~${Math.round(w.tempMax)}°C</span>
           <span class="weather-date">Day ${i + 1}</span>
         </div>
       `).join("")}
-      ${hasRain ? '<div class="weather-alert">🌧�?部分日期有雨，已为您推荐室内备选方�?/div>' : ""}
+      ${hasRain ? '<div class="weather-alert">🌧�?部分日期有雨，已为您推荐室内备选方�?/div>' : ""}
     </div>
   `;
 }
@@ -2447,7 +2455,7 @@ async function doGuestLogin() {
     state.user = data.user;
     localStorage.setItem("tp_token", data.token);
     showApp();
-    toast("游客模式已启用，数据将保�?7 �?, "info");
+    toast("游客模式已启用，数据将保�?7 �?, "info");
   } catch (e) {
     errEl.textContent = e.message;
     errEl.hidden = false;
@@ -2464,7 +2472,7 @@ async function sendCode() {
     $("sendCodeBtn").disabled = true;
     $("sendCodeBtn").textContent = "发送中...";
     await api("/auth/send-code", { method: "POST", body: JSON.stringify({ email }) });
-    $("sendCodeBtn").textContent = "已发�?(60s)";
+    $("sendCodeBtn").textContent = "已发�?(60s)";
     let countdown = 60;
     const timer = setInterval(() => {
       countdown--;
@@ -2485,8 +2493,8 @@ async function doEmailRegister() {
   const password = $("regEmailPassword").value;
   const errEl = $("regEmailError");
   errEl.hidden = true;
-  if (!email || !code || !password) { errEl.textContent = "请填写完整信�?; errEl.hidden = false; return; }
-  if (password.length < 6) { errEl.textContent = "密码至少 6 �?; errEl.hidden = false; return; }
+  if (!email || !code || !password) { errEl.textContent = "请填写完整信�?; errEl.hidden = false; return; }
+  if (password.length < 6) { errEl.textContent = "密码至少 6 �?; errEl.hidden = false; return; }
   try {
     $("authEmailRegisterBtn").disabled = true;
     const data = await api("/auth/register-email", {
@@ -2565,8 +2573,8 @@ async function loadProfileView() {
   try {
     const me = await api("/auth/me");
     $("pvUsername").textContent = me.username || "";
-    $("pvEmail").textContent = me.email || "未绑�?;
-    const roleLabels = { user: "普通用�?, guest: "游客", admin: "管理�? };
+    $("pvEmail").textContent = me.email || "未绑�?;
+    const roleLabels = { user: "普通用�?, guest: "游客", admin: "管理�? };
     $("pvRole").innerHTML = `<span class="role-badge ${me.role}">${roleLabels[me.role] || me.role}</span>`;
     $("pvCreated").textContent = (me.created_at || "").replace("T", " ").slice(0, 19);
 
@@ -2580,8 +2588,8 @@ async function loadProfileView() {
     if (ring) ring.style.strokeDashoffset = circumference - (pct / 100) * circumference;
     $("pvUsageNum").textContent = remaining;
     $("pvUsageDetail").innerHTML = me.role === "admin"
-      ? '<strong>管理�?/strong>，查询次数无限制'
-      : `今日已用 <strong>${used}</strong> / ${limit} �?br>剩余 <strong class="${remaining <= 3 ? 'warn' : ''}">${remaining}</strong> 次`;
+      ? '<strong>管理�?/strong>，查询次数无限制'
+      : `今日已用 <strong>${used}</strong> / ${limit} �?br>剩余 <strong class="${remaining <= 3 ? 'warn' : ''}">${remaining}</strong> 次`;
 
     // Guest banner
     const banner = $("pvGuestBanner");
@@ -2601,12 +2609,12 @@ async function loadProfileView() {
     if (!tripList) return;
     const tripData = trips.data || [];
     if (tripData.length === 0) {
-      tripList.innerHTML = '<div class="empty-state-box"><div class="emoji">📂</div><p><strong>还没有保存过行程</strong></p><p><a href="#/">去规划你的第一个行�?/a></p></div>';
+      tripList.innerHTML = '<div class="empty-state-box"><div class="emoji">📂</div><p><strong>还没有保存过行程</strong></p><p><a href="#/">去规划你的第一个行�?/a></p></div>';
       return;
     }
     const cityEmojis = {"长沙":"🏙","武汉":"🌉","大理":"🏔","丽江":"🏘","南京":"🏛","苏州":"🏡","北京":"🏯","成都":"🐼","重庆":"🔥","杭州":"🌊","西安":"🏛","上海":"🌃","广州":"🌺","深圳":"💎","厦门":"🏖","青岛":"🍺"};
     tripList.innerHTML = tripData.map(t => {
-      const title = t.title || "未命名行�?;
+      const title = t.title || "未命名行�?;
       const city = title.split("·")[0] || "";
       const emoji = cityEmojis[city] || "✈️";
       const date = (t.created_at || "").replace("T", " ").slice(0, 16);
@@ -2632,7 +2640,7 @@ async function loadProfileView() {
 
       if (copyBtn) {
         const url = location.origin + "/s/" + copyBtn.dataset.shareId;
-        try { await navigator.clipboard.writeText(url); copyBtn.textContent = "�?已复�?; } catch {}
+        try { await navigator.clipboard.writeText(url); copyBtn.textContent = "�?已复�?; } catch {}
         setTimeout(() => { copyBtn.textContent = "📋 复制链接"; }, 2000);
         return;
       }
@@ -2642,11 +2650,11 @@ async function loadProfileView() {
           const url = location.origin + data.share_url;
           try { await navigator.clipboard.writeText(url); } catch {}
           $("pvShareMsg").hidden = false;
-          $("pvShareMsg").textContent = "分享链接已复�?;
+          $("pvShareMsg").textContent = "分享链接已复�?;
           setTimeout(() => { $("pvShareMsg").hidden = true; }, 2500);
         } catch (err) {
           $("pvShareMsg").hidden = false;
-          $("pvShareMsg").textContent = "分享失败�? + err.message;
+          $("pvShareMsg").textContent = "分享失败�? + err.message;
           $("pvShareMsg").className = "msg-err";
           setTimeout(() => { $("pvShareMsg").hidden = true; $("pvShareMsg").className = "msg-ok"; }, 3000);
         }
@@ -2679,7 +2687,7 @@ async function loadSavedTrip(tripId) {
     setStage("overview");
     toast("已加载行程：" + (trip.title || ""), "success");
   } catch (e) {
-    toast("加载行程失败�? + e.message, "error");
+    toast("加载行程失败�? + e.message, "error");
   }
 }
 
@@ -2690,11 +2698,11 @@ document.getElementById("pvChangePwdBtn")?.addEventListener("click", async () =>
   const confirmPwd = $("pvConfirmPwd").value;
   const msg = $("pvPwdMsg");
   msg.hidden = true;
-  if (newPwd !== confirmPwd) { msg.textContent = "两次输入的密码不一�?; msg.className = "msg-err"; msg.hidden = false; return; }
-  if (newPwd.length < 6) { msg.textContent = "新密码至�?�?; msg.className = "msg-err"; msg.hidden = false; return; }
+  if (newPwd !== confirmPwd) { msg.textContent = "两次输入的密码不一�?; msg.className = "msg-err"; msg.hidden = false; return; }
+  if (newPwd.length < 6) { msg.textContent = "新密码至�?�?; msg.className = "msg-err"; msg.hidden = false; return; }
   try {
     await api("/auth/password", { method: "PATCH", body: JSON.stringify({ old_password: oldPwd, new_password: newPwd }) });
-    msg.textContent = "�?密码修改成功�?; msg.className = "msg-ok"; msg.hidden = false;
+    msg.textContent = "�?密码修改成功�?; msg.className = "msg-ok"; msg.hidden = false;
     $("pvOldPwd").value = ""; $("pvNewPwd").value = ""; $("pvConfirmPwd").value = "";
   } catch (e) { msg.textContent = e.message; msg.className = "msg-err"; msg.hidden = false; }
 });

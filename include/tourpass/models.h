@@ -130,6 +130,15 @@ struct DayPlan {
     std::vector<BeamTraceEntry> beamTrace;
 };
 
+struct HotelInfo {
+    std::string id;
+    std::string name;
+    std::string area;
+    double lat = 0.0;
+    double lng = 0.0;
+    double popularity = 0.0;
+};
+
 struct Itinerary {
     std::string city;
     std::string variantName = "推荐方案";
@@ -138,6 +147,7 @@ struct Itinerary {
     double totalScore = 0.0;
     std::vector<std::string> alternatives;
     ComparisonMetrics comparison;
+    HotelInfo hotel;
 };
 
 struct RouteResult {

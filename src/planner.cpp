@@ -1003,6 +1003,7 @@ Itinerary TripPlanner::plan(const TripRequest& request) const {
 
     Itinerary itinerary;
     itinerary.city = request.city;
+    itinerary.hotel = {hotel->id, hotel->name, hotel->area, hotel->lat, hotel->lng, hotel->popularity};
     itinerary.variantName = request.pace + "节奏方案";
     itinerary.strategy = request.strategy;
     std::set<std::string> used;

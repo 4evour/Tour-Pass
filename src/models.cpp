@@ -183,6 +183,14 @@ nlohmann::json itineraryToJson(const Itinerary& itinerary) {
     }
     return {
         {"city", itinerary.city},
+        {"hotel", {
+            {"id", itinerary.hotel.id},
+            {"name", itinerary.hotel.name},
+            {"area", itinerary.hotel.area},
+            {"lat", itinerary.hotel.lat},
+            {"lng", itinerary.hotel.lng},
+            {"popularity", itinerary.hotel.popularity}
+        }},
         {"variant_name", itinerary.variantName},
         {"strategy", itinerary.strategy},
         {"total_score", itinerary.totalScore},
