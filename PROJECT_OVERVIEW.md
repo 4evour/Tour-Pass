@@ -1,4 +1,16 @@
-# Tour Pass 项目说明
+﻿# Tour Pass 项目说明
+
+## v4.4 安全修复与代码健壮性
+
+安全修复：
+- `pg_store.cpp` `getQueryCount()` 和 `getBonusQueries()` 从字符串拼接 SQL 改为参数化查询（`queryP()` + `$1` 占位符），消除 SQL 注入风险，与同文件其他方法保持一致
+- `pg_store.cpp` Schema v5 迁移从 `catch (...) {}` 改为仅忽略 "already exists"/"duplicate column" 错误，其他异常正常抛出，避免网络断开或权限问题被静默吞没
+- `auth.cpp` `randomHex()` 从 `std::mt19937`（非加密安全）改为 OpenSSL 下使用 `RAND_bytes()`、无 OpenSSL 时使用 `std::random_device` 直接生成，保护密码盐值、游客用户名和分享链接 ID
+- `auth.cpp` `pbkdf2Hex()` 无 OpenSSL 分支从单次 `sha256(salt + ":" + password)` 改为 10,000 轮迭代哈希，大幅提高离线暴力破解难度
+
+健壮性改进：
+- `api.cpp` `IpRateLimiter::allow()` 清理逻辑增强：在清理阶段主动过期所有 deque 中的过期时间戳后再判断是否删除条目，防止长期运行后 IP 记录无限增长
+- `api.cpp` `/auth/send-code` 端点删除未使用的 `remoteAddr` 变量和 `(void)remoteAddr` 遗留代码
 
 ## v4.3 Frontend UX & Cloud Deployment
 
@@ -212,3 +224,268 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务作品集项目
 - v2.5 增加工程完备性交付闭环：新增 Dockerfile/.dockerignore、容器冒烟脚本、GitHub Actions Docker 构建与 GHCR 推送路径、OpenAPI 规范、部署指南和通用 HTTP 压测脚本/报告；服务支持 `HOST`/`TOURPASS_HOST` 配置以适配容器端口映射。
 - v2.6 增加真实规模与可信性能改造：新增高德 POI 采集脚本、通勤边生成脚本、真实数据流水线文档、边来源校验、可配置最短路缓存、Beam Search 参数环境变量、小规模算法质量报告、真实/合成 scale experiment 口径和 Render 部署草案。
 - v2.7 增加可信数据与演示证据二次优化：真实 POI 已在本机跑通 `500` 个，POI 采集新增最小数量、区域、重复和失败页统计，通勤边生成新增高德来源比例门禁、fallback fail、mode/batch 参数、连通分量桥接和 edge 元数据；缓存默认阈值改为 `500`，算法质量报告新增贪心 baseline，同步补充真实数据 runbook、真实数据聚合报告和 3 分钟录屏清单。
+
+## v4.5 Editor Command Pattern Infrastructure
+
+- `web/editor/src/core/commands/Command.ts`: 新增 `Command` 接口（`type`/`description`/`execute()`/`undo()`）和 `CommandHistory` 类，支持撤销/重做栈、执行时清空 redo 栈、描述查询和清空操作
+- `web/editor/src/core/commands/index.ts`: 统一导出，类型导出使用 `export type` 以兼容 `isolatedModules`
+## v4.5 编辑器完全重写 - 命令模式与UX优化
+
+### 核心架构升级
+
+**命令模式（Command Pattern）**：
+- 所有编辑操作封装为可撤销的命令对象
+- 支持 Ctrl+Z / Ctrl+Y 键盘快捷键
+- 命令历史管理：撤销栈和重做栈
+
+**新增命令类型**：
+- `AddStopCommand` - 添加POI到行程
+- `RemoveStopCommand` - 删除POI
+- `ReorderCommand` - 重排序POI
+- `MoveBetweenDaysCommand` - 跨天移动POI
+- `UpdateTimeCommand` - 更新时间
+
+### 状态管理重构
+
+**新增 Store**：
+- `historyStore` - 命令历史管理（撤销/重做）
+- `editorStore` - 编辑器状态（单天编辑模式、修改追踪）
+
+**编辑模式**：
+- 全局模式：查看整个行程
+- 单天模式：编辑某一天的行程
+- 编辑时地图只显示当天路线
+
+### 合理性检查
+
+**验证规则**：
+- 时间冲突检测：相邻POI时间是否重叠
+- 通勤时间检查：是否有足够时间到达下一个景点
+- 总耗时检查：行程是否过紧（>12小时警告）
+
+**UI 组件**：
+- `ValidationPanel` - 显示验证结果
+- 错误和警告分级显示
+
+### 酒店推荐系统
+
+**TripAdvisor API 集成**：
+- 搜索城市酒店
+- 获取酒店详情
+- 按价格区间筛选（经济/舒适/豪华）
+
+**UI 组件**：
+- `HotelRecommend` - 酒店推荐列表
+- `HotelManager` - 酒店管理面板
+
+### 新增组件
+
+```
+web/editor/src/
+├── core/
+│   ├── commands/          # 命令模式实现
+│   ├── validation/        # 合理性检查规则
+│   └── services/          # 外部服务（TripAdvisor API）
+├── stores/
+│   ├── historyStore.ts    # 命令历史管理
+│   └── editorStore.ts     # 编辑器状态
+├── components/
+│   ├── Shared/UndoRedoToolbar.tsx
+│   ├── Validation/ValidationPanel.tsx
+│   ├── Hotel/HotelRecommend.tsx
+│   ├── Hotel/HotelManager.tsx
+│   ├── Layout/EditorLayout.tsx
+│   ├── Editor/DayEditor.tsx
+│   └── Map/IntegratedMap.tsx
+└── hooks/
+    ├── useMapSync.ts      # 地图同步
+    ├── useValidation.ts   # 合理性检查
+    └── useKeyboardShortcuts.ts  # 键盘快捷键
+```
+
+### 解决的用户痛点
+
+1. ✅ **编辑时跳转全部行程** → 单天编辑模式
+2. ✅ **误操作无法恢复** → 命令模式撤销/重做
+3. ✅ **编辑时看不到路线变化** → 地图实时联动
+4. ✅ **修改后没有提示** → 合理性检查
+5. ✅ **无法准确选择酒店** → 酒店推荐系统
+
+### 技术栈
+
+- React 18 + TypeScript
+- Zustand 状态管理
+- TripAdvisor Scraper API
+- Leaflet 地图
+
+## v4.6 交互体验优化
+
+### 完成的功能
+
+#### 1. 跨天拖拽 UI
+- `MultiDayTimeline` 组件：支持跨天拖拽景点
+- `SortableStop` 组件：可拖拽的景点卡片
+- 使用 @dnd-kit 实现拖拽功能
+
+#### 2. POI 名称显示
+- `POIMarker` 组件：地图上显示序号和名称
+- 当前天景点显示完整名称，其他天显示序号
+- 点击显示详细信息弹窗
+
+#### 3. 路线渲染
+- `RouteRenderer` 组件：渲染路线
+- 支持多天不同颜色
+- 当前天路线高亮显示
+
+#### 4. 时间轴组件
+- `TimelineView` 组件：垂直时间轴展示
+- 显示到达时间、离开时间、游览时长
+- 显示通勤时间提示
+
+#### 5. 编辑历史面板
+- `HistoryPanel` 组件：显示编辑历史
+- 支持撤销/重做操作
+- 显示操作描述
+
+### 新增文件
+
+```
+web/editor/src/components/
+├── Editor/
+│   ├── MultiDayTimeline.tsx    # 跨天拖拽
+│   ├── SortableStop.tsx        # 可拖拽景点
+│   ├── TimelineView.tsx        # 时间轴
+│   └── HistoryPanel.tsx        # 历史面板
+└── Map/
+    ├── POIMarker.tsx            # POI标记
+    └── RouteRenderer.tsx        # 路线渲染
+```
+
+### 解决的用户痛点
+
+1. ✅ **跨天拖拽** - 支持将景点拖到其他天
+2. ✅ **POI 名称显示** - 地图上显示景点名称
+3. ✅ **时间轴视图** - 直观展示行程安排
+4. ✅ **编辑历史** - 查看和回退编辑操作
+
+## v4.7 酒店系统完善
+
+### 完成的功能
+
+#### 1. 酒店锚点逻辑
+- `HotelAnchorService` 服务：酒店锚点计算
+- `HotelAnchorManager` 组件：酒店锚点管理
+- 支持全局默认酒店和单日覆盖
+- 自动计算酒店 → 景点 → ... → 酒店路线
+
+#### 2. 酒店详情展示
+- `HotelDetailCard` 组件：酒店详情卡片
+- 显示图片、评分、价格、设施
+- 支持选择酒店
+
+#### 3. 入住区域推荐
+- `AreaRecommender` 组件：区域推荐
+- 基于景点分布推荐入住区域
+- 显示推荐分数和理由
+
+### 新增文件
+
+```
+web/editor/src/
+├── core/services/
+│   └── hotelAnchorService.ts    # 酒店锚点服务
+└── components/Hotel/
+    ├── HotelAnchorManager.tsx    # 酒店锚点管理
+    ├── HotelDetailCard.tsx       # 酒店详情
+    └── AreaRecommender.tsx       # 区域推荐
+```
+
+### 解决的用户痛点
+
+1. ✅ **酒店锚点** - 每天从酒店出发并返回酒店
+2. ✅ **酒店详情** - 查看酒店详细信息
+3. ✅ **区域推荐** - 智能推荐入住区域
+
+## v4.8 数据可视化与导出
+
+### 完成的功能
+
+#### 1. 行程评分可视化
+- `ScoreBreakdown` 组件：多维度评分展示
+- 景点热度、行程多样性、时间效率、区域覆盖
+
+#### 2. 预算追踪
+- `BudgetTracker` 组件：费用记录和统计
+- 分类统计：景点、餐饮、住宿、娱乐、交通
+
+#### 3. PDF 导出
+- `PDFExporter` 组件：生成可打印的行程单
+- 包含酒店、景点、时间信息
+
+#### 4. 分享功能
+- `SharePanel` 组件：生成分享链接
+- 支持微信、Twitter 分享
+
+---
+
+## v4.9 协作与分享
+
+### 完成的功能
+
+#### 1. 协作者管理
+- `CollaboratorManager` 组件：邀请和管理协作者
+- 支持编辑者、查看者角色
+
+#### 2. 评论系统
+- `CommentSystem` 组件：行程评论
+- 支持添加、删除评论
+
+#### 3. 版本管理
+- `VersionManager` 组件：保存和恢复版本
+- 支持版本描述
+
+---
+
+## v5.0 移动端适配与性能优化
+
+### 完成的功能
+
+#### 1. 响应式布局
+- `MobileNav` 组件：移动端底部导航
+- `useResponsive` Hook：响应式检测
+
+#### 2. 暗色模式
+- `useTheme` Hook：主题切换
+- 支持跟随系统设置
+
+#### 3. PWA 支持
+- Service Worker：离线缓存
+- PWA Manifest：可安装为 App
+
+### 新增文件
+
+```
+web/editor/src/
+├── components/
+│   ├── Analytics/
+│   │   ├── ScoreBreakdown.tsx    # 评分可视化
+│   │   ├── BudgetTracker.tsx     # 预算追踪
+│   │   ├── PDFExporter.tsx       # PDF 导出
+│   │   └── SharePanel.tsx        # 分享功能
+│   ├── Collaboration/
+│   │   ├── CollaboratorManager.tsx  # 协作者管理
+│   │   ├── CommentSystem.tsx        # 评论系统
+│   │   └── VersionManager.tsx       # 版本管理
+│   └── Mobile/
+│       └── MobileNav.tsx          # 移动端导航
+├── hooks/
+│   ├── useResponsive.ts          # 响应式 Hook
+│   └── useTheme.ts               # 暗色模式 Hook
+└── utils/
+    └── pwa.ts                    # PWA 工具
+
+web/public/
+├── sw.js                         # Service Worker
+└── manifest.json                 # PWA Manifest
+```
+

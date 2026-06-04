@@ -287,8 +287,17 @@ void PostgresStore::initializeSchema() {
     if (!queryScalar("SELECT 1 FROM schema_migrations WHERE version = 5;").empty()) {
         // already migrated
     } else {
-        try { exec("ALTER TABLE users ADD COLUMN device_id TEXT NOT NULL DEFAULT '';"); } catch (...) {}
-        try { exec("CREATE INDEX idx_users_device_id ON users(device_id);"); } catch (...) {}
+        try { exec("ALTER TABLE users ADD COLUMN device_id TEXT NOT NULL DEFAULT '';"); }
+        catch (const std::exception& e) {
+            std::string msg = e.what();
+            if (msg.find("already exists") == std::string::npos &&
+                msg.find("duplicate column") == std::string::npos) throw;
+        }
+        try { exec("CREATE INDEX IF NOT EXISTS idx_users_device_id ON users(device_id);"); }
+        catch (const std::exception& e) {
+            std::string msg = e.what();
+            if (msg.find("already exists") == std::string::npos) throw;
+        }
         exec("INSERT INTO schema_migrations(version) VALUES (5) ON CONFLICT DO NOTHING;");
     }
 }
@@ -446,15 +455,28 @@ void PostgresStore::markCodeUsed(int64_t codeId) {
 
 int PostgresStore::getQueryCount(int64_t userId) {
     std::lock_guard<std::mutex> lock(mutex_);
-    std::string today = queryScalar("SELECT CURRENT_DATE::text;");
-    std::string val = queryScalar("SELECT COALESCE(query_count, 0)::text FROM query_usage WHERE user_id = " + std::to_string(userId) + " AND query_date = '" + today + "';");
-    return val.empty() ? 0 : std::stoi(val);
+    PGresult* res = queryP(
+        "SELECT COALESCE(query_count, 0)::text FROM query_usage WHERE user_id = $1 AND query_date = CURRENT_DATE::text;",
+        {std::to_string(userId)});
+    int count = 0;
+    if (PQresultStatus(res) == PGRES_TUPLES_OK && PQntuples(res) > 0 && PQgetisnull(res, 0, 0) == 0) {
+        count = std::stoi(PQgetvalue(res, 0, 0));
+    }
+    PQclear(res);
+    return count;
 }
 
 int PostgresStore::getBonusQueries(int64_t userId) {
     std::lock_guard<std::mutex> lock(mutex_);
-    std::string val = queryScalar("SELECT COALESCE(bonus_queries, 0)::text FROM users WHERE id = " + std::to_string(userId) + ";");
-    return val.empty() ? 0 : std::stoi(val);
+    PGresult* res = queryP(
+        "SELECT COALESCE(bonus_queries, 0)::text FROM users WHERE id = $1;",
+        {std::to_string(userId)});
+    int bonus = 0;
+    if (PQresultStatus(res) == PGRES_TUPLES_OK && PQntuples(res) > 0 && PQgetisnull(res, 0, 0) == 0) {
+        bonus = std::stoi(PQgetvalue(res, 0, 0));
+    }
+    PQclear(res);
+    return bonus;
 }
 
 void PostgresStore::incrementQueryCount(int64_t userId) {

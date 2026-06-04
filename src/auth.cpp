@@ -63,7 +63,12 @@ std::string pbkdf2Hex(const std::string& password, const std::string& salt) {
                       100000, EVP_sha256(), sizeof(dk), dk);
     return toHex(dk, sizeof(dk));
 #else
-    return sha256(salt + ":" + password);
+    // Iterated hash fallback: 10,000 rounds (far stronger than single SHA-256)
+    std::string current = sha256(salt + ":" + password);
+    for (int i = 1; i < 10000; ++i) {
+        current = sha256(salt + ":" + current);
+    }
+    return current;
 #endif
 }
 
@@ -97,11 +102,17 @@ bool constantTimeEquals(const std::string& a, const std::string& b) {
 }
 
 std::string randomHex(size_t bytes) {
-    static thread_local std::mt19937 gen(std::random_device{}());
-    std::uniform_int_distribution<int> dist(0, 255);
+#ifdef CPPHTTPLIB_OPENSSL_SUPPORT
+    std::vector<unsigned char> buf(bytes);
+    if (RAND_bytes(buf.data(), static_cast<int>(bytes)) == 1) {
+        return toHex(buf.data(), bytes);
+    }
+#endif
+    // Use std::random_device directly for non-deterministic output
+    std::random_device rd;
     std::ostringstream oss;
     for (size_t i = 0; i < bytes; ++i) {
-        oss << std::hex << std::setw(2) << std::setfill('0') << dist(gen);
+        oss << std::hex << std::setw(2) << std::setfill('0') << (rd() & 0xFF);
     }
     return oss.str();
 }
