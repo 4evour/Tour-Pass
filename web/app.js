@@ -341,7 +341,7 @@ async function doMapSearch(query) {
   resultsDiv.innerHTML = '<div style="padding:10px;font-size:12px;color:var(--muted);">搜索中...</div>';
 
   try {
-    const city = state.lastPayload?.city || "长沙";
+    const city = $("city")?.value?.trim() || state.lastPayload?.city || "长沙";
     const data = await api(`/poi/amap-search?q=${encodeURIComponent(query)}&city=${encodeURIComponent(city)}&limit=10`);
     const pois = data.data || [];
     if (pois.length === 0) {
