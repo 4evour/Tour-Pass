@@ -2663,7 +2663,8 @@ async function loadProfileView() {
 
       if (copyBtn) {
         const url = location.origin + "/#/share/" + copyBtn.dataset.shareId;
-        try { await navigator.clipboard.writeText(url); copyBtn.textContent = "✅ 已复制"; } catch {}
+        try { await navigator.clipboard.writeText(url); } catch { var inp = document.createElement("input"); inp.value = url; document.body.appendChild(inp); inp.select(); document.execCommand("copy"); document.body.removeChild(inp); }
+        copyBtn.textContent = "\u2705 \u5df2\u590d\u5236";
         setTimeout(() => { copyBtn.textContent = "📋 复制链接"; }, 2000);
         return;
       }
