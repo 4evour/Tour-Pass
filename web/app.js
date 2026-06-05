@@ -1918,6 +1918,9 @@ document.querySelectorAll(".city-card").forEach((card) => {
     $("city").value = card.dataset.city;
     // Load guidebook for selected city
     loadGuidebook(card.dataset.city);
+    // Reload hotels for new city
+    allHotels = [];
+    loadHotels();
     // Update hotel default
     const hotelDefaults = {
       "长沙": "7天优品酒店(长沙橘子洲五一广场地铁站店)",
