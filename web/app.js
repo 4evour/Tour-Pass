@@ -2536,16 +2536,21 @@ function navigateTo(hash) {
 
 async function loadSharedTrip(shareId) {
   try {
-    const trip = await api("/api/share/" + shareId);
-    if (!trip || !trip.days) { toast("分享链接无效", "error"); return; }
+    const data = await api("/api/share/" + shareId);
+    if (!data) { toast("\u5206\u4eab\u94fe\u63a5\u65e0\u6548", "error"); return; }
+    // Parse response_json if it's a string
+    const trip = typeof data.response_json === "string" ? JSON.parse(data.response_json) : data.response_json;
+    if (!trip || !trip.days) { toast("\u5206\u4eab\u94fe\u63a5\u65e0\u6548", "error"); return; }
     state.candidates = [trip];
     state.selectedIndex = 0;
-    state.lastPayload = { city: trip.city || "" };
+    state.lastPayload = { city: trip.city || data.request_json?.city || "" };
+    state.tripSaved = true;
+    state.savedTripId = data.id;
     renderPlan();
-    setStage("result");
-    toast("已加载分享的行程", "success");
+    setStage("overview");
+    toast("\u5df2\u52a0\u8f7d\u5206\u4eab\u7684\u884c\u7a0b: " + (data.title || ""), "success");
   } catch (e) {
-    toast("加载分享行程失败: " + e.message, "error");
+    toast("\u52a0\u8f7d\u5206\u4eab\u884c\u7a0b\u5931\u8d25: " + e.message, "error");
   }
 }
 
