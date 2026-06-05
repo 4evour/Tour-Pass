@@ -506,7 +506,7 @@ async function loadPoiBrowseLayer(type, mealFilter, key) {
     browsePoiLayers[key].addTo(planMap);
     return;
   }
-  const city = state.lastPayload?.city || "长沙";
+  const city = document.getElementById("city")?.value?.trim() || state.lastPayload?.city || "长沙";
   try {
     const res = await api("/poi/browse?city=" + encodeURIComponent(city) + "&type=" + type + "&limit=80");
     const pois = (res.data || []).filter(function(p) {
@@ -1964,7 +1964,7 @@ document.querySelectorAll(".interest-tags .tag").forEach((tag) => {
 let allHotels = [];
 async function loadHotels() {
   try {
-    const city = state.lastPayload?.city || "长沙";
+    const city = document.getElementById("city")?.value?.trim() || state.lastPayload?.city || "长沙";
     const data = await api(`/poi/search?type=hotel&city=${encodeURIComponent(city)}&limit=100`);
     allHotels = data.data || [];
     renderHotelList(allHotels);
