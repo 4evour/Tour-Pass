@@ -474,7 +474,7 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
         res.set_header("X-Response-Time-Ms", std::to_string(elapsed.count()));
         // Set default CSP if the route handler didn't set a custom one
         if (!res.has_header("Content-Security-Policy")) {
-            res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:; connect-src 'self' https://api.open-meteo.com");
+            res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:; connect-src 'self' https://api.open-meteo.com https://*.tile.openstreetmap.org https://*.is.autonavi.com");
         }
         if (req.method == "POST" && req.path == "/trip/plan") {
             std::string cacheStatus = res.has_header("X-Cache") ? res.get_header_value("X-Cache") : "NONE";
@@ -1656,7 +1656,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         }
         // Override CSP for this response to allow the nonce'd inline script
         res.set_header("Content-Security-Policy",
-            "default-src 'self'; script-src 'self' 'nonce-" + nonce + "'; style-src 'self' 'unsafe-inline'; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:");
+            "default-src 'self'; script-src 'self' 'nonce-" + nonce + "'; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:; connect-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com");
         res.set_content(html, "text/html; charset=utf-8");
     });
 
