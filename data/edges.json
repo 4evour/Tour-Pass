@@ -339,19 +339,6 @@
   },
   {
     "from": "amap_cc1c8ac",
-    "to": "amap_bc32ea69",
-    "distance_meters": 264,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 143,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_cc1c8ac",
     "to": "amap_f3a03908",
     "distance_meters": 310,
     "walk_minutes": 5,
@@ -2302,19 +2289,6 @@
   },
   {
     "from": "amap_2f3f837e",
-    "to": "amap_bc32ea69",
-    "distance_meters": 1082,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 4,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 254,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_2f3f837e",
     "to": "amap_32f6c217",
     "distance_meters": 862,
     "walk_minutes": 6,
@@ -2727,19 +2701,6 @@
     "provider": "amap",
     "mode": "driving",
     "duration_seconds": 1049,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_a5e9c05e",
-    "to": "amap_6be55529",
-    "distance_meters": 7825,
-    "walk_minutes": 27,
-    "transit_minutes": 25,
-    "taxi_minutes": 23,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 1377,
     "amap_status": "partial"
   },
   {
@@ -3221,19 +3182,6 @@
     "provider": "amap",
     "mode": "driving",
     "duration_seconds": 856,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_96feb64f",
-    "to": "amap_fc265b21",
-    "distance_meters": 7080,
-    "walk_minutes": 50,
-    "transit_minutes": 34,
-    "taxi_minutes": 17,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 1045,
     "amap_status": "partial"
   },
   {
@@ -4196,19 +4144,6 @@
     "provider": "amap",
     "mode": "driving",
     "duration_seconds": 1593,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_d727c326",
-    "to": "amap_fc265b21",
-    "distance_meters": 9148,
-    "walk_minutes": 45,
-    "transit_minutes": 34,
-    "taxi_minutes": 23,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 1365,
     "amap_status": "partial"
   },
   {
@@ -8451,19 +8386,6 @@
   },
   {
     "from": "amap_c4d44c93",
-    "to": "amap_4c67eb8b",
-    "distance_meters": 1841,
-    "walk_minutes": 8,
-    "transit_minutes": 11,
-    "taxi_minutes": 13,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 752,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_c4d44c93",
     "to": "amap_8343207e",
     "distance_meters": 1929,
     "walk_minutes": 9,
@@ -8551,19 +8473,6 @@
     "provider": "amap",
     "mode": "driving",
     "duration_seconds": 222,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_7d833e67",
-    "to": "amap_4c67eb8b",
-    "distance_meters": 1071,
-    "walk_minutes": 5,
-    "transit_minutes": 7,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 473,
     "amap_status": "partial"
   },
   {
@@ -8955,84 +8864,6 @@
     "mode": "driving",
     "duration_seconds": 101,
     "amap_status": "partial"
-  },
-  {
-    "from": "amap_b9dfec07",
-    "to": "amap_91017912",
-    "distance_meters": 45,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 27,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_b9dfec07",
-    "to": "amap_f0934e4d",
-    "distance_meters": 53,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "driving",
-    "duration_seconds": 300,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_b9dfec07",
-    "to": "amap_743c3861",
-    "distance_meters": 68,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 19,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_b9dfec07",
-    "to": "amap_d22a8595",
-    "distance_meters": 66,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 19,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_b9dfec07",
-    "to": "amap_333b26b3",
-    "distance_meters": 76,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 20,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_b9dfec07",
-    "to": "amap_f76530b8",
-    "distance_meters": 69,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "driving",
-    "duration_seconds": 300,
-    "amap_status": "fallback_geo_estimated"
   },
   {
     "from": "amap_d12e9ff2",
@@ -9631,71 +9462,6 @@
     "mode": "driving",
     "duration_seconds": 600,
     "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_4c67eb8b",
-    "to": "amap_8343207e",
-    "distance_meters": 240,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 108,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_4c67eb8b",
-    "to": "amap_f6776467",
-    "distance_meters": 224,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 104,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_4c67eb8b",
-    "to": "amap_e03dc52b",
-    "distance_meters": 243,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 102,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_4c67eb8b",
-    "to": "amap_af4ed94a",
-    "distance_meters": 413,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 196,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_4c67eb8b",
-    "to": "amap_f567cbbb",
-    "distance_meters": 442,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 160,
-    "amap_status": "partial"
   },
   {
     "from": "amap_a8986d04",
@@ -10609,19 +10375,6 @@
   },
   {
     "from": "amap_33583b0e",
-    "to": "amap_bc32ea69",
-    "distance_meters": 911,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 5,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 289,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_33583b0e",
     "to": "amap_698e113f",
     "distance_meters": 931,
     "walk_minutes": 6,
@@ -10670,19 +10423,6 @@
     "provider": "amap",
     "mode": "driving",
     "duration_seconds": 624,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_698e113f",
-    "to": "amap_bc32ea69",
-    "distance_meters": 1886,
-    "walk_minutes": 5,
-    "transit_minutes": 7,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 549,
     "amap_status": "partial"
   },
   {
@@ -11112,19 +10852,6 @@
     "provider": "amap",
     "mode": "driving",
     "duration_seconds": 663,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_c971517f",
-    "to": "amap_bc32ea69",
-    "distance_meters": 1198,
-    "walk_minutes": 5,
-    "transit_minutes": 6,
-    "taxi_minutes": 7,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 431,
     "amap_status": "partial"
   },
   {
@@ -11752,84 +11479,6 @@
     "amap_status": "partial"
   },
   {
-    "from": "amap_fc265b21",
-    "to": "amap_9d8b6771",
-    "distance_meters": 2061,
-    "walk_minutes": 25,
-    "transit_minutes": 16,
-    "taxi_minutes": 6,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "driving",
-    "duration_seconds": 930,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_fc265b21",
-    "to": "amap_eee46f69",
-    "distance_meters": 4427,
-    "walk_minutes": 36,
-    "transit_minutes": 27,
-    "taxi_minutes": 17,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 1007,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_fc265b21",
-    "to": "amap_d737263",
-    "distance_meters": 5136,
-    "walk_minutes": 41,
-    "transit_minutes": 28,
-    "taxi_minutes": 14,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 862,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_fc265b21",
-    "to": "amap_18b1308b",
-    "distance_meters": 4364,
-    "walk_minutes": 42,
-    "transit_minutes": 28,
-    "taxi_minutes": 14,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 844,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_fc265b21",
-    "to": "amap_3ee4ed59",
-    "distance_meters": 4235,
-    "walk_minutes": 42,
-    "transit_minutes": 27,
-    "taxi_minutes": 12,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 696,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_fc265b21",
-    "to": "amap_1bb12bc8",
-    "distance_meters": 4890,
-    "walk_minutes": 43,
-    "transit_minutes": 27,
-    "taxi_minutes": 11,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 656,
-    "amap_status": "partial"
-  },
-  {
     "from": "amap_2a39ab6d",
     "to": "amap_a2cada39",
     "distance_meters": 2738,
@@ -12441,71 +12090,6 @@
     "amap_status": "partial"
   },
   {
-    "from": "amap_6be55529",
-    "to": "amap_54642089",
-    "distance_meters": 1005,
-    "walk_minutes": 9,
-    "transit_minutes": 8,
-    "taxi_minutes": 6,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 375,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_6be55529",
-    "to": "amap_bba77d2d",
-    "distance_meters": 3719,
-    "walk_minutes": 20,
-    "transit_minutes": 16,
-    "taxi_minutes": 12,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 748,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_6be55529",
-    "to": "amap_3f3e4539",
-    "distance_meters": 3057,
-    "walk_minutes": 24,
-    "transit_minutes": 18,
-    "taxi_minutes": 12,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 692,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_6be55529",
-    "to": "amap_dc4a3ed9",
-    "distance_meters": 4958,
-    "walk_minutes": 27,
-    "transit_minutes": 20,
-    "taxi_minutes": 12,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 704,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_6be55529",
-    "to": "amap_467229c1",
-    "distance_meters": 3644,
-    "walk_minutes": 32,
-    "transit_minutes": 22,
-    "taxi_minutes": 11,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 647,
-    "amap_status": "partial"
-  },
-  {
     "from": "amap_80f74bff",
     "to": "amap_6fc67e1a",
     "distance_meters": 3540,
@@ -12828,19 +12412,6 @@
     "provider": "amap",
     "mode": "driving",
     "duration_seconds": 440,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_bc32ea69",
-    "to": "amap_32f6c217",
-    "distance_meters": 225,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 65,
     "amap_status": "partial"
   },
   {
@@ -13326,19 +12897,6 @@
   },
   {
     "from": "amap_fa2bcef",
-    "to": "amap_6be55529",
-    "distance_meters": 5119,
-    "walk_minutes": 35,
-    "transit_minutes": 25,
-    "taxi_minutes": 14,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 851,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_fa2bcef",
     "to": "amap_54642089",
     "distance_meters": 4974,
     "walk_minutes": 38,
@@ -13557,19 +13115,6 @@
     "mode": "driving",
     "duration_seconds": 480,
     "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_dd068164",
-    "to": "amap_b9dfec07",
-    "distance_meters": 591,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 162,
-    "amap_status": "partial"
   },
   {
     "from": "amap_dd068164",
@@ -14963,19 +14508,6 @@
     "amap_status": "partial"
   },
   {
-    "from": "amap_403c501f",
-    "to": "amap_4c67eb8b",
-    "distance_meters": 315,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "driving",
-    "duration_seconds": 300,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
     "from": "amap_dd94ef5f",
     "to": "amap_d0d52c7",
     "distance_meters": 1206,
@@ -15104,19 +14636,6 @@
     "mode": "driving",
     "duration_seconds": 104,
     "amap_status": "partial"
-  },
-  {
-    "from": "amap_b953c1bf",
-    "to": "amap_4c67eb8b",
-    "distance_meters": 333,
-    "walk_minutes": 5,
-    "transit_minutes": 5,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "driving",
-    "duration_seconds": 300,
-    "amap_status": "fallback_geo_estimated"
   },
   {
     "from": "amap_6d8da9d9",
@@ -16380,19 +15899,6 @@
     "amap_status": "partial"
   },
   {
-    "from": "amap_8cbecf23",
-    "to": "amap_4c67eb8b",
-    "distance_meters": 1469,
-    "walk_minutes": 18,
-    "transit_minutes": 12,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "driving",
-    "duration_seconds": 690,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
     "from": "amap_24371cb3",
     "to": "amap_78552b20",
     "distance_meters": 409,
@@ -17096,19 +16602,6 @@
   },
   {
     "from": "amap_9f10b303",
-    "to": "amap_fc265b21",
-    "distance_meters": 7887,
-    "walk_minutes": 79,
-    "transit_minutes": 48,
-    "taxi_minutes": 17,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 1035,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_9f10b303",
     "to": "amap_e1c52c65",
     "distance_meters": 10491,
     "walk_minutes": 90,
@@ -17209,19 +16702,6 @@
     "provider": "amap",
     "mode": "driving",
     "duration_seconds": 421,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_2ea9af28",
-    "to": "amap_6be55529",
-    "distance_meters": 5994,
-    "walk_minutes": 36,
-    "transit_minutes": 26,
-    "taxi_minutes": 15,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 906,
     "amap_status": "partial"
   },
   {
@@ -17534,19 +17014,6 @@
     "provider": "amap",
     "mode": "driving",
     "duration_seconds": 463,
-    "amap_status": "partial"
-  },
-  {
-    "from": "amap_76b61b18",
-    "to": "amap_6be55529",
-    "distance_meters": 5525,
-    "walk_minutes": 34,
-    "transit_minutes": 26,
-    "taxi_minutes": 17,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "driving",
-    "duration_seconds": 1041,
     "amap_status": "partial"
   },
   {
