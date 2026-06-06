@@ -554,6 +554,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         return new httplib::ThreadPool(workers, maxQueue);
     };
     server.set_mount_point("/", "web");
+    server.set_mount_point("/editor", "web/editor-dist");
     installMiddleware(server, context);
 
     server.Get("/health", [&](const httplib::Request&, httplib::Response& res) {
