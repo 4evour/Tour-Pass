@@ -24,3 +24,6 @@ docs/
 .env
 config/llm.local.json
 docs/load_test_report_local.md
+
+# Editor source (only editor-dist is needed at runtime)
+web/editor/
