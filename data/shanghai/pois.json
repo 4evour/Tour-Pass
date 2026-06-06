@@ -8460,32 +8460,6 @@
     "close_minutes": 1440
   },
   {
-    "id": "amap_f0093a28",
-    "name": "大魏小吃店(豫园小区店)",
-    "type": "restaurant",
-    "lat": 31.224385,
-    "lng": 121.494758,
-    "area": "黄浦区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "小吃",
-      "街区",
-      "餐饮服务",
-      "中餐厅",
-      "城隍庙"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "藏在豫园小区里的地道小吃店，主打上海传统滋味。必点小笼包皮薄汤鲜，葱油拌面香气扑鼻，价格亲民又管饱。建议避开饭点高峰，点份招牌配碗鸡鸭血汤，吃完溜达去城隍庙消食。适合想尝本地风味的小吃货、预算有限的游客，或是路过解馋的上班族。",
-    "source": "amap",
-    "source_id": "B00155QK82",
-    "recommendation": "大魏小吃店(豫园小区店)是当地人气餐厅，推荐尝试特色菜品"
-  },
-  {
     "id": "amap_a14bbc66",
     "name": "外滩家宴·上海菜(外滩豫园店)",
     "type": "restaurant",
@@ -9119,34 +9093,6 @@
     "recommendation": "魔柠(豫园店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
     "close_minutes": 1320
-  },
-  {
-    "id": "amap_5bb34e71",
-    "name": "大食惠超市(豫园小区店)",
-    "type": "restaurant",
-    "lat": 31.224419,
-    "lng": 121.494296,
-    "area": "黄浦区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "小吃",
-      "街区",
-      "餐饮服务",
-      "中餐厅",
-      "城隍庙"
-    ],
-    "popularity": 3.9,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "藏在豫园小区里的高性价比美食聚集地！主打上海本帮菜和城隍庙特色小吃，生煎、小笼、排骨年糕样样地道。适合逛完豫园后顺路来填肚子，人均三四十就能吃撑。建议错开饭点高峰，慢悠悠选几样现做档口的招牌，再配碗鸡鸭血汤，老上海味道瞬间拿捏。尤其适合想体验市井烟火气的游客和周边上班族。",
-    "source": "amap",
-    "source_id": "B0FFGILVOI",
-    "recommendation": "大食惠超市(豫园小区店)是当地人气餐厅，推荐尝试特色菜品",
-    "open_minutes": 570,
-    "close_minutes": 1260
   },
   {
     "id": "amap_fb9112a1",
@@ -11043,31 +10989,6 @@
     "source": "amap",
     "source_id": "B0FFF004AH",
     "recommendation": "宜兰贵斯酒店(广东路店)位置便利，适合作为旅行住宿据点"
-  },
-  {
-    "id": "amap_a1bef6f2",
-    "name": "际庭青旅(北外滩平凉路地铁站店)",
-    "type": "hotel",
-    "lat": 31.25897,
-    "lng": 121.529141,
-    "area": "杨浦区",
-    "open_time": "00:00",
-    "close_time": "23:59",
-    "visit_duration_minutes": 30,
-    "tags": [
-      "酒店",
-      "交通便利",
-      "住宿服务",
-      "宾馆酒店",
-      "平凉路"
-    ],
-    "popularity": 4.8,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "际庭青旅(北外滩平凉路地铁站店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
-    "source": "amap",
-    "source_id": "B0KGLUXVUU",
-    "recommendation": "际庭青旅(北外滩平凉路地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_5c82933b",
@@ -13270,44 +13191,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10039900",
-    "name": "南京东路(地铁站)",
-    "type": "transit",
-    "area": "黄浦区",
-    "lat": 31.238101,
-    "lng": 121.484628,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "南京东路(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "南京东路(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10029743",
-    "name": "陆家嘴(地铁站)",
-    "type": "transit",
-    "area": "浦东新区",
-    "lat": 31.238259,
-    "lng": 121.502129,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "陆家嘴(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "陆家嘴(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10024678",
     "name": "人民广场(地铁站)",
     "type": "transit",
@@ -13319,44 +13202,6 @@
     "description": "人民广场(地铁站)，上海主要地铁站。",
     "meal_type": "",
     "recommendation": "人民广场(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10029707",
-    "name": "徐家汇(地铁站)",
-    "type": "transit",
-    "area": "徐汇区",
-    "lat": 31.195514,
-    "lng": 121.436603,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "徐家汇(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "徐家汇(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10039851",
-    "name": "龙阳路(地铁站)",
-    "type": "transit",
-    "area": "浦东新区",
-    "lat": 31.203575,
-    "lng": 121.557634,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "龙阳路(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "龙阳路(地铁站)是上海的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -13384,44 +13229,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10025001",
-    "name": "莘庄(地铁站)",
-    "type": "transit",
-    "area": "闵行区",
-    "lat": 31.111152,
-    "lng": 121.385373,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "莘庄(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "莘庄(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10030419",
-    "name": "豫园(地铁站)",
-    "type": "transit",
-    "area": "黄浦区",
-    "lat": 31.228005,
-    "lng": 121.487426,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "豫园(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "豫园(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10027922",
     "name": "松江大学城(地铁站)",
     "type": "transit",
@@ -13433,44 +13240,6 @@
     "description": "松江大学城(地铁站)，上海主要地铁站。",
     "meal_type": "",
     "recommendation": "松江大学城(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10039782",
-    "name": "南京西路(地铁站)",
-    "type": "transit",
-    "area": "静安区",
-    "lat": 31.229853,
-    "lng": 121.459971,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "南京西路(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "南京西路(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10039835",
-    "name": "世纪大道(地铁站)",
-    "type": "transit",
-    "area": "浦东新区",
-    "lat": 31.228682,
-    "lng": 121.527213,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "世纪大道(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "世纪大道(地铁站)是上海的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -13498,25 +13267,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10032803",
-    "name": "泗泾(地铁站)",
-    "type": "transit",
-    "area": "松江区",
-    "lat": 31.118272,
-    "lng": 121.260247,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "泗泾(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "泗泾(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10025485",
     "name": "静安寺(地铁站)",
     "type": "transit",
@@ -13528,63 +13278,6 @@
     "description": "静安寺(地铁站)，上海主要地铁站。",
     "meal_type": "",
     "recommendation": "静安寺(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10039960",
-    "name": "嘉定北(地铁站)",
-    "type": "transit",
-    "area": "嘉定区",
-    "lat": 31.391549,
-    "lng": 121.23735,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "嘉定北(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "嘉定北(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10039815",
-    "name": "惠南(地铁站)",
-    "type": "transit",
-    "area": "浦东新区",
-    "lat": 31.053828,
-    "lng": 121.761677,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "惠南(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "惠南(地铁站)是上海的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10032522",
-    "name": "东方体育中心(地铁站)",
-    "type": "transit",
-    "area": "浦东新区",
-    "lat": 31.153366,
-    "lng": 121.480304,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "东方体育中心(地铁站)，上海主要地铁站。",
-    "meal_type": "",
-    "recommendation": "东方体育中心(地铁站)是上海的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -13650,25 +13343,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10430171",
-    "name": "五洲大道地铁站(公交站)",
-    "type": "transit",
-    "area": "浦东新区",
-    "lat": 31.301353,
-    "lng": 121.588274,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "五洲大道地铁站(公交站)，上海主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "五洲大道地铁站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10387424",
     "name": "莲花路地铁站(北广场)(公交站)",
     "type": "transit",
@@ -13707,25 +13381,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10025344",
-    "name": "普安路延安东路(公交站)",
-    "type": "transit",
-    "area": "黄浦区",
-    "lat": 31.226472,
-    "lng": 121.4764,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "普安路延安东路(公交站)，上海主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "普安路延安东路(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10024727",
     "name": "上海火车站(北广场)(公交站)",
     "type": "transit",
@@ -13737,82 +13392,6 @@
     "description": "上海火车站(北广场)(公交站)，上海主要长途汽车站。",
     "meal_type": "",
     "recommendation": "上海火车站(北广场)(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10029854",
-    "name": "汶水路共和新路(公交站)",
-    "type": "transit",
-    "area": "静安区",
-    "lat": 31.292518,
-    "lng": 121.448265,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "汶水路共和新路(公交站)，上海主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "汶水路共和新路(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10026087",
-    "name": "堡镇汽车站(公交站)",
-    "type": "transit",
-    "area": "崇明区",
-    "lat": 31.523226,
-    "lng": 121.610079,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "堡镇汽车站(公交站)，上海主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "堡镇汽车站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10026790",
-    "name": "石化汽车站(公交站)",
-    "type": "transit",
-    "area": "金山区",
-    "lat": 30.71739,
-    "lng": 121.336909,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "石化汽车站(公交站)，上海主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "石化汽车站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10025798",
-    "name": "纪王(公交站)",
-    "type": "transit",
-    "area": "闵行区",
-    "lat": 31.238192,
-    "lng": 121.271098,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "纪王(公交站)，上海主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "纪王(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -13840,25 +13419,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10685254",
-    "name": "西公交枢纽站(公交站)",
-    "type": "transit",
-    "area": "浦东新区",
-    "lat": 31.139028,
-    "lng": 121.659627,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "西公交枢纽站(公交站)，上海主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "西公交枢纽站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV11297706",
     "name": "虹桥高铁站(公交站)",
     "type": "transit",
@@ -13870,25 +13430,6 @@
     "description": "虹桥高铁站(公交站)，上海主要长途汽车站。",
     "meal_type": "",
     "recommendation": "虹桥高铁站(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "上海"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10029535",
-    "name": "吴淞码头(公交站)",
-    "type": "transit",
-    "area": "宝山区",
-    "lat": 31.380317,
-    "lng": 121.499674,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "吴淞码头(公交站)，上海主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "吴淞码头(公交站)是上海的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

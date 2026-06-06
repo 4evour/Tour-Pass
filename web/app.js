@@ -341,7 +341,7 @@ async function doMapSearch(query) {
   resultsDiv.innerHTML = '<div style="padding:10px;font-size:12px;color:var(--muted);">搜索中...</div>';
 
   try {
-    const city = $("city")?.value?.trim() || state.lastPayload?.city || "长沙";
+    const city = $("city")?.value?.trim() || state.lastPayload?.city || "";
     const data = await api(`/poi/amap-search?q=${encodeURIComponent(query)}&city=${encodeURIComponent(city)}&limit=10`);
     const pois = data.data || [];
     if (pois.length === 0) {
@@ -506,7 +506,7 @@ async function loadPoiBrowseLayer(type, mealFilter, key) {
     browsePoiLayers[key].addTo(planMap);
     return;
   }
-  const city = document.getElementById("city")?.value?.trim() || state.lastPayload?.city || "长沙";
+  const city = document.getElementById("city")?.value?.trim() || state.lastPayload?.city || "";
   try {
     const res = await api("/poi/browse?city=" + encodeURIComponent(city) + "&type=" + type + "&limit=80");
     const pois = (res.data || []).filter(function(p) {
@@ -694,7 +694,7 @@ function csv(value) {
 
 function planPayload() {
   return {
-    city: $("city").value.trim() || "长沙",
+    city: $("city").value.trim() || "",
     days: Number($("days").value || 2),
     start_time: $("startTime").value.trim() || "09:30",
     end_time: $("endTime").value.trim() || "21:30",
@@ -1076,13 +1076,18 @@ function renderPlan() {
   initMapSearch();
   initPoiBrowse();
   // Fetch weather asynchronously
-  const city = state.lastPayload?.city || "长沙";
+  const city = state.lastPayload?.city || "";
   fetchWeather(city).then(weather => {
     const bar = $("weatherBar");
     if (bar && weather) bar.innerHTML = renderWeatherBar(weather, candidate.days || []);
   });
   // Fetch guidebook
   loadGuidebook(city);
+
+  // City consistency check
+  if (city && candidate.city && candidate.city !== city) {
+    toast(`注意：AI 返回的是「${candidate.city}」的行程，但你选择的城市是「${city}」`, "error");
+  }
 }
 
 // ---- Drag & Drop itinerary editing ----
@@ -1824,7 +1829,7 @@ document.addEventListener("click", async function(e) {
   altContainer.innerHTML = '<div style="font-size:12px;color:var(--muted);">加载中...</div>';
 
   try {
-    var city = state.lastPayload?.city || "长沙";
+    var city = state.lastPayload?.city || "";
     var data = await api(`/poi/by-area?city=${encodeURIComponent(city)}&area=${encodeURIComponent(area)}&type=restaurant&limit=5`);
     var restaurants = data.data || [];
     if (restaurants.length === 0) {
@@ -1949,7 +1954,7 @@ document.querySelectorAll(".city-card").forEach((card) => {
   });
 });
 // Load guidebook for default/selected city on page load
-setTimeout(() => loadGuidebook($("city")?.value || "长沙"), 1000);
+setTimeout(() => loadGuidebook($("city")?.value || ""), 1000);
 
 // Interest tags
 document.querySelectorAll(".interest-tags .tag").forEach((tag) => {
@@ -1964,7 +1969,7 @@ document.querySelectorAll(".interest-tags .tag").forEach((tag) => {
 let allHotels = [];
 async function loadHotels() {
   try {
-    const city = document.getElementById("city")?.value?.trim() || state.lastPayload?.city || "长沙";
+    const city = document.getElementById("city")?.value?.trim() || state.lastPayload?.city || "";
     const data = await api(`/poi/search?type=hotel&city=${encodeURIComponent(city)}&limit=100`);
     allHotels = data.data || [];
     renderHotelList(allHotels);
@@ -2539,8 +2544,10 @@ function navigateTo(hash) {
 
 async function loadSharedTrip(shareId) {
   try {
+    const output = $("planOutput");
+    if (output) { output.className = "plan-output empty-state"; output.textContent = "正在加载分享行程..."; }
     const data = await api("/api/share/" + shareId);
-    if (!data) { toast("\u5206\u4eab\u94fe\u63a5\u65e0\u6548", "error"); return; }
+    if (!data) { toast("分享链接无效", "error"); if (output) output.textContent = "分享链接无效或已过期"; return; }
     // Parse response_json if it's a string
     const trip = typeof data.response_json === "string" ? JSON.parse(data.response_json) : data.response_json;
     if (!trip || !trip.days) { toast("\u5206\u4eab\u94fe\u63a5\u65e0\u6548", "error"); return; }
@@ -2679,7 +2686,7 @@ async function loadProfileView() {
       if (shareBtn) {
         try {
           const data = await api(`/trips/${shareBtn.dataset.tripId}/share`, { method: "POST", body: "{}" });
-          const url = location.origin + "/#/share/" + shareData.share_id;
+          const url = location.origin + "/#/share/" + data.share_id;
           try { await navigator.clipboard.writeText(url); } catch {}
           $("pvShareMsg").hidden = false;
           $("pvShareMsg").textContent = "分享链接已复制";

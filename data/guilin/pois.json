@@ -4636,32 +4636,6 @@
     "recommendation": "一店吃遍桂林经典：米粉+啤酒鱼+土菜。推荐啤酒鱼选剑骨鱼，刺少肉嫩。"
   },
   {
-    "id": "amap_f181f53b",
-    "name": "杨记米粉店(三花小区店)",
-    "type": "restaurant",
-    "lat": 25.260466,
-    "lng": 110.270206,
-    "area": "象山区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "本帮菜",
-      "小吃",
-      "餐饮服务",
-      "中餐厅",
-      "翠竹路"
-    ],
-    "popularity": 3.9,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "杨记米粉店(三花小区店)，来自高德 Web 服务 POI 搜索；分类：本地餐饮。",
-    "source": "amap",
-    "source_id": "B0FFHNHHFL",
-    "recommendation": "杨记米粉店(三花小区店)是当地人气餐厅，推荐尝试特色菜品"
-  },
-  {
     "id": "amap_e83b23e6",
     "name": "美美桂林米粉·啤酒鱼",
     "type": "restaurant",
@@ -7780,34 +7754,6 @@
     "recommendation": "金城商业广场是当地热门景点，建议游览90分钟左右"
   },
   {
-    "id": "amap_70ad0d57",
-    "name": "桂北亿圣批发城",
-    "type": "attraction",
-    "lat": 25.31161,
-    "lng": 110.300186,
-    "area": "叠彩区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "购物",
-      "商圈",
-      "室内",
-      "购物服务",
-      "商场",
-      "普通商场",
-      "中山北路"
-    ],
-    "popularity": 3.8,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "桂北亿圣批发城是叠彩区的大型综合批发市场，商品种类超全，从日用百货到特色小商品应有尽有，很适合淘便宜好货。建议预留2-3小时慢慢逛，记得货比三家、大胆砍价。适合喜欢逛批发市场、追求性价比的本地居民或精打细算的购物达人。",
-    "source": "amap",
-    "source_id": "B0G2O7GE6C",
-    "recommendation": "桂北亿圣批发城是当地热门景点，建议游览90分钟左右"
-  },
-  {
     "id": "amap_90637174",
     "name": "瑶家小院油茶馆",
     "type": "restaurant",
@@ -10604,25 +10550,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV11319752",
-    "name": "阳朔凤鸣旅游集散中心(公交站)",
-    "type": "transit",
-    "area": "阳朔县",
-    "lat": 24.754485,
-    "lng": 110.490538,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "阳朔凤鸣旅游集散中心(公交站)，桂林主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "阳朔凤鸣旅游集散中心(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "桂林"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV09247868",
     "name": "十字街中心广场(公交站)",
     "type": "transit",
@@ -10661,44 +10588,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10269570",
-    "name": "桂林站(公交站)",
-    "type": "transit",
-    "area": "象山区",
-    "lat": 25.261059,
-    "lng": 110.284562,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "桂林站(公交站)，桂林主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "桂林站(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "桂林"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10270031",
-    "name": "文明路(公交站)",
-    "type": "transit",
-    "area": "象山区",
-    "lat": 25.271109,
-    "lng": 110.293409,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "文明路(公交站)，桂林主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "文明路(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "桂林"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10269581",
     "name": "上海路口(公交站)",
     "type": "transit",
@@ -10718,44 +10607,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10415173",
-    "name": "桂林北站(公交站)",
-    "type": "transit",
-    "area": "叠彩区",
-    "lat": 25.328928,
-    "lng": 110.303533,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "桂林北站(公交站)，桂林主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "桂林北站(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "桂林"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11113055",
-    "name": "阳朔高铁站(公交站)",
-    "type": "transit",
-    "area": "阳朔县",
-    "lat": 24.959389,
-    "lng": 110.567917,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "阳朔高铁站(公交站)，桂林主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "阳朔高铁站(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "桂林"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10269586",
     "name": "三里店广场(公交站)",
     "type": "transit",
@@ -10767,25 +10618,6 @@
     "description": "三里店广场(公交站)，桂林主要长途汽车站。",
     "meal_type": "",
     "recommendation": "三里店广场(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "桂林"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10269967",
-    "name": "乐群路口(公交站)",
-    "type": "transit",
-    "area": "秀峰区",
-    "lat": 25.280005,
-    "lng": 110.296288,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "乐群路口(公交站)，桂林主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "乐群路口(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -10832,44 +10664,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10269639",
-    "name": "潭下路口(公交站)",
-    "type": "transit",
-    "area": "灵川县",
-    "lat": 25.401279,
-    "lng": 110.325208,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "潭下路口(公交站)，桂林主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "潭下路口(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "桂林"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10269573",
-    "name": "瓦窑口(公交站)",
-    "type": "transit",
-    "area": "象山区",
-    "lat": 25.236143,
-    "lng": 110.29245,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "瓦窑口(公交站)，桂林主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "瓦窑口(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "桂林"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10270039",
     "name": "定江镇(公交站)",
     "type": "transit",
@@ -10881,25 +10675,6 @@
     "description": "定江镇(公交站)，桂林主要长途汽车站。",
     "meal_type": "",
     "recommendation": "定江镇(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "桂林"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10415175",
-    "name": "桂林北站路口(公交站)",
-    "type": "transit",
-    "area": "叠彩区",
-    "lat": 25.326902,
-    "lng": 110.306969,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "桂林北站路口(公交站)，桂林主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "桂林北站路口(公交站)是桂林的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

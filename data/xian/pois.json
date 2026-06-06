@@ -4403,35 +4403,6 @@
     "close_minutes": 1320
   },
   {
-    "id": "amap_9957b31",
-    "name": "伊明祥泡馍私房菜(枣园刘住宅小区店)",
-    "type": "restaurant",
-    "lat": 34.264683,
-    "lng": 109.070975,
-    "area": "灞桥区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "陕菜",
-      "小吃",
-      "餐饮服务",
-      "中餐厅",
-      "清真菜馆",
-      "纺织城"
-    ],
-    "popularity": 3.9,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "藏在纺织城枣园刘小区里的宝藏馆子，主打正宗清真泡馍，汤浓肉烂、馍块劲道，自己掰馍更有滋味。推荐尝试小炒泡馍或羊肉泡，配一碟糖蒜和辣酱，再来瓶冰峰，地道老陕吃法。适合想体验市井烟火气的吃货、喜欢碳水暴击的朋友，尤其适合泡馍爱好者专程打卡。",
-    "source": "amap",
-    "source_id": "B0FFHWSLJJ",
-    "recommendation": "伊明祥泡馍私房菜(枣园刘住宅小区店)是当地人气餐厅，推荐尝试特色菜品",
-    "open_minutes": 600,
-    "close_minutes": 120
-  },
-  {
     "id": "amap_10a94bd8",
     "name": "张记葫芦头陕菜泡馍(渭滨路店)",
     "type": "restaurant",
@@ -4457,34 +4428,6 @@
     "recommendation": "张记葫芦头陕菜泡馍(渭滨路店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 600,
     "close_minutes": 1320
-  },
-  {
-    "id": "amap_5cccf25",
-    "name": "陕鄠马驹牛肉泡馍馆(东秀岭小区店)",
-    "type": "restaurant",
-    "lat": 34.368337,
-    "lng": 109.224518,
-    "area": "临潼区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "陕菜",
-      "小吃",
-      "餐饮服务",
-      "中餐厅",
-      "骊山"
-    ],
-    "popularity": 4,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "藏在临潼东秀岭小区的这家泡馍馆，是本地老饕私藏的“碳水天堂”。招牌牛肉泡馍汤浓肉烂，手工掰馍的仪式感拉满，再配瓶冰峰汽水，地道的陕西味就齐了！吃完溜达",
-    "source": "amap",
-    "source_id": "B0FFMEE6QZ",
-    "recommendation": "陕鄠马驹牛肉泡馍馆(东秀岭小区店)是当地人气餐厅，推荐尝试特色菜品",
-    "open_minutes": 510,
-    "close_minutes": 1230
   },
   {
     "id": "amap_93fbd015",
@@ -6246,35 +6189,6 @@
     "source": "amap",
     "source_id": "B0HAX5MO3Z",
     "recommendation": "在莲湖区觅食推荐西遇美食坊(回民街店)，性价比不错"
-  },
-  {
-    "id": "amap_da4f32ab",
-    "name": "天植美玉批发(回民街店)",
-    "type": "restaurant",
-    "lat": 34.260494,
-    "lng": 108.942752,
-    "area": "莲湖区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "小吃",
-      "街区",
-      "购物服务",
-      "专卖店",
-      "珠宝首饰工艺品",
-      "北院门"
-    ],
-    "popularity": 3.8,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "位于回民街北院门，天植美玉批发店是游客淘特色玉饰的好去处。店内汇集和田玉、翡翠等多种玉石，雕工精美，款式丰富，从手镯到挂件应有尽有。建议",
-    "source": "amap",
-    "source_id": "B001D07MKP",
-    "recommendation": "天植美玉批发(回民街店)口碑很好，建议避开高峰期就餐",
-    "open_minutes": 540,
-    "close_minutes": 1350
   },
   {
     "id": "amap_44780ac2",
@@ -10685,32 +10599,6 @@
     "recommendation": "喆啡精选酒店(西安大雁塔地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
-    "id": "amap_197168d1",
-    "name": "西安高铁站(公交站)",
-    "type": "transit",
-    "lat": 34.374345,
-    "lng": 108.942777,
-    "area": "未央区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "西安高铁站(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV11402307",
-    "recommendation": "推荐在未央区参观西安高铁站(公交站)，人气评分0.0"
-  },
-  {
     "id": "transit_B0H1R5A82J",
     "name": "西安蓝田机场",
     "type": "transit",
@@ -11167,44 +11055,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10069800",
-    "name": "小寨(地铁站)",
-    "type": "transit",
-    "area": "雁塔区",
-    "lat": 34.222838,
-    "lng": 108.946767,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "小寨(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "小寨(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10072292",
-    "name": "纺织城(地铁站)",
-    "type": "transit",
-    "area": "灞桥区",
-    "lat": 34.279465,
-    "lng": 109.069751,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "纺织城(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "纺织城(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10069661",
     "name": "钟楼(地铁站)",
     "type": "transit",
@@ -11216,44 +11066,6 @@
     "description": "钟楼(地铁站)，西安主要地铁站。",
     "meal_type": "",
     "recommendation": "钟楼(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV09048794",
-    "name": "西安北站(地铁站)",
-    "type": "transit",
-    "area": "未央区",
-    "lat": 34.37939,
-    "lng": 108.938768,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "西安北站(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "西安北站(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10069696",
-    "name": "五路口(地铁站)",
-    "type": "transit",
-    "area": "新城区",
-    "lat": 34.269554,
-    "lng": 108.962977,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "五路口(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "五路口(地铁站)是西安的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -11281,25 +11093,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10073374",
-    "name": "龙首原(地铁站)",
-    "type": "transit",
-    "area": "莲湖区",
-    "lat": 34.29218,
-    "lng": 108.947238,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "龙首原(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "龙首原(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV09155065",
     "name": "电视塔(地铁站)",
     "type": "transit",
@@ -11311,44 +11104,6 @@
     "description": "电视塔(地铁站)，西安主要地铁站。",
     "meal_type": "",
     "recommendation": "电视塔(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10069601",
-    "name": "北大街(地铁站)",
-    "type": "transit",
-    "area": "莲湖区",
-    "lat": 34.269927,
-    "lng": 108.947165,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "北大街(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "北大街(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10073376",
-    "name": "永宁门(地铁站)",
-    "type": "transit",
-    "area": "碑林区",
-    "lat": 34.248186,
-    "lng": 108.946952,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "永宁门(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "永宁门(地铁站)是西安的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -11376,101 +11131,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10073378",
-    "name": "三爻(地铁站)",
-    "type": "transit",
-    "area": "雁塔区",
-    "lat": 34.183021,
-    "lng": 108.94591,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "三爻(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "三爻(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10073315",
-    "name": "鱼化寨(地铁站)",
-    "type": "transit",
-    "area": "雁塔区",
-    "lat": 34.237997,
-    "lng": 108.848255,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "鱼化寨(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "鱼化寨(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV09155066",
-    "name": "凤城十路(地铁站)",
-    "type": "transit",
-    "area": "未央区",
-    "lat": 34.352431,
-    "lng": 108.947695,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "凤城十路(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "凤城十路(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10069702",
-    "name": "南稍门(地铁站)",
-    "type": "transit",
-    "area": "碑林区",
-    "lat": 34.240378,
-    "lng": 108.946913,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "南稍门(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "南稍门(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10070786",
-    "name": "韦曲南(地铁站)",
-    "type": "transit",
-    "area": "长安区",
-    "lat": 34.142117,
-    "lng": 108.945513,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "韦曲南(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "韦曲南(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10069778",
     "name": "大雁塔(地铁站)",
     "type": "transit",
@@ -11484,291 +11144,6 @@
     "recommendation": "大雁塔(地铁站)是西安的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10073321",
-    "name": "通化门(地铁站)",
-    "type": "transit",
-    "area": "新城区",
-    "lat": 34.269755,
-    "lng": 108.995383,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "通化门(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "通化门(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV09048771",
-    "name": "西安站(地铁站)",
-    "type": "transit",
-    "area": "新城区",
-    "lat": 34.278729,
-    "lng": 108.966224,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "西安站(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "西安站(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10073379",
-    "name": "航天城(地铁站)",
-    "type": "transit",
-    "area": "长安区",
-    "lat": 34.158006,
-    "lng": 108.944668,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "航天城(地铁站)，西安主要地铁站。",
-    "meal_type": "",
-    "recommendation": "航天城(地铁站)是西安的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11382653",
-    "name": "秦镇(公交站)",
-    "type": "transit",
-    "area": "鄠邑区",
-    "lat": 34.112044,
-    "lng": 108.752806,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "秦镇(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "秦镇(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10070223",
-    "name": "马家湾十字(公交站)",
-    "type": "transit",
-    "area": "高陵区",
-    "lat": 34.446341,
-    "lng": 108.98835,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "马家湾十字(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "马家湾十字(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10627691",
-    "name": "纺织城客运站(公交站)",
-    "type": "transit",
-    "area": "灞桥区",
-    "lat": 34.279615,
-    "lng": 109.069962,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "纺织城客运站(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "纺织城客运站(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10070648",
-    "name": "唐都医院(公交站)",
-    "type": "transit",
-    "area": "灞桥区",
-    "lat": 34.283198,
-    "lng": 109.063641,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "唐都医院(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "唐都医院(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10069809",
-    "name": "五二一医院(公交站)",
-    "type": "transit",
-    "area": "雁塔区",
-    "lat": 34.198477,
-    "lng": 108.923286,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "五二一医院(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "五二一医院(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11126425",
-    "name": "空军工程大学(公交站)",
-    "type": "transit",
-    "area": "灞桥区",
-    "lat": 34.272965,
-    "lng": 109.035994,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "空军工程大学(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "空军工程大学(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10069608",
-    "name": "水司(公交站)",
-    "type": "transit",
-    "area": "莲湖区",
-    "lat": 34.252471,
-    "lng": 108.923505,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "水司(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "水司(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10069606",
-    "name": "西门外(公交站)",
-    "type": "transit",
-    "area": "莲湖区",
-    "lat": 34.26003,
-    "lng": 108.924731,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "西门外(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "西门外(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10069584",
-    "name": "城西客运站(公交站)",
-    "type": "transit",
-    "area": "莲湖区",
-    "lat": 34.273173,
-    "lng": 108.87397,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "城西客运站(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "城西客运站(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10069827",
-    "name": "火车站(公交站)",
-    "type": "transit",
-    "area": "新城区",
-    "lat": 34.275199,
-    "lng": 108.962783,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "火车站(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "火车站(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11054300",
-    "name": "和平村十字(公交站)",
-    "type": "transit",
-    "area": "未央区",
-    "lat": 34.25967,
-    "lng": 108.824318,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "和平村十字(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "和平村十字(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV09108618",
-    "name": "丝路欢乐世界北门(公交站)",
-    "type": "transit",
-    "area": "长安区",
-    "lat": 34.26847,
-    "lng": 108.69777,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "丝路欢乐世界北门(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "丝路欢乐世界北门(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
       "交通",
       "西安"
     ],
@@ -11794,82 +11169,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10070705",
-    "name": "十里铺(公交站)",
-    "type": "transit",
-    "area": "灞桥区",
-    "lat": 34.289418,
-    "lng": 109.024475,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "十里铺(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "十里铺(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10069695",
-    "name": "五路口(公交站)",
-    "type": "transit",
-    "area": "新城区",
-    "lat": 34.269925,
-    "lng": 108.964096,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "五路口(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "五路口(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10819057",
-    "name": "火箭军工程大学(公交站)",
-    "type": "transit",
-    "area": "灞桥区",
-    "lat": 34.315964,
-    "lng": 109.127973,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "火箭军工程大学(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "火箭军工程大学(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10070201",
-    "name": "南小巷(公交站)",
-    "type": "transit",
-    "area": "莲湖区",
-    "lat": 34.259332,
-    "lng": 108.916962,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "南小巷(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "南小巷(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10070907",
     "name": "灞桥火车站(公交站)",
     "type": "transit",
@@ -11881,44 +11180,6 @@
     "description": "灞桥火车站(公交站)，西安主要长途汽车站。",
     "meal_type": "",
     "recommendation": "灞桥火车站(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10069793",
-    "name": "鸡市拐(公交站)",
-    "type": "transit",
-    "area": "碑林区",
-    "lat": 34.259293,
-    "lng": 108.97737,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "鸡市拐(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "鸡市拐(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "西安"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV09002188",
-    "name": "地铁5号线(公交站)",
-    "type": "transit",
-    "area": "长安区",
-    "lat": 34.268492,
-    "lng": 108.701935,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "地铁5号线(公交站)，西安主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "地铁5号线(公交站)是西安的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

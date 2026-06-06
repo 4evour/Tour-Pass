@@ -9341,107 +9341,6 @@
     "recommendation": "推荐入住苏州吉意旅馆，交通便利"
   },
   {
-    "id": "amap_c7122ff5",
-    "name": "苏州火车站(地铁站)",
-    "type": "transit",
-    "lat": 31.330882,
-    "lng": 120.610463,
-    "area": "姑苏区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "地铁站"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "苏州火车站(地铁站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV10137002",
-    "recommendation": "苏州火车站(地铁站)适合城市游览、交通爱好者"
-  },
-  {
-    "id": "amap_3b17d340",
-    "name": "苏州火车站(公交站)",
-    "type": "transit",
-    "lat": 31.330899,
-    "lng": 120.607936,
-    "area": "姑苏区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "苏州火车站(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV10986760",
-    "recommendation": "苏州火车站(公交站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_7fdfa0fa",
-    "name": "苏州新区火车站(地铁站)",
-    "type": "transit",
-    "lat": 31.372573,
-    "lng": 120.525106,
-    "area": "虎丘区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "地铁站"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "苏州新区火车站(地铁站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV10539100",
-    "recommendation": "去太湖或木渎古镇的绝佳起点，地铁无缝衔接高铁，建议错开早晚高峰更顺畅。"
-  },
-  {
-    "id": "amap_9564ca1f",
-    "name": "苏州园区火车站(地铁站)",
-    "type": "transit",
-    "lat": 31.342385,
-    "lng": 120.711814,
-    "area": "吴中区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "地铁站"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "苏州园区火车站(地铁站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV10676594",
-    "recommendation": "园区核心枢纽，直达金鸡湖和诚品书店，出站就是现代苏州的活力中心。"
-  },
-  {
     "id": "amap_4d604927",
     "name": "苏州站",
     "type": "transit",
@@ -10117,44 +10016,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10137022",
-    "name": "石路(地铁站)",
-    "type": "transit",
-    "area": "姑苏区",
-    "lat": 31.311222,
-    "lng": 120.600138,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "石路(地铁站)，苏州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "石路(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10137037",
-    "name": "东方之门(地铁站)",
-    "type": "transit",
-    "area": "吴中区",
-    "lat": 31.316815,
-    "lng": 120.678894,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "东方之门(地铁站)，苏州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "东方之门(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10129992",
     "name": "乐桥(地铁站)",
     "type": "transit",
@@ -10185,82 +10046,6 @@
     "description": "山塘街(地铁站)，苏州主要地铁站。",
     "meal_type": "",
     "recommendation": "山塘街(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10676644",
-    "name": "苏州奥体中心(地铁站)",
-    "type": "transit",
-    "area": "吴中区",
-    "lat": 31.308427,
-    "lng": 120.744258,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "苏州奥体中心(地铁站)，苏州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "苏州奥体中心(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10137018",
-    "name": "同里(地铁站)",
-    "type": "transit",
-    "area": "吴江区",
-    "lat": 31.137393,
-    "lng": 120.699928,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "同里(地铁站)，苏州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "同里(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10735309",
-    "name": "红庄(地铁站)",
-    "type": "transit",
-    "area": "吴中区",
-    "lat": 31.236657,
-    "lng": 120.628762,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "红庄(地铁站)，苏州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "红庄(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10137028",
-    "name": "高铁苏州北站(地铁站)",
-    "type": "transit",
-    "area": "相城区",
-    "lat": 31.421767,
-    "lng": 120.645008,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "高铁苏州北站(地铁站)，苏州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "高铁苏州北站(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -10307,25 +10092,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10137035",
-    "name": "临顿路(地铁站)",
-    "type": "transit",
-    "area": "姑苏区",
-    "lat": 31.308679,
-    "lng": 120.630459,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "临顿路(地铁站)，苏州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "临顿路(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10676656",
     "name": "太湖香山(地铁站)",
     "type": "transit",
@@ -10337,44 +10103,6 @@
     "description": "太湖香山(地铁站)，苏州主要地铁站。",
     "meal_type": "",
     "recommendation": "太湖香山(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10129998",
-    "name": "相门(地铁站)",
-    "type": "transit",
-    "area": "姑苏区",
-    "lat": 31.309803,
-    "lng": 120.638847,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "相门(地铁站)，苏州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "相门(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10137003",
-    "name": "察院场(地铁站)",
-    "type": "transit",
-    "area": "姑苏区",
-    "lat": 31.311354,
-    "lng": 120.621309,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "察院场(地铁站)，苏州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "察院场(地铁站)是苏州的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -10440,82 +10168,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10129841",
-    "name": "木渎人民医院(公交站)",
-    "type": "transit",
-    "area": "吴中区",
-    "lat": 31.25532,
-    "lng": 120.51442,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "木渎人民医院(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "木渎人民医院(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10130265",
-    "name": "上泾村(公交站)",
-    "type": "transit",
-    "area": "吴中区",
-    "lat": 31.267687,
-    "lng": 120.444761,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "上泾村(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "上泾村(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10130022",
-    "name": "九龙医院(公交站)",
-    "type": "transit",
-    "area": "吴中区",
-    "lat": 31.328152,
-    "lng": 120.726167,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "九龙医院(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "九龙医院(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10132330",
-    "name": "柳胥小街(公交站)",
-    "type": "transit",
-    "area": "吴江区",
-    "lat": 31.186949,
-    "lng": 120.648615,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "柳胥小街(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "柳胥小街(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV09131900",
     "name": "东汇公园换乘停车场(公交站)",
     "type": "transit",
@@ -10527,63 +10179,6 @@
     "description": "东汇公园换乘停车场(公交站)，苏州主要长途汽车站。",
     "meal_type": "",
     "recommendation": "东汇公园换乘停车场(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV09362590",
-    "name": "高铁苏州南站(公交站)",
-    "type": "transit",
-    "area": "吴江区",
-    "lat": 31.06205,
-    "lng": 120.797686,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "高铁苏州南站(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "高铁苏州南站(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10133048",
-    "name": "汽车客运南站(公交站)",
-    "type": "transit",
-    "area": "昆山市",
-    "lat": 31.340845,
-    "lng": 120.955066,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "汽车客运南站(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "汽车客运南站(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10129666",
-    "name": "马涧小区(公交站)",
-    "type": "transit",
-    "area": "虎丘区",
-    "lat": 31.314852,
-    "lng": 120.49839,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "马涧小区(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "马涧小区(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -10649,82 +10244,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV11378846",
-    "name": "高铁站(公交站)",
-    "type": "transit",
-    "area": "张家港市",
-    "lat": 31.818473,
-    "lng": 120.673945,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "高铁站(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "高铁站(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10129769",
-    "name": "汽车南站(公交站)",
-    "type": "transit",
-    "area": "姑苏区",
-    "lat": 31.277777,
-    "lng": 120.638304,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "汽车南站(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "汽车南站(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10538877",
-    "name": "黎里汽车站(公交站)",
-    "type": "transit",
-    "area": "吴江区",
-    "lat": 31.003683,
-    "lng": 120.707532,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "黎里汽车站(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "黎里汽车站(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10547793",
-    "name": "铜罗汽车站(公交站)",
-    "type": "transit",
-    "area": "吴江区",
-    "lat": 30.843796,
-    "lng": 120.530502,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "铜罗汽车站(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "铜罗汽车站(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10129644",
     "name": "火车站南广场(公交站)",
     "type": "transit",
@@ -10736,63 +10255,6 @@
     "description": "火车站南广场(公交站)，苏州主要长途汽车站。",
     "meal_type": "",
     "recommendation": "火车站南广场(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10562673",
-    "name": "孙武文化园(公交站)",
-    "type": "transit",
-    "area": "吴中区",
-    "lat": 31.250439,
-    "lng": 120.441517,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "孙武文化园(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "孙武文化园(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10401679",
-    "name": "常熟电厂(公交站)",
-    "type": "transit",
-    "area": "常熟市",
-    "lat": 31.748855,
-    "lng": 120.974516,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "常熟电厂(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "常熟电厂(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "苏州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10324935",
-    "name": "朝阳路车站(公交站)",
-    "type": "transit",
-    "area": "太仓市",
-    "lat": 31.461537,
-    "lng": 121.153375,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "朝阳路车站(公交站)，苏州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "朝阳路车站(公交站)是苏州的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

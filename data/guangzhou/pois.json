@@ -9619,30 +9619,6 @@
     "recommendation": "广州如意商务公寓位置便利，适合作为旅行住宿据点"
   },
   {
-    "id": "amap_24531f8b",
-    "name": "简·舍精品公寓(广州员村地铁站店)",
-    "type": "hotel",
-    "lat": 23.115029,
-    "lng": 113.364059,
-    "area": "天河区",
-    "open_time": "00:00",
-    "close_time": "23:59",
-    "visit_duration_minutes": 30,
-    "tags": [
-      "酒店",
-      "交通便利",
-      "住宿服务",
-      "旅馆招待所"
-    ],
-    "popularity": 3.8,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "简·舍精品公寓(广州员村地铁站店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
-    "source": "amap",
-    "source_id": "B0FFIJJSM7",
-    "recommendation": "简·舍精品公寓(广州员村地铁站店)位置便利，适合作为旅行住宿据点"
-  },
-  {
     "id": "amap_e741590f",
     "name": "快乐公寓(长湴南大街店)",
     "type": "hotel",
@@ -10073,32 +10049,6 @@
     "source": "amap",
     "source_id": "B0L0N5SJ0R",
     "recommendation": "桔树星汇国际公寓位置便利，适合作为旅行住宿据点"
-  },
-  {
-    "id": "amap_5c13a8eb",
-    "name": "达新商务公寓(万顷沙地铁站店)",
-    "type": "hotel",
-    "lat": 22.707974,
-    "lng": 113.550573,
-    "area": "南沙区",
-    "open_time": "00:00",
-    "close_time": "23:59",
-    "visit_duration_minutes": 30,
-    "tags": [
-      "酒店",
-      "商圈",
-      "住宿服务",
-      "旅馆招待所",
-      "宾馆酒店",
-      "万顷沙镇"
-    ],
-    "popularity": 4,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "达新商务公寓(万顷沙地铁站店)，来自高德 Web 服务 POI 搜索；分类：浦东酒店。",
-    "source": "amap",
-    "source_id": "B0G3DR4XWU",
-    "recommendation": "达新商务公寓(万顷沙地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_d3acac14",
@@ -10631,107 +10581,6 @@
     "recommendation": "广州白云国际机场T2航站楼是当地热门景点，建议游览90分钟左右"
   },
   {
-    "id": "amap_82ce2fb6",
-    "name": "机场北(T2)(地铁站)",
-    "type": "transit",
-    "lat": 23.395529,
-    "lng": 113.30514,
-    "area": "花都区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "地铁站"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "机场北(T2)(地铁站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV09529684",
-    "recommendation": "机场北(T2)(地铁站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_87010ba",
-    "name": "机场南(地铁站)",
-    "type": "transit",
-    "lat": 23.384222,
-    "lng": 113.30132,
-    "area": "花都区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "地铁站"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "机场南(地铁站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV11653283",
-    "recommendation": "机场南(地铁站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_492e0d33",
-    "name": "白云机场T2西客运站(公交站)",
-    "type": "transit",
-    "lat": 23.395825,
-    "lng": 113.303728,
-    "area": "花都区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "白云机场T2西客运站(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV11315199",
-    "recommendation": "白云机场T2西客运站(公交站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_85ce346f",
-    "name": "机场南(停止对外服务)(地铁站)",
-    "type": "transit",
-    "lat": 23.386415,
-    "lng": 113.303021,
-    "area": "花都区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "地铁站"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "机场南(停止对外服务)(地铁站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV09529683",
-    "recommendation": "机场南(停止对外服务)(地铁站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
     "id": "amap_6700d94",
     "name": "机场东(3号航站楼)(地铁站)",
     "type": "transit",
@@ -10755,58 +10604,6 @@
     "source": "amap",
     "source_id": "BV11653281",
     "recommendation": "机场东(3号航站楼)(地铁站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_5d45cebb",
-    "name": "机场北(T2)地铁站B口",
-    "type": "transit",
-    "lat": 23.396126,
-    "lng": 113.305351,
-    "area": "花都区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "地铁站",
-      "出入口"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "机场北(T2)地铁站B口，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BX10025086",
-    "recommendation": "机场北(T2)地铁站B口是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_869a6019",
-    "name": "白云机场T2(公交站)",
-    "type": "transit",
-    "lat": 23.396063,
-    "lng": 113.304991,
-    "area": "花都区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "白云机场T2(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV11345310",
-    "recommendation": "白云机场T2(公交站)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_23dbc96e",
@@ -10859,32 +10656,6 @@
     "source": "amap",
     "source_id": "B0J0G9FP98",
     "recommendation": "广州白云国际机场T2航站楼候机区是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_d24b1be4",
-    "name": "机场国内货站(公交站)",
-    "type": "transit",
-    "lat": 23.412283,
-    "lng": 113.309852,
-    "area": "花都区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "机场国内货站(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV11449921",
-    "recommendation": "机场国内货站(公交站)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_dd199400",
@@ -11598,63 +11369,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10019725",
-    "name": "广州南站(地铁站)",
-    "type": "transit",
-    "area": "番禺区",
-    "lat": 22.988773,
-    "lng": 113.269815,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "广州南站(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "广州南站(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10024352",
-    "name": "嘉禾望岗(地铁站)",
-    "type": "transit",
-    "area": "白云区",
-    "lat": 23.23746,
-    "lng": 113.289243,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "嘉禾望岗(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "嘉禾望岗(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10014336",
-    "name": "体育西路(地铁站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.131138,
-    "lng": 113.321503,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "体育西路(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "体育西路(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10019880",
     "name": "番禺广场(地铁站)",
     "type": "transit",
@@ -11693,25 +11407,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10019878",
-    "name": "大石(地铁站)",
-    "type": "transit",
-    "area": "番禺区",
-    "lat": 23.017761,
-    "lng": 113.321744,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "大石(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "大石(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10024358",
     "name": "市桥(地铁站)",
     "type": "transit",
@@ -11723,82 +11418,6 @@
     "description": "市桥(地铁站)，广州主要地铁站。",
     "meal_type": "",
     "recommendation": "市桥(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10569459",
-    "name": "南村万博(地铁站)",
-    "type": "transit",
-    "area": "番禺区",
-    "lat": 23.004789,
-    "lng": 113.347555,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "南村万博(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "南村万博(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10014566",
-    "name": "车陂南(地铁站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.115856,
-    "lng": 113.390007,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "车陂南(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "车陂南(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10014446",
-    "name": "三元里(地铁站)",
-    "type": "transit",
-    "area": "白云区",
-    "lat": 23.159402,
-    "lng": 113.256851,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "三元里(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "三元里(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10024362",
-    "name": "万胜围(地铁站)",
-    "type": "transit",
-    "area": "海珠区",
-    "lat": 23.097759,
-    "lng": 113.38456,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "万胜围(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "万胜围(地铁站)是广州的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -11826,25 +11445,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10014561",
-    "name": "黄村(地铁站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.132086,
-    "lng": 113.40705,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "黄村(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "黄村(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10014278",
     "name": "天河客运站(地铁站)",
     "type": "transit",
@@ -11864,215 +11464,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10014653",
-    "name": "客村(地铁站)",
-    "type": "transit",
-    "area": "海珠区",
-    "lat": 23.096197,
-    "lng": 113.320331,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "客村(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "客村(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10024351",
-    "name": "龙归(地铁站)",
-    "type": "transit",
-    "area": "白云区",
-    "lat": 23.288736,
-    "lng": 113.300834,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "龙归(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "龙归(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10024365",
-    "name": "大学城南(地铁站)",
-    "type": "transit",
-    "area": "番禺区",
-    "lat": 23.043408,
-    "lng": 113.400478,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "大学城南(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "大学城南(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10014379",
-    "name": "同和(地铁站)",
-    "type": "transit",
-    "area": "白云区",
-    "lat": 23.19706,
-    "lng": 113.326264,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "同和(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "同和(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10022634",
-    "name": "人和(地铁站)",
-    "type": "transit",
-    "area": "白云区",
-    "lat": 23.335224,
-    "lng": 113.295995,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "人和(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "人和(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10013860",
-    "name": "琶洲(地铁站)",
-    "type": "transit",
-    "area": "海珠区",
-    "lat": 23.098516,
-    "lng": 113.3667,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "琶洲(地铁站)，广州主要地铁站。",
-    "meal_type": "",
-    "recommendation": "琶洲(地铁站)是广州的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11689166",
-    "name": "岑村红花岗(公交站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.16265,
-    "lng": 113.382331,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "岑村红花岗(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "岑村红花岗(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10019106",
-    "name": "岑村小学(公交站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.165379,
-    "lng": 113.382225,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "岑村小学(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "岑村小学(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10525622",
-    "name": "蕉门公交总站(公交站)",
-    "type": "transit",
-    "area": "南沙区",
-    "lat": 22.800835,
-    "lng": 113.527991,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "蕉门公交总站(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "蕉门公交总站(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10013779",
-    "name": "罗冲围客运站(公交站)",
-    "type": "transit",
-    "area": "白云区",
-    "lat": 23.149518,
-    "lng": 113.222704,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "罗冲围客运站(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "罗冲围客运站(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11689186",
-    "name": "岑村(公交站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.169022,
-    "lng": 113.379512,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "岑村(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "岑村(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10015271",
     "name": "海珠客运站(公交站)",
     "type": "transit",
@@ -12084,25 +11475,6 @@
     "description": "海珠客运站(公交站)，广州主要长途汽车站。",
     "meal_type": "",
     "recommendation": "海珠客运站(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10014615",
-    "name": "沐陂村总站(公交站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.152687,
-    "lng": 113.398445,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "沐陂村总站(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "沐陂村总站(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -12130,158 +11502,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV11692816",
-    "name": "黄村(快速公交站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.119928,
-    "lng": 113.409998,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "黄村(快速公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "黄村(快速公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10741256",
-    "name": "严田村站(公交站)",
-    "type": "transit",
-    "area": "黄埔区",
-    "lat": 23.110678,
-    "lng": 113.541992,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "严田村站(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "严田村站(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11691191",
-    "name": "花东市场(公交站)",
-    "type": "transit",
-    "area": "花都区",
-    "lat": 23.436336,
-    "lng": 113.32014,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "花东市场(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "花东市场(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10014532",
-    "name": "上社(公交站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.132177,
-    "lng": 113.366007,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "上社(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "上社(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10014607",
-    "name": "棠东(公交站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.12536,
-    "lng": 113.385506,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "棠东(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "棠东(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10023904",
-    "name": "看守所(公交站)",
-    "type": "transit",
-    "area": "花都区",
-    "lat": 23.45839,
-    "lng": 113.201354,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "看守所(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "看守所(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11358289",
-    "name": "广州南站总站(公交站)",
-    "type": "transit",
-    "area": "番禺区",
-    "lat": 22.985778,
-    "lng": 113.268179,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "广州南站总站(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "广州南站总站(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11649072",
-    "name": "棠下村(公交站)",
-    "type": "transit",
-    "area": "天河区",
-    "lat": 23.12585,
-    "lng": 113.380515,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "棠下村(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "棠下村(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10014194",
     "name": "中山八路总站(公交站)",
     "type": "transit",
@@ -12293,44 +11513,6 @@
     "description": "中山八路总站(公交站)，广州主要长途汽车站。",
     "meal_type": "",
     "recommendation": "中山八路总站(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10018147",
-    "name": "石井红星村总站(公交站)",
-    "type": "transit",
-    "area": "白云区",
-    "lat": 23.22244,
-    "lng": 113.233902,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "石井红星村总站(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "石井红星村总站(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "广州"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10018350",
-    "name": "王圣堂牌坊(公交站)",
-    "type": "transit",
-    "area": "越秀区",
-    "lat": 23.150061,
-    "lng": 113.249383,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "王圣堂牌坊(公交站)，广州主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "王圣堂牌坊(公交站)是广州的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

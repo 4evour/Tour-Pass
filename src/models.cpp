@@ -206,11 +206,11 @@ TripRequest tripRequestFromJson(const nlohmann::json& input) {
     }
 
     TripRequest request;
-    request.city = input.value("city", "长沙");
+    request.city = input.value("city", "");
     request.days = input.value("days", 1);
     request.startMinutes = parseTimeToMinutes(input.value("start_time", "09:30"));
     request.endMinutes = parseTimeToMinutes(input.value("end_time", "21:30"));
-    request.hotelLocation = input.value("hotel_location", "五一广场");
+    request.hotelLocation = input.value("hotel_location", "");
     request.interests = optionalStringArray(input, "interests");
     request.pace = input.value("pace", "标准");
     request.mustVisit = optionalStringArray(input, "must_visit");

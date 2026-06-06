@@ -15,6 +15,28 @@ TripPlanner::TripPlanner(const PoiGraph& graph) : graph_(graph) {}
 
 namespace {
 
+// Extract brand name from POI name (e.g. "茶颜悦色(蝴蝶大厦店)" -> "茶颜悦色")
+std::string extractBrand(const std::string& name) {
+    auto pos = name.find('(');
+    if (pos == std::string::npos) pos = name.find('（');
+    if (pos == std::string::npos) pos = name.find('(');
+    std::string brand = (pos != std::string::npos) ? name.substr(0, pos) : name;
+    // Trim trailing whitespace
+    while (!brand.empty() && brand.back() == ' ') brand.pop_back();
+    return brand;
+}
+
+// Check if a POI brand is already used in the itinerary
+bool isBrandDuplicate(const std::string& poiName, const std::set<std::string>& usedNames) {
+    std::string brand = extractBrand(poiName);
+    if (brand.size() < 2) return false;
+    for (const auto& used : usedNames) {
+        std::string usedBrand = extractBrand(used);
+        if (brand == usedBrand) return true;
+    }
+    return false;
+}
+
 std::string joinTags(const std::vector<std::string>& values) {
     if (values.empty()) {
         return "热度、时间窗和通勤成本";
@@ -494,6 +516,18 @@ const Poi* TripPlanner::chooseRestaurant(const TripRequest& request, const std::
     double bestScore = -100000.0;
     for (const auto& poi : graph_.pois()) {
         if (poi.type != PoiType::Restaurant || used.count(poi.id) > 0) continue;
+        // Brand dedup: skip same-brand restaurants
+        {
+            std::string brand = extractBrand(poi.name);
+            bool brandUsed = false;
+            for (const auto& usedId : used) {
+                const Poi* usedPoi = graph_.findPoi(usedId);
+                if (usedPoi && extractBrand(usedPoi->name) == brand) {
+                    brandUsed = true; break;
+                }
+            }
+            if (brandUsed) continue;
+        }
         // For meal slots, only pick main restaurants (not drinks/snacks)
         if (poi.mealType != "main") continue;
         if (isHardAvoidedPoi(request, poi)) continue;
@@ -521,6 +555,19 @@ std::vector<const Poi*> TripPlanner::rankedPoisForSlot(const TripRequest& reques
         if (used.count(poi.id) > 0) continue;
         if (isHardAvoidedPoi(request, poi)) continue;
         if (!slotAcceptsPoi(slot, poi)) continue;
+        // Brand dedup: skip same-brand restaurants/tea shops
+        if (isMealSlot(slot) || poi.type == PoiType::Restaurant) {
+            std::string brand = extractBrand(poi.name);
+            bool brandUsed = false;
+            for (const auto& usedId : used) {
+                const Poi* usedPoi = graph_.findPoi(usedId);
+                if (usedPoi && extractBrand(usedPoi->name) == brand) {
+                    brandUsed = true;
+                    break;
+                }
+            }
+            if (brandUsed) continue;
+        }
         int travel = graph_.shortestMinutes(currentPoiId, poi.id);
         if (travel == std::numeric_limits<int>::max()) continue;
         int arrival = currentTime + travel;

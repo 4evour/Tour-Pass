@@ -8957,37 +8957,6 @@
     "close_minutes": 1320
   },
   {
-    "id": "amap_c6096b16",
-    "name": "鑫福华咖啡奶茶经营部(利民农贸批发市场店)",
-    "type": "restaurant",
-    "lat": 22.737384,
-    "lng": 114.28374,
-    "area": "龙岗区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "茶饮",
-      "咖啡",
-      "餐饮服务",
-      "茶艺馆",
-      "购物服务",
-      "专卖店",
-      "专营店",
-      "双龙"
-    ],
-    "popularity": 4.1,
-    "price_level": 1,
-    "meal_type": "drink",
-    "description": "藏在龙岗利民农贸批发市场里的宝藏小店！鑫福华主打咖啡奶茶，新鲜现做，价格亲民。逛完热闹的市场，来杯冰拿铁或手摇奶茶，烟火气与惬意感碰撞",
-    "source": "amap",
-    "source_id": "B0FFGCEIL3",
-    "recommendation": "鑫福华咖啡奶茶经营部(利民农贸批发市场店)是当地人气餐厅，推荐尝试特色菜品",
-    "open_minutes": 480,
-    "close_minutes": 1140
-  },
-  {
     "id": "amap_b2cbe9c3",
     "name": "新美众皇室咖啡(西海明珠大厦F座店)",
     "type": "restaurant",
@@ -9906,31 +9875,6 @@
     "recommendation": "登巴国际青年旅舍(深圳福田会展中心店)位置便利，适合作为旅行住宿据点"
   },
   {
-    "id": "amap_359f70ba",
-    "name": "深圳华丰公寓(沙嘴社区沙尾地铁站店)",
-    "type": "hotel",
-    "lat": 22.518696,
-    "lng": 114.039147,
-    "area": "福田区",
-    "open_time": "00:00",
-    "close_time": "23:59",
-    "visit_duration_minutes": 30,
-    "tags": [
-      "酒店",
-      "交通便利",
-      "住宿服务",
-      "宾馆酒店",
-      "新洲"
-    ],
-    "popularity": 3.3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "深圳华丰公寓(沙嘴社区沙尾地铁站店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
-    "source": "amap",
-    "source_id": "B0FFFLJBXI",
-    "recommendation": "深圳华丰公寓(沙嘴社区沙尾地铁站店)位置便利，适合作为旅行住宿据点"
-  },
-  {
     "id": "amap_5619f976",
     "name": "鸿森宾馆(景田地铁站店)",
     "type": "hotel",
@@ -10231,31 +10175,6 @@
     "recommendation": "鹏洲宾馆(沙尾地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
-    "id": "amap_9957d7fc",
-    "name": "霖枫青年寓舍(福田岗厦地铁站店)",
-    "type": "hotel",
-    "lat": 22.536098,
-    "lng": 114.068672,
-    "area": "福田区",
-    "open_time": "00:00",
-    "close_time": "23:59",
-    "visit_duration_minutes": 30,
-    "tags": [
-      "酒店",
-      "交通便利",
-      "住宿服务",
-      "住宿服务相关",
-      "皇岗"
-    ],
-    "popularity": 4.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "霖枫青年寓舍(福田岗厦地铁站店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
-    "source": "amap",
-    "source_id": "B0KUNCSATL",
-    "recommendation": "霖枫青年寓舍(福田岗厦地铁站店)位置便利，适合作为旅行住宿据点"
-  },
-  {
     "id": "amap_f4af8107",
     "name": "深圳鑫永鑫宾馆",
     "type": "hotel",
@@ -10304,31 +10223,6 @@
     "source": "amap",
     "source_id": "B0HKG5BR9X",
     "recommendation": "归来居(福田口岸店)位置便利，适合作为旅行住宿据点"
-  },
-  {
-    "id": "amap_14fb5869",
-    "name": "城璟未来青舍(福田岗厦地铁站店)",
-    "type": "hotel",
-    "lat": 22.535687,
-    "lng": 114.068654,
-    "area": "福田区",
-    "open_time": "00:00",
-    "close_time": "23:59",
-    "visit_duration_minutes": 30,
-    "tags": [
-      "酒店",
-      "交通便利",
-      "住宿服务",
-      "住宿服务相关",
-      "皇岗"
-    ],
-    "popularity": 4.3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "城璟未来青舍(福田岗厦地铁站店)，来自高德 Web 服务 POI 搜索；分类：外滩酒店。",
-    "source": "amap",
-    "source_id": "B0LAAUO3CF",
-    "recommendation": "城璟未来青舍(福田岗厦地铁站店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_49d6671c",
@@ -10988,32 +10882,6 @@
     "recommendation": "深圳宝安国际机场是当地热门景点，建议游览90分钟左右"
   },
   {
-    "id": "amap_a982b9e5",
-    "name": "深圳机场(公交站)",
-    "type": "transit",
-    "lat": 22.623095,
-    "lng": 113.813067,
-    "area": "宝安区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "深圳机场(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV11555577",
-    "recommendation": "深圳机场(公交站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
     "id": "amap_1ee68ae5",
     "name": "深圳机场汽车站",
     "type": "transit",
@@ -11037,57 +10905,6 @@
     "source": "amap",
     "source_id": "B0FFFAAOX5",
     "recommendation": "深圳机场汽车站是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_bab83811",
-    "name": "深圳宝安机场(公交站)",
-    "type": "transit",
-    "lat": 22.622669,
-    "lng": 113.813034,
-    "area": "宝安区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "深圳宝安机场(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV10600629",
-    "recommendation": "深圳宝安机场(公交站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_49b8a3f2",
-    "name": "机场(地铁站)",
-    "type": "transit",
-    "lat": 22.624026,
-    "lng": 113.813663,
-    "area": "宝安区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "地铁站"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "机场(地铁站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV10527864",
-    "recommendation": "机场(地铁站)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_e044d72a",
@@ -11140,32 +10957,6 @@
     "recommendation": "深圳机场北站(城际站)是当地热门景点，建议游览90分钟左右"
   },
   {
-    "id": "amap_5f93aca3",
-    "name": "机场东地铁站A出口",
-    "type": "transit",
-    "lat": 22.646513,
-    "lng": 113.822754,
-    "area": "宝安区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "地铁站",
-      "出入口"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "机场东地铁站A出口，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BX10021936",
-    "recommendation": "机场东地铁站A出口是当地热门景点，建议游览90分钟左右"
-  },
-  {
     "id": "amap_ab450302",
     "name": "深圳宝安国际机场T3航站楼",
     "type": "transit",
@@ -11216,58 +11007,6 @@
     "source": "amap",
     "source_id": "B02F37WK1A",
     "recommendation": "深圳南头直升机场是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_e40d64fd",
-    "name": "深圳机场汽车客运站(公交站)",
-    "type": "transit",
-    "lat": 22.622477,
-    "lng": 113.813139,
-    "area": "宝安区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "深圳机场汽车客运站(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV09482111",
-    "recommendation": "深圳机场汽车客运站(公交站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_5b65477a",
-    "name": "深圳机场乘车点(公交站)",
-    "type": "transit",
-    "lat": 22.623096,
-    "lng": 113.813067,
-    "area": "宝安区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "深圳机场乘车点(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV09298821",
-    "recommendation": "深圳机场乘车点(公交站)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_17d020e4",
@@ -11999,158 +11738,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10243512",
-    "name": "福田口岸(地铁站)",
-    "type": "transit",
-    "area": "福田区",
-    "lat": 22.515176,
-    "lng": 114.067731,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "福田口岸(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "福田口岸(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10244305",
-    "name": "深圳北站(地铁站)",
-    "type": "transit",
-    "area": "龙华区",
-    "lat": 22.610815,
-    "lng": 114.030865,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "深圳北站(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "深圳北站(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10243650",
-    "name": "华强北(地铁站)",
-    "type": "transit",
-    "area": "福田区",
-    "lat": 22.544441,
-    "lng": 114.085413,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "华强北(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "华强北(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10249947",
-    "name": "宝安中心(地铁站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.554575,
-    "lng": 113.887233,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "宝安中心(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "宝安中心(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10249998",
-    "name": "岗厦北(地铁站)",
-    "type": "transit",
-    "area": "福田区",
-    "lat": 22.53832,
-    "lng": 114.067964,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "岗厦北(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "岗厦北(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10249939",
-    "name": "五和(地铁站)",
-    "type": "transit",
-    "area": "龙岗区",
-    "lat": 22.626833,
-    "lng": 114.060681,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "五和(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "五和(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10242458",
-    "name": "固戍(地铁站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.601363,
-    "lng": 113.846792,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "固戍(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "固戍(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10249935",
-    "name": "布吉(地铁站)",
-    "type": "transit",
-    "area": "龙岗区",
-    "lat": 22.60233,
-    "lng": 114.121159,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "布吉(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "布吉(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10249928",
     "name": "车公庙(地铁站)",
     "type": "transit",
@@ -12181,101 +11768,6 @@
     "description": "红山(地铁站)，深圳主要地铁站。",
     "meal_type": "",
     "recommendation": "红山(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10242465",
-    "name": "松岗(地铁站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.771739,
-    "lng": 113.827693,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "松岗(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "松岗(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10527866",
-    "name": "沙井(地铁站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.730849,
-    "lng": 113.824434,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "沙井(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "沙井(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10249953",
-    "name": "大运(地铁站)",
-    "type": "transit",
-    "area": "龙岗区",
-    "lat": 22.68572,
-    "lng": 114.228163,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "大运(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "大运(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10249452",
-    "name": "福永(地铁站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.673562,
-    "lng": 113.806076,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "福永(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "福永(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10997913",
-    "name": "沙田(地铁站)",
-    "type": "transit",
-    "area": "坪山区",
-    "lat": 22.75615,
-    "lng": 114.400589,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "沙田(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "沙田(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -12322,120 +11814,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10249969",
-    "name": "坪洲(地铁站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.568908,
-    "lng": 113.870711,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "坪洲(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "坪洲(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10249940",
-    "name": "民治(地铁站)",
-    "type": "transit",
-    "area": "龙华区",
-    "lat": 22.617545,
-    "lng": 114.04085,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "民治(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "民治(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10249938",
-    "name": "坂田(地铁站)",
-    "type": "transit",
-    "area": "龙岗区",
-    "lat": 22.627483,
-    "lng": 114.070852,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "坂田(地铁站)，深圳主要地铁站。",
-    "meal_type": "",
-    "recommendation": "坂田(地铁站)是深圳的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11633485",
-    "name": "大浪商业中心(公交站)",
-    "type": "transit",
-    "area": "龙华区",
-    "lat": 22.674288,
-    "lng": 113.995556,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "大浪商业中心(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "大浪商业中心(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10475415",
-    "name": "沙井中心客运站(公交站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.726809,
-    "lng": 113.84261,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "沙井中心客运站(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "沙井中心客运站(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10242420",
-    "name": "石龙仔市场(公交站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.697718,
-    "lng": 113.96845,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "石龙仔市场(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "石龙仔市场(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10245899",
     "name": "松岗桥底(公交站)",
     "type": "transit",
@@ -12474,44 +11852,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10620544",
-    "name": "福田高铁站(公交站)",
-    "type": "transit",
-    "area": "福田区",
-    "lat": 22.538716,
-    "lng": 114.057107,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "福田高铁站(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "福田高铁站(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10863771",
-    "name": "大鹏中心1(公交站)",
-    "type": "transit",
-    "area": "龙岗区",
-    "lat": 22.594464,
-    "lng": 114.47529,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "大鹏中心1(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "大鹏中心1(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10244593",
     "name": "沙湾天桥(公交站)",
     "type": "transit",
@@ -12531,44 +11871,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10922198",
-    "name": "葵涌中心(公交站)",
-    "type": "transit",
-    "area": "龙岗区",
-    "lat": 22.62749,
-    "lng": 114.420548,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "葵涌中心(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "葵涌中心(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10628296",
-    "name": "石岩汽车站总站(公交站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.683758,
-    "lng": 113.928506,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "石岩汽车站总站(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "石岩汽车站总站(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV11259175",
     "name": "前海湾地铁站总站(公交站)",
     "type": "transit",
@@ -12580,44 +11882,6 @@
     "description": "前海湾地铁站总站(公交站)，深圳主要长途汽车站。",
     "meal_type": "",
     "recommendation": "前海湾地铁站总站(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10453225",
-    "name": "西乡路口(公交站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.575954,
-    "lng": 113.884827,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "西乡路口(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "西乡路口(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10382407",
-    "name": "深大北门1(公交站)",
-    "type": "transit",
-    "area": "南山区",
-    "lat": 22.539366,
-    "lng": 113.94054,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "深大北门1(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "深大北门1(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -12694,63 +11958,6 @@
     "description": "丹平人行天桥(公交站)，深圳主要长途汽车站。",
     "meal_type": "",
     "recommendation": "丹平人行天桥(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11501392",
-    "name": "大运地铁站(公交站)",
-    "type": "transit",
-    "area": "龙岗区",
-    "lat": 22.685814,
-    "lng": 114.228293,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "大运地铁站(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "大运地铁站(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10474991",
-    "name": "樟树布社区(公交站)",
-    "type": "transit",
-    "area": "龙岗区",
-    "lat": 22.605848,
-    "lng": 114.154275,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "樟树布社区(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "樟树布社区(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "深圳"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10512477",
-    "name": "西乡立交1(公交站)",
-    "type": "transit",
-    "area": "宝安区",
-    "lat": 22.582979,
-    "lng": 113.878183,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "西乡立交1(公交站)，深圳主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "西乡立交1(公交站)是深圳的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

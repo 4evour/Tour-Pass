@@ -2414,31 +2414,6 @@
     "recommendation": "印象鲵宴·天门山索道店是当地人气餐厅，推荐尝试特色菜品"
   },
   {
-    "id": "amap_fa1d3b54",
-    "name": "竹香人家本味馆(张家界电子市场店)",
-    "type": "restaurant",
-    "lat": 29.128562,
-    "lng": 110.479833,
-    "area": "永定区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "湘菜",
-      "小吃",
-      "餐饮服务",
-      "中餐厅"
-    ],
-    "popularity": 4.1,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "在张家界电子市场附近，藏着一家地道湘味馆——竹香人家本味馆。主打竹香特色，招牌竹筒饭清香扑鼻，配上鲜辣入味的农家小炒肉、剁椒鱼头，每道菜都透着山野原香。建议逛完景区或市场后，约上三五好友来尝鲜，点上几道招牌菜配米饭，人均三四十就能吃得过瘾。适合想体验正宗湘菜、喜欢烟火气小馆的食客，尤其是爱吃辣、追求性价比的朋友。",
-    "source": "amap",
-    "source_id": "B0FFHSB3QL",
-    "recommendation": "竹香人家本味馆(张家界电子市场店)是当地人气餐厅，推荐尝试特色菜品"
-  },
-  {
     "id": "amap_2c60f67b",
     "name": "秦大妈晚香(新外滩店)",
     "type": "restaurant",
@@ -5004,33 +4979,6 @@
     "recommendation": "聆听·云里雾里山景客栈(张家界武陵源国家森林公园标志门店)位置便利，适合作为旅行住宿据点"
   },
   {
-    "id": "amap_c9bc6251",
-    "name": "张家界火车站(公交站)",
-    "type": "transit",
-    "lat": 29.106125,
-    "lng": 110.485264,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关",
-      "官黎路"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "张家界火车站(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
-    "source": "amap",
-    "source_id": "BV10688742",
-    "recommendation": "张家界火车站(公交站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
     "id": "amap_3e0dd1f7",
     "name": "火车站广场(公交站)",
     "type": "transit",
@@ -5082,86 +5030,6 @@
     "source": "amap",
     "source_id": "B02E800ECJ",
     "recommendation": "张家界荷花国际机场是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_77c07116",
-    "name": "火车站(公交站)",
-    "type": "transit",
-    "lat": 29.106125,
-    "lng": 110.485264,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关",
-      "官黎路"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "火车站(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
-    "source": "amap",
-    "source_id": "BV10690610",
-    "recommendation": "火车站(公交站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_decc6090",
-    "name": "火车站(公交站)",
-    "type": "transit",
-    "lat": 29.356955,
-    "lng": 110.0971,
-    "area": "桑植县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "火车站(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
-    "source": "amap",
-    "source_id": "BV09184728",
-    "recommendation": "火车站(公交站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_3356d758",
-    "name": "火车站(公交站)",
-    "type": "transit",
-    "lat": 29.418664,
-    "lng": 111.119867,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关",
-      "零阳中路"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "火车站(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
-    "source": "amap",
-    "source_id": "BV11425808",
-    "recommendation": "火车站(公交站)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_ae6bb7db",
@@ -5242,32 +5110,6 @@
     "recommendation": "去高桥火车站坐公交直达，早高峰人多，建议错峰出行避免拥堵。"
   },
   {
-    "id": "amap_c8f2d201",
-    "name": "机场安置小区(公交站)",
-    "type": "transit",
-    "lat": 29.108306,
-    "lng": 110.463557,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "机场安置小区(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
-    "source": "amap",
-    "source_id": "BV10969944",
-    "recommendation": "离机场超近，赶早班机或晚班机后住这里很方便，注意末班车时间哦。"
-  },
-  {
     "id": "amap_731fc121",
     "name": "张家界西站",
     "type": "transit",
@@ -5291,32 +5133,6 @@
     "source": "amap",
     "source_id": "B0FFKP87I3",
     "recommendation": "高铁站新又现代化"
-  },
-  {
-    "id": "amap_2688c398",
-    "name": "飞机场(公交站)",
-    "type": "transit",
-    "lat": 29.105356,
-    "lng": 110.449844,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "飞机场(公交站)，来自高德 Web 服务 POI 搜索；分类：交通。",
-    "source": "amap",
-    "source_id": "BV11516904",
-    "recommendation": "飞机场(公交站)是当地热门景点，建议游览90分钟左右"
   },
   {
     "id": "amap_764198dd",
@@ -5790,44 +5606,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV09183934",
-    "name": "汽车东站(公交站)",
-    "type": "transit",
-    "area": "桑植县",
-    "lat": 29.411756,
-    "lng": 110.220234,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "汽车东站(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "汽车东站(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11107564",
-    "name": "张家界中心汽车站(公交站)",
-    "type": "transit",
-    "area": "永定区",
-    "lat": 29.106211,
-    "lng": 110.48224,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "张家界中心汽车站(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "张家界中心汽车站(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV11071176",
     "name": "武陵山珍馆(公交站)",
     "type": "transit",
@@ -5839,44 +5617,6 @@
     "description": "武陵山珍馆(公交站)，张家界主要长途汽车站。",
     "meal_type": "",
     "recommendation": "武陵山珍馆(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11425809",
-    "name": "西站(公交站)",
-    "type": "transit",
-    "area": "慈利县",
-    "lat": 29.417682,
-    "lng": 111.09793,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "西站(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "西站(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11508281",
-    "name": "监狱(公交站)",
-    "type": "transit",
-    "area": "永定区",
-    "lat": 29.131779,
-    "lng": 110.421618,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "监狱(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "监狱(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -5923,44 +5663,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV11227676",
-    "name": "官黎坪医院(公交站)",
-    "type": "transit",
-    "area": "永定区",
-    "lat": 29.109288,
-    "lng": 110.485703,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "官黎坪医院(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "官黎坪医院(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11320211",
-    "name": "高铁站(公交站)",
-    "type": "transit",
-    "area": "永定区",
-    "lat": 29.168172,
-    "lng": 110.466111,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "高铁站(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "高铁站(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV11323364",
     "name": "黄家阁(公交站)",
     "type": "transit",
@@ -5999,25 +5701,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10773458",
-    "name": "汽车站(公交站)",
-    "type": "transit",
-    "area": "武陵源区",
-    "lat": 29.349947,
-    "lng": 110.545741,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "汽车站(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "汽车站(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10557579",
     "name": "普光禅寺(公交站)",
     "type": "transit",
@@ -6029,120 +5712,6 @@
     "description": "普光禅寺(公交站)，张家界主要长途汽车站。",
     "meal_type": "",
     "recommendation": "普光禅寺(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11323368",
-    "name": "张家界航院(公交站)",
-    "type": "transit",
-    "area": "永定区",
-    "lat": 29.146544,
-    "lng": 110.457397,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "张家界航院(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "张家界航院(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11425800",
-    "name": "东站(公交站)",
-    "type": "transit",
-    "area": "慈利县",
-    "lat": 29.415204,
-    "lng": 111.165065,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "东站(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "东站(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV09216376",
-    "name": "水绕四门站(公交站)",
-    "type": "transit",
-    "area": "武陵源区",
-    "lat": 29.341238,
-    "lng": 110.472229,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "水绕四门站(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "水绕四门站(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV09216362",
-    "name": "迷魂台站(公交站)",
-    "type": "transit",
-    "area": "武陵源区",
-    "lat": 29.34461,
-    "lng": 110.443314,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "迷魂台站(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "迷魂台站(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV09216368",
-    "name": "标志门站(公交站)",
-    "type": "transit",
-    "area": "武陵源区",
-    "lat": 29.351338,
-    "lng": 110.534635,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "标志门站(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "标志门站(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "张家界"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11199123",
-    "name": "张家界学院(公交站)",
-    "type": "transit",
-    "area": "永定区",
-    "lat": 29.148564,
-    "lng": 110.458016,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "张家界学院(公交站)，张家界主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "张家界学院(公交站)是张家界的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

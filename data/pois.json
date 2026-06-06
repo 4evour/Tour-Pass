@@ -3994,36 +3994,6 @@
     "close_minutes": 1320
   },
   {
-    "id": "amap_b9dfec07",
-    "name": "宝南二手机批发市场",
-    "type": "attraction",
-    "lat": 28.197384,
-    "lng": 112.980194,
-    "area": "芙蓉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家电电子卖场",
-      "数码电子",
-      "中山亭/中山路"
-    ],
-    "popularity": 4.5,
-    "price_level": 1,
-    "description": "宝南二手机批发市场是长沙数码迷的淘货天堂，从苹果到安卓、从功能机到拆机配件，摊位密布，烟火气十足。建议留足半天慢慢逛，多比价、敢砍价，重点检查屏幕和电池成色。适合预算",
-    "source": "amap",
-    "source_id": "B0FFHPF7MN",
-    "meal_type": "main",
-    "recommendation": "宝南二手机批发市场是当地热门景点，建议游览90分钟左右",
-    "open_minutes": 540,
-    "close_minutes": 1110
-  },
-  {
     "id": "amap_d12e9ff2",
     "name": "壹号座品",
     "type": "attraction",
@@ -4309,35 +4279,6 @@
     "recommendation": "家里装修买门可以过来看看，款式挺多，建议先量好门洞尺寸再逛。",
     "open_minutes": 540,
     "close_minutes": 1260
-  },
-  {
-    "id": "amap_4c67eb8b",
-    "name": "戴永红零食(长沙市扬帆小区2店)",
-    "type": "attraction",
-    "lat": 28.191167,
-    "lng": 113.034994,
-    "area": "芙蓉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "购物相关场所",
-      "东屯渡"
-    ],
-    "popularity": 4.3,
-    "price_level": 1,
-    "description": "戴永红零食是长沙本地人超爱的宝藏零食店，扬帆小区这家分店货品超全，从经典辣条、酱板鸭到网红小零嘴一应俱全。适合城市漫步时顺路进去淘一包，边走边吃超有氛围。学生党和零食控千万别错过，买点伴",
-    "source": "amap",
-    "source_id": "B0LB57LKEZ",
-    "meal_type": "main",
-    "recommendation": "推荐在芙蓉区参观戴永红零食(长沙市扬帆小区2店)，人气评分4.3",
-    "open_minutes": 420,
-    "close_minutes": 1425
   },
   {
     "id": "amap_a8986d04",
@@ -5325,34 +5266,6 @@
     "close_minutes": 840
   },
   {
-    "id": "amap_fc265b21",
-    "name": "红斧头·长沙小炒(龙塘小区店)",
-    "type": "restaurant",
-    "lat": 28.264035,
-    "lng": 113.054175,
-    "area": "长沙县",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "湘菜",
-      "小吃",
-      "餐饮服务",
-      "中餐厅",
-      "城西安置小区"
-    ],
-    "popularity": 4.6,
-    "price_level": 1,
-    "description": "藏在城西安置小区的宝藏湘菜馆，主打地道长沙小炒，锅气十足！招牌辣椒炒肉配上热乎米饭，辣得过瘾又下饭。建议三人以上来点菜，能多尝几道经典。适合爱吃辣、想体验本地烟火气的吃货们～",
-    "source": "amap",
-    "source_id": "B0KAAH8ORT",
-    "meal_type": "main",
-    "recommendation": "藏在安置小区的本地小炒，现炒现卖锅气足，别错过每日限定菜。",
-    "open_minutes": 660,
-    "close_minutes": 1290
-  },
-  {
     "id": "amap_2a39ab6d",
     "name": "老街鱼嘴巴(湘江中路总店)",
     "type": "restaurant",
@@ -5693,34 +5606,6 @@
     "close_minutes": 1380
   },
   {
-    "id": "amap_6be55529",
-    "name": "恒谷湘紫砂煲拌饭(黄鹤小区西区4片店)",
-    "type": "restaurant",
-    "lat": 28.143349,
-    "lng": 112.940586,
-    "area": "岳麓区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "湘菜",
-      "小吃",
-      "餐饮服务",
-      "中餐厅",
-      "湘江新区"
-    ],
-    "popularity": 4.2,
-    "price_level": 1,
-    "description": "藏在岳麓区黄鹤小区的宝藏小店，主打湘式紫砂煲拌饭。热腾腾的煲仔锁住锅气，米饭焦香粒粒分明，配上现炒的辣椒炒肉或剁椒鱼头，锅巴脆、汤汁浓，吃之前记得拌匀。适合想体验地道长沙烟火气的独行食客或小群体，建议避开正餐高峰，搭配一碗例汤更熨帖。",
-    "source": "amap",
-    "source_id": "B0J6JC993L",
-    "meal_type": "main",
-    "recommendation": "紫砂煲锁住米饭香气，记得加个溏心蛋拌匀，人均不到20元超满足！",
-    "open_minutes": 660,
-    "close_minutes": 1260
-  },
-  {
     "id": "amap_80f74bff",
     "name": "潘厨(上味舫店)",
     "type": "restaurant",
@@ -5890,35 +5775,6 @@
     "recommendation": "盖码饭锅气十足，推荐招牌辣椒炒肉，饭点一定早早去不然要排队。",
     "open_minutes": 600,
     "close_minutes": 1440
-  },
-  {
-    "id": "amap_bc32ea69",
-    "name": "湘识小吃(吉景小区店)",
-    "type": "restaurant",
-    "lat": 28.203335,
-    "lng": 112.972422,
-    "area": "开福区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "湘菜",
-      "小吃",
-      "餐饮服务",
-      "餐饮相关场所",
-      "餐饮相关",
-      "湘江中路"
-    ],
-    "popularity": 4.4,
-    "price_level": 1,
-    "description": "藏在吉景小区里的地道湘味小吃店，招牌臭豆腐外酥里嫩，猪油拌粉香浓顺滑，还有糖油粑粑和刮凉粉等老长沙味道。建议饭点前去，避开高峰排队，必点一份卤味拼盘配冰镇酸梅汤。适合想体验市井烟火气的吃货、学生党和外地游客，人均30元吃到撑。",
-    "source": "amap",
-    "source_id": "B0FFK68VDS",
-    "meal_type": "main",
-    "recommendation": "藏在小区里的宝藏小吃店，找本地人带路才能吃到最正宗的湘式小吃，建议避开饭点。",
-    "open_minutes": 660,
-    "close_minutes": 870
   },
   {
     "id": "amap_5f9ed313",

@@ -9246,32 +9246,6 @@
     "recommendation": "青岛胶东国际机场(青岛胶东国际机场航站楼-3号门国内出发口)是当地热门景点，建议游览90分钟左右"
   },
   {
-    "id": "amap_9ee99105",
-    "name": "胶东机场(公交站)",
-    "type": "transit",
-    "lat": 36.360838,
-    "lng": 120.093615,
-    "area": "胶州市",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "胶东机场(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV11593760",
-    "recommendation": "胶东机场(公交站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
     "id": "amap_d1f9b28d",
     "name": "青岛胶东国际机场长途客运站",
     "type": "transit",
@@ -9886,44 +9860,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10425279",
-    "name": "李村(地铁站)",
-    "type": "transit",
-    "area": "李沧区",
-    "lat": 36.159472,
-    "lng": 120.42543,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "李村(地铁站)，青岛主要地铁站。",
-    "meal_type": "",
-    "recommendation": "李村(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10425305",
-    "name": "台东(地铁站)",
-    "type": "transit",
-    "area": "市北区",
-    "lat": 36.0822,
-    "lng": 120.35412,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "台东(地铁站)，青岛主要地铁站。",
-    "meal_type": "",
-    "recommendation": "台东(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10425284",
     "name": "青岛北站(地铁站)",
     "type": "transit",
@@ -9973,63 +9909,6 @@
     "description": "五四广场(地铁站)，青岛主要地铁站。",
     "meal_type": "",
     "recommendation": "五四广场(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11455388",
-    "name": "胶东(地铁站)",
-    "type": "transit",
-    "area": "胶州市",
-    "lat": 36.313674,
-    "lng": 120.117612,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "胶东(地铁站)，青岛主要地铁站。",
-    "meal_type": "",
-    "recommendation": "胶东(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10843254",
-    "name": "东郭庄(地铁站)",
-    "type": "transit",
-    "area": "城阳区",
-    "lat": 36.33515,
-    "lng": 120.412486,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "东郭庄(地铁站)，青岛主要地铁站。",
-    "meal_type": "",
-    "recommendation": "东郭庄(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10829327",
-    "name": "王家港(地铁站)",
-    "type": "transit",
-    "area": "黄岛区",
-    "lat": 35.942382,
-    "lng": 120.161956,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "王家港(地铁站)，青岛主要地铁站。",
-    "meal_type": "",
-    "recommendation": "王家港(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -10095,25 +9974,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10829324",
-    "name": "小村庄(地铁站)",
-    "type": "transit",
-    "area": "市北区",
-    "lat": 36.105608,
-    "lng": 120.360961,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "小村庄(地铁站)，青岛主要地铁站。",
-    "meal_type": "",
-    "recommendation": "小村庄(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10829313",
     "name": "中山路(地铁站)",
     "type": "transit",
@@ -10152,44 +10012,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10843267",
-    "name": "正阳中路(地铁站)",
-    "type": "transit",
-    "area": "城阳区",
-    "lat": 36.307324,
-    "lng": 120.390742,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "正阳中路(地铁站)，青岛主要地铁站。",
-    "meal_type": "",
-    "recommendation": "正阳中路(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10606457",
-    "name": "人民会堂(地铁站)",
-    "type": "transit",
-    "area": "市南区",
-    "lat": 36.059871,
-    "lng": 120.329579,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "人民会堂(地铁站)，青岛主要地铁站。",
-    "meal_type": "",
-    "recommendation": "人民会堂(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10425285",
     "name": "燕儿岛路(地铁站)",
     "type": "transit",
@@ -10201,25 +10023,6 @@
     "description": "燕儿岛路(地铁站)，青岛主要地铁站。",
     "meal_type": "",
     "recommendation": "燕儿岛路(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10425293",
-    "name": "苗岭路(地铁站)",
-    "type": "transit",
-    "area": "崂山区",
-    "lat": 36.100537,
-    "lng": 120.465017,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "苗岭路(地铁站)，青岛主要地铁站。",
-    "meal_type": "",
-    "recommendation": "苗岭路(地铁站)是青岛的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -10266,63 +10069,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10154931",
-    "name": "仰口(公交站)",
-    "type": "transit",
-    "area": "崂山区",
-    "lat": 36.241098,
-    "lng": 120.668173,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "仰口(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "仰口(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11058482",
-    "name": "中韩(公交站)",
-    "type": "transit",
-    "area": "崂山区",
-    "lat": 36.128888,
-    "lng": 120.431679,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "中韩(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "中韩(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10156031",
-    "name": "垭口(公交站)",
-    "type": "transit",
-    "area": "崂山区",
-    "lat": 36.146016,
-    "lng": 120.683394,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "垭口(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "垭口(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10154471",
     "name": "李村公园(公交站)",
     "type": "transit",
@@ -10334,44 +10080,6 @@
     "description": "李村公园(公交站)，青岛主要长途汽车站。",
     "meal_type": "",
     "recommendation": "李村公园(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11022739",
-    "name": "连心渔港(公交站)",
-    "type": "transit",
-    "area": "黄岛区",
-    "lat": 35.742118,
-    "lng": 120.017535,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "连心渔港(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "连心渔港(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11594291",
-    "name": "新街口(公交站)",
-    "type": "transit",
-    "area": "黄岛区",
-    "lat": 36.02645,
-    "lng": 120.16951,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "新街口(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "新街口(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -10399,63 +10107,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10154505",
-    "name": "小村庄(公交站)",
-    "type": "transit",
-    "area": "市北区",
-    "lat": 36.103045,
-    "lng": 120.361042,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "小村庄(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "小村庄(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10340105",
-    "name": "曲哥庄(公交站)",
-    "type": "transit",
-    "area": "李沧区",
-    "lat": 36.149523,
-    "lng": 120.411159,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "曲哥庄(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "曲哥庄(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10399582",
-    "name": "李村大集(公交站)",
-    "type": "transit",
-    "area": "李沧区",
-    "lat": 36.143643,
-    "lng": 120.406146,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "李村大集(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "李村大集(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10393118",
     "name": "华山镇政府(公交站)",
     "type": "transit",
@@ -10467,44 +10118,6 @@
     "description": "华山镇政府(公交站)，青岛主要长途汽车站。",
     "meal_type": "",
     "recommendation": "华山镇政府(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11096558",
-    "name": "水清沟(公交站)",
-    "type": "transit",
-    "area": "市北区",
-    "lat": 36.131758,
-    "lng": 120.373242,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "水清沟(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "水清沟(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10154584",
-    "name": "汽车北站(公交站)",
-    "type": "transit",
-    "area": "城阳区",
-    "lat": 36.240608,
-    "lng": 120.393181,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "汽车北站(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "汽车北站(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -10551,63 +10164,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10154799",
-    "name": "惜福镇(公交站)",
-    "type": "transit",
-    "area": "城阳区",
-    "lat": 36.309384,
-    "lng": 120.484076,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "惜福镇(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "惜福镇(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10154622",
-    "name": "大村庄(公交站)",
-    "type": "transit",
-    "area": "李沧区",
-    "lat": 36.172148,
-    "lng": 120.407789,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "大村庄(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "大村庄(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10154529",
-    "name": "四方小学(公交站)",
-    "type": "transit",
-    "area": "市北区",
-    "lat": 36.113197,
-    "lng": 120.351973,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "四方小学(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "四方小学(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10155205",
     "name": "板桥坊(公交站)",
     "type": "transit",
@@ -10619,25 +10175,6 @@
     "description": "板桥坊(公交站)，青岛主要长途汽车站。",
     "meal_type": "",
     "recommendation": "板桥坊(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "青岛"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10154912",
-    "name": "西小水(公交站)",
-    "type": "transit",
-    "area": "城阳区",
-    "lat": 36.237635,
-    "lng": 120.426875,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "西小水(公交站)，青岛主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "西小水(公交站)是青岛的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

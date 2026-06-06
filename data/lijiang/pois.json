@@ -5025,25 +5025,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10290462",
-    "name": "忠义市场(公交站)",
-    "type": "transit",
-    "area": "古城区",
-    "lat": 26.866085,
-    "lng": 100.234642,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "忠义市场(公交站)，丽江主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "忠义市场(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "丽江"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10290418",
     "name": "古城口(公交站)",
     "type": "transit",
@@ -5074,25 +5055,6 @@
     "description": "玉龙雪山(公交站)，丽江主要长途汽车站。",
     "meal_type": "",
     "recommendation": "玉龙雪山(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "丽江"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10290512",
-    "name": "石油公司(公交站)",
-    "type": "transit",
-    "area": "古城区",
-    "lat": 26.875744,
-    "lng": 100.24459,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "石油公司(公交站)，丽江主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "石油公司(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -5196,44 +5158,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10332719",
-    "name": "古管委(公交站)",
-    "type": "transit",
-    "area": "古城区",
-    "lat": 26.874419,
-    "lng": 100.240853,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "古管委(公交站)，丽江主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "古管委(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "丽江"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10290536",
-    "name": "南门街(公交站)",
-    "type": "transit",
-    "area": "古城区",
-    "lat": 26.865247,
-    "lng": 100.241367,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "南门街(公交站)，丽江主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "南门街(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "丽江"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10290516",
     "name": "玉缘桥(公交站)",
     "type": "transit",
@@ -5245,44 +5169,6 @@
     "description": "玉缘桥(公交站)，丽江主要长途汽车站。",
     "meal_type": "",
     "recommendation": "玉缘桥(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "丽江"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10372970",
-    "name": "云大旅游学院(公交站)",
-    "type": "transit",
-    "area": "古城区",
-    "lat": 26.915365,
-    "lng": 100.227625,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "云大旅游学院(公交站)，丽江主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "云大旅游学院(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "丽江"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10290416",
-    "name": "黑龙潭(公交站)",
-    "type": "transit",
-    "area": "古城区",
-    "lat": 26.882669,
-    "lng": 100.231514,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "黑龙潭(公交站)，丽江主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "黑龙潭(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -5321,25 +5207,6 @@
     "description": "束河南门(公交站)，丽江主要长途汽车站。",
     "meal_type": "",
     "recommendation": "束河南门(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "丽江"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11567026",
-    "name": "蓝月谷(公交站)",
-    "type": "transit",
-    "area": "玉龙纳西族自治县",
-    "lat": 27.123915,
-    "lng": 100.245634,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "蓝月谷(公交站)，丽江主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "蓝月谷(公交站)是丽江的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

@@ -1767,7 +1767,8 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         try {
             auto body = nlohmann::json::parse(req.body);
             auto poiIds = body.value("poi_ids", std::vector<std::string>{});
-            auto* city = context.getCity(context.defaultCity);
+            std::string cityName = body.value("city", context.defaultCity);
+            auto* city = context.getCity(cityName);
             if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市"), 404); return; }
             nlohmann::json segments = nlohmann::json::array();
             for (size_t i = 0; i + 1 < poiIds.size(); ++i) {
@@ -1817,8 +1818,9 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             int currentTime = body.value("current_time", 12 * 60);
             auto usedIds = body.value("used_poi_ids", std::vector<std::string>{});
             int limit = body.value("limit", 3);
+            std::string cityName = body.value("city", context.defaultCity);
 
-            auto* city = context.getCity(context.defaultCity);
+            auto* city = context.getCity(cityName);
             if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市"), 404); return; }
 
             std::set<std::string> usedSet(usedIds.begin(), usedIds.end());

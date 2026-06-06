@@ -5961,32 +5961,6 @@
     "recommendation": "凤凰机场站是当地热门景点，建议游览90分钟左右"
   },
   {
-    "id": "amap_61c1b1e",
-    "name": "凤凰机场(公交站)",
-    "type": "transit",
-    "lat": 18.308583,
-    "lng": 109.413556,
-    "area": "天涯区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "公交车站",
-      "公交车站相关"
-    ],
-    "popularity": 0,
-    "price_level": 0,
-    "meal_type": "main",
-    "description": "凤凰机场(公交站)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BV10291864",
-    "recommendation": "凤凰机场(公交站)是当地热门景点，建议游览90分钟左右"
-  },
-  {
     "id": "amap_57c4fab4",
     "name": "三亚凤凰国际机场T3航站楼网约车上车点",
     "type": "transit",
@@ -6692,101 +6666,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10973966",
-    "name": "三亚火车站(公交站)",
-    "type": "transit",
-    "area": "吉阳区",
-    "lat": 18.295751,
-    "lng": 109.493372,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "三亚火车站(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "三亚火车站(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10291779",
-    "name": "荔枝沟市场(公交站)",
-    "type": "transit",
-    "area": "吉阳区",
-    "lat": 18.295885,
-    "lng": 109.524727,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "荔枝沟市场(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "荔枝沟市场(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10326756",
-    "name": "301医院(公交站)",
-    "type": "transit",
-    "area": "海棠区",
-    "lat": 18.292743,
-    "lng": 109.713464,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "301医院(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "301医院(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10291652",
-    "name": "丹州小区(公交站)",
-    "type": "transit",
-    "area": "吉阳区",
-    "lat": 18.27747,
-    "lng": 109.511108,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "丹州小区(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "丹州小区(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10291598",
-    "name": "夏日百货(公交站)",
-    "type": "transit",
-    "area": "吉阳区",
-    "lat": 18.224391,
-    "lng": 109.523698,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "夏日百货(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "夏日百货(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10291771",
     "name": "海月广场(公交站)",
     "type": "transit",
@@ -6798,25 +6677,6 @@
     "description": "海月广场(公交站)，三亚主要长途汽车站。",
     "meal_type": "",
     "recommendation": "海月广场(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10291592",
-    "name": "鲁迅中学(公交站)",
-    "type": "transit",
-    "area": "吉阳区",
-    "lat": 18.235392,
-    "lng": 109.550186,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "鲁迅中学(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "鲁迅中学(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",
@@ -6882,25 +6742,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV11239186",
-    "name": "汽车总站(三亚风情街入口)(公交站)",
-    "type": "transit",
-    "area": "天涯区",
-    "lat": 18.249115,
-    "lng": 109.504967,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "汽车总站(三亚风情街入口)(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "汽车总站(三亚风情街入口)(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10987449",
     "name": "海韵酒店(公交站)",
     "type": "transit",
@@ -6912,101 +6753,6 @@
     "description": "海韵酒店(公交站)，三亚主要长途汽车站。",
     "meal_type": "",
     "recommendation": "海韵酒店(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10291729",
-    "name": "天涯邮政(公交站)",
-    "type": "transit",
-    "area": "天涯区",
-    "lat": 18.304783,
-    "lng": 109.334701,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "天涯邮政(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "天涯邮政(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10291851",
-    "name": "金鸡岭社区(公交站)",
-    "type": "transit",
-    "area": "天涯区",
-    "lat": 18.283845,
-    "lng": 109.501827,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "金鸡岭社区(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "金鸡岭社区(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10291632",
-    "name": "一市场路口(公交站)",
-    "type": "transit",
-    "area": "天涯区",
-    "lat": 18.238554,
-    "lng": 109.507172,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "一市场路口(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "一市场路口(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10291584",
-    "name": "亚龙湾火车站(公交站)",
-    "type": "transit",
-    "area": "吉阳区",
-    "lat": 18.301325,
-    "lng": 109.603043,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "亚龙湾火车站(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "亚龙湾火车站(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "三亚"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10454394",
-    "name": "立才农场(公交站)",
-    "type": "transit",
-    "area": "天涯区",
-    "lat": 18.409923,
-    "lng": 109.309392,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "立才农场(公交站)，三亚主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "立才农场(公交站)是三亚的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

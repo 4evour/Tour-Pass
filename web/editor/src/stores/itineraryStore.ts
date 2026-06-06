@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import type { Poi, Stop, DayPlan, StartPoint, RouteSegment, ItineraryState } from '../types';
+import type { Poi, Stop, DayPlan, StartPoint, RouteSegment, ItineraryState, CitySegment, CityConfig, WizardStep } from '../types';
 import { saveToStorage, loadFromStorage } from '../utils/persistence';
 
 const DEFAULT_START = 9 * 60; // 09:00
@@ -30,6 +30,22 @@ function makeDefaultDay(day: number): DayPlan {
 const persisted = loadFromStorage();
 
 interface ItineraryActions {
+  // Wizard state
+  wizardStep: WizardStep;
+  setWizardStep: (step: WizardStep) => void;
+  totalDays: number;
+  setTotalDays: (days: number) => void;
+  
+  // Multi-city support
+  cities: string[];
+  setCities: (cities: string[]) => void;
+  citySegments: CitySegment[];
+  setCitySegments: (segments: CitySegment[]) => void;
+  addCitySegment: (segment: CitySegment) => void;
+  removeCitySegment: (id: string) => void;
+  hotelsByCity: Record<string, Poi>;
+  setHotelForCity: (city: string, hotel: Poi) => void;
+  
   setCity: (city: string) => void;
   setDefaultHotel: (hotel: Poi) => void;
   setDayHotel: (day: number, hotel: Poi | null) => void;
@@ -53,12 +69,42 @@ interface ItineraryActions {
 }
 
 export const useItineraryStore = create<ItineraryState & ItineraryActions>((set, get) => ({
+  // Wizard state
+  wizardStep: 'days' as WizardStep,
+  totalDays: persisted?.days?.length ?? 2,
+  
+  // Multi-city
+  cities: persisted?.city ? [persisted.city] : [],
+  citySegments: [],
+  hotelsByCity: {},
+  
   city: persisted?.city ?? '',
   defaultHotel: persisted?.hotel ?? null,
   days: persisted?.days ?? [makeDefaultDay(1)],
   routes: [],
   lastRemovedStop: null,
 
+  setWizardStep: (step) => set({ wizardStep: step }),
+  setTotalDays: (days) => set({ totalDays: days }),
+  
+  setCities: (cities) => set({ cities, city: cities[0] || '' }),
+  
+  setCitySegments: (segments) => set({ citySegments: segments }),
+  
+  addCitySegment: (segment) => set((state) => ({
+    citySegments: [...state.citySegments, segment]
+  })),
+  
+  removeCitySegment: (id) => set((state) => ({
+    citySegments: state.citySegments.filter(s => s.id !== id)
+  })),
+  
+  setHotelForCity: (city, hotel) => set((state) => ({
+    hotelsByCity: { ...state.hotelsByCity, [city]: hotel },
+    // Also set as default if it's the first city
+    defaultHotel: state.cities[0] === city ? hotel : state.defaultHotel,
+  })),
+  
   setCity: (city) => {
     set({ city });
   },
@@ -260,6 +306,11 @@ export const useItineraryStore = create<ItineraryState & ItineraryActions>((set,
 
   resetEditor: () => {
     set({
+      wizardStep: 'days',
+      totalDays: 2,
+      cities: [],
+      citySegments: [],
+      hotelsByCity: {},
       city: '',
       defaultHotel: null,
       days: [makeDefaultDay(1)],

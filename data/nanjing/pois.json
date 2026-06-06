@@ -5036,34 +5036,6 @@
     "close_minutes": 1320
   },
   {
-    "id": "amap_a06b54e1",
-    "name": "满堂春菜面馆(南京酿造公司七里街96号168小区店)",
-    "type": "restaurant",
-    "lat": 32.016362,
-    "lng": 118.798704,
-    "area": "秦淮区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "南京菜",
-      "小吃",
-      "餐饮服务",
-      "中餐厅",
-      "秦虹"
-    ],
-    "popularity": 3.9,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "藏身于七里街老小区的满堂春菜面馆，是本地人私藏的小食堂。招牌菜面浇头现炒，锅气十足，尤其推荐熏鱼面和素什锦，咸鲜微甜，透着地道南京味。建议避开午晚高峰，搭一碗免费大骨汤更落胃。适合想感受市井烟火气的食客，或独自来觅食的吃货。",
-    "source": "amap",
-    "source_id": "B0KD5MSQ3X",
-    "recommendation": "满堂春菜面馆(南京酿造公司七里街96号168小区店)是当地人气餐厅，推荐尝试特色菜品",
-    "open_minutes": 420,
-    "close_minutes": 840
-  },
-  {
     "id": "amap_858c90c6",
     "name": "小厨娘淮扬菜 (南京博物院月牙湖店)",
     "type": "restaurant",
@@ -5204,34 +5176,6 @@
     "recommendation": "在浦口区觅食推荐沙县小吃(南京第55店)，性价比不错",
     "open_minutes": 480,
     "close_minutes": 1230
-  },
-  {
-    "id": "amap_7a3ce32e",
-    "name": "崔姐小吃(东井村小区店)",
-    "type": "restaurant",
-    "lat": 32.098025,
-    "lng": 118.802138,
-    "area": "鼓楼区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "南京菜",
-      "小吃",
-      "餐饮服务",
-      "中餐厅",
-      "红山"
-    ],
-    "popularity": 4.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "藏在东井村小区里的崔姐小吃，是本地人私藏的平价食堂。招牌熏鱼面、糖芋苗和赤豆元宵，都是地道南京老味道。建议避开饭点高峰，搭配一份锅贴更过瘾。适合想体验市井烟火气、不追求环境但热爱舌尖惊喜的吃货们。",
-    "source": "amap",
-    "source_id": "B0J1PS1V51",
-    "recommendation": "崔姐小吃(东井村小区店)口碑很好，建议避开高峰期就餐",
-    "open_minutes": 360,
-    "close_minutes": 1170
   },
   {
     "id": "amap_eb706c28",
@@ -5594,33 +5538,6 @@
     "recommendation": "万达旁性价比超高的家常小吃，招牌小笼包汁水足，适合赶路时快速填肚。",
     "open_minutes": 600,
     "close_minutes": 1230
-  },
-  {
-    "id": "amap_d30e2b2b",
-    "name": "重庆名小吃(能仁里一村小区店)",
-    "type": "restaurant",
-    "lat": 32.000133,
-    "lng": 118.771806,
-    "area": "雨花台区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "南京菜",
-      "小吃",
-      "餐饮服务",
-      "中餐厅",
-      "四川菜(川菜)",
-      "赛虹桥"
-    ],
-    "popularity": 4.4,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "开在南京居民区里的地道重庆味！招牌酸辣粉和红油抄手麻辣鲜香，小面劲道，人均几十块吃到撑。建议避开饭点，老街坊都爱来打包。适合想解馋的嗜辣党、寻找烟火气的小吃控，或者懒得下厨时溜达着来一顿。",
-    "source": "amap",
-    "source_id": "B0FFI6FRER",
-    "recommendation": "重庆名小吃(能仁里一村小区店)口碑很好，建议避开高峰期就餐"
   },
   {
     "id": "amap_dc984f8d",
@@ -8864,34 +8781,6 @@
     "close_minutes": 1260
   },
   {
-    "id": "amap_206475d9",
-    "name": "Pelican鹈鹕咖啡(香铺营小区店)",
-    "type": "restaurant",
-    "lat": 32.046763,
-    "lng": 118.789179,
-    "area": "玄武区",
-    "open_time": "10:00",
-    "close_time": "22:00",
-    "visit_duration_minutes": 60,
-    "tags": [
-      "美食",
-      "茶饮",
-      "咖啡",
-      "餐饮服务",
-      "咖啡厅",
-      "大行宫"
-    ],
-    "popularity": 4.7,
-    "price_level": 1,
-    "meal_type": "drink",
-    "description": "藏在香铺营小区里的Pelican鹈鹕咖啡，是玄武区大行宫的宝藏小店。特色是手冲咖啡和创意特调，搭配自烘焙的咖啡豆，香气浓郁。店内复古工业风，角落的鹈鹕元素超好拍，适合拍照打卡。建议点一杯招牌“鹈鹕拿铁”，配块巴斯克蛋糕，窝在窗边",
-    "source": "amap",
-    "source_id": "B0KRCH3TO0",
-    "recommendation": "藏身小区的社区咖啡馆，氛围私密。午后阳光洒进窗台，点杯招牌Dirty超治愈。",
-    "open_minutes": 540,
-    "close_minutes": 1140
-  },
-  {
     "id": "amap_b0cb77ab",
     "name": "luckin coffee 瑞幸咖啡(景枫中心店)",
     "type": "restaurant",
@@ -9438,32 +9327,6 @@
     "recommendation": "螃蟹一条街上的实惠旅馆，位置闹中取静。适合预算有限、想吃夜宵的游客。"
   },
   {
-    "id": "amap_a36048be",
-    "name": "蓝鲸宿(南京新街口大行宫地铁站店)",
-    "type": "hotel",
-    "lat": 32.038955,
-    "lng": 118.792066,
-    "area": "秦淮区",
-    "open_time": "00:00",
-    "close_time": "23:59",
-    "visit_duration_minutes": 30,
-    "tags": [
-      "酒店",
-      "交通便利",
-      "住宿服务",
-      "旅馆招待所",
-      "青年旅舍",
-      "大行宫"
-    ],
-    "popularity": 4.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "蓝鲸宿(南京新街口大行宫地铁站店)，来自高德 Web 服务 POI 搜索；分类：新街口酒店。",
-    "source": "amap",
-    "source_id": "B0FFJ1N09U",
-    "recommendation": "推荐入住蓝鲸宿(南京新街口大行宫地铁站店)，交通便利"
-  },
-  {
     "id": "amap_4138c351",
     "name": "隐度·国际女生青年旅舍(南京新街口夫子庙店)",
     "type": "hotel",
@@ -9540,31 +9403,6 @@
     "source": "amap",
     "source_id": "B001912J2N",
     "recommendation": "推荐入住清沐精选酒店(南京新街口杨公井店)，交通便利"
-  },
-  {
-    "id": "amap_e04bb224",
-    "name": "壹家湾公寓(南京新街口地铁站新大都大厦店)",
-    "type": "hotel",
-    "lat": 32.034357,
-    "lng": 118.787459,
-    "area": "秦淮区",
-    "open_time": "00:00",
-    "close_time": "23:59",
-    "visit_duration_minutes": 30,
-    "tags": [
-      "酒店",
-      "交通便利",
-      "住宿服务",
-      "住宿服务相关",
-      "新街口"
-    ],
-    "popularity": 4.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "壹家湾公寓(南京新街口地铁站新大都大厦店)，来自高德 Web 服务 POI 搜索；分类：新街口酒店。",
-    "source": "amap",
-    "source_id": "B0J3DRJL66",
-    "recommendation": "壹家湾公寓(南京新街口地铁站新大都大厦店)位置便利，适合作为旅行住宿据点"
   },
   {
     "id": "amap_2e8fd56c",
@@ -9692,31 +9530,6 @@
     "recommendation": "推荐入住帆顺旅馆(新街口地铁站店)，交通便利"
   },
   {
-    "id": "amap_72f8afee",
-    "name": "白屿公寓(南京新街口地铁站店)",
-    "type": "hotel",
-    "lat": 32.035259,
-    "lng": 118.788571,
-    "area": "秦淮区",
-    "open_time": "00:00",
-    "close_time": "23:59",
-    "visit_duration_minutes": 30,
-    "tags": [
-      "酒店",
-      "交通便利",
-      "住宿服务",
-      "住宿服务相关",
-      "新街口"
-    ],
-    "popularity": 4.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "白屿公寓(南京新街口地铁站店)，来自高德 Web 服务 POI 搜索；分类：新街口酒店。",
-    "source": "amap",
-    "source_id": "B0KGZ4Z5GA",
-    "recommendation": "白屿公寓(南京新街口地铁站店)位于秦淮区，出行方便"
-  },
-  {
     "id": "amap_4fcddee7",
     "name": "南京百得福酒店(新街口常府街地铁站店)",
     "type": "hotel",
@@ -9842,32 +9655,6 @@
     "source": "amap",
     "source_id": "B001907VH2",
     "recommendation": "新街口寸土寸金，住这性价比超高！记得提前订，旺季容易没房哦～"
-  },
-  {
-    "id": "amap_aa339567",
-    "name": "如家·neo-南京新街口地铁站天空之都店",
-    "type": "hotel",
-    "lat": 32.035175,
-    "lng": 118.788595,
-    "area": "秦淮区",
-    "open_time": "00:00",
-    "close_time": "23:59",
-    "visit_duration_minutes": 30,
-    "tags": [
-      "酒店",
-      "交通便利",
-      "住宿服务",
-      "宾馆酒店",
-      "经济型连锁酒店",
-      "新街口"
-    ],
-    "popularity": 4.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "如家·neo-南京新街口地铁站天空之都店，来自高德 Web 服务 POI 搜索；分类：新街口酒店。",
-    "source": "amap",
-    "source_id": "B00190Z9IR",
-    "recommendation": "推荐入住如家·neo-南京新街口地铁站天空之都店，交通便利"
   },
   {
     "id": "amap_9c40111e",
@@ -11594,44 +11381,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10057753",
-    "name": "新街口(地铁站)",
-    "type": "transit",
-    "area": "玄武区",
-    "lat": 32.041806,
-    "lng": 118.784136,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "新街口(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "新街口(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10053672",
-    "name": "南京南站(地铁站)",
-    "type": "transit",
-    "area": "雨花台区",
-    "lat": 31.970968,
-    "lng": 118.796786,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "南京南站(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "南京南站(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10052282",
     "name": "西善桥(地铁站)",
     "type": "transit",
@@ -11662,63 +11411,6 @@
     "description": "夫子庙(地铁站)，南京主要地铁站。",
     "meal_type": "",
     "recommendation": "夫子庙(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10052240",
-    "name": "马群(地铁站)",
-    "type": "transit",
-    "area": "栖霞区",
-    "lat": 32.049649,
-    "lng": 118.894721,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "马群(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "马群(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10055287",
-    "name": "大行宫(地铁站)",
-    "type": "transit",
-    "area": "玄武区",
-    "lat": 32.041737,
-    "lng": 118.794787,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "大行宫(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "大行宫(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10057650",
-    "name": "苜蓿园(地铁站)",
-    "type": "transit",
-    "area": "玄武区",
-    "lat": 32.040239,
-    "lng": 118.83531,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "苜蓿园(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "苜蓿园(地铁站)是南京的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -11765,25 +11457,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10057660",
-    "name": "南京站(地铁站)",
-    "type": "transit",
-    "area": "鼓楼区",
-    "lat": 32.089322,
-    "lng": 118.796509,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "南京站(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "南京站(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10052577",
     "name": "百家湖(地铁站)",
     "type": "transit",
@@ -11814,25 +11487,6 @@
     "description": "中山陵·下马坊(地铁站)，南京主要地铁站。",
     "meal_type": "",
     "recommendation": "中山陵·下马坊(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10055207",
-    "name": "玄武门(地铁站)",
-    "type": "transit",
-    "area": "玄武区",
-    "lat": 32.070381,
-    "lng": 118.784221,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "玄武门(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "玄武门(地铁站)是南京的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
       "交通",
@@ -11879,82 +11533,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10053938",
-    "name": "安德门(地铁站)",
-    "type": "transit",
-    "area": "雨花台区",
-    "lat": 31.990862,
-    "lng": 118.762136,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "安德门(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "安德门(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10431630",
-    "name": "武定门(地铁站)",
-    "type": "transit",
-    "area": "秦淮区",
-    "lat": 32.013747,
-    "lng": 118.794632,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "武定门(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "武定门(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10431628",
-    "name": "柳洲东路(地铁站)",
-    "type": "transit",
-    "area": "浦口区",
-    "lat": 32.139965,
-    "lng": 118.746237,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "柳洲东路(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "柳洲东路(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10056679",
-    "name": "元通(地铁站)",
-    "type": "transit",
-    "area": "建邺区",
-    "lat": 31.995471,
-    "lng": 118.721449,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "元通(地铁站)，南京主要地铁站。",
-    "meal_type": "",
-    "recommendation": "元通(地铁站)是南京的地铁站，适合作为行程起点或终点。",
-    "tags": [
-      "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10054808",
     "name": "鼓楼(地铁站)",
     "type": "transit",
@@ -11968,63 +11546,6 @@
     "recommendation": "鼓楼(地铁站)是南京的地铁站，适合作为行程起点或终点。",
     "tags": [
       "地铁站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10397002",
-    "name": "八一医院(公交站)",
-    "type": "transit",
-    "area": "秦淮区",
-    "lat": 32.034119,
-    "lng": 118.793434,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "八一医院(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "八一医院(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV11000430",
-    "name": "刘村地铁站(公交站)",
-    "type": "transit",
-    "area": "雨花台区",
-    "lat": 31.94438,
-    "lng": 118.66494,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "刘村地铁站(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "刘村地铁站(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10053891",
-    "name": "万寿(公交站)",
-    "type": "transit",
-    "area": "栖霞区",
-    "lat": 32.119592,
-    "lng": 118.838468,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "万寿(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "万寿(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
       "交通",
       "南京"
     ],
@@ -12088,63 +11609,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10055565",
-    "name": "后宰门(公交站)",
-    "type": "transit",
-    "area": "玄武区",
-    "lat": 32.046316,
-    "lng": 118.818644,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "后宰门(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "后宰门(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10052339",
-    "name": "浦厂小区(公交站)",
-    "type": "transit",
-    "area": "浦口区",
-    "lat": 32.110237,
-    "lng": 118.691908,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "浦厂小区(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "浦厂小区(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV09166011",
-    "name": "下马坊地铁站(公交站)",
-    "type": "transit",
-    "area": "玄武区",
-    "lat": 32.038137,
-    "lng": 118.848253,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "下马坊地铁站(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "下马坊地铁站(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10056761",
     "name": "南京站·南广场东(公交站)",
     "type": "transit",
@@ -12164,139 +11628,6 @@
     "visit_duration": 15
   },
   {
-    "id": "transit_BV10053961",
-    "name": "集庆门(公交站)",
-    "type": "transit",
-    "area": "秦淮区",
-    "lat": 32.018768,
-    "lng": 118.772392,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "集庆门(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "集庆门(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10410744",
-    "name": "中华门城堡(公交站)",
-    "type": "transit",
-    "area": "秦淮区",
-    "lat": 32.013759,
-    "lng": 118.782339,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "中华门城堡(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "中华门城堡(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10052468",
-    "name": "南京义乌小商品城(公交站)",
-    "type": "transit",
-    "area": "江宁区",
-    "lat": 31.939943,
-    "lng": 118.876521,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "南京义乌小商品城(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "南京义乌小商品城(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10053927",
-    "name": "气象学院(公交站)",
-    "type": "transit",
-    "area": "江宁区",
-    "lat": 31.970521,
-    "lng": 118.812824,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "气象学院(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "气象学院(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10054694",
-    "name": "陆军指挥学院(公交站)",
-    "type": "transit",
-    "area": "浦口区",
-    "lat": 32.175353,
-    "lng": 118.683384,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "陆军指挥学院(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "陆军指挥学院(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10052416",
-    "name": "太平门(公交站)",
-    "type": "transit",
-    "area": "玄武区",
-    "lat": 32.057088,
-    "lng": 118.812704,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "太平门(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "太平门(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10568815",
-    "name": "八卦洲总站(公交站)",
-    "type": "transit",
-    "area": "栖霞区",
-    "lat": 32.178196,
-    "lng": 118.801666,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "八卦洲总站(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "八卦洲总站(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
     "id": "transit_BV10053809",
     "name": "水关桥(公交站)",
     "type": "transit",
@@ -12308,44 +11639,6 @@
     "description": "水关桥(公交站)，南京主要长途汽车站。",
     "meal_type": "",
     "recommendation": "水关桥(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10807897",
-    "name": "新街口南(公交站)",
-    "type": "transit",
-    "area": "秦淮区",
-    "lat": 32.036385,
-    "lng": 118.784149,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "新街口南(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "新街口南(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
-    "tags": [
-      "长途汽车站",
-      "交通",
-      "南京"
-    ],
-    "visit_duration": 15
-  },
-  {
-    "id": "transit_BV10056884",
-    "name": "秦虹小区(公交站)",
-    "type": "transit",
-    "area": "秦淮区",
-    "lat": 32.013679,
-    "lng": 118.808733,
-    "popularity": 4,
-    "price_level": 0,
-    "description": "秦虹小区(公交站)，南京主要长途汽车站。",
-    "meal_type": "",
-    "recommendation": "秦虹小区(公交站)是南京的长途汽车站，适合作为行程起点或终点。",
     "tags": [
       "长途汽车站",
       "交通",

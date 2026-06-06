@@ -54,3 +54,22 @@ export interface ItineraryState {
 }
 
 export type PoiTypeFilter = 'all' | 'attraction' | 'restaurant' | 'nightlife' | 'hotel' | 'transit';
+export interface CitySegment {
+  id: string;
+  fromCity: string;
+  toCity: string;
+  departTime: string;   // "HH:MM"
+  arriveTime: string;   // "HH:MM"
+  transport: 'train' | 'flight' | 'bus' | 'car' | 'other';
+  note: string;
+}
+
+export interface CityConfig {
+  city: string;
+  hotel: Poi | null;
+  days: DayPlan[];       // days allocated to this city
+  startDay: number;      // global day number start
+}
+
+export type WizardStep = 'days' | 'cities' | 'segments' | 'hotels' | 'plan' | 'review';
+
