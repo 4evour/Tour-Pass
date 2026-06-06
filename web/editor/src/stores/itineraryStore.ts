@@ -27,7 +27,17 @@ function makeDefaultDay(day: number): DayPlan {
 }
 
 // Load persisted state or use defaults
-const persisted = loadFromStorage();
+let persisted: ReturnType<typeof loadFromStorage> = null;
+try {
+  persisted = loadFromStorage();
+  // Validate persisted data shape
+  if (persisted && (!Array.isArray(persisted.days) || persisted.days.length === 0)) {
+    persisted = null;
+  }
+} catch (e) {
+  console.warn('Failed to load persisted state, using defaults:', e);
+  persisted = null;
+}
 
 interface ItineraryActions {
   // Wizard state
@@ -322,9 +332,13 @@ export const useItineraryStore = create<ItineraryState & ItineraryActions>((set,
 
 // Auto-persist on every state change
 useItineraryStore.subscribe((state) => {
-  saveToStorage({
-    city: state.city,
-    hotel: state.defaultHotel,
-    days: state.days,
-  });
+  try {
+    saveToStorage({
+      city: state.city,
+      hotel: state.defaultHotel,
+      days: state.days,
+    });
+  } catch (e) {
+    // Ignore persistence errors
+  }
 });
