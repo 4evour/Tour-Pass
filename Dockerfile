@@ -1,3 +1,4 @@
+# Rebuild trigger
 FROM ubuntu:24.04 AS build
 
 ENV DEBIAN_FRONTEND=noninteractive
