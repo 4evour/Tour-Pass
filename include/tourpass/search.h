@@ -20,6 +20,14 @@ struct SearchResult {
     std::vector<std::string> matchedTerms;
     std::string scoreExplanation;
     std::vector<ScoreComponent> scoreContributions;
+    double lat = 0.0;
+    double lng = 0.0;
+    int priceLevel = 1;
+    std::string mealType;
+    int visitDurationMinutes = 60;
+    int openMinutes = 0;
+    int closeMinutes = 24 * 60;
+    std::string recommendation;
 };
 
 struct PoiSearchIndex {

@@ -224,6 +224,14 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
                 ? "空查询按 POI 热度排序。"
                 : "BM25 + 字段权重：名称、标签、区域和描述共同贡献，匹配词为「" + joinTerms(matchedTerms) + "」。";
             result.scoreContributions = contributions;
+            result.lat = entry.poi->lat;
+            result.lng = entry.poi->lng;
+            result.priceLevel = entry.poi->priceLevel;
+            result.mealType = entry.poi->mealType;
+            result.visitDurationMinutes = entry.poi->visitDurationMinutes;
+            result.openMinutes = entry.poi->openMinutes;
+            result.closeMinutes = entry.poi->closeMinutes;
+            result.recommendation = entry.poi->recommendation;
             results.push_back(result);
         }
     }
@@ -252,7 +260,15 @@ nlohmann::json searchResultToJson(const SearchResult& result) {
         {"description", result.description},
         {"matched_terms", result.matchedTerms},
         {"score_explanation", result.scoreExplanation},
-        {"score_contributions", contributions}
+        {"score_contributions", contributions},
+        {"lat", result.lat},
+        {"lng", result.lng},
+        {"price_level", result.priceLevel},
+        {"meal_type", result.mealType},
+        {"visit_duration", result.visitDurationMinutes},
+        {"open_minutes", result.openMinutes},
+        {"close_minutes", result.closeMinutes},
+        {"recommendation", result.recommendation}
     };
 }
 

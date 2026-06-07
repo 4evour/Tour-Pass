@@ -145,10 +145,33 @@ int main() {
             if (*hostEnv) host = hostEnv;
         }
 
-        std::string defaultCity = "长沙";
+        std::string envDefaultCity;
+        if (const char* envCity = std::getenv("TOURPASS_DEFAULT_CITY")) {
+            envDefaultCity = envCity;
+        }
+
+        std::string defaultCity = envDefaultCity;
+        if (defaultCity.empty()) {
+            for (const auto& entry : cityList) {
+                if (cities.count(entry.name)) {
+                    defaultCity = entry.name;
+                    break;
+                }
+            }
+        }
+
+        if (defaultCity.empty() && !cities.empty()) {
+            defaultCity = cities.begin()->first;
+        }
+
+        if (!defaultCity.empty()) {
+            std::cout << "Default city: " << defaultCity << std::endl;
+        }
+
         return tourpass::runServer(std::move(cities), defaultCity, llm, host, port, config, store.get());
     } catch (const std::exception& ex) {
         std::cerr << "startup failed: " << ex.what() << std::endl;
         return 1;
     }
 }
+

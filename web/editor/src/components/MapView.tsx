@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useCallback, useRef } from 'react';
+﻿import { useEffect, useMemo, useCallback, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import type { Poi } from '../types';
@@ -164,7 +164,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange }: 
       <FitBounds pois={boundsPois} day={currentDay} />
 
       {/* Hotel markers */}
-      {hotelMarkers.map(({ poi, days: hotelDays }) => (
+      {hotelMarkers.filter(({ poi }) => poi.lat && poi.lng).map(({ poi, days: hotelDays }) => (
         <Marker key={`hotel-${poi.id}`} position={[poi.lat, poi.lng]} icon={makeIcon('hotel')}>
           <Popup>
             <b>🏨 {poi.name}</b><br />
@@ -175,7 +175,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange }: 
       ))}
 
       {/* All POI markers (non-itinerary, non-hotel) */}
-      {allPois.filter(p => !stopIds.has(p.id) && p.type !== 'hotel').map(poi => (
+      {allPois.filter(p => !stopIds.has(p.id) && p.type !== 'hotel' && p.lat && p.lng).map(poi => (
         <Marker key={poi.id} position={[poi.lat, poi.lng]} icon={makeIcon(poi.type)}>
           <Popup>
             <div style={{ minWidth: 160 }}>

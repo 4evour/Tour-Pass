@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
@@ -83,14 +83,14 @@
         <section class="chat-hero" id="chatHero">
           <div class="chat-hero-inner">
             <textarea id="chatInput" class="chat-hero-input" rows="2"
-              placeholder="告诉我你的旅行计划，比如：3天长沙行，想去橘子洲，带老人不要太累"></textarea>
+              placeholder="告诉我你的旅行计划，比如：3天武汉行，想去黄鹤楼，带老人不要太累"></textarea>
             <button id="chatButton" class="chat-hero-btn" type="button">
               <span id="chatBtnText">AI 规划</span>
               <span id="chatBtnLoading" hidden>规划中...</span>
             </button>
           </div>
           <div class="chat-hero-hints">
-            <button type="button" class="chat-hint" data-prompt="3天长沙行，想去橘子洲和岳麓山，喜欢美食">🏖 3天长沙美食之旅</button>
+            <button type="button" class="chat-hint" data-prompt="3天城市美食之旅，想去当地著名景点，喜欢美食">🏖 3天城市美食之旅</button>
             <button type="button" class="chat-hint" data-prompt="2天北京，带老人不要太累，想去故宫和颐和园">👨‍👩‍👧 带老人游北京</button>
             <button type="button" class="chat-hint" data-prompt="2天成都，喜欢火锅和熊猫基地，网红打卡">🐼 成都网红打卡</button>
             <button type="button" class="chat-hint" data-prompt="3天西安，历史文化深度游，想去兵马俑和大雁塔">🏛 西安历史之旅</button>
@@ -118,7 +118,7 @@
               <div class="field-row">
                 <label for="city">城市</label>
                 <div class="city-cards" id="cityCards">
-                  <button type="button" class="city-card active" data-city="长沙">🏙️ 长沙</button>
+                  <button type="button" class="city-card" data-city="长沙">🏙️ 长沙</button>
                   <button type="button" class="city-card" data-city="武汉">🌉 武汉</button>
                   <button type="button" class="city-card" data-city="大理">🏔️ 大理</button>
                   <button type="button" class="city-card" data-city="丽江">🏘️ 丽江</button>
@@ -140,7 +140,7 @@
                   <button type="button" class="city-card" data-city="昆明">🌸 昆明</button>
                   <button type="button" class="city-card" data-city="张家界">🏔️ 张家界</button>
                 </div>
-                <input id="city" name="city" value="长沙" hidden />
+                <input id="city" name="city" value="" hidden />
               </div>
               <div class="field-row">
                 <label for="days">天数</label>
@@ -161,7 +161,7 @@
               <div class="field-row">
                 <label for="hotelLocation">酒店</label>
                 <div class="hotel-picker-wrap">
-                  <input id="hotelLocation" name="hotelLocation" value="7天优品酒店(长沙橘子洲五一广场地铁站店)" placeholder="点击选择酒店..." readonly />
+                  <input id="hotelLocation" name="hotelLocation" value="" placeholder="点击选择酒店..." readonly />
                   <div id="hotelDropdown" class="hotel-dropdown" hidden>
                     <input id="hotelSearch" class="hotel-search" placeholder="搜索酒店..." />
                     <div id="hotelList" class="hotel-list"></div>

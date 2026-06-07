@@ -1,5 +1,51 @@
 ﻿# Tour Pass 项目说明
 
+## v5.2 酒店列表动态跟随目的城市
+
+### 问题
+酒店列表及相关默认值多处硬编码为"长沙"，切换城市后酒店推荐仍回退到长沙数据。
+
+### 修复内容
+- **后端默认城市不再硬编码**：`src/main.cpp` 启动时读取 `TOURPASS_DEFAULT_CITY` 环境变量，未设置时取第一个成功加载的城市
+- **API 兜底改进**：`src/api.cpp` 的 `getCity()` 在 defaultCity 为空或未命中时自动选取已加载城市，避免 404
+- **移除 /itinerary/explain 硬编码**：`src/api.cpp` 该端点的 itinerary.city 默认值从 "长沙" 改为空字符串
+- **React 编辑器城市列表动态化**：`App.tsx` 和 `CitiesStep.tsx` 改为从 `/cities` API 获取可用城市列表，不再使用静态硬编码
+- **主应用移除硬编码默认值**：
+  - `web/index.html` 移除城市输入默认 "长沙" 和酒店输入默认 "7天优品酒店(长沙橘子洲五一广场地铁站店)"
+  - `web/app.js` 移除 21 城市酒店名硬编码映射（`hotelDefaults`），城市切换时清空酒店让用户从列表选取
+  - `web/app.js` 页面加载时从 `/cities` API 获取默认城市并激活对应城市卡片
+
+
+## v5.3 酒店搜索修复：坐标补全 + 地图显示 + 品牌酒店
+
+### 问题
+- `/poi/search?type=hotel&city=X` 返回的 JSON 缺少 `lat`/`lng` 等字段
+- 前端 HotelsStep 地图区域是占位 div，未使用 Leaflet
+- 长沙缺少品牌酒店数据
+- 点击"下一步"时 Leaflet 因 `Invalid LatLng object: (undefined, undefined)` 崩溃
+
+### 修复内容
+
+**后端 - searchResultToJson 补全字段**：
+- `include/tourpass/search.h` - `SearchResult` 结构体新增 `lat`, `lng`, `priceLevel`, `mealType`, `visitDurationMinutes`, `openMinutes`, `closeMinutes`, `recommendation` 字段
+- `src/search.cpp` - `SearchEngine::search()` 从 `entry.poi` 拷贝完整 POI 数据到 `SearchResult`
+- `src/search.cpp` - `searchResultToJson()` 序列化时输出所有新字段（`lat`, `lng`, `price_level`, `meal_type`, `visit_duration`, `open_minutes`, `close_minutes`, `recommendation`）
+
+**前端 - HotelsStep 地图实现**：
+- `web/editor/src/components/Wizard/HotelsStep.tsx` - 引入 `react-leaflet` 组件，替换占位 div 为真实 Leaflet 地图
+- 新增 `makeHotelIcon()` 和 `HotelMapFitBounds` 辅助组件
+- 已选酒店蓝色高亮，未选绿色，自动缩放到所有酒店范围
+
+**前端 - MapView 安全过滤**：
+- `web/editor/src/components/MapView.tsx` - 给 hotelMarkers 和 allPois markers 加 `p.lat && p.lng` 过滤，防止坐标缺失时崩溃
+
+**数据 - 长沙品牌酒店**：
+- `scripts/add_changsha_brands.js` - 为长沙添加如家、汉庭、维也纳、锦江之星、亚朵、全季、格林豪泰 7 个品牌酒店（长沙酒店总数 65→72）
+
+### 构建验证
+- C++ 后端：`cmake --build build` 成功
+- 前端：`npm run build` 成功（95 modules, 337.75 kB JS）
+
 ## v5.1 双线优化：AI 提质 + 手动规划重构
 
 ### 止血修复
@@ -202,6 +248,7 @@ Tour Pass 是一个 C++17 城市自由行行程规划算法服务作品集项目
 - `TOURPASS_WORKERS`、`TOURPASS_MAX_QUEUE`、`TOURPASS_MAX_BODY_BYTES`、`TOURPASS_CACHE_ENTRIES`、`TOURPASS_CACHE_TTL_SECONDS`、`TOURPASS_MAX_TRIP_JOBS` 和 `TOURPASS_JOB_WORKERS` 可调整 HTTP 线程池、队列、请求体限制、缓存和异步任务容量。
 - `TOURPASS_MAX_IN_FLIGHT` 控制进行中请求背压；`TOURPASS_DB_PATH` 控制 SQLite 路径，默认 `storage/tourpass.sqlite`；`TOURPASS_DB_DISABLED=1` 可禁用 SQLite 退回纯内存模式。
 - `TOURPASS_POIS_PATH` 和 `TOURPASS_EDGES_PATH` 可覆盖默认 `data/` 样例路径，用于 synthetic POI 规模实验或高德真实 POI 临时数据集。
+- 启动时 `src/main.cpp` 按固定顺序加载 `data/{city}` 目录（其中 `changsha` 仍复用根 `data/pois.json` 与 `data/edges.json`），并通过 `TOURPASS_DEFAULT_CITY` 指定默认城市；未设置时自动取第一个成功加载的城市，不再固定回退到“长沙”。
 - `TOURPASS_DISTANCE_CACHE_MODE=auto|all_pairs|on_demand|disabled` 控制 POI 最短路缓存策略；`TOURPASS_DISTANCE_CACHE_MAX_POIS` 控制 `auto` 模式全量缓存阈值，默认 `500`，使 200 级真实 POI 优先使用简单全量缓存；`TOURPASS_DISTANCE_CACHE_ENTRIES` 控制超阈值按需 LRU 缓存容量。
 - `TOURPASS_BEAM_WIDTH` 和 `TOURPASS_BRANCH_FACTOR` 控制 Beam Search 保留状态数和每槽候选分支数，默认保持 `5` / `6`。
 - `scripts/import_real_pois.js` 可将 CSV/JSON 形式的真实 POI 清单标准化为项目 `pois.json`，并按地理距离生成近邻通勤边；`scripts/validate_data.js --pois <path> --edges <path>` 可校验导入后的临时数据集。

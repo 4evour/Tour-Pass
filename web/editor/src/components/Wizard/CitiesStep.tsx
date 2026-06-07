@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useItineraryStore } from '../../stores/itineraryStore';
 
-const AVAILABLE_CITIES = [
-  { name: '长沙', emoji: '🏙️' },
+const CITY_EMOJI_MAP: Record<string, string> = {
+  "武汉": "🌉", "大理": "🏔️", "丽江": "🏘️", "南京": "🏛️", "苏州": "🏡",
+  "北京": "🏯", "成都": "🐼", "重庆": "🔥", "杭州": "🌊", "西安": "🏛️",
+  "上海": "🌃", "广州": "🌺", "深圳": "💎", "厦门": "🏖️", "青岛": "🍺",
+  "桂林": "🏞️", "三亚": "🌊", "哈尔滨": "❄️", "昆明": "🌸", "张家界": "🏔️", "长沙": "🏙️",
+};
+
+const FALLBACK_CITY_OPTIONS = [
   { name: '武汉', emoji: '🌉' },
   { name: '大理', emoji: '🏔️' },
   { name: '丽江', emoji: '🏘️' },
@@ -23,11 +29,39 @@ const AVAILABLE_CITIES = [
   { name: '哈尔滨', emoji: '❄️' },
   { name: '昆明', emoji: '🌸' },
   { name: '张家界', emoji: '🏔️' },
+  { name: '长沙', emoji: '🏙️' },
 ];
 
 export const CitiesStep: React.FC = () => {
   const { cities, setCities, totalDays, setWizardStep } = useItineraryStore();
-  const [selected, setSelected] = useState<string[]>(cities.length > 0 ? cities : []);
+  const [selected, setSelected] = useState<string[]>([]);
+  const [availableCities, setAvailableCities] = useState<{ name: string; emoji: string }[]>(FALLBACK_CITY_OPTIONS);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+
+    fetch('/cities')
+      .then(r => r.json())
+      .then(data => {
+        if (cancelled) return;
+        const apiCities: { name: string }[] = data.cities || [];
+        const mapped = apiCities.map(city => ({
+          name: city.name,
+          emoji: CITY_EMOJI_MAP[city.name] || '🗺️',
+        }));
+        setAvailableCities(mapped.length > 0 ? mapped : FALLBACK_CITY_OPTIONS);
+      })
+      .catch(() => {
+        if (!cancelled) setAvailableCities(FALLBACK_CITY_OPTIONS);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => { cancelled = true; };
+  }, []);
 
   const toggleCity = (city: string) => {
     setSelected(prev => 
@@ -49,29 +83,29 @@ export const CitiesStep: React.FC = () => {
       </p>
       
       <div className="grid grid-cols-3 gap-3 mb-6">
-        {AVAILABLE_CITIES.map(city => {
-          const isSelected = selected.includes(city.name);
-          const orderIdx = selected.indexOf(city.name);
-          return (
-            <button
-              key={city.name}
-              onClick={() => toggleCity(city.name)}
-              className={`relative flex items-center gap-2 p-3 rounded-lg border-2 transition-all ${
-                isSelected 
-                  ? 'border-blue-500 bg-blue-50 shadow-md' 
-                  : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
-              }`}
-            >
-              <span className="text-xl">{city.emoji}</span>
-              <span className="font-medium">{city.name}</span>
-              {isSelected && (
-                <span className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 text-white rounded-full text-xs flex items-center justify-center font-bold">
-                  {orderIdx + 1}
-                </span>
-              )}
-            </button>
-          );
-        })}
+        {loading ? (
+          <div className="col-span-3 text-center text-sm text-gray-400 py-6">正在加载城市列表...</div>
+        ) : (
+          availableCities.map(city => {
+            const isSelected = selected.includes(city.name);
+            const orderIdx = selected.indexOf(city.name);
+            return (
+              <button
+                key={city.name}
+                onClick={() => toggleCity(city.name)}
+                className={`relative flex items-center gap-2 p-3 rounded-lg border-2 transition-all ${isSelected ? 'border-blue-500 bg-blue-50 shadow-md' : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'}`}
+              >
+                <span className="text-xl">{city.emoji}</span>
+                <span className="font-medium">{city.name}</span>
+                {isSelected && (
+                  <span className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 text-white rounded-full text-xs flex items-center justify-center font-bold">
+                    {orderIdx + 1}
+                  </span>
+                )}
+              </button>
+            );
+          })
+        )}
       </div>
       
       {selected.length > 0 && (

@@ -12,18 +12,24 @@ import ConflictAlert from './components/ConflictAlert';
 import AiChat from './components/AiChat';
 import EditorToolbar from './components/EditorToolbar';
 
-const CITY_OPTIONS = [
+const CITY_EMOJI_MAP: Record<string, string> = {
+  "武汉": "🌉", "大理": "🏔️", "丽江": "🏘️", "南京": "🏛️", "苏州": "🏡",
+  "北京": "🏯", "成都": "🐼", "重庆": "🔥", "杭州": "🌊", "西安": "🏛️",
+  "上海": "🌃", "广州": "🌺", "深圳": "💎", "厦门": "🏖️", "青岛": "🍺",
+  "桂林": "🏞️", "三亚": "🌊", "哈尔滨": "❄️", "昆明": "🌸", "张家界": "🏔️", "长沙": "🏙️",
+};
+
+const FALLBACK_CITY_OPTIONS = [
   { value: '武汉', label: '武汉' },
-  { value: '长沙', label: '长沙' },
   { value: '大理', label: '大理' },
+  { value: '丽江', label: '丽江' },
+  { value: '南京', label: '南京' },
+  { value: '苏州', label: '苏州' },
   { value: '北京', label: '北京' },
   { value: '成都', label: '成都' },
   { value: '重庆', label: '重庆' },
   { value: '杭州', label: '杭州' },
-  { value: '南京', label: '南京' },
-  { value: '苏州', label: '苏州' },
   { value: '西安', label: '西安' },
-  { value: '丽江', label: '丽江' },
   { value: '上海', label: '上海' },
   { value: '广州', label: '广州' },
   { value: '深圳', label: '深圳' },
@@ -34,26 +40,46 @@ const CITY_OPTIONS = [
   { value: '哈尔滨', label: '哈尔滨' },
   { value: '昆明', label: '昆明' },
   { value: '张家界', label: '张家界' },
+  { value: '长沙', label: '长沙' },
 ];
 
 export default function App() {
   const [pois, setPois] = useState<Poi[]>([]);
   const [currentDay, setCurrentDay] = useState(1);
   const [activePoi, setActivePoi] = useState<Poi | null>(null);
+  const [cityOptions, setCityOptions] = useState<{ value: string; label: string }[]>(FALLBACK_CITY_OPTIONS);
   const { city, defaultHotel, setCity, addStop, moveStopBetweenDays, resetEditor } = useItineraryStore();
 
   useRoute();
 
-  // Load city list — only set default if no persisted city
+  // Load city list from backend and keep local options in sync
   useEffect(() => {
-    if (city) return; // already have a city (from persistence)
+    let cancelled = false;
+
     fetch('/cities')
       .then(r => r.json())
       .then(data => {
-        const firstCity = data.cities?.[0]?.name || data[0]?.name || '';
-        if (firstCity) setCity(firstCity);
+        if (cancelled) return;
+        const apiCities: { name: string }[] = data.cities || [];
+        const options = apiCities.map(item => ({
+          value: item.name,
+          label: `${CITY_EMOJI_MAP[item.name] ? CITY_EMOJI_MAP[item.name] + ' ' : ''}${item.name}`,
+        }));
+        setCityOptions(options.length > 0 ? options : FALLBACK_CITY_OPTIONS);
+
+        if (!city) {
+          const fallbackFromApi: string = data.default || apiCities[0]?.name || '';
+          if (fallbackFromApi) setCity(fallbackFromApi);
+        }
       })
-      .catch(() => setCity('武汉'));
+      .catch(() => {
+        if (!cancelled) {
+          setCityOptions(FALLBACK_CITY_OPTIONS);
+          if (!city) setCity('武汉');
+        }
+      });
+
+    return () => { cancelled = true; };
   }, []);
 
   // Load POIs when city changes
@@ -138,7 +164,7 @@ export default function App() {
             onChange={e => handleCityChange(e.target.value)}
             className="px-2 py-1 border rounded text-sm"
           >
-            {CITY_OPTIONS.map(c => (
+            {cityOptions.map(c => (
               <option key={c.value} value={c.value}>{c.label}</option>
             ))}
           </select>

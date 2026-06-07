@@ -1,4 +1,4 @@
-const state = {
+﻿const state = {
   candidates: [],
   selectedIndex: 0,
   lastPayload: null,
@@ -1926,35 +1926,27 @@ document.querySelectorAll(".city-card").forEach((card) => {
     // Reload hotels for new city
     allHotels = [];
     loadHotels();
-    // Update hotel default
-    const hotelDefaults = {
-      "长沙": "7天优品酒店(长沙橘子洲五一广场地铁站店)",
-      "武汉": "7天优品酒店(武汉江汉路步行街店)",
-      "大理": "大理古城客栈",
-      "丽江": "丽江古城民宿",
-      "南京": "新街口附近酒店",
-      "苏州": "观前街附近酒店",
-      "北京": "王府井附近酒店",
-      "成都": "春熙路附近酒店",
-      "重庆": "解放碑附近酒店",
-      "杭州": "西湖附近酒店",
-      "西安": "钟楼附近酒店",
-      "上海": "南京路附近酒店",
-      "广州": "北京路附近酒店",
-      "深圳": "华强北附近酒店",
-      "厦门": "中山路附近酒店",
-      "青岛": "栈桥附近酒店",
-      "桂林": "桂林市中心酒店",
-      "三亚": "三亚湾附近酒店",
-      "哈尔滨": "中央大街附近酒店",
-      "昆明": "翠湖附近酒店",
-      "张家界": "武陵源附近酒店",
-    };
-    $("hotelLocation").value = hotelDefaults[card.dataset.city] || "";
+    // Clear hotel when city changes; user picks from hotel list
+    $("hotelLocation").value = "";
   });
 });
-// Load guidebook for default/selected city on page load
-setTimeout(() => loadGuidebook($("city")?.value || ""), 1000);
+// Initialize default city from backend and load guidebook
+(async () => {
+  try {
+    const data = await fetch('/cities').then(r => r.json());
+    const defaultCity = data.default || (data.cities && data.cities[0]?.name) || '';
+    if (defaultCity) {
+      $("city").value = defaultCity;
+      const card = document.querySelector(`.city-card[data-city="${defaultCity}"]`);
+      if (card) {
+        document.querySelectorAll(".city-card").forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+      }
+      loadHotels();
+    }
+  } catch {}
+  setTimeout(() => loadGuidebook($("city")?.value || ""), 500);
+})();
 
 // Interest tags
 document.querySelectorAll(".interest-tags .tag").forEach((tag) => {
@@ -2075,12 +2067,12 @@ async function shareTrip() {
 
 // ---- Itinerary templates ----
 const TEMPLATES = [
-  { city: "长沙", days: 2, icon: "🏙️", name: "长沙文化之旅", theme: "历史文化",
-    msg: "2天长沙行，想去橘子洲和岳麓山，喜欢历史文化", spots: "橘子洲 · 岳麓山 · 湖南省博物馆" },
-  { city: "长沙", days: 2, icon: "🍜", name: "长沙美食探索", theme: "美食",
-    msg: "2天长沙行，主要吃美食，不要太累", spots: "坡子街 · 太平街 · 文和友" },
-  { city: "长沙", days: 3, icon: "🌙", name: "长沙深度游", theme: "文化+美食+夜景",
-    msg: "3天长沙行，想去橘子洲、岳麓山、湖南省博物馆，也要吃地道美食，看夜景", spots: "橘子洲 · 岳麓山 · 博物馆 · 解放西" },
+  { city: "武汉", days: 2, icon: "🏙️", name: "武汉文化之旅", theme: "历史文化",
+    msg: "2天武汉行，想去黄鹤楼和东湖，喜欢历史文化", spots: "黄鹤楼 · 东湖 · 湖北省博物馆" },
+  { city: "武汉", days: 2, icon: "🍜", name: "武汉美食探索", theme: "美食",
+    msg: "2天武汉行，主要吃美食，不要太累", spots: "户部巷 · 吉庆街 · 热干面" },
+  { city: "武汉", days: 3, icon: "🌙", name: "武汉深度游", theme: "文化+美食+夜景",
+    msg: "3天武汉行，想去黄鹤楼、东湖、湖北省博物馆，也要吃地道美食，看夜景", spots: "黄鹤楼 · 东湖 · 博物馆 · 江汉路" },
   { city: "武汉", days: 2, icon: "🌉", name: "武汉经典游", theme: "历史文化+美食",
     msg: "2天武汉行，想去黄鹤楼和户部巷，尝热干面", spots: "黄鹤楼 · 户部巷 · 东湖" },
   { city: "大理", days: 3, icon: "🏔️", name: "大理风光游", theme: "自然风光+文化",

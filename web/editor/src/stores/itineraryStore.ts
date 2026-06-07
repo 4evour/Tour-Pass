@@ -1,6 +1,6 @@
-import { create } from 'zustand';
+﻿import { create } from 'zustand';
 import type { Poi, Stop, DayPlan, StartPoint, RouteSegment, ItineraryState, CitySegment, CityConfig, WizardStep } from '../types';
-import { saveToStorage, loadFromStorage } from '../utils/persistence';
+import { saveToStorage, loadFromStorage, clearStorage } from '../utils/persistence';
 
 const DEFAULT_START = 9 * 60; // 09:00
 
@@ -84,7 +84,7 @@ export const useItineraryStore = create<ItineraryState & ItineraryActions>((set,
   totalDays: persisted?.days?.length ?? 2,
   
   // Multi-city
-  cities: persisted?.city ? [persisted.city] : [],
+  cities: [],
   citySegments: [],
   hotelsByCity: {},
   
@@ -315,6 +315,7 @@ export const useItineraryStore = create<ItineraryState & ItineraryActions>((set,
   getTotalDays: () => get().days.length,
 
   resetEditor: () => {
+    clearStorage();
     set({
       wizardStep: 'days',
       totalDays: 2,

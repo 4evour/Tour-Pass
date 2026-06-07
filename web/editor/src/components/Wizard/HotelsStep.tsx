@@ -1,6 +1,37 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect, useMemo } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
 import { useItineraryStore } from '../../stores/itineraryStore';
 import type { Poi } from '../../types';
+
+function makeHotelIcon(selected: boolean) {
+  const bg = selected ? '#2563eb' : '#22c55e';
+  const scale = selected ? 'transform:scale(1.2);' : '';
+  return L.divIcon({
+    className: 'hotel-marker',
+    html: `<div style="background:${bg};color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);cursor:pointer;${scale}">馃彣</div>`,
+    iconSize: [26, 26],
+    iconAnchor: [13, 13],
+    popupAnchor: [0, -16],
+  });
+}
+
+function HotelMapFitBounds({ hotels, selected }: { hotels: Poi[]; selected?: Poi | null }) {
+  const map = useMap();
+  useEffect(() => {
+    const pois = selected ? [selected] : hotels;
+    const valid = pois.filter(p => p.lat && p.lng);
+    if (valid.length > 0) {
+      if (valid.length === 1) {
+        map.setView([valid[0].lat, valid[0].lng], 14);
+      } else {
+        const bounds = L.latLngBounds(valid.map(p => [p.lat, p.lng] as [number, number]));
+        map.fitBounds(bounds, { padding: [40, 40] });
+      }
+    }
+  }, [hotels, selected, map]);
+  return null;
+}
 
 export const HotelsStep: React.FC = () => {
   const { cities, hotelsByCity, setHotelForCity, setWizardStep } = useItineraryStore();
@@ -125,13 +156,46 @@ export const HotelsStep: React.FC = () => {
           )}
         </div>
         
-        {/* Map placeholder - will be enhanced with Leaflet */}
-        <div className="w-80 bg-gray-100 rounded-lg flex items-center justify-center">
-          <div className="text-center text-gray-400">
-            <p className="text-lg mb-2">🗺️</p>
-            <p className="text-sm">酒店地图</p>
-            <p className="text-xs">推荐酒店将高亮显示</p>
-          </div>
+                {/* Hotel map */}
+        <div className="w-80 rounded-lg overflow-hidden border border-gray-200" style={{ minHeight: 320 }}>
+          {sortedHotels.some(h => h.lat && h.lng) ? (
+            <MapContainer
+              center={(() => {
+                const first = sortedHotels.find(h => h.lat && h.lng);
+                return first ? [first.lat, first.lng] as [number, number] : [30.57, 114.27];
+              })()}
+              zoom={13}
+              className="w-full h-full"
+              style={{ minHeight: 320 }}
+              zoomControl={false}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <HotelMapFitBounds hotels={sortedHotels} selected={currentHotel} />
+              {sortedHotels.filter(h => h.lat && h.lng).map(hotel => (
+                <Marker
+                  key={hotel.id}
+                  position={[hotel.lat, hotel.lng]}
+                  icon={makeHotelIcon(currentHotel?.id === hotel.id)}
+                >
+                  <Popup>
+                    <b>🏨 {hotel.name}</b><br />
+                    <span style={{ fontSize: 11 }}>{hotel.area}</span><br />
+                    <span style={{ fontSize: 11, color: '#65706d' }}>热度 {(hotel.popularity || 0).toFixed(1)}</span>
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+          ) : (
+            <div className="w-full h-80 flex items-center justify-center bg-gray-50">
+              <div className="text-center text-gray-400">
+                <p className="text-lg mb-2">🗺️</p>
+                <p className="text-sm">无酒店坐标数据</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       
