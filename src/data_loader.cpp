@@ -1,4 +1,4 @@
-#include "tourpass/data_loader.h"
+﻿#include "tourpass/data_loader.h"
 
 #include <fstream>
 #include <set>
@@ -66,9 +66,9 @@ std::vector<Poi> loadPois(const std::string& path) {
         poi.lat = requiredNumber(item, "lat");
         poi.lng = requiredNumber(item, "lng");
         poi.tags = requiredStringArray(item, "tags");
-        poi.openMinutes = parseTimeToMinutes(requiredString(item, "open_time"));
-        poi.closeMinutes = parseTimeToMinutes(requiredString(item, "close_time"));
-        poi.visitDurationMinutes = static_cast<int>(requiredNumber(item, "visit_duration_minutes"));
+        poi.openMinutes = item.contains("open_time") ? parseTimeToMinutes(item.at("open_time").get<std::string>()) : 0;
+        poi.closeMinutes = item.contains("close_time") ? parseTimeToMinutes(item.at("close_time").get<std::string>()) : 24 * 60;
+        poi.visitDurationMinutes = item.contains("visit_duration_minutes") ? static_cast<int>(item.at("visit_duration_minutes").get<double>()) : 60;
         poi.popularity = requiredNumber(item, "popularity");
         poi.priceLevel = static_cast<int>(requiredNumber(item, "price_level"));
         poi.description = requiredString(item, "description");
