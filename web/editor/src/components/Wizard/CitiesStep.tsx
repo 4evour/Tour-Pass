@@ -51,7 +51,7 @@ export const CitiesStep: React.FC = () => {
           name: city.name,
           emoji: CITY_EMOJI_MAP[city.name] || '🗺️',
         }));
-        setAvailableCities(mapped.length > 0 ? mapped : FALLBACK_CITY_OPTIONS);
+        setAvailableCities(FALLBACK_CITY_OPTIONS);
       })
       .catch(() => {
         if (!cancelled) setAvailableCities(FALLBACK_CITY_OPTIONS);
