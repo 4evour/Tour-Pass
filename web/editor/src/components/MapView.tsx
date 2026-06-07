@@ -75,7 +75,9 @@ function FitBounds({ pois, day }: { pois: Poi[]; day: number }) {
     if (!initialized.current || dayChanged) {
       initialized.current = true;
       if (pois.length > 0) {
-        const bounds = L.latLngBounds(pois.map(p => [p.lat, p.lng] as [number, number]));
+        const validPois = pois.filter(p => p.lat && p.lng);
+        if (validPois.length === 0) return;
+        const bounds = L.latLngBounds(validPois.map(p => [p.lat, p.lng] as [number, number]));
         map.fitBounds(bounds, { padding: [40, 40] });
       }
     }
@@ -151,7 +153,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange }: 
     if (day !== currentDay) onDayChange(day);
   }, [currentDay, onDayChange]);
 
-  const defaultCenter: [number, number] = allPois.length > 0
+  const defaultCenter: [number, number] = allPois.length > 0 && allPois[0].lat && allPois[0].lng
     ? [allPois[0].lat, allPois[0].lng]
     : [30.57, 114.27];
 
@@ -198,7 +200,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange }: 
         return d.stops.map((stop, i) => (
           <Marker
             key={stop.id}
-            position={[stop.poi.lat, stop.poi.lng]}
+            position={[stop.poi.lat || 0, stop.poi.lng || 0]}
             icon={makeOtherDayIcon(i + 1, color)}
             eventHandlers={{ click: () => handleMarkerClick(d.day) }}
           >
@@ -222,7 +224,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange }: 
         return (
           <Marker
             key={`cur-${stop.id}`}
-            position={[stop.poi.lat, stop.poi.lng]}
+            position={[stop.poi.lat || 0, stop.poi.lng || 0]}
             icon={makeCurrentDayIcon(i + 1, color, stop.poi.name)}
           >
             <Popup>
@@ -248,7 +250,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange }: 
       {/* Fallback: straight lines between current day's stops */}
       {currentDayRoutes.length === 0 && currentStops.length > 1 && (
         <Polyline
-          positions={currentStops.map(s => [s.poi.lat, s.poi.lng] as [number, number])}
+          positions={currentStops.filter(s => s.poi.lat && s.poi.lng).map(s => [s.poi.lat, s.poi.lng] as [number, number])}
           color={DAY_COLORS[(currentDay - 1) % DAY_COLORS.length]}
           weight={3}
           opacity={0.7}
