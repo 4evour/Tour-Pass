@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useCallback, useRef } from 'react';
+﻿import { useEffect, useMemo, useCallback, useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import type { Poi } from '../types';
@@ -28,25 +28,25 @@ function makeIcon(type: string) {
   const icon = TYPE_ICONS[type] || '📍';
   return L.divIcon({
     className: 'custom-marker',
-    html: `<div style="background:${color};color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);cursor:pointer;">${icon}</div>`,
-    iconSize: [24, 24],
-    iconAnchor: [12, 12],
+    html: `<div style="background:${color};color:#fff;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;border:1.5px solid #fff;box-shadow:0 1px 2px rgba(0,0,0,.2);cursor:pointer;opacity:0.7;">${icon}</div>`,
+    iconSize: [20, 20],
+    iconAnchor: [10, 10],
     popupAnchor: [0, -14],
   });
 }
 
 // Numbered marker for current day (prominent, with name label)
 function makeCurrentDayIcon(num: number, color: string, name: string) {
-  const displayName = name.length > 6 ? name.substring(0, 6) + '..' : name;
+  const displayName = name.length > 8 ? name.substring(0, 8) + '..' : name;
   return L.divIcon({
     className: 'current-day-marker',
     html: `<div style="display:flex;flex-direction:column;align-items:center;pointer-events:auto;">
-      <div style="background:${color};color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.4);z-index:10;">${num}</div>
-      <div style="background:#1a1a2e;color:#ffe066;font-size:10px;font-weight:600;padding:1px 5px;border-radius:3px;margin-top:2px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.4);letter-spacing:0.3px;">${displayName}</div>
+      <div style="background:${color};color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.4);z-index:10;">${num}</div>
+      <div style="background:#1a1a2e;color:#ffe066;font-size:13px;font-weight:600;padding:2px 8px;border-radius:4px;margin-top:3px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.4);letter-spacing:0.3px;">${displayName}</div>
     </div>`,
-    iconSize: [60, 44],
-    iconAnchor: [14, 28],
-    popupAnchor: [0, -30],
+    iconSize: [80, 52],
+    iconAnchor: [16, 32],
+    popupAnchor: [0, -36],
   });
 }
 
@@ -65,9 +65,9 @@ function makeHighlightIcon(type: string) {
 function makeOtherDayIcon(num: number, color: string) {
   return L.divIcon({
     className: 'other-day-marker',
-    html: `<div style="background:${color};color:#fff;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;border:1.5px solid #fff;opacity:0.5;box-shadow:0 1px 3px rgba(0,0,0,.2);">${num}</div>`,
-    iconSize: [18, 18],
-    iconAnchor: [9, 9],
+    html: `<div style="background:${color};color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;border:1.5px solid #fff;opacity:0.6;box-shadow:0 1px 3px rgba(0,0,0,.2);">${num}</div>`,
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
     popupAnchor: [0, -12],
   });
 }
@@ -97,6 +97,18 @@ function FitBounds({ pois, day }: { pois: Poi[]; day: number }) {
   return null;
 }
 
+
+function ZoomListener({ onZoom }: { onZoom: (z: number) => void }) {
+  const map = useMap();
+  useEffect(() => {
+    const handler = () => onZoom(map.getZoom());
+    map.on('zoomend', handler);
+    onZoom(map.getZoom());
+    return () => { map.off('zoomend', handler); };
+  }, [map, onZoom]);
+  return null;
+}
+
 interface MapViewProps {
   allPois: Poi[];
   onAddPoi: (poi: Poi) => void;
@@ -106,6 +118,7 @@ interface MapViewProps {
 }
 
 export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, hoveredPoiId }: MapViewProps) {
+  const [zoomLevel, setZoomLevel] = useState(13);
   const defaultHotel = useItineraryStore(s => s.defaultHotel);
   const days = useItineraryStore(s => s.days);
   const routes = useItineraryStore(s => s.routes);
@@ -175,7 +188,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, ho
         attribution='&copy; <a href="https://www.amap.com/">高德地图</a>'
         url="https://webrd01.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}"
       />
-      <FitBounds pois={boundsPois} day={currentDay} />
+      <FitBounds pois={boundsPois} day={currentDay} /><ZoomListener onZoom={setZoomLevel} />
 
       {/* Hotel markers */}
       {hotelMarkers.filter(({ poi }) => poi.lat && poi.lng).map(({ poi, days: hotelDays }) => (
@@ -188,22 +201,29 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, ho
         </Marker>
       ))}
 
-      {/* All POI markers (non-itinerary, non-hotel) */}
-      {allPois.filter(p => !stopIds.has(p.id) && p.type !== 'hotel' && p.lat && p.lng).map(poi => (
+{/* All POI markers (non-itinerary, non-hotel) */}
+      {allPois.filter(p => !stopIds.has(p.id) && p.type !== 'hotel' && p.lat && p.lng && zoomLevel >= 12).map(poi => (
         <Marker key={poi.id} position={[poi.lat, poi.lng]} icon={hoveredPoiId === poi.id ? makeHighlightIcon(poi.type) : makeIcon(poi.type)}>
           <Popup>
-            <div style={{ minWidth: 160 }}>
-              <b>{TYPE_ICONS[poi.type]} {poi.name}</b><br />
-              <span style={{ fontSize: 11, color: '#65706d' }}>{poi.area}</span><br />
+            <div style={{ minWidth: 180, maxWidth: 260 }}>
+              <div style={{ fontWeight: 600, fontSize: 14, marginBottom: 4 }}>{TYPE_ICONS[poi.type]} {poi.name}</div>
+              <div style={{ fontSize: 11, color: '#65706d', marginBottom: 2 }}>{poi.area}{poi.popularity ? ` · ⭐${poi.popularity.toFixed(1)}` : ''}</div>
+              {poi.description && (
+                <div style={{ fontSize: 12, color: '#444', marginTop: 4, lineHeight: 1.4 }}>{poi.description.length > 80 ? poi.description.slice(0, 80) + '...' : poi.description}</div>
+              )}
+              {poi.recommendation && (
+                <div style={{ fontSize: 11, color: '#146b5d', marginTop: 3, fontStyle: 'italic' }}>💡 {poi.recommendation.length > 60 ? poi.recommendation.slice(0, 60) + '...' : poi.recommendation}</div>
+              )}
               <button
                 onClick={() => onAddPoi(poi)}
-                style={{ marginTop: 6, padding: '4px 10px', border: '1px solid #146b5d', borderRadius: 4, background: '#146b5d', color: '#fff', fontSize: 11, cursor: 'pointer' }}
+                style={{ marginTop: 8, padding: '5px 12px', border: '1px solid #146b5d', borderRadius: 4, background: '#146b5d', color: '#fff', fontSize: 12, cursor: 'pointer' }}
               >
                 + 添加到 Day {currentDay}
               </button>
             </div>
           </Popup>
         </Marker>
+      ))}
       ))}
 
       {/* Other days' stops (small, translucent, clickable to switch day) */}

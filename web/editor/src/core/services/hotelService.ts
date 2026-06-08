@@ -1,4 +1,4 @@
-﻿export interface Hotel {
+export interface Hotel {
   id: string;
   name: string;
   rating: number;
@@ -17,7 +17,7 @@ export interface HotelDetail extends Hotel {
 }
 
 export class HotelService {
-  apiKey = 'REDACTED_HOTEL_API_KEY';
+  apiKey = import.meta.env.VITE_HOTEL_API_KEY ?? '';
   baseUrl = 'https://tripadvisor-scraper-api.omkar.cloud/tripadvisor';
   
   async searchHotels(city: string): Promise<Hotel[]> {

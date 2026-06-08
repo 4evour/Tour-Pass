@@ -1,4 +1,30 @@
-﻿## v5.5 酒店精简 + 景点扩充 + 评分优化
+﻿
+## 安全审计与公开前清理 (2026-06-09)
+
+### 背景
+仓库即将转为公开，进行全面安全审查，清除敏感信息。
+
+### 发现与修复
+- **硬编码 API Key**：web/editor/src/core/services/hotelService.ts 中酒店服务 Key ok_9fb4... 改为从 import.meta.env.VITE_HOTEL_API_KEY 读取
+- **文档中的 Key**：docs/superpowers/specs/2026-06-04-editor-rewrite-design.md 中的 Key 替换为占位符
+- **.claude/settings.local.json**：包含高德 API Key、Render API Token，已从 git 跟踪和历史中移除
+- **.trae/ 目录**：Trae IDE 配置文件，已从 git 跟踪和历史中移除
+- **web/editor-dist/**：构建产物，已从 git 跟踪中移除
+- **临时文件**：ix_cache.js、ix_main_default_city.patch 已从 git 跟踪中移除
+
+### .gitignore 新增规则
+- .claude/、.trae/、web/editor-dist/、ix_cache.js、ix_main_default_city.patch
+
+### Git 历史清理
+- 使用 git filter-branch 清除了全部 143 个提交中的敏感文件和硬编码 Key
+- 清理后执行 git reflog expire --expire=now --all + git gc --prune=now --aggressive
+- 验证：git log -S 搜索所有泄露的 Key 均返回空结果
+
+### 未修改
+- 密钥本身未轮换（用户选择保留原密钥）
+- Git 提交中的作者邮箱 ycc20050401@qq.com 和姓名保留（用户确认无影响）
+
+## v5.5 酒店精简 + 景点扩充 + 评分优化
 
 ### 变更
 - **餐饮补抓** `scripts/crawl_brand_restaurants.js`：搜索18类品牌餐饮关键词（海底捞/西贝/外婆家/星巴克/喜茶等），每品牌限5家分店，过滤低质量路边摊

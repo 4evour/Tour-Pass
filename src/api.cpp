@@ -901,7 +901,8 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 {"lng", e.poi->lng},
                 {"area", e.poi->area},
                 {"popularity", e.poi->popularity},
-                {"recommendation", e.poi->description}
+                {"description", e.poi->description},
+                {"recommendation", e.poi->recommendation}
             };
             data.push_back(item);
         }

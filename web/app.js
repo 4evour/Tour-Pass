@@ -215,7 +215,8 @@ async function loadUnselectedPois() {
         '<div style="min-width:140px">' +
           '<div style="font-weight:600;font-size:13px;">' + typeIcon(poi.type) + ' ' + escapeHtml(poi.name) + '</div>' +
           '<div style="font-size:11px;color:#65706d;">' + escapeHtml(poi.area) + (poi.popularity ? ' · ⭐' + Number(poi.popularity).toFixed(1) : '') + '</div>' +
-          (poi.description ? '<div style="font-size:11px;color:#555;margin-top:2px;">' + escapeHtml(String(poi.description).slice(0,60)) + '</div>' : '') +
+          (poi.description ? '<div style="font-size:12px;color:#444;margin-top:4px;line-height:1.4;">' + escapeHtml(String(poi.description).slice(0,80)) + (String(poi.description).length > 80 ? '...' : '') + '</div>' : '') +
+          (poi.recommendation ? '<div style="font-size:11px;color:#146b5d;margin-top:3px;font-style:italic;">💡 ' + escapeHtml(String(poi.recommendation).slice(0,60)) + '</div>' : '') +
           '<div style="margin-top:6px;display:flex;gap:3px;flex-wrap:wrap;align-items:center;">' +
             '<span style="font-size:10px;color:#888;">添加到：</span>' + btns +
           '</div>' +
