@@ -424,7 +424,7 @@ async function buildEdges(pois, options) {
       to: pair.to.id,
       distance_meters: distanceMeters,
       walk_minutes: walk,
-      transit_minutes: Math.max(5, Math.round((walk + taxi) / 2)),
+      transit_minutes: Math.max(8, Math.round(taxi * 1.8)),
       taxi_minutes: taxi,
       source,
       provider,
