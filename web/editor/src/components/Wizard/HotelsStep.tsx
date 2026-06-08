@@ -157,7 +157,7 @@ export const HotelsStep: React.FC = () => {
         </div>
         
                 {/* Hotel map */}
-        <div className="w-80 rounded-lg overflow-hidden border border-gray-200" style={{ minHeight: 320 }}>
+        <div className="w-[480px] rounded-lg overflow-hidden border border-gray-200" style={{ minHeight: 500 }}>
           {sortedHotels.some(h => h.lat && h.lng) ? (
             <MapContainer
               center={(() => {
@@ -166,7 +166,7 @@ export const HotelsStep: React.FC = () => {
               })()}
               zoom={13}
               className="w-full h-full"
-              style={{ minHeight: 320 }}
+              style={{ minHeight: 500 }}
               zoomControl={false}
             >
               <TileLayer
@@ -189,7 +189,7 @@ export const HotelsStep: React.FC = () => {
               ))}
             </MapContainer>
           ) : (
-            <div className="w-full h-80 flex items-center justify-center bg-gray-50">
+            <div className="w-full h-[500px] flex items-center justify-center bg-gray-50">
               <div className="text-center text-gray-400">
                 <p className="text-lg mb-2">🗺️</p>
                 <p className="text-sm">无酒店坐标数据</p>
