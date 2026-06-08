@@ -167,7 +167,110 @@ function renderOverviewMap(candidate) {
   if (bounds.length > 0) planMap.fitBounds(bounds, { padding: [30, 30] });
   setTimeout(() => planMap.invalidateSize(), 50);
   initMapDragReorder();
+  loadUnselectedPois();
 }
+
+/* ── Show unselected attraction POIs on map ── */
+let unselectedPoiLayer = null;
+async function loadUnselectedPois() {
+  if (!planMap) return;
+  if (unselectedPoiLayer) { planMap.removeLayer(unselectedPoiLayer); unselectedPoiLayer = null; }
+  const city = state.lastPayload && state.lastPayload.city || "";
+  if (!city) return;
+  try {
+    const res = await api("/poi/search?city=" + encodeURIComponent(city) + "&limit=500");
+    const allPois = res.data || [];
+    const candidate = state.candidates[state.selectedIndex];
+    const usedIds = new Set();
+    const usedNames = new Set();
+    if (candidate && candidate.days) {
+      candidate.days.forEach(function(d) { (d.stops||[]).forEach(function(s) {
+        if (s.poi_id) usedIds.add(s.poi_id);
+        if (s.poi_name) usedNames.add(s.poi_name);
+      });});
+    }
+    const unselected = allPois.filter(function(p) {
+      return !usedIds.has(p.id) && !usedNames.has(p.name) && p.lat && p.lng;
+    });
+    if (unselected.length === 0) return;
+    unselectedPoiLayer = L.layerGroup();
+    unselected.forEach(function(poi) {
+      var typeColors = {attraction:"#3b82f6", restaurant:"#f97316", nightlife:"#a855f7", transit:"#6b7280"};
+      var color = typeColors[poi.type] || "#94a3b8";
+      var icon = L.divIcon({
+        className: "unselected-poi-marker",
+        html: '<div style="width:12px;height:12px;border-radius:50%;background:'+color+';border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.2);cursor:pointer;opacity:0.7;"></div>',
+        iconSize: [12, 12],
+        iconAnchor: [6, 6],
+        popupAnchor: [0, -8],
+      });
+      var marker = L.marker([poi.lat, poi.lng], {icon: icon});
+      var days = (candidate && candidate.days) || [];
+      var btns = days.map(function(d) {
+        return '<button class="poi-day-add-btn" data-poi-idx="' + poi.id + '" data-day-idx="' + (d.day - 1) + '" style="padding:2px 6px;border:1px solid #146b5d;border-radius:3px;background:#146b5d;color:#fff;font-size:10px;cursor:pointer;margin:1px;">Day ' + d.day + '</button>';
+      }).join("");
+      if (!window.__browsePoiMap) window.__browsePoiMap = {};
+      window.__browsePoiMap[poi.id] = poi;
+      marker.bindPopup(
+        '<div style="min-width:140px">' +
+          '<div style="font-weight:600;font-size:13px;">' + typeIcon(poi.type) + ' ' + escapeHtml(poi.name) + '</div>' +
+          '<div style="font-size:11px;color:#65706d;">' + escapeHtml(poi.area) + (poi.popularity ? ' · ⭐' + Number(poi.popularity).toFixed(1) : '') + '</div>' +
+          (poi.description ? '<div style="font-size:11px;color:#555;margin-top:2px;">' + escapeHtml(String(poi.description).slice(0,60)) + '</div>' : '') +
+          '<div style="margin-top:6px;display:flex;gap:3px;flex-wrap:wrap;align-items:center;">' +
+            '<span style="font-size:10px;color:#888;">添加到：</span>' + btns +
+          '</div>' +
+        '</div>'
+      );
+      marker.addTo(unselectedPoiLayer);
+    });
+    unselectedPoiLayer.addTo(planMap);
+  } catch(e) { console.warn("Load unselected POIs failed:", e); }
+}
+
+/* ── Add POI to a specific day ── */
+function addPoiToDay(poi, dayIdx) {
+  var candidate = state.candidates[state.selectedIndex];
+  if (!candidate || !candidate.days || !candidate.days[dayIdx]) { toast("无效的天数", "error"); return; }
+  var day = candidate.days[dayIdx];
+  var visitDuration = 60;
+  if (poi.type === "restaurant") { visitDuration = poi.meal_type === "drink" ? 30 : 60; }
+  var newStop = {
+    poi_id: poi.id || ("browse_" + Date.now()),
+    poi_name: poi.name,
+    poi_type: poi.type || "attraction",
+    meal_type: poi.meal_type || "main",
+    area: poi.area || "",
+    lat: poi.lat,
+    lng: poi.lng,
+    start_time: "00:00",
+    end_time: "00:00",
+    visit_duration_minutes: visitDuration,
+    travel_minutes_from_previous: 0,
+    score: 0,
+    reason: "手动添加",
+    recommendation: poi.recommendation || "",
+    slot: "自由时间",
+    time_window_status: "ok",
+  };
+  day.stops = day.stops || [];
+  day.stops.push(newStop);
+  recalcDayTimes(day);
+  renderPlan();
+  saveTripState();
+  toast("已添加 " + poi.name + " 到 Day " + day.day, "success");
+}
+
+/* ── Event delegation: add unselected POI to day ── */
+document.addEventListener("click", function(e) {
+  var btn = e.target.closest(".poi-day-add-btn");
+  if (!btn) return;
+  try {
+    var poiId = btn.dataset.poiIdx;
+    var dayIdx = parseInt(btn.dataset.dayIdx, 10);
+    var poi = window.__browsePoiMap && window.__browsePoiMap[poiId];
+    if (poi) addPoiToDay(poi, dayIdx);
+  } catch(err) { console.error("Add POI to day error:", err); }
+});
 
 function initMapDayFilter(candidate) {
   const filterContainer = $("mapDayFilter");
@@ -403,18 +506,23 @@ function showSearchResultsOnMap(pois) {
     });
     const marker = L.marker([poi.lat, poi.lng], { icon });
     const popupId = 'poi_' + Date.now() + '_' + Math.random().toString(36).slice(2,8);
+    // Store for retrieval by day-add buttons
+    if (!window.__browsePoiMap) window.__browsePoiMap = {};
+    window.__browsePoiMap[popupId] = poi;
+    var candidate = state.candidates[state.selectedIndex];
+    var dayBtns = ((candidate && candidate.days) || []).map(function(d) {
+      return '<button class="poi-day-add-btn" data-poi-idx="' + popupId + '" data-day-idx="' + (d.day - 1) + '" style="padding:2px 6px;border:1px solid #146b5d;border-radius:3px;background:#146b5d;color:#fff;font-size:10px;cursor:pointer;margin:1px;">Day ' + d.day + '</button>';
+    }).join("");
     marker.bindPopup(`
       <div style="min-width:160px;">
         <div style="font-weight:700;font-size:13px;">${escapeHtml(poi.name)}</div>
         <div style="font-size:11px;color:#65706d;">${escapeHtml(poi.district || "")} ${escapeHtml(poi.address || "")}</div>
         ${poi.rating ? `<div style="font-size:11px;margin-top:2px;">⭐ ${poi.rating}</div>` : ""}
-        <button data-poi-id="${popupId}" style="margin-top:6px;padding:4px 10px;border:1px solid #146b5d;border-radius:4px;background:#146b5d;color:#fff;font-size:11px;cursor:pointer;">+ 添加到行程</button>
+        <div style="margin-top:6px;display:flex;gap:3px;flex-wrap:wrap;align-items:center;">
+          <span style="font-size:10px;color:#888;">添加到：</span>${dayBtns}
+        </div>
       </div>
     `);
-    marker.on('popupopen', function() {
-      const btn = document.querySelector(`[data-poi-id="${popupId}"]`);
-      if (btn) btn.addEventListener('click', function() { addSearchPoiToItinerary(poi); });
-    });
     marker.addTo(searchResultMarkers);
   });
   searchResultMarkers.addTo(planMap);
@@ -1591,7 +1699,7 @@ function renderStop(stop) {
         </div>
       </div>
       <div class="stop-actions">
-        ${isMeal ? `<button class="stop-action-btn stop-swap-btn" data-poi-id="${stop.poi_id || ""}" data-area="${escapeHtml(stop.area || "")}" data-slot="${escapeHtml(stop.slot || "")}" title="查看该区域其他餐厅">🔄 换一家</button>` : ""}
+        ${isMeal ? `<button class="stop-action-btn stop-swap-btn" data-poi-id="${stop.poi_id || ""}" data-area="${escapeHtml(stop.area || "")}" data-slot="${escapeHtml(stop.slot || "")}" title="查看该区域其他餐厅">🔄 换一家</button>` : `<button class="stop-action-btn stop-replace-btn" data-poi-id="${stop.poi_id || ""}" data-poi-type="${stop.poi_type || "attraction"}" data-area="${escapeHtml(stop.area || "")}" title="替换此景点">🔄 替换</button>`}
         <button class="stop-action-btn stop-remove-btn" data-poi-id="${stop.poi_id || ""}" title="移除此站点">✕ 移除</button>
       </div>
       ${isMeal ? `<div class="stop-alternatives" data-poi-id="${stop.poi_id || ""}" hidden></div>` : ""}
@@ -1860,6 +1968,74 @@ document.addEventListener("click", async function(e) {
   }
 });
 
+/* ── Replace stop with alternative POI ── */
+document.addEventListener("click", async function(e) {
+  var btn = e.target.closest(".stop-replace-btn");
+  if (!btn) return;
+  var card = btn.closest(".stop-card");
+  var altContainer = card && card.querySelector(".stop-alternatives");
+  if (!altContainer) {
+    // Create alternatives container if not exists
+    altContainer = document.createElement("div");
+    altContainer.className = "stop-alternatives";
+    altContainer.dataset.poiId = btn.dataset.poiId;
+    card.appendChild(altContainer);
+  }
+  if (!altContainer.hidden) { altContainer.hidden = true; return; }
+  altContainer.hidden = false;
+  altContainer.innerHTML = '<div style="font-size:12px;color:var(--muted);">加载中...</div>';
+  var city = state.lastPayload && state.lastPayload.city || "";
+  var area = btn.dataset.area;
+  var poiType = btn.dataset.poiType || "attraction";
+  try {
+    var url = area
+      ? "/poi/by-area?city=" + encodeURIComponent(city) + "&area=" + encodeURIComponent(area) + "&type=" + poiType + "&limit=8"
+      : "/poi/search?city=" + encodeURIComponent(city) + "&type=" + poiType + "&limit=8";
+    var data = await api(url);
+    var alternatives = (data.data || []).filter(function(p) { return p.id !== btn.dataset.poiId; });
+    if (alternatives.length === 0) {
+      altContainer.innerHTML = '<div style="font-size:12px;color:var(--muted);">该区域暂无其他' + (poiType === "restaurant" ? "餐厅" : "景点") + '</div>';
+      return;
+    }
+    altContainer.innerHTML = alternatives.map(function(p) {
+      return '<div class="alt-restaurant-item" data-new-poi-id="' + p.id + '" data-new-name="' + escapeHtml(p.name) + '">' +
+        '<span>' + typeIcon(p.type || poiType) + '</span>' +
+        '<span class="alt-name">' + escapeHtml(p.name) + '</span>' +
+        '<span class="alt-score">⭐ ' + (p.popularity || 0).toFixed(1) + '</span>' +
+      '</div>';
+    }).join("");
+    altContainer.querySelectorAll(".alt-restaurant-item").forEach(function(item) {
+      item.addEventListener("click", function() {
+        var newId = item.dataset.newPoiId;
+        var newName = item.dataset.newName;
+        replaceStop(btn.dataset.poiId, newId, newName);
+      });
+    });
+  } catch(err) {
+    altContainer.innerHTML = '<div style="font-size:12px;color:#c0392b;">加载失败: ' + escapeHtml(err.message) + '</div>';
+  }
+});
+
+function replaceStop(oldPoiId, newPoiId, newName) {
+  var candidate = state.candidates[state.selectedIndex];
+  if (!candidate || !candidate.days) return;
+  for (var d = 0; d < candidate.days.length; d++) {
+    var day = candidate.days[d];
+    var stops = day.stops || [];
+    for (var i = 0; i < stops.length; i++) {
+      if (stops[i].poi_id === oldPoiId) {
+        stops[i].poi_id = newPoiId;
+        stops[i].poi_name = newName;
+        recalcDayTimes(day);
+        renderPlan();
+        saveTripState();
+        toast("已替换为 " + newName, "success");
+        return;
+      }
+    }
+  }
+}
+
 function swapRestaurant(oldPoiId, newPoiId, newName) {
   var candidate = state.candidates[state.selectedIndex];
   if (!candidate?.days) return;
@@ -1908,6 +2084,37 @@ function updateStageVisibility() {
     }
   });
 }
+
+/* ── Day card: click to focus on map ── */
+document.addEventListener("click", function(e) {
+  var card = e.target.closest(".day-card");
+  if (!card) return;
+  // Ignore clicks on inputs/buttons inside the card
+  if (e.target.closest("input") || e.target.closest("button")) return;
+  var dayIdx = parseInt(card.dataset.dayIndex, 10);
+  if (isNaN(dayIdx)) return;
+  // Scroll to the corresponding day block in itinerary view
+  var dayBlocks = document.querySelectorAll(".day-block");
+  if (dayBlocks[dayIdx]) {
+    setStage("itinerary");
+    dayBlocks[dayIdx].scrollIntoView({ behavior: "smooth", block: "start" });
+    dayBlocks[dayIdx].style.outline = "2px solid #146b5d";
+    dayBlocks[dayIdx].style.borderRadius = "8px";
+    setTimeout(function() { dayBlocks[dayIdx].style.outline = ""; }, 3000);
+  }
+  // Also focus map on this day
+  if (planMap && mapDayLayers[dayIdx]) {
+    planMap.removeLayer(mapDayLayers[dayIdx].markers);
+    mapDayLayers[dayIdx].markers.addTo(planMap);
+    if (mapDayLayers[dayIdx].polyline) {
+      planMap.removeLayer(mapDayLayers[dayIdx].polyline);
+      mapDayLayers[dayIdx].polyline.addTo(planMap);
+    }
+    var dayBounds = [];
+    mapDayLayers[dayIdx].markers.eachLayer(function(m) { if (m.getLatLng) dayBounds.push(m.getLatLng()); });
+    if (dayBounds.length > 0) planMap.fitBounds(dayBounds, { padding: [40, 40] });
+  }
+});
 
 document.querySelectorAll(".stage-tab").forEach((button) => {
   button.addEventListener("click", () => setStage(button.dataset.stage));

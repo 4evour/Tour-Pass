@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 
 #include "httplib.h"
 
@@ -472,11 +473,11 @@ LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& messa
     return result;
 }
 
-std::string LlmClient::generateItineraryReply(const std::string& userMessage, const TripRequest& /*request*/, const Itinerary& itinerary) const {
+std::string LlmClient::generateItineraryReply(const std::string& userMessage, const TripRequest& /*request*/, const Itinerary& itinerary, const CityGuide& guide) const {
     std::string systemPrompt = R"(你是一位热情的旅行攻略达人。用户提出了旅行需求，系统已生成行程规划。
 
-请用朋友聊天的口吻回复用户：
-1. 先用一句话概括整体行程感觉（如"这条线路走的是XX风格"）
+用朋友聊天的口吻回复用户：
+1. 先用一句话概括整体行程感觉
 2. 用 2-3 个亮点吸引用户（为什么这个安排很棒、有什么隐藏玩法）
 3. 给 1-2 条实用贴士（穿什么、带什么、注意事项）
 4. 如果有下午茶/小吃安排，提一下当地特色
@@ -484,12 +485,59 @@ std::string LlmClient::generateItineraryReply(const std::string& userMessage, co
 
 不要输出 JSON，只输出纯文本回复。)";
 
+    if (guide.loaded) {
+        systemPrompt += "\n\n以下是当地旅行攻略，可以参考：\n";
+        if (!guide.transportTips.empty()) {
+            systemPrompt += "交通建议：";
+            for (size_t i = 0; i < guide.transportTips.size() && i < 3; i++) {
+                if (i > 0) systemPrompt += "；";
+                systemPrompt += guide.transportTips[i];
+            }
+            systemPrompt += "\n";
+        }
+        if (!guide.crowdTips.empty()) {
+            systemPrompt += "避坑建议：";
+            for (size_t i = 0; i < guide.crowdTips.size() && i < 3; i++) {
+                if (i > 0) systemPrompt += "；";
+                systemPrompt += guide.crowdTips[i];
+            }
+            systemPrompt += "\n";
+        }
+        if (!guide.seasonalTips.empty()) {
+            systemPrompt += "季节建议：";
+            for (size_t i = 0; i < guide.seasonalTips.size() && i < 2; i++) {
+                if (i > 0) systemPrompt += "；";
+                systemPrompt += guide.seasonalTips[i];
+            }
+            systemPrompt += "\n";
+        }
+        if (!guide.hiddenGems.empty()) {
+            systemPrompt += "隐藏玩法：";
+            for (size_t i = 0; i < guide.hiddenGems.size() && i < 2; i++) {
+                if (i > 0) systemPrompt += "；";
+                systemPrompt += guide.hiddenGems[i];
+            }
+            systemPrompt += "\n";
+        }
+        if (!guide.foodTips.empty()) {
+            systemPrompt += "美食推荐：";
+            for (size_t i = 0; i < guide.foodTips.size() && i < 3; i++) {
+                if (i > 0) systemPrompt += "；";
+                systemPrompt += guide.foodTips[i];
+            }
+            systemPrompt += "\n";
+        }
+    }
+
     std::string itinerarySummary = "用户需求：" + userMessage + "\n\n规划结果：\n";
     itinerarySummary += "城市：" + itinerary.city + "，天数：" + std::to_string(itinerary.days.size()) + "\n";
     for (const auto& day : itinerary.days) {
         itinerarySummary += "第" + std::to_string(day.day) + "天：" + day.summary + "\n";
         for (const auto& stop : day.stops) {
             itinerarySummary += "  " + stop.slot + " " + stop.poiName + "（" + formatMinutes(stop.startMinutes) + "-" + formatMinutes(stop.endMinutes) + "）\n";
+            if (!stop.reason.empty()) {
+                itinerarySummary += "    推荐理由：" + stop.reason + "\n";
+            }
         }
     }
 
@@ -503,6 +551,134 @@ std::string LlmClient::generateItineraryReply(const std::string& userMessage, co
         return explainWithTemplate(itinerary);
     }
     return reply;
+}
+
+
+
+CityGuide LlmClient::loadCityGuide(const std::string& city) {
+    CityGuide guide;
+    guide.city = city;
+    std::string path = "data/" + city + "/city_guide.json";
+    std::ifstream file(path);
+    if (!file.is_open()) {
+        debugLlm("City guide not found: " + path);
+        return guide;
+    }
+    try {
+        nlohmann::json j;
+        file >> j;
+        if (j.contains("best_routes") && j["best_routes"].is_array())
+            for (const auto& r : j["best_routes"]) guide.bestRoutes.push_back(r.get<std::string>());
+        if (j.contains("timing_tips") && j["timing_tips"].is_array())
+            for (const auto& t : j["timing_tips"]) guide.timingTips.push_back(t.get<std::string>());
+        if (j.contains("crowd_tips") && j["crowd_tips"].is_array())
+            for (const auto& c : j["crowd_tips"]) guide.crowdTips.push_back(c.get<std::string>());
+        if (j.contains("food_tips") && j["food_tips"].is_array())
+            for (const auto& f : j["food_tips"]) guide.foodTips.push_back(f.get<std::string>());
+        if (j.contains("transport_tips") && j["transport_tips"].is_array())
+            for (const auto& t : j["transport_tips"]) guide.transportTips.push_back(t.get<std::string>());
+        if (j.contains("seasonal_tips") && j["seasonal_tips"].is_array())
+            for (const auto& s : j["seasonal_tips"]) guide.seasonalTips.push_back(s.get<std::string>());
+        if (j.contains("hidden_gems") && j["hidden_gems"].is_array())
+            for (const auto& h : j["hidden_gems"]) guide.hiddenGems.push_back(h.get<std::string>());
+        guide.loaded = true;
+        debugLlm("Loaded city guide for " + city + ": " +
+                 std::to_string(guide.bestRoutes.size()) + " routes, " +
+                 std::to_string(guide.timingTips.size()) + " tips");
+    } catch (const std::exception& ex) {
+        debugLlm("Failed to parse city guide: " + std::string(ex.what()));
+    }
+    return guide;
+}
+
+int LlmClient::evaluateItinerary(const std::vector<Itinerary>& candidates, const CityGuide& guide) const {
+    if (candidates.size() <= 1) return 0;
+    std::string prompt = R"(你是旅行行程评估专家。请评估以下候选方案，选出最佳的一个。
+
+评估维度：
+1. 路线合理性（景点之间距离是否合理，是否走回头路）
+2. 时间安排（每个景点时间是否充裕，是否有赶场）
+3. 多样性（景点类型是否丰富，避免重复）
+4. 体验感（路线是否有节奏感，劳逸结合）)";
+    if (guide.loaded) {
+        prompt += "\n\n当地攻略参考：\n";
+        if (!guide.bestRoutes.empty()) prompt += "经典路线：" + guide.bestRoutes[0] + "\n";
+        if (!guide.timingTips.empty())
+            for (const auto& tip : guide.timingTips) prompt += "- " + tip + "\n";
+    }
+    prompt += "\n\n候选方案：\n";
+    for (size_t i = 0; i < candidates.size(); i++) {
+        const auto& it = candidates[i];
+        prompt += "方案" + std::to_string(i + 1) + "（" + it.variantName + "）：\n";
+        for (const auto& day : it.days) {
+            prompt += "  第" + std::to_string(day.day) + "天：";
+            for (size_t j = 0; j < day.stops.size(); j++) {
+                if (j > 0) prompt += " → ";
+                prompt += day.stops[j].poiName;
+            }
+            prompt += "\n";
+        }
+        prompt += "\n";
+    }
+    prompt += "请只回复最佳方案的编号（1-" + std::to_string(candidates.size()) + "），不要解释。";
+    std::vector<ChatMessage> messages = {{"user", prompt}};
+    std::string response = chatCompletion(messages, 0.1);
+    try {
+        for (char c : response) {
+            if (c >= '1' && c <= '9') {
+                int idx = c - '1';
+                if (idx >= 0 && idx < static_cast<int>(candidates.size())) {
+                    debugLlm("LLM selected candidate " + std::to_string(idx + 1));
+                    return idx;
+                }
+            }
+        }
+    } catch (...) {}
+    debugLlm("LLM evaluation failed, defaulting to candidate 0");
+    return 0;
+}
+
+std::vector<std::string> LlmClient::enrichStopReasons(const Itinerary& itinerary, const CityGuide& guide) const {
+    std::vector<std::string> reasons;
+    std::string prompt = R"(你是旅行攻略达人。请为以下行程的每个景点生成简短的推荐理由（15-30字）。
+
+要求：
+- 突出景点特色和为什么值得去
+- 如果有最佳游览时间或小贴士，简要提及
+- 语气轻松有趣，像朋友推荐)";
+    if (guide.loaded) {
+        prompt += "\n\n当地攻略：\n";
+        if (!guide.timingTips.empty())
+            for (const auto& tip : guide.timingTips) prompt += "- " + tip + "\n";
+        if (!guide.hiddenGems.empty())
+            for (const auto& gem : guide.hiddenGems) prompt += "- " + gem + "\n";
+    }
+    prompt += "\n\n行程站点：\n";
+    int idx = 1;
+    for (const auto& day : itinerary.days) {
+        for (const auto& stop : day.stops) {
+            prompt += std::to_string(idx) + ". " + stop.poiName + "（" + stop.slot + "，" + formatMinutes(stop.startMinutes) + "-" + formatMinutes(stop.endMinutes) + "）\n";
+            idx++;
+        }
+    }
+    prompt += "\n请按顺序为每个站点输出推荐理由，每行一个，格式：编号. 理由\n只输出理由，不要其他内容。";
+    std::vector<ChatMessage> messages = {{"user", prompt}};
+    std::string response = chatCompletion(messages, 0.5);
+    std::istringstream stream(response);
+    std::string line;
+    int expectedCount = 0;
+    for (const auto& day : itinerary.days) expectedCount += day.stops.size();
+    while (std::getline(stream, line)) {
+        if (line.empty()) continue;
+        size_t dotPos = line.find('.');
+        if (dotPos != std::string::npos && dotPos < 4) line = line.substr(dotPos + 1);
+        while (!line.empty() && (line[0] == ' ' || line[0] == '\t')) line = line.substr(1);
+        if (!line.empty()) reasons.push_back(line);
+    }
+    while (static_cast<int>(reasons.size()) < expectedCount) reasons.push_back("热度和路线顺序较合适");
+    if (static_cast<int>(reasons.size()) > expectedCount) reasons.resize(expectedCount);
+    debugLlm("Enriched " + std::to_string(reasons.size()) + " stop reasons");
+    return reasons;
 }
 
 }  // namespace tourpass

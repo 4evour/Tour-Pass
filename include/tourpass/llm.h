@@ -29,6 +29,20 @@ struct LlmParsedRequest {
     bool parsed = false;
 };
 
+
+
+struct CityGuide {
+    std::string city;
+    std::vector<std::string> bestRoutes;
+    std::vector<std::string> timingTips;
+    std::vector<std::string> crowdTips;
+    std::vector<std::string> foodTips;
+    std::vector<std::string> transportTips;
+    std::vector<std::string> seasonalTips;
+    std::vector<std::string> hiddenGems;
+    bool loaded = false;
+};
+
 class LlmClient {
 public:
     explicit LlmClient(const std::string& configPath = "config/llm.local.json");
@@ -38,7 +52,10 @@ public:
     const LlmConfig& config() const { return config_; }
 
     LlmParsedRequest parseNaturalLanguageRequest(const std::string& message, const std::vector<ChatMessage>& context, const std::string& defaultCity) const;
-    std::string generateItineraryReply(const std::string& userMessage, const TripRequest& request, const Itinerary& itinerary) const;
+    std::string generateItineraryReply(const std::string& userMessage, const TripRequest& request, const Itinerary& itinerary, const CityGuide& guide = CityGuide()) const;
+    int evaluateItinerary(const std::vector<Itinerary>& candidates, const CityGuide& guide = CityGuide()) const;
+    std::vector<std::string> enrichStopReasons(const Itinerary& itinerary, const CityGuide& guide = CityGuide()) const;
+    static CityGuide loadCityGuide(const std::string& city);
 
     std::string chatCompletion(const std::vector<ChatMessage>& messages, double temperature = 0.4) const;
 

@@ -1314,9 +1314,30 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 candidates.push_back(itineraryToJson(it));
             }
 
-            // Step 4: Generate natural language reply
-            Itinerary bestItinerary = itineraries.empty() ? Itinerary{} : itineraries[0];
-            std::string reply = context.llm.generateItineraryReply(message, parsed.request, bestItinerary);
+            // Step 4: Load city guide and evaluate candidates
+            CityGuide cityGuide = LlmClient::loadCityGuide(resolvedCity);
+
+            Itinerary bestItinerary;
+            if (!itineraries.empty()) {
+                int bestIdx = context.llm.evaluateItinerary(itineraries, cityGuide);
+                if (bestIdx < 0) bestIdx = 0;
+                if (bestIdx >= static_cast<int>(itineraries.size())) bestIdx = static_cast<int>(itineraries.size()) - 1;
+                bestItinerary = itineraries[bestIdx];
+
+                // Enrich stop reasons with expert tips
+                auto enrichedReasons = context.llm.enrichStopReasons(bestItinerary, cityGuide);
+                int reasonIdx = 0;
+                for (auto& day : bestItinerary.days) {
+                    for (auto& stop : day.stops) {
+                        if (reasonIdx < static_cast<int>(enrichedReasons.size())) {
+                            stop.reason = enrichedReasons[reasonIdx++];
+                        }
+                    }
+                }
+            }
+
+            // Step 5: Generate natural language reply
+            std::string reply = context.llm.generateItineraryReply(message, parsed.request, bestItinerary, cityGuide);
 
             nlohmann::json result = {
                 {"reply", reply},

@@ -1470,10 +1470,10 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 }
 .form-collapsible summary::-webkit-details-marker { display: none; }
 .form-collapsible summary::before {
-  content: "â–¸ ";
+  content: "â–?";
   transition: transform 0.2s;
 }
-.form-collapsible[open] summary::before { content: "â–¾ "; }
+.form-collapsible[open] summary::before { content: "â–?"; }
 .compact-form {
   padding: 0 16px 16px;
 }
@@ -2101,6 +2101,8 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   background: var(--soft) !important;
   border-color: var(--accent-dark) !important;
 }
+.stop-replace-btn { color: var(--primary); }
+.stop-replace-btn:hover { background: var(--primary-light); }
 .stop-alternatives {
   padding: 8px 14px;
   border-top: 1px dashed var(--line);
