@@ -471,6 +471,51 @@ std::vector<ScoreComponent> TripPlanner::buildScoreBreakdown(const TripRequest& 
     if (arrival + poi.visitDurationMinutes > poi.closeMinutes) {
         breakdown.push_back({"闭馆惩罚", -1000.0, "预计结束时间超过关闭时间。"});
     }
+    
+    // === Type diversity bonus ===
+    int attractionCount = 0, restaurantCount = 0;
+    for (const auto& usedId : used) {
+        const Poi* usedPoi = graph_.findPoi(usedId);
+        if (!usedPoi) continue;
+        if (usedPoi->type == PoiType::Attraction) attractionCount++;
+        else if (usedPoi->type == PoiType::Restaurant) restaurantCount++;
+    }
+    if (poi.type == PoiType::Attraction && attractionCount > restaurantCount + 1) {
+        breakdown.push_back({"type_diversity", -15.0, "Too many attractions, prefer variety."});
+    }
+    if (poi.type == PoiType::Restaurant && restaurantCount < attractionCount) {
+        breakdown.push_back({"type_diversity", 12.0, "Good time for a meal break."});
+    }
+
+    // === Area diversity bonus ===
+    std::set<std::string> visitedAreas;
+    for (const auto& usedId : used) {
+        const Poi* usedPoi = graph_.findPoi(usedId);
+        if (usedPoi && !usedPoi->area.empty()) visitedAreas.insert(usedPoi->area);
+    }
+    if (!poi.area.empty() && visitedAreas.count(poi.area) == 0) {
+        breakdown.push_back({"area_diversity", 8.0, "New area adds variety."});
+    }
+
+    // === Time-appropriate bonus ===
+    if (poi.type == PoiType::Restaurant) {
+        bool isLunchTime = (arrival >= 660 && arrival <= 780);
+        bool isDinnerTime = (arrival >= 1020 && arrival <= 1200);
+        if (isLunchTime) breakdown.push_back({"time_fit", 18.0, "Lunch hours."});
+        else if (isDinnerTime) breakdown.push_back({"time_fit", 18.0, "Dinner hours."});
+        else breakdown.push_back({"time_fit", -10.0, "Outside meal hours."});
+    }
+    if (poi.type == PoiType::Nightlife && arrival >= 1080) {
+        breakdown.push_back({"time_fit", 15.0, "Evening nightlife."});
+    }
+
+    // === Popularity tier bonus ===
+    if (poi.popularity >= 4.7) {
+        breakdown.push_back({"top_attraction", 10.0, "Must-see top-rated."});
+    } else if (poi.popularity >= 4.3) {
+        breakdown.push_back({"top_attraction", 5.0, "High-rated attraction."});
+    }
+
     return breakdown;
 }
 
