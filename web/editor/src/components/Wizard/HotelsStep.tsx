@@ -4,18 +4,21 @@ import L from 'leaflet';
 import { useItineraryStore } from '../../stores/itineraryStore';
 import type { Poi } from '../../types';
 
-function makeHotelIcon(selected: boolean) {
+function makeHotelIcon(selected: boolean, name?: string) {
   const bg = selected ? '#2563eb' : '#22c55e';
   const scale = selected ? 'transform:scale(1.2);' : '';
+  const shortName = name ? (name.length > 8 ? name.substring(0, 8) + '..' : name) : '';
+  const labelHtml = shortName
+    ? `<div style="background:rgba(0,0,0,0.75);color:#fff;font-size:10px;padding:1px 5px;border-radius:3px;margin-top:2px;white-space:nowrap;max-width:100px;overflow:hidden;text-overflow:ellipsis;text-align:center;">${shortName}</div>`
+    : '';
   return L.divIcon({
     className: 'hotel-marker',
-    html: `<div style="background:${bg};color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);cursor:pointer;${scale}">馃彣</div>`,
-    iconSize: [26, 26],
+    html: `<div style="display:flex;flex-direction:column;align-items:center;"><div style="background:${bg};color:#fff;width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.3);cursor:pointer;${scale}">🏨</div>${labelHtml}</div>`,
+    iconSize: [80, 40],
     iconAnchor: [13, 13],
-    popupAnchor: [0, -16],
+    popupAnchor: [0, -20],
   });
 }
-
 function HotelMapFitBounds({ hotels, selected }: { hotels: Poi[]; selected?: Poi | null }) {
   const map = useMap();
   useEffect(() => {
@@ -178,7 +181,7 @@ export const HotelsStep: React.FC = () => {
                 <Marker
                   key={hotel.id}
                   position={[hotel.lat, hotel.lng]}
-                  icon={makeHotelIcon(currentHotel?.id === hotel.id)}
+                  icon={makeHotelIcon(currentHotel?.id === hotel.id, hotel.name)}
                 >
                   <Popup>
                     <b>🏨 {hotel.name}</b><br />
