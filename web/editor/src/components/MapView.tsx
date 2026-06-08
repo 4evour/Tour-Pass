@@ -42,7 +42,7 @@ function makeCurrentDayIcon(num: number, color: string, name: string) {
     className: 'current-day-marker',
     html: `<div style="display:flex;flex-direction:column;align-items:center;pointer-events:auto;">
       <div style="background:${color};color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.4);z-index:10;">${num}</div>
-      <div style="background:rgba(255,255,255,0.95);color:#17211f;font-size:10px;padding:1px 4px;border-radius:3px;margin-top:2px;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.15);font-weight:500;">${displayName}</div>
+      <div style="background:#1a1a2e;color:#ffe066;font-size:10px;font-weight:600;padding:1px 5px;border-radius:3px;margin-top:2px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.4);letter-spacing:0.3px;">${displayName}</div>
     </div>`,
     iconSize: [60, 44],
     iconAnchor: [14, 28],
@@ -89,7 +89,7 @@ function FitBounds({ pois, day }: { pois: Poi[]; day: number }) {
         const validPois = pois.filter(p => p.lat && p.lng);
         if (validPois.length === 0) return;
         const bounds = L.latLngBounds(validPois.map(p => [p.lat, p.lng] as [number, number]));
-        map.fitBounds(bounds, { padding: [40, 40] });
+        map.fitBounds(bounds, { padding: [40, 40], maxZoom: 16 });
       }
     }
   }, [day]); // Only depend on day, not on pois
@@ -167,7 +167,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, ho
 
   const defaultCenter: [number, number] = allPois.length > 0 && allPois[0].lat && allPois[0].lng
     ? [allPois[0].lat, allPois[0].lng]
-    : [30.57, 114.27];
+    : [35.0, 105.0];
 
   return (
     <MapContainer center={defaultCenter} zoom={13} className="w-full h-full" zoomControl={false}>
@@ -212,7 +212,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, ho
         return d.stops.map((stop, i) => (
           <Marker
             key={stop.id}
-            position={[stop.poi.lat || 0, stop.poi.lng || 0]}
+            position={[Number(stop.poi.lat) || 0, Number(stop.poi.lng) || 0]}
             icon={makeOtherDayIcon(i + 1, color)}
             eventHandlers={{ click: () => handleMarkerClick(d.day) }}
           >
@@ -236,7 +236,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, ho
         return (
           <Marker
             key={`cur-${stop.id}`}
-            position={[stop.poi.lat || 0, stop.poi.lng || 0]}
+            position={[Number(stop.poi.lat) || 0, Number(stop.poi.lng) || 0]}
             icon={makeCurrentDayIcon(i + 1, color, stop.poi.name)}
           >
             <Popup>

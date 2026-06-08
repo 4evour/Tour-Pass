@@ -16,7 +16,8 @@ export function useMapSync() {
   
   const mapCenter = useMemo(() => {
     if (visibleStops.length === 0) {
-      return { lat: 28.2282, lng: 112.9388 };
+      // No hardcoded city — return China center as fallback
+      return { lat: 35.0, lng: 105.0 };
     }
     
     const avgLat = visibleStops.reduce((sum, s) => sum + s.poi.lat, 0) / visibleStops.length;

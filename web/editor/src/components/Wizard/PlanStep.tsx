@@ -63,7 +63,7 @@ export const PlanStep: React.FC = () => {
 
       <div className="flex flex-1 overflow-hidden">
         {/* Left: POI sidebar */}
-        <div className="w-72 border-r flex flex-col">
+        <div className="w-80 border-r flex flex-col">
           <div className="p-3 border-b">
             <input
               type="text"
@@ -87,7 +87,7 @@ export const PlanStep: React.FC = () => {
             </div>
           </div>
           <div className="flex-1 overflow-y-auto p-2 space-y-1">
-            {filteredPois.slice(0, 50).map(poi => (
+            {filteredPois.slice(0, 100).map(poi => (
               <button
                 key={poi.id}
                 onClick={() => handleAddPoi(poi)}
@@ -114,7 +114,7 @@ export const PlanStep: React.FC = () => {
         </div>
 
         {/* Right: Map */}
-        <div className="w-96 border-l">
+        <div className="w-[480px] border-l">
           <IntegratedMap allPois={allPois} hoveredPoiId={hoveredPoiId} />
         </div>
       </div>
