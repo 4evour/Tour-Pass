@@ -1,4 +1,4 @@
-#include "tourpass/api.h"
+﻿#include "tourpass/api.h"
 
 #include <chrono>
 #include <cstdlib>
@@ -869,7 +869,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         if (req.has_param("limit")) {
             try { limit = std::stoi(req.get_param_value("limit")); } catch (...) { limit = 50; }
         }
-        limit = std::max(1, std::min(200, limit));
+        limit = std::max(1, std::min(500, limit));
 
         std::string key = requestCacheKey(req.method, req.path, queryString(req), "");
         if (serveFromCache(context, res, key)) return;

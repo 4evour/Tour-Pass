@@ -8,9 +8,10 @@ import type { Poi } from '../../types';
 
 interface IntegratedMapProps {
   allPois: Poi[];
+  hoveredPoiId?: string | null;
 }
 
-export const IntegratedMap: React.FC<IntegratedMapProps> = ({ allPois }) => {
+export const IntegratedMap: React.FC<IntegratedMapProps> = ({ allPois, hoveredPoiId }) => {
   const { mode, currentDay, enterDayEditMode, markChanged } = useEditorStore();
   const days = useItineraryStore(state => state.days);
   const setDays = useItineraryStore(state => state.setDays);
@@ -36,6 +37,7 @@ export const IntegratedMap: React.FC<IntegratedMapProps> = ({ allPois }) => {
   return (
     <MapView
       allPois={allPois}
+      hoveredPoiId={hoveredPoiId}
       onAddPoi={handleAddPoi}
       currentDay={currentDay ?? 0}
       onDayChange={handleDayChange}

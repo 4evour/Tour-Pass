@@ -51,6 +51,17 @@ function makeCurrentDayIcon(num: number, color: string, name: string) {
 }
 
 // Small translucent marker for other days
+function makeHighlightIcon(type: string) {
+  const icon = TYPE_ICONS[type] || '馃搷';
+  return L.divIcon({
+    className: 'highlight-marker',
+    html: `<div style="background:#2563eb;color:#fff;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;border:3px solid #fff;box-shadow:0 0 12px rgba(37,99,235,.6);cursor:pointer;transform:scale(1.15);">${icon}</div>`,
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+    popupAnchor: [0, -18],
+  });
+}
+
 function makeOtherDayIcon(num: number, color: string) {
   return L.divIcon({
     className: 'other-day-marker',
@@ -91,9 +102,10 @@ interface MapViewProps {
   onAddPoi: (poi: Poi) => void;
   currentDay: number;
   onDayChange: (day: number) => void;
+  hoveredPoiId?: string | null;
 }
 
-export default function MapView({ allPois, onAddPoi, currentDay, onDayChange }: MapViewProps) {
+export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, hoveredPoiId }: MapViewProps) {
   const defaultHotel = useItineraryStore(s => s.defaultHotel);
   const days = useItineraryStore(s => s.days);
   const routes = useItineraryStore(s => s.routes);
@@ -178,7 +190,7 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange }: 
 
       {/* All POI markers (non-itinerary, non-hotel) */}
       {allPois.filter(p => !stopIds.has(p.id) && p.type !== 'hotel' && p.lat && p.lng).map(poi => (
-        <Marker key={poi.id} position={[poi.lat, poi.lng]} icon={makeIcon(poi.type)}>
+        <Marker key={poi.id} position={[poi.lat, poi.lng]} icon={hoveredPoiId === poi.id ? makeHighlightIcon(poi.type) : makeIcon(poi.type)}>
           <Popup>
             <div style={{ minWidth: 160 }}>
               <b>{TYPE_ICONS[poi.type]} {poi.name}</b><br />
