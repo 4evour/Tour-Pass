@@ -69,23 +69,26 @@ export const HotelsStep: React.FC = () => {
   const allCitiesHaveHotels = cities.every(c => hotelsByCity[c]);
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold mb-2">选择酒店</h2>
-      <p className="text-gray-500 mb-4">为每个城市选择住宿酒店</p>
-      
+    <div className="flex flex-col h-[calc(100vh-80px)]">
+      {/* Header */}
+      <div className="px-6 py-3 bg-white border-b">
+        <h2 className="text-xl font-bold">选择酒店</h2>
+        <p className="text-gray-500 text-sm">为每个城市选择住宿酒店</p>
+      </div>
+
       {/* City tabs */}
       {cities.length > 1 && (
-        <div className="flex gap-2 mb-4">
+        <div className="flex gap-2 px-6 py-2 bg-gray-50 border-b overflow-x-auto">
           {cities.map((city, idx) => (
             <button
               key={city}
               onClick={() => setCurrentCityIdx(idx)}
-              className={`px-4 py-2 rounded-lg text-sm flex items-center gap-2 ${
+              className={`px-3 py-1.5 rounded text-sm flex items-center gap-1.5 whitespace-nowrap ${
                 idx === currentCityIdx
                   ? 'bg-blue-500 text-white'
                   : hotelsByCity[city]
                     ? 'bg-green-100 text-green-700'
-                    : 'bg-gray-100 text-gray-500'
+                    : 'bg-white text-gray-500 border'
               }`}
             >
               {city}
@@ -94,82 +97,19 @@ export const HotelsStep: React.FC = () => {
           ))}
         </div>
       )}
-      
-      <div className="flex gap-4">
-        {/* Hotel list */}
-        <div className="flex-1">
-          <input
-            type="text"
-            value={filter}
-            onChange={(e) => setFilter(e.target.value)}
-            placeholder="搜索酒店..."
-            className="w-full px-3 py-2 border rounded mb-3"
-          />
-          
-          {currentHotel && (
-            <div className="p-3 mb-3 bg-green-50 border border-green-200 rounded-lg">
-              <p className="text-sm text-green-700">
-                ✅ 已选：<strong>{currentHotel.name}</strong>
-                {currentHotel.area && ` (${currentHotel.area})`}
-                {currentHotel.popularity > 0 && ` · ⭐ ${currentHotel.popularity.toFixed(1)}`}
-              </p>
-            </div>
-          )}
-          
-          {loading ? (
-            <div className="text-center py-8 text-gray-400">加载中...</div>
-          ) : (
-            <div className="space-y-2 max-h-[50vh] overflow-y-auto">
-              {sortedHotels.map((hotel, idx) => {
-                const isSelected = currentHotel?.id === hotel.id;
-                const isRecommended = idx < 3; // Top 3 are recommended
-                return (
-                  <button
-                    key={hotel.id}
-                    onClick={() => setHotelForCity(currentCity, hotel)}
-                    className={`w-full text-left p-3 rounded-lg border transition-all ${
-                      isSelected
-                        ? 'border-blue-500 bg-blue-50 shadow-md'
-                        : isRecommended
-                          ? 'border-yellow-300 bg-yellow-50 hover:border-yellow-400'
-                          : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
-                    }`}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <span className="font-medium">{hotel.name}</span>
-                        {isRecommended && (
-                          <span className="ml-2 px-1.5 py-0.5 bg-yellow-200 text-yellow-800 text-xs rounded">
-                            推荐
-                          </span>
-                        )}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {hotel.area && `${hotel.area} · `}
-                        ⭐ {(hotel.popularity || 0).toFixed(1)}
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
-              {sortedHotels.length === 0 && !loading && (
-                <div className="text-center py-8 text-gray-400">暂无酒店数据</div>
-              )}
-            </div>
-          )}
-        </div>
-        
-                {/* Hotel map */}
-        <div className="w-[480px] rounded-lg overflow-hidden border border-gray-200" style={{ minHeight: 500 }}>
+
+      {/* Main: Map + Hotel list overlay */}
+      <div className="flex-1 relative overflow-hidden">
+        {/* Full-width map */}
+        <div className="absolute inset-0">
           {sortedHotels.some(h => h.lat && h.lng) ? (
             <MapContainer
               center={(() => {
                 const first = sortedHotels.find(h => h.lat && h.lng);
-                return first ? [first.lat, first.lng] as [number, number] : [30.57, 114.27];
+                return first ? [first.lat, first.lng] : [30.57, 114.27];
               })()}
               zoom={13}
               className="w-full h-full"
-              style={{ minHeight: 500 }}
               zoomControl={false}
             >
               <TileLayer
@@ -192,27 +132,96 @@ export const HotelsStep: React.FC = () => {
               ))}
             </MapContainer>
           ) : (
-            <div className="w-full h-[500px] flex items-center justify-center bg-gray-50">
+            <div className="w-full h-full flex items-center justify-center bg-gray-100">
               <div className="text-center text-gray-400">
-                <p className="text-lg mb-2">🗺️</p>
-                <p className="text-sm">无酒店坐标数据</p>
+                <p className="text-4xl mb-2">🗺</p>
+                <p>无酒店坐标数据</p>
               </div>
             </div>
           )}
         </div>
+
+        {/* Hotel list overlay - left side */}
+        <div className="absolute left-4 top-4 bottom-4 w-80 bg-white rounded-xl shadow-lg border flex flex-col z-[1000]">
+          {/* Search */}
+          <div className="p-3 border-b">
+            <input
+              type="text"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              placeholder="搜索酒店..."
+              className="w-full px-3 py-2 border rounded-lg text-sm"
+            />
+          </div>
+
+          {/* Selected hotel */}
+          {currentHotel && (
+            <div className="px-3 py-2 bg-green-50 border-b">
+              <p className="text-xs text-green-600">✅ 已选</p>
+              <p className="text-sm font-medium text-green-800 truncate">{currentHotel.name}</p>
+            </div>
+          )}
+
+          {/* Hotel list */}
+          <div className="flex-1 overflow-y-auto">
+            {loading ? (
+              <div className="text-center py-8 text-gray-400 text-sm">加载中...</div>
+            ) : sortedHotels.length === 0 ? (
+              <div className="text-center py-8 text-gray-400 text-sm">暂无酒店数据</div>
+            ) : (
+              sortedHotels.map((hotel, idx) => {
+                const isSelected = currentHotel?.id === hotel.id;
+                const isRecommended = idx < 3;
+                return (
+                  <button
+                    key={hotel.id}
+                    onClick={() => setHotelForCity(currentCity, hotel)}
+                    className={`w-full text-left px-3 py-2.5 border-b transition-colors ${
+                      isSelected
+                        ? 'bg-blue-50 border-l-4 border-l-blue-500'
+                        : 'hover:bg-gray-50'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-sm font-medium truncate">{hotel.name}</span>
+                          {isRecommended && (
+                            <span className="px-1.5 py-0.5 bg-yellow-100 text-yellow-700 text-[10px] rounded flex-shrink-0">推荐</span>
+                          )}
+                        </div>
+                        <div className="text-xs text-gray-400 mt-0.5">
+                          {hotel.area && hotel.area + ' · '}⭐ {(hotel.popularity || 0).toFixed(1)}
+                        </div>
+                      </div>
+                      {isSelected && <span className="text-blue-500 text-lg flex-shrink-0">✓</span>}
+                    </div>
+                  </button>
+                );
+              })
+            )}
+          </div>
+
+          {/* Stats */}
+          <div className="px-3 py-2 bg-gray-50 border-t text-xs text-gray-400">
+            共 {sortedHotels.length} 家酒店 {currentCity && '(· ' + currentCity + ')'}
+          </div>
+        </div>
       </div>
-      
-      <div className="flex gap-3 mt-6">
+
+      {/* Bottom nav */}
+      <div className="flex gap-3 px-6 py-3 bg-white border-t">
         <button
           onClick={() => setWizardStep(cities.length > 1 ? 'segments' : 'cities')}
-          className="px-6 py-3 bg-gray-200 rounded-lg hover:bg-gray-300"
+          className="px-5 py-2.5 bg-gray-200 rounded-lg hover:bg-gray-300 text-sm"
         >
           ← 上一步
         </button>
+        <div className="flex-1" />
         <button
           onClick={() => setWizardStep('plan')}
           disabled={!allCitiesHaveHotels}
-          className="flex-1 px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed"
+          className="px-5 py-2.5 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed text-sm"
         >
           下一步：行程编排 →
         </button>
