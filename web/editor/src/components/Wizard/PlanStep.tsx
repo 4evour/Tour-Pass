@@ -63,7 +63,7 @@ export const PlanStep: React.FC = () => {
 
       <div className="flex flex-1 overflow-hidden">
         {/* Left: POI sidebar */}
-        <div className="w-80 border-r flex flex-col">
+        <div className="w-56 border-r flex flex-col">
           <div className="p-3 border-b">
             <input
               type="text"
@@ -109,12 +109,12 @@ export const PlanStep: React.FC = () => {
         </div>
 
         {/* Center: Timeline editor */}
-        <div className="flex-1 overflow-y-auto">
+        <div className="w-72 overflow-y-auto border-r">
           <DayEditor dayIndex={currentDay - 1} />
         </div>
 
         {/* Right: Map */}
-        <div className="w-[480px] border-l">
+        <div className="flex-1 border-l min-w-0">
           <IntegratedMap allPois={allPois} hoveredPoiId={hoveredPoiId} />
         </div>
       </div>
