@@ -105,14 +105,8 @@ std::vector<Edge> loadEdges(const std::string& path, const std::vector<Poi>& poi
         edge.transitMinutes = item.value("transit_minutes", -1);
         edge.taxiMinutes = item.value("taxi_minutes", -1);
 
-        if (ids.count(edge.from) == 0) {
-            throw std::runtime_error("edge references unknown from poi: " + edge.from);
-        }
-        if (ids.count(edge.to) == 0) {
-            throw std::runtime_error("edge references unknown to poi: " + edge.to);
-        }
-        if (edgeTravelMinutes(edge) < 0) {
-            throw std::runtime_error("edge has no usable travel minutes: " + edge.from + " -> " + edge.to);
+        if (ids.count(edge.from) == 0 || ids.count(edge.to) == 0 || edgeTravelMinutes(edge) < 0) {
+            continue;  // skip edges with missing POIs or no travel time
         }
         edges.push_back(edge);
     }
