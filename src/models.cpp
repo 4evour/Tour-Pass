@@ -200,13 +200,13 @@ nlohmann::json itineraryToJson(const Itinerary& itinerary) {
     };
 }
 
-TripRequest tripRequestFromJson(const nlohmann::json& input) {
+TripRequest tripRequestFromJson(const nlohmann::json& input, const std::string& defaultCity) {
     if (!input.is_object()) {
         throw std::runtime_error("request body must be a JSON object");
     }
 
     TripRequest request;
-    request.city = input.value("city", "");
+    request.city = input.value("city", defaultCity);
     request.days = input.value("days", 1);
     request.startMinutes = parseTimeToMinutes(input.value("start_time", "09:30"));
     request.endMinutes = parseTimeToMinutes(input.value("end_time", "21:30"));

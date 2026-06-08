@@ -275,7 +275,9 @@ LlmClient::LlmClient(const std::string& configPath) {
                     httpClient_.reset();
                 }
             }
-        } catch (...) {}
+        } catch (const std::exception& ex) {
+            std::cerr << "LLM HTTP client init failed: " << ex.what() << std::endl;
+        }
     }
 }
 
@@ -383,34 +385,34 @@ std::string LlmClient::explainWithRemote(const Itinerary& itinerary) const {
     return chatCompletion(messages, 0.5);
 }
 
-LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& message, const std::vector<ChatMessage>& context) const {
+LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& message, const std::vector<ChatMessage>& context, const std::string& defaultCity) const {
     LlmParsedRequest result;
 
-    std::string systemPrompt = R"(你是一个旅行规划意图解析器。用户会用自然语言描述旅行需求，你需要从中提取结构化参数。
-
-请严格按照以下 JSON 格式输出，不要输出任何其他内容：
-{
-  "days": 3,
-  "city": "长沙",
-  "interests": ["历史文化", "美食"],
-  "must_visit": ["橘子洲头", "岳麓山"],
-  "avoid": [],
-  "pace": "标准",
-  "start_minutes": 540,
-  "end_minutes": 1260,
-  "notes": "用户提到的特殊需求"
-}
-
-字段说明：
-- days: 旅行天数（1-7），如果用户没说默认为 3
-- city: 城市名，默认"长沙"
-- interests: 兴趣标签数组，从以下选取：历史文化、美食、自然风光、博物馆、古建筑、夜景、购物、休闲、户外、室内、亲子、文艺、小吃、网红打卡
-- must_visit: 用户明确提到想去的景点名称数组
-- avoid: 用户不想去的类型或景点
-- pace: 行程节奏，"轻松"(relaxed)/"标准"(standard)/"紧凑"(compact)，默认"标准"
-- start_minutes: 每日出发时间（分钟数，如 540=9:00），默认 540
-- end_minutes: 每日结束时间（分钟数，如 1260=21:00），默认 1260
-- notes: 用户提到的任何特殊需求或约束)";
+    std::string defaultCityLabel = defaultCity.empty() ? "" : defaultCity;
+    std::string systemPrompt =
+        "你是一个旅行规划意图解析器。用户会用自然语言描述旅行需求，你需要从中提取结构化参数。\n\n"
+        "请严格按照以下 JSON 格式输出，不要输出任何其他内容：\n"
+        "{\n"
+        "  \"days\": 3,\n"
+        "  \"city\": \"\",\n"
+        "  \"interests\": [\"历史文化\", \"美食\"],\n"
+        "  \"must_visit\": [\"橘子洲头\", \"岳麓山\"],\n"
+        "  \"avoid\": [],\n"
+        "  \"pace\": \"标准\",\n"
+        "  \"start_minutes\": 540,\n"
+        "  \"end_minutes\": 1260,\n"
+        "  \"notes\": \"用户提到的特殊需求\"\n"
+        "}\n\n"
+        "字段说明：\n"
+        "- days: 旅行天数（1-7），如果用户没说默认为 3\n"
+        "- city: 城市名，如果用户未明确提到城市则留空字符串，由系统自动选择\n"
+        "- interests: 兴趣标签数组，从以下选取：历史文化、美食、自然风光、博物馆、古建筑、夜景、购物、休闲、户外、室内、亲子、文艺、小吃、网红打卡\n"
+        "- must_visit: 用户明确提到想去的景点名称数组\n"
+        "- avoid: 用户不想去的类型或景点\n"
+        "- pace: 行程节奏，\"轻松\"(relaxed)/\"标准\"(standard)/\"紧凑\"(compact)，默认\"标准\"\n"
+        "- start_minutes: 每日出发时间（分钟数，如 540=9:00），默认 540\n"
+        "- end_minutes: 每日结束时间（分钟数，如 1260=21:00），默认 1260\n"
+        "- notes: 用户提到的任何特殊需求或约束";
 
     std::vector<ChatMessage> messages = {{"system", systemPrompt}};
     for (const auto& msg : context) {
@@ -435,7 +437,7 @@ LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& messa
         auto parsed = nlohmann::json::parse(jsonStr);
 
         TripRequest req;
-        req.city = parsed.value("city", "长沙");
+        req.city = parsed.value("city", defaultCityLabel);
         req.days = parsed.value("days", 3);
         req.days = std::max(1, std::min(7, req.days));
         req.pace = parsed.value("pace", "标准");

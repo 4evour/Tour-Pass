@@ -152,11 +152,16 @@ int main() {
 
         std::string defaultCity = envDefaultCity;
         if (defaultCity.empty()) {
+            // No env override — pick first loaded city from list order
             for (const auto& entry : cityList) {
                 if (cities.count(entry.name)) {
                     defaultCity = entry.name;
                     break;
                 }
+            }
+            if (!defaultCity.empty()) {
+                std::cout << "Note: TOURPASS_DEFAULT_CITY not set, using first available city: "
+                          << defaultCity << std::endl;
             }
         }
 

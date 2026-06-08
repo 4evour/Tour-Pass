@@ -172,6 +172,6 @@ nlohmann::json comparisonMetricsToJson(const ComparisonMetrics& metrics);
 nlohmann::json dayPlanToJson(const DayPlan& day);
 nlohmann::json itineraryToJson(const Itinerary& itinerary);
 nlohmann::json routeResultToJson(const RouteResult& route);
-TripRequest tripRequestFromJson(const nlohmann::json& input);
+TripRequest tripRequestFromJson(const nlohmann::json& input, const std::string& defaultCity = "");
 
 }  // namespace tourpass

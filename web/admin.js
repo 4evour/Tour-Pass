@@ -208,7 +208,13 @@ function statusLabel(s) {
 }
 
 function escHtml(t) {
-  const d = document.createElement("div"); d.textContent = t || ""; return d.innerHTML;
+  if (t == null) return "";
+  return String(t)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 // Event delegation for dynamically rendered buttons (CSP-safe)

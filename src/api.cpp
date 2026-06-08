@@ -115,6 +115,12 @@ struct ApiContext {
 
         return nullptr;
     }
+
+    // Exact city lookup without fallback — returns nullptr if city not found
+    CityBundle* findCityExact(const std::string& city) const {
+        auto it = cities.find(city);
+        return (it != cities.end()) ? it->second : nullptr;
+    }
 };
 
 struct RequestMeta {
@@ -295,14 +301,22 @@ std::string extractJobId(const httplib::Request& req) {
 nlohmann::json planJson(ApiContext& context, const TripRequest& tripRequest) {
     auto* city = context.getCity(tripRequest.city);
     if (!city) return errorJson("CITY_NOT_FOUND", "未找到城市数据: " + tripRequest.city);
-    if (tripRequest.candidateCount > 1) {
-        nlohmann::json candidates = nlohmann::json::array();
-        for (const auto& itinerary : city->planner.planCandidates(tripRequest)) {
-            candidates.push_back(itineraryToJson(itinerary));
+    try {
+        if (tripRequest.candidateCount > 1) {
+            nlohmann::json candidates = nlohmann::json::array();
+            for (const auto& itinerary : city->planner.planCandidates(tripRequest)) {
+                candidates.push_back(itineraryToJson(itinerary));
+            }
+            return {{"city", tripRequest.city}, {"candidates", candidates}};
         }
-        return {{"city", tripRequest.city}, {"candidates", candidates}};
+        return itineraryToJson(city->planner.plan(tripRequest));
+    } catch (const std::runtime_error& ex) {
+        std::string msg = ex.what();
+        if (msg.find("\xe9\x85\x92\xe5\xba\x97") != std::string::npos) {  // contains "酒店"
+            return errorJson("NO_HOTEL", msg);
+        }
+        throw;  // re-throw other errors
     }
-    return itineraryToJson(city->planner.plan(tripRequest));
 }
 
 bool serveFromCache(ApiContext& context, httplib::Response& res, const std::string& key) {
@@ -634,7 +648,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 return;
             }
             auto body = nlohmann::json::parse(req.body);
-            TripRequest tripRequest = tripRequestFromJson(body);
+            TripRequest tripRequest = tripRequestFromJson(body, context.defaultCity);
             nlohmann::json result = planJson(context, tripRequest);
             context.cache.put(key, result);
             setJson(res, result);
@@ -647,7 +661,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     server.Post("/trip/jobs", [&](const httplib::Request& req, httplib::Response& res) {
         try {
             auto body = nlohmann::json::parse(req.body);
-            TripRequest tripRequest = tripRequestFromJson(body);
+            TripRequest tripRequest = tripRequestFromJson(body, context.defaultCity);
             std::string id = makeRequestId();
             context.jobs.submitWithId(id, tripRequest, [&, id, requestBody = req.body](const TripRequest& request) {
                 nlohmann::json result = planJson(context, request);
@@ -1184,7 +1198,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         try {
             auto body = nlohmann::json::parse(req.body);
             Itinerary itinerary;
-            itinerary.city = body.value("city", "长沙");
+            itinerary.city = body.value("city", context.defaultCity);
             if (body.contains("itinerary")) {
                 itinerary.city = body.at("itinerary").value("city", itinerary.city);
             }
@@ -1211,7 +1225,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                     itinerary.days.push_back(day);
                 }
             } else {
-                TripRequest request = tripRequestFromJson(body);
+                TripRequest request = tripRequestFromJson(body, context.defaultCity);
                 auto* city = context.getCity(request.city);
                 if (city) itinerary = city->planner.plan(request);
             }
@@ -1247,14 +1261,18 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 }
             }
 
-            LlmParsedRequest parsed = context.llm.parseNaturalLanguageRequest(message, chatHistory);
+            LlmParsedRequest parsed = context.llm.parseNaturalLanguageRequest(message, chatHistory, context.defaultCity);
             if (!parsed.parsed) {
                 setJson(res, errorJson("PARSE_FAILED", "无法理解您的旅行需求", {{"detail", parsed.parseNote}}), 422);
                 return;
             }
 
-            // Get city context
-            auto* city = context.getCity(parsed.request.city);
+            // Resolve city: use parsed city if non-empty, otherwise defaultCity
+            std::string resolvedCity = parsed.request.city.empty() ? context.defaultCity : parsed.request.city;
+            parsed.request.city = resolvedCity;
+
+            // Get city context (strict lookup — no silent fallback)
+            auto* city = context.findCityExact(resolvedCity);
             if (!city) {
                 setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市数据: " + parsed.request.city), 404);
                 return;

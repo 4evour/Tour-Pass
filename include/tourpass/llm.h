@@ -37,7 +37,7 @@ public:
     std::string explain(const Itinerary& itinerary) const;
     const LlmConfig& config() const { return config_; }
 
-    LlmParsedRequest parseNaturalLanguageRequest(const std::string& message, const std::vector<ChatMessage>& context) const;
+    LlmParsedRequest parseNaturalLanguageRequest(const std::string& message, const std::vector<ChatMessage>& context, const std::string& defaultCity) const;
     std::string generateItineraryReply(const std::string& userMessage, const TripRequest& request, const Itinerary& itinerary) const;
 
     std::string chatCompletion(const std::vector<ChatMessage>& messages, double temperature = 0.4) const;

@@ -3,6 +3,7 @@ import { DndContext, DragEndEvent, DragOverlay, DragStartEvent, closestCorners }
 import type { Poi } from './types';
 import { useItineraryStore } from './stores/itineraryStore';
 import { useRoute } from './hooks/useRoute';
+import { CITY_EMOJI_MAP, DROPDOWN_FALLBACK_CITIES } from './constants/cities';
 import HotelPicker from './components/HotelPicker';
 import MapView from './components/MapView';
 import Sidebar from './components/Sidebar';
@@ -12,42 +13,11 @@ import ConflictAlert from './components/ConflictAlert';
 import AiChat from './components/AiChat';
 import EditorToolbar from './components/EditorToolbar';
 
-const CITY_EMOJI_MAP: Record<string, string> = {
-  "武汉": "🌉", "大理": "🏔️", "丽江": "🏘️", "南京": "🏛️", "苏州": "🏡",
-  "北京": "🏯", "成都": "🐼", "重庆": "🔥", "杭州": "🌊", "西安": "🏛️",
-  "上海": "🌃", "广州": "🌺", "深圳": "💎", "厦门": "🏖️", "青岛": "🍺",
-  "桂林": "🏞️", "三亚": "🌊", "哈尔滨": "❄️", "昆明": "🌸", "张家界": "🏔️", "长沙": "🏙️",
-};
-
-const FALLBACK_CITY_OPTIONS = [
-  { value: '武汉', label: '武汉' },
-  { value: '大理', label: '大理' },
-  { value: '丽江', label: '丽江' },
-  { value: '南京', label: '南京' },
-  { value: '苏州', label: '苏州' },
-  { value: '北京', label: '北京' },
-  { value: '成都', label: '成都' },
-  { value: '重庆', label: '重庆' },
-  { value: '杭州', label: '杭州' },
-  { value: '西安', label: '西安' },
-  { value: '上海', label: '上海' },
-  { value: '广州', label: '广州' },
-  { value: '深圳', label: '深圳' },
-  { value: '厦门', label: '厦门' },
-  { value: '青岛', label: '青岛' },
-  { value: '桂林', label: '桂林' },
-  { value: '三亚', label: '三亚' },
-  { value: '哈尔滨', label: '哈尔滨' },
-  { value: '昆明', label: '昆明' },
-  { value: '张家界', label: '张家界' },
-  { value: '长沙', label: '长沙' },
-];
-
 export default function App() {
   const [pois, setPois] = useState<Poi[]>([]);
   const [currentDay, setCurrentDay] = useState(1);
   const [activePoi, setActivePoi] = useState<Poi | null>(null);
-  const [cityOptions, setCityOptions] = useState<{ value: string; label: string }[]>(FALLBACK_CITY_OPTIONS);
+  const [cityOptions, setCityOptions] = useState<{ value: string; label: string }[]>(DROPDOWN_FALLBACK_CITIES);
   const { city, defaultHotel, setCity, addStop, moveStopBetweenDays, resetEditor } = useItineraryStore();
 
   useRoute();
@@ -65,7 +35,7 @@ export default function App() {
           value: item.name,
           label: `${CITY_EMOJI_MAP[item.name] ? CITY_EMOJI_MAP[item.name] + ' ' : ''}${item.name}`,
         }));
-        setCityOptions(options.length > 0 ? options : FALLBACK_CITY_OPTIONS);
+        setCityOptions(options.length > 0 ? options : DROPDOWN_FALLBACK_CITIES);
 
         if (!city) {
           const fallbackFromApi: string = data.default || apiCities[0]?.name || '';
@@ -74,7 +44,7 @@ export default function App() {
       })
       .catch(() => {
         if (!cancelled) {
-          setCityOptions(FALLBACK_CITY_OPTIONS);
+          setCityOptions(DROPDOWN_FALLBACK_CITIES);
           if (!city) setCity('武汉');
         }
       });

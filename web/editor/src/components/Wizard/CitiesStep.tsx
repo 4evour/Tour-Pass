@@ -1,41 +1,11 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { useItineraryStore } from '../../stores/itineraryStore';
-
-const CITY_EMOJI_MAP: Record<string, string> = {
-  "武汉": "🌉", "大理": "🏔️", "丽江": "🏘️", "南京": "🏛️", "苏州": "🏡",
-  "北京": "🏯", "成都": "🐼", "重庆": "🔥", "杭州": "🌊", "西安": "🏛️",
-  "上海": "🌃", "广州": "🌺", "深圳": "💎", "厦门": "🏖️", "青岛": "🍺",
-  "桂林": "🏞️", "三亚": "🌊", "哈尔滨": "❄️", "昆明": "🌸", "张家界": "🏔️", "长沙": "🏙️",
-};
-
-const FALLBACK_CITY_OPTIONS = [
-  { name: '武汉', emoji: '🌉' },
-  { name: '大理', emoji: '🏔️' },
-  { name: '丽江', emoji: '🏘️' },
-  { name: '南京', emoji: '🏛️' },
-  { name: '苏州', emoji: '🏡' },
-  { name: '北京', emoji: '🏯' },
-  { name: '成都', emoji: '🐼' },
-  { name: '重庆', emoji: '🔥' },
-  { name: '杭州', emoji: '🌊' },
-  { name: '西安', emoji: '🏛️' },
-  { name: '上海', emoji: '🌃' },
-  { name: '广州', emoji: '🌺' },
-  { name: '深圳', emoji: '💎' },
-  { name: '厦门', emoji: '🏖️' },
-  { name: '青岛', emoji: '🍺' },
-  { name: '桂林', emoji: '🏞️' },
-  { name: '三亚', emoji: '🌊' },
-  { name: '哈尔滨', emoji: '❄️' },
-  { name: '昆明', emoji: '🌸' },
-  { name: '张家界', emoji: '🏔️' },
-  { name: '长沙', emoji: '🏙️' },
-];
+import { CITY_EMOJI_MAP, WIZARD_FALLBACK_CITIES } from '../../constants/cities';
 
 export const CitiesStep: React.FC = () => {
   const { cities, setCities, totalDays, setWizardStep } = useItineraryStore();
   const [selected, setSelected] = useState<string[]>([]);
-  const [availableCities, setAvailableCities] = useState<{ name: string; emoji: string }[]>(FALLBACK_CITY_OPTIONS);
+  const [availableCities, setAvailableCities] = useState<{ name: string; emoji: string }[]>(WIZARD_FALLBACK_CITIES);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -51,10 +21,10 @@ export const CitiesStep: React.FC = () => {
           name: city.name,
           emoji: CITY_EMOJI_MAP[city.name] || '🗺️',
         }));
-        setAvailableCities(FALLBACK_CITY_OPTIONS);
+        setAvailableCities(mapped.length > 0 ? mapped : WIZARD_FALLBACK_CITIES);
       })
       .catch(() => {
-        if (!cancelled) setAvailableCities(FALLBACK_CITY_OPTIONS);
+        if (!cancelled) setAvailableCities(WIZARD_FALLBACK_CITIES);
       })
       .finally(() => {
         if (!cancelled) setLoading(false);
