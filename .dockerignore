@@ -1,4 +1,4 @@
-.git/
+﻿.git/
 .github/
 bin/
 build/
@@ -12,6 +12,8 @@ tests/
 docs/
 .vscode/
 .idea/
+.prismo/
+.codegraph/
 *.log
 *.sqlite
 *.sqlite-shm
@@ -27,3 +29,20 @@ docs/load_test_report_local.md
 
 # Editor source (only editor-dist is needed at runtime)
 web/editor/
+
+# Test scripts
+test_*.py
+check_*.py
+quick_test.py
+htest.py
+final_test.py
+test_body.json
+start_cpp.bat
+
+# Python cache
+__pycache__/
+*.pyc
+agent/__pycache__/
+
+# ChromaDB data (generated at runtime)
+data/chromadb/

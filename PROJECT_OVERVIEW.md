@@ -1,647 +1,89 @@
-﻿
-## 安全审计与公开前清理 (2026-06-09)
-
-### 背景
-仓库即将转为公开，进行全面安全审查，清除敏感信息。
-
-### 发现与修复
-- **硬编码 API Key**：web/editor/src/core/services/hotelService.ts 中酒店服务 Key ok_9fb4... 改为从 import.meta.env.VITE_HOTEL_API_KEY 读取
-- **文档中的 Key**：docs/superpowers/specs/2026-06-04-editor-rewrite-design.md 中的 Key 替换为占位符
-- **.claude/settings.local.json**：包含高德 API Key、Render API Token，已从 git 跟踪和历史中移除
-- **.trae/ 目录**：Trae IDE 配置文件，已从 git 跟踪和历史中移除
-- **web/editor-dist/**：构建产物，已从 git 跟踪中移除
-- **临时文件**：ix_cache.js、ix_main_default_city.patch 已从 git 跟踪中移除
-
-### .gitignore 新增规则
-- .claude/、.trae/、web/editor-dist/、ix_cache.js、ix_main_default_city.patch
-
-### Git 历史清理
-- 使用 git filter-branch 清除了全部 143 个提交中的敏感文件和硬编码 Key
-- 清理后执行 git reflog expire --expire=now --all + git gc --prune=now --aggressive
-- 验证：git log -S 搜索所有泄露的 Key 均返回空结果
-
-### 未修改
-- 密钥本身未轮换（用户选择保留原密钥）
-- Git 提交中的作者邮箱 ycc20050401@qq.com 和姓名保留（用户确认无影响）
-
-## v5.5 酒店精简 + 景点扩充 + 评分优化
-
-### 变更
-- **餐饮补抓** `scripts/crawl_brand_restaurants.js`：搜索18类品牌餐饮关键词（海底捞/西贝/外婆家/星巴克/喜茶等），每品牌限5家分店，过滤低质量路边摊
-- **餐饮清洗** `scripts/clean_restaurants.js`：按品牌去重（同品牌最多3家），移除低质量关键词和低分餐饮，共移除574家
-- **交通补抓** `scripts/crawl_transit_pois.js`：搜索火车站/机场/地铁站/高铁站/汽车站5类交通枢纽，补抓801个交通POI
-- **总数据量**：21城市共15140个POI（景点7133+餐饮3997+酒店2032+交通1765+夜游213），景点:酒店比3.5:1
-- **评分分布**：修复后0分POI从174个降为0个，76%的景点评分在4.0-4.9，24%在3.0-3.9
-- **总数据量**：21城市共12747个POI（景点7133+餐饮2405+酒店2032+交通964+夜游213）
-- **最终数据**：21 城市共 4630 家酒店，其中品牌酒店 2883 家（62%）
-- 重跑完成后可再次执行 `filter_low_quality_hotels.js` 进一步清洗
-- ~~次日重跑补全~~ 已使用新 API key 完成全部城市的抓取
-- ~~再次清洗~~ 已完成全部城市的低质量酒店清洗
-- 重跑完成后可再次执行 ilter_low_quality_hotels.js 进一步清洗
-
-# Tour Pass 项目说明
-
-## v5.2 酒店列表动态跟随目的城市
-
-### 问题
-酒店列表及相关默认值多处硬编码为"长沙"，切换城市后酒店推荐仍回退到长沙数据。
-
-### 修复内容
-- **后端默认城市不再硬编码**：`src/main.cpp` 启动时读取 `TOURPASS_DEFAULT_CITY` 环境变量，未设置时取第一个成功加载的城市
-- **API 兜底改进**：`src/api.cpp` 的 `getCity()` 在 defaultCity 为空或未命中时自动选取已加载城市，避免 404
-- **移除 /itinerary/explain 硬编码**：`src/api.cpp` 该端点的 itinerary.city 默认值从 "长沙" 改为空字符串
-- **React 编辑器城市列表动态化**：`App.tsx` 和 `CitiesStep.tsx` 改为从 `/cities` API 获取可用城市列表，不再使用静态硬编码
-- **主应用移除硬编码默认值**：
-  - `web/index.html` 移除城市输入默认 "长沙" 和酒店输入默认 "7天优品酒店(长沙橘子洲五一广场地铁站店)"
-  - `web/app.js` 移除 21 城市酒店名硬编码映射（`hotelDefaults`），城市切换时清空酒店让用户从列表选取
-  - `web/app.js` 页面加载时从 `/cities` API 获取默认城市并激活对应城市卡片
-
-
-## v5.3 酒店搜索修复：坐标补全 + 地图显示 + 品牌酒店
-
-### 问题
-- `/poi/search?type=hotel&city=X` 返回的 JSON 缺少 `lat`/`lng` 等字段
-- 前端 HotelsStep 地图区域是占位 div，未使用 Leaflet
-- 长沙缺少品牌酒店数据
-- 点击"下一步"时 Leaflet 因 `Invalid LatLng object: (undefined, undefined)` 崩溃
-
-### 修复内容
-
-**后端 - searchResultToJson 补全字段**：
-- `include/tourpass/search.h` - `SearchResult` 结构体新增 `lat`, `lng`, `priceLevel`, `mealType`, `visitDurationMinutes`, `openMinutes`, `closeMinutes`, `recommendation` 字段
-- `src/search.cpp` - `SearchEngine::search()` 从 `entry.poi` 拷贝完整 POI 数据到 `SearchResult`
-- `src/search.cpp` - `searchResultToJson()` 序列化时输出所有新字段（`lat`, `lng`, `price_level`, `meal_type`, `visit_duration`, `open_minutes`, `close_minutes`, `recommendation`）
-
-**前端 - HotelsStep 地图实现**：
-- `web/editor/src/components/Wizard/HotelsStep.tsx` - 引入 `react-leaflet` 组件，替换占位 div 为真实 Leaflet 地图
-- 新增 `makeHotelIcon()` 和 `HotelMapFitBounds` 辅助组件
-- 已选酒店蓝色高亮，未选绿色，自动缩放到所有酒店范围
-
-**前端 - MapView 安全过滤**：
-- `web/editor/src/components/MapView.tsx` - 给 hotelMarkers 和 allPois markers 加 `p.lat && p.lng` 过滤，防止坐标缺失时崩溃
-
-**数据 - 长沙品牌酒店**：
-- `scripts/add_changsha_brands.js` - 为长沙添加如家、汉庭、维也纳、锦江之星、亚朵、全季、格林豪泰 7 个品牌酒店（长沙酒店总数 65→72）
-
-### 构建验证
-- C++ 后端：`cmake --build build` 成功
-- 前端：`npm run build` 成功（95 modules, 337.75 kB JS）
-
-## v5.1 双线优化：AI 提质 + 手动规划重构
-
-### 止血修复
-- **移除长沙硬编码默认值**：`web/app.js` 中 7 处 fallback 到 "长沙" 的默认值改为空字符串，避免用户选择其他城市时仍回退到长沙
-- **修复分享按钮 bug**：`web/app.js` 第 2682 行 `shareData.share_id` 改为 `data.share_id`（变量名错误导致分享链接复制失败）
-- **修复后端默认值**：`src/models.cpp` 中 `tripRequestFromJson()` 的 city 和 hotel_location 默认值从 "长沙"/"五一广场" 改为空字符串
-- **城市一致性检查**：AI 返回候选城市与请求城市不一致时，显示 toast 警告
-
-### AI 自动规划提质
-- **POI 数据清洗**：扩展 `scripts/clean_pois.js` 黑名单，新增批发市场、二手手机、经营部等 30+ 非旅游 POI 模式，同时保护夜市、美食街、民宿等旅游热点。全 21 城市清洗移除 578 个低质 POI
-- **搜索算法改进**：`src/search.cpp` 运行时黑名单同步扩展，避免低质 POI 进入 Beam Search
-- **餐饮品牌去重**：`src/planner.cpp` 新增 `extractBrand()` 函数，在 `rankedPoisForSlot()` 和 `chooseRestaurant()` 中加入品牌去重逻辑，避免茶颜悦色等连锁品牌在同方案中重复出现
-
-### 手动规划重构：接入 React 编辑器
-- **向导模式**：`web/editor/src/NewEditorApp.tsx` 改造为 6 步向导：天数 → 城市 → 跨城段 → 酒店 → 编排 → 校验
-- **多城支持**：`itineraryStore` 新增 `cities[]`、`citySegments[]`、`hotelsByCity`、`wizardStep` 等状态
-- **新类型**：`types.ts` 新增 `CitySegment`、`CityConfig`、`WizardStep` 类型
-- **向导组件**：`components/Wizard/` 目录下创建 7 个组件
-  - `WizardNav.tsx` - 步骤导航栏
-  - `DaysStep.tsx` - 天数选择
-  - `CitiesStep.tsx` - 多城市选择（支持排序）
-  - `SegmentsStep.tsx` - 跨城交通配置
-  - `HotelsStep.tsx` - 酒店选择（推荐高亮）
-  - `PlanStep.tsx` - 每日行程编排（时间线+地图）
-  - `ReviewStep.tsx` - 行程校验与保存
-
-### 后端升级
-- **Editor API city 参数**：`/editor/batch-route` 和 `/editor/ai-suggest` 改为从请求体读取 city 参数，不再默认使用 defaultCity
-
-### 主应用衔接
-- **手动规划入口**：`web/index.html` chat hero 区域新增 "✏️ 手动规划行程" 链接，跳转到 `/editor`
-
----
-
-## v4.4 安全修复与代码健壮性
-
-安全修复：
-- `pg_store.cpp` `getQueryCount()` 和 `getBonusQueries()` 从字符串拼接 SQL 改为参数化查询（`queryP()` + `$1` 占位符），消除 SQL 注入风险，与同文件其他方法保持一致
-- `pg_store.cpp` Schema v5 迁移从 `catch (...) {}` 改为仅忽略 "already exists"/"duplicate column" 错误，其他异常正常抛出，避免网络断开或权限问题被静默吞没
-- `auth.cpp` `randomHex()` 从 `std::mt19937`（非加密安全）改为 OpenSSL 下使用 `RAND_bytes()`、无 OpenSSL 时使用 `std::random_device` 直接生成，保护密码盐值、游客用户名和分享链接 ID
-- `auth.cpp` `pbkdf2Hex()` 无 OpenSSL 分支从单次 `sha256(salt + ":" + password)` 改为 10,000 轮迭代哈希，大幅提高离线暴力破解难度
-
-健壮性改进：
-- `api.cpp` `IpRateLimiter::allow()` 清理逻辑增强：在清理阶段主动过期所有 deque 中的过期时间戳后再判断是否删除条目，防止长期运行后 IP 记录无限增长
-- `api.cpp` `/auth/send-code` 端点删除未使用的 `remoteAddr` 变量和 `(void)remoteAddr` 遗留代码
-
-## v4.3 Frontend UX & Cloud Deployment
-
-前端体验优化：
-- 全局 toast 通知系统（`toast()`）替代所有 `alert()` 弹窗，支持 success/error/info 类型、4 秒自动消失和操作链接
-- `api()` 函数加固：先读取 `response.text()` 再 `JSON.parse()`，正确处理空响应体和异常格式
-- 保存按钮防抖：2 秒冷却 + 重复保存检测（`state.tripSaved`），禁用期间显示"保存中..."，失败时自动恢复
-- 登录页闪烁修复：`<body>` 初始 `visibility:hidden`，`checkAuth()` 完成后恢复可见，避免短暂闪现登录界面
-- 游客保留期提示：底部横幅"游客数据保留 7 天，注册账号可长期保存"，点击跳转邮箱注册表单
-- Profile 页空状态兜底：无保存行程时显示"还没有保存过行程"+ 规划入口
-- 分享结果内联显示：`shareMsg` 元素替代 `alert()`，成功/失败用不同颜色区分
-
-后端关键修复：
-- 分享端点 5 秒延迟根因修复：`generateShareId()` 从 `std::random_device`（阻塞读 `/dev/urandom`）改为先尝试 `urandom` 再 fallback 到 `mt19937`
-- 分享 POST 必须带 body：httplib 对无 body 的请求会读超时，前端 `shareTrip()` 现在发送 `body: JSON.stringify({})`
-- `generateNumericCode()` 阻塞修复：改为 `static thread_local mt19937 gen(std::random_device{}())`，避免每次调用重复读熵源
-- 请求体限制提升：`maxBodyBytes` 从 64KB 扩大到 256KB，支持长行程（5 天 5 候选 = 110KB+）的保存请求
-
-云端部署启用 LLM：
-- `render.yaml` 移除 `LLM_DISABLED=1`，新增 `OPENAI_API_KEY`（`sync: false` 手动配置）、`LLM_BASE_URL=https://api.deepseek.com`、`LLM_MODEL=deepseek-chat`
-- `Dockerfile` 移除 `LLM_DISABLED=1`，`TOURPASS_MAX_BODY_BYTES=262144` 与后端默认值对齐
-- 云端 binary 通过 CMake `find_package(OpenSSL)` 自动启用 HTTPS，可直接调用 DeepSeek API，无需 Python 代理
-- `TOURPASS_JWT_SECRET` 作为 Render 环境变量（`sync: false`），避免重启后 token 失效
-
-## v4.2 Security & Quality Hardening
-
-安全加固：
-- `auth.cpp` JWT 签名校验改为常量时间比较（`constantTimeEquals`），移除硬编码 JWT 密钥，启动时若 `TOURPASS_JWT_SECRET` 缺失则直接退出
-- 密码哈希算法从 SHA-256 升级为 PBKDF2-HMAC-SHA256（100k 迭代），保留对旧 64 字符 SHA-256 哈希的向后兼容验证
-- 管理员判断从 `string::find()` 子串匹配改为按 `,` 分隔精确匹配，避免 `admin` 匹配到 `notadmin`
-- `/auth/send-code` 新增邮箱级 60 秒防刷限流（`EmailRateLimiter`），避免滥用邮件发送接口
-- API Key 校验（`X-API-Key` header）改为常量时间比较
-- CORS 默认 origin 从 `*` 改为空（不发送 header），需通过 `TOURPASS_CORS_ORIGIN` 显式配置
-- `POST /trip/plan` 缓存 key 追加 `userId`，避免不同用户的个性化结果互相覆盖
-
-逻辑修正：
-- `/auth/me` 端点新增数据库可用性校验，防止 `context.store` 为 null 时空指针崩溃
-- `planner.cpp` 备选方案（alternatives）从硬编码长沙改为按 `request.city` 动态选择
-- `pg_store.cpp` `adminStats()` 字段名对齐 SQLite 后端（`active_today` → `today_active_users`，`total_planning_requests` → `total_queries`），避免前端字段不一致
-- `sqlite_store.cpp` ALTER TABLE 迁移从 `catch (...) {}` 改为仅忽略 "duplicate column" 错误，其他异常正常抛出
-
-代码清理：
-- 移除 `canCreateGuest` / `logGuestCreation` 已废弃的虚函数及两个后端的实现，`/auth/guest` 不再依赖死代码路径
-- `IpRateLimiter` 增加 IP 上限（100K）和过期清理，防止内存无限增长
-- `envSize()` 函数从 `service_runtime.cpp` 和 `graph.cpp` 的匿名命名空间提取到公共 `include/tourpass/env.h`，消除重复定义
-- `api.cpp` `context_messages` 重命名为 `chatHistory`，语义更清晰
-
-性能优化：
-- `SearchEngine` 新增 `PoiSearchIndex`：构造时预计算所有 POI 的大小写归一化字段和文档长度，每次 `search()` 查询不再重复执行 `lowerAscii()` 和文档长度计算
-
-构建 & 部署：
-- CMakeLists.txt 从全局 `include_directories()` 改为每个目标独立的 `target_include_directories()` 和 `target_compile_options()`（`-Wall -Wextra`）
-- Dockerfile 新增 `curl` 依赖并添加 `HEALTHCHECK` 指令
-
-游客系统重构（schema v5）：
-- 新增 `users.device_id` 字段及索引，支持浏览器指纹绑定
-- `/auth/guest` 重写：按 `device_id` 查找或创建游客账号，同一设备复用同一 guest 账号
-- 游客可保存行程和分享行程，移除 `GUEST_LIMITED` 限制
-- 防刷：每 IP 每天最多创建 5 个游客账号
-- 自动清理：启动时删除 7 天前的游客账号及关联数据（saved_trips → easter_egg_log → query_usage → feedback → users），外键按顺序删除
-- `DataStore` 接口新增 `findUserByDeviceId()` 和 `cleanupExpiredGuests()`，SQLite 和 PostgreSQL 后端均已实现
-
-## v4.1 CI Smoke Alignment
-
-- Windows GitHub Actions 的 `scripts/api_smoke.ps1` 现在按默认真实数据集校验 `/health`：期望 `500` 个 POI 与 `1937` 条通勤边，并检查 `data_loaded` 与 `travel_provider`；旧 `25` POI / `46` 边只作为 `data/pois_sample.json` 与 `data/edges_sample.json` 的快速样例口径保留。冒烟失败时脚本会输出不匹配字段和压缩后的 health JSON，避免只看到笼统的运行时字段错误。脚本会在独立 SQLite smoke DB 中注册临时用户并携带 Bearer token 调用受保护 API；路线冒烟从当前 `data/edges.json` 读取样本边，避免依赖旧样例 POI id；运行时容量、缓存和 DB 字段由后续 `/metrics` 冒烟覆盖。
-- Docker CI 的 `scripts/container_smoke.js` 也会先注册临时用户并携带 Bearer token 访问 `/trip/plan` 与 `/poi/search`，避免认证中间件改造后容器冒烟被 401 拦截。
-
-## v4.0 Hybrid AI Architecture
-
-- 新增 `POST /trip/chat` 自然语言行程规划端点：LLM 从用户中文输入中提取结构化 TripRequest，通过 BM25 模糊匹配 POI 名称，调用 Beam Search 生成多候选行程，再由 LLM 生成自然语言回复。这是 LLM + 传统算法 Hybrid 架构的核心端点。
-- 新增 `TravelTimeProvider` 抽象接口：支持 `local`（本地 edges.json）和 `amap`（高德实时路线 API）两种数据源，通过 `TOURPASS_TRAVEL_TIME_PROVIDER` 环境变量切换；`AmapLiveProvider` 实现 LRU 缓存和 API 失败时自动 fallback 到本地数据。
-- 新增多城市数据管理：`TOURPASS_CITY` 环境变量选择加载 `data/{city}/` 目录下的数据集；新增 `config/amap.wuhan.json` 武汉 POI 采集配置。
-- `/health` 端点新增 `travel_provider` 字段，展示当前通勤时间数据源。
-- `LlmClient` 重构：提取通用 `chatCompletion()` 方法，支持多轮对话上下文。
-- 恢复 worktree 中的面试文档（interview Q&A、简历亮点、性能报告等 13 个文件）。
-
-## v3.0 Real POI Map Demo
-
-- 默认数据集已切换为长沙 `500` 个高德 POI 与 `1937` 条通勤边；原 `25` POI 样例数据保留为 `data/pois_sample.json` 与 `data/edges_sample.json`，测试改用样例数据以保持快速稳定。
-- 规划停靠点 JSON 新增 `lat` / `lng`，`/route/shortest` 响应新增 `path_coords`，用于前端地图绘制。
-- `web/` 演示台新增 Leaflet + OpenStreetMap 地图：规划结果按每日路线绘制 marker/polyline，A* 路径查询也会绘制路径点。
-- 一批面试/报告类 `docs/*.md` 文档已从项目中删除；README 收敛为当前真实 POI 数据、地图演示和核心能力说明。
-
-## v2.9 CI Dependency Updates
-
-- 本地 `main` 已合并 GitHub 主线安全修复提交，并整合 Dependabot 的 GitHub Actions 升级分支：`actions/checkout` 升至 `v6.0.2`、`actions/setup-node` 升至 `v6.4.0`、`docker/login-action` 升至 `v4.2.0`；这些变更只影响 `.github/workflows/ci.yml` 的 CI action 版本锁定。
-
-## v2.8 Real Data Ops
-
-- 新增 `scripts/run_real_data_pipeline.js`，可一键串联高德 POI 采集、通勤边生成、数据校验和真实规模实验；默认口径沿用本机已验证的 `500 POI`、`neighbors=6`、`mode=driving`、`fallback=geo_estimated`、`min_amap_ratio=0.7`、`sizes=100,200,500`。
-- 新增 `scripts/retry_geo_edges.js`，只重试 `source=geo_estimated` 的边并输出重试报告；2026-05-22 本机重试将 `231` 条估算边中的 `202` 条转为高德来源，使高德边比例从 `88.1%` 提升到 `98.5%`。
-- 新增 `scripts/real_data_smoke.js`，用于验证真实数据服务的 `/health.distance_cache` 字段、POI/edge 数、高德边比例、`/trip/plan` 和 `/poi/search`。
-- 新增 `docs/real_data_ops.md` 与 `docs/real_data_retry_report.md` 作为干净的命令和结果引用；完整高德产物、原始响应和 API key 仍只保存在被忽略的 `output/` 路径，不得提交。
-- `TOURPASS_MAX_IN_FLIGHT` 默认由运行时环境推导为 worker 数的 4 倍；手动构造 `RuntimeConfig` 时 `maxInFlightRequests=0` 表示不启用额外 in-flight 限流，避免默认结构体误拒首个请求。
+﻿# PROJECT_OVERVIEW
 
 ## 项目目标
-
-Tour Pass 是一个 C++17 城市自由行行程规划算法服务作品集项目。MVP 使用长沙本地样例数据，将景点、餐厅、酒店和夜间活动点建模为 POI 图，通过最短路、兴趣评分、评分拆解、时间窗调度、餐饮插入、文本检索和 LLM/模板解释生成多日旅游计划。当前优先面向简历和面试展示，强调候选方案对比、约束解释、通勤优化和离线可演示性；对外表达时必须说明样例数据、本地基准和演示服务边界。
+- 提供面向城市自由行的行程规划服务，支持自然语言和结构化请求两种入口。
+- 生成多候选、多日行程，并展示可解释的评分、通勤、时间窗与多样性指标。
+- 以算法可复现、可压测、可演示为核心定位，兼顾 LLM 增强回复但不依赖其作为规划主路径。
 
 ## 技术栈
-
-- 语言：C++17
-- 构建：Makefile + MinGW `g++` + `mingw32-make`
-- CMake：已提供 `CMakeLists.txt`，本机使用 MinGW generator 验证通过；检测到 OpenSSL 时自动启用 HTTPS LLM 调用
-- Docker：提供多阶段 `Dockerfile`，Linux 容器内 CMake Release 构建并运行 `tourpass`；容器默认 `HOST=0.0.0.0`、`PORT=8080`、`LLM_DISABLED=1`
-- HTTP：`cpp-httplib` 单头文件，位于 `third_party/httplib.h`，用于本地演示服务和 LLM client 复用；Windows Makefile 构建在未启用 OpenSSL 时通过系统 WinHTTP 兜底发起 HTTPS LLM 请求。它适合轻量嵌入和面试演示，不按生产级 C++ Web 框架包装。
-- 服务运行时：基于 `cpp-httplib` 线程池、中间件 hook、进程内 LRU/TTL 缓存、JSON 指标、异步规划任务仓库、in-flight 背压和 SQLite 持久化实现单机生产化雏形演示；HTTP 层仅按本地演示服务表达，不包装为生产级 C++ Web 框架经验
-- JSON：`nlohmann/json` 单头文件，位于 `third_party/json.hpp`
-- 数据：本地 JSON 文件，`data/pois.json` 和 `data/edges.json`；默认长沙真实数据为 `500` 个 POI 节点、`1937` 条通勤边，旧 `25` POI / `46` 边样例保留在 `data/pois_sample.json` 与 `data/edges_sample.json`
-- 测试：轻量 C++ 测试运行器，命令为 `mingw32-make test`；CMake 可选启用 GoogleTest 目标
-- 前端验证：本地 npm 开发依赖 `playwright`；`npm.cmd run verify:ui -- http://127.0.0.1:8080/` 可在服务启动后运行 UI 冒烟验证，脚本会优先使用 Playwright 浏览器，缺失时自动尝试本机 Chrome/Edge
+- **后端**：C++17，基于 cpp-httplib 提供 REST API。
+- **数据与存储**：
+lohmann/json、sqlite3、可选 PostgreSQL；城市数据以 data/ 下 JSON 为主。
+- **规划算法**：Dijkstra / A* 最短路、Beam Search 多日时间槽规划、BM25 检索、Pareto 多目标排序。
+- **LLM 集成**：兼容 OpenAI/DeepSeek 风格 Chat Completions，默认支持 config/llm.local.json 或环境变量注入。
+- **前端**：Leaflet + 原生 JS 主应用；另有 web/editor 的 React/Vite/Tailwind 行程编辑器。
+- **工程化**：MinGW Make 与 CMake 双构建、Docker 多阶段镜像、GitHub Actions CI、Render 部署草案。
 
 ## 目录结构
-
-- `include/tourpass/`：公共头文件和模块接口
-- `src/`：服务端、算法、数据加载、检索和 LLM 实现
-- `data/`：长沙 POI 与通勤边样例数据
-- `tests/`：核心行为测试
-- `third_party/`：第三方单头文件依赖
-- `config/`：LLM 配置示例，真实本地配置不提交
-- `docs/`：简历表达、API、架构、算法说明和项目说明材料
-- `docs/project_explainer_for_interview.md`：面向面试复习的项目解释文档，串联业务目标、技术结构、核心算法、接口链路和可讲亮点。
-- `docs/interview_questions_answers.md`：面试高频问题与标准答案，覆盖项目介绍、算法取舍、工程质量、局限与迭代方向。
-- `scripts/`：本地演示和 API 冒烟验证脚本
-- `web/`：本地静态演示页面，由 C++ 服务直接托管
-
-## 运行与测试
-
-- 构建：`mingw32-make build`
-- 运行：`mingw32-make run`
-- 测试：`mingw32-make test`
-- 数据校验：`mingw32-make validate-data` 或 `node scripts/validate_data.js`
-- UI 验证：服务启动后执行 `npm.cmd run verify:ui -- http://127.0.0.1:8080/`
-- 清理：`mingw32-make clean`
-
-默认监听 `127.0.0.1:8080`，可通过环境变量 `PORT` 修改端口。
-演示页面地址为 `http://127.0.0.1:8080/`。
+- src/：后端核心实现（API、规划、检索、图、LLM、存储、运行时）。
+- include/tourpass/：核心头文件与数据模型。
+- 	hird_party/：内置第三方依赖（httplib、json、sqlite3）。
+- web/：前端页面、分享渲染、管理后台与编辑器。
+- data/：城市 POI、通勤边数据；config/：AMap 与 LLM 配置模板。
+- scripts/：数据采集、清洗、校验、压测与冒烟脚本。
+- 	ests/：C++ 测试与关键 Node 测试脚本。
+- docs/：OpenAPI、部署说明与样例请求。
 
 ## 核心流程
-
-1. 启动时加载 `data/pois.json` 与 `data/edges.json`。
-2. 建立 POI 图，并在启动期预计算 POI 两两最短通勤缓存；`shortestMinutes()` 供规划热路径 O(1) 读取，`/route/shortest` 仍保留 Dijkstra/A* 路径查询能力。
-3. `/trip/plan` 根据用户兴趣、必去点、节奏和时间窗生成多日行程；日内路线使用 Beam Search 在固定时间槽保留 Top-K 局部状态，进入完整评分前先按类型、时间窗、策略标签和必去点裁剪候选池；`candidate_count` 大于 1 时生成轻松少走路、紧凑多覆盖、文化优先、美食优先、雨天室内等候选策略方案。
-4. `/poi/search` 使用轻量 BM25、字段权重和热度加权检索 POI 描述和标签，并返回匹配词与排序解释。
-5. `/route/shortest` 使用 Dijkstra 或 A* 返回 POI 间最短通勤路径。
-6. `/trip/alternatives` 按下雨、闭馆、太累、预算降低等场景召回替换方案。
-7. `/itinerary/explain` 使用内置 `cpp-httplib` client 调用 OpenAI/DeepSeek 兼容接口，失败或无密钥时返回本地中文模板。
-8. `web/` 演示台按规划概览、候选对比、路线明细、算法解释和工具箱分阶段展示；覆盖偏好输入、候选方案概览、路线与时间轴可视化、候选对比指标、候选多样性指标、Pareto 非支配层级、Beam Search 调试轨迹、BM25 排序贡献、站点评分拆解、严格时间窗复核、每日 KPI、约束命中、未安排原因、路径查询、替换方案和自然语言说明。
+1. 用户请求进入 /trip/plan、/trip/chat 或异步 /trip/jobs。
+2. 后端按城市查找对应 CityBundle，其中包含 PoiGraph、TripPlanner、SearchEngine。
+3. /trip/chat 使用 LLM 解析意图，再通过 BM25 匹配 POI；结构化请求直接进入规划。
+4. 规划主路径采用 Beam Search，在上午/午餐/下午/晚餐/晚间时间槽中搜索可行状态序列。
+5. 生成多个候选方案后，进行 Pareto 分层与多样性度量，并可由 LLM 补充自然语言解释。
+6. 前端读取候选方案、路线与算法调试信息，并在 Leaflet 地图上渲染路径和站点详情。
 
 ## 关键约定
+- 敏感配置通过环境变量或 config/llm.local.json 注入，代码内不硬编码密钥。
+- API Key 校验采用常量时间比较；密码哈希使用 PBKDF2。
+- 所有 SQL 参数化；演示数据不等同真实地图、实时闭馆或生产 SLA。
+- 线上 Demo 声明需与实际部署证据一致，避免把草案配置误作已上线服务。
 
-- GitHub 仓库地址：`https://github.com/4evour/Tour-Pass`。
-- LLM 默认读取 `config/llm.local.json`；本地配置存在密钥时不会被单独残留的 `OPENAI_API_KEY` 覆盖，只有未配置本地密钥或显式设置 `LLM_BASE_URL` / `LLM_MODEL` 切换提供商时，环境变量才会覆盖。
-- `LLM_DISABLED=1` 可在面试或离线演示时强制禁用远程 LLM，使用本地中文模板兜底。
-- `TOURPASS_WORKERS`、`TOURPASS_MAX_QUEUE`、`TOURPASS_MAX_BODY_BYTES`、`TOURPASS_CACHE_ENTRIES`、`TOURPASS_CACHE_TTL_SECONDS`、`TOURPASS_MAX_TRIP_JOBS` 和 `TOURPASS_JOB_WORKERS` 可调整 HTTP 线程池、队列、请求体限制、缓存和异步任务容量。
-- `TOURPASS_MAX_IN_FLIGHT` 控制进行中请求背压；`TOURPASS_DB_PATH` 控制 SQLite 路径，默认 `storage/tourpass.sqlite`；`TOURPASS_DB_DISABLED=1` 可禁用 SQLite 退回纯内存模式。
-- `TOURPASS_POIS_PATH` 和 `TOURPASS_EDGES_PATH` 可覆盖默认 `data/` 样例路径，用于 synthetic POI 规模实验或高德真实 POI 临时数据集。
-- 启动时 `src/main.cpp` 按固定顺序加载 `data/{city}` 目录（其中 `changsha` 仍复用根 `data/pois.json` 与 `data/edges.json`），并通过 `TOURPASS_DEFAULT_CITY` 指定默认城市；未设置时自动取第一个成功加载的城市，不再固定回退到“长沙”。
-- `TOURPASS_DISTANCE_CACHE_MODE=auto|all_pairs|on_demand|disabled` 控制 POI 最短路缓存策略；`TOURPASS_DISTANCE_CACHE_MAX_POIS` 控制 `auto` 模式全量缓存阈值，默认 `500`，使 200 级真实 POI 优先使用简单全量缓存；`TOURPASS_DISTANCE_CACHE_ENTRIES` 控制超阈值按需 LRU 缓存容量。
-- `TOURPASS_BEAM_WIDTH` 和 `TOURPASS_BRANCH_FACTOR` 控制 Beam Search 保留状态数和每槽候选分支数，默认保持 `5` / `6`。
-- `scripts/import_real_pois.js` 可将 CSV/JSON 形式的真实 POI 清单标准化为项目 `pois.json`，并按地理距离生成近邻通勤边；`scripts/validate_data.js --pois <path> --edges <path>` 可校验导入后的临时数据集。
-- `scripts/fetch_amap_pois.js` 可通过高德 Web 服务按配置分页采集长沙真实 POI，依赖本地 `AMAP_API_KEY`，支持 `--min-pois 200` 门禁，并输出 `pois.json`、manifest、类型/区域/重复/失败页统计和采集报告；`scripts/build_commute_edges.js` 为 POI 近邻生成通勤边，支持高德距离/路径优先、`--fallback fail|geo_estimated`、`--min-amap-ratio`、`--mode driving|walking|mixed` 和 `--batch-size`，edge 会标记 `source`、`provider`、`mode`、`duration_seconds` 与 `amap_status`。
-- `scripts/algorithm_quality_check.js` 用 8-10 个候选 POI 子集的精确枚举基线、贪心 baseline 与 Beam Search 同口径对照，报告写入 `docs/algorithm_quality_report.md`。
-- `docs/real_data_runbook.md` 记录从 `AMAP_API_KEY` 到 `200+`/`500` POI、真实通勤边、数据校验和真实规模实验的命令链；`docs/real_data_report.md` 记录 2026-05-22 本机聚合结果：`500 POI / 1937 edges`、`amap=1706`、`geo_estimated=231`、高德边比例 `88.1%`、500 POI scale p95 约 `128.9 ms`；`docs/demo_recording_checklist.md` 记录 Docker/报告/接口的 3 分钟演示录屏脚本。
-- GitHub Actions 工作流 `.github/workflows/ci.yml` 在 Ubuntu/Windows 上运行数据验证、CMake 构建和 CTest，并在 Windows 上执行 `scripts/api_smoke.ps1`；Docker job 会构建镜像、启动容器、运行 `scripts/container_smoke.js`，main push 可推送 GHCR 镜像。
-- OpenAPI/Swagger 规范位于 `docs/openapi.yaml`；部署指南位于 `docs/deployment.md`；通用 HTTP 压测脚本为 `scripts/load_test.js`，报告写入 `docs/load_test_report.md`；`scripts/run_hey.ps1` 可在本机已安装 `hey` 时运行标准工具压测口径。
-- 本地配置文件为 `config/llm.local.json`，不得提交真实密钥。
-- 统一 API 错误格式为 `{ "error": { "code", "message", "details" } }`。
-- MVP 不接真实地图 API，通勤时间全部来自 `edges.json`。
-- 样例数据更新后应运行 `scripts/validate_data.js`；校验覆盖 POI 字段、坐标、时间窗、类型覆盖、边引用、边权合法性和图连通性。
-- 规划结果解释优先复用既有响应字段，并向 `/trip/plan` 响应补充 `strategy`、`comparison`、`comparison.pareto_debug`、`comparison.diversity_*`、`days[].beam_trace`、`days[].time_window_*`、`stops[].time_window_*` 和 `stops[].score_breakdown`；不额外引入破坏性路由结构。
+## 运行与测试
+- **本地构建**：mingw32-make build、mingw32-make run
+- **CMake 构建**：cmake -S . -B build、cmake --build build
+- **测试**：mingw32-make test 或 CMake 下 ctest --test-dir build
+- **数据校验**：mingw32-make validate-data
+- **容器冒烟**：
+ode scripts/container_smoke.js http://127.0.0.1:8080
+- **基准测试**：
+ode scripts/benchmark.js ...
 
 ## 已知风险
-
-- Makefile 默认链接 `winhttp`，Windows 本地演示可在无 OpenSSL 时调用 DeepSeek/OpenAI 兼容 HTTPS LLM；CMake 检测到 OpenSSL 时仍使用 `cpp-httplib` HTTPS 支持。
-- 样例数据为演示级人工整理数据，不代表实时营业、拥堵或闭馆状态。
-- `docs/performance_report.md` 的性能数据来自本地样例和 `LLM_DISABLED=1`，适合说明回归检查；必须区分冷缓存、热缓存、绕过缓存、梯度并发、P95/P99、吞吐量和错误率，不应表述为生产压测结果。
-- `docs/scale_experiment_report.md` 的 synthetic 规模实验用于暴露趋势和瓶颈；当前报告覆盖 `25,100,200` POI、`LLM_DISABLED=1`，报告 avg/p95/p99/max、失败数、最短路缓存 entries 和边来源比例。该口径只能说明本地算法热路径趋势，不代表真实地图、真实交通或生产压测。
-- 真实 POI 导入脚本生成的是近邻估算通勤边，不等价于真实地图路网；面试表达中应说它解决“真实 POI 数据进入项目格式”的工程入口，真实通勤仍需地图 API 或人工校准。
-- 最短路缓存为 `O(POI^2)` entries，适合当前 synthetic 规模和本地演示；若扩展到几万 POI，应改为热点缓存、区域分层图或按需缓存，不能无脑全量预计算。
-- v2.6+ 已将最短路缓存改为可配置策略：`500` POI 以内默认全量缓存，超过阈值才使用按需 LRU；`/health.distance_cache` 会暴露 mode、entries、startup_ms、hits、misses 和 evictions。面试表达应强调几百点规模优先简单方案，LRU 是超阈值保护策略。
-- 高德真实 POI 采集需要用户本地提供 `AMAP_API_KEY`，不得提交密钥或原始响应；2026-05-22 本机真实数据用 `fallback=geo_estimated` 生成可运行连通图，需明确披露 `geo_estimated` 占比，不能表达为完整真实地图路网。强门禁 `--fallback fail --min-amap-ratio 0.8` 可用于拒绝低覆盖数据。
-- `cpp-httplib` 用于降低依赖和方便本地复现；如果后续生产化，应评估 Drogon、Pistache、Boost.Beast 或 Go/Java 服务框架，并补充更完整的连接治理、观测和部署方案。
-- SQLite 用于规划请求、异步任务、benchmark 和数据版本持久化；规划热路径仍使用内存图，不能表述为数据库支撑高并发。
-- Docker 镜像、OpenAPI、部署指南和压测报告用于说明工程完备性；压测报告必须记录 `LLM_DISABLED`、worker、队列、in-flight、DB 和缓存口径，仍不能把当前项目包装成已上线生产平台、生产 SLA 或已有线上 Demo。
-- Makefile 默认使用轻量测试运行器；CMake 可选启用 GoogleTest 目标。
-- CMake 可通过 `-DTOURPASS_USE_GTEST=ON` 构建 GoogleTest 测试；当前已验证默认 CTest 目标。
-- Windows PowerShell 直接内联中文 JSON 容易出现编码问题，文档示例统一使用 `--data-binary @docs/sample_trip_request.json`。
-- v0.2 增加 `candidate_count` 候选行程、`/route/shortest` 路径查询和 `/trip/alternatives` 场景替换接口。
-- v0.3 增加 `web/` 本地演示台，包含偏好输入、候选行程展示、路径查询、替换方案和行程解释。
-- v0.4 增加日内局部交换优化、优化摘要、约束解释、未安排原因和 CMake 构建配置。
-- v0.5 跑通 CMake + GoogleTest，新增 API 文档和一键演示脚本。
-- v0.6 增强面试展示链路：候选方案差异说明、站点级决策依据、算法/约束解释文案、Web 候选概览、演示状态提示和 `LLM_DISABLED` 模板演示开关。
-- v0.7 增加候选方案对比指标和站点评分拆解，Web 演示台可直接展示方案取舍和分数来源。
-- v0.8 增加真实候选策略权重：轻松少走路、紧凑多覆盖、文化优先、美食优先和雨天室内会通过不同评分组件影响 POI 选择与解释；候选演示样例默认请求 5 个方案。
-- v0.9 增加候选方案 Pareto 非支配排序，在 `comparison` 中输出 `pareto_rank`、`dominated` 和 `tradeoff_summary`，用于解释评分、通勤、风险和必去覆盖之间的多目标取舍。
-- v1.0 将日内规划升级为 Beam Search Top-K 状态搜索，替换 LLM `curl.exe` 子进程为内置 HTTP client，并新增 GitHub Actions 跨平台 CMake/CTest 与 Windows API 冒烟验证。
-- v1.1 将候选排序改为标准 Pareto 非支配分层，检索升级为 BM25 + 字段权重，新增 `scripts/validate_data.js` 数据质量门禁和 `docs/architecture.md` 架构说明。
-- v1.2 增加 Web 路线带与每日时间轴可视化，新增 `scripts/benchmark.js` 性能基准脚本和 `docs/performance_report.md` 基准报告。
-- v1.3 增强数据质量门禁，新增本地 `validate-data` 目标，并补充 `docs/algorithm.md` 说明 Dijkstra/A*、Beam Search、评分拆解、Pareto 非支配排序和 BM25 检索。
-- v1.4 增加算法可视化/调试输出：`days[].beam_trace`、`comparison.pareto_debug` 和 `/poi/search` 的 `score_contributions`，Web 演示台展示 Beam Search 保留状态、Pareto 分层依据和 BM25 排序贡献。
-- v1.5 增加候选多样性指标：相对基线方案计算 POI 重合率、区域重合率、独有 POI、差异标签和多样性摘要，Web 演示台展示候选是否真正不同。
-- v1.6 增加严格时间窗可行性复核：最终顺序统一检查站点顺序、开放时间、餐饮窗口和当日结束时间；理论通勤优化只有在交换顺序仍可行时才计入收益。
-- v1.7 优化 Web 演示台信息架构：新增阶段导航，将首页默认收束为规划概览，并把候选对比、路线明细、算法解释和路径/检索/替换/LLM 工具拆到独立演示视图。
-- v1.8 补充面试复习材料：新增项目解释文档和面试高频问答文档，用于将架构、算法、API、工程质量与项目边界转化为可讲述的面试表达。
-- v1.9 增加后端工程运行时：请求 ID/耗时/安全头/异常兜底中间件、显式线程池、热点缓存、`/trip/jobs` 异步规划任务、`/metrics` JSON 指标、并发 benchmark 和增强 API 冒烟验证。
-- v2.0 简历可信度表达调整：项目定位统一为 C++ 算法服务作品集，强调长沙样例 POI、本地演示 HTTP 服务、可解释规划链路和本地基准口径；简历中避免把短周期迭代、`cpp-httplib` 和缓存命中率包装成生产级服务经验。
-- v2.1 增加可信性能与规模实验能力：`/health` 输出边数，异步任务改为可配置 worker pool，`/metrics` 输出任务排队/执行耗时，benchmark 支持持续时长、梯度并发、缓存绕过、吞吐量、错误率和 P99，新增 synthetic POI 数据生成脚本。
-- v2.2 增加单机生产化雏形：vendored SQLite 3.53.1、规划/任务/benchmark/数据版本持久化、in-flight 背压、`QUEUE_FULL`、`/history/jobs` 和 benchmark `--record-db`。
-- v2.3 增强技术含量与可信规模表达：`PoiGraph` 启动期预计算两两最短通勤缓存，`/health.distance_cache` 暴露缓存规模；Beam Search 评分前增加候选池粗筛并复用评分/通勤结果；`scripts/scale_experiment.js` 默认运行 25/100/500 POI synthetic 实验并记录真实失败数，简历表达收敛到可解释规划、热路径优化和可复现实验。
-- v2.4 增加真实 POI 导入入口：新增 `scripts/import_real_pois.js` 支持 CSV/JSON POI 清单导入、字段标准化、默认标签/时间兜底和近邻通勤边生成；`validate_data.js` 支持 `--pois` / `--edges` 校验非默认数据集，并新增导入脚本测试。
-- v2.5 增加工程完备性交付闭环：新增 Dockerfile/.dockerignore、容器冒烟脚本、GitHub Actions Docker 构建与 GHCR 推送路径、OpenAPI 规范、部署指南和通用 HTTP 压测脚本/报告；服务支持 `HOST`/`TOURPASS_HOST` 配置以适配容器端口映射。
-- v2.6 增加真实规模与可信性能改造：新增高德 POI 采集脚本、通勤边生成脚本、真实数据流水线文档、边来源校验、可配置最短路缓存、Beam Search 参数环境变量、小规模算法质量报告、真实/合成 scale experiment 口径和 Render 部署草案。
-- v2.7 增加可信数据与演示证据二次优化：真实 POI 已在本机跑通 `500` 个，POI 采集新增最小数量、区域、重复和失败页统计，通勤边生成新增高德来源比例门禁、fallback fail、mode/batch 参数、连通分量桥接和 edge 元数据；缓存默认阈值改为 `500`，算法质量报告新增贪心 baseline，同步补充真实数据 runbook、真实数据聚合报告和 3 分钟录屏清单。
-
-## v4.5 Editor Command Pattern Infrastructure
-
-- `web/editor/src/core/commands/Command.ts`: 新增 `Command` 接口（`type`/`description`/`execute()`/`undo()`）和 `CommandHistory` 类，支持撤销/重做栈、执行时清空 redo 栈、描述查询和清空操作
-- `web/editor/src/core/commands/index.ts`: 统一导出，类型导出使用 `export type` 以兼容 `isolatedModules`
-## v4.5 编辑器完全重写 - 命令模式与UX优化
-
-### 核心架构升级
-
-**命令模式（Command Pattern）**：
-- 所有编辑操作封装为可撤销的命令对象
-- 支持 Ctrl+Z / Ctrl+Y 键盘快捷键
-- 命令历史管理：撤销栈和重做栈
-
-**新增命令类型**：
-- `AddStopCommand` - 添加POI到行程
-- `RemoveStopCommand` - 删除POI
-- `ReorderCommand` - 重排序POI
-- `MoveBetweenDaysCommand` - 跨天移动POI
-- `UpdateTimeCommand` - 更新时间
-
-### 状态管理重构
-
-**新增 Store**：
-- `historyStore` - 命令历史管理（撤销/重做）
-- `editorStore` - 编辑器状态（单天编辑模式、修改追踪）
-
-**编辑模式**：
-- 全局模式：查看整个行程
-- 单天模式：编辑某一天的行程
-- 编辑时地图只显示当天路线
-
-### 合理性检查
-
-**验证规则**：
-- 时间冲突检测：相邻POI时间是否重叠
-- 通勤时间检查：是否有足够时间到达下一个景点
-- 总耗时检查：行程是否过紧（>12小时警告）
-
-**UI 组件**：
-- `ValidationPanel` - 显示验证结果
-- 错误和警告分级显示
-
-### 酒店推荐系统
-
-**TripAdvisor API 集成**：
-- 搜索城市酒店
-- 获取酒店详情
-- 按价格区间筛选（经济/舒适/豪华）
-
-**UI 组件**：
-- `HotelRecommend` - 酒店推荐列表
-- `HotelManager` - 酒店管理面板
-
-### 新增组件
-
-```
-web/editor/src/
-├── core/
-│   ├── commands/          # 命令模式实现
-│   ├── validation/        # 合理性检查规则
-│   └── services/          # 外部服务（TripAdvisor API）
-├── stores/
-│   ├── historyStore.ts    # 命令历史管理
-│   └── editorStore.ts     # 编辑器状态
-├── components/
-│   ├── Shared/UndoRedoToolbar.tsx
-│   ├── Validation/ValidationPanel.tsx
-│   ├── Hotel/HotelRecommend.tsx
-│   ├── Hotel/HotelManager.tsx
-│   ├── Layout/EditorLayout.tsx
-│   ├── Editor/DayEditor.tsx
-│   └── Map/IntegratedMap.tsx
-└── hooks/
-    ├── useMapSync.ts      # 地图同步
-    ├── useValidation.ts   # 合理性检查
-    └── useKeyboardShortcuts.ts  # 键盘快捷键
-```
-
-### 解决的用户痛点
-
-1. ? **编辑时跳转全部行程** → 单天编辑模式
-2. ? **误操作无法恢复** → 命令模式撤销/重做
-3. ? **编辑时看不到路线变化** → 地图实时联动
-4. ? **修改后没有提示** → 合理性检查
-5. ? **无法准确选择酒店** → 酒店推荐系统
-
-### 技术栈
-
-- React 18 + TypeScript
-- Zustand 状态管理
-- TripAdvisor Scraper API
-- Leaflet 地图
-
-## v4.6 交互体验优化
-
-### 完成的功能
-
-#### 1. 跨天拖拽 UI
-- `MultiDayTimeline` 组件：支持跨天拖拽景点
-- `SortableStop` 组件：可拖拽的景点卡片
-- 使用 @dnd-kit 实现拖拽功能
-
-#### 2. POI 名称显示
-- `POIMarker` 组件：地图上显示序号和名称
-- 当前天景点显示完整名称，其他天显示序号
-- 点击显示详细信息弹窗
-
-#### 3. 路线渲染
-- `RouteRenderer` 组件：渲染路线
-- 支持多天不同颜色
-- 当前天路线高亮显示
-
-#### 4. 时间轴组件
-- `TimelineView` 组件：垂直时间轴展示
-- 显示到达时间、离开时间、游览时长
-- 显示通勤时间提示
-
-#### 5. 编辑历史面板
-- `HistoryPanel` 组件：显示编辑历史
-- 支持撤销/重做操作
-- 显示操作描述
-
-### 新增文件
-
-```
-web/editor/src/components/
-├── Editor/
-│   ├── MultiDayTimeline.tsx    # 跨天拖拽
-│   ├── SortableStop.tsx        # 可拖拽景点
-│   ├── TimelineView.tsx        # 时间轴
-│   └── HistoryPanel.tsx        # 历史面板
-└── Map/
-    ├── POIMarker.tsx            # POI标记
-    └── RouteRenderer.tsx        # 路线渲染
-```
-
-### 解决的用户痛点
-
-1. ? **跨天拖拽** - 支持将景点拖到其他天
-2. ? **POI 名称显示** - 地图上显示景点名称
-3. ? **时间轴视图** - 直观展示行程安排
-4. ? **编辑历史** - 查看和回退编辑操作
-
-## v4.7 酒店系统完善
-
-### 完成的功能
-
-#### 1. 酒店锚点逻辑
-- `HotelAnchorService` 服务：酒店锚点计算
-- `HotelAnchorManager` 组件：酒店锚点管理
-- 支持全局默认酒店和单日覆盖
-- 自动计算酒店 → 景点 → ... → 酒店路线
-
-#### 2. 酒店详情展示
-- `HotelDetailCard` 组件：酒店详情卡片
-- 显示图片、评分、价格、设施
-- 支持选择酒店
-
-#### 3. 入住区域推荐
-- `AreaRecommender` 组件：区域推荐
-- 基于景点分布推荐入住区域
-- 显示推荐分数和理由
-
-### 新增文件
-
-```
-web/editor/src/
-├── core/services/
-│   └── hotelAnchorService.ts    # 酒店锚点服务
-└── components/Hotel/
-    ├── HotelAnchorManager.tsx    # 酒店锚点管理
-    ├── HotelDetailCard.tsx       # 酒店详情
-    └── AreaRecommender.tsx       # 区域推荐
-```
-
-### 解决的用户痛点
-
-1. ? **酒店锚点** - 每天从酒店出发并返回酒店
-2. ? **酒店详情** - 查看酒店详细信息
-3. ? **区域推荐** - 智能推荐入住区域
-
-## v4.8 数据可视化与导出
-
-### 完成的功能
-
-#### 1. 行程评分可视化
-- `ScoreBreakdown` 组件：多维度评分展示
-- 景点热度、行程多样性、时间效率、区域覆盖
-
-#### 2. 预算追踪
-- `BudgetTracker` 组件：费用记录和统计
-- 分类统计：景点、餐饮、住宿、娱乐、交通
-
-#### 3. PDF 导出
-- `PDFExporter` 组件：生成可打印的行程单
-- 包含酒店、景点、时间信息
-
-#### 4. 分享功能
-- `SharePanel` 组件：生成分享链接
-- 支持微信、Twitter 分享
-
----
-
-## v4.9 协作与分享
-
-### 完成的功能
-
-#### 1. 协作者管理
-- `CollaboratorManager` 组件：邀请和管理协作者
-- 支持编辑者、查看者角色
-
-#### 2. 评论系统
-- `CommentSystem` 组件：行程评论
-- 支持添加、删除评论
-
-#### 3. 版本管理
-- `VersionManager` 组件：保存和恢复版本
-- 支持版本描述
-
----
-
-## v5.0 移动端适配与性能优化
-
-### 完成的功能
-
-#### 1. 响应式布局
-- `MobileNav` 组件：移动端底部导航
-- `useResponsive` Hook：响应式检测
-
-#### 2. 暗色模式
-- `useTheme` Hook：主题切换
-- 支持跟随系统设置
-
-#### 3. PWA 支持
-- Service Worker：离线缓存
-- PWA Manifest：可安装为 App
-
-### 新增文件
-
-```
-web/editor/src/
-├── components/
-│   ├── Analytics/
-│   │   ├── ScoreBreakdown.tsx    # 评分可视化
-│   │   ├── BudgetTracker.tsx     # 预算追踪
-│   │   ├── PDFExporter.tsx       # PDF 导出
-│   │   └── SharePanel.tsx        # 分享功能
-│   ├── Collaboration/
-│   │   ├── CollaboratorManager.tsx  # 协作者管理
-│   │   ├── CommentSystem.tsx        # 评论系统
-│   │   └── VersionManager.tsx       # 版本管理
-│   └── Mobile/
-│       └── MobileNav.tsx          # 移动端导航
-├── hooks/
-│   ├── useResponsive.ts          # 响应式 Hook
-│   └── useTheme.ts               # 暗色模式 Hook
-└── utils/
-    └── pwa.ts                    # PWA 工具
-
-web/public/
-├── sw.js                         # Service Worker
-└── manifest.json                 # PWA Manifest
-```
-
-
-
-
-## v5.4 全面移除长沙硬编码 + 地图交互优化
-
-### 问题
-- 酒店列表硬编码长沙，切换城市后仍显示长沙酒店
-- 地图酒店名称标签白色不可见
-- 地图上无法点击选择酒店
-- Invalid LatLng 崩溃
-- 推荐景点数量太少
-
-### 修复
-- HotelsStep: 动态城市+点击选择+可见标签+全宽地图
-- MapView: 深色标签+lat/lng安全
-- useMapSync: 移除长沙坐标
-- PlanStep: POI 50->100, 更宽侧边栏和地图
-
-## 最近更新 (2026-06-05)
-
-### v4.3+ UTF-8 编码损坏修复
-- **提交**: e0eee16 (1 file, +198/-199 lines)
-- **部署**: Render 自动部署 (push to main 触发)
-- **问题**: commit 7865d68 引入了严重的 UTF-8 编码损坏（283 处 U+FFFD 替换），导致 web/app.js 出现语法错误，页面因 ody style=visibility:hidden 无法显示
-- **修复**: 从 commit 2bc8453（最后一个干净版本）恢复 pp.js，手动重新应用 6 处功能性变更
-- **额外修复**: handleRoute() 中 hash 变量在声明前使用导致的 TDZ（Temporal Dead Zone）错误
-- **注意**: 后续提交时需确保编辑器使用 UTF-8 编码保存文件，避免再次引入编码损坏
-
-## 最近更新 (2026-06-04)
-
-### v4.5-v5.0 编辑器重写
-- **提交**: 55f2a38 (69 files, +6120 lines)
-- **部署**: Render 自动部署 (push to main 触发)
-- **新功能**: 命令模式、酒店推荐系统、协作分享、移动端适配、PWA
+- 默认城市数据可能滞后，需持续更新 POI 与通勤边。
+- LLM 输出不可控，需保持算法主路径独立可用。
+- SQLite 为本地辅助存储，重启后若无持久卷会丢失规划历史。
+- 压测与冒烟结果仅反映当前环境，不可直接等同生产 SLA。
+
+## AI Agent 服务（2026-06 新增）
+- **Python Agent 服务**：基于 LangGraph + DeepSeek-V3 的旅行规划 Agent，端口 8090。
+- **架构**：用户输入 → 意图解析 → RAG 攻略检索 → 本地 POI/酒店搜索 → 酒店锚点选择 → 每日规划 → Beam Search 路线优化 → 流式输出。
+- **数据策略**：本地优先（C++ 后端 POI/酒店库 + 通勤图），高德 MCP 仅作补充。
+- **RAG**：ChromaDB 存储城市攻略（city_guide + wikivoyage + POI 描述），向量检索。
+- **缓存**：三级缓存（热门行程预生成 + Redis 行程级缓存 + 内存缓存）。
+- **新增 C++ API**：`/api/travel-time`、`/api/optimize-route`、`/api/city-guide`、`/api/cities`。
+- **前端**：`AgentChat.tsx`（流式对话）、`StreamingItinerary.tsx`（流式行程渲染）、`HotItineraries.tsx`（热门行程）、`QuickCustomize.tsx`（快速调整）。
+- **启动**：`pip install -r agent/requirements.txt` → `python -m uvicorn agent.main:app --port 8090`。
+- **RAG 入库**：`python scripts/ingest_rag.py`。
+
+
+## 最新修复 (2026-06-09)
+
+### Agent 代理修复
+- **问题**：C++ 后端 /agent/* 代理使用 httplib::Client 缓冲整个响应，SSE 流式传输不工作。
+- **问题**：pre_routing_handler 在 body 读取前运行，POST body 为空。
+- **修复**：将代理从 pre_routing_handler 移至显式路由处理器（server.Get/Post），使用 WinHTTP 原始连接 + set_chunked_content_provider 实现 SSE 流式代理。
+- **结构**：WinHttpStreamState RAII 结构管理句柄生命周期，chunked content provider 回调逐块读取上游数据。
+
+### 前端修复
+- **问题**：main.tsx 使用 NewEditorApp 而非 App，Agent 组件（AgentChat、HotItineraries 等）未被导入。
+- **修复**：在 NewEditorApp.tsx 中添加 AiChat 组件导入和渲染。
+- **问题**：挂载顺序错误，/ 先于 /editor 导致返回 dev HTML。
+- **修复**：交换挂载顺序，/editor 在 / 之前注册。
+
+### 当前状态
+- **C++ 后端**：端口 8080，21 城市 15140 POI
+- **Agent 服务**：端口 8090，DeepSeek-V3 推理
+- **前端**：/editor/ 正确加载 Agent 组件
+- **SSE 流式**：完整支持，Content-Type: text/event-stream
+- **缓存**：内存缓存工作，第二次请求 < 5s
+- **待完成**：ChromaDB RAG embedding 模型下载、Redis 缓存、热门行程预生成

@@ -1,111 +1,79 @@
-import { useState, useRef, useEffect } from 'react';
-import { useItineraryStore } from '../stores/itineraryStore';
+﻿import { useState } from 'react';
+import AgentChat from './AgentChat';
+import HotItineraries from './HotItineraries';
 
-interface Message {
-  role: 'user' | 'assistant';
-  content: string;
+interface Props {
+  city: string;
 }
 
-export default function AiChat({ city }: { city: string }) {
-  const { days, defaultHotel } = useItineraryStore();
-  const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: '你好！我是 Tour Pass AI 助手。你可以问我关于行程的问题，比如「附近有什么好吃的」「下午还有空余时间吗」等。' },
-  ]);
-  const [input, setInput] = useState('');
-  const [loading, setLoading] = useState(false);
+type ViewMode = 'chat' | 'hot';
+
+export default function AiChat({ city }: Props) {
   const [open, setOpen] = useState(false);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    scrollRef.current?.scrollTo(0, scrollRef.current.scrollHeight);
-  }, [messages]);
-
-  const sendMessage = async () => {
-    if (!input.trim() || loading) return;
-    const userMsg = input.trim();
-    setInput('');
-    setMessages(prev => [...prev, { role: 'user', content: userMsg }]);
-    setLoading(true);
-
-    const allStops = days.flatMap(d => d.stops);
-    const context = {
-      city,
-      hotel: defaultHotel?.name || '未选择',
-      stops: allStops.map(s => ({ name: s.poi.name, area: s.poi.area, arrival: s.arrival, departure: s.departure })),
-      total_days: days.length,
-    };
-
-    try {
-      const res = await fetch('/trip/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: userMsg,
-          context: `当前行程上下文：${JSON.stringify(context)}`,
-        }),
-      });
-      const data = await res.json();
-      const reply = data.reply || data.message || '抱歉，我无法理解你的问题。';
-      setMessages(prev => [...prev, { role: 'assistant', content: reply }]);
-    } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: '网络错误，请稍后重试。' }]);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const [viewMode, setViewMode] = useState<ViewMode>('chat');
 
   if (!open) {
     return (
-      <button
-        onClick={() => setOpen(true)}
-        className="fixed bottom-4 right-4 z-[1001] w-12 h-12 bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 flex items-center justify-center text-lg"
-      >
-        💬
-      </button>
+      <div className="fixed bottom-4 right-4 z-[1001] flex flex-col items-end gap-2">
+        <button
+          onClick={() => { setOpen(true); setViewMode('hot'); }}
+          className="px-3 py-2 bg-amber-500 text-white rounded-full shadow-lg hover:bg-amber-600 flex items-center gap-1.5 text-sm transition-colors"
+        >
+          🔥 热门行程
+        </button>
+        <button
+          onClick={() => { setOpen(true); setViewMode('chat'); }}
+          className="w-14 h-14 bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 flex items-center justify-center text-xl transition-colors"
+        >
+          🗺️
+        </button>
+      </div>
     );
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-[1001] w-80 h-96 bg-white rounded-xl shadow-xl border flex flex-col">
-      {/* Header */}
-      <div className="flex items-center gap-2 px-3 py-2 border-b bg-primary-500 text-white rounded-t-xl">
-        <span className="text-sm font-semibold">🤖 AI 助手</span>
-        <button onClick={() => setOpen(false)} className="ml-auto text-white/70 hover:text-white text-xs">✕</button>
+    <div className="fixed bottom-4 right-4 z-[1001] w-[420px] h-[600px] flex flex-col">
+      {/* Tab switcher */}
+      <div className="flex gap-1 mb-1">
+        <button
+          onClick={() => setViewMode('chat')}
+          className={`px-3 py-1.5 rounded-t-lg text-xs font-medium transition-colors ${
+            viewMode === 'chat'
+              ? 'bg-white text-primary-600 shadow-sm'
+              : 'bg-white/60 text-gray-500 hover:bg-white/80'
+          }`}
+        >
+          🗺️ AI 规划师
+        </button>
+        <button
+          onClick={() => setViewMode('hot')}
+          className={`px-3 py-1.5 rounded-t-lg text-xs font-medium transition-colors ${
+            viewMode === 'hot'
+              ? 'bg-white text-amber-600 shadow-sm'
+              : 'bg-white/60 text-gray-500 hover:bg-white/80'
+          }`}
+        >
+          🔥 热门行程
+        </button>
+        <div className="flex-1" />
+        <button
+          onClick={() => setOpen(false)}
+          className="px-2 py-1.5 text-gray-400 hover:text-gray-600 text-xs bg-white/60 rounded-t-lg"
+        >
+          ✕
+        </button>
       </div>
 
-      {/* Messages */}
-      <div ref={scrollRef} className="flex-1 overflow-y-auto p-3 space-y-2">
-        {messages.map((msg, i) => (
-          <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[85%] px-3 py-2 rounded-lg text-sm ${msg.role === 'user' ? 'bg-primary-500 text-white' : 'bg-gray-100 text-gray-800'}`}>
-              {msg.content}
-            </div>
-          </div>
-        ))}
-        {loading && (
-          <div className="flex justify-start">
-            <div className="px-3 py-2 rounded-lg bg-gray-100 text-sm text-gray-500">思考中...</div>
+      {/* Content */}
+      <div className="flex-1 overflow-hidden rounded-xl shadow-xl">
+        {viewMode === 'chat' ? (
+          <AgentChat city={city} />
+        ) : (
+          <div className="h-full overflow-y-auto bg-white p-4">
+            <h3 className="font-semibold text-sm mb-3">🔥 热门行程推荐</h3>
+            <HotItineraries />
           </div>
         )}
-      </div>
-
-      {/* Input */}
-      <div className="flex gap-2 p-2 border-t">
-        <input
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={e => e.key === 'Enter' && sendMessage()}
-          placeholder="问我任何问题..."
-          className="flex-1 px-3 py-1.5 border rounded-lg text-sm"
-          disabled={loading}
-        />
-        <button
-          onClick={sendMessage}
-          disabled={loading || !input.trim()}
-          className="px-3 py-1.5 bg-primary-500 text-white rounded-lg text-sm hover:bg-primary-600 disabled:opacity-50"
-        >
-          发送
-        </button>
       </div>
     </div>
   );

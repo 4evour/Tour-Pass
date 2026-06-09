@@ -1,4 +1,4 @@
-bin/
+﻿bin/
 build/
 build-*/
 .codegraph/
@@ -37,5 +37,19 @@ output/amap-changsha/
 .claude/
 .trae/
 
-fix_cache.js
-fix_main_default_city.patch
+# Test scripts (not for production)
+test_*.py
+check_*.py
+quick_test.py
+htest.py
+final_test.py
+test_body.json
+start_cpp.bat
+
+# Agent build artifacts
+agent/__pycache__/
+agent/*.pyc
+data/chromadb/
+pip_install*.log
+agent_server*.log
+cpp_server*.log

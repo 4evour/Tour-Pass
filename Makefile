@@ -1,4 +1,4 @@
-CXX := g++
+﻿CXX := g++
 CC := gcc
 CXXFLAGS := -std=c++17 -Wall -Wextra -pedantic -Iinclude -Ithird_party
 CFLAGS := -O2 -DSQLITE_THREADSAFE=1 -DSQLITE_DEFAULT_MEMSTATUS=0
@@ -8,7 +8,7 @@ LDFLAGS := -lws2_32 -lwinhttp
 SHELL := cmd.exe
 .SHELLFLAGS := /C
 
-SRC := $(filter-out src/main.cpp,$(wildcard src/*.cpp))
+SRC := $(filter-out src/main.cpp src/pg_store.cpp,$(wildcard src/*.cpp))
 APP_SRC := src/main.cpp $(SRC)
 TEST_SRC := tests/test_main.cpp $(SRC)
 SQLITE_OBJ := bin\sqlite3.o
@@ -65,3 +65,4 @@ load-test:
 clean:
 	@if exist bin rmdir /S /Q bin
 	@if exist build rmdir /S /Q build
+

@@ -1,4 +1,4 @@
-# Rebuild trigger
+﻿# Rebuild trigger v2 - with Python Agent
 FROM ubuntu:24.04 AS build
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -31,36 +31,64 @@ RUN echo "=== Step 4: cmake configure ===" \
     && echo "=== Step 6: verify binary ===" \
     && ls -la build/tourpass
 
+# ── Runtime stage ────────────────────────────────────────────────────────────
 FROM ubuntu:24.04 AS runtime
 
 ENV DEBIAN_FRONTEND=noninteractive \
     HOST=0.0.0.0 \
     PORT=8080 \
+    AGENT_PORT=8090 \
     TOURPASS_MAX_BODY_BYTES=262144 \
-    TOURPASS_DB_PATH=/app/storage/tourpass.sqlite
+    TOURPASS_DB_PATH=/app/storage/tourpass.sqlite \
+    PYTHONUNBUFFERED=1
 
 RUN apt-get update 2>&1 \
-    && apt-get install -y --no-install-recommends ca-certificates libssl3 libpq5 curl 2>&1 \
+    && apt-get install -y --no-install-recommends \
+        ca-certificates libssl3 libpq5 curl \
+        python3 python3-pip python3-venv 2>&1 \
     && rm -rf /var/lib/apt/lists/* \
     && useradd --create-home --shell /usr/sbin/nologin tourpass
 
 WORKDIR /app
+
+# Copy C++ backend
 COPY --from=build /src/build/tourpass /app/tourpass
 COPY --from=build /src/data /app/data
 COPY --from=build /src/web /app/web
 
-RUN mkdir -p /app/config /app/storage \
+# Copy Agent service
+COPY agent/ /app/agent/
+COPY scripts/ /app/scripts/
+
+# Install Python dependencies into venv
+RUN python3 -m venv /app/venv \
+    && /app/venv/bin/pip install --no-cache-dir --upgrade pip \
+    && /app/venv/bin/pip install --no-cache-dir \
+        fastapi>=0.115.0 \
+        "uvicorn[standard]>=0.30.0" \
+        pydantic>=2.0 \
+        httpx>=0.27.0 \
+        "langchain-core>=0.3.0" \
+        "langchain-openai>=0.2.0" \
+        python-dotenv>=1.0.0
+
+# ChromaDB + embedding (optional, large download)
+# Comment out the next line to skip RAG support for faster builds
+RUN /app/venv/bin/pip install --no-cache-dir chromadb>=0.5.0 \
+    || echo "WARN: ChromaDB install failed, RAG will be disabled"
+
+# Create directories
+RUN mkdir -p /app/config /app/storage /app/scripts \
     && chown -R tourpass:tourpass /app
 
 COPY --chown=tourpass:tourpass config/llm.example.json /app/config/llm.example.json
+COPY --chown=tourpass:tourpass entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
 USER tourpass
 EXPOSE 8080
 
-# LLM config: set OPENAI_API_KEY, LLM_BASE_URL, LLM_MODEL env vars via Render dashboard
-# Or copy config/llm.local.json to /app/config/llm.local.json for file-based config
-# See config/llm.example.json for the required format (base_url, api_key, model)
-HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
     CMD curl -fsS http://localhost:8080/health || exit 1
 
-CMD ["/app/tourpass"]
+CMD ["/app/entrypoint.sh"]

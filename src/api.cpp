@@ -350,6 +350,7 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
     server.set_payload_max_length(context.config.maxBodyBytes);
     server.set_pre_routing_handler([&](const httplib::Request& req, httplib::Response& res) {
         std::string requestId = req.get_header_value("X-Request-Id");
+
         if (requestId.empty()) requestId = makeRequestId();
         context.metrics.beginRequest();
         setCommonHeaders(res, requestId);
@@ -400,6 +401,8 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
                          || req.path == "/poi/search"
                          || req.path == "/poi/areas"
                          || req.path.find("/poi/by-area") == 0
+                         || req.path.find("/api/") == 0
+                         || req.path.find("/agent/") == 0
                          || req.path.find("/editor") == 0
                          || req.path.find("/editor-dist/") == 0;
 
@@ -582,8 +585,176 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     server.new_task_queue = [workers = config.workerCount, maxQueue = config.maxQueuedRequests]() {
         return new httplib::ThreadPool(workers, maxQueue);
     };
-    server.set_mount_point("/", "web");
     server.set_mount_point("/editor", "web/editor-dist");
+    server.set_mount_point("/", "web");
+    // ── Agent service reverse proxy (WinHTTP streaming) ─────────────────
+    {
+        // State holder for streaming WinHTTP proxy (RAII closes handles)
+        struct WinHttpStreamState {
+            HINTERNET hRequest, hConnect, hSession;
+            bool done;
+            WinHttpStreamState(HINTERNET r, HINTERNET c, HINTERNET s)
+                : hRequest(r), hConnect(c), hSession(s), done(false) {}
+            ~WinHttpStreamState() {
+                if (hRequest) WinHttpCloseHandle(hRequest);
+                if (hConnect) WinHttpCloseHandle(hConnect);
+                if (hSession) WinHttpCloseHandle(hSession);
+            }
+        };
+
+        // Shared proxy handler for all /agent/* endpoints.
+        // For SSE (text/event-stream) responses, uses chunked content provider
+        // to stream data from upstream without buffering.
+        // For non-SSE responses, buffers the entire response.
+        auto agentProxyHandler = [&](const httplib::Request& req, httplib::Response& res) {
+#ifdef _WIN32
+            HINTERNET hSession = WinHttpOpen(L"TourPass-Agent/1.0",
+                WINHTTP_ACCESS_TYPE_DEFAULT_PROXY,
+                WINHTTP_NO_PROXY_NAME, WINHTTP_NO_PROXY_BYPASS, 0);
+            if (!hSession) {
+                res.status = 502;
+                res.set_content("{\"error\":\"Agent proxy init failed\"}", "application/json");
+                return;
+            }
+
+            HINTERNET hConnect = WinHttpConnect(hSession, L"127.0.0.1", 8090, 0);
+            if (!hConnect) {
+                WinHttpCloseHandle(hSession);
+                res.status = 502;
+                res.set_content("{\"error\":\"Agent service unreachable\"}", "application/json");
+                return;
+            }
+
+            std::wstring wpath(req.path.begin(), req.path.end());
+            LPCWSTR verb = (req.method == "POST") ? L"POST" : L"GET";
+
+            HINTERNET hRequest = WinHttpOpenRequest(hConnect, verb, wpath.c_str(),
+                nullptr, WINHTTP_NO_REFERER, WINHTTP_DEFAULT_ACCEPT_TYPES, 0);
+            if (!hRequest) {
+                WinHttpCloseHandle(hConnect);
+                WinHttpCloseHandle(hSession);
+                res.status = 502;
+                res.set_content("{\"error\":\"Agent request creation failed\"}", "application/json");
+                return;
+            }
+
+            WinHttpSetTimeouts(hRequest, 5000, 5000, 5000, 120000);
+
+            // Build headers: forward query string already handled by wpath
+            std::wstring whdrs = L"Content-Type: application/json\r\n";
+            BOOL sendResult;
+            if (req.method == "POST" && !req.body.empty()) {
+                sendResult = WinHttpSendRequest(hRequest, whdrs.c_str(), (DWORD)-1,
+                    (LPVOID)req.body.data(), (DWORD)req.body.size(), (DWORD)req.body.size(), 0);
+            } else {
+                sendResult = WinHttpSendRequest(hRequest, WINHTTP_NO_ADDITIONAL_HEADERS, 0,
+                    nullptr, 0, 0, 0);
+            }
+
+            if (!sendResult || !WinHttpReceiveResponse(hRequest, nullptr)) {
+                WinHttpCloseHandle(hRequest);
+                WinHttpCloseHandle(hConnect);
+                WinHttpCloseHandle(hSession);
+                res.status = 502;
+                res.set_content("{\"error\":\"Agent service unavailable\"}", "application/json");
+                return;
+            }
+
+            // Read upstream status code
+            DWORD statusCode = 0;
+            DWORD scSize = sizeof(statusCode);
+            WinHttpQueryHeaders(hRequest,
+                WINHTTP_QUERY_STATUS_CODE | WINHTTP_QUERY_FLAG_NUMBER,
+                WINHTTP_HEADER_NAME_BY_INDEX, &statusCode, &scSize, WINHTTP_NO_HEADER_INDEX);
+            res.status = (int)statusCode;
+
+            // Read upstream Content-Type
+            DWORD ctSize = 0;
+            WinHttpQueryHeaders(hRequest, WINHTTP_QUERY_CONTENT_TYPE,
+                WINHTTP_HEADER_NAME_BY_INDEX, WINHTTP_NO_OUTPUT_BUFFER, &ctSize, WINHTTP_NO_HEADER_INDEX);
+            std::wstring wct(ctSize / sizeof(wchar_t), L'\0');
+            if (ctSize > 0) {
+                WinHttpQueryHeaders(hRequest, WINHTTP_QUERY_CONTENT_TYPE,
+                    WINHTTP_HEADER_NAME_BY_INDEX, &wct[0], &ctSize, WINHTTP_NO_HEADER_INDEX);
+            }
+            std::string upstreamCT;
+            for (wchar_t wc : wct) { if (wc != L'\0') upstreamCT += static_cast<char>(wc); }
+            if (upstreamCT.empty()) upstreamCT = "application/json";
+
+            bool isSSE = (upstreamCT.find("event-stream") != std::string::npos);
+
+            if (isSSE) {
+                // Streaming: use chunked content provider with WinHTTP reads
+                auto state = std::make_shared<WinHttpStreamState>(hRequest, hConnect, hSession);
+
+                res.set_chunked_content_provider("text/event-stream",
+                    [state](size_t /*offset*/, httplib::DataSink& sink) -> bool {
+                        if (state->done) return false;
+                        char buf[4096];
+                        DWORD bytesRead = 0;
+                        if (!WinHttpReadData(state->hRequest, buf, sizeof(buf), &bytesRead)) {
+                            state->done = true;
+                            sink.done();
+                            return false;
+                        }
+                        if (bytesRead == 0) {
+                            state->done = true;
+                            sink.done();
+                            return false;
+                        }
+                        return sink.write(buf, static_cast<size_t>(bytesRead));
+                    },
+                    [state](bool /*success*/) { /* handles closed by destructor */ }
+                );
+            } else {
+                // Non-SSE: buffer entire response
+                std::string body;
+                char buf[4096];
+                DWORD bytesRead = 0;
+                do {
+                    bytesRead = 0;
+                    if (WinHttpReadData(hRequest, buf, sizeof(buf), &bytesRead) && bytesRead > 0) {
+                        body.append(buf, bytesRead);
+                    } else { break; }
+                } while (bytesRead > 0);
+                res.set_content(body, upstreamCT);
+                WinHttpCloseHandle(hRequest);
+                WinHttpCloseHandle(hConnect);
+                WinHttpCloseHandle(hSession);
+            }
+
+            res.set_header("Cache-Control", "no-cache, no-store");
+            res.set_header("X-Accel-Buffering", "no");
+#else
+            // Non-Windows fallback: buffered httplib client
+            static httplib::Client s_agentClient("http://127.0.0.1:8090");
+            httplib::Headers headers;
+            httplib::Result result;
+            if (req.method == "GET") {
+                result = s_agentClient.Get(req.path, headers);
+            } else {
+                result = s_agentClient.Post(req.path, headers, req.body, "application/json");
+            }
+            if (result) {
+                res.status = result->status;
+                res.set_content(result->body, result->get_header_value("Content-Type"));
+            } else {
+                res.status = 502;
+                res.set_content("{\"error\":\"Agent service unavailable\"}", "application/json");
+            }
+#endif
+        };
+
+        server.Get("/agent/health", agentProxyHandler);
+        server.Get("/agent/stats", agentProxyHandler);
+        server.Get("/agent/hot", agentProxyHandler);
+        server.Post("/agent/plan", agentProxyHandler);
+        server.Post("/agent/plan-sync", agentProxyHandler);
+        server.Post("/agent/chat", agentProxyHandler);
+        server.Post("/agent/rag/ingest", agentProxyHandler);
+    }
+
+
     installMiddleware(server, context);
 
     server.Get("/health", [&](const httplib::Request&, httplib::Response& res) {
@@ -795,6 +966,89 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         setJson(res, result);
     });
 
+    // ── Agent API: Travel time lookup between two POIs ─────────────────────
+    server.Get("/api/travel-time", [&](const httplib::Request& req, httplib::Response& res) {
+        if (!req.has_param("from") || !req.has_param("to")) {
+            setJson(res, errorJson("VALIDATION_ERROR", "from 和 to 参数必填"), 400);
+            return;
+        }
+        std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
+        auto* city = context.getCity(cityName);
+        if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+
+        std::string from = req.get_param_value("from");
+        std::string to = req.get_param_value("to");
+
+        RouteResult route = city->graph.shortestRoute(from, to);
+        int travelMinutes = (route.travelMinutes == std::numeric_limits<int>::max()) ? -1 : route.travelMinutes;
+
+        setJson(res, {
+            {"from", from},
+            {"to", to},
+            {"travelMinutes", travelMinutes},
+            {"distanceMeters", route.travelMinutes * 80}  // rough estimate
+        });
+    });
+
+    // ── Agent API: Beam Search route optimization ──────────────────────────
+    server.Post("/api/optimize-route", [&](const httplib::Request& req, httplib::Response& res) {
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            TripRequest tripRequest = tripRequestFromJson(body, context.defaultCity);
+
+            auto* city = context.getCity(tripRequest.city);
+            if (!city) {
+                setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + tripRequest.city), 404);
+                return;
+            }
+
+            // Use the existing planner
+            TripPlanner planner(city->graph);
+            Itinerary itinerary = planner.plan(tripRequest);
+            nlohmann::json result = itineraryToJson(itinerary);
+            setJson(res, result);
+        } catch (const std::exception& ex) {
+            std::cerr << "VALIDATION /api/optimize-route: " << ex.what() << std::endl;
+            setJson(res, errorJson("OPTIMIZATION_ERROR", ex.what()), 400);
+        }
+    });
+
+    // ── Agent API: City guide ──────────────────────────────────────────────
+    server.Get("/api/city-guide", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
+        std::string path = "data/" + cityName + "/city_guide.json";
+        std::ifstream file(path);
+        if (!file.is_open()) {
+            setJson(res, errorJson("NOT_FOUND", "暂无该城市攻略", {{"city", cityName}}), 404);
+            return;
+        }
+        std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+        try {
+            setJson(res, nlohmann::json::parse(content));
+        } catch (...) {
+            setJson(res, errorJson("PARSE_ERROR", "攻略数据格式错误"), 500);
+        }
+    });
+
+    // ── Agent API: List available cities ────────────────────────────────────
+    server.Get("/api/cities", [&](const httplib::Request& req, httplib::Response& res) {
+        nlohmann::json data = nlohmann::json::array();
+        for (const auto& [name, bundle] : context.cities) {
+            int poiCount = 0, hotelCount = 0;
+            for (const auto& poi : bundle->graph.pois()) {
+                poiCount++;
+                if (poi.type == PoiType::Hotel) hotelCount++;
+            }
+            data.push_back({
+                {"name", name},
+                {"poi_count", poiCount},
+                {"hotel_count", hotelCount}
+            });
+        }
+        setJson(res, {{"data", data}});
+    });
+
+
     server.Post("/trip/alternatives", [&](const httplib::Request& req, httplib::Response& res) {
         try {
             auto body = nlohmann::json::parse(req.body);
@@ -878,10 +1132,12 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         struct PoiEntry { const Poi* poi; };
         std::vector<PoiEntry> entries;
         for (const auto& poi : city->graph.pois()) {
-            if (poi.type == PoiType::Hotel || poi.type == PoiType::Transit) continue;
+            // Skip Hotel/Transit by default, but allow when explicitly requested
             if (!typeFilter.empty()) {
                 std::string pType = poiTypeToString(poi.type);
                 if (pType != typeFilter) continue;
+            } else {
+                if (poi.type == PoiType::Hotel || poi.type == PoiType::Transit) continue;
             }
             entries.push_back({&poi});
         }
@@ -1950,4 +2206,8 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
 }
 
 }  // namespace tourpass
+
+
+
+
 

@@ -1,4 +1,5 @@
-import React from 'react';
+﻿import React from 'react';
+import AiChat from './components/AiChat';
 import { useItineraryStore } from './stores/itineraryStore';
 import { WizardNav, DaysStep, CitiesStep, SegmentsStep, HotelsStep, PlanStep, ReviewStep } from './components/Wizard';
 
@@ -44,6 +45,9 @@ export default function NewEditorApp() {
       <main>
         {renderStep()}
       </main>
+
+      {/* AI Chat floating panel */}
+      <AiChat city={cities[0] || ''} />
     </div>
   );
 }
