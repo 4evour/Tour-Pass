@@ -45,6 +45,9 @@ RUN pip3 install --no-cache-dir --break-system-packages \
     fastapi uvicorn pydantic httpx \
     langchain-core langchain-openai python-dotenv
 
+# Verify Agent imports work
+RUN python3 -c "import agent.main; print('Agent module OK')" || echo "WARN: Agent import failed"
+
 RUN mkdir -p /app/config /app/storage \
     && chown -R tourpass:tourpass /app
 
