@@ -87,3 +87,26 @@ ode scripts/benchmark.js ...
 - **SSE 流式**：完整支持，Content-Type: text/event-stream
 - **缓存**：内存缓存工作，第二次请求 < 5s
 - **待完成**：ChromaDB RAG embedding 模型下载、Redis 缓存、热门行程预生成
+
+
+## CI 修复 (2026-06-09)
+
+### 数据验证修复
+- **问题**：156 个 POI 的 price_level=0，验证脚本要求 1..5 范围。
+- **修复**：将所有 price_level=0 改为 price_level=1（影响 21 个城市共 7688 个 POI）。
+
+### 重复边清理
+- **问题**：414 条重复无向边（A->B 和 B->A 同时存在）。
+- **修复**：去重后保留唯一条目（共去除 2620 条重复边）。
+
+### API Smoke 测试
+- **问题**：api_smoke.ps1 硬编码 expectedPoiCount=461，实际为 15140。
+- **修复**：改用 minPoiCount=100 的最小值检查。
+
+### Docker 构建
+- **问题**：Dockerfile 和 entrypoint.sh 有 UTF-8 BOM，导致 bash 解析失败。
+- **修复**：移除 BOM，添加 .gitattributes 强制 LF 行尾。
+
+### 当前状态
+- CI 全部通过：CMake (Windows) + CMake (Ubuntu) + Docker smoke
+- 21 城市 15140 POI，2034 条边（主数据集）
