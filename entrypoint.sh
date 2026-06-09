@@ -1,4 +1,4 @@
-﻿#!/bin/bash
+#!/bin/bash
 
 echo "=== TourPass Starting ==="
 echo "C++ Backend on port ${PORT:-8080}"

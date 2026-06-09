@@ -4,3 +4,5 @@ entrypoint.sh text eol=lf
 
 # Keep CRLF for Windows files
 *.bat text eol=crlf
+# Force LF for Dockerfile
+Dockerfile text eol=lf

@@ -1,4 +1,4 @@
-﻿# TourPass with Agent - optimized for Render free tier
+# TourPass with Agent - optimized for Render free tier
 FROM ubuntu:24.04 AS build
 
 ENV DEBIAN_FRONTEND=noninteractive
