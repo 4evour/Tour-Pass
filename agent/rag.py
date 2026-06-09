@@ -1,78 +1,106 @@
-﻿"""RAG pipeline for city guide retrieval using ChromaDB."""
+﻿"""Lightweight RAG pipeline using TF-IDF — no ChromaDB or ML models needed."""
 from __future__ import annotations
 import json
 import logging
+import math
 import os
+import re
+from collections import Counter
 from typing import Optional
-
-from .config import CHROMA_PERSIST_DIR, CHROMA_COLLECTION
 
 logger = logging.getLogger(__name__)
 
-# Lazy-init ChromaDB client
-_chroma_client = None
-_collection = None
+# ---------------------------------------------------------------------------
+# In-memory index
+# ---------------------------------------------------------------------------
+# Each entry: {"city": str, "category": str, "text": str, "tokens": list[str]}
+_corpus: list[dict] = []
+_idf: dict[str, float] = {}
+_indexed_cities: set[str] = set()
+_ready = False
+_skip = False
 
 
-def _get_collection():
-    global _chroma_client, _collection
-    if _collection is not None:
-        return _collection
-
-    try:
-        import chromadb
-        from chromadb.config import Settings
-        _chroma_client = chromadb.PersistentClient(
-            path=CHROMA_PERSIST_DIR,
-            settings=Settings(anonymized_telemetry=False),
-        )
-        _collection = _chroma_client.get_or_create_collection(
-            name=CHROMA_COLLECTION,
-            metadata={"hnsw:space": "cosine"},
-        )
-        logger.info(f"ChromaDB collection '{CHROMA_COLLECTION}' ready, "
-                     f"count={_collection.count()}")
-        return _collection
-    except Exception as e:
-        logger.warning(f"ChromaDB init failed: {e}. RAG will be disabled.")
-        mark_rag_skip()
-        return None
+def _tokenize(text: str) -> list[str]:
+    """Tokenize Chinese/English text into character bigrams + word tokens."""
+    text = text.lower()
+    # Extract CJK characters as unigrams + bigrams
+    cjk = re.findall(r'[\u4e00-\u9fff]', text)
+    # Extract word tokens (latin/digits)
+    words = re.findall(r'[a-z0-9]+', text)
+    tokens = list(cjk) + words
+    # Add bigrams for CJK
+    for i in range(len(cjk) - 1):
+        tokens.append(cjk[i] + cjk[i + 1])
+    return tokens
 
 
-# Flag to track if RAG is ready
-_rag_ready = False
-_rag_skip = False  # Set to True if ChromaDB init fails (e.g., model download)
+def _build_idf():
+    """Rebuild IDF from current corpus."""
+    global _idf
+    n = len(_corpus)
+    if n == 0:
+        _idf = {}
+        return
+    df: Counter = Counter()
+    for doc in _corpus:
+        unique = set(doc["tokens"])
+        for t in unique:
+            df[t] += 1
+    _idf = {t: math.log((n - freq + 0.5) / (freq + 0.5) + 1) for t, freq in df.items()}
 
+
+def _bm25_score(query_tokens: list[str], doc_tokens: list[str],
+                k1: float = 1.5, b: float = 0.75) -> float:
+    """BM25 scoring between query and document tokens."""
+    if not query_tokens or not doc_tokens:
+        return 0.0
+    doc_len = len(doc_tokens)
+    avg_dl = 50.0  # approximate average doc length
+    tf = Counter(doc_tokens)
+    score = 0.0
+    for qt in set(query_tokens):
+        if qt not in tf:
+            continue
+        idf = _idf.get(qt, 0.0)
+        term_freq = tf[qt]
+        numerator = term_freq * (k1 + 1)
+        denominator = term_freq + k1 * (1 - b + b * doc_len / avg_dl)
+        score += idf * numerator / denominator
+    return score
+
+
+# ---------------------------------------------------------------------------
+# Public interface (drop-in compatible with ChromaDB version)
+# ---------------------------------------------------------------------------
 
 def is_rag_ready() -> bool:
-    """Check if RAG collection is available without blocking."""
-    global _rag_ready, _rag_skip
-    if _rag_skip:
-        return False
-    if _rag_ready:
-        return True
-    return False
+    return _ready and not _skip
 
 
 def mark_rag_ready():
-    """Mark RAG as ready after successful init."""
-    global _rag_ready
-    _rag_ready = True
+    global _ready
+    _ready = True
 
 
 def mark_rag_skip():
-    """Mark RAG to be skipped (e.g., model download in progress)."""
-    global _rag_skip
-    _rag_skip = True
-    logger.info("RAG marked as skipped (model download or init failure)")
+    global _skip
+    _skip = True
+    logger.info("RAG marked as skipped")
+
+
+def _add_chunk(city: str, category: str, text: str):
+    """Add a text chunk to the in-memory corpus."""
+    _corpus.append({
+        "city": city,
+        "category": category,
+        "text": text,
+        "tokens": _tokenize(text),
+    })
 
 
 def ingest_city_guide(city: str, guide_path: str) -> int:
-    """Ingest a city_guide.json into ChromaDB. Returns number of chunks added."""
-    collection = _get_collection()
-    if collection is None:
-        return 0
-
+    """Load a city_guide.json into the TF-IDF index."""
     if not os.path.exists(guide_path):
         logger.warning(f"Guide file not found: {guide_path}")
         return 0
@@ -80,83 +108,30 @@ def ingest_city_guide(city: str, guide_path: str) -> int:
     with open(guide_path, "r", encoding="utf-8") as f:
         guide = json.load(f)
 
-    chunks = []
+    category_labels = {
+        "best_routes": "最佳路线",
+        "timing_tips": "时间建议",
+        "crowd_tips": "避坑建议",
+        "food_tips": "美食推荐",
+        "transport_tips": "交通建议",
+        "seasonal_tips": "季节建议",
+        "hidden_gems": "隐藏玩法",
+    }
 
-    # Best routes
-    for i, route in enumerate(guide.get("best_routes", [])):
-        chunks.append({
-            "id": f"{city}_route_{i}",
-            "text": f"【{city}最佳路线】{route}",
-            "metadata": {"city": city, "category": "best_routes"},
-        })
+    count = 0
+    for category, label in category_labels.items():
+        for i, tip in enumerate(guide.get(category, [])):
+            text = f"【{city}{label}】{tip}"
+            _add_chunk(city, category, text)
+            count += 1
 
-    # Timing tips
-    for i, tip in enumerate(guide.get("timing_tips", [])):
-        chunks.append({
-            "id": f"{city}_timing_{i}",
-            "text": f"【{city}时间建议】{tip}",
-            "metadata": {"city": city, "category": "timing_tips"},
-        })
-
-    # Crowd tips
-    for i, tip in enumerate(guide.get("crowd_tips", [])):
-        chunks.append({
-            "id": f"{city}_crowd_{i}",
-            "text": f"【{city}避坑建议】{tip}",
-            "metadata": {"city": city, "category": "crowd_tips"},
-        })
-
-    # Food tips
-    for i, tip in enumerate(guide.get("food_tips", [])):
-        chunks.append({
-            "id": f"{city}_food_{i}",
-            "text": f"【{city}美食推荐】{tip}",
-            "metadata": {"city": city, "category": "food_tips"},
-        })
-
-    # Transport tips
-    for i, tip in enumerate(guide.get("transport_tips", [])):
-        chunks.append({
-            "id": f"{city}_transport_{i}",
-            "text": f"【{city}交通建议】{tip}",
-            "metadata": {"city": city, "category": "transport_tips"},
-        })
-
-    # Seasonal tips
-    for i, tip in enumerate(guide.get("seasonal_tips", [])):
-        chunks.append({
-            "id": f"{city}_seasonal_{i}",
-            "text": f"【{city}季节建议】{tip}",
-            "metadata": {"city": city, "category": "seasonal_tips"},
-        })
-
-    # Hidden gems
-    for i, tip in enumerate(guide.get("hidden_gems", [])):
-        chunks.append({
-            "id": f"{city}_gems_{i}",
-            "text": f"【{city}隐藏玩法】{tip}",
-            "metadata": {"city": city, "category": "hidden_gems"},
-        })
-
-    if not chunks:
-        return 0
-
-    # Upsert into ChromaDB
-    collection.upsert(
-        ids=[c["id"] for c in chunks],
-        documents=[c["text"] for c in chunks],
-        metadatas=[c["metadata"] for c in chunks],
-    )
-    logger.info(f"Ingested {len(chunks)} chunks for {city}")
-    return len(chunks)
+    _indexed_cities.add(city)
+    logger.info(f"Indexed {count} guide chunks for {city}")
+    return count
 
 
 def ingest_guidebook(city: str, guidebook_path: str) -> int:
-    """Ingest a guidebook.json (POI descriptions) into ChromaDB."""
-    collection = _get_collection()
-    if collection is None:
-        return 0
-
+    """Load a guidebook.json (POI descriptions) into the TF-IDF index."""
     if not os.path.exists(guidebook_path):
         return 0
 
@@ -166,71 +141,92 @@ def ingest_guidebook(city: str, guidebook_path: str) -> int:
     if not isinstance(data, list):
         return 0
 
-    chunks = []
-    for i, entry in enumerate(data):
+    count = 0
+    for entry in data:
         name = entry.get("name", "")
         desc = entry.get("description", "")
         if not name or not desc:
             continue
-        chunks.append({
-            "id": f"{city}_poi_{i}",
-            "text": f"【{name}】{desc}",
-            "metadata": {"city": city, "category": "poi_description", "poi_name": name},
-        })
+        text = f"【{name}】{desc}"
+        _add_chunk(city, "poi_description", text)
+        count += 1
 
-    if chunks:
-        collection.upsert(
-            ids=[c["id"] for c in chunks],
-            documents=[c["text"] for c in chunks],
-            metadatas=[c["metadata"] for c in chunks],
-        )
-        logger.info(f"Ingested {len(chunks)} POI descriptions for {city}")
-
-    return len(chunks)
+    logger.info(f"Indexed {count} POI descriptions for {city}")
+    return count
 
 
 def search_guides(city: str, query: str, top_k: int = 5) -> list[str]:
-    """Retrieve relevant city guide snippets for a query."""
+    """Retrieve relevant city guide snippets for a query using BM25."""
     if not is_rag_ready():
         return []
-    try:
-        collection = _get_collection()
-        if collection is None:
-            return []
 
-        results = collection.query(
-            query_texts=[query],
-            n_results=top_k,
-            where={"city": city},
-        )
-        documents = results.get("documents", [[]])
-        if documents and documents[0]:
-            return documents[0]
-        return []
-    except Exception as e:
-        logger.warning(f"RAG search failed: {e}")
+    query_tokens = _tokenize(query)
+    if not query_tokens:
         return []
 
+    # Filter to matching city
+    candidates = [doc for doc in _corpus if doc["city"] == city]
+    if not candidates:
+        return []
 
-def search_guides_broad(city: str, categories: list[str] | None = None, top_k: int = 10) -> list[str]:
+    # Score and sort
+    scored = []
+    for doc in candidates:
+        score = _bm25_score(query_tokens, doc["tokens"])
+        if score > 0:
+            scored.append((score, doc["text"]))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [text for _, text in scored[:top_k]]
+
+
+def search_guides_broad(city: str, categories: list[str] | None = None,
+                         top_k: int = 10) -> list[str]:
     """Retrieve guide snippets by category without a specific query."""
-    collection = _get_collection()
-    if collection is None:
+    if not is_rag_ready():
         return []
+
+    candidates = [doc for doc in _corpus if doc["city"] == city]
+    if categories:
+        candidates = [doc for doc in candidates if doc["category"] in categories]
+
+    return [doc["text"] for doc in candidates[:top_k]]
+
+
+def init_rag(data_dir: str = "data"):
+    """Initialize RAG by loading all city data. Call once at startup."""
+    global _ready, _skip
+    if _ready:
+        return
 
     try:
-        where_filter = {"city": city}
-        if categories:
-            where_filter["category"] = {"$in": categories}
+        cities_loaded = 0
+        for entry in os.listdir(data_dir):
+            city_dir = os.path.join(data_dir, entry)
+            if not os.path.isdir(city_dir):
+                continue
+            guide_path = os.path.join(city_dir, "city_guide.json")
+            guidebook_path = os.path.join(city_dir, "guidebook.json")
+            city_loaded = False
+            try:
+                if os.path.exists(guide_path):
+                    ingest_city_guide(entry, guide_path)
+                    city_loaded = True
+            except Exception as e:
+                logger.warning(f"Failed to ingest guide for {entry}: {e}")
+            try:
+                if os.path.exists(guidebook_path):
+                    ingest_guidebook(entry, guidebook_path)
+                    city_loaded = True
+            except Exception as e:
+                logger.warning(f"Failed to ingest guidebook for {entry}: {e}")
+            if city_loaded:
+                cities_loaded += 1
 
-        results = collection.get(
-            where=where_filter,
-            limit=top_k,
-        )
-        return results.get("documents", [])
+        _build_idf()
+        _ready = True
+        logger.info(f"Lightweight RAG ready: {cities_loaded} cities, "
+                     f"{len(_corpus)} chunks indexed")
     except Exception as e:
-        logger.warning(f"RAG broad search failed: {e}")
-        return []
-
-
-
+        logger.warning(f"RAG init failed: {e}")
+        _skip = True

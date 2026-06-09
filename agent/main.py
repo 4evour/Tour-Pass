@@ -31,6 +31,7 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI):
     """Startup/shutdown lifecycle."""
     logger.info("TourPass Agent service starting...")
+    rag.init_rag()
     yield
     logger.info("TourPass Agent service shutting down...")
     await tools.close_client()

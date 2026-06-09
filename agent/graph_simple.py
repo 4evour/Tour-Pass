@@ -177,7 +177,7 @@ async def retrieve_guides(state: AgentState) -> AsyncIterator[dict]:
 
     yield {"type": "status", "content": f"正在检索{state.intent.city}攻略..."}
 
-    # Check if RAG is ready (ChromaDB may still be downloading model)
+    # Check if RAG index is ready
     if not rag.is_rag_ready():
         yield {"type": "guides_retrieved", "content": "攻略库初始化中，跳过检索"}
         return
