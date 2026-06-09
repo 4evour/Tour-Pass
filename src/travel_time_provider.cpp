@@ -1,4 +1,4 @@
-﻿#include "tourpass/travel_time_provider.h"
+#include "tourpass/travel_time_provider.h"
 
 #include <cstdlib>
 #include <iostream>
@@ -92,29 +92,6 @@ void AmapLiveProvider::putCache(const std::string& key, int minutes) {
 }
 
 int AmapLiveProvider::fetchFromAmap(const Poi& from, const Poi& to) const {
-    // Use walking directions for city tourism (more appropriate than driving)
-    std::ostringstream path;
-    path << "/v3/direction/walking?origin=" << std::fixed << from.lng << "," << from.lat
-         << "&destination=" << std::fixed << to.lng << "," << to.lat
-         << "&key=" << apiKey_;
-
-    try {
-#ifdef CPPHTTPLIB_OPENSSL_SUPPORT
-        httplib::SSLClient client("restapi.amap.com");
-#else
-        httplib::Client client("https://restapi.amap.com");
-#endif
-        if (!client.is_valid()) return -1;
-        client.set_connection_timeout(3);
-        client.set_read_timeout(5);
-
-        auto result = client.Get(path.str());
-        if (!result || result->status != 200) return -1;
-        return parseDrivingDuration(result->body);
-    } catch (...) {
-        return -1;
-    }
-}
     // Use walking directions for city tourism (more appropriate than driving)
     std::ostringstream path;
     path << "/v3/direction/walking?origin=" << std::fixed << from.lng << "," << from.lat

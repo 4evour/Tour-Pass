@@ -1,4 +1,4 @@
-﻿#include "tourpass/models.h"
+#include "tourpass/models.h"
 
 #include <algorithm>
 #include <iomanip>
@@ -47,26 +47,20 @@ std::string poiTypeToString(PoiType type) {
 }
 
 PoiType poiTypeFromString(const std::string& value) {
-    if (value == "attraction" || value == "鏅偣") return PoiType::Attraction;
-    if (value == "restaurant" || value == "椁愬巺") return PoiType::Restaurant;
-    if (value == "hotel" || value == "閰掑簵") return PoiType::Hotel;
-    if (value == "transit" || value == "浜ら€氱珯鐐?) return PoiType::Transit;
-    if (value == "nightlife" || value == "澶滈棿娲诲姩鐐?) return PoiType::Nightlife;
+    if (value == "attraction" || value == "景点") return PoiType::Attraction;
+    if (value == "restaurant" || value == "餐厅") return PoiType::Restaurant;
+    if (value == "hotel" || value == "酒店") return PoiType::Hotel;
+    if (value == "transit" || value == "交通站点") return PoiType::Transit;
+    if (value == "nightlife" || value == "夜间活动点") return PoiType::Nightlife;
     throw std::runtime_error("unknown poi type: " + value);
 }
 
 int parseTimeToMinutes(const std::string& value) {
-    auto colonPos = value.find(':');
-    if (colonPos == std::string::npos || colonPos == 0 || colonPos == value.size() - 1) {
+    if (value.size() != 5 || value[2] != ':') {
         throw std::runtime_error("invalid time format: " + value);
     }
-    int hour, minute;
-    try {
-        hour = std::stoi(value.substr(0, colonPos));
-        minute = std::stoi(value.substr(colonPos + 1));
-    } catch (...) {
-        throw std::runtime_error("invalid time format: " + value);
-    }
+    int hour = std::stoi(value.substr(0, 2));
+    int minute = std::stoi(value.substr(3, 2));
     if (hour < 0 || hour > 23 || minute < 0 || minute > 59) {
         throw std::runtime_error("invalid time value: " + value);
     }
@@ -74,12 +68,12 @@ int parseTimeToMinutes(const std::string& value) {
 }
 
 std::string formatMinutes(int minutes) {
-    minutes = std::max(0, std::min(minutes, 24 * 60));
+    if (minutes < 0) minutes = 0;
+    minutes %= 24 * 60;
     std::ostringstream out;
     out << std::setw(2) << std::setfill('0') << (minutes / 60)
         << ":" << std::setw(2) << std::setfill('0') << (minutes % 60);
     return out.str();
-}
 }
 
 bool containsText(const std::vector<std::string>& values, const std::string& value) {
@@ -218,7 +212,7 @@ TripRequest tripRequestFromJson(const nlohmann::json& input, const std::string& 
     request.endMinutes = parseTimeToMinutes(input.value("end_time", "21:30"));
     request.hotelLocation = input.value("hotel_location", "");
     request.interests = optionalStringArray(input, "interests");
-    request.pace = input.value("pace", "鏍囧噯");
+    request.pace = input.value("pace", "标准");
     request.mustVisit = optionalStringArray(input, "must_visit");
     request.avoid = optionalStringArray(input, "avoid");
     request.candidateCount = input.value("candidate_count", 1);

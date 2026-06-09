@@ -1,4 +1,4 @@
-﻿#include "tourpass/search.h"
+#include "tourpass/search.h"
 
 #include <algorithm>
 #include <cctype>
@@ -59,7 +59,7 @@ double bm25Contribution(double tf, double documentCount, double documentFrequenc
 std::string joinTerms(const std::vector<std::string>& terms) {
     std::ostringstream out;
     for (size_t i = 0; i < terms.size(); ++i) {
-        if (i > 0) out << "銆?;
+        if (i > 0) out << "、";
         out << terms[i];
     }
     return out.str();
@@ -112,10 +112,16 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
 
     std::unordered_map<std::string, int> documentFrequency;
     for (const auto& token : tokens) {
-        auto it = invertedIndex_.find(token);
-        int count = (it != invertedIndex_.end()) ? static_cast<int>(it->second.size()) : 0;
+        int count = 0;
+        for (const auto& entry : index_) {
+            if (entry.nameLc.find(token) != std::string::npos ||
+                entry.tagsTextLc.find(token) != std::string::npos ||
+                entry.areaLc.find(token) != std::string::npos ||
+                entry.descriptionLc.find(token) != std::string::npos) {
+                ++count;
+            }
+        }
         documentFrequency[token] = std::max(1, count);
-    }
     }
 
     const double averageLength = averageLength_;
@@ -128,10 +134,10 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
 
         // Skip non-tourist POIs (schools, companies, factories, etc.)
         static const std::unordered_set<std::string> blacklistTags = {
-            "瀛︽牎", "鑱屼笟鎶€鏈鏍?, "鑱屼笟鎶€鏈闄?, "涓", "灏忓", "骞煎効鍥?, "澶у", "瀛﹂櫌",
-            "鍏徃浼佷笟", "鍏徃", "宸ュ巶", "鏀垮簻鏈烘瀯", "娲惧嚭鎵€", "娑堥槻闃?,
-            "鍖婚櫌", "璇婃墍", "鑽簵", "娈′华棣?, "澧撳湴",
-            "鍔犳补绔?, "鍋滆溅鍦?, "鏀惰垂绔?, "浣忓畢鍖?, "灏忓尯"
+            "学校", "职业技术学校", "职业技术学院", "中学", "小学", "幼儿园", "大学", "学院",
+            "公司企业", "公司", "工厂", "政府机构", "派出所", "消防队",
+            "医院", "诊所", "药店", "殡仪馆", "墓地",
+            "加油站", "停车场", "收费站", "住宅区", "小区"
         };
         bool blacklisted = false;
         for (const auto& tag : poi.tags) {
@@ -141,10 +147,10 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
 
         // Skip POIs with non-tourist names (schools, etc.) unless whitelisted
         static const std::vector<std::string> nameBlacklist = {
-            "鑱屼笟瀛﹂櫌", "鑱屼笟鎶€鏈?, "涓", "灏忓", "骞煎効鍥?, "瀛︽牎"
+            "职业学院", "职业技术", "中学", "小学", "幼儿园", "学校"
         };
         static const std::vector<std::string> nameWhitelist = {
-            "鍗氱墿棣?, "缇庢湳棣?, "绉戞妧棣?
+            "博物馆", "美术馆", "科技馆"
         };
         {
             bool nameBlacklisted = false;
@@ -183,26 +189,26 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
                 score += tokenScore;
 
                 if (nameTf > 0.0) {
-                    contributions.push_back({"鍚嶇ОBM25", std::round(bm25Contribution(nameTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "鏌ヨ璇嶃€? + token + "銆嶅懡涓悕绉板瓧娈点€?});
+                    contributions.push_back({"名称BM25", std::round(bm25Contribution(nameTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词「" + token + "」命中名称字段。"});
                 }
                 if (tagsTf > 0.0) {
-                    contributions.push_back({"鏍囩BM25", std::round(bm25Contribution(tagsTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "鏌ヨ璇嶃€? + token + "銆嶅懡涓爣绛惧瓧娈点€?});
+                    contributions.push_back({"标签BM25", std::round(bm25Contribution(tagsTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词「" + token + "」命中标签字段。"});
                 }
                 if (areaTf > 0.0) {
-                    contributions.push_back({"鍖哄煙BM25", std::round(bm25Contribution(areaTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "鏌ヨ璇嶃€? + token + "銆嶅懡涓尯鍩熷瓧娈点€?});
+                    contributions.push_back({"区域BM25", std::round(bm25Contribution(areaTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词「" + token + "」命中区域字段。"});
                 }
                 if (descriptionTf > 0.0) {
-                    contributions.push_back({"鎻忚堪BM25", std::round(bm25Contribution(descriptionTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "鏌ヨ璇嶃€? + token + "銆嶅懡涓弿杩板瓧娈点€?});
+                    contributions.push_back({"描述BM25", std::round(bm25Contribution(descriptionTf, documentCount, df, docLength, averageLength) * 10.0) / 10.0, "查询词「" + token + "」命中描述字段。"});
                 }
             }
         }
         if (tokens.empty()) {
             score = entry.poi->popularity;
-            matchedTerms.push_back("鐑害");
-            contributions.push_back({"鐑害", poi.popularity, "绌烘煡璇㈡寜 POI 鐑害鎺掑簭銆?});
+            matchedTerms.push_back("热度");
+            contributions.push_back({"热度", poi.popularity, "空查询按 POI 热度排序。"});
         }
         score += entry.poi->popularity;
-        contributions.push_back({"鐑害鍔犳潈", entry.poi->popularity, "妫€绱㈡帓搴忓彔鍔?POI 鐑害锛岄伩鍏嶄綆璐ㄩ噺鏂囨湰鍖归厤闈犲墠銆?});
+        contributions.push_back({"热度加权", entry.poi->popularity, "检索排序叠加 POI 热度，避免低质量文本匹配靠前。"});
 
         if (score > 0.0) {
             SearchResult result;
@@ -215,8 +221,8 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
             result.description = entry.poi->description;
             result.matchedTerms = matchedTerms;
             result.scoreExplanation = tokens.empty()
-                ? "绌烘煡璇㈡寜 POI 鐑害鎺掑簭銆?
-                : "BM25 + 瀛楁鏉冮噸锛氬悕绉般€佹爣绛俱€佸尯鍩熷拰鎻忚堪鍏卞悓璐＄尞锛屽尮閰嶈瘝涓恒€? + joinTerms(matchedTerms) + "銆嶃€?;
+                ? "空查询按 POI 热度排序。"
+                : "BM25 + 字段权重：名称、标签、区域和描述共同贡献，匹配词为「" + joinTerms(matchedTerms) + "」。";
             result.scoreContributions = contributions;
             result.lat = entry.poi->lat;
             result.lng = entry.poi->lng;

@@ -1,4 +1,4 @@
-﻿#include "tourpass/env.h"
+#include "tourpass/env.h"
 #include "tourpass/graph.h"
 
 #include <queue>
@@ -52,11 +52,7 @@ const Poi* PoiGraph::findPoi(const std::string& idOrName) const {
     }
     auto nameIt = idByName_.find(idOrName);
     if (nameIt != idByName_.end()) {
-        // Iterative lookup to avoid stack overflow from recursive name resolution
-        auto idIt2 = indexById_.find(nameIt->second);
-        if (idIt2 != indexById_.end()) {
-            return &pois_[idIt2->second];
-        }
+        return findPoi(nameIt->second);
     }
     return nullptr;
 }
@@ -250,48 +246,6 @@ DistanceCacheStats PoiGraph::distanceCacheStats() const {
 }
 
 std::vector<int> PoiGraph::computeSingleSourceShortestMinutes(const std::string& from) const {
-    std::vector<int> dist(pois_.size(), std::numeric_limits<int>::max());
-    auto startIt = indexById_.find(from);
-    if (startIt == indexById_.end()) {
-        return dist;
-    }
-
-    struct QueueItem {
-        int cost = 0;
-        size_t idx = 0;
-    };
-    struct QueueCompare {
-        bool operator()(const QueueItem& a, const QueueItem& b) const {
-            return a.cost > b.cost;
-        }
-    };
-
-    std::priority_queue<QueueItem, std::vector<QueueItem>, QueueCompare> queue;
-    dist[startIt->second] = 0;
-    queue.push({0, startIt->second});
-
-    while (!queue.empty()) {
-        auto item = queue.top();
-        queue.pop();
-        if (item.cost != dist[item.idx]) {
-            continue;
-        }
-
-        const auto& poiId = pois_[item.idx].id;
-        auto adjIt = adjacency_.find(poiId);
-        if (adjIt == adjacency_.end()) continue;
-        for (const auto& next : adjIt->second) {
-            auto nextIndex = indexById_.find(next.to);
-            if (nextIndex == indexById_.end()) continue;
-            int nextCost = item.cost + next.minutes;
-            if (nextCost < dist[nextIndex->second]) {
-                dist[nextIndex->second] = nextCost;
-                queue.push({nextCost, nextIndex->second});
-            }
-        }
-    }
-    return dist;
-}
     std::vector<int> dist(pois_.size(), std::numeric_limits<int>::max());
     auto startIt = indexById_.find(from);
     if (startIt == indexById_.end()) {

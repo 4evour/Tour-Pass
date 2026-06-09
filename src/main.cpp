@@ -1,4 +1,4 @@
-﻿#include <cstdlib>
+#include <cstdlib>
 #include <exception>
 #include <filesystem>
 #include <fstream>
@@ -49,14 +49,14 @@ int main() {
         // Directory name -> display name mapping
         struct CityEntry { std::string dir; std::string name; };
         std::vector<CityEntry> cityList = {
-            {"changsha", "闀挎矙"}, {"wuhan", "姝︽眽"}, {"dali", "澶х悊"},
-            {"lijiang", "涓芥睙"}, {"nanjing", "鍗椾含"}, {"suzhou", "鑻忓窞"},
-            {"chengdu", "鎴愰兘"}, {"chongqing", "閲嶅簡"}, {"xian", "瑗垮畨"},
-            {"hangzhou", "鏉窞"}, {"beijing", "鍖椾含"},
-            {"shanghai", "涓婃捣"}, {"guangzhou", "骞垮窞"}, {"shenzhen", "娣卞湷"},
-            {"xiamen", "鍘﹂棬"}, {"qingdao", "闈掑矝"},
-            {"guilin", "妗傛灄"}, {"sanya", "涓変簹"}, {"harbin", "鍝堝皵婊?},
-            {"kunming", "鏄嗘槑"}, {"zhangjiajie", "寮犲鐣?}
+            {"changsha", "长沙"}, {"wuhan", "武汉"}, {"dali", "大理"},
+            {"lijiang", "丽江"}, {"nanjing", "南京"}, {"suzhou", "苏州"},
+            {"chengdu", "成都"}, {"chongqing", "重庆"}, {"xian", "西安"},
+            {"hangzhou", "杭州"}, {"beijing", "北京"},
+            {"shanghai", "上海"}, {"guangzhou", "广州"}, {"shenzhen", "深圳"},
+            {"xiamen", "厦门"}, {"qingdao", "青岛"},
+            {"guilin", "桂林"}, {"sanya", "三亚"}, {"harbin", "哈尔滨"},
+            {"kunming", "昆明"}, {"zhangjiajie", "张家界"}
         };
 
         for (const auto& entry : cityList) {
@@ -152,7 +152,7 @@ int main() {
 
         std::string defaultCity = envDefaultCity;
         if (defaultCity.empty()) {
-            // No env override 鈥?pick first loaded city from list order
+            // No env override — pick first loaded city from list order
             for (const auto& entry : cityList) {
                 if (cities.count(entry.name)) {
                     defaultCity = entry.name;
@@ -165,7 +165,9 @@ int main() {
             }
         }
 
-        // cityList order already handled above; no fallback needed for unordered_map
+        if (defaultCity.empty() && !cities.empty()) {
+            defaultCity = cities.begin()->first;
+        }
 
         if (!defaultCity.empty()) {
             std::cout << "Default city: " << defaultCity << std::endl;

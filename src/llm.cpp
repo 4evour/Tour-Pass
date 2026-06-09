@@ -1,4 +1,4 @@
-﻿#include "tourpass/llm.h"
+#include "tourpass/llm.h"
 
 #include <cstdlib>
 #include <fstream>
@@ -93,14 +93,7 @@ Endpoint parseEndpoint(std::string baseUrl) {
 
 std::string parseChatCompletionContent(const std::string& responseBody) {
     auto json = nlohmann::json::parse(responseBody);
-    if (!json.contains("choices") || !json["choices"].is_array() || json["choices"].empty()) {
-        return "";
-    }
-    auto& first = json["choices"][0];
-    if (!first.contains("message") || !first["message"].contains("content")) {
-        return "";
-    }
-    return first["message"]["content"].get<std::string>();
+    return json.at("choices").at(0).at("message").at("content").get<std::string>();
 }
 
 #ifdef _WIN32
@@ -273,18 +266,6 @@ LlmClient::LlmClient(const std::string& configPath) {
     if (isConfigured()) {
         try {
             Endpoint ep = parseEndpoint(config_.baseUrl);
-#ifdef CPPHTTPLIB_OPENSSL_SUPPORT
-            if (ep.https) {
-                httpClient_ = std::make_shared<httplib::Client>(ep.host, ep.port, ep.path);
-                if (httpClient_->is_valid()) {
-                    httpClient_->set_connection_timeout(5);
-                    httpClient_->set_read_timeout(30);
-                    httpClient_->set_write_timeout(30);
-                } else {
-                    httpClient_.reset();
-                }
-            } else
-#endif
             if (!ep.https) {
                 httpClient_ = std::make_shared<httplib::Client>(ep.origin());
                 if (httpClient_->is_valid()) {
@@ -317,16 +298,16 @@ std::string LlmClient::explain(const Itinerary& itinerary) const {
 
 std::string LlmClient::explainWithTemplate(const Itinerary& itinerary) const {
     std::ostringstream out;
-    out << "杩欐槸涓轰綘鐢熸垚鐨?" << itinerary.city << " 琛岀▼銆?;
+    out << "这是为你生成的 " << itinerary.city << " 行程。";
     for (const auto& day : itinerary.days) {
-        out << "\n绗?" << day.day << " 澶╋細" << day.summary;
+        out << "\n第 " << day.day << " 天：" << day.summary;
         for (const auto& stop : day.stops) {
-            out << "\n- " << stop.slot << " " << stop.poiName << "锛?
+            out << "\n- " << stop.slot << " " << stop.poiName << "（"
                 << formatMinutes(stop.startMinutes) << "-" << formatMinutes(stop.endMinutes)
-                << "锛夛細 " << stop.reason;
+                << "）： " << stop.reason;
         }
     }
-    out << "\n鏁翠綋瀹夋帓浼樺厛鍏奸【鍏磋叮鍖归厤銆佸紑鏀炬椂闂村拰閫氬嫟鎴愭湰銆?;
+    out << "\n整体安排优先兼顾兴趣匹配、开放时间和通勤成本。";
     return out.str();
 }
 
@@ -387,19 +368,19 @@ std::string LlmClient::chatCompletion(const std::vector<ChatMessage>& messages, 
 
 std::string LlmClient::explainWithRemote(const Itinerary& itinerary) const {
     std::vector<ChatMessage> messages = {
-        {"system", R"(浣犳槸涓€浣嶈祫娣辨梾琛屾敾鐣ヨ揪浜猴紝鍍忔湅鍙嬩竴鏍蜂负鐢ㄦ埛瑙勫垝琛岀▼銆傛牴鎹粨鏋勫寲琛岀▼鏁版嵁锛岀敤杞绘澗鑷劧鐨勪腑鏂囪緭鍑烘敾鐣ュ紡瑙ｉ噴銆?
+        {"system", R"(你是一位资深旅行攻略达人，像朋友一样为用户规划行程。根据结构化行程数据，用轻松自然的中文输出攻略式解释。
 
-瑕佹眰锛?
-1. 鐢ㄧ涓€浜虹О"鎴?鎴?鍜变滑"寮€澶达紝鍍忔湅鍙嬫帹鑽愪竴鏍蜂翰鍒囪嚜鐒?
-2. 姣忎釜鏅偣/椁愬巺绠€瑕佽鏄?涓轰粈涔堥€夎繖閲?鈥斺€旂壒鑹层€佷寒鐐广€佹媿鐓х偣銆佹嫑鐗岃彍绛?
-3. 鐩搁偦琛岀▼鑷劧涓茶仈锛屽舰鎴愬姩绾挎晠浜嬶紙濡?閫涘畬XX姝ｅソ璧板埌YY鍚冧釜楗?锛?
-4. 缁欏嚭瀹炵敤灏忚创澹細鏈€浣虫椂闂淬€佹帓闃熷缓璁€佷氦閫氭柟寮忋€佺┛鐫€寤鸿绛?
-5. 濡傛灉鏈変笅鍗堣尪瀹夋帓锛岃鏄庢槸浼戞伅璋冩暣鐨勫ソ鏃舵満
-6. 椁愬巺鎺ㄨ崘瑕佽鏄庣壒鑹茶彍鎴栨帹鑽愮悊鐢憋紝涓嶈鍙"鐢ㄩ"
-7. 淇濇寔鏁翠綋鑺傚鎰燂細涓婂崍绮惧姏鍏呮矝閫傚悎閫涙櫙鐐癸紝涓嬪崍杞绘澗浼戦棽锛屾櫄涓婃劅鍙楀鐢熸椿
-8. 鎬诲瓧鏁版帶鍒跺湪 500 瀛椾互鍐?
+要求：
+1. 用第一人称"我"或"咱们"开头，像朋友推荐一样亲切自然
+2. 每个景点/餐厅简要说明"为什么选这里"——特色、亮点、拍照点、招牌菜等
+3. 相邻行程自然串联，形成动线故事（如"逛完XX正好走到YY吃个饭"）
+4. 给出实用小贴士：最佳时间、排队建议、交通方式、穿着建议等
+5. 如果有下午茶安排，说明是休息调整的好时机
+6. 餐厅推荐要说明特色菜或推荐理由，不要只说"用餐"
+7. 保持整体节奏感：上午精力充沛适合逛景点，下午轻松休闲，晚上感受夜生活
+8. 总字数控制在 500 字以内
 
-涓嶈杈撳嚭 JSON锛屽彧杈撳嚭鏀荤暐寮忎腑鏂囨枃鏈€?"},
+不要输出 JSON，只输出攻略式中文文本。)"},
         {"user", itineraryToJson(itinerary).dump()}
     };
     return chatCompletion(messages, 0.5);
@@ -410,29 +391,29 @@ LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& messa
 
     std::string defaultCityLabel = defaultCity.empty() ? "" : defaultCity;
     std::string systemPrompt =
-        "浣犳槸涓€涓梾琛岃鍒掓剰鍥捐В鏋愬櫒銆傜敤鎴蜂細鐢ㄨ嚜鐒惰瑷€鎻忚堪鏃呰闇€姹傦紝浣犻渶瑕佷粠涓彁鍙栫粨鏋勫寲鍙傛暟銆俓n\n"
-        "璇蜂弗鏍兼寜鐓т互涓?JSON 鏍煎紡杈撳嚭锛屼笉瑕佽緭鍑轰换浣曞叾浠栧唴瀹癸細\n"
+        "你是一个旅行规划意图解析器。用户会用自然语言描述旅行需求，你需要从中提取结构化参数。\n\n"
+        "请严格按照以下 JSON 格式输出，不要输出任何其他内容：\n"
         "{\n"
         "  \"days\": 3,\n"
         "  \"city\": \"\",\n"
-        "  \"interests\": [\"鍘嗗彶鏂囧寲\", \"缇庨\"],\n"
-        "  \"must_visit\": [\"姗樺瓙娲插ご\", \"宀抽簱灞盶"],\n"
+        "  \"interests\": [\"历史文化\", \"美食\"],\n"
+        "  \"must_visit\": [\"橘子洲头\", \"岳麓山\"],\n"
         "  \"avoid\": [],\n"
-        "  \"pace\": \"鏍囧噯\",\n"
+        "  \"pace\": \"标准\",\n"
         "  \"start_minutes\": 540,\n"
         "  \"end_minutes\": 1260,\n"
-        "  \"notes\": \"鐢ㄦ埛鎻愬埌鐨勭壒娈婇渶姹俓"\n"
+        "  \"notes\": \"用户提到的特殊需求\"\n"
         "}\n\n"
-        "瀛楁璇存槑锛歕n"
-        "- days: 鏃呰澶╂暟锛?-7锛夛紝濡傛灉鐢ㄦ埛娌¤榛樿涓?3\n"
-        "- city: 鍩庡競鍚嶏紝濡傛灉鐢ㄦ埛鏈槑纭彁鍒板煄甯傚垯鐣欑┖瀛楃涓诧紝鐢辩郴缁熻嚜鍔ㄩ€夋嫨\n"
-        "- interests: 鍏磋叮鏍囩鏁扮粍锛屼粠浠ヤ笅閫夊彇锛氬巻鍙叉枃鍖栥€佺編椋熴€佽嚜鐒堕鍏夈€佸崥鐗╅銆佸彜寤虹瓚銆佸鏅€佽喘鐗┿€佷紤闂层€佹埛澶栥€佸鍐呫€佷翰瀛愩€佹枃鑹恒€佸皬鍚冦€佺綉绾㈡墦鍗n"
-        "- must_visit: 鐢ㄦ埛鏄庣‘鎻愬埌鎯冲幓鐨勬櫙鐐瑰悕绉版暟缁刓n"
-        "- avoid: 鐢ㄦ埛涓嶆兂鍘荤殑绫诲瀷鎴栨櫙鐐筡n"
-        "- pace: 琛岀▼鑺傚锛孿"杞绘澗\"(relaxed)/\"鏍囧噯\"(standard)/\"绱у噾\"(compact)锛岄粯璁"鏍囧噯\"\n"
-        "- start_minutes: 姣忔棩鍑哄彂鏃堕棿锛堝垎閽熸暟锛屽 540=9:00锛夛紝榛樿 540\n"
-        "- end_minutes: 姣忔棩缁撴潫鏃堕棿锛堝垎閽熸暟锛屽 1260=21:00锛夛紝榛樿 1260\n"
-        "- notes: 鐢ㄦ埛鎻愬埌鐨勪换浣曠壒娈婇渶姹傛垨绾︽潫";
+        "字段说明：\n"
+        "- days: 旅行天数（1-7），如果用户没说默认为 3\n"
+        "- city: 城市名，如果用户未明确提到城市则留空字符串，由系统自动选择\n"
+        "- interests: 兴趣标签数组，从以下选取：历史文化、美食、自然风光、博物馆、古建筑、夜景、购物、休闲、户外、室内、亲子、文艺、小吃、网红打卡\n"
+        "- must_visit: 用户明确提到想去的景点名称数组\n"
+        "- avoid: 用户不想去的类型或景点\n"
+        "- pace: 行程节奏，\"轻松\"(relaxed)/\"标准\"(standard)/\"紧凑\"(compact)，默认\"标准\"\n"
+        "- start_minutes: 每日出发时间（分钟数，如 540=9:00），默认 540\n"
+        "- end_minutes: 每日结束时间（分钟数，如 1260=21:00），默认 1260\n"
+        "- notes: 用户提到的任何特殊需求或约束";
 
     std::vector<ChatMessage> messages = {{"system", systemPrompt}};
     for (const auto& msg : context) {
@@ -442,7 +423,7 @@ LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& messa
 
     std::string response = chatCompletion(messages, 0.1);
     if (response.empty()) {
-        result.parseNote = "LLM 鏈嶅姟涓嶅彲鐢紝鏃犳硶瑙ｆ瀽鑷劧璇█璇锋眰";
+        result.parseNote = "LLM 服务不可用，无法解析自然语言请求";
         return result;
     }
 
@@ -450,7 +431,7 @@ LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& messa
         size_t start = response.find('{');
         size_t end = response.rfind('}');
         if (start == std::string::npos || end == std::string::npos || end <= start) {
-            result.parseNote = "LLM 杩斿洖鐨勫唴瀹逛笉鏄湁鏁?JSON: " + response.substr(0, 200);
+            result.parseNote = "LLM 返回的内容不是有效 JSON: " + response.substr(0, 200);
             return result;
         }
         std::string jsonStr = response.substr(start, end - start + 1);
@@ -460,7 +441,7 @@ LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& messa
         req.city = parsed.value("city", defaultCityLabel);
         req.days = parsed.value("days", 3);
         req.days = std::max(1, std::min(7, req.days));
-        req.pace = parsed.value("pace", "鏍囧噯");
+        req.pace = parsed.value("pace", "标准");
         req.startMinutes = parsed.value("start_minutes", 540);
         req.endMinutes = parsed.value("end_minutes", 1260);
         req.candidateCount = 5;
@@ -487,72 +468,75 @@ LlmParsedRequest LlmClient::parseNaturalLanguageRequest(const std::string& messa
         result.parseNote = parsed.value("notes", "");
         result.parsed = true;
     } catch (const std::exception& ex) {
-        result.parseNote = std::string("瑙ｆ瀽 LLM 鍝嶅簲澶辫触: ") + ex.what();
+        result.parseNote = std::string("解析 LLM 响应失败: ") + ex.what();
     }
     return result;
 }
 
 std::string LlmClient::generateItineraryReply(const std::string& userMessage, const TripRequest& /*request*/, const Itinerary& itinerary, const CityGuide& guide) const {
-    std::string systemPrompt = R"(浣犳槸涓€浣嶇儹鎯呯殑鏃呰鏀荤暐杈句汉銆傜敤鎴锋彁鍑轰簡鏃呰闇€姹傦紝绯荤粺宸茬敓鎴愯绋嬭鍒掋€?
-鐢ㄦ湅鍙嬭亰澶╃殑鍙ｅ惢鍥炲鐢ㄦ埛锛?1. 鍏堢敤涓€鍙ヨ瘽姒傛嫭鏁翠綋琛岀▼鎰熻
-2. 鐢?2-3 涓寒鐐瑰惛寮曠敤鎴凤紙涓轰粈涔堣繖涓畨鎺掑緢妫掋€佹湁浠€涔堥殣钘忕帺娉曪級
-3. 缁?1-2 鏉″疄鐢ㄨ创澹紙绌夸粈涔堛€佸甫浠€涔堛€佹敞鎰忎簨椤癸級
-4. 濡傛灉鏈変笅鍗堣尪/灏忓悆瀹夋帓锛屾彁涓€涓嬪綋鍦扮壒鑹?5. 淇濇寔鍦?250 瀛椾互鍐咃紝璇皵杞绘澗鑷劧
+    std::string systemPrompt = R"(你是一位热情的旅行攻略达人。用户提出了旅行需求，系统已生成行程规划。
 
-涓嶈杈撳嚭 JSON锛屽彧杈撳嚭绾枃鏈洖澶嶃€?";
+用朋友聊天的口吻回复用户：
+1. 先用一句话概括整体行程感觉
+2. 用 2-3 个亮点吸引用户（为什么这个安排很棒、有什么隐藏玩法）
+3. 给 1-2 条实用贴士（穿什么、带什么、注意事项）
+4. 如果有下午茶/小吃安排，提一下当地特色
+5. 保持在 250 字以内，语气轻松自然
+
+不要输出 JSON，只输出纯文本回复。)";
 
     if (guide.loaded) {
-        systemPrompt += "\n\n浠ヤ笅鏄綋鍦版梾琛屾敾鐣ワ紝鍙互鍙傝€冿細\n";
+        systemPrompt += "\n\n以下是当地旅行攻略，可以参考：\n";
         if (!guide.transportTips.empty()) {
-            systemPrompt += "浜ら€氬缓璁細";
+            systemPrompt += "交通建议：";
             for (size_t i = 0; i < guide.transportTips.size() && i < 3; i++) {
-                if (i > 0) systemPrompt += "锛?;
+                if (i > 0) systemPrompt += "；";
                 systemPrompt += guide.transportTips[i];
             }
             systemPrompt += "\n";
         }
         if (!guide.crowdTips.empty()) {
-            systemPrompt += "閬垮潙寤鸿锛?;
+            systemPrompt += "避坑建议：";
             for (size_t i = 0; i < guide.crowdTips.size() && i < 3; i++) {
-                if (i > 0) systemPrompt += "锛?;
+                if (i > 0) systemPrompt += "；";
                 systemPrompt += guide.crowdTips[i];
             }
             systemPrompt += "\n";
         }
         if (!guide.seasonalTips.empty()) {
-            systemPrompt += "瀛ｈ妭寤鸿锛?;
+            systemPrompt += "季节建议：";
             for (size_t i = 0; i < guide.seasonalTips.size() && i < 2; i++) {
-                if (i > 0) systemPrompt += "锛?;
+                if (i > 0) systemPrompt += "；";
                 systemPrompt += guide.seasonalTips[i];
             }
             systemPrompt += "\n";
         }
         if (!guide.hiddenGems.empty()) {
-            systemPrompt += "闅愯棌鐜╂硶锛?;
+            systemPrompt += "隐藏玩法：";
             for (size_t i = 0; i < guide.hiddenGems.size() && i < 2; i++) {
-                if (i > 0) systemPrompt += "锛?;
+                if (i > 0) systemPrompt += "；";
                 systemPrompt += guide.hiddenGems[i];
             }
             systemPrompt += "\n";
         }
         if (!guide.foodTips.empty()) {
-            systemPrompt += "缇庨鎺ㄨ崘锛?;
+            systemPrompt += "美食推荐：";
             for (size_t i = 0; i < guide.foodTips.size() && i < 3; i++) {
-                if (i > 0) systemPrompt += "锛?;
+                if (i > 0) systemPrompt += "；";
                 systemPrompt += guide.foodTips[i];
             }
             systemPrompt += "\n";
         }
     }
 
-    std::string itinerarySummary = "鐢ㄦ埛闇€姹傦細" + userMessage + "\n\n瑙勫垝缁撴灉锛歕n";
-    itinerarySummary += "鍩庡競锛? + itinerary.city + "锛屽ぉ鏁帮細" + std::to_string(itinerary.days.size()) + "\n";
+    std::string itinerarySummary = "用户需求：" + userMessage + "\n\n规划结果：\n";
+    itinerarySummary += "城市：" + itinerary.city + "，天数：" + std::to_string(itinerary.days.size()) + "\n";
     for (const auto& day : itinerary.days) {
-        itinerarySummary += "绗? + std::to_string(day.day) + "澶╋細" + day.summary + "\n";
+        itinerarySummary += "第" + std::to_string(day.day) + "天：" + day.summary + "\n";
         for (const auto& stop : day.stops) {
-            itinerarySummary += "  " + stop.slot + " " + stop.poiName + "锛? + formatMinutes(stop.startMinutes) + "-" + formatMinutes(stop.endMinutes) + "锛塡n";
+            itinerarySummary += "  " + stop.slot + " " + stop.poiName + "（" + formatMinutes(stop.startMinutes) + "-" + formatMinutes(stop.endMinutes) + "）\n";
             if (!stop.reason.empty()) {
-                itinerarySummary += "    鎺ㄨ崘鐞嗙敱锛? + stop.reason + "\n";
+                itinerarySummary += "    推荐理由：" + stop.reason + "\n";
             }
         }
     }
@@ -609,32 +593,34 @@ CityGuide LlmClient::loadCityGuide(const std::string& city) {
 
 int LlmClient::evaluateItinerary(const std::vector<Itinerary>& candidates, const CityGuide& guide) const {
     if (candidates.size() <= 1) return 0;
-    std::string prompt = R"(浣犳槸鏃呰琛岀▼璇勪及涓撳銆傝璇勪及浠ヤ笅鍊欓€夋柟妗堬紝閫夊嚭鏈€浣崇殑涓€涓€?
-璇勪及缁村害锛?1. 璺嚎鍚堢悊鎬э紙鏅偣涔嬮棿璺濈鏄惁鍚堢悊锛屾槸鍚﹁蛋鍥炲ご璺級
-2. 鏃堕棿瀹夋帓锛堟瘡涓櫙鐐规椂闂存槸鍚﹀厖瑁曪紝鏄惁鏈夎刀鍦猴級
-3. 澶氭牱鎬э紙鏅偣绫诲瀷鏄惁涓板瘜锛岄伩鍏嶉噸澶嶏級
-4. 浣撻獙鎰燂紙璺嚎鏄惁鏈夎妭濂忔劅锛屽姵閫哥粨鍚堬級)";
+    std::string prompt = R"(你是旅行行程评估专家。请评估以下候选方案，选出最佳的一个。
+
+评估维度：
+1. 路线合理性（景点之间距离是否合理，是否走回头路）
+2. 时间安排（每个景点时间是否充裕，是否有赶场）
+3. 多样性（景点类型是否丰富，避免重复）
+4. 体验感（路线是否有节奏感，劳逸结合）)";
     if (guide.loaded) {
-        prompt += "\n\n褰撳湴鏀荤暐鍙傝€冿細\n";
-        if (!guide.bestRoutes.empty()) prompt += "缁忓吀璺嚎锛? + guide.bestRoutes[0] + "\n";
+        prompt += "\n\n当地攻略参考：\n";
+        if (!guide.bestRoutes.empty()) prompt += "经典路线：" + guide.bestRoutes[0] + "\n";
         if (!guide.timingTips.empty())
             for (const auto& tip : guide.timingTips) prompt += "- " + tip + "\n";
     }
-    prompt += "\n\n鍊欓€夋柟妗堬細\n";
+    prompt += "\n\n候选方案：\n";
     for (size_t i = 0; i < candidates.size(); i++) {
         const auto& it = candidates[i];
-        prompt += "鏂规" + std::to_string(i + 1) + "锛? + it.variantName + "锛夛細\n";
+        prompt += "方案" + std::to_string(i + 1) + "（" + it.variantName + "）：\n";
         for (const auto& day : it.days) {
-            prompt += "  绗? + std::to_string(day.day) + "澶╋細";
+            prompt += "  第" + std::to_string(day.day) + "天：";
             for (size_t j = 0; j < day.stops.size(); j++) {
-                if (j > 0) prompt += " 鈫?";
+                if (j > 0) prompt += " → ";
                 prompt += day.stops[j].poiName;
             }
             prompt += "\n";
         }
         prompt += "\n";
     }
-    prompt += "璇峰彧鍥炲鏈€浣虫柟妗堢殑缂栧彿锛?-" + std::to_string(candidates.size()) + "锛夛紝涓嶈瑙ｉ噴銆?;
+    prompt += "请只回复最佳方案的编号（1-" + std::to_string(candidates.size()) + "），不要解释。";
     std::vector<ChatMessage> messages = {{"user", prompt}};
     std::string response = chatCompletion(messages, 0.1);
     try {
@@ -654,24 +640,28 @@ int LlmClient::evaluateItinerary(const std::vector<Itinerary>& candidates, const
 
 std::vector<std::string> LlmClient::enrichStopReasons(const Itinerary& itinerary, const CityGuide& guide) const {
     std::vector<std::string> reasons;
-    std::string prompt = R"(浣犳槸鏃呰鏀荤暐杈句汉銆傝涓轰互涓嬭绋嬬殑姣忎釜鏅偣鐢熸垚绠€鐭殑鎺ㄨ崘鐞嗙敱锛?5-30瀛楋級銆?
-瑕佹眰锛?- 绐佸嚭鏅偣鐗硅壊鍜屼负浠€涔堝€煎緱鍘?- 濡傛灉鏈夋渶浣虫父瑙堟椂闂存垨灏忚创澹紝绠€瑕佹彁鍙?- 璇皵杞绘澗鏈夎叮锛屽儚鏈嬪弸鎺ㄨ崘)";
+    std::string prompt = R"(你是旅行攻略达人。请为以下行程的每个景点生成简短的推荐理由（15-30字）。
+
+要求：
+- 突出景点特色和为什么值得去
+- 如果有最佳游览时间或小贴士，简要提及
+- 语气轻松有趣，像朋友推荐)";
     if (guide.loaded) {
-        prompt += "\n\n褰撳湴鏀荤暐锛歕n";
+        prompt += "\n\n当地攻略：\n";
         if (!guide.timingTips.empty())
             for (const auto& tip : guide.timingTips) prompt += "- " + tip + "\n";
         if (!guide.hiddenGems.empty())
             for (const auto& gem : guide.hiddenGems) prompt += "- " + gem + "\n";
     }
-    prompt += "\n\n琛岀▼绔欑偣锛歕n";
+    prompt += "\n\n行程站点：\n";
     int idx = 1;
     for (const auto& day : itinerary.days) {
         for (const auto& stop : day.stops) {
-            prompt += std::to_string(idx) + ". " + stop.poiName + "锛? + stop.slot + "锛? + formatMinutes(stop.startMinutes) + "-" + formatMinutes(stop.endMinutes) + "锛塡n";
+            prompt += std::to_string(idx) + ". " + stop.poiName + "（" + stop.slot + "，" + formatMinutes(stop.startMinutes) + "-" + formatMinutes(stop.endMinutes) + "）\n";
             idx++;
         }
     }
-    prompt += "\n璇锋寜椤哄簭涓烘瘡涓珯鐐硅緭鍑烘帹鑽愮悊鐢憋紝姣忚涓€涓紝鏍煎紡锛氱紪鍙? 鐞嗙敱\n鍙緭鍑虹悊鐢憋紝涓嶈鍏朵粬鍐呭銆?;
+    prompt += "\n请按顺序为每个站点输出推荐理由，每行一个，格式：编号. 理由\n只输出理由，不要其他内容。";
     std::vector<ChatMessage> messages = {{"user", prompt}};
     std::string response = chatCompletion(messages, 0.5);
     std::istringstream stream(response);
@@ -685,7 +675,7 @@ std::vector<std::string> LlmClient::enrichStopReasons(const Itinerary& itinerary
         while (!line.empty() && (line[0] == ' ' || line[0] == '\t')) line = line.substr(1);
         if (!line.empty()) reasons.push_back(line);
     }
-    while (static_cast<int>(reasons.size()) < expectedCount) reasons.push_back("鐑害鍜岃矾绾块『搴忚緝鍚堥€?);
+    while (static_cast<int>(reasons.size()) < expectedCount) reasons.push_back("热度和路线顺序较合适");
     if (static_cast<int>(reasons.size()) > expectedCount) reasons.resize(expectedCount);
     debugLlm("Enriched " + std::to_string(reasons.size()) + " stop reasons");
     return reasons;

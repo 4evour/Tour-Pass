@@ -1,4 +1,4 @@
-﻿#include "tourpass/auth.h"
+#include "tourpass/auth.h"
 
 #include <chrono>
 #include <cstdlib>
@@ -94,16 +94,11 @@ std::string hmacSha256(const std::string& key, const std::string& data) {
 }  // namespace
 
 bool constantTimeEquals(const std::string& a, const std::string& b) {
-    size_t maxLen = std::max(a.size(), b.size());
+    if (a.size() != b.size()) return false;
     volatile unsigned char result = 0;
-    for (size_t i = 0; i < maxLen; ++i) {
-        unsigned char aByte = (i < a.size()) ? static_cast<unsigned char>(a[i]) : 0;
-        unsigned char bByte = (i < b.size()) ? static_cast<unsigned char>(b[i]) : 0;
-        result |= aByte ^ bByte;
+    for (size_t i = 0; i < a.size(); ++i) {
+        result |= static_cast<unsigned char>(a[i]) ^ static_cast<unsigned char>(b[i]);
     }
-    result |= static_cast<unsigned char>(a.size() != b.size());
-    return result == 0;
-}
     return result == 0;
 }
 
@@ -126,47 +121,21 @@ std::string randomHex(size_t bytes) {
 std::string hashPassword(const std::string& password) {
     std::string salt = randomHex(16);
     std::string hash = pbkdf2Hex(password, salt);
-    // Version prefix: v2 = PBKDF2, v1 = legacy SHA-256 (for backward compatibility)
-    return "v2:" + salt + ":" + hash;
-}
+    return salt + ":" + hash;
 }
 
 bool verifyPassword(const std::string& password, const std::string& storedHash) {
-    std::string salt, expectedHash;
-    bool isV2 = false;
-    
-    // Check for version prefix
-    if (storedHash.substr(0, 3) == "v2:") {
-        isV2 = true;
-        std::string rest = storedHash.substr(3);
-        auto colonPos = rest.find(':');
-        if (colonPos == std::string::npos) return false;
-        salt = rest.substr(0, colonPos);
-        expectedHash = rest.substr(colonPos + 1);
-    } else if (storedHash.substr(0, 3) == "v1:") {
-        std::string rest = storedHash.substr(3);
-        auto colonPos = rest.find(':');
-        if (colonPos == std::string::npos) return false;
-        salt = rest.substr(0, colonPos);
-        expectedHash = rest.substr(colonPos + 1);
-    } else {
-        // Legacy format without version prefix
-        auto colonPos = storedHash.find(':');
-        if (colonPos == std::string::npos) return false;
-        salt = storedHash.substr(0, colonPos);
-        expectedHash = storedHash.substr(colonPos + 1);
-    }
-    
+    auto colonPos = storedHash.find(':');
+    if (colonPos == std::string::npos) return false;
+    std::string salt = storedHash.substr(0, colonPos);
+    std::string expectedHash = storedHash.substr(colonPos + 1);
     std::string computedHash;
-    if (isV2) {
-        computedHash = pbkdf2Hex(password, salt);
-    } else if (expectedHash.size() == 64) {
+    if (expectedHash.size() == 64) {
         computedHash = sha256(salt + ":" + password);
     } else {
         computedHash = pbkdf2Hex(password, salt);
     }
     return constantTimeEquals(computedHash, expectedHash);
-}
 }
 
 // ---- Base64url ----
