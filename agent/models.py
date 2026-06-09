@@ -1,7 +1,7 @@
 ﻿"""Pydantic data models matching C++ TourPass structures."""
 from __future__ import annotations
 from typing import Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 
 # ── User intent parsed from natural language ──────────────────────────────────
@@ -20,6 +20,26 @@ class TripIntent(BaseModel):
     hotel_area: str = Field(default="", description="希望住在哪个区域")
     special_requests: str = Field(default="", description="其他特殊要求")
     strategy: str = Field(default="balanced", description="策略: balanced/cultural/culinary/nature")
+
+    @field_validator('must_visit', 'avoid', 'interests', mode='before')
+    @classmethod
+    def coerce_str_to_list(cls, v):
+        """LLM 有时返回空字符串而不是空列表，需要兼容。"""
+        if isinstance(v, str):
+            if not v.strip():
+                return []
+            return [v.strip()]
+        return v
+
+    @field_validator('days', mode='before')
+    @classmethod
+    def coerce_days(cls, v):
+        """LLM 有时返回字符串天数。"""
+        if isinstance(v, str):
+            import re
+            m = re.search(r'\d+', v)
+            return int(m.group()) if m else 3
+        return v
 
 
 # ── POI and Hotel data (from C++ backend) ─────────────────────────────────────

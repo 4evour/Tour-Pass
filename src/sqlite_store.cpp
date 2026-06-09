@@ -1,4 +1,4 @@
-#include "tourpass/sqlite_store.h"
+﻿#include "tourpass/sqlite_store.h"
 #include "tourpass/auth.h"
 
 #include <chrono>
@@ -773,13 +773,33 @@ nlohmann::json SQLiteStore::queryStatsByDay(int days) {
 
 void SQLiteStore::cleanupExpiredGuests(int daysRetention) {
     std::lock_guard<std::mutex> lock(mutex_);
-    std::string cutoff = "datetime('now', '-" + std::to_string(daysRetention) + " days')";
+    std::string param = "-" + std::to_string(daysRetention) + " days";
     try {
-        exec("DELETE FROM saved_trips WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
-        exec("DELETE FROM easter_egg_log WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
-        exec("DELETE FROM query_usage WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
-        exec("DELETE FROM feedback WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
-        exec("DELETE FROM users WHERE role = 'guest' AND created_at < " + cutoff + ";");
+        {
+            Statement stmt(db_, "DELETE FROM saved_trips WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < datetime('now', ?));");
+            bindText(stmt.get(), 1, param);
+            sqlite3_step(stmt.get());
+        }
+        {
+            Statement stmt(db_, "DELETE FROM easter_egg_log WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < datetime('now', ?));");
+            bindText(stmt.get(), 1, param);
+            sqlite3_step(stmt.get());
+        }
+        {
+            Statement stmt(db_, "DELETE FROM query_usage WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < datetime('now', ?));");
+            bindText(stmt.get(), 1, param);
+            sqlite3_step(stmt.get());
+        }
+        {
+            Statement stmt(db_, "DELETE FROM feedback WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < datetime('now', ?));");
+            bindText(stmt.get(), 1, param);
+            sqlite3_step(stmt.get());
+        }
+        {
+            Statement stmt(db_, "DELETE FROM users WHERE role = 'guest' AND created_at < datetime('now', ?);");
+            bindText(stmt.get(), 1, param);
+            sqlite3_step(stmt.get());
+        }
     } catch (const std::exception& ex) {
         std::cerr << "cleanupExpiredGuests failed: " << ex.what() << std::endl;
     }

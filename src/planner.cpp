@@ -1,4 +1,4 @@
-#include "tourpass/planner.h"
+﻿#include "tourpass/planner.h"
 
 #include <algorithm>
 #include <cstdlib>
@@ -15,10 +15,10 @@ TripPlanner::TripPlanner(const PoiGraph& graph) : graph_(graph) {}
 
 namespace {
 
-// Extract brand name from POI name (e.g. "茶颜悦色(蝴蝶大厦店)" -> "茶颜悦色")
+// Extract brand name from POI name (e.g. "鑼堕鎮﹁壊(铦磋澏澶у帵搴?" -> "鑼堕鎮﹁壊")
 std::string extractBrand(const std::string& name) {
     auto pos = name.find('(');
-    if (pos == std::string::npos) pos = name.find('（');
+    if (pos == std::string::npos) pos = name.find('锛?);
     if (pos == std::string::npos) pos = name.find('(');
     std::string brand = (pos != std::string::npos) ? name.substr(0, pos) : name;
     // Trim trailing whitespace
@@ -39,11 +39,11 @@ bool isBrandDuplicate(const std::string& poiName, const std::set<std::string>& u
 
 std::string joinTags(const std::vector<std::string>& values) {
     if (values.empty()) {
-        return "热度、时间窗和通勤成本";
+        return "鐑害銆佹椂闂寸獥鍜岄€氬嫟鎴愭湰";
     }
     std::ostringstream out;
     for (size_t i = 0; i < values.size(); ++i) {
-        if (i > 0) out << "、";
+        if (i > 0) out << "銆?;
         out << values[i];
     }
     return out.str();
@@ -51,8 +51,8 @@ std::string joinTags(const std::vector<std::string>& values) {
 
 void annotateVariantFocus(Itinerary& itinerary, const std::string& focus) {
     for (auto& day : itinerary.days) {
-        if (day.summary.find("演示重点") == std::string::npos) {
-            day.summary += " 演示重点：" + focus;
+        if (day.summary.find("婕旂ず閲嶇偣") == std::string::npos) {
+            day.summary += " 婕旂ず閲嶇偣锛? + focus;
         }
     }
 }
@@ -152,47 +152,47 @@ double overlapRatio(const std::set<std::string>& left, const std::set<std::strin
 }
 
 std::string diversityLevel(double poiOverlap, int uniquePoiCount) {
-    if (poiOverlap <= 0.35 || uniquePoiCount >= 4) return "高差异";
-    if (poiOverlap <= 0.65 || uniquePoiCount >= 2) return "中差异";
-    return "低差异";
+    if (poiOverlap <= 0.35 || uniquePoiCount >= 4) return "楂樺樊寮?;
+    if (poiOverlap <= 0.65 || uniquePoiCount >= 2) return "涓樊寮?;
+    return "浣庡樊寮?;
 }
 
 std::string strategyDiversityTag(const std::string& strategy) {
-    if (strategy == "low_travel") return "体力友好差异";
-    if (strategy == "compact") return "覆盖密度差异";
-    if (strategy == "culture") return "文化主题差异";
-    if (strategy == "food") return "美食主题差异";
-    if (strategy == "rainy") return "雨天场景差异";
-    return "时间偏移差异";
+    if (strategy == "low_travel") return "浣撳姏鍙嬪ソ宸紓";
+    if (strategy == "compact") return "瑕嗙洊瀵嗗害宸紓";
+    if (strategy == "culture") return "鏂囧寲涓婚宸紓";
+    if (strategy == "food") return "缇庨涓婚宸紓";
+    if (strategy == "rainy") return "闆ㄥぉ鍦烘櫙宸紓";
+    return "鏃堕棿鍋忕Щ宸紓";
 }
 
 int mealWindowStart(const std::string& slot) {
-    if (slot == "午餐") return 11 * 60 + 30;
-    if (slot == "下午茶") return 14 * 60 + 30;
-    if (slot == "晚餐") return 17 * 60 + 30;
+    if (slot == "鍗堥") return 11 * 60 + 30;
+    if (slot == "涓嬪崍鑼?) return 14 * 60 + 30;
+    if (slot == "鏅氶") return 17 * 60 + 30;
     return -1;
 }
 
 int mealWindowEnd(const std::string& slot) {
-    if (slot == "午餐") return 13 * 60 + 30;
-    if (slot == "下午茶") return 16 * 60 + 30;
-    if (slot == "晚餐") return 19 * 60 + 30;
+    if (slot == "鍗堥") return 13 * 60 + 30;
+    if (slot == "涓嬪崍鑼?) return 16 * 60 + 30;
+    if (slot == "鏅氶") return 19 * 60 + 30;
     return -1;
 }
 
 bool isMealSlot(const std::string& slot) {
-    return slot == "午餐" || slot == "晚餐" || slot == "下午茶";
+    return slot == "鍗堥" || slot == "鏅氶" || slot == "涓嬪崍鑼?;
 }
 
 bool slotAcceptsPoi(const std::string& slot, const Poi& poi) {
-    if (slot == "午餐" || slot == "晚餐") {
+    if (slot == "鍗堥" || slot == "鏅氶") {
         // Lunch/dinner only accept main restaurants (not drinks/snacks)
         return poi.type == PoiType::Restaurant && poi.mealType == "main";
     }
-    if (slot == "下午茶") {
+    if (slot == "涓嬪崍鑼?) {
         return poi.type == PoiType::Restaurant && poi.mealType == "drink";
     }
-    if (slot == "晚上") {
+    if (slot == "鏅氫笂") {
         return poi.type == PoiType::Nightlife;
     }
     // Activity slots accept attractions + nightlife + drink/snack restaurants
@@ -216,15 +216,15 @@ bool isHardAvoidedPoi(const TripRequest& request, const Poi& poi) {
 }
 
 double strategyTagBonus(const TripRequest& request, const Poi& poi) {
-    if (request.strategy == "culture" && hasAnyTag(poi, {"历史文化", "博物馆", "古建筑", "书院", "寺庙"})) {
+    if (request.strategy == "culture" && hasAnyTag(poi, {"鍘嗗彶鏂囧寲", "鍗氱墿棣?, "鍙ゅ缓绛?, "涔﹂櫌", "瀵哄簷"})) {
         return 80.0;
     }
-    if (request.strategy == "food" && hasAnyTag(poi, {"美食", "小吃", "湘菜", "夜市", "茶饮", "街区"})) {
+    if (request.strategy == "food" && hasAnyTag(poi, {"缇庨", "灏忓悆", "婀樿彍", "澶滃競", "鑼堕ギ", "琛楀尯"})) {
         return 75.0;
     }
     if (request.strategy == "rainy") {
-        double bonus = hasTag(poi, "室内") ? 90.0 : -30.0;
-        if (hasTag(poi, "户外")) bonus -= 90.0;
+        double bonus = hasTag(poi, "瀹ゅ唴") ? 90.0 : -30.0;
+        if (hasTag(poi, "鎴峰")) bonus -= 90.0;
         return bonus;
     }
     if (request.strategy == "low_travel") {
@@ -274,33 +274,33 @@ std::string timeWindowIssueStatus(const Stop& stop, const Poi* poi, int previous
 
 std::string timeWindowIssueReason(const Stop& stop, const Poi* poi, int previousEnd, int requestEndMinutes) {
     if (stop.startMinutes < previousEnd) {
-        return stop.poiName + " 开始时间 " + formatMinutes(stop.startMinutes) +
-               " 早于上一站结束/休息后时间 " + formatMinutes(previousEnd) + "，最终顺序不可行。";
+        return stop.poiName + " 寮€濮嬫椂闂?" + formatMinutes(stop.startMinutes) +
+               " 鏃╀簬涓婁竴绔欑粨鏉?浼戞伅鍚庢椂闂?" + formatMinutes(previousEnd) + "锛屾渶缁堥『搴忎笉鍙銆?;
     }
     if (stop.endMinutes > requestEndMinutes) {
-        return stop.poiName + " 预计 " + formatMinutes(stop.endMinutes) +
-               " 结束，超出当日结束时间 " + formatMinutes(requestEndMinutes) + "。";
+        return stop.poiName + " 棰勮 " + formatMinutes(stop.endMinutes) +
+               " 缁撴潫锛岃秴鍑哄綋鏃ョ粨鏉熸椂闂?" + formatMinutes(requestEndMinutes) + "銆?;
     }
     if (isMealSlot(stop.slot) && (stop.startMinutes < mealWindowStart(stop.slot) || stop.endMinutes > mealWindowEnd(stop.slot))) {
-        return stop.poiName + " 的" + stop.slot + "安排为 " + formatMinutes(stop.startMinutes) + "-" +
-               formatMinutes(stop.endMinutes) + "，未完整落在 " + formatMinutes(mealWindowStart(stop.slot)) +
-               "-" + formatMinutes(mealWindowEnd(stop.slot)) + " 餐饮窗口内。";
+        return stop.poiName + " 鐨? + stop.slot + "瀹夋帓涓?" + formatMinutes(stop.startMinutes) + "-" +
+               formatMinutes(stop.endMinutes) + "锛屾湭瀹屾暣钀藉湪 " + formatMinutes(mealWindowStart(stop.slot)) +
+               "-" + formatMinutes(mealWindowEnd(stop.slot)) + " 椁愰ギ绐楀彛鍐呫€?;
     }
     if (!poi) {
-        return stop.poiName + " 在 POI 图中缺失，无法复核开放时间。";
+        return stop.poiName + " 鍦?POI 鍥句腑缂哄け锛屾棤娉曞鏍稿紑鏀炬椂闂淬€?;
     }
     if (stop.startMinutes < poi->openMinutes) {
-        return stop.poiName + " 预计 " + formatMinutes(stop.startMinutes) +
-               " 到达，早于开放时间 " + formatMinutes(poi->openMinutes) +
-               "，需要等待 " + std::to_string(poi->openMinutes - stop.startMinutes) + " 分钟。";
+        return stop.poiName + " 棰勮 " + formatMinutes(stop.startMinutes) +
+               " 鍒拌揪锛屾棭浜庡紑鏀炬椂闂?" + formatMinutes(poi->openMinutes) +
+               "锛岄渶瑕佺瓑寰?" + std::to_string(poi->openMinutes - stop.startMinutes) + " 鍒嗛挓銆?;
     }
     if (stop.endMinutes > poi->closeMinutes) {
-        return stop.poiName + " 预计 " + formatMinutes(stop.endMinutes) +
-               " 离开，但 " + formatMinutes(poi->closeMinutes) + " 关闭，超出 " +
-               std::to_string(stop.endMinutes - poi->closeMinutes) + " 分钟。";
+        return stop.poiName + " 棰勮 " + formatMinutes(stop.endMinutes) +
+               " 绂诲紑锛屼絾 " + formatMinutes(poi->closeMinutes) + " 鍏抽棴锛岃秴鍑?" +
+               std::to_string(stop.endMinutes - poi->closeMinutes) + " 鍒嗛挓銆?;
     }
-    return stop.poiName + " 时间窗复核通过：" + formatMinutes(stop.startMinutes) + "-" +
-           formatMinutes(stop.endMinutes) + " 位于开放与行程约束内。";
+    return stop.poiName + " 鏃堕棿绐楀鏍搁€氳繃锛? + formatMinutes(stop.startMinutes) + "-" +
+           formatMinutes(stop.endMinutes) + " 浣嶄簬寮€鏀句笌琛岀▼绾︽潫鍐呫€?;
 }
 
 struct BeamState {
@@ -360,7 +360,7 @@ std::string summarizeBeamState(const TripRequest& request, const BeamState& stat
             summary << state.stops[i].poiName;
         }
     } else {
-        summary << " path=起点";
+        summary << " path=璧风偣";
     }
     return summary.str();
 }
@@ -380,8 +380,8 @@ const Poi* TripPlanner::chooseHotel(const TripRequest& request) const {
 }
 
 int TripPlanner::paceExtraBreakMinutes(const std::string& pace) const {
-    if (pace == "轻松") return 20;
-    if (pace == "紧凑") return 0;
+    if (pace == "杞绘澗") return 20;
+    if (pace == "绱у噾") return 0;
     return 10;
 }
 
@@ -402,116 +402,111 @@ int TripPlanner::routeTravelMinutes(const std::string& startId, const std::vecto
 std::vector<ScoreComponent> TripPlanner::buildScoreBreakdown(const TripRequest& request, const Poi& poi, const std::string& currentPoiId, int currentTime, const std::set<std::string>& used) const {
     std::vector<ScoreComponent> breakdown;
     if (used.count(poi.id) > 0) {
-        breakdown.push_back({"重复排除", -100000.0, "该 POI 已在当前行程中使用。"});
+        breakdown.push_back({"閲嶅鎺掗櫎", -100000.0, "璇?POI 宸插湪褰撳墠琛岀▼涓娇鐢ㄣ€?});
         return breakdown;
     }
     if (isHardAvoidedPoi(request, poi)) {
-        breakdown.push_back({"避免项硬排除", -100000.0, "该 POI 被请求的 avoid 名称或 id 明确排除。"});
+        breakdown.push_back({"閬垮厤椤圭‖鎺掗櫎", -100000.0, "璇?POI 琚姹傜殑 avoid 鍚嶇О鎴?id 鏄庣‘鎺掗櫎銆?});
         return breakdown;
     }
     if (poi.type == PoiType::Hotel || poi.type == PoiType::Transit) {
-        breakdown.push_back({"类型排除", -100000.0, "酒店和交通站点不作为游玩站点评分。"});
+        breakdown.push_back({"绫诲瀷鎺掗櫎", -100000.0, "閰掑簵鍜屼氦閫氱珯鐐逛笉浣滀负娓哥帺绔欑偣璇勫垎銆?});
         return breakdown;
     }
 
     double popularityMultiplier = request.strategy == "compact" ? 12.0 : 10.0;
-    breakdown.push_back({"热度", rounded(poi.popularity * popularityMultiplier), "POI 热度基础分。"});
+    breakdown.push_back({"鐑害", rounded(poi.popularity * popularityMultiplier), "POI 鐑害鍩虹鍒嗐€?});
     for (const auto& interest : request.interests) {
         if (containsText(poi.tags, interest)) {
             double interestBonus = request.strategy == "compact" ? 42.0 : 35.0;
-            breakdown.push_back({"兴趣匹配", interestBonus, "匹配用户偏好「" + interest + "」。"});
+            breakdown.push_back({"鍏磋叮鍖归厤", interestBonus, "鍖归厤鐢ㄦ埛鍋忓ソ銆? + interest + "銆嶃€?});
         }
     }
     if (request.strategy == "low_travel") {
-        breakdown.push_back({"短通勤策略", 25.0, "轻松方案偏好短通勤和同区域活动。"});
+        breakdown.push_back({"鐭€氬嫟绛栫暐", 25.0, "杞绘澗鏂规鍋忓ソ鐭€氬嫟鍜屽悓鍖哄煙娲诲姩銆?});
     }
     if (request.strategy == "compact") {
-        breakdown.push_back({"紧凑策略", 28.0, "紧凑方案提高高热度和兴趣点覆盖权重。"});
+        breakdown.push_back({"绱у噾绛栫暐", 28.0, "绱у噾鏂规鎻愰珮楂樼儹搴﹀拰鍏磋叮鐐硅鐩栨潈閲嶃€?});
     }
-    if (request.strategy == "culture" && hasAnyTag(poi, {"历史文化", "博物馆", "古建筑", "书院", "寺庙"})) {
-        breakdown.push_back({"文化策略", 70.0, "文化优先方案加权博物馆、书院、古建筑等 POI。"});
+    if (request.strategy == "culture" && hasAnyTag(poi, {"鍘嗗彶鏂囧寲", "鍗氱墿棣?, "鍙ゅ缓绛?, "涔﹂櫌", "瀵哄簷"})) {
+        breakdown.push_back({"鏂囧寲绛栫暐", 70.0, "鏂囧寲浼樺厛鏂规鍔犳潈鍗氱墿棣嗐€佷功闄€佸彜寤虹瓚绛?POI銆?});
     }
-    if (request.strategy == "food" && hasAnyTag(poi, {"美食", "小吃", "湘菜", "夜市", "茶饮", "街区"})) {
-        breakdown.push_back({"美食策略", 65.0, "美食优先方案加权餐饮、小吃街和夜间美食场景。"});
+    if (request.strategy == "food" && hasAnyTag(poi, {"缇庨", "灏忓悆", "婀樿彍", "澶滃競", "鑼堕ギ", "琛楀尯"})) {
+        breakdown.push_back({"缇庨绛栫暐", 65.0, "缇庨浼樺厛鏂规鍔犳潈椁愰ギ銆佸皬鍚冭鍜屽闂寸編椋熷満鏅€?});
     }
     if (request.strategy == "rainy") {
-        if (hasTag(poi, "室内")) {
-            breakdown.push_back({"雨天策略", 80.0, "雨天方案优先室内和稳定开放场所。"});
+        if (hasTag(poi, "瀹ゅ唴")) {
+            breakdown.push_back({"闆ㄥぉ绛栫暐", 80.0, "闆ㄥぉ鏂规浼樺厛瀹ゅ唴鍜岀ǔ瀹氬紑鏀惧満鎵€銆?});
         } else {
-            breakdown.push_back({"雨天策略", -20.0, "雨天方案更偏好室内点，该 POI 不是明确室内场所。"});
+            breakdown.push_back({"闆ㄥぉ绛栫暐", -20.0, "闆ㄥぉ鏂规鏇村亸濂藉鍐呯偣锛岃 POI 涓嶆槸鏄庣‘瀹ゅ唴鍦烘墍銆?});
         }
-        if (hasTag(poi, "户外")) {
-            breakdown.push_back({"户外惩罚", -80.0, "雨天方案降低户外点优先级。"});
+        if (hasTag(poi, "鎴峰")) {
+            breakdown.push_back({"鎴峰鎯╃綒", -80.0, "闆ㄥぉ鏂规闄嶄綆鎴峰鐐逛紭鍏堢骇銆?});
         }
     }
     if (containsText(request.mustVisit, poi.name) || containsText(request.mustVisit, poi.id)) {
-        breakdown.push_back({"必去加权", 120.0, "命中用户必去地点。"});
+        breakdown.push_back({"蹇呭幓鍔犳潈", 120.0, "鍛戒腑鐢ㄦ埛蹇呭幓鍦扮偣銆?});
     }
     for (const auto& avoid : request.avoid) {
         if (poi.description.find(avoid) != std::string::npos || containsText(poi.tags, avoid)) {
-            breakdown.push_back({"避免项", -40.0, "命中用户避免项「" + avoid + "」。"});
+            breakdown.push_back({"閬垮厤椤?, -40.0, "鍛戒腑鐢ㄦ埛閬垮厤椤广€? + avoid + "銆嶃€?});
         }
     }
 
     int travel = graph_.shortestMinutes(currentPoiId, poi.id);
     if (travel == std::numeric_limits<int>::max()) {
-        breakdown.push_back({"不可达", -100000.0, "本地 POI 图中无法到达。"});
+        breakdown.push_back({"涓嶅彲杈?, -100000.0, "鏈湴 POI 鍥句腑鏃犳硶鍒拌揪銆?});
         return breakdown;
     }
     double travelMultiplier = 1.2;
     if (request.strategy == "low_travel") travelMultiplier = 2.0;
     if (request.strategy == "compact") travelMultiplier = 0.8;
-    breakdown.push_back({"通勤惩罚", rounded(-travel * travelMultiplier), "从上一站通勤 " + std::to_string(travel) + " 分钟。"});
-    breakdown.push_back({"价格惩罚", rounded(-poi.priceLevel * 3.0), "消费等级 " + std::to_string(poi.priceLevel) + "。"});
+    breakdown.push_back({"閫氬嫟鎯╃綒", rounded(-travel * travelMultiplier), "浠庝笂涓€绔欓€氬嫟 " + std::to_string(travel) + " 鍒嗛挓銆?});
+    breakdown.push_back({"浠锋牸鎯╃綒", rounded(-poi.priceLevel * 3.0), "娑堣垂绛夌骇 " + std::to_string(poi.priceLevel) + "銆?});
 
     int arrival = currentTime + travel;
     if (arrival < poi.openMinutes) {
-        breakdown.push_back({"等待惩罚", rounded(-(poi.openMinutes - arrival) * 0.5), "早于开放时间，需要等待。"});
+        breakdown.push_back({"绛夊緟鎯╃綒", rounded(-(poi.openMinutes - arrival) * 0.5), "鏃╀簬寮€鏀炬椂闂达紝闇€瑕佺瓑寰呫€?});
     }
     if (arrival + poi.visitDurationMinutes > poi.closeMinutes) {
-        breakdown.push_back({"闭馆惩罚", -1000.0, "预计结束时间超过关闭时间。"});
+        breakdown.push_back({"闂鎯╃綒", -1000.0, "棰勮缁撴潫鏃堕棿瓒呰繃鍏抽棴鏃堕棿銆?});
     }
     
-    // === Type diversity bonus ===
+    // === Type and area diversity bonus (combined loop for performance) ===
     int attractionCount = 0, restaurantCount = 0;
+    std::set<std::string> visitedAreas;
     for (const auto& usedId : used) {
         const Poi* usedPoi = graph_.findPoi(usedId);
         if (!usedPoi) continue;
         if (usedPoi->type == PoiType::Attraction) attractionCount++;
         else if (usedPoi->type == PoiType::Restaurant) restaurantCount++;
+        if (!usedPoi->area.empty()) visitedAreas.insert(usedPoi->area);
     }
     if (poi.type == PoiType::Attraction && attractionCount > restaurantCount + 1) {
-        breakdown.push_back({"type_diversity", -15.0, "Too many attractions, prefer variety."});
+        breakdown.push_back({"类型多样性", -15.0, "景点过多，建议穿插餐饮。"});
     }
     if (poi.type == PoiType::Restaurant && restaurantCount < attractionCount) {
-        breakdown.push_back({"type_diversity", 12.0, "Good time for a meal break."});
-    }
-
-    // === Area diversity bonus ===
-    std::set<std::string> visitedAreas;
-    for (const auto& usedId : used) {
-        const Poi* usedPoi = graph_.findPoi(usedId);
-        if (usedPoi && !usedPoi->area.empty()) visitedAreas.insert(usedPoi->area);
+        breakdown.push_back({"类型多样性", 12.0, "适合安排用餐休息。"});
     }
     if (!poi.area.empty() && visitedAreas.count(poi.area) == 0) {
-        breakdown.push_back({"area_diversity", 8.0, "New area adds variety."});
+        breakdown.push_back({"区域多样性", 8.0, "新区域增加丰富度。"});
     }
 
     // === Time-appropriate bonus ===
     if (poi.type == PoiType::Restaurant) {
         bool isLunchTime = (arrival >= 660 && arrival <= 780);
         bool isDinnerTime = (arrival >= 1020 && arrival <= 1200);
-        if (isLunchTime) breakdown.push_back({"time_fit", 18.0, "Lunch hours."});
-        else if (isDinnerTime) breakdown.push_back({"time_fit", 18.0, "Dinner hours."});
-        else breakdown.push_back({"time_fit", -10.0, "Outside meal hours."});
+        if (isLunchTime) breakdown.push_back({"时间契合", 18.0, "午餐时段。"});
+        else if (isDinnerTime) breakdown.push_back({"时间契合", 18.0, "晚餐时段。"});
+        else breakdown.push_back({"时间契合", -10.0, "非用餐时段。"});
     }
     if (poi.type == PoiType::Nightlife && arrival >= 1080) {
-        breakdown.push_back({"time_fit", 15.0, "Evening nightlife."});
+        breakdown.push_back({"时间契合", 15.0, "晚间夜生活时段。"});
     }
 
     // === Popularity tier bonus ===
     if (poi.popularity >= 4.7) {
-        breakdown.push_back({"top_attraction", 10.0, "Must-see top-rated."});
+        breakdown.push_back({"热门景点", 10.0, "必看高评分景点。"});
     } else if (poi.popularity >= 4.3) {
         breakdown.push_back({"top_attraction", 5.0, "High-rated attraction."});
     }
@@ -690,25 +685,25 @@ Stop TripPlanner::makeStop(const std::string& slot, const Poi& poi, int startMin
     stop.score = std::round(score * 10.0) / 10.0;
 
     std::ostringstream reason;
-    reason << "决策依据：" << poi.name << " 位于" << poi.area << "，";
+    reason << "鍐崇瓥渚濇嵁锛? << poi.name << " 浣嶄簬" << poi.area << "锛?;
     bool matched = false;
     for (const auto& interest : request.interests) {
         if (containsText(poi.tags, interest)) {
-            reason << "匹配「" << interest << "」偏好，";
+            reason << "鍖归厤銆? << interest << "銆嶅亸濂斤紝";
             matched = true;
             break;
         }
     }
     if (!matched) {
-        reason << "热度和路线顺序较合适，";
+        reason << "鐑害鍜岃矾绾块『搴忚緝鍚堥€傦紝";
     }
-    reason << "从上一站通勤 " << travelMinutes << " 分钟，"
-           << "评分 " << stop.score << "，"
-           << "预计停留 " << poi.visitDurationMinutes << " 分钟。";
+    reason << "浠庝笂涓€绔欓€氬嫟 " << travelMinutes << " 鍒嗛挓锛?
+           << "璇勫垎 " << stop.score << "锛?
+           << "棰勮鍋滅暀 " << poi.visitDurationMinutes << " 鍒嗛挓銆?;
     if (stop.openTimeMatched) {
-        reason << "开放时间满足当前时间窗。";
+        reason << "寮€鏀炬椂闂存弧瓒冲綋鍓嶆椂闂寸獥銆?;
     } else {
-        reason << "开放时间存在风险，演示时可说明这是约束惩罚项。";
+        reason << "寮€鏀炬椂闂村瓨鍦ㄩ闄╋紝婕旂ず鏃跺彲璇存槑杩欐槸绾︽潫鎯╃綒椤广€?;
     }
     stop.reason = reason.str();
     return stop;
@@ -758,16 +753,16 @@ void TripPlanner::validateDayTimeWindows(const TripRequest& request, DayPlan& da
     }
 
     if (day.stops.empty()) {
-        day.timeWindowDiagnostics.push_back("当日没有可安排站点，时间窗复核无可检查对象。");
+        day.timeWindowDiagnostics.push_back("褰撴棩娌℃湁鍙畨鎺掔珯鐐癸紝鏃堕棿绐楀鏍告棤鍙鏌ュ璞°€?);
     } else if (day.timeWindowFeasible) {
-        day.timeWindowDiagnostics.push_back("最终顺序已通过统一时间窗复核：站点顺序、开放时间、餐饮窗口和当日结束时间均可行。");
+        day.timeWindowDiagnostics.push_back("鏈€缁堥『搴忓凡閫氳繃缁熶竴鏃堕棿绐楀鏍革細绔欑偣椤哄簭銆佸紑鏀炬椂闂淬€侀楗獥鍙ｅ拰褰撴棩缁撴潫鏃堕棿鍧囧彲琛屻€?);
     }
 }
 
 DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, const std::string& hotelId, std::set<std::string>& used) const {
     const int beamWidth = plannerBeamWidth();
     const int breakMinutes = paceExtraBreakMinutes(request.pace);
-    const std::vector<std::string> slots = {"上午", "午餐", "下午", "下午茶", "晚餐", "晚上"};
+    const std::vector<std::string> slots = {"涓婂崍", "鍗堥", "涓嬪崍", "涓嬪崍鑼?, "鏅氶", "鏅氫笂"};
 
     BeamState initial;
     initial.used = used;
@@ -785,9 +780,9 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
         std::vector<BeamState> expanded;
         for (const auto& state : beam) {
             int slotStart = state.currentTime;
-            if (slot == "午餐" && slotStart < 11 * 60 + 30) slotStart = 11 * 60 + 30;
-            if (slot == "下午茶" && slotStart < 14 * 60 + 30) slotStart = 14 * 60 + 30;
-            if (slot == "晚餐" && slotStart < 17 * 60 + 30) slotStart = 17 * 60 + 30;
+            if (slot == "鍗堥" && slotStart < 11 * 60 + 30) slotStart = 11 * 60 + 30;
+            if (slot == "涓嬪崍鑼? && slotStart < 14 * 60 + 30) slotStart = 14 * 60 + 30;
+            if (slot == "鏅氶" && slotStart < 17 * 60 + 30) slotStart = 17 * 60 + 30;
 
             for (const Poi* poi : rankedPoisForSlot(request, slot, state.currentId, slotStart, state.used)) {
                 int travel = graph_.shortestMinutes(state.currentId, poi->id);
@@ -813,7 +808,7 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
         trace.expandedStates = static_cast<int>(expanded.size());
         if (expanded.empty()) {
             trace.keptStates = static_cast<int>(beam.size());
-            trace.decision = "该时间槽没有可行扩展，保留上一轮 Beam 状态继续后续时间槽。";
+            trace.decision = "璇ユ椂闂存Ы娌℃湁鍙鎵╁睍锛屼繚鐣欎笂涓€杞?Beam 鐘舵€佺户缁悗缁椂闂存Ы銆?;
             for (size_t i = 0; i < beam.size() && i < 3; ++i) {
                 trace.keptStateSummaries.push_back(summarizeBeamState(request, beam[i]));
             }
@@ -832,8 +827,8 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
             expanded.resize(static_cast<size_t>(beamWidth));
         }
         trace.keptStates = static_cast<int>(expanded.size());
-        trace.decision = "按 Beam 状态评分保留 Top-" + std::to_string(trace.keptStates) +
-                         "；每个状态先做候选池召回与粗筛，保留必去点并裁剪普通候选后再评分，最终综合兴趣、通勤惩罚和站点覆盖。";
+        trace.decision = "鎸?Beam 鐘舵€佽瘎鍒嗕繚鐣?Top-" + std::to_string(trace.keptStates) +
+                         "锛涙瘡涓姸鎬佸厛鍋氬€欓€夋睜鍙洖涓庣矖绛涳紝淇濈暀蹇呭幓鐐瑰苟瑁佸壀鏅€氬€欓€夊悗鍐嶈瘎鍒嗭紝鏈€缁堢患鍚堝叴瓒ｃ€侀€氬嫟鎯╃綒鍜岀珯鐐硅鐩栥€?;
         for (size_t i = 0; i < expanded.size() && i < 3; ++i) {
             trace.keptStateSummaries.push_back(summarizeBeamState(request, expanded[i]));
         }
@@ -850,23 +845,23 @@ DayPlan TripPlanner::planDayWithBeamSearch(const TripRequest& request, int day, 
     dayPlan.interestScore = best.interestScore;
 
     std::ostringstream summary;
-    summary << "第 " << day << " 天围绕";
+    summary << "绗?" << day << " 澶╁洿缁?;
     if (!dayPlan.stops.empty()) {
         summary << dayPlan.stops.front().area;
     } else if (const Poi* hotel = graph_.findPoi(hotelId)) {
         summary << hotel->area;
     } else {
-        summary << "酒店周边";
+        summary << "閰掑簵鍛ㄨ竟";
     }
-    summary << "展开，Beam Search 在每个时间槽保留最多 " << beamWidth
-            << " 个候选状态，综合评分、通勤、开放时间和必去点覆盖后选择当前路线。演示重点："
-            << request.pace << "节奏，优先匹配"
+    summary << "灞曞紑锛孊eam Search 鍦ㄦ瘡涓椂闂存Ы淇濈暀鏈€澶?" << beamWidth
+            << " 涓€欓€夌姸鎬侊紝缁煎悎璇勫垎銆侀€氬嫟銆佸紑鏀炬椂闂村拰蹇呭幓鐐硅鐩栧悗閫夋嫨褰撳墠璺嚎銆傛紨绀洪噸鐐癸細"
+            << request.pace << "鑺傚锛屼紭鍏堝尮閰?
             << joinTags(request.interests)
-            << "，同时检查开放时间、餐饮窗口和必去点覆盖。";
+            << "锛屽悓鏃舵鏌ュ紑鏀炬椂闂淬€侀楗獥鍙ｅ拰蹇呭幓鐐硅鐩栥€?;
     dayPlan.summary = summary.str();
 
     optimizeDayOrder(hotelId, dayPlan);
-    dayPlan.optimizationSummary = "Beam Search 已先完成 Top-K 局部路径选择；" + dayPlan.optimizationSummary;
+    dayPlan.optimizationSummary = "Beam Search 宸插厛瀹屾垚 Top-K 灞€閮ㄨ矾寰勯€夋嫨锛? + dayPlan.optimizationSummary;
     validateDayTimeWindows(request, dayPlan);
     explainDayConstraints(request, used, dayPlan);
     return dayPlan;
@@ -900,11 +895,48 @@ void TripPlanner::optimizeDayOrder(const std::string& startId, DayPlan& day) con
         }
     }
 
+    // Write back the optimized stops to day.stops
+    day.stops = candidateStops;
+
     int saved = std::max(0, day.originalTravelMinutes - day.optimizedTravelMinutes);
     std::ostringstream summary;
     summary << "算法用日内局部交换评估通勤潜力：当前时间轴通勤 " << day.originalTravelMinutes
             << " 分钟，理论更优顺序 " << day.optimizedTravelMinutes
             << " 分钟，可节省 " << saved << " 分钟；只有同时满足开放时间、餐饮窗口和站点顺序的交换才计入收益。";
+    day.optimizationSummary = summary.str();
+}
+    day.originalTravelMinutes = routeTravelMinutes(startId, day.stops);
+    day.optimizedTravelMinutes = day.originalTravelMinutes;
+    if (day.stops.size() < 4) {
+        day.optimizationSummary = "褰撴棩绔欑偣杈冨皯锛岀畻娉曚繚鎸佸師椤哄簭锛涢€氬嫟鎴愭湰浠嶆潵鑷?POI 鍥炬渶鐭矾銆?;
+        return;
+    }
+
+    std::vector<Stop> candidateStops = day.stops;
+    bool improved = true;
+    while (improved) {
+        improved = false;
+        for (size_t i = 0; i < candidateStops.size(); ++i) {
+            if (candidateStops[i].slot == "鍗堥" || candidateStops[i].slot == "鏅氶" || candidateStops[i].slot == "涓嬪崍鑼?) continue;
+            for (size_t j = i + 1; j < candidateStops.size(); ++j) {
+                if (candidateStops[j].slot == "鍗堥" || candidateStops[j].slot == "鏅氶" || candidateStops[j].slot == "涓嬪崍鑼?) continue;
+                std::swap(candidateStops[i], candidateStops[j]);
+                int candidateTravel = routeTravelMinutes(startId, candidateStops);
+                if (candidateTravel < day.optimizedTravelMinutes && routeOrderFeasible(startId, candidateStops)) {
+                    day.optimizedTravelMinutes = candidateTravel;
+                    improved = true;
+                } else {
+                    std::swap(candidateStops[i], candidateStops[j]);
+                }
+            }
+        }
+    }
+
+    int saved = std::max(0, day.originalTravelMinutes - day.optimizedTravelMinutes);
+    std::ostringstream summary;
+    summary << "绠楁硶鐢ㄦ棩鍐呭眬閮ㄤ氦鎹㈣瘎浼伴€氬嫟娼滃姏锛氬綋鍓嶆椂闂磋酱閫氬嫟 " << day.originalTravelMinutes
+            << " 鍒嗛挓锛岀悊璁烘洿浼橀『搴?" << day.optimizedTravelMinutes
+            << " 鍒嗛挓锛屽彲鑺傜渷 " << saved << " 鍒嗛挓锛涘彧鏈夊悓鏃舵弧瓒冲紑鏀炬椂闂淬€侀楗獥鍙ｅ拰绔欑偣椤哄簭鐨勪氦鎹㈡墠璁″叆鏀剁泭銆?;
     day.optimizationSummary = summary.str();
 }
 
@@ -914,32 +946,32 @@ void TripPlanner::explainDayConstraints(const TripRequest& request, const std::s
     int teaCount = 0;
     for (const auto& stop : day.stops) {
         if (stop.openTimeMatched) {
-            day.constraintExplanations.push_back(stop.poiName + " 命中开放时间约束。");
+            day.constraintExplanations.push_back(stop.poiName + " 鍛戒腑寮€鏀炬椂闂寸害鏉熴€?);
         } else {
-            day.constraintExplanations.push_back(stop.poiName + " 存在开放时间约束风险。");
+            day.constraintExplanations.push_back(stop.poiName + " 瀛樺湪寮€鏀炬椂闂寸害鏉熼闄┿€?);
         }
-        if (stop.slot == "午餐") ++lunchCount;
-        if (stop.slot == "晚餐") ++dinnerCount;
-        if (stop.slot == "下午茶") ++teaCount;
+        if (stop.slot == "鍗堥") ++lunchCount;
+        if (stop.slot == "鏅氶") ++dinnerCount;
+        if (stop.slot == "涓嬪崍鑼?) ++teaCount;
         if (containsText(request.mustVisit, stop.poiName) || containsText(request.mustVisit, stop.poiId)) {
-            day.constraintExplanations.push_back(stop.poiName + " 属于必去点，已优先安排。");
+            day.constraintExplanations.push_back(stop.poiName + " 灞炰簬蹇呭幓鐐癸紝宸蹭紭鍏堝畨鎺掋€?);
         }
     }
-    if (lunchCount > 0) day.constraintExplanations.push_back("午餐已按 11:30-13:30 时间窗插入。");
-    if (teaCount > 0) day.constraintExplanations.push_back("下午茶已按 14:30-16:30 时间窗插入。");
-    if (dinnerCount > 0) day.constraintExplanations.push_back("晚餐已按 17:30-19:30 时间窗插入。");
-    day.constraintExplanations.push_back("算法约束：当日通勤成本来自本地 POI 图最短路计算。");
+    if (lunchCount > 0) day.constraintExplanations.push_back("鍗堥宸叉寜 11:30-13:30 鏃堕棿绐楁彃鍏ャ€?);
+    if (teaCount > 0) day.constraintExplanations.push_back("涓嬪崍鑼跺凡鎸?14:30-16:30 鏃堕棿绐楁彃鍏ャ€?);
+    if (dinnerCount > 0) day.constraintExplanations.push_back("鏅氶宸叉寜 17:30-19:30 鏃堕棿绐楁彃鍏ャ€?);
+    day.constraintExplanations.push_back("绠楁硶绾︽潫锛氬綋鏃ラ€氬嫟鎴愭湰鏉ヨ嚜鏈湴 POI 鍥炬渶鐭矾璁＄畻銆?);
 
     for (const auto& must : request.mustVisit) {
         const Poi* poi = graph_.findPoi(must);
         if (!poi) {
-            day.unscheduledReasons.push_back(must + " 未安排：样例数据中不存在该 POI，演示时可作为输入校验说明。");
+            day.unscheduledReasons.push_back(must + " 鏈畨鎺掞細鏍蜂緥鏁版嵁涓笉瀛樺湪璇?POI锛屾紨绀烘椂鍙綔涓鸿緭鍏ユ牎楠岃鏄庛€?);
         } else if (used.count(poi->id) == 0) {
-            day.unscheduledReasons.push_back(poi->name + " 未安排：当日时间预算、开放时间或通勤成本约束不足。");
+            day.unscheduledReasons.push_back(poi->name + " 鏈畨鎺掞細褰撴棩鏃堕棿棰勭畻銆佸紑鏀炬椂闂存垨閫氬嫟鎴愭湰绾︽潫涓嶈冻銆?);
         }
     }
     if (day.unscheduledReasons.empty()) {
-        day.unscheduledReasons.push_back("必去点均已安排或已在其他日期覆盖，未安排列表用于解释约束取舍。");
+        day.unscheduledReasons.push_back("蹇呭幓鐐瑰潎宸插畨鎺掓垨宸插湪鍏朵粬鏃ユ湡瑕嗙洊锛屾湭瀹夋帓鍒楄〃鐢ㄤ簬瑙ｉ噴绾︽潫鍙栬垗銆?);
     }
 }
 
@@ -950,7 +982,7 @@ ComparisonMetrics TripPlanner::buildComparisonMetrics(const TripRequest& request
         metrics.totalTravelMinutes += day.totalTravelMinutes;
         metrics.totalVisitMinutes += day.totalVisitMinutes;
         for (const auto& reason : day.unscheduledReasons) {
-            if (reason.find(" 未安排：") != std::string::npos) {
+            if (reason.find(" 鏈畨鎺掞細") != std::string::npos) {
                 ++metrics.unscheduledCount;
             }
         }
@@ -968,7 +1000,7 @@ ComparisonMetrics TripPlanner::buildComparisonMetrics(const TripRequest& request
     }
     metrics.mustVisitCovered = static_cast<int>(coveredMustVisits.size());
     metrics.totalScore = itinerary.totalScore;
-    metrics.tradeoffSummary = "待进行多目标非支配排序。";
+    metrics.tradeoffSummary = "寰呰繘琛屽鐩爣闈炴敮閰嶆帓搴忋€?;
     return metrics;
 }
 
@@ -1014,15 +1046,15 @@ void TripPlanner::assignParetoRanks(std::vector<Itinerary>& candidates) const {
 
         std::ostringstream summary;
         if (!candidate.comparison.dominated) {
-            summary << "标准非支配分层 Pareto 第 1 层：在评分、通勤、风险和必去覆盖之间没有被其他候选完全支配。";
-            candidate.comparison.paretoDebug.push_back("未发现其他候选在总分、必去覆盖、通勤、开放时间风险和未安排数量上同时不差且至少一项更优。");
+            summary << "鏍囧噯闈炴敮閰嶅垎灞?Pareto 绗?1 灞傦細鍦ㄨ瘎鍒嗐€侀€氬嫟銆侀闄╁拰蹇呭幓瑕嗙洊涔嬮棿娌℃湁琚叾浠栧€欓€夊畬鍏ㄦ敮閰嶃€?;
+            candidate.comparison.paretoDebug.push_back("鏈彂鐜板叾浠栧€欓€夊湪鎬诲垎銆佸繀鍘昏鐩栥€侀€氬嫟銆佸紑鏀炬椂闂撮闄╁拰鏈畨鎺掓暟閲忎笂鍚屾椂涓嶅樊涓旇嚦灏戜竴椤规洿浼樸€?);
         } else {
-            summary << "标准非支配分层 Pareto 第 " << candidate.comparison.paretoRank
-                    << " 层：移除更优前沿后进入下一层，说明该方案在至少一个目标上有取舍成本。";
-            candidate.comparison.paretoDebug.push_back("存在更高层候选在多目标指标上形成支配或近似支配关系。");
+            summary << "鏍囧噯闈炴敮閰嶅垎灞?Pareto 绗?" << candidate.comparison.paretoRank
+                    << " 灞傦細绉婚櫎鏇翠紭鍓嶆部鍚庤繘鍏ヤ笅涓€灞傦紝璇存槑璇ユ柟妗堝湪鑷冲皯涓€涓洰鏍囦笂鏈夊彇鑸嶆垚鏈€?;
+            candidate.comparison.paretoDebug.push_back("瀛樺湪鏇撮珮灞傚€欓€夊湪澶氱洰鏍囨寚鏍囦笂褰㈡垚鏀厤鎴栬繎浼兼敮閰嶅叧绯汇€?);
         }
         std::ostringstream metrics;
-        metrics << "指标向量：score=" << candidate.comparison.totalScore
+        metrics << "鎸囨爣鍚戦噺锛歴core=" << candidate.comparison.totalScore
                 << ", must=" << candidate.comparison.mustVisitCovered
                 << ", travel=" << candidate.comparison.totalTravelMinutes
                 << ", risk=" << candidate.comparison.openTimeRisks
@@ -1057,32 +1089,32 @@ void TripPlanner::assignDiversityMetrics(std::vector<Itinerary>& candidates) con
             candidate.comparison.areaOverlapWithBaseline = 1.0;
             candidate.comparison.uniquePoiCount = 0;
             candidate.comparison.uniquePois.clear();
-            candidate.comparison.diversityTags.push_back("基线方案");
-            candidate.comparison.diversitySummary = "作为候选对比基线，其他方案会计算相对它的 POI 和区域差异。";
+            candidate.comparison.diversityTags.push_back("鍩虹嚎鏂规");
+            candidate.comparison.diversitySummary = "浣滀负鍊欓€夊姣斿熀绾匡紝鍏朵粬鏂规浼氳绠楃浉瀵瑰畠鐨?POI 鍜屽尯鍩熷樊寮傘€?;
             continue;
         }
 
         candidate.comparison.diversityTags.push_back(diversityLevel(candidate.comparison.poiOverlapWithBaseline, candidate.comparison.uniquePoiCount));
         candidate.comparison.diversityTags.push_back(strategyDiversityTag(candidate.strategy));
         if (candidate.comparison.areaOverlapWithBaseline <= 0.6) {
-            candidate.comparison.diversityTags.push_back("区域路径差异");
+            candidate.comparison.diversityTags.push_back("鍖哄煙璺緞宸紓");
         }
         if (candidate.comparison.uniquePoiCount > 0) {
-            candidate.comparison.diversityTags.push_back("包含独有 POI");
+            candidate.comparison.diversityTags.push_back("鍖呭惈鐙湁 POI");
         }
 
         std::ostringstream summary;
-        summary << "相对基线 POI 重合率 " << static_cast<int>(std::round(candidate.comparison.poiOverlapWithBaseline * 100))
-                << "%，区域重合率 " << static_cast<int>(std::round(candidate.comparison.areaOverlapWithBaseline * 100))
-                << "%，独有 POI " << candidate.comparison.uniquePoiCount << " 个";
+        summary << "鐩稿鍩虹嚎 POI 閲嶅悎鐜?" << static_cast<int>(std::round(candidate.comparison.poiOverlapWithBaseline * 100))
+                << "%锛屽尯鍩熼噸鍚堢巼 " << static_cast<int>(std::round(candidate.comparison.areaOverlapWithBaseline * 100))
+                << "%锛岀嫭鏈?POI " << candidate.comparison.uniquePoiCount << " 涓?;
         if (!candidate.comparison.uniquePois.empty()) {
-            summary << "：";
+            summary << "锛?;
             for (size_t i = 0; i < candidate.comparison.uniquePois.size() && i < 3; ++i) {
-                if (i > 0) summary << "、";
+                if (i > 0) summary << "銆?;
                 summary << candidate.comparison.uniquePois[i];
             }
         }
-        summary << "。";
+        summary << "銆?;
         candidate.comparison.diversitySummary = summary.str();
     }
 }
@@ -1090,13 +1122,13 @@ void TripPlanner::assignDiversityMetrics(std::vector<Itinerary>& candidates) con
 Itinerary TripPlanner::plan(const TripRequest& request) const {
     const Poi* hotel = chooseHotel(request);
     if (!hotel) {
-        throw std::runtime_error("该城市暂无酒店数据，无法生成行程。请确认城市数据中包含酒店类型的 POI。");
+        throw std::runtime_error("璇ュ煄甯傛殏鏃犻厭搴楁暟鎹紝鏃犳硶鐢熸垚琛岀▼銆傝纭鍩庡競鏁版嵁涓寘鍚厭搴楃被鍨嬬殑 POI銆?);
     }
 
     Itinerary itinerary;
     itinerary.city = request.city;
     itinerary.hotel = {hotel->id, hotel->name, hotel->area, hotel->lat, hotel->lng, hotel->popularity};
-    itinerary.variantName = request.pace + "节奏方案";
+    itinerary.variantName = request.pace + "鑺傚鏂规";
     itinerary.strategy = request.strategy;
     std::set<std::string> used;
 
@@ -1107,9 +1139,9 @@ Itinerary TripPlanner::plan(const TripRequest& request) const {
     }
 
     itinerary.alternatives = {
-        "下雨时可将户外景点替换为室内展馆、咖啡馆或商场休闲。",
-        "如果体力不足，可减少下午景点并延长餐饮和休息时间。",
-        "预算降低时优先选择公共交通可达区域和平价餐饮。"
+        "涓嬮洦鏃跺彲灏嗘埛澶栨櫙鐐规浛鎹负瀹ゅ唴灞曢銆佸挅鍟￠鎴栧晢鍦轰紤闂层€?,
+        "濡傛灉浣撳姏涓嶈冻锛屽彲鍑忓皯涓嬪崍鏅偣骞跺欢闀块楗拰浼戞伅鏃堕棿銆?,
+        "棰勭畻闄嶄綆鏃朵紭鍏堥€夋嫨鍏叡浜ら€氬彲杈惧尯鍩熷拰骞充环椁愰ギ銆?
     };
     itinerary.totalScore = std::round(itinerary.totalScore * 10.0) / 10.0;
     itinerary.comparison = buildComparisonMetrics(request, itinerary);
@@ -1123,39 +1155,39 @@ std::vector<Itinerary> TripPlanner::planCandidates(const TripRequest& request) c
     std::vector<std::string> focuses;
 
     TripRequest relaxed = request;
-    relaxed.pace = "轻松";
+    relaxed.pace = "杞绘澗";
     relaxed.strategy = "low_travel";
     variants.push_back(relaxed);
-    names.push_back("轻松少走路方案");
-    focuses.push_back("提高通勤惩罚并偏好同区域活动，适合展示体力友好取舍。");
+    names.push_back("杞绘澗灏戣蛋璺柟妗?);
+    focuses.push_back("鎻愰珮閫氬嫟鎯╃綒骞跺亸濂藉悓鍖哄煙娲诲姩锛岄€傚悎灞曠ず浣撳姏鍙嬪ソ鍙栬垗銆?);
 
     TripRequest compact = request;
-    compact.pace = "紧凑";
+    compact.pace = "绱у噾";
     compact.strategy = "compact";
     variants.push_back(compact);
-    names.push_back("紧凑多覆盖方案");
-    focuses.push_back("降低通勤惩罚并提高覆盖权重，适合展示时间窗调度。");
+    names.push_back("绱у噾澶氳鐩栨柟妗?);
+    focuses.push_back("闄嶄綆閫氬嫟鎯╃綒骞舵彁楂樿鐩栨潈閲嶏紝閫傚悎灞曠ず鏃堕棿绐楄皟搴︺€?);
 
     TripRequest culture = request;
     culture.strategy = "culture";
-    culture.interests = {"历史文化", "博物馆", "古建筑"};
+    culture.interests = {"鍘嗗彶鏂囧寲", "鍗氱墿棣?, "鍙ゅ缓绛?};
     variants.push_back(culture);
-    names.push_back("文化优先方案");
-    focuses.push_back("加权博物馆、书院、古建筑和寺庙，展示主题化候选。");
+    names.push_back("鏂囧寲浼樺厛鏂规");
+    focuses.push_back("鍔犳潈鍗氱墿棣嗐€佷功闄€佸彜寤虹瓚鍜屽搴欙紝灞曠ず涓婚鍖栧€欓€夈€?);
 
     TripRequest food = request;
     food.strategy = "food";
-    food.interests = {"美食", "小吃", "夜景"};
+    food.interests = {"缇庨", "灏忓悆", "澶滄櫙"};
     variants.push_back(food);
-    names.push_back("美食优先方案");
-    focuses.push_back("加权餐饮、小吃街和夜间美食场景，展示美食路线。");
+    names.push_back("缇庨浼樺厛鏂规");
+    focuses.push_back("鍔犳潈椁愰ギ銆佸皬鍚冭鍜屽闂寸編椋熷満鏅紝灞曠ず缇庨璺嚎銆?);
 
     TripRequest rainy = request;
     rainy.strategy = "rainy";
-    rainy.interests = {"室内", "历史文化", "美食"};
+    rainy.interests = {"瀹ゅ唴", "鍘嗗彶鏂囧寲", "缇庨"};
     variants.push_back(rainy);
-    names.push_back("雨天室内方案");
-    focuses.push_back("加权室内 POI 并降低户外点优先级，展示场景化替换。");
+    names.push_back("闆ㄥぉ瀹ゅ唴鏂规");
+    focuses.push_back("鍔犳潈瀹ゅ唴 POI 骞堕檷浣庢埛澶栫偣浼樺厛绾э紝灞曠ず鍦烘櫙鍖栨浛鎹€?);
 
     for (size_t index = 0; index < variants.size(); ++index) {
         if (static_cast<int>(candidates.size()) >= request.candidateCount) break;
@@ -1185,8 +1217,8 @@ std::vector<Itinerary> TripPlanner::planCandidates(const TripRequest& request) c
         variant.startMinutes += offsetMinutes;
         variant.strategy = "balanced";
         Itinerary itinerary = plan(variant);
-        itinerary.variantName = "错峰出发 +" + std::to_string(offsetMinutes) + " 分钟方案";
-        annotateVariantFocus(itinerary, "延后出发 " + std::to_string(offsetMinutes) + " 分钟，展示时间窗变化对安排结果的影响。");
+        itinerary.variantName = "閿欏嘲鍑哄彂 +" + std::to_string(offsetMinutes) + " 鍒嗛挓鏂规";
+        annotateVariantFocus(itinerary, "寤跺悗鍑哄彂 " + std::to_string(offsetMinutes) + " 鍒嗛挓锛屽睍绀烘椂闂寸獥鍙樺寲瀵瑰畨鎺掔粨鏋滅殑褰卞搷銆?);
         candidates.push_back(itinerary);
     }
     assignDiversityMetrics(candidates);
@@ -1195,3 +1227,4 @@ std::vector<Itinerary> TripPlanner::planCandidates(const TripRequest& request) c
 }
 
 }  // namespace tourpass
+

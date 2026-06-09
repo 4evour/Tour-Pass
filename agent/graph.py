@@ -86,8 +86,20 @@ async def parse_intent(state: AgentState) -> AgentState:
     except Exception as e:
         logger.error(f"parse_intent failed: {e}")
         state.errors.append(f"意图解析失败: {e}")
-        # Fallback: try to extract city from message
-        state.intent = TripIntent(city=state.user_message[:4], days=3)
+        # Fallback: try to extract city from message using known cities
+        known_cities = [
+            "北京", "上海", "广州", "深圳", "成都", "重庆", "杭州", "武汉",
+            "南京", "西安", "长沙", "昆明", "大理", "丽江", "三亚", "桂林",
+            "厦门", "青岛", "哈尔滨", "苏州", "张家界",
+        ]
+        fallback_city = ""
+        for c in known_cities:
+            if c in state.user_message:
+                fallback_city = c
+                break
+        if not fallback_city:
+            fallback_city = state.user_message[:2]
+        state.intent = TripIntent(city=fallback_city, days=3)
 
     return
 
@@ -141,17 +153,23 @@ async def select_pois_and_hotels(state: AgentState) -> AgentState:
     yield {"type": "status", "content": f"正在搜索{intent.city}的景点和酒店..."}
 
     # Search POIs (all types)
-    pois = await tools.search_pois(intent.city, limit=100)
+    pois = await tools.search_pois(intent.city, limit=200)
     state.available_pois = pois
 
     # Search hotels
     hotels = await tools.search_hotels(intent.city, limit=30)
     state.available_hotels = hotels
 
-    # Filter by must_visit: ensure they exist in POI list
+    # Filter by must_visit: use substring/fuzzy matching
     if intent.must_visit:
         found_names = {p.name for p in pois}
-        missing = [m for m in intent.must_visit if m not in found_names]
+        missing = []
+        matched_must_visit = []
+        for m in intent.must_visit:
+            if any(m in name or name in m for name in found_names):
+                matched_must_visit.append(m)
+            else:
+                missing.append(m)
         if missing:
             yield {
                 "type": "warning",
@@ -250,13 +268,17 @@ async def plan_each_day(state: AgentState) -> AgentState:
     restaurants = [p for p in state.available_pois if p.type == "restaurant"]
     nightlife = [p for p in state.available_pois if p.type == "nightlife"]
 
-    # Ensure must_visit POIs are included
+    # Ensure must_visit POIs are included (one best match per keyword)
     must_visit_pois = []
     if intent.must_visit:
         for mv in intent.must_visit:
-            for p in state.available_pois:
-                if mv in p.name and p not in must_visit_pois:
-                    must_visit_pois.append(p)
+            matches = [p for p in state.available_pois if mv in p.name]
+            if matches:
+                # Prefer: exact name > shorter name > higher popularity
+                matches.sort(key=lambda p: (p.name != mv, len(p.name), -p.popularity))
+                best = matches[0]
+                if best not in must_visit_pois:
+                    must_visit_pois.append(best)
 
     # Prioritize: must_visit first, then by popularity
     other_attractions = [p for p in attractions if p not in must_visit_pois]
@@ -284,9 +306,11 @@ async def plan_each_day(state: AgentState) -> AgentState:
                 day_restaurants.append(rest)
 
         # Build candidate list for LLM
+        must_visit_ids = {p.id for p in must_visit_pois}
         attr_list = "\n".join([
             f"- {a.name} (ID:{a.id}, 区域:{a.area}, 评分:{a.popularity}, "
             f"游玩时长:{a.visit_duration_minutes}分钟, "
+            f"{'【必去】' if a.id in must_visit_ids else ''}"
             f"描述:{a.description[:80] if a.description else '无'})"
             for a in day_attractions[:20]
         ])
@@ -301,9 +325,12 @@ async def plan_each_day(state: AgentState) -> AgentState:
             f"出行人群: {intent.travelers or '普通'}\n"
             f"酒店位置: {hotel.area if hotel else '未定'}\n"
             f"兴趣: {', '.join(intent.interests) if intent.interests else '综合'}\n"
-            f"\n候选景点:\n{attr_list}\n"
-            f"\n候选餐厅:\n{rest_list}\n"
         )
+        if must_visit_pois:
+            must_names = [p.name for p in must_visit_pois]
+            user_context += f"\n用户必去景点（必须安排，不可省略）: {', '.join(must_names)}\n"
+        user_context += f"\n候选景点（标有【必去】的必须安排）:\n{attr_list}\n"
+        user_context += f"\n候选餐厅:\n{rest_list}\n"
         if guide_context:
             user_context += f"\n当地攻略参考:\n{guide_context}\n"
 
@@ -336,6 +363,34 @@ async def plan_each_day(state: AgentState) -> AgentState:
                         break
                 stops.append(stop)
                 total_visit += stop.visit_duration_minutes
+
+            # Validate: ensure must_visit POIs for this day are included
+            if must_visit_pois:
+                must_visit_ids_today = {
+                    a.id for a in day_attractions
+                    if a.id in {p.id for p in must_visit_pois}
+                }
+                included_ids = {s.poi_id for s in stops}
+                missing_ids = must_visit_ids_today - included_ids
+                if missing_ids:
+                    for p in day_attractions:
+                        if p.id in missing_ids:
+                            inject_stop = StopInfo(
+                                slot="上午" if not any(s.slot == "上午" for s in stops) else "下午",
+                                poi_id=p.id,
+                                poi_name=p.name,
+                                poi_type=p.type,
+                                area=p.area,
+                                lat=p.lat,
+                                lng=p.lng,
+                                start_minutes=540,
+                                end_minutes=540 + p.visit_duration_minutes,
+                                visit_duration_minutes=p.visit_duration_minutes,
+                                reason=f"用户必去: {p.name}",
+                                recommendation=p.recommendation,
+                            )
+                            stops.insert(0, inject_stop)
+                            logger.info(f"Force-injected must_visit: {p.name}")
 
             day_plan = DayPlan(
                 day=day_num,

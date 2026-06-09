@@ -12,6 +12,72 @@ from .models import PoiInfo, HotelInfo
 logger = logging.getLogger(__name__)
 
 # ── HTTP client (reused across calls) ─────────────────────────────────────────
+# Chinese city name to English directory name mapping
+_CITY_DIR_MAP = {
+    "北京": "beijing", "上海": "shanghai", "广州": "guangzhou", "深圳": "shenzhen",
+    "成都": "chengdu", "重庆": "chongqing", "杭州": "hangzhou", "武汉": "wuhan",
+    "南京": "nanjing", "西安": "xian", "长沙": "changsha", "昆明": "kunming",
+    "大理": "dali", "丽江": "lijiang", "三亚": "sanya", "桂林": "guilin",
+    "厦门": "xiamen", "青岛": "qingdao", "哈尔滨": "harbin", "苏州": "suzhou",
+    "张家界": "zhangjiajie",
+}
+
+
+def _resolve_city_dir(city: str) -> str:
+    """Resolve Chinese city name to English directory name."""
+    if city in _CITY_DIR_MAP:
+        return _CITY_DIR_MAP[city]
+    # Try lowercase match
+    lower = city.lower()
+    for cn, en in _CITY_DIR_MAP.items():
+        if lower == en:
+            return en
+    return city
+
+
+def _load_pois_from_file(city: str, poi_type: str = "", keyword: str = "", limit: int = 50) -> list[PoiInfo]:
+    """Load POIs directly from data/{city}/pois.json as fallback."""
+    import os
+    city_dir = _resolve_city_dir(city)
+    pois_path = os.path.join("data", city_dir, "pois.json")
+    if not os.path.exists(pois_path):
+        logger.warning(f"No local POI data for {city}")
+        return []
+    try:
+        with open(pois_path, "r", encoding="utf-8") as f:
+            raw_data = json.load(f)
+        pois = []
+        for item in raw_data:
+            ptype = item.get("type", "attraction")
+            if poi_type and ptype != poi_type:
+                continue
+            pois.append(PoiInfo(
+                id=item.get("id", ""),
+                name=item.get("name", ""),
+                type=ptype,
+                lat=item.get("lat", 0.0),
+                lng=item.get("lng", 0.0),
+                area=item.get("area", ""),
+                popularity=item.get("popularity", 0.0),
+                description=item.get("description", ""),
+                recommendation=item.get("recommendation", ""),
+                tags=item.get("tags", []),
+                meal_type=item.get("meal_type", "main"),
+            ))
+        # Sort by popularity descending
+        pois.sort(key=lambda x: x.popularity, reverse=True)
+        # Keyword filter
+        if keyword:
+            kw = keyword.lower()
+            pois = [p for p in pois if kw in p.name.lower() or kw in p.area.lower()
+                    or kw in p.description.lower()]
+        logger.info(f"Loaded {len(pois)} POIs from local file for {city}")
+        return pois[:limit]
+    except Exception as e:
+        logger.error(f"Failed to load local POIs for {city}: {e}")
+        return []
+
+
 
 _client: httpx.AsyncClient | None = None
 
@@ -71,10 +137,15 @@ async def search_pois(
             kw = keyword.lower()
             pois = [p for p in pois if kw in p.name.lower() or kw in p.area.lower()
                     or kw in p.description.lower()]
-        return pois
+        if pois:
+            return pois
+        # Backend returned empty data, try local JSON fallback
+        logger.info(f"Backend returned 0 POIs for {city}, trying local JSON fallback")
     except Exception as e:
-        logger.error(f"search_pois failed: {e}")
-        return []
+        logger.warning(f"search_pois backend failed: {e}, trying local JSON fallback")
+
+    # Fallback: load directly from data/{city}/pois.json
+    return _load_pois_from_file(city, poi_type, keyword, limit)
 
 
 async def search_hotels(
@@ -104,10 +175,14 @@ async def search_hotels(
                 description=item.get("description", ""),
                 tags=item.get("tags", []),
             ))
-        return hotels
+        if hotels:
+            return hotels
+        logger.info(f"Backend returned 0 hotels for {city}, trying local JSON fallback")
     except Exception as e:
-        logger.error(f"search_hotels failed: {e}")
-        return []
+        logger.warning(f"search_hotels backend failed: {e}, trying local JSON fallback")
+
+    # Fallback: load directly from data/{city}/pois.json
+    return _load_hotels_from_file(city, limit)
 
 
 async def get_poi_areas(city: str) -> list[dict]:
@@ -214,6 +289,38 @@ async def get_city_guide(city: str) -> dict:
             return json.load(f)
     return {}
 
+
+
+def _load_hotels_from_file(city: str, limit: int = 20) -> list[HotelInfo]:
+    """Load hotels directly from data/{city}/pois.json as fallback."""
+    import os
+    city_dir = _resolve_city_dir(city)
+    pois_path = os.path.join("data", city_dir, "pois.json")
+    if not os.path.exists(pois_path):
+        return []
+    try:
+        with open(pois_path, "r", encoding="utf-8") as f:
+            raw_data = json.load(f)
+        hotels = []
+        for item in raw_data:
+            if item.get("type") != "hotel":
+                continue
+            hotels.append(HotelInfo(
+                id=item.get("id", ""),
+                name=item.get("name", ""),
+                area=item.get("area", ""),
+                lat=item.get("lat", 0.0),
+                lng=item.get("lng", 0.0),
+                popularity=item.get("popularity", 0.0),
+                description=item.get("description", ""),
+                tags=item.get("tags", []),
+            ))
+        hotels.sort(key=lambda x: x.popularity, reverse=True)
+        logger.info(f"Loaded {len(hotels)} hotels from local file for {city}")
+        return hotels[:limit]
+    except Exception as e:
+        logger.error(f"Failed to load local hotels for {city}: {e}")
+        return []
 
 # ── Amap supplementary tools (only when local data is insufficient) ───────────
 

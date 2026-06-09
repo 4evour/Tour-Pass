@@ -20038,5 +20038,51 @@
     "source_id": "B0I6AZ1QIB",
     "recommendation": "公联赵公口长途客运站是重要交通枢纽。",
     "visit_duration": 15
+  },
+  {
+    "id": "amap_badaling_greatwall",
+    "name": "八达岭长城",
+    "type": "attraction",
+    "lat": 40.3543,
+    "lng": 116.0155,
+    "area": "延庆区",
+    "popularity": 5,
+    "description": "八达岭长城是万里长城最具代表性的段落，位于北京市延庆区军都山关沟古道北口，是明长城的精华。海拔1015米，气势雄伟，是中外游客到北京必游的景点。",
+    "recommendation": "建议早上出发，避开人流高峰。穿舒适的运动鞋，带足水。",
+    "tags": [
+      "历史",
+      "文化",
+      "世界遗产",
+      "长城",
+      "户外"
+    ],
+    "meal_type": "main",
+    "open_minutes": 360,
+    "close_minutes": 1110,
+    "visit_duration_minutes": 240,
+    "price_level": 2
+  },
+  {
+    "id": "amap_mutianyu_greatwall",
+    "name": "慕田峪长城",
+    "type": "attraction",
+    "lat": 40.4318,
+    "lng": 116.5704,
+    "area": "怀柔区",
+    "popularity": 4.8,
+    "description": "慕田峪长城位于北京市怀柔区，是明朝万里长城的精华所在。建筑风格独特，敌楼密集，风景秀丽，人流量较八达岭少。",
+    "recommendation": "可乘坐缆车上下，适合家庭出游。秋季红叶特别美。",
+    "tags": [
+      "历史",
+      "文化",
+      "世界遗产",
+      "长城",
+      "户外"
+    ],
+    "meal_type": "main",
+    "open_minutes": 450,
+    "close_minutes": 1080,
+    "visit_duration_minutes": 240,
+    "price_level": 2
   }
 ]

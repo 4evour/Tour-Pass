@@ -168,7 +168,9 @@ async def parse_intent(state: AgentState) -> AsyncIterator[dict]:
     except Exception as e:
         logger.error(f"parse_intent failed: {e}")
         state.errors.append(f"意图解析失败: {e}")
-        state.intent = TripIntent(city=state.user_message[:4], days=3)
+        known_cities = ["北京","上海","广州","深圳","成都","重庆","杭州","武汉","南京","西安","长沙","昆明","大理","丽江","三亚","桂林","厦门","青岛","哈尔滨","苏州","张家界"]
+        fallback_city = next((c for c in known_cities if c in state.user_message), state.user_message[:2])
+        state.intent = TripIntent(city=fallback_city, days=3)
 
 
 async def retrieve_guides(state: AgentState) -> AsyncIterator[dict]:
@@ -204,7 +206,7 @@ async def select_pois_and_hotels(state: AgentState) -> AsyncIterator[dict]:
     intent = state.intent
     yield {"type": "status", "content": f"正在搜索{intent.city}的景点和酒店..."}
 
-    pois = await tools.search_pois(intent.city, limit=100)
+    pois = await tools.search_pois(intent.city, limit=200)
     state.available_pois = pois
 
     hotels = await tools.search_hotels(intent.city, limit=30)
@@ -270,9 +272,12 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
     must_visit_pois = []
     if intent.must_visit:
         for mv in intent.must_visit:
-            for p in state.available_pois:
-                if mv in p.name and p not in must_visit_pois:
-                    must_visit_pois.append(p)
+            matches = [p for p in state.available_pois if mv in p.name]
+            if matches:
+                matches.sort(key=lambda p: (p.name != mv, len(p.name), -p.popularity))
+                best = matches[0]
+                if best not in must_visit_pois:
+                    must_visit_pois.append(best)
 
     other = [p for p in attractions if p not in must_visit_pois]
     other.sort(key=lambda x: x.popularity, reverse=True)
@@ -286,8 +291,9 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
         day_attractions = [a for i, a in enumerate(all_attractions) if i % intent.days == (day_num - 1) % intent.days]
         day_restaurants = [r for i, r in enumerate(restaurants) if i % intent.days == (day_num - 1) % intent.days]
 
+        must_visit_ids = {p.id for p in must_visit_pois}
         attr_list = "\n".join([
-            f"- {a.name} (ID:{a.id}, 区域:{a.area}, 评分:{a.popularity}, 时长:{a.visit_duration_minutes}分钟, {a.description[:60] if a.description else ''})"
+            f"- {a.name} (ID:{a.id}, 区域:{a.area}, 评分:{a.popularity}, 时长:{a.visit_duration_minutes}分钟, {'【必去】' if a.id in must_visit_ids else ''}{a.description[:60] if a.description else ''})"
             for a in day_attractions[:20]
         ])
         rest_list = "\n".join([
@@ -296,10 +302,13 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
         ])
 
         user_context = (
-            f"第 {day_num} 天/{intent.days}天，节奏:{intent.pace}，人群:{intent.travelers or '普通'}\n"
-            f"酒店:{state.selected_hotel.area if state.selected_hotel else '未定'}\n\n"
-            f"候选景点:\n{attr_list}\n\n候选餐厅:\n{rest_list}\n"
+              f"第 {day_num} 天/{intent.days}天，节奏:{intent.pace}，人群:{intent.travelers or '普通'}\n"
+              f"酒店:{state.selected_hotel.area if state.selected_hotel else '未定'}\n"
         )
+        if must_visit_pois:
+              must_names = [p.name for p in must_visit_pois]
+              user_context += f"\n用户必去景点（必须安排，不可省略）: {chr(44).join(must_names)}\n"
+        user_context += f"\n候选景点（标有【必去】的必须安排）:\n{attr_list}\n\n候选餐厅:\n{rest_list}\n"
         if guide_context:
             user_context += f"\n攻略参考:\n{guide_context}\n"
 
@@ -325,6 +334,25 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
                         stop.lng = p.lng
                         break
                 stops.append(stop)
+
+            # Validate must_visit
+            if must_visit_pois:
+                must_visit_ids_today = {a.id for a in day_attractions if a.id in {p.id for p in must_visit_pois}}
+                included_ids = {s.poi_id for s in stops}
+                missing_ids = must_visit_ids_today - included_ids
+                if missing_ids:
+                    for p in day_attractions:
+                        if p.id in missing_ids:
+                            inject_stop = StopInfo(
+                                slot="上午" if not any(s.slot == "上午" for s in stops) else "下午",
+                                poi_id=p.id, poi_name=p.name, poi_type=p.type,
+                                area=p.area, lat=p.lat, lng=p.lng,
+                                start_minutes=540, end_minutes=540 + p.visit_duration_minutes,
+                                visit_duration_minutes=p.visit_duration_minutes,
+                                reason=f"用户必去: {p.name}", recommendation=p.recommendation,
+                              )
+                            stops.insert(0, inject_stop)
+                            logger.info(f"Force-injected must_visit: {p.name}")
 
             day_plan = DayPlan(day=day_num, stops=stops, summary=f"第{day_num}天: {len(stops)}个行程")
             state.daily_plans.append(day_plan)
@@ -466,4 +494,3 @@ async def run_planning_pipeline(
             logger.error(f"Node {node.__name__} failed: {e}")
             state.errors.append(f"{node.__name__}: {e}")
             yield {"type": "error", "content": f"处理失败: {e}"}
-

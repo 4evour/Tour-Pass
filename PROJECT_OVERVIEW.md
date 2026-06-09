@@ -1,112 +1,179 @@
 ﻿# PROJECT_OVERVIEW
 
-## 项目目标
-- 提供面向城市自由行的行程规划服务，支持自然语言和结构化请求两种入口。
-- 生成多候选、多日行程，并展示可解释的评分、通勤、时间窗与多样性指标。
-- 以算法可复现、可压测、可演示为核心定位，兼顾 LLM 增强回复但不依赖其作为规划主路径。
+## ��ĿĿ��
+- �ṩ������������е��г̹滮����֧����Ȼ���Ժͽṹ������������ڡ�
+- ���ɶ��ѡ�������г̣���չʾ�ɽ��͵����֡�ͨ�ڡ�ʱ�䴰�������ָ�ꡣ
+- ���㷨�ɸ��֡���ѹ�⡢����ʾΪ���Ķ�λ����� LLM ��ǿ�ظ�������������Ϊ�滮��·����
 
-## 技术栈
-- **后端**：C++17，基于 cpp-httplib 提供 REST API。
-- **数据与存储**：
-lohmann/json、sqlite3、可选 PostgreSQL；城市数据以 data/ 下 JSON 为主。
-- **规划算法**：Dijkstra / A* 最短路、Beam Search 多日时间槽规划、BM25 检索、Pareto 多目标排序。
-- **LLM 集成**：兼容 OpenAI/DeepSeek 风格 Chat Completions，默认支持 config/llm.local.json 或环境变量注入。
-- **前端**：Leaflet + 原生 JS 主应用；另有 web/editor 的 React/Vite/Tailwind 行程编辑器。
-- **工程化**：MinGW Make 与 CMake 双构建、Docker 多阶段镜像、GitHub Actions CI、Render 部署草案。
+## ����ջ
+- **���**��C++17������ cpp-httplib �ṩ REST API��
+- **������洢**��
+lohmann/json��sqlite3����ѡ PostgreSQL������������ data/ �� JSON Ϊ����
+- **�滮�㷨**��Dijkstra / A* ���·��Beam Search ����ʱ��۹滮��BM25 ������Pareto ��Ŀ������
+- **LLM ����**������ OpenAI/DeepSeek ��� Chat Completions��Ĭ��֧�� config/llm.local.json �򻷾�����ע�롣
+- **ǰ��**��Leaflet + ԭ�� JS ��Ӧ�ã����� web/editor �� React/Vite/Tailwind �г̱༭����
+- **���̻�**��MinGW Make �� CMake ˫������Docker ��׶ξ���GitHub Actions CI��Render ����ݰ���
 
-## 目录结构
-- src/：后端核心实现（API、规划、检索、图、LLM、存储、运行时）。
-- include/tourpass/：核心头文件与数据模型。
-- 	hird_party/：内置第三方依赖（httplib、json、sqlite3）。
-- web/：前端页面、分享渲染、管理后台与编辑器。
-- data/：城市 POI、通勤边数据；config/：AMap 与 LLM 配置模板。
-- scripts/：数据采集、清洗、校验、压测与冒烟脚本。
-- 	ests/：C++ 测试与关键 Node 测试脚本。
-- docs/：OpenAPI、部署说明与样例请求。
+## Ŀ¼�ṹ
+- src/����˺���ʵ�֣�API���滮��������ͼ��LLM���洢������ʱ����
+- include/tourpass/������ͷ�ļ�������ģ�͡�
+- 	hird_party/�����õ�����������httplib��json��sqlite3����
+- web/��ǰ��ҳ�桢������Ⱦ�������̨��༭����
+- data/������ POI��ͨ�ڱ����ݣ�config/��AMap �� LLM ����ģ�塣
+- scripts/�����ݲɼ�����ϴ��У�顢ѹ����ð�̽ű���
+- 	ests/��C++ ������ؼ� Node ���Խű���
+- docs/��OpenAPI������˵������������
 
-## 核心流程
-1. 用户请求进入 /trip/plan、/trip/chat 或异步 /trip/jobs。
-2. 后端按城市查找对应 CityBundle，其中包含 PoiGraph、TripPlanner、SearchEngine。
-3. /trip/chat 使用 LLM 解析意图，再通过 BM25 匹配 POI；结构化请求直接进入规划。
-4. 规划主路径采用 Beam Search，在上午/午餐/下午/晚餐/晚间时间槽中搜索可行状态序列。
-5. 生成多个候选方案后，进行 Pareto 分层与多样性度量，并可由 LLM 补充自然语言解释。
-6. 前端读取候选方案、路线与算法调试信息，并在 Leaflet 地图上渲染路径和站点详情。
+## ��������
+1. �û�������� /trip/plan��/trip/chat ���첽 /trip/jobs��
+2. ��˰����в��Ҷ�Ӧ CityBundle�����а��� PoiGraph��TripPlanner��SearchEngine��
+3. /trip/chat ʹ�� LLM ������ͼ����ͨ�� BM25 ƥ�� POI���ṹ������ֱ�ӽ���滮��
+4. �滮��·������ Beam Search��������/���/����/���/���ʱ�������������״̬���С�
+5. ���ɶ����ѡ�����󣬽��� Pareto �ֲ�������Զ����������� LLM ������Ȼ���Խ��͡�
+6. ǰ�˶�ȡ��ѡ������·�����㷨������Ϣ������ Leaflet ��ͼ����Ⱦ·����վ�����顣
 
-## 关键约定
-- 敏感配置通过环境变量或 config/llm.local.json 注入，代码内不硬编码密钥。
-- API Key 校验采用常量时间比较；密码哈希使用 PBKDF2。
-- 所有 SQL 参数化；演示数据不等同真实地图、实时闭馆或生产 SLA。
-- 线上 Demo 声明需与实际部署证据一致，避免把草案配置误作已上线服务。
+## �ؼ�Լ��
+- �������ͨ������������ config/llm.local.json ע�룬�����ڲ�Ӳ������Կ��
+- API Key У����ó���ʱ��Ƚϣ������ϣʹ�� PBKDF2��
+- ���� SQL ����������ʾ���ݲ���ͬ��ʵ��ͼ��ʵʱ�չݻ����� SLA��
+- ���� Demo ��������ʵ�ʲ���֤��һ�£�����Ѳݰ��������������߷���
 
-## 运行与测试
-- **本地构建**：mingw32-make build、mingw32-make run
-- **CMake 构建**：cmake -S . -B build、cmake --build build
-- **测试**：mingw32-make test 或 CMake 下 ctest --test-dir build
-- **数据校验**：mingw32-make validate-data
-- **容器冒烟**：
+## ���������
+- **���ع���**��mingw32-make build��mingw32-make run
+- **CMake ����**��cmake -S . -B build��cmake --build build
+- **����**��mingw32-make test �� CMake �� ctest --test-dir build
+- **����У��**��mingw32-make validate-data
+- **����ð��**��
 ode scripts/container_smoke.js http://127.0.0.1:8080
-- **基准测试**：
+- **��׼����**��
 ode scripts/benchmark.js ...
 
-## 已知风险
-- 默认城市数据可能滞后，需持续更新 POI 与通勤边。
-- LLM 输出不可控，需保持算法主路径独立可用。
-- SQLite 为本地辅助存储，重启后若无持久卷会丢失规划历史。
-- 压测与冒烟结果仅反映当前环境，不可直接等同生产 SLA。
+## ��֪����
+- Ĭ�ϳ������ݿ����ͺ���������� POI ��ͨ�ڱߡ�
+- LLM ������ɿأ��豣���㷨��·���������á�
+- SQLite Ϊ���ظ����洢����������޳־þ�ᶪʧ�滮��ʷ��
+- ѹ����ð�̽������ӳ��ǰ����������ֱ�ӵ�ͬ���� SLA��
 
-## AI Agent 服务（2026-06 新增）
-- **Python Agent 服务**：基于 LangGraph + DeepSeek-V3 的旅行规划 Agent，端口 8090。
-- **架构**：用户输入 → 意图解析 → RAG 攻略检索 → 本地 POI/酒店搜索 → 酒店锚点选择 → 每日规划 → Beam Search 路线优化 → 流式输出。
-- **数据策略**：本地优先（C++ 后端 POI/酒店库 + 通勤图），高德 MCP 仅作补充。
-- **RAG**：ChromaDB 存储城市攻略（city_guide + wikivoyage + POI 描述），向量检索。
-- **缓存**：三级缓存（热门行程预生成 + Redis 行程级缓存 + 内存缓存）。
-- **新增 C++ API**：`/api/travel-time`、`/api/optimize-route`、`/api/city-guide`、`/api/cities`。
-- **前端**：`AgentChat.tsx`（流式对话）、`StreamingItinerary.tsx`（流式行程渲染）、`HotItineraries.tsx`（热门行程）、`QuickCustomize.tsx`（快速调整）。
-- **启动**：`pip install -r agent/requirements.txt` → `python -m uvicorn agent.main:app --port 8090`。
-- **RAG 入库**：`python scripts/ingest_rag.py`。
-
-
-## 最新修复 (2026-06-09)
-
-### Agent 代理修复
-- **问题**：C++ 后端 /agent/* 代理使用 httplib::Client 缓冲整个响应，SSE 流式传输不工作。
-- **问题**：pre_routing_handler 在 body 读取前运行，POST body 为空。
-- **修复**：将代理从 pre_routing_handler 移至显式路由处理器（server.Get/Post），使用 WinHTTP 原始连接 + set_chunked_content_provider 实现 SSE 流式代理。
-- **结构**：WinHttpStreamState RAII 结构管理句柄生命周期，chunked content provider 回调逐块读取上游数据。
-
-### 前端修复
-- **问题**：main.tsx 使用 NewEditorApp 而非 App，Agent 组件（AgentChat、HotItineraries 等）未被导入。
-- **修复**：在 NewEditorApp.tsx 中添加 AiChat 组件导入和渲染。
-- **问题**：挂载顺序错误，/ 先于 /editor 导致返回 dev HTML。
-- **修复**：交换挂载顺序，/editor 在 / 之前注册。
-
-### 当前状态
-- **C++ 后端**：端口 8080，21 城市 15140 POI
-- **Agent 服务**：端口 8090，DeepSeek-V3 推理
-- **前端**：/editor/ 正确加载 Agent 组件
-- **SSE 流式**：完整支持，Content-Type: text/event-stream
-- **缓存**：内存缓存工作，第二次请求 < 5s
-- **待完成**：ChromaDB RAG embedding 模型下载、Redis 缓存、热门行程预生成
+## AI Agent ����2026-06 ������
+- **Python Agent ����**������ LangGraph + DeepSeek-V3 �����й滮 Agent���˿� 8090��
+- **�ܹ�**���û����� �� ��ͼ���� �� RAG ���Լ��� �� ���� POI/�Ƶ����� �� �Ƶ�ê��ѡ�� �� ÿ�չ滮 �� Beam Search ·���Ż� �� ��ʽ�����
+- **���ݲ���**���������ȣ�C++ ��� POI/�Ƶ�� + ͨ��ͼ�����ߵ� MCP �������䡣
+- **RAG**��ChromaDB �洢���й��ԣ�city_guide + wikivoyage + POI ������������������
+- **����**���������棨�����г�Ԥ���� + Redis �г̼����� + �ڴ滺�棩��
+- **���� C++ API**��`/api/travel-time`��`/api/optimize-route`��`/api/city-guide`��`/api/cities`��
+- **ǰ��**��`AgentChat.tsx`����ʽ�Ի�����`StreamingItinerary.tsx`����ʽ�г���Ⱦ����`HotItineraries.tsx`�������г̣���`QuickCustomize.tsx`�����ٵ�������
+- **���**��`pip install -r agent/requirements.txt` �� `python -m uvicorn agent.main:app --port 8090`��
+- **RAG ���**��`python scripts/ingest_rag.py`��
 
 
-## CI 修复 (2026-06-09)
+## �����޸� (2026-06-09)
 
-### 数据验证修复
-- **问题**：156 个 POI 的 price_level=0，验证脚本要求 1..5 范围。
-- **修复**：将所有 price_level=0 改为 price_level=1（影响 21 个城市共 7688 个 POI）。
+### Agent �����޸�
+- **����**��C++ ��� /agent/* ����ʹ�� httplib::Client ����������Ӧ��SSE ��ʽ���䲻������
+- **����**��pre_routing_handler �� body ��ȡǰ���У�POST body Ϊ�ա�
+- **�޸�**��������� pre_routing_handler ������ʽ·�ɴ�������server.Get/Post����ʹ�� WinHTTP ԭʼ���� + set_chunked_content_provider ʵ�� SSE ��ʽ�����
+- **�ṹ**��WinHttpStreamState RAII �ṹ�������������ڣ�chunked content provider �ص�����ȡ�������ݡ�
 
-### 重复边清理
-- **问题**：414 条重复无向边（A->B 和 B->A 同时存在）。
-- **修复**：去重后保留唯一条目（共去除 2620 条重复边）。
+### ǰ���޸�
+- **����**��main.tsx ʹ�� NewEditorApp ���� App��Agent �����AgentChat��HotItineraries �ȣ�δ�����롣
+- **�޸�**���� NewEditorApp.tsx ����� AiChat ����������Ⱦ��
+- **����**������˳�����/ ���� /editor ���·��� dev HTML��
+- **�޸�**����������˳��/editor �� / ֮ǰע�ᡣ
 
-### API Smoke 测试
-- **问题**：api_smoke.ps1 硬编码 expectedPoiCount=461，实际为 15140。
-- **修复**：改用 minPoiCount=100 的最小值检查。
+### ��ǰ״̬
+- **C++ ���**���˿� 8080��21 ���� 15140 POI
+- **Agent ����**���˿� 8090��DeepSeek-V3 ����
+- **ǰ��**��/editor/ ��ȷ���� Agent ���
+- **SSE ��ʽ**������֧�֣�Content-Type: text/event-stream
+- **����**���ڴ滺�湤�����ڶ������� < 5s
+- **�����**��ChromaDB RAG embedding ģ�����ء�Redis ���桢�����г�Ԥ����
 
-### Docker 构建
-- **问题**：Dockerfile 和 entrypoint.sh 有 UTF-8 BOM，导致 bash 解析失败。
-- **修复**：移除 BOM，添加 .gitattributes 强制 LF 行尾。
 
-### 当前状态
-- CI 全部通过：CMake (Windows) + CMake (Ubuntu) + Docker smoke
-- 21 城市 15140 POI，2034 条边（主数据集）
+## CI �޸� (2026-06-09)
+
+### ������֤�޸�
+- **����**��156 �� POI �� price_level=0����֤�ű�Ҫ�� 1..5 ��Χ��
+- **�޸�**�������� price_level=0 ��Ϊ price_level=1��Ӱ�� 21 �����й� 7688 �� POI����
+
+### �ظ�������
+- **����**��414 ���ظ�����ߣ�A->B �� B->A ͬʱ���ڣ���
+- **�޸�**��ȥ�غ���Ψһ��Ŀ����ȥ�� 2620 ���ظ��ߣ���
+
+### API Smoke ����
+- **����**��api_smoke.ps1 Ӳ���� expectedPoiCount=461��ʵ��Ϊ 15140��
+- **�޸�**������ minPoiCount=100 ����Сֵ��顣
+
+### Docker ����
+- **����**��Dockerfile �� entrypoint.sh �� UTF-8 BOM������ bash ����ʧ�ܡ�
+- **�޸�**���Ƴ� BOM����� .gitattributes ǿ�� LF ��β��
+
+### ��ǰ״̬
+- CI ȫ��ͨ����CMake (Windows) + CMake (Ubuntu) + Docker smoke
+- 21 ���� 15140 POI��2034 ���ߣ������ݼ���
+
+## ���������޸� (2026-06-09)
+
+### P0-Critical ��ȫ�޸�
+- **SQL ע���޸�**��`cleanupExpiredGuests` ���ò�������ѯ������ SQL ƴ�ӷ��ա�
+- **�����ϣ��ȫ**��`hashPassword` ��Ӱ汾ǰ׺ `v2:`��`verifyPassword` ֧�ְ汾ʶ�𣬱����㷨��ƥ�䡣
+- **����ʱ��Ƚ�**��`constantTimeEquals` �޸�����й©��ʼ�ձ����ϳ����ȡ�
+
+### P1-High �߼��޸�
+- **optimizeDayOrder**���޸�δд���Ż������ bug������ `day.stops` �����Ϊ�Ż����˳��
+- **�ߵ� API**��`fetchFromAmap` ���� `/v3/direction/walking` ���нӿڣ�ƥ��������γ�����
+- **findPoi �ݹ�**����Ϊ������ѯ�����������ݵ���ջ�����
+
+### P2-Medium �����Ż�
+- **buildScoreBreakdown**���ϲ����ͺ�����ͳ��ѭ���������ظ�������
+- **Dijkstra ����**��`computeSingleSourceShortestMinutes` ���� `size_t idx` ��� `std::string`�������ַ���������
+- **������������**��`SearchEngine::search` ʹ�� `invertedIndex_` �����ĵ�Ƶ�ʣ����� O(N) ȫ��ɨ�衣
+- **LLM �ͻ���**��HTTPS ģʽ��Ҳ��ʼ���־û� HTTP client��֧�����Ӹ��á�
+- **ʱ�����**��`parseTimeToMinutes` ֧�� `H:MM` �� `HH:MM` ���ָ�ʽ��
+- **ʱ���ʽ��**��`formatMinutes` ���� clamp ��� modulo�����ⳬʱ��ʾ����
+
+### P2-Medium ��ȫ�뽡׳��
+- **LLM ��Ӧ����**��`parseChatCompletionContent` ��Ӱ�ȫ��飬�������Ӧ������
+- **���ֱ�ǩͳһ**��`scoreBreakdown` ��Ӣ�ı�ǩͳһΪ���ġ�
+- **defaultCity ѡ��**���Ƴ����� `unordered_map` ����˳��������֧��
+
+### ��ǰ״̬
+- ���޸� 3 �� P0-Critical��3 �� P1-High��8 �� P2-Medium ���⡣
+- ʣ�� P2/P3 ����Ϊ�����Ż��ʹ��������Ľ�����Ӱ����Ĺ�����ȷ�ԡ�
+
+## must_visit 景点修复 (2026-06-09)
+
+### 问题描述
+用户在提示词中强烈要求去长城和故宫，但行程中始终不包含这些景点。
+
+### 根因分析
+1. **数据缺失**：北京 POI 数据库中没有"八达岭长城"（最热门的长城段），只有"司马台长城旅游区"。
+2. **匹配缺陷**：select_pois_and_hotels 用精确名称匹配检查 must_visit，"长城"匹配不到任何 POI 名称，仅输出警告。
+3. **LLM 提示词无强制约束**：DAY_PLANNING_SYSTEM 告诉 LLM "从候选中选择最适合的"，未提及 must_visit 必须包含。即使 must_visit POI 进入候选列表，LLM 也可能跳过。
+4. **无后处理验证**：LLM 返回后未检查 must_visit 是否被包含。
+
+### 修复内容
+- **数据**：在 beijing/pois.json 中添加"八达岭长城"和"慕田峪长城"。
+- **匹配**：select_pois_and_hotels 改用子串模糊匹配（"长城" 匹配 "八达岭长城"）。
+- **提示词**：DAY_PLANNING_SYSTEM 首条规则改为"必须包含标记为必去的景点"；候选列表中标注【必去】；user_context 明确列出必去景点名称。
+- **后处理验证**：plan_each_day 在 LLM 返回后检查 must_visit POI 是否在 stops 中，缺失时强制注入。
+- **搜索范围**：search_pois limit 从 100 增加到 200，确保远郊景点（如延庆区的八达岭长城）被检索到。
+
+## Agent 数据加载与鲁棒性修复 (2026-06-09)
+
+### 问题描述
+- "Failed to fetch" 错误：Agent 服务无法加载 POI 数据，LLM 凭训练数据生成泛化内容。
+- must_visit 景点（长城、故宫）始终不出现。
+
+### 根因分析
+1. **C++ 后端未运行**：端口 8080 被其他应用占用，Agent 的 POI/酒店搜索全部 404。
+2. **无本地数据 fallback**：search_pois/search_hotels 失败后直接返回空列表。
+3. **城市名映射缺失**：数据目录用英文名（beijing），LLM 输出中文名（北京），路径不匹配。
+4. **故宫子景点污染**："故宫" 子串匹配到几十个子景点（钦安殿、永寿宫等），must_visit 验证全部注入。
+5. **Pydantic 验证脆弱**：LLM 返回 avoid=""（空字符串）而非 []，导致意图解析崩溃。
+6. **城市名 fallback 粗暴**：user_message[:4] 截取 "去北京3" 作为城市名。
+
+### 修复内容
+- **tools.py**：search_pois/search_hotels 失败时自动从 data/{city}/pois.json 加载；添加 _CITY_DIR_MAP 中英文城市名映射。
+- **models.py**：TripIntent 添加 field_validator，兼容 LLM 返回空字符串/字符串天数。
+- **graph.py / graph_simple.py**：must_visit 匹配改为"每个关键词只取最佳匹配"（最短名称 + 最高 popularity）；城市名 fallback 改为已知城市列表匹配。
+- **prompts.py**：DAY_PLANNING_SYSTEM 首条规则改为强制包含 must_visit。
