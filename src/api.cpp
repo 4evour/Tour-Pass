@@ -888,9 +888,8 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 );
             } else {
                 // Non-SSE: buffer entire response body
-                while (state->fillBuffer()) { /* read all */ }
+                do { /* read all */ } while (state->fillBuffer() && !state->decoded.empty());
                 res.set_content(state->decoded, contentType);
-                state->finished = true; // triggers destructor close
             }
 #endif
         };
