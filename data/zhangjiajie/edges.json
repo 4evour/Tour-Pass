@@ -17459,19 +17459,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "zhangjiajie_brand_8e541beb",
-    "to": "amap_b7dc8cf",
-    "distance_meters": 1244,
-    "walk_minutes": 20,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
     "from": "zhangjiajie_brand_a873c65e",
     "to": "amap_fb7a2bec",
     "distance_meters": 809,
@@ -17482,32 +17469,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 240,
-    "amap_status": "ok"
-  },
-  {
-    "from": "zhangjiajie_brand_da07e68b",
-    "to": "amap_44fddea9",
-    "distance_meters": 138,
-    "walk_minutes": 2,
-    "transit_minutes": 8,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 60,
-    "amap_status": "ok"
-  },
-  {
-    "from": "zhangjiajie_brand_4ae56230",
-    "to": "amap_b7dc8cf",
-    "distance_meters": 662,
-    "walk_minutes": 11,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 300,
     "amap_status": "ok"
   },
   {

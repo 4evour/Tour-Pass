@@ -24778,58 +24778,6 @@
     "amap_status": "fallback_geo_estimated"
   },
   {
-    "from": "kunming_brand_2d52762c",
-    "to": "amap_2db958aa",
-    "distance_meters": 2530,
-    "walk_minutes": 41,
-    "transit_minutes": 18,
-    "taxi_minutes": 10,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_2d52762c",
-    "to": "amap_f8449143",
-    "distance_meters": 2574,
-    "walk_minutes": 42,
-    "transit_minutes": 20,
-    "taxi_minutes": 11,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 660,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_2d52762c",
-    "to": "amap_813c5f94",
-    "distance_meters": 2576,
-    "walk_minutes": 42,
-    "transit_minutes": 20,
-    "taxi_minutes": 11,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 660,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_ee618f81",
-    "to": "amap_29129506",
-    "distance_meters": 1763,
-    "walk_minutes": 29,
-    "transit_minutes": 18,
-    "taxi_minutes": 10,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
     "from": "kunming_brand_ee618f81",
     "to": "amap_4a52a21b",
     "distance_meters": 1949,
@@ -24840,32 +24788,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_ee618f81",
-    "to": "amap_f6961f00",
-    "distance_meters": 3070,
-    "walk_minutes": 50,
-    "transit_minutes": 22,
-    "taxi_minutes": 12,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 720,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_1d8be96b",
-    "to": "amap_d76f5634",
-    "distance_meters": 3382,
-    "walk_minutes": 55,
-    "transit_minutes": 22,
-    "taxi_minutes": 12,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 720,
     "amap_status": "ok"
   },
   {
@@ -24895,19 +24817,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "kunming_brand_cb3e2df3",
-    "to": "amap_ec830512",
-    "distance_meters": 1530,
-    "walk_minutes": 25,
-    "transit_minutes": 18,
-    "taxi_minutes": 10,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
     "from": "kunming_brand_17335ccb",
     "to": "amap_31631956",
     "distance_meters": 1423,
@@ -24918,32 +24827,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_e563421d",
-    "to": "amap_be388283",
-    "distance_meters": 1723,
-    "walk_minutes": 28,
-    "transit_minutes": 18,
-    "taxi_minutes": 10,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_e563421d",
-    "to": "amap_322eb5d9",
-    "distance_meters": 2738,
-    "walk_minutes": 44,
-    "transit_minutes": 18,
-    "taxi_minutes": 10,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 600,
     "amap_status": "ok"
   },
   {
@@ -24986,45 +24869,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "kunming_brand_8dfb9685",
-    "to": "amap_562d5728",
-    "distance_meters": 825,
-    "walk_minutes": 13,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_bc672e6b",
-    "to": "amap_dc0f1247",
-    "distance_meters": 1780,
-    "walk_minutes": 29,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_234c49ba",
-    "to": "amap_8215c498",
-    "distance_meters": 387,
-    "walk_minutes": 6,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
     "from": "kunming_brand_234c49ba",
     "to": "amap_14cb1a9",
     "distance_meters": 467,
@@ -25035,32 +24879,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_32efc01a",
-    "to": "amap_e9b736d1",
-    "distance_meters": 2923,
-    "walk_minutes": 47,
-    "transit_minutes": 20,
-    "taxi_minutes": 11,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 660,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_4bb23d3b",
-    "to": "amap_ea48664",
-    "distance_meters": 1262,
-    "walk_minutes": 20,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
     "amap_status": "ok"
   },
   {
@@ -25087,19 +24905,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 1020,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_b991a2a7",
-    "to": "amap_eef76c87",
-    "distance_meters": 1169,
-    "walk_minutes": 19,
-    "transit_minutes": 11,
-    "taxi_minutes": 6,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 360,
     "amap_status": "ok"
   },
   {
@@ -25139,19 +24944,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 660,
-    "amap_status": "ok"
-  },
-  {
-    "from": "kunming_brand_c8f15777",
-    "to": "amap_322eb5d9",
-    "distance_meters": 584,
-    "walk_minutes": 9,
-    "transit_minutes": 8,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 120,
     "amap_status": "ok"
   }
 ]

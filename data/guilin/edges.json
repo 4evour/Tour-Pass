@@ -27105,19 +27105,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "amap_95befb7a",
-    "to": "amap_920bc43c",
-    "distance_meters": 1366,
-    "walk_minutes": 22,
-    "transit_minutes": 8,
-    "taxi_minutes": 4,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 240,
-    "amap_status": "ok"
-  },
-  {
     "from": "guilin_brand_e9b6d1a0",
     "to": "amap_a53835f5",
     "distance_meters": 399,
@@ -27184,19 +27171,6 @@
   },
   {
     "from": "guilin_brand_2b93b1b2",
-    "to": "amap_b6a095a6",
-    "distance_meters": 188,
-    "walk_minutes": 3,
-    "transit_minutes": 8,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 60,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_2b93b1b2",
     "to": "amap_52de37b0",
     "distance_meters": 1247,
     "walk_minutes": 20,
@@ -27206,19 +27180,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_7f44d7f3",
-    "to": "amap_f365fb6f",
-    "distance_meters": 733,
-    "walk_minutes": 12,
-    "transit_minutes": 8,
-    "taxi_minutes": 4,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 240,
     "amap_status": "ok"
   },
   {
@@ -27248,32 +27209,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "guilin_brand_3784b94d",
-    "to": "amap_85961b3d",
-    "distance_meters": 34,
-    "walk_minutes": 1,
-    "transit_minutes": 8,
-    "taxi_minutes": 0,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 0,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_bfc1b6ad",
-    "to": "amap_68872bb2",
-    "distance_meters": 1275,
-    "walk_minutes": 21,
-    "transit_minutes": 8,
-    "taxi_minutes": 4,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 240,
-    "amap_status": "ok"
-  },
-  {
     "from": "guilin_brand_c42abf5e",
     "to": "amap_dbccc2e3",
     "distance_meters": 12815,
@@ -27284,32 +27219,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 1200,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_ce69b726",
-    "to": "amap_936808b6",
-    "distance_meters": 420,
-    "walk_minutes": 7,
-    "transit_minutes": 8,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 60,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_8195bc72",
-    "to": "amap_e2b065f0",
-    "distance_meters": 643,
-    "walk_minutes": 10,
-    "transit_minutes": 8,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 120,
     "amap_status": "ok"
   },
   {
@@ -27339,19 +27248,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "amap_94d7c7eb",
-    "to": "amap_80fb9127",
-    "distance_meters": 212,
-    "walk_minutes": 3,
-    "transit_minutes": 8,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 120,
-    "amap_status": "ok"
-  },
-  {
     "from": "guilin_brand_c6be1683",
     "to": "amap_85961b3d",
     "distance_meters": 798,
@@ -27362,58 +27258,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_9ac4222c",
-    "to": "amap_5beffe87",
-    "distance_meters": 1,
-    "walk_minutes": 1,
-    "transit_minutes": 8,
-    "taxi_minutes": 0,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 0,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_9ac4222c",
-    "to": "amap_90129a2d",
-    "distance_meters": 61,
-    "walk_minutes": 1,
-    "transit_minutes": 8,
-    "taxi_minutes": 0,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 0,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_9ac4222c",
-    "to": "amap_32308dd4",
-    "distance_meters": 54,
-    "walk_minutes": 1,
-    "transit_minutes": 8,
-    "taxi_minutes": 0,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 0,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_de1bd8da",
-    "to": "amap_fb3f3155",
-    "distance_meters": 183,
-    "walk_minutes": 3,
-    "transit_minutes": 8,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 60,
     "amap_status": "ok"
   },
   {
@@ -27470,19 +27314,6 @@
   },
   {
     "from": "guilin_brand_c3b7f867",
-    "to": "amap_fb3f3155",
-    "distance_meters": 187,
-    "walk_minutes": 3,
-    "transit_minutes": 8,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 60,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_c3b7f867",
     "to": "amap_69a66819",
     "distance_meters": 432,
     "walk_minutes": 7,
@@ -27492,45 +27323,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_47d4493f",
-    "to": "amap_4e60decd",
-    "distance_meters": 757,
-    "walk_minutes": 12,
-    "transit_minutes": 8,
-    "taxi_minutes": 4,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 240,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_744b8356",
-    "to": "amap_a9980267",
-    "distance_meters": 2704,
-    "walk_minutes": 44,
-    "transit_minutes": 13,
-    "taxi_minutes": 7,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
-    "from": "guilin_brand_744b8356",
-    "to": "amap_2902fdf8",
-    "distance_meters": 2444,
-    "walk_minutes": 40,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
     "amap_status": "ok"
   }
 ]

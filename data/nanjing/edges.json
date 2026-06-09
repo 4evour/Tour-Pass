@@ -24623,19 +24623,6 @@
   },
   {
     "from": "nanjing_brand_6245a15f",
-    "to": "amap_8b1dc2d1",
-    "distance_meters": 182,
-    "walk_minutes": 3,
-    "transit_minutes": 8,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 60,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_6245a15f",
     "to": "amap_7cea692f",
     "distance_meters": 1765,
     "walk_minutes": 29,
@@ -24645,32 +24632,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_6bd58ad6",
-    "to": "amap_f7a65342",
-    "distance_meters": 7332,
-    "walk_minutes": 119,
-    "transit_minutes": 31,
-    "taxi_minutes": 17,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 1020,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_41a15dec",
-    "to": "amap_b71d080d",
-    "distance_meters": 758,
-    "walk_minutes": 12,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
     "amap_status": "ok"
   },
   {
@@ -24687,45 +24648,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "nanjing_brand_6bd949f4",
-    "to": "amap_88a1347d",
-    "distance_meters": 686,
-    "walk_minutes": 11,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_6bd949f4",
-    "to": "amap_fc3cdc9e",
-    "distance_meters": 2515,
-    "walk_minutes": 41,
-    "transit_minutes": 18,
-    "taxi_minutes": 10,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_fe7c27d0",
-    "to": "amap_b1d3d59a",
-    "distance_meters": 1400,
-    "walk_minutes": 23,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
     "from": "nanjing_brand_f03206bc",
     "to": "amap_93ceb93d",
     "distance_meters": 5582,
@@ -24736,19 +24658,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 1080,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_f03206bc",
-    "to": "amap_6ee7a944",
-    "distance_meters": 5212,
-    "walk_minutes": 84,
-    "transit_minutes": 25,
-    "taxi_minutes": 14,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 840,
     "amap_status": "ok"
   },
   {
@@ -24788,32 +24697,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 300,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_hotel_5",
-    "to": "amap_d2f4212",
-    "distance_meters": 280,
-    "walk_minutes": 5,
-    "transit_minutes": 8,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 120,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_hotel_5",
-    "to": "amap_7bc04188",
-    "distance_meters": 656,
-    "walk_minutes": 11,
-    "transit_minutes": 8,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 120,
     "amap_status": "ok"
   },
   {
@@ -24896,32 +24779,6 @@
   },
   {
     "from": "nanjing_brand_9138f4c7",
-    "to": "amap_da60239e",
-    "distance_meters": 2076,
-    "walk_minutes": 34,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_9138f4c7",
-    "to": "amap_e7e84f5f",
-    "distance_meters": 1807,
-    "walk_minutes": 29,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_9138f4c7",
     "to": "amap_9f793fe1",
     "distance_meters": 2111,
     "walk_minutes": 34,
@@ -24983,58 +24840,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 300,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_48cc820",
-    "to": "amap_fc5dde3e",
-    "distance_meters": 1432,
-    "walk_minutes": 23,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_afed6987",
-    "to": "amap_6ad45674",
-    "distance_meters": 454,
-    "walk_minutes": 7,
-    "transit_minutes": 8,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 120,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_afed6987",
-    "to": "amap_4ef90586",
-    "distance_meters": 865,
-    "walk_minutes": 14,
-    "transit_minutes": 8,
-    "taxi_minutes": 4,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 240,
-    "amap_status": "ok"
-  },
-  {
-    "from": "nanjing_brand_ed47527f",
-    "to": "amap_cc7fe175",
-    "distance_meters": 3319,
-    "walk_minutes": 54,
-    "transit_minutes": 27,
-    "taxi_minutes": 15,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 900,
     "amap_status": "ok"
   },
   {

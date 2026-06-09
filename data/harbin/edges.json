@@ -24362,32 +24362,6 @@
     "amap_status": "fallback_geo_estimated"
   },
   {
-    "from": "harbin_brand_592fba35",
-    "to": "amap_8938c994",
-    "distance_meters": 20163,
-    "walk_minutes": 327,
-    "transit_minutes": 36,
-    "taxi_minutes": 20,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 1200,
-    "amap_status": "ok"
-  },
-  {
-    "from": "harbin_brand_585b4a86",
-    "to": "amap_6e52248d",
-    "distance_meters": 4588,
-    "walk_minutes": 74,
-    "transit_minutes": 23,
-    "taxi_minutes": 13,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 780,
-    "amap_status": "ok"
-  },
-  {
     "from": "harbin_brand_585b4a86",
     "to": "amap_babd43be",
     "distance_meters": 20915,
@@ -24427,45 +24401,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "harbin_brand_6a8d44e",
-    "to": "amap_b210ecca",
-    "distance_meters": 4367,
-    "walk_minutes": 71,
-    "transit_minutes": 29,
-    "taxi_minutes": 16,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 960,
-    "amap_status": "ok"
-  },
-  {
-    "from": "harbin_brand_6a8d44e",
-    "to": "amap_75e84f27",
-    "distance_meters": 4566,
-    "walk_minutes": 74,
-    "transit_minutes": 23,
-    "taxi_minutes": 13,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 780,
-    "amap_status": "ok"
-  },
-  {
-    "from": "harbin_brand_b54c517b",
-    "to": "amap_68e10c0c",
-    "distance_meters": 2160,
-    "walk_minutes": 35,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
     "from": "harbin_brand_b54c517b",
     "to": "amap_6cbb6ac6",
     "distance_meters": 1175,
@@ -24480,19 +24415,6 @@
   },
   {
     "from": "harbin_brand_ec0080cd",
-    "to": "amap_a00d077a",
-    "distance_meters": 851,
-    "walk_minutes": 14,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
-    "from": "harbin_brand_ec0080cd",
     "to": "amap_36f4df10",
     "distance_meters": 1151,
     "walk_minutes": 19,
@@ -24502,32 +24424,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
-    "from": "harbin_brand_344ecde0",
-    "to": "amap_d0884334",
-    "distance_meters": 520,
-    "walk_minutes": 8,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "harbin_brand_344ecde0",
-    "to": "amap_29feac21",
-    "distance_meters": 538,
-    "walk_minutes": 9,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
     "amap_status": "ok"
   },
   {
@@ -24596,45 +24492,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "harbin_brand_a87b3e0a",
-    "to": "amap_6010b760",
-    "distance_meters": 1698,
-    "walk_minutes": 28,
-    "transit_minutes": 18,
-    "taxi_minutes": 10,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
-    "from": "harbin_brand_a87b3e0a",
-    "to": "amap_688e06ea",
-    "distance_meters": 2220,
-    "walk_minutes": 36,
-    "transit_minutes": 23,
-    "taxi_minutes": 13,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 780,
-    "amap_status": "ok"
-  },
-  {
-    "from": "harbin_brand_a57effe7",
-    "to": "amap_db6f2137",
-    "distance_meters": 1260,
-    "walk_minutes": 20,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
     "from": "harbin_brand_a57effe7",
     "to": "amap_f5f16e94",
     "distance_meters": 1051,
@@ -24697,19 +24554,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 960,
-    "amap_status": "ok"
-  },
-  {
-    "from": "harbin_brand_1fc772f6",
-    "to": "amap_7f7e3e9a",
-    "distance_meters": 385,
-    "walk_minutes": 6,
-    "transit_minutes": 8,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 120,
     "amap_status": "ok"
   },
   {

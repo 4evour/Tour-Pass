@@ -20826,32 +20826,6 @@
     "amap_status": "fallback_geo_estimated"
   },
   {
-    "from": "sanya_brand_f1a027e6",
-    "to": "amap_774278ff",
-    "distance_meters": 3313,
-    "walk_minutes": 54,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "sanya_brand_f1a027e6",
-    "to": "amap_d10d175a",
-    "distance_meters": 2153,
-    "walk_minutes": 35,
-    "transit_minutes": 13,
-    "taxi_minutes": 7,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
     "from": "sanya_brand_2d5be464",
     "to": "amap_6fe97d92",
     "distance_meters": 1290,
@@ -20888,32 +20862,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 660,
-    "amap_status": "ok"
-  },
-  {
-    "from": "sanya_brand_1ec1b12f",
-    "to": "amap_e013c410",
-    "distance_meters": 2001,
-    "walk_minutes": 32,
-    "transit_minutes": 11,
-    "taxi_minutes": 6,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 360,
-    "amap_status": "ok"
-  },
-  {
-    "from": "sanya_brand_1ec1b12f",
-    "to": "amap_8c8df3e9",
-    "distance_meters": 3064,
-    "walk_minutes": 50,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
     "amap_status": "ok"
   },
   {
@@ -20995,19 +20943,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "sanya_brand_a3c37998",
-    "to": "amap_19ea588f",
-    "distance_meters": 2690,
-    "walk_minutes": 44,
-    "transit_minutes": 11,
-    "taxi_minutes": 6,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 360,
-    "amap_status": "ok"
-  },
-  {
     "from": "sanya_brand_c74dd43c",
     "to": "amap_1af04721",
     "distance_meters": 1668,
@@ -21061,19 +20996,6 @@
   },
   {
     "from": "sanya_brand_51d2e7bb",
-    "to": "amap_960ce70a",
-    "distance_meters": 2091,
-    "walk_minutes": 34,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
-    "from": "sanya_brand_51d2e7bb",
     "to": "amap_88c38d9",
     "distance_meters": 3051,
     "walk_minutes": 49,
@@ -21096,32 +21018,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 300,
-    "amap_status": "ok"
-  },
-  {
-    "from": "sanya_brand_b5be0ec9",
-    "to": "amap_788736f3",
-    "distance_meters": 197,
-    "walk_minutes": 3,
-    "transit_minutes": 8,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 120,
-    "amap_status": "ok"
-  },
-  {
-    "from": "sanya_brand_b5be0ec9",
-    "to": "amap_d6a96c5d",
-    "distance_meters": 293,
-    "walk_minutes": 5,
-    "transit_minutes": 8,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 120,
     "amap_status": "ok"
   },
   {
@@ -21174,19 +21070,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 1020,
-    "amap_status": "ok"
-  },
-  {
-    "from": "sanya_brand_25f57981",
-    "to": "amap_6452a594",
-    "distance_meters": 244,
-    "walk_minutes": 4,
-    "transit_minutes": 8,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 60,
     "amap_status": "ok"
   },
   {
@@ -21265,19 +21148,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 840,
-    "amap_status": "ok"
-  },
-  {
-    "from": "sanya_hotel_5",
-    "to": "amap_a48b62e5",
-    "distance_meters": 473,
-    "walk_minutes": 8,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
     "amap_status": "ok"
   }
 ]

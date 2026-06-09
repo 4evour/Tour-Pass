@@ -24531,32 +24531,6 @@
     "amap_status": "fallback_geo_estimated"
   },
   {
-    "from": "xian_brand_5663eaa",
-    "to": "amap_984a1e1",
-    "distance_meters": 492,
-    "walk_minutes": 8,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_5663eaa",
-    "to": "amap_c4fb993",
-    "distance_meters": 1501,
-    "walk_minutes": 24,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
     "from": "xian_brand_58373f92",
     "to": "amap_cec3cd22",
     "distance_meters": 1288,
@@ -24580,19 +24554,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_4212d852",
-    "to": "amap_1e521b17",
-    "distance_meters": 5598,
-    "walk_minutes": 91,
-    "transit_minutes": 34,
-    "taxi_minutes": 19,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 1140,
     "amap_status": "ok"
   },
   {
@@ -24674,71 +24635,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "xian_brand_e052e99e",
-    "to": "amap_fa278978",
-    "distance_meters": 1728,
-    "walk_minutes": 28,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_e052e99e",
-    "to": "amap_d2b237fc",
-    "distance_meters": 3207,
-    "walk_minutes": 52,
-    "transit_minutes": 20,
-    "taxi_minutes": 11,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 660,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_e052e99e",
-    "to": "amap_ace7f6a0",
-    "distance_meters": 2562,
-    "walk_minutes": 42,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_46105f70",
-    "to": "amap_90a7f3bc",
-    "distance_meters": 984,
-    "walk_minutes": 16,
-    "transit_minutes": 13,
-    "taxi_minutes": 7,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_46105f70",
-    "to": "amap_eb8edfd4",
-    "distance_meters": 1960,
-    "walk_minutes": 32,
-    "transit_minutes": 20,
-    "taxi_minutes": 11,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 660,
-    "amap_status": "ok"
-  },
-  {
     "from": "xian_brand_ac752cfc",
     "to": "amap_bf34c40",
     "distance_meters": 3919,
@@ -24765,71 +24661,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "xian_brand_b51d5221",
-    "to": "amap_c3a5aa34",
-    "distance_meters": 2264,
-    "walk_minutes": 37,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_b51d5221",
-    "to": "amap_8466b167",
-    "distance_meters": 1784,
-    "walk_minutes": 29,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_b51d5221",
-    "to": "amap_47f702b8",
-    "distance_meters": 2565,
-    "walk_minutes": 42,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_a7ad1926",
-    "to": "amap_59125716",
-    "distance_meters": 431,
-    "walk_minutes": 7,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_13871dc0",
-    "to": "amap_e7612d77",
-    "distance_meters": 1032,
-    "walk_minutes": 17,
-    "transit_minutes": 23,
-    "taxi_minutes": 13,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 780,
-    "amap_status": "ok"
-  },
-  {
     "from": "xian_brand_7812c39d",
     "to": "amap_bf34c40",
     "distance_meters": 3667,
@@ -24840,45 +24671,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 780,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_b86527f8",
-    "to": "amap_2a2413db",
-    "distance_meters": 1440,
-    "walk_minutes": 23,
-    "transit_minutes": 18,
-    "taxi_minutes": 10,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_76461689",
-    "to": "amap_9ce8396",
-    "distance_meters": 129,
-    "walk_minutes": 2,
-    "transit_minutes": 8,
-    "taxi_minutes": 1,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 60,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_5c8ac97b",
-    "to": "amap_4ffbcc9b",
-    "distance_meters": 2137,
-    "walk_minutes": 35,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
     "amap_status": "ok"
   },
   {
@@ -24948,19 +24740,6 @@
   },
   {
     "from": "xian_brand_fa0fd662",
-    "to": "amap_e3b362ff",
-    "distance_meters": 1332,
-    "walk_minutes": 22,
-    "transit_minutes": 13,
-    "taxi_minutes": 7,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_fa0fd662",
     "to": "amap_a17a52",
     "distance_meters": 1619,
     "walk_minutes": 26,
@@ -24983,19 +24762,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 780,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xian_brand_bad6b65",
-    "to": "amap_48cddd2a",
-    "distance_meters": 448,
-    "walk_minutes": 7,
-    "transit_minutes": 8,
-    "taxi_minutes": 2,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 120,
     "amap_status": "ok"
   }
 ]

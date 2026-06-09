@@ -29068,32 +29068,6 @@
     "amap_status": "fallback_geo_estimated"
   },
   {
-    "from": "shanghai_brand_b89ce816",
-    "to": "amap_b51711c3",
-    "distance_meters": 5291,
-    "walk_minutes": 86,
-    "transit_minutes": 22,
-    "taxi_minutes": 12,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 720,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_349c8072",
-    "to": "amap_a0a61f5a",
-    "distance_meters": 2486,
-    "walk_minutes": 40,
-    "transit_minutes": 20,
-    "taxi_minutes": 11,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 660,
-    "amap_status": "ok"
-  },
-  {
     "from": "amap_5c82933b",
     "to": "amap_e2fcdcc2",
     "distance_meters": 3742,
@@ -29104,32 +29078,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 900,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_f083d4b6",
-    "to": "amap_5d41ef3d",
-    "distance_meters": 3985,
-    "walk_minutes": 65,
-    "transit_minutes": 27,
-    "taxi_minutes": 15,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 900,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_76400eec",
-    "to": "amap_df3fccf7",
-    "distance_meters": 14208,
-    "walk_minutes": 230,
-    "transit_minutes": 40,
-    "taxi_minutes": 22,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 1320,
     "amap_status": "ok"
   },
   {
@@ -29160,32 +29108,6 @@
   },
   {
     "from": "shanghai_brand_9ed057b1",
-    "to": "amap_c1e8a4bc",
-    "distance_meters": 4669,
-    "walk_minutes": 76,
-    "transit_minutes": 29,
-    "taxi_minutes": 16,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 960,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_9ed057b1",
-    "to": "amap_2d3ce78b",
-    "distance_meters": 1209,
-    "walk_minutes": 20,
-    "transit_minutes": 13,
-    "taxi_minutes": 7,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_9ed057b1",
     "to": "amap_4da5a044",
     "distance_meters": 2095,
     "walk_minutes": 34,
@@ -29195,19 +29117,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_339f1d2e",
-    "to": "amap_11b70b6c",
-    "distance_meters": 1758,
-    "walk_minutes": 28,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 300,
     "amap_status": "ok"
   },
   {
@@ -29250,45 +29159,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "shanghai_brand_f3503b41",
-    "to": "amap_957c3e69",
-    "distance_meters": 3795,
-    "walk_minutes": 61,
-    "transit_minutes": 36,
-    "taxi_minutes": 20,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 1200,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_33e0fafa",
-    "to": "amap_52218ec7",
-    "distance_meters": 5168,
-    "walk_minutes": 84,
-    "transit_minutes": 40,
-    "taxi_minutes": 22,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 1320,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_ec236a73",
-    "to": "amap_f23da66d",
-    "distance_meters": 5656,
-    "walk_minutes": 92,
-    "transit_minutes": 29,
-    "taxi_minutes": 16,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 960,
-    "amap_status": "ok"
-  },
-  {
     "from": "shanghai_brand_ec236a73",
     "to": "amap_6e706e2b",
     "distance_meters": 10009,
@@ -29312,32 +29182,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 1260,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_bdefeecc",
-    "to": "amap_f23da66d",
-    "distance_meters": 6972,
-    "walk_minutes": 113,
-    "transit_minutes": 29,
-    "taxi_minutes": 16,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 960,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_69cd74ee",
-    "to": "amap_7ceee8c8",
-    "distance_meters": 3768,
-    "walk_minutes": 61,
-    "transit_minutes": 22,
-    "taxi_minutes": 12,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 720,
     "amap_status": "ok"
   },
   {
@@ -29429,45 +29273,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_66aeedb1",
-    "to": "amap_d5658190",
-    "distance_meters": 1170,
-    "walk_minutes": 19,
-    "transit_minutes": 11,
-    "taxi_minutes": 6,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 360,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_66aeedb1",
-    "to": "amap_2a39be08",
-    "distance_meters": 2866,
-    "walk_minutes": 46,
-    "transit_minutes": 13,
-    "taxi_minutes": 7,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
-    "from": "shanghai_brand_32a6973b",
-    "to": "amap_fb65bac2",
-    "distance_meters": 6048,
-    "walk_minutes": 98,
-    "transit_minutes": 27,
-    "taxi_minutes": 15,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 900,
     "amap_status": "ok"
   },
   {

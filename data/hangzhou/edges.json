@@ -27235,32 +27235,6 @@
     "amap_status": "fallback_geo_estimated"
   },
   {
-    "from": "hangzhou_brand_4e0e4ee3",
-    "to": "amap_9c4108e9",
-    "distance_meters": 1557,
-    "walk_minutes": 25,
-    "transit_minutes": 13,
-    "taxi_minutes": 7,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
-    "from": "hangzhou_brand_4e0e4ee3",
-    "to": "amap_f9c8f0fb",
-    "distance_meters": 588,
-    "walk_minutes": 10,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 300,
-    "amap_status": "ok"
-  },
-  {
     "from": "hangzhou_brand_8597cc8d",
     "to": "amap_e6ddf20a",
     "distance_meters": 7943,
@@ -27366,19 +27340,6 @@
   },
   {
     "from": "hangzhou_brand_e2f7a1f1",
-    "to": "amap_426d4584",
-    "distance_meters": 2817,
-    "walk_minutes": 46,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "hangzhou_brand_e2f7a1f1",
     "to": "amap_3d302b43",
     "distance_meters": 3599,
     "walk_minutes": 58,
@@ -27401,19 +27362,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 780,
-    "amap_status": "ok"
-  },
-  {
-    "from": "hangzhou_brand_d7f17890",
-    "to": "amap_938b4d7c",
-    "distance_meters": 1729,
-    "walk_minutes": 28,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
     "amap_status": "ok"
   },
   {
@@ -27457,35 +27405,9 @@
   },
   {
     "from": "hangzhou_brand_223fe504",
-    "to": "amap_e98c0881",
-    "distance_meters": 408,
-    "walk_minutes": 7,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "hangzhou_brand_223fe504",
     "to": "amap_f9c8f0fb",
     "distance_meters": 585,
     "walk_minutes": 9,
-    "transit_minutes": 23,
-    "taxi_minutes": 13,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 780,
-    "amap_status": "ok"
-  },
-  {
-    "from": "hangzhou_brand_b17df87a",
-    "to": "amap_2d35bf98",
-    "distance_meters": 1352,
-    "walk_minutes": 22,
     "transit_minutes": 23,
     "taxi_minutes": 13,
     "source": "amap",
@@ -27521,19 +27443,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "hangzhou_brand_535892da",
-    "to": "amap_4055a50",
-    "distance_meters": 6486,
-    "walk_minutes": 105,
-    "transit_minutes": 32,
-    "taxi_minutes": 18,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 1080,
-    "amap_status": "ok"
-  },
-  {
     "from": "hangzhou_brand_2174bd81",
     "to": "amap_1dc8825f",
     "distance_meters": 2346,
@@ -27544,32 +27453,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
-    "from": "amap_be15f7f",
-    "to": "amap_d85c6657",
-    "distance_meters": 2199,
-    "walk_minutes": 36,
-    "transit_minutes": 18,
-    "taxi_minutes": 10,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
-    "from": "amap_45bf6d59",
-    "to": "amap_4b757592",
-    "distance_meters": 45,
-    "walk_minutes": 1,
-    "transit_minutes": 8,
-    "taxi_minutes": 0,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 0,
     "amap_status": "ok"
   },
   {
@@ -27596,19 +27479,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 1860,
-    "amap_status": "ok"
-  },
-  {
-    "from": "hangzhou_brand_b2f678bc",
-    "to": "amap_ad449f5e",
-    "distance_meters": 2555,
-    "walk_minutes": 41,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
     "amap_status": "ok"
   },
   {
@@ -27687,19 +27557,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 960,
-    "amap_status": "ok"
-  },
-  {
-    "from": "hangzhou_brand_4c65a76",
-    "to": "amap_74ce1bc2",
-    "distance_meters": 1615,
-    "walk_minutes": 26,
-    "transit_minutes": 13,
-    "taxi_minutes": 7,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 420,
     "amap_status": "ok"
   },
   {

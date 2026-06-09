@@ -17953,45 +17953,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "lijiang_brand_427ad30",
-    "to": "amap_264618bb",
-    "distance_meters": 630,
-    "walk_minutes": 10,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 300,
-    "amap_status": "ok"
-  },
-  {
-    "from": "lijiang_brand_427ad30",
-    "to": "amap_70691edb",
-    "distance_meters": 2353,
-    "walk_minutes": 38,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "lijiang_brand_427ad30",
-    "to": "amap_eacf84f7",
-    "distance_meters": 2851,
-    "walk_minutes": 46,
-    "transit_minutes": 22,
-    "taxi_minutes": 12,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 720,
-    "amap_status": "ok"
-  },
-  {
     "from": "lijiang_brand_4cac588a",
     "to": "amap_10774311",
     "distance_meters": 977,
@@ -18015,19 +17976,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 300,
-    "amap_status": "ok"
-  },
-  {
-    "from": "lijiang_brand_7a19c4f0",
-    "to": "amap_79237167",
-    "distance_meters": 1369,
-    "walk_minutes": 22,
-    "transit_minutes": 23,
-    "taxi_minutes": 13,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 780,
     "amap_status": "ok"
   },
   {
@@ -18096,19 +18044,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "lijiang_brand_c11e8aab",
-    "to": "amap_657ffe",
-    "distance_meters": 645,
-    "walk_minutes": 10,
-    "transit_minutes": 11,
-    "taxi_minutes": 6,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 360,
-    "amap_status": "ok"
-  },
-  {
     "from": "lijiang_brand_9139b4a1",
     "to": "amap_c24491b5",
     "distance_meters": 1111,
@@ -18139,19 +18074,6 @@
     "to": "amap_50ae1e84",
     "distance_meters": 495,
     "walk_minutes": 8,
-    "transit_minutes": 8,
-    "taxi_minutes": 3,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 180,
-    "amap_status": "ok"
-  },
-  {
-    "from": "lijiang_brand_8ad37af4",
-    "to": "amap_71024e98",
-    "distance_meters": 1403,
-    "walk_minutes": 23,
     "transit_minutes": 8,
     "taxi_minutes": 3,
     "source": "amap",
@@ -18200,32 +18122,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "lijiang_brand_51b3f685",
-    "to": "amap_91990610",
-    "distance_meters": 47,
-    "walk_minutes": 1,
-    "transit_minutes": 8,
-    "taxi_minutes": 0,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 0,
-    "amap_status": "ok"
-  },
-  {
-    "from": "lijiang_brand_3ebf4f83",
-    "to": "amap_4f1edf78",
-    "distance_meters": 695,
-    "walk_minutes": 11,
-    "transit_minutes": 8,
-    "taxi_minutes": 4,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 240,
-    "amap_status": "ok"
-  },
-  {
     "from": "lijiang_brand_29a2ea1a",
     "to": "amap_2a5c6c34",
     "distance_meters": 1629,
@@ -18236,19 +18132,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 420,
-    "amap_status": "ok"
-  },
-  {
-    "from": "lijiang_brand_d7b18033",
-    "to": "amap_b0d94111",
-    "distance_meters": 1475,
-    "walk_minutes": 24,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 300,
     "amap_status": "ok"
   }
 ]

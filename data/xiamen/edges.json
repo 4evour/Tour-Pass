@@ -26624,19 +26624,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "xiamen_brand_dafb1aea",
-    "to": "amap_15b5edf2",
-    "distance_meters": 2490,
-    "walk_minutes": 40,
-    "transit_minutes": 20,
-    "taxi_minutes": 11,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 660,
-    "amap_status": "ok"
-  },
-  {
     "from": "xiamen_brand_e36a69ac",
     "to": "amap_4c6654a7",
     "distance_meters": 5576,
@@ -26667,32 +26654,6 @@
     "to": "amap_86e8dfc",
     "distance_meters": 2297,
     "walk_minutes": 37,
-    "transit_minutes": 23,
-    "taxi_minutes": 13,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 780,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xiamen_brand_3e8c4fd6",
-    "to": "amap_c54a2b4e",
-    "distance_meters": 2763,
-    "walk_minutes": 45,
-    "transit_minutes": 20,
-    "taxi_minutes": 11,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 660,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xiamen_brand_3e8c4fd6",
-    "to": "amap_454580e",
-    "distance_meters": 3939,
-    "walk_minutes": 64,
     "transit_minutes": 23,
     "taxi_minutes": 13,
     "source": "amap",
@@ -26767,19 +26728,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "xiamen_brand_16b4a0df",
-    "to": "amap_bb1dd4c8",
-    "distance_meters": 2741,
-    "walk_minutes": 44,
-    "transit_minutes": 18,
-    "taxi_minutes": 10,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 600,
-    "amap_status": "ok"
-  },
-  {
     "from": "xiamen_brand_e70ad03c",
     "to": "amap_b08b22f5",
     "distance_meters": 1569,
@@ -26816,32 +26764,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 540,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xiamen_brand_d3e50e7c",
-    "to": "amap_697c366",
-    "distance_meters": 2309,
-    "walk_minutes": 37,
-    "transit_minutes": 14,
-    "taxi_minutes": 8,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "ok"
-  },
-  {
-    "from": "xiamen_brand_157f2ad6",
-    "to": "amap_232ca710",
-    "distance_meters": 984,
-    "walk_minutes": 16,
-    "transit_minutes": 11,
-    "taxi_minutes": 6,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 360,
     "amap_status": "ok"
   }
 ]
