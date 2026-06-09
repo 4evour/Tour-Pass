@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useCallback, useRef, useState } from 'react';
+import { useEffect, useMemo, useCallback, useRef, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import type { Poi } from '../types';
@@ -223,7 +223,6 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, ho
             </div>
           </Popup>
         </Marker>
-      ))}
       ))}
 
       {/* Other days' stops (small, translucent, clickable to switch day) */}
