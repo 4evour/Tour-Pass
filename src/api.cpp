@@ -749,22 +749,19 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             addr.sin_port = htons(8090);
             inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr);
 
-            // Set connect timeout to 5 seconds
+            // Connect with timeout
             int flags = fcntl(sockfd, F_GETFL, 0);
             fcntl(sockfd, F_SETFL, flags | O_NONBLOCK);
             connect(sockfd, (struct sockaddr*)&addr, sizeof(addr));
-            fd_set wfds;
-            FD_ZERO(&wfds);
-            FD_SET(sockfd, &wfds);
-            struct timeval tv;
-            tv.tv_sec = 5; tv.tv_usec = 0;
+            fd_set wfds; FD_ZERO(&wfds); FD_SET(sockfd, &wfds);
+            struct timeval tv; tv.tv_sec = 5; tv.tv_usec = 0;
             if (select(sockfd + 1, nullptr, &wfds, nullptr, &tv) <= 0) {
                 close(sockfd);
                 res.status = 502;
                 res.set_content("{\"error\":\"Agent service connect timeout\"}", "application/json");
                 return;
             }
-            fcntl(sockfd, F_SETFL, flags);  // restore blocking mode
+            fcntl(sockfd, F_SETFL, flags);
 
             // Build and send HTTP request
             std::string reqStr = req.method + " " + req.path + " HTTP/1.1\r\n";
@@ -777,7 +774,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             reqStr += req.body;
             send(sockfd, reqStr.data(), reqStr.size(), 0);
 
-            // Read response with timeout
+            // Helper: read one line from socket
             auto readLine = [&](std::string& line) -> bool {
                 line.clear();
                 char c;
@@ -792,18 +789,25 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 return true;
             };
 
+            // Read status line
             std::string statusLine;
-            if (!readLine(statusLine)) { close(sockfd); res.status = 502; res.set_content("{\"error\":\"Agent no response\"}", "application/json"); return; }
+            if (!readLine(statusLine)) {
+                close(sockfd);
+                res.status = 502;
+                res.set_content("{\"error\":\"Agent no response\"}", "application/json");
+                return;
+            }
 
-            // Parse status code
             auto sp1 = statusLine.find(' ');
             if (sp1 != std::string::npos) {
                 auto sp2 = statusLine.find(' ', sp1 + 1);
-                if (sp2 != std::string::npos) res.status = std::atoi(statusLine.substr(sp1 + 1, sp2 - sp1 - 1).c_str());
-                else res.status = std::atoi(statusLine.substr(sp1 + 1).c_str());
+                if (sp2 != std::string::npos)
+                    res.status = std::atoi(statusLine.substr(sp1 + 1, sp2 - sp1 - 1).c_str());
+                else
+                    res.status = std::atoi(statusLine.substr(sp1 + 1).c_str());
             }
 
-            // Parse headers
+            // Read headers
             std::string contentType = "application/json";
             bool chunked = false;
             std::string line;
@@ -812,71 +816,69 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 if (colon != std::string::npos) {
                     std::string key = line.substr(0, colon);
                     std::string val = line.substr(colon + 1);
-                    // trim leading space
                     while (!val.empty() && val[0] == ' ') val.erase(0, 1);
-                    if (key == "Content-Type" || key == "content-type") contentType = val;
-                    if (key == "Transfer-Encoding" || key == "transfer-encoding") {
-                        if (val.find("chunked") != std::string::npos) chunked = true;
-                    }
+                    for (auto& ch : key) ch = std::tolower(ch);
+                    if (key == "content-type") contentType = val;
+                    if (key == "transfer-encoding" && val.find("chunked") != std::string::npos)
+                        chunked = true;
                 }
             }
 
             bool isSSE = (contentType.find("event-stream") != std::string::npos);
 
-            if (isSSE) {
-                // Streaming: read chunks from socket in content provider callback
-                auto* sockPtr = new int(sockfd);
-                res.set_chunked_content_provider(contentType,
-                    [sockPtr, chunked](size_t /*offset*/, httplib::DataSink& sink) -> bool {
-            if (isSSE) {
-                // Streaming: read from socket, decode chunked if needed, forward via content provider
-                // Use a shared buffer to accumulate decoded data
-                struct ProxyState {
-                    int fd;
-                    std::string rawBuf;   // raw bytes from upstream
-                    std::string decoded;  // decoded data ready to send
-                    bool finished;
-                    ProxyState(int f) : fd(f), finished(false) {}
-                    ~ProxyState() { if (fd >= 0) close(fd); }
+            // State for streaming proxy (RAII closes socket)
+            struct ProxyState {
+                int fd;
+                std::string rawBuf;
+                std::string decoded;
+                bool finished;
+                bool isChunked;
+                ProxyState(int f, bool c) : fd(f), finished(false), isChunked(c) {}
+                ~ProxyState() { if (fd >= 0) close(fd); }
 
-                    void readUpstream() {
-                        char buf[4096];
-                        fd_set rfds; FD_ZERO(&rfds); FD_SET(fd, &rfds);
-                        struct timeval rtv; rtv.tv_sec = 60; rtv.tv_usec = 0;
-                        if (select(fd + 1, &rfds, nullptr, nullptr, &rtv) <= 0) { finished = true; return; }
-                        ssize_t n = recv(fd, buf, sizeof(buf), 0);
-                        if (n <= 0) { finished = true; return; }
-                        rawBuf.append(buf, n);
+                void readUpstream() {
+                    char buf[4096];
+                    fd_set rfds; FD_ZERO(&rfds); FD_SET(fd, &rfds);
+                    struct timeval rtv; rtv.tv_sec = 60; rtv.tv_usec = 0;
+                    if (select(fd + 1, &rfds, nullptr, nullptr, &rtv) <= 0) { finished = true; return; }
+                    ssize_t n = recv(fd, buf, sizeof(buf), 0);
+                    if (n <= 0) { finished = true; return; }
+                    rawBuf.append(buf, n);
+                }
+
+                void decodeChunked() {
+                    size_t pos = 0;
+                    while (pos + 2 <= rawBuf.size()) {
+                        auto nl = rawBuf.find("\r\n", pos);
+                        if (nl == std::string::npos) break;
+                        int chunkSize = std::strtol(rawBuf.substr(pos, nl - pos).c_str(), nullptr, 16);
+                        if (chunkSize <= 0) { finished = true; rawBuf.clear(); return; }
+                        size_t dataStart = nl + 2;
+                        size_t dataEnd = dataStart + chunkSize;
+                        if (dataEnd + 2 > rawBuf.size()) break;
+                        decoded.append(rawBuf.data() + dataStart, chunkSize);
+                        pos = dataEnd + 2;
                     }
+                    rawBuf.erase(0, pos);
+                }
 
-                    void decodeChunked() {
-                        size_t pos = 0;
-                        while (pos + 2 <= rawBuf.size()) {
-                            auto nl = rawBuf.find("\r\n", pos);
-                            if (nl == std::string::npos) break;
-                            int chunkSize = std::strtol(rawBuf.substr(pos, nl - pos).c_str(), nullptr, 16);
-                            if (chunkSize <= 0) { finished = true; rawBuf.clear(); return; }
-                            size_t dataStart = nl + 2;
-                            size_t dataEnd = dataStart + chunkSize;
-                            if (dataEnd + 2 > rawBuf.size()) break; // incomplete chunk
-                            decoded.append(rawBuf.data() + dataStart, chunkSize);
-                            pos = dataEnd + 2; // skip \r\n after chunk data
-                        }
-                        rawBuf.erase(0, pos);
-                    }
-                };
+                bool fillBuffer() {
+                    if (finished) return !decoded.empty();
+                    readUpstream();
+                    if (isChunked) decodeChunked();
+                    else { decoded.swap(rawBuf); }
+                    return !decoded.empty() || !finished;
+                }
+            };
 
-                auto state = std::make_shared<ProxyState>(sockfd);
+            auto state = std::make_shared<ProxyState>(sockfd, chunked);
+            sockfd = -1; // ownership transferred to state
 
+            if (isSSE) {
                 res.set_chunked_content_provider(contentType,
-                    [state, chunked](size_t /*offset*/, httplib::DataSink& sink) -> bool {
+                    [state](size_t /*offset*/, httplib::DataSink& sink) -> bool {
                         if (state->finished && state->decoded.empty()) return false;
-                        // Read more data if buffer is empty
-                        if (state->decoded.empty() && !state->finished) {
-                            state->readUpstream();
-                            if (chunked) state->decodeChunked();
-                            else { state->decoded.swap(state->rawBuf); }
-                        }
+                        state->fillBuffer();
                         if (state->decoded.empty()) { sink.done(); return false; }
                         std::string toSend;
                         toSend.swap(state->decoded);
@@ -886,18 +888,9 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 );
             } else {
                 // Non-SSE: buffer entire response body
-                std::string body;
-                char buf[4096];
-                while (true) {
-                    fd_set rfds; FD_ZERO(&rfds); FD_SET(sockfd, &rfds);
-                    struct timeval rtv; rtv.tv_sec = 10; rtv.tv_usec = 0;
-                    if (select(sockfd + 1, &rfds, nullptr, nullptr, &rtv) <= 0) break;
-                    ssize_t n = recv(sockfd, buf, sizeof(buf), 0);
-                    if (n <= 0) break;
-                    body.append(buf, n);
-                }
-                close(sockfd);
-                res.set_content(body, contentType);
+                while (state->fillBuffer()) { /* read all */ }
+                res.set_content(state->decoded, contentType);
+                state->finished = true; // triggers destructor close
             }
 #endif
         };
