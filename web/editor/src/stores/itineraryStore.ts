@@ -71,6 +71,7 @@ interface ItineraryActions {
   updateStopTime: (day: number, index: number, field: 'arrival' | 'duration', value: number) => void;
   addDay: () => void;
   removeDay: (day: number) => void;
+  syncDaysFromTotal: () => void;
   setDays: (days: DayPlan[]) => void;
   setRoutes: (routes: RouteSegment[]) => void;
   getStopsForDay: (day: number) => Stop[];
@@ -290,6 +291,18 @@ export const useItineraryStore = create<ItineraryState & ItineraryActions>((set,
     set((state) => ({
       days: [...state.days, makeDefaultDay(state.days.length + 1)],
     }));
+  },
+
+  // 同步 totalDays 到 days 数组，确保每个 day 都有对应的 DayPlan
+  syncDaysFromTotal: () => {
+    set((state) => {
+      if (state.days.length >= state.totalDays) return state;
+      const newDays = [...state.days];
+      for (let i = newDays.length; i < state.totalDays; i++) {
+        newDays.push(makeDefaultDay(i + 1));
+      }
+      return { days: newDays };
+    });
   },
 
   removeDay: (day) => {

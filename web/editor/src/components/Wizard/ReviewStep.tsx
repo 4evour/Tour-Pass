@@ -1,10 +1,11 @@
 import React from 'react';
 import { useItineraryStore } from '../../stores/itineraryStore';
 import { ValidationPanel } from '../Validation/ValidationPanel';
+import { PDFExporter } from '../Analytics/PDFExporter';
 import { validateDay } from '../../core/validation/rules';
 
 export const ReviewStep: React.FC = () => {
-  const { days, cities, citySegments, hotelsByCity, totalDays, setWizardStep } = useItineraryStore();
+  const { days, cities, citySegments, hotelsByCity, totalDays, city, defaultHotel, setWizardStep } = useItineraryStore();
   
   // Run validation on all days
   const allIssues = days.flatMap(day => validateDay(day));
@@ -89,14 +90,8 @@ export const ReviewStep: React.FC = () => {
         >
           ← 返回编排
         </button>
-        <button
-          onClick={() => {
-            // TODO: Save trip
-          }}
-          className="flex-1 px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600"
-        >
-          ✅ 保存行程
-        </button>
+        <div className="flex-1" />
+        <PDFExporter days={days} city={city} defaultHotel={defaultHotel} />
       </div>
     </div>
   );

@@ -81,8 +81,7 @@ function FitBounds({ pois, day }: { pois: Poi[]; day: number }) {
     const dayChanged = day !== prevDay.current;
     prevDay.current = day;
 
-    // Fit on: initial load, or when day changes
-    // Do NOT fit on stop reorder within the same day
+    // Fit on: 初始加载 / 切换天 / 同天内 stop 数量变化
     if (!initialized.current || dayChanged) {
       initialized.current = true;
       if (pois.length > 0) {
@@ -92,7 +91,7 @@ function FitBounds({ pois, day }: { pois: Poi[]; day: number }) {
         map.fitBounds(bounds, { padding: [40, 40], maxZoom: 16 });
       }
     }
-  }, [day]); // Only depend on day, not on pois
+  }, [day, pois.length]); // 依赖 day 和 stop 数量
 
   return null;
 }

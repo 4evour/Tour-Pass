@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { useState } from 'react';
 import type { DayPlan, Poi } from '../../types';
 
 interface PDFExporterProps {
@@ -8,33 +8,64 @@ interface PDFExporterProps {
 }
 
 export const PDFExporter: React.FC<PDFExporterProps> = ({ days, city, defaultHotel }) => {
+  const [exporting, setExporting] = useState(false);
+
   const handleExport = async () => {
-    const content = generatePDFContent(days, city, defaultHotel);
-    
-    // 创建 Blob
-    const blob = new Blob([content], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    
-    // 打开新窗口打印
-    const printWindow = window.open(url, '_blank');
-    if (printWindow) {
-      printWindow.onload = () => {
-        printWindow.print();
+    if (days.every(d => d.stops.length === 0)) return;
+    setExporting(true);
+    try {
+      const content = generatePDFContent(days, city, defaultHotel);
+
+      // 创建 Blob
+      const blob = new Blob([content], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+
+      // 先写入 iframe，再触发打印，避免 window.open 被浏览器拦截
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      iframe.onload = () => {
+        try {
+          iframe.contentWindow?.print();
+        } catch {
+          // 降级：直接下载 HTML 文件
+          downloadFallback(content);
+        }
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          URL.revokeObjectURL(url);
+        }, 1000);
       };
+
+      iframe.src = url;
+    } catch (e) {
+      console.error('导出 PDF 失败:', e);
+    } finally {
+      setExporting(false);
     }
-    
-    URL.revokeObjectURL(url);
   };
-  
+
   return (
     <button
       onClick={handleExport}
-      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      disabled={exporting || days.every(d => d.stops.length === 0)}
+      className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed"
     >
-      导出 PDF
+      {exporting ? '导出中...' : '📄 导出 PDF'}
     </button>
   );
 };
+
+function downloadFallback(content: string): void {
+  const blob = new Blob([content], { type: 'text/html;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = '行程单.html';
+  a.click();
+  URL.revokeObjectURL(url);
+}
 
 function generatePDFContent(days: DayPlan[], city: string, defaultHotel: Poi | null): string {
   return `

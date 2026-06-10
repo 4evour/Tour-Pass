@@ -1,5 +1,6 @@
 ﻿import React, { useState, useEffect, useMemo } from 'react';
 import { useItineraryStore } from '../../stores/itineraryStore';
+import { useEditorStore } from '../../stores/editorStore';
 import { DayEditor } from '../Editor/DayEditor';
 import { IntegratedMap } from '../Map/IntegratedMap';
 import type { Poi, PoiTypeFilter } from '../../types';
@@ -13,14 +14,26 @@ const TYPE_LABELS: Record<string, string> = {
 };
 
 export const PlanStep: React.FC = () => {
-  const { cities, hotelsByCity, totalDays, wizardStep, setWizardStep, days, addStop } = useItineraryStore();
-  const [currentDay, setCurrentDay] = useState(1);
+  const { cities, hotelsByCity, totalDays, wizardStep, setWizardStep, days, addStop, syncDaysFromTotal } = useItineraryStore();
+  const { enterDayEditMode } = useEditorStore();
+  const [currentDay, setCurrentDayState] = useState(1);
   const [allPois, setAllPois] = useState<Poi[]>([]);
   const [typeFilter, setTypeFilter] = useState<PoiTypeFilter>('all');
   const [searchText, setSearchText] = useState('');
   const [hoveredPoiId, setHoveredPoiId] = useState<string | null>(null);
 
   const currentCity = cities.length > 0 ? cities[0] : '';
+
+  // 挂载时同步 totalDays → days 数组，确保每个 day 都有对应的 DayPlan 条目
+  useEffect(() => {
+    syncDaysFromTotal();
+  }, [syncDaysFromTotal]);
+
+  const setCurrentDay = (day: number) => {
+    setCurrentDayState(day);
+    // 同步到 editorStore，让 IntegratedMap 知道当前是第几天
+    enterDayEditMode(day - 1); // editorStore 用 0-indexed
+  };
 
   useEffect(() => {
     if (!currentCity) return;
@@ -115,7 +128,7 @@ export const PlanStep: React.FC = () => {
 
         {/* Right: Map */}
         <div className="flex-1 border-l min-w-0">
-          <IntegratedMap allPois={allPois} hoveredPoiId={hoveredPoiId} />
+          <IntegratedMap allPois={allPois} hoveredPoiId={hoveredPoiId} currentDay={currentDay} onDayChange={setCurrentDay} />
         </div>
       </div>
 
