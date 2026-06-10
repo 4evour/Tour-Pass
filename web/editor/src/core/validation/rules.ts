@@ -71,10 +71,63 @@ export function checkTravelTime(day: DayPlan): Issue[] {
   return issues;
 }
 
+export function checkOpeningHours(day: DayPlan): Issue[] {
+  const issues: Issue[] = [];
+
+  for (let i = 0; i < day.stops.length; i++) {
+    const stop = day.stops[i];
+    const poi = stop.poi;
+
+    // 只对有 arrive/depart 和 open/close 时间的 stop 做检查
+    if (stop.arrival <= 0 || stop.departure <= 0) continue;
+    if (!poi.open_minutes && !poi.close_minutes) continue;
+
+    if (poi.open_minutes && stop.arrival < poi.open_minutes) {
+      issues.push({
+        type: 'opening-hours',
+        message: `${poi.name} 到达太早：${fmtTime(stop.arrival)}，景点 ${fmtTime(poi.open_minutes)} 才开门`,
+        severity: 'warning',
+        stopIndex: i
+      });
+    }
+
+    if (poi.close_minutes && stop.departure > poi.close_minutes) {
+      issues.push({
+        type: 'closing-hours',
+        message: `${poi.name} 离开太晚：${fmtTime(stop.departure)}，景点 ${fmtTime(poi.close_minutes)} 已关门`,
+        severity: 'error',
+        stopIndex: i
+      });
+    }
+  }
+
+  return issues;
+}
+
+// 检查空白天
+export function checkEmptyDay(day: DayPlan): Issue[] {
+  if (day.stops.length === 0) {
+    return [{
+      type: 'empty-day',
+      message: `第${day.day}天没有任何景点，建议添加或删除这天`,
+      severity: 'warning'
+    }];
+  }
+  return [];
+}
+
+function fmtTime(minutes: number): string {
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
+}
+
 export function validateDay(day: DayPlan): Issue[] {
   return [
     ...checkTimeConflicts(day),
     ...checkTotalDuration(day),
-    ...checkTravelTime(day)
+    ...checkTravelTime(day),
+    ...checkOpeningHours(day),
+    ...checkEmptyDay(day),
   ];
 }

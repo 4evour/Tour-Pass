@@ -1,5 +1,6 @@
 ﻿import { Command } from './Command';
 import type { Poi, Stop, DayPlan } from '../../types';
+import { recalcTimes } from '../../utils/recalcTimes';
 
 export interface ItineraryStore {
   days: DayPlan[];
@@ -24,35 +25,39 @@ export class AddStopCommand implements Command {
   execute(): void {
     const day = this.store.days[this.dayIndex];
     if (!day) return;
-    
+
     const newStop: Stop = {
       id: `stop-${Date.now()}`,
       poi: this.poi,
       arrival: 0,
       departure: 0,
-      travelMinutes: 0
+      travelMinutes: 10
     };
-    
+
     this.addedStop = newStop;
-    
+
     const newDays = [...this.store.days];
     const newStops = [...day.stops];
     newStops.splice(this.stopIndex, 0, newStop);
-    newDays[this.dayIndex] = { ...day, stops: newStops };
-    
+    // 重算所有 stop 的时间
+    const recalced = recalcTimes(newStops);
+    newDays[this.dayIndex] = { ...day, stops: recalced };
+
     this.store.setDays(newDays);
   }
-  
+
   undo(): void {
     if (!this.addedStop) return;
-    
+
     const day = this.store.days[this.dayIndex];
     if (!day) return;
-    
+
     const newDays = [...this.store.days];
     const newStops = day.stops.filter(s => s.id !== this.addedStop!.id);
-    newDays[this.dayIndex] = { ...day, stops: newStops };
-    
+    // 重算剩余 stop 的时间
+    const recalced = recalcTimes(newStops);
+    newDays[this.dayIndex] = { ...day, stops: recalced };
+
     this.store.setDays(newDays);
     this.addedStop = null;
   }

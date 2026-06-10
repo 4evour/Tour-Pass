@@ -1,22 +1,9 @@
 ﻿import { create } from 'zustand';
 import type { Poi, Stop, DayPlan, StartPoint, RouteSegment, ItineraryState, CitySegment, CityConfig, WizardStep } from '../types';
 import { saveToStorage, loadFromStorage, clearStorage } from '../utils/persistence';
+import { recalcTimes } from '../utils/recalcTimes';
 
 const DEFAULT_START = 9 * 60; // 09:00
-
-function recalcTimes(stops: Stop[], startMinutes = DEFAULT_START): Stop[] {
-  let current = startMinutes;
-  return stops.map((stop, i) => {
-    const travel = i === 0 ? 0 : (stop.travelMinutes || 10);
-    current += travel;
-    // If user pinned an arrival time, use it
-    const arrival = stop.arrivalOverride ?? Math.max(current, stop.poi.open_minutes ?? 0);
-    const duration = stop.poi.visit_duration || 60;
-    const departure = arrival + duration;
-    current = departure;
-    return { ...stop, arrival, departure, travelMinutes: travel };
-  });
-}
 
 function makeDefaultStartPoint(): StartPoint {
   return { type: 'hotel', poi: null };

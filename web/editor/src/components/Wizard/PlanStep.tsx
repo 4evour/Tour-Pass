@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect, useMemo } from 'react';
 import { useItineraryStore } from '../../stores/itineraryStore';
 import { useEditorStore } from '../../stores/editorStore';
-import { DayEditor } from '../Editor/DayEditor';
+import { MultiDayTimeline } from '../Editor/MultiDayTimeline';
 import { IntegratedMap } from '../Map/IntegratedMap';
 import type { Poi, PoiTypeFilter } from '../../types';
 
@@ -59,21 +59,6 @@ export const PlanStep: React.FC = () => {
 
   return (
     <div className="flex flex-col h-[calc(100vh-120px)]">
-      {/* Day tabs */}
-      <div className="flex gap-1 px-4 py-2 bg-white border-b overflow-x-auto">
-        {Array.from({ length: totalDays }, (_, i) => i + 1).map(day => (
-          <button
-            key={day}
-            onClick={() => setCurrentDay(day)}
-            className={`px-3 py-1.5 rounded text-sm whitespace-nowrap ${
-              currentDay === day ? 'bg-blue-500 text-white' : 'bg-gray-100 hover:bg-gray-200'
-            }`}
-          >
-            第{day}天
-          </button>
-        ))}
-      </div>
-
       <div className="flex flex-1 overflow-hidden">
         {/* Left: POI sidebar */}
         <div className="w-56 border-r flex flex-col">
@@ -121,9 +106,13 @@ export const PlanStep: React.FC = () => {
           </div>
         </div>
 
-        {/* Center: Timeline editor */}
-        <div className="w-72 overflow-y-auto border-r">
-          <DayEditor dayIndex={currentDay - 1} />
+        {/* Center: 拖拽排序编辑器（MultiDayTimeline） */}
+        <div className="w-80 overflow-y-auto border-r">
+          <MultiDayTimeline
+            allPois={allPois}
+            currentDay={currentDay}
+            onDayChange={setCurrentDay}
+          />
         </div>
 
         {/* Right: Map */}

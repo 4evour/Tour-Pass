@@ -19,15 +19,20 @@ import { useEditorStore } from '../../stores/editorStore';
 import { MoveBetweenDaysCommand } from '../../core/commands/MoveBetweenDaysCommand';
 import { ReorderCommand } from '../../core/commands/ReorderCommand';
 import { SortableStop } from './SortableStop';
+import StartPointSelector from '../StartPointSelector';
 import type { Poi, Stop } from '../../types';
 
 interface MultiDayTimelineProps {
   allPois: Poi[];
+  currentDay?: number; // 1-indexed，当前高亮的天
+  onDayChange?: (day: number) => void; // 切换天时回调（1-indexed）
 }
 
-export const MultiDayTimeline: React.FC<MultiDayTimelineProps> = ({ allPois }) => {
+export const MultiDayTimeline: React.FC<MultiDayTimelineProps> = ({ allPois, currentDay: propCurrentDay, onDayChange }) => {
   const days = useItineraryStore(state => state.days);
   const setDays = useItineraryStore(state => state.setDays);
+  const defaultHotel = useItineraryStore(state => state.defaultHotel);
+  const getEffectiveHotel = useItineraryStore(state => state.getEffectiveHotel);
   const { execute } = useHistoryStore();
   const { markChanged, enterDayEditMode } = useEditorStore();
   
@@ -118,26 +123,43 @@ export const MultiDayTimeline: React.FC<MultiDayTimelineProps> = ({ allPois }) =
             className="border rounded-lg overflow-hidden"
           >
             <div
-              className="flex items-center justify-between px-4 py-2 bg-gray-50 cursor-pointer hover:bg-gray-100"
-              onClick={() => enterDayEditMode(dayIndex)}
+              className={`flex items-center justify-between px-4 py-2 cursor-pointer hover:bg-gray-100 ${
+                propCurrentDay === day.day ? 'bg-blue-100 border-l-4 border-l-blue-500' : 'bg-gray-50'
+              }`}
+              onClick={() => {
+                enterDayEditMode(dayIndex);
+                onDayChange?.(day.day);
+              }}
             >
               <h3 className="font-medium text-gray-700">
                 第{day.day}天
                 <span className="ml-2 text-sm text-gray-500">
                   {day.stops.length} 个景点
                 </span>
+                {propCurrentDay === day.day && (
+                  <span className="ml-2 text-xs text-blue-500">● 当前</span>
+                )}
               </h3>
               <button
                 className="text-sm text-blue-500 hover:text-blue-700"
                 onClick={(e) => {
                   e.stopPropagation();
                   enterDayEditMode(dayIndex);
+                  onDayChange?.(day.day);
                 }}
               >
                 编辑
               </button>
             </div>
             
+            {/* 酒店信息 + 起点选择 */}
+            <StartPointSelector day={day.day} />
+            <div className="px-3 py-1.5 border-b bg-blue-50 text-xs">
+              <span className="text-blue-700">
+                🏨 {getEffectiveHotel(day.day)?.name || '未选择酒店'}
+              </span>
+            </div>
+
             <div className="p-3">
               <SortableContext
                 items={day.stops.map((_, i) => `stop-${dayIndex}-${i}`)}
@@ -159,6 +181,13 @@ export const MultiDayTimeline: React.FC<MultiDayTimelineProps> = ({ allPois }) =
                 </p>
               )}
             </div>
+
+            {/* 终点酒店 */}
+            {day.stops.length > 0 && getEffectiveHotel(day.day) && (
+              <div className="px-3 py-1.5 border-t bg-green-50 text-xs text-green-700">
+                🏨 终点：{getEffectiveHotel(day.day)?.name}
+              </div>
+            )}
           </div>
         ))}
       </div>

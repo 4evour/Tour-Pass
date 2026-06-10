@@ -1,10 +1,11 @@
-﻿import { Command } from './Command';
+import { Command } from './Command';
 import type { ItineraryStore } from './AddStopCommand';
+import { recalcTimes } from '../../utils/recalcTimes';
 
 export class ReorderCommand implements Command {
   type = 'REORDER';
   description: string;
-  
+
   constructor(
     private store: ItineraryStore,
     private dayIndex: number,
@@ -15,30 +16,28 @@ export class ReorderCommand implements Command {
     const stop = day?.stops[oldIndex];
     this.description = `第${dayIndex + 1}天：移动 ${stop?.poi.name || '未知景点'} 到新位置`;
   }
-  
+
   execute(): void {
     const day = this.store.days[this.dayIndex];
     if (!day) return;
-    
+
     const newDays = [...this.store.days];
     const newStops = [...day.stops];
     const [removed] = newStops.splice(this.oldIndex, 1);
     newStops.splice(this.newIndex, 0, removed);
-    newDays[this.dayIndex] = { ...day, stops: newStops };
-    
+    newDays[this.dayIndex] = { ...day, stops: recalcTimes(newStops) };
     this.store.setDays(newDays);
   }
-  
+
   undo(): void {
     const day = this.store.days[this.dayIndex];
     if (!day) return;
-    
+
     const newDays = [...this.store.days];
     const newStops = [...day.stops];
     const [removed] = newStops.splice(this.newIndex, 1);
     newStops.splice(this.oldIndex, 0, removed);
-    newDays[this.dayIndex] = { ...day, stops: newStops };
-    
+    newDays[this.dayIndex] = { ...day, stops: recalcTimes(newStops) };
     this.store.setDays(newDays);
   }
 }
