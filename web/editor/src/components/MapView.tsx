@@ -72,6 +72,21 @@ function makeOtherDayIcon(num: number, color: string) {
   });
 }
 
+// 起点标记（绿色旗帜）
+function makeStartIcon(name: string) {
+  const displayName = name.length > 8 ? name.substring(0, 8) + '..' : name;
+  return L.divIcon({
+    className: 'start-marker',
+    html: `<div style="display:flex;flex-direction:column;align-items:center;pointer-events:auto;">
+      <div style="background:#16a34a;color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.3);z-index:10;">🏁</div>
+      <div style="background:#14532d;color:#dcfce7;font-size:12px;font-weight:600;padding:2px 8px;border-radius:4px;margin-top:3px;white-space:nowrap;box-shadow:0 1px 3px rgba(0,0,0,.3);">起点:${displayName}</div>
+    </div>`,
+    iconSize: [70, 50],
+    iconAnchor: [15, 30],
+    popupAnchor: [0, -34],
+  });
+}
+
 function FitBounds({ pois, day }: { pois: Poi[]; day: number }) {
   const map = useMap();
   const prevDay = useRef(day);
@@ -122,12 +137,25 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, ho
   const days = useItineraryStore(s => s.days);
   const routes = useItineraryStore(s => s.routes);
   const getEffectiveHotel = useItineraryStore(s => s.getEffectiveHotel);
+  const getStartPoi = useItineraryStore(s => s.getStartPoi);
 
-  const allStops = useMemo(() => days.flatMap(d => d.stops), [days]);
-  const stopIds = useMemo(() => new Set(allStops.map(s => s.poi.id)), [allStops]);
+  const getAllStops = useMemo(() => days.flatMap(d => d.stops), [days]);
+  const stopIds = useMemo(() => new Set(getAllStops.map(s => s.poi.id)), [getAllStops]);
 
   const currentDayPlan = days.find(d => d.day === currentDay);
   const currentStops = currentDayPlan?.stops || [];
+
+  // 获取起终点 POI
+  const startPoi = useMemo(() => getStartPoi(currentDay), [getStartPoi, currentDay]);
+  const endHotel = useMemo(() => getEffectiveHotel(currentDay), [getEffectiveHotel, currentDay]);
+
+  // 起终点的坐标集合(用于区分是否已在 stops 中显示)
+  const startEndIds = useMemo(() => {
+    const ids = new Set<string>();
+    if (startPoi) ids.add(startPoi.id);
+    if (endHotel) ids.add(endHotel.id);
+    return ids;
+  }, [startPoi, endHotel]);
 
   // Collect all unique hotels across days
   const hotelMarkers = useMemo(() => {
@@ -167,11 +195,11 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, ho
   // FitBounds to current day's stops + hotel
   const boundsPois = useMemo(() => {
     const pois: Poi[] = [];
-    const hotel = getEffectiveHotel(currentDay);
-    if (hotel) pois.push(hotel);
+    if (startPoi) pois.push(startPoi);
+    if (endHotel) pois.push(endHotel);
     for (const s of currentStops) pois.push(s.poi);
     return pois.length > 0 ? pois : allPois.slice(0, 5);
-  }, [currentDay, currentStops, getEffectiveHotel, allPois]);
+  }, [currentDay, currentStops, startPoi, endHotel, allPois]);
 
   const handleMarkerClick = useCallback((day: number) => {
     if (day !== currentDay) onDayChange(day);
@@ -247,6 +275,20 @@ export default function MapView({ allPois, onAddPoi, currentDay, onDayChange, ho
           </Marker>
         ));
       })}
+
+      {/* 起点标记 */}
+      {startPoi && startPoi.lat && startPoi.lng && !stopIds.has(startPoi.id) && (
+        <Marker
+          key={`start-${currentDay}`}
+          position={[startPoi.lat, startPoi.lng]}
+          icon={makeStartIcon(startPoi.name)}
+        >
+          <Popup>
+            <b>🏁 起点：{startPoi.name}</b><br />
+            <span style={{ fontSize: 11 }}>Day {currentDay} 出发</span>
+          </Popup>
+        </Marker>
+      )}
 
       {/* Current day's stops (prominent, with name labels) */}
       {currentStops.map((stop, i) => {
