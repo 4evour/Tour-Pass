@@ -177,3 +177,30 @@ ode scripts/benchmark.js ...
 - **models.py**：TripIntent 添加 field_validator，兼容 LLM 返回空字符串/字符串天数。
 - **graph.py / graph_simple.py**：must_visit 匹配改为"每个关键词只取最佳匹配"（最短名称 + 最高 popularity）；城市名 fallback 改为已知城市列表匹配。
 - **prompts.py**：DAY_PLANNING_SYSTEM 首条规则改为强制包含 must_visit。
+
+## Agent 规划引擎重构 (2026-06-10)
+
+### 问题
+- POI 选择纯按 popularity 排序，无视用户兴趣/策略
+- 每天分配用 round-robin 机械轮转，不考虑地理位置
+- strategy/interests 字段解析了但从未使用
+- LLM 只从预选列表中挑选，没有真正的规划能力
+- POI 描述截断到 80 字，差异化信息丢失
+
+### 架构变更
+- **agent/scorer.py**（新增）：多维 POI 评分引擎，10+ 评分维度（热度、兴趣匹配、策略加权、必去加权、通勤惩罚、类型多样性、区域多样性、时间适配等）
+- **agent/clustering.py**（新增）：地理聚类模块，按区域将景点分组并分配到每天，减少跨区通勤
+- **agent/graph.py**（重构）：plan_each_day 使用评分+聚类替代 popularity+round-robin
+- **agent/prompts.py**（优化）：DAY_PLANNING_SYSTEM 增加主题一致、按评分选择、同区域集中等指导
+- **scripts/regen_recommendations.py**（新增）：差异化推荐语生成脚本（8 种角度轮换）
+
+### 评分维度（对标 C++ buildScoreBreakdown）
+- 热度基础分（popularity × 10/12）
+- 兴趣匹配（+35/+42 per matching interest tag）
+- 策略加权（culture +70, culinary +65, nature +65）
+- 必去加权（+120）
+- 通勤惩罚（跨区 -36）
+- 类型多样性（景点过多 -15, 餐厅加分 +12）
+- 区域多样性（新区域 +8）
+- 时间适配（用餐时段 +18）
+- 热门分级（≥4.7 +10, ≥4.3 +5）

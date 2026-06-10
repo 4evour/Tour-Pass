@@ -28,6 +28,8 @@ from .prompts import (
 from . import tools
 from . import rag
 from . import cache
+from .scorer import rank_pois, ScoredPoi
+from .clustering import cluster_pois_for_days, DayCluster
 
 logger = logging.getLogger(__name__)
 
@@ -262,53 +264,68 @@ async def select_hotel(state: AgentState) -> AsyncIterator[dict]:
 
 
 async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
+    """Plan each day using multi-dimensional scoring and geographic clustering."""
     if not state.intent:
         return
 
     intent = state.intent
+    hotel = state.selected_hotel
+
+    yield {"type": "status", "content": "正在智能规划行程..."}
+
     attractions = [p for p in state.available_pois if p.type == "attraction"]
     restaurants = [p for p in state.available_pois if p.type == "restaurant"]
+    nightlife = [p for p in state.available_pois if p.type == "nightlife"]
 
-    must_visit_pois = []
-    if intent.must_visit:
-        for mv in intent.must_visit:
-            matches = [p for p in state.available_pois if mv in p.name]
-            if matches:
-                matches.sort(key=lambda p: (p.name != mv, len(p.name), -p.popularity))
-                best = matches[0]
-                if best not in must_visit_pois:
-                    must_visit_pois.append(best)
+    scored = rank_pois(pois=attractions, intent=intent, top_k=intent.days * 10)
 
-    other = [p for p in attractions if p not in must_visit_pois]
-    other.sort(key=lambda x: x.popularity, reverse=True)
-    all_attractions = must_visit_pois + other
+    yield {"type": "status", "content": f"已评分 {len(scored)} 个景点，正在聚类分配..."}
 
-    guide_context = "\n".join(state.city_guides[:5]) if state.city_guides else ""
+    clusters = cluster_pois_for_days(
+        scored_attractions=scored, restaurants=restaurants,
+        nightlife=nightlife, num_days=intent.days, intent=intent,
+    )
 
-    for day_num in range(1, intent.days + 1):
+    guide_context = "\n".join(state.city_guides[:3]) if state.city_guides else ""
+
+    for cluster in clusters:
+        day_num = cluster.day_num
         yield {"type": "status", "content": f"正在规划第 {day_num} 天..."}
 
-        day_attractions = [a for i, a in enumerate(all_attractions) if i % intent.days == (day_num - 1) % intent.days]
-        day_restaurants = [r for i, r in enumerate(restaurants) if i % intent.days == (day_num - 1) % intent.days]
+        # Match must_visit keywords to best POI (shortest name containing keyword)
+        must_visit_ids = set()
+        for mv in intent.must_visit:
+            matches = [a for a in cluster.attractions if mv in a.name or mv == a.id]
+            if matches:
+                matches.sort(key=lambda p: (p.name != mv, len(p.name), -p.popularity))
+                must_visit_ids.add(matches[0].id)
 
-        must_visit_ids = {p.id for p in must_visit_pois}
         attr_list = "\n".join([
-            f"- {a.name} (ID:{a.id}, 区域:{a.area}, 评分:{a.popularity}, 时长:{a.visit_duration_minutes}分钟, {'【必去】' if a.id in must_visit_ids else ''}{a.description[:60] if a.description else ''})"
-            for a in day_attractions[:20]
+            f"- {a.name} (ID:{a.id}, 区域:{a.area}, 评分:{a.popularity}, "
+            f"游玩时长:{a.visit_duration_minutes}分钟, "
+            f"{'【必去】' if a.id in must_visit_ids else ''}"
+            f"标签:{','.join(a.tags[:5])}, "
+            f"简介:{a.description or '无'})"
+            for a in cluster.attractions[:12]
         ])
         rest_list = "\n".join([
-            f"- {r.name} (ID:{r.id}, 区域:{r.area}, 类型:{r.meal_type})"
-            for r in day_restaurants[:10]
+            f"- {r.name} (ID:{r.id}, 区域:{r.area}, 简介:{(r.description or '')[:60]})"
+            for r in cluster.restaurants[:5]
         ])
 
         user_context = (
-              f"第 {day_num} 天/{intent.days}天，节奏:{intent.pace}，人群:{intent.travelers or '普通'}\n"
-              f"酒店:{state.selected_hotel.area if state.selected_hotel else '未定'}\n"
+            f"第 {day_num} 天，共 {intent.days} 天\n"
+            f"今日主题: {cluster.theme}\n"
+            f"节奏: {intent.pace}\n"
+            f"出行人群: {intent.travelers or '普通'}\n"
+            f"酒店位置: {hotel.area if hotel else '未定'}\n"
+            f"兴趣: {', '.join(intent.interests) if intent.interests else '综合'}\n"
+            f"策略: {intent.strategy or 'balanced'}\n"
         )
-        if must_visit_pois:
-              must_names = [p.name for p in must_visit_pois]
-              user_context += f"\n用户必去景点（必须安排，不可省略）: {chr(44).join(must_names)}\n"
-        user_context += f"\n候选景点（标有【必去】的必须安排）:\n{attr_list}\n\n候选餐厅:\n{rest_list}\n"
+        if must_visit_ids:
+            must_names = [a.name for a in cluster.attractions if a.id in must_visit_ids]
+            user_context += f"\n用户必去景点（必须安排）: {', '.join(must_names)}\n"
+        user_context += f"\n候选景点:\n{attr_list}\n\n候选餐厅:\n{rest_list}\n"
         if guide_context:
             user_context += f"\n攻略参考:\n{guide_context}\n"
 
@@ -335,13 +352,11 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
                         break
                 stops.append(stop)
 
-            # Validate must_visit
-            if must_visit_pois:
-                must_visit_ids_today = {a.id for a in day_attractions if a.id in {p.id for p in must_visit_pois}}
+            if must_visit_ids:
                 included_ids = {s.poi_id for s in stops}
-                missing_ids = must_visit_ids_today - included_ids
+                missing_ids = must_visit_ids - included_ids
                 if missing_ids:
-                    for p in day_attractions:
+                    for p in cluster.attractions:
                         if p.id in missing_ids:
                             inject_stop = StopInfo(
                                 slot="上午" if not any(s.slot == "上午" for s in stops) else "下午",
@@ -349,15 +364,14 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
                                 area=p.area, lat=p.lat, lng=p.lng,
                                 start_minutes=540, end_minutes=540 + p.visit_duration_minutes,
                                 visit_duration_minutes=p.visit_duration_minutes,
-                                reason=f"用户必去: {p.name}", recommendation=p.recommendation,
-                              )
+                                reason=f"用户必去: {p.name}",
+                            )
                             stops.insert(0, inject_stop)
                             logger.info(f"Force-injected must_visit: {p.name}")
 
-            day_plan = DayPlan(day=day_num, stops=stops, summary=f"第{day_num}天: {len(stops)}个行程")
+            day_plan = DayPlan(day=day_num, stops=stops, summary=f"第{day_num}天({cluster.theme}): {len(stops)}个行程")
             state.daily_plans.append(day_plan)
             yield {"type": "day_planned", "content": f"第 {day_num} 天: {len(stops)} 个行程", "day": day_num, "day_plan": day_plan.model_dump()}
-
         except Exception as e:
             logger.error(f"plan day {day_num} failed: {e}")
             state.errors.append(f"第{day_num}天规划失败: {e}")
