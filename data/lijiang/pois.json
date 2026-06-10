@@ -20,9 +20,14 @@
     "description": "丽江古城的大水车是标志性地标，两个巨大的木制水车缓缓转动，搭配周围的垂柳和清澈河水，拍照非常出片。建议清晨或傍晚去，人少光线好，还能顺便逛逛四方街。适合第一次来丽江的游客、摄影爱好者，以及喜欢古城漫无目的闲逛的旅行者。",
     "source": "amap",
     "source_id": "B0FFF9GOOV",
-    "recommendation": "推荐在古城区参观丽江古城-古城大水车，人气评分4.8",
+    "recommendation": "丽江古城标志性地标，两座木制水车与垂柳河水相映成趣。清晨6点前到，能避开人群拍到水车与晨雾的独有画面。",
     "open_minutes": 480,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_f2c50dcb",
@@ -46,9 +51,14 @@
     "description": "漫步在丽江古城，脚下是光滑的五花石板路，耳边传来潺潺流水声和手鼓的轻快节奏。登高万古楼，可俯瞰错落的青瓦屋顶与远山；夜晚的四方街更是灯火阑珊，酒吧与民谣交织。建议清晨趁人少时走小巷，或找家茶馆发呆。适合文艺青年、情侣以及任何想慢下来感受纳西风情的人。",
     "source": "amap",
     "source_id": "B0378008PR",
-    "recommendation": "推荐在古城区参观丽江古城，人气评分4.9",
+    "recommendation": "光滑五花石板路串联起流水与青瓦屋顶，登万古楼可俯瞰全景。清晨7点前逛小巷，游客稀少，还能听到店家开门前的流水声。",
     "open_minutes": 480,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_b0d94111",
@@ -125,9 +135,14 @@
     "description": "站在丽江之眼观景台，可以俯瞰整个古城错落的青瓦屋顶与远山交叠，视野极佳，尤其黄昏时分，灯火初上，美得像一幅画。建议傍晚来，既能看到日落余晖，又能欣赏古城夜景。适合喜欢拍照、想找安静角落发呆的旅行者，也适合带长辈或小朋友轻松游览。",
     "source": "amap",
     "source_id": "B0FFI19RKS",
-    "recommendation": "丽江之眼观景台适合城市游览、景点爱好者",
+    "recommendation": "俯瞰古城青瓦与远山交叠，黄昏灯火初上如画。别只站在观景台正中央，往右侧角落走，能避开人潮拍到更干净的古城全景。",
     "open_minutes": 420,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_d797c3ac",
@@ -227,9 +242,14 @@
     "description": "丽江黑龙潭坐落在古城北端象山脚下，园内古木参天，清泉涌流。最妙的是站在锁翠桥上，玉龙雪山倒映潭中，亭台楼阁与雪山碧水相映成画。建议清晨或傍晚前来，游人较少，光影最美。适合喜欢拍照、慢逛的文艺青年，也适合带父母散步赏景，感受古城清净一面。",
     "source": "amap",
     "source_id": "B0FFF5TSNO",
-    "recommendation": "黑龙潭适合城市游览、景点爱好者",
+    "recommendation": "古木参天、玉龙雪山倒映潭中，锁翠桥是经典机位。坐4路公交到黑龙潭站下车即到，比打车省一半钱。",
     "open_minutes": 540,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_f3c50f5e",
@@ -252,9 +272,14 @@
     "description": "登上狮子山，整个丽江古城尽收眼底！这里是俯瞰古城全貌的绝佳机位，万古楼、青瓦木屋与远山交融。傍晚来拍落日余晖最出片，建议穿舒适平底鞋，台阶较多。适合带长辈看全景、情侣拍氛围照，或是独行客寻一片宁静，边逛边发发呆。",
     "source": "amap",
     "source_id": "B0378008PQ",
-    "recommendation": "丽江古城-狮子山(狮山路)是当地热门景点，建议游览90分钟左右",
+    "recommendation": "登狮子山可俯瞰古城全貌，万古楼与青瓦交融。下午5点后去，万古楼门票半价，还能赶上落日余晖。",
     "open_minutes": 510,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_4939f6e0",
@@ -279,7 +304,12 @@
     "description": "白龙文化广场是丽江古城的“迎宾客厅”，标志性的白龙雕塑与潺潺流水相映成趣，还能看到纳西族传统的三眼井和许愿风铃。建议作为古城游览起点，花15分钟拍拍照、看看当地人的打跳（纳西广场舞）。适合所有游客",
     "source": "amap",
     "source_id": "B03780IFZH",
-    "recommendation": "丽江古城白龙文化广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "白龙雕塑与三眼井展现纳西风情，许愿风铃叮当。本地人爱在傍晚来此跳纳西打跳，跟着跳一圈比逛店更有趣。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_81b0d430",
@@ -303,9 +333,14 @@
     "description": "观音峡是丽江古城旁的山水秘境，峡谷间瀑布飞溅、碧潭如镜，还能乘小船穿过“滇藏第一峡”。最妙的是古木参天的栈道和悬空玻璃桥，随手一拍就是大片。建议留足半天，先徒步后乘船，别错过峡谷深处的观音瀑。这里景美路平，亲子家庭、情侣或爱拍照的朋友都能玩得尽兴。",
     "source": "amap",
     "source_id": "B0378008X3",
-    "recommendation": "推荐在古城区参观观音峡，人气评分4.5",
+    "recommendation": "峡谷瀑布飞溅、碧潭如镜，玻璃桥悬空惊险。先走栈道到观音瀑，再乘船返程，能避开人群拍到峡谷全景。",
     "open_minutes": 480,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_5c52bb4",
@@ -329,9 +364,14 @@
     "description": "坐落在丽江古城南门附近的白马龙潭寺，藏着三眼井和清澈龙潭，古树掩映下宁静如画。建议清晨或傍晚去，避开人流，顺便逛逛周边小巷。适合喜欢清净、想感受纳西文化底蕴的游客，也适合摄影爱好者捕捉光影。",
     "source": "amap",
     "source_id": "B0378008PG",
-    "recommendation": "丽江古城-白马龙潭寺适合城市游览、景点爱好者",
+    "recommendation": "三眼井与龙潭藏在古树间，宁静如纳西秘境。清晨8点前到，阳光斜照水面，能拍到潭中古寺倒影无人的画面。",
     "open_minutes": 450,
-    "close_minutes": 1050
+    "close_minutes": 1050,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_74e236",
@@ -379,9 +419,14 @@
     "description": "拉市海茶马古道是丽江附近体验马帮文化的绝佳去处，骑马穿越湿地与山林，沿途湖光山色尽收眼底，还能近距离接触纳西族村落。建议选择半天行程，下午光线最好，骑完马再去湖边划船看候鸟。适合喜欢自然风光、想感受茶马古道历史的情侣或家庭游客，体力要求不高。",
     "source": "amap",
     "source_id": "B0FFFCMBO8",
-    "recommendation": "拉市海茶马古道适合城市游览、景点爱好者",
+    "recommendation": "骑马穿越湿地与山林，体验马帮文化与湖光山色。别报低价团，选正规马场以防中途加价。",
     "open_minutes": 480,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_839f9c9d",
@@ -405,7 +450,12 @@
     "description": "泸沽湖的里拜情人滩，湖水湛蓝清澈，猪槽船静静漂在水面，远处格姆女神山若隐若现。这里是看日出日落和星空的好地方，随手一拍就是大片。建议清晨或傍晚去，人少景美，还能体验摩梭人的划船和走婚桥故事。适合情侣约会、家庭散心、摄影爱好者打卡，感受高原湖泊的静谧",
     "source": "amap",
     "source_id": "B03420OVL2",
-    "recommendation": "泸沽湖风景名胜区-里拜情人滩是当地热门景点，建议游览90分钟左右"
+    "recommendation": "湖水湛蓝，猪槽船静泊，格姆女神山为背景。自驾沿环湖路直达，停车方便且免费。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_423c1181",
@@ -428,9 +478,14 @@
     "description": "虎跳峡以“险”闻名，金沙江被玉龙和哈巴两座雪山夹击，形成世界上最深的峡谷之一。徒步中虎跳是经典玩法，沿途可近距离感受咆哮的江水与绝壁对峙的震撼。喜欢户外和拍照的朋友别错过，建议穿防滑鞋、带足水，体力一般的选上虎跳观景台休闲游也很过瘾。",
     "source": "amap",
     "source_id": "B03781591H",
-    "recommendation": "丽江虎跳峡景区适合城市游览、景点爱好者",
+    "recommendation": "金沙江被雪山夹击，形成世界最深峡谷之一。提前网购门票比现场便宜20元。",
     "open_minutes": 510,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_e160355e",
@@ -478,7 +533,12 @@
     "description": "束河牌坊是古镇入口的标志性建筑，青石雕刻古朴精致，上面“束河”二字自带岁月感。清晨人少时拍照最出片，傍晚还能坐在牌坊下看当地人遛狗聊天。适合喜欢慢节奏、爱逛古镇的游客，随手一拍都是文艺大片。",
     "source": "amap",
     "source_id": "B0FFG4WQKB",
-    "recommendation": "束河牌坊适合城市游览、景点爱好者"
+    "recommendation": "青石雕刻古朴精致，古镇入口的标志性建筑。清晨去牌坊东侧巷子吃碗本地米线，人少味正。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_7f837ee",
@@ -526,9 +586,14 @@
     "description": "格姆女神山是泸沽湖畔最动人的剪影，形似一位仰卧的女神。乘索道上山，俯瞰蓝色湖面与猪槽船交织的画卷，进女神洞感受摩梭人的信仰秘境。建议避开正午，傍晚光线最出片。适合自然控、摄影爱好者及渴望浪漫的情侣。",
     "source": "amap",
     "source_id": "B0FFF344BX",
-    "recommendation": "格姆女神山适合城市游览、景点爱好者",
+    "recommendation": "形似仰卧女神，乘索道俯瞰泸沽湖全景。傍晚坐索道下山，能拍到金色湖面与落日同框。",
     "open_minutes": 510,
-    "close_minutes": 1050
+    "close_minutes": 1050,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_f2829d23",
@@ -551,7 +616,12 @@
     "description": "忠义巷深处藏着三口古井，是苏州古城少有的“三眼井”遗迹，井水至今清澈，映着斑驳的巷弄光影。这里没有喧闹的游客，只有老苏州的生活气息。建议带个小瓶装点井水感受清凉，顺便逛逛周边白墙黛瓦的老宅。适合喜欢慢节奏、爱探秘小众历史遗迹的朋友，或者想拍出市井风情照的摄影党。",
     "source": "amap",
     "source_id": "B0G3XSFH7R",
-    "recommendation": "忠义巷三眼井是当地热门景点，建议游览90分钟左右"
+    "recommendation": "三口古井映着斑驳巷弄，老苏州生活气息浓郁。清晨去最好，井水最清澈且无游客打扰。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_94006964",
@@ -575,7 +645,12 @@
     "description": "玉河广场是丽江古城的门面担当，标志性大水车和东巴文化墙很出片，还能偶遇纳西族打跳歌舞。建议清晨或傍晚去，人少光线好，顺路开启古城逛吃模式。适合所有游客，尤其爱拍照、想快速感受纳西风情的朋友。",
     "source": "amap",
     "source_id": "B03780IGKV",
-    "recommendation": "丽江古城-玉河广场适合城市游览、景点爱好者"
+    "recommendation": "大水车和东巴文化墙是古城标志，纳西打跳歌舞热闹。别在广场旁买银饰，价格虚高且真伪难辨。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_795f91a6",
@@ -625,7 +700,12 @@
     "description": "大研花巷是丽江古城里藏得最深的文艺角落，石板路两侧开满鲜花，转角就是手作店、民谣酒馆和彩色油纸伞巷。白天适合慢慢逛，拍花墙、淘手工皮具；傍晚找家观景台小馆，看古城屋顶逐一亮灯。特别适合爱拍照、喜欢慢节奏的文艺青年和闺蜜游。",
     "source": "amap",
     "source_id": "B0FFIXONOV",
-    "recommendation": "大研花巷是当地热门景点，建议游览90分钟左右"
+    "recommendation": "石板路开满鲜花，转角有手作店和油纸伞巷。从古城四方街步行10分钟即到，别被路边拉客的误导。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_11a199f8",
@@ -650,9 +730,14 @@
     "description": "登上42米长的观景台，古城全貌与江岛风光尽收眼底，尤其是傍晚时分，夕阳将古城染成金色，非常出片。建议傍晚前往，避开烈日，还能捕捉华灯初上的浪漫时刻。这里适合摄影爱好者、情侣和喜欢慢逛古城的朋友，花半小时静静俯瞰，感受时光流转。",
     "source": "amap",
     "source_id": "B0FFFDT0J1",
-    "recommendation": "桃花岛古城第一观景台42米长廊是当地热门景点，建议游览90分钟左右",
+    "recommendation": "42米长廊可俯瞰古城全貌与江岛风光，傍晚金色夕阳特别出片。建议下午5点后前往，免费开放且避开烈日。",
     "open_minutes": 660,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_1c68ac46",
@@ -702,7 +787,12 @@
     "description": "清溪公园藏在古城区，是个闹中取静的好去处。园内溪水潺潺，古树掩映，还有几座别致的石桥和亭台，适合散步发呆或拍几张文艺照片。建议清晨或傍晚来，人少景美，可以顺着溪边步道慢悠悠逛一圈。适合想逃离喧嚣的上班族、喜欢幽静的情侣，或是带长辈来散心。",
     "source": "amap",
     "source_id": "B037815121",
-    "recommendation": "清溪公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "闹中取静的公园，溪水古树石桥别有韵味。本地人常从侧门（靠近北街巷）进入，人少又能直达溪边最佳拍照点。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_bc6f9cd0",
@@ -727,9 +817,14 @@
     "description": "丽江古城东巴宫是体验纳西族文化的宝藏地，这里有原汁原味的东巴象形文字、壁画和古老经书，还能欣赏到震撼的东巴舞蹈表演。建议安排1-2小时，搭配讲解员深入了解，晚上来看演出氛围更佳。适合文化爱好者、历史迷和带娃家庭，可以亲手体验写东巴字，趣味十足。",
     "source": "amap",
     "source_id": "B0FFFPLH6I",
-    "recommendation": "丽江古城-东巴宫是当地热门景点，建议游览90分钟左右",
+    "recommendation": "东巴宫展示纳西族象形文字和古老经书，文化底蕴深厚。隐藏玩法是找工作人员索要东巴纸体验券，能免费学写象形字。",
     "open_minutes": 480,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_98feb4ae",
@@ -753,7 +848,12 @@
     "description": "藏在束河古镇的安静一隅，这座中西合璧的基督教堂融合了纳西建筑元素，彩色玻璃与青瓦飞檐相映成趣。适合顺路探访，拍照出片，感受古镇多元文化。建议搭配半天闲逛，结束后在附近咖啡馆小憩。适合喜欢小众景点、建筑爱好者及文化体验型游客。",
     "source": "amap",
     "source_id": "B037815AM5",
-    "recommendation": "推荐在古城区参观丽江市古城区基督教束河聚会点，人气评分3.5"
+    "recommendation": "中西合璧的教堂，彩色玻璃与纳西飞檐相映成趣。最佳时间是周日上午10点，可参加弥撒并感受当地信徒的日常。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_3b8f8294",
@@ -776,7 +876,12 @@
     "description": "龙女湖藏在玉龙雪山脚下，湖水清澈如镜，能清晰倒映雪山和蓝天，随手一拍就是大片。这里游客不多，适合环湖散步、骑自行车或铺块垫子野餐发呆。喜欢自然风光、摄影和安静氛围的朋友千万别错过，带娃家庭或情侣来这放空一整天都很舒服。",
     "source": "amap",
     "source_id": "B0378157WK",
-    "recommendation": "龙女湖是当地热门景点，建议游览90分钟左右"
+    "recommendation": "雪山脚下清澈湖泊，倒映玉龙雪山美如画。避坑提示：别租湖边高价自行车，步行环湖免费且更惬意。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_298d27a7",
@@ -828,7 +933,12 @@
     "description": "丽江古城的许愿亭藏在四方街附近的小巷里，挂满了东巴风铃和木牌，风吹过叮咚作响，特别治愈。建议傍晚来，灯光亮起后更有氛围，可以买块许愿牌写下心愿挂上去。适合情侣、闺蜜或独自旅行的人，拍照也超出片。",
     "source": "amap",
     "source_id": "B0FFKCA2I7",
-    "recommendation": "丽江古城-许愿亭是当地热门景点，建议游览90分钟左右"
+    "recommendation": "挂满东巴风铃的治愈角落，风吹叮咚作响。交通建议：从四方街沿七一街步行5分钟即到，无需坐车。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_8bb449ad",
@@ -853,7 +963,12 @@
     "description": "丽江古城网红街是拍照打卡的宝藏地！满街油纸伞、鲜花和纳西风铃，夜晚灯火璀璨如星；白天穿民族服饰漫步石板路，随手一拍就是大片。建议早晚各去一次，避开人流高峰，顺便尝尝街边烤饵块。适合爱拍照、喜欢浪漫氛围的小伙伴，闺蜜游或情侣游尤其推荐。",
     "source": "amap",
     "source_id": "B0FFJZ2IMR",
-    "recommendation": "推荐在古城区参观丽江古城-网红街，人气评分4.1"
+    "recommendation": "油纸伞和鲜花装点的浪漫街巷，夜晚灯火璀璨。省钱技巧：早上8点前免费进入，人少且能拍出空景大片。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_f16672ea",
@@ -902,7 +1017,12 @@
     "description": "玉龙桥是丽江古城北入口的标志，站在桥上能远眺玉龙雪山倒映在黑龙潭的绝美画面，桥下潺潺流水与纳西老宅相映成趣。建议清晨或傍晚去，游客少，光线柔和，很适合拍古风照片或发呆。适合喜欢慢节奏、爱拍照打卡的文艺青年和家庭出游。",
     "source": "amap",
     "source_id": "B0FFJOO481",
-    "recommendation": "推荐在古城区参观丽江古城-玉龙桥，人气评分3.9"
+    "recommendation": "标志性石桥，远眺玉龙雪山倒映黑龙潭。本地人推荐：清晨6点来，能独享晨雾中雪山与古桥的静谧画面。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_c8e867c0",
@@ -925,9 +1045,14 @@
     "description": "登上狮子山万古楼，就能把丽江古城全景尽收眼底，远眺玉龙雪山也超震撼。这里古柏参天，处处透着历史韵味。建议傍晚来，看万家灯火渐次亮起，拍照特别出片。适合喜欢摄影、想俯瞰古城全景的朋友，也适合慢慢逛逛放松心情。",
     "source": "amap",
     "source_id": "B037815BZ1",
-    "recommendation": "推荐在古城区参观狮子山万古楼景区，人气评分4.6",
+    "recommendation": "登万古楼可俯瞰丽江古城全景，远眺玉龙雪山。建议日落前半小时上山，占东侧窗边位置拍古城亮灯过程。",
     "open_minutes": 540,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_c2ee114e",
@@ -951,9 +1076,14 @@
     "description": "三清殿藏在狮子山上，是古城里闹中取静的道教圣地。站在殿前平台能俯瞰整片青瓦屋顶与远山，日出或傍晚光线最美。建议顺路爬上万古楼，顺便打卡古城全景机位。适合爱拍大片、想躲开人流、对古建或道教文化感兴趣的旅行者。",
     "source": "amap",
     "source_id": "B037815B7H",
-    "recommendation": "丽江古城-三清殿适合城市游览、景点爱好者",
+    "recommendation": "三清殿是古城闹中取静的道教圣地，殿前平台视野极佳。建议清晨8点前到，人少光线柔，能拍清瓦屋顶与晨雾。",
     "open_minutes": 510,
-    "close_minutes": 1050
+    "close_minutes": 1050,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_f7d0a1e9",
@@ -1003,7 +1133,12 @@
     "description": "古城南门牌坊是进入古城的第一道风景，飞檐斗拱、雕花石刻，白天拍光影绝佳，夜晚亮灯后更显古朴大气。建议傍晚来，既避开烈日又能看到日落和亮灯；牌坊后的小巷藏着不少老店，值得一逛。适合所有游客，尤其适合摄影爱好者与古风打卡党。",
     "source": "amap",
     "source_id": "B0FFK2MD5J",
-    "recommendation": "推荐在古城区参观古城南门牌坊，人气评分4.7"
+    "recommendation": "南门牌坊飞檐斗拱，日夜皆景。注意别在正午拍，光影太硬；傍晚5点后去，既能拍日落又避开了旅行团高峰。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_2865fa92",
@@ -1027,7 +1162,12 @@
     "description": "站在文昌宫观景台，能把整个丽江古城的黛瓦飞檐尽收眼底，远眺玉龙雪山，清晨或黄昏时分光影最美。建议傍晚前来，看古城灯火渐亮，拍全景很出片。这里台阶较多，适合体力不错、喜欢登高拍照的游客，也适合想避开四方街拥挤人潮、安静发呆的你。",
     "source": "amap",
     "source_id": "B0FFK10I11",
-    "recommendation": "丽江古城-文昌宫观景台是当地热门景点，建议游览90分钟左右"
+    "recommendation": "文昌宫观景台可尽收古城黛瓦与玉龙雪山。从四方街沿新华街步行10分钟即到，别打车，小巷绕路且停车难。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_251158fd",
@@ -1052,9 +1192,14 @@
     "description": "黑龙潭的碧水映着雪山倒影，得月楼古韵悠悠，是丽江最上镜的角落。旁边的象山步道不算难爬，登顶能俯瞰古城全景和玉龙雪山。建议上午逛潭边喂鱼、拍倒影，下午花一小时登山等日落。特别适合爱拍照、喜欢慢节奏闲逛的朋友",
     "source": "amap",
     "source_id": "B0FFL4YX6G",
-    "recommendation": "黑龙潭-象山适合城市游览、景点爱好者",
+    "recommendation": "黑龙潭碧水映雪山倒影，得月楼最上镜。早上7点前免门票入园，先拍倒影再爬象山，省60元且游客少。",
     "open_minutes": 420,
-    "close_minutes": 960
+    "close_minutes": 960,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_8d9003aa",
@@ -1079,7 +1224,12 @@
     "description": "丽江古城里的科贡坊，是一条藏着科举记忆的小巷。斑驳的墙面、木雕门窗，透出浓浓的历史味道。建议花半小时走走拍拍，感受纳西建筑细节，再尝口巷口的鸡豆凉粉。特别适合爱逛老街、喜欢人文摄影的旅行者。",
     "source": "amap",
     "source_id": "B0378157W9",
-    "recommendation": "丽江古城-科贡坊适合城市游览、景点爱好者"
+    "recommendation": "科贡坊藏着科举记忆，斑驳木雕门窗很有味道。本地人爱在巷口杨记买鸡豆凉粉，加辣更香，别去主街店。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_87276c12",
@@ -1104,7 +1254,12 @@
     "description": "青龙桥横跨古城河道，青石板路和斑驳桥栏透着岁月痕迹。桥畔杨柳依依，两岸白墙黛瓦，随手一拍都是水墨画。桥头藏着不少",
     "source": "amap",
     "source_id": "B0FFF3CSQK",
-    "recommendation": "青龙桥是当地热门景点，建议游览90分钟左右"
+    "recommendation": "青龙桥青石板斑驳，杨柳映水岸如画。清晨6点来桥东侧，趁无人时拍晨雾和倒影，还能看到本地人遛狗。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_940b78c2",
@@ -1127,9 +1282,14 @@
     "description": "护法殿是丽江古城木府的核心建筑之一，藏着纳西族王室“内外有别”的治理智慧。殿内看点是清代壁画与威严的四大天王像，梁柱间还悬挂着“执法如山”匾额。建议搭配木府其他院落一起游览，半小时可逛完。适合对古建筑、民族文化感兴趣的朋友，尤其推荐给想避开主街人潮、深度感受丽江历史底蕴的你。",
     "source": "amap",
     "source_id": "B037815AB8",
-    "recommendation": "丽江古城-护法殿适合城市游览、景点爱好者",
+    "recommendation": "护法殿有清代壁画和四大天王像，体现纳西王室智慧。建议下午3点后参观，光线斜照壁画细节更清晰，避开上午团队。",
     "open_minutes": 510,
-    "close_minutes": 1050
+    "close_minutes": 1050,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_87eece87",
@@ -1229,7 +1389,12 @@
     "description": "大石桥是古城里最有烟火气的老石板桥，桥下流水潺潺，两侧垂柳掩映着白墙黛瓦，清晨或黄昏时光影最美。建议沿着桥边的青石板路散步，顺便尝尝桥头的烤饵块和凉粉，再拍几张复古风的照片。适合喜欢慢节奏、爱拍照的游客，也适合带长辈来怀旧。",
     "source": "amap",
     "source_id": "B0FFFDWV16",
-    "recommendation": "大石桥是当地热门景点，建议游览90分钟左右"
+    "recommendation": "古城最有烟火气的老石板桥，桥下流水垂柳映白墙。别在正午拍人像，逆光脸黑，黄昏光影才最美。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_264618bb",
@@ -1252,9 +1417,14 @@
     "description": "金茂谷镇坐落在丽江古城区，融合了纳西传统建筑与现代度假风情。特色在于雪山景观与田园氛围的巧妙碰撞，漫步石板路，随手一拍都是大片。建议花半天时间，白天赏花海、探文创小店，傍晚看玉龙雪山染上金色。适合喜欢悠闲拍照、追求度假感的情侣或家庭游客。",
     "source": "amap",
     "source_id": "B0FFKBCIQT",
-    "recommendation": "推荐在古城区参观金茂谷镇，人气评分4.2",
+    "recommendation": "纳西建筑与雪山田园碰撞的度假小镇。自驾导航“金茂谷镇”免费停车，公交坐6路到束河古镇站再步行10分钟。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_970bec04",
@@ -1331,7 +1501,12 @@
     "description": "古城入口的这个综合服务亭不仅是问路中心，还藏着官方盖章和限量版地图哦～特色看点：免费领取手绘导览图、收集古城特色印章、偶遇非遗手作展示。游玩建议：一进古城先来拿地图和盖章，顺便问个冷门小巷路线。适合想高效逛古城、喜欢收藏纪念品的自由行游客。",
     "source": "amap",
     "source_id": "B03780HXGU",
-    "recommendation": "世纪文化遗产丽江古城综合服务亭适合城市游览、景点爱好者"
+    "recommendation": "古城入口的官方服务亭，能领免费手绘地图和盖章。进古城先来拿地图，省下买导览图的20块钱。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_da6d9ac9",
@@ -1356,7 +1531,12 @@
     "description": "丽江古城的东巴文化墙是感受纳西族神秘符号的宝藏地！墙上绘满东巴象形文字和彩色壁画，像一本立体的“天书”。建议清晨或傍晚去，光线柔和，拍照更出片。边走边猜图案含义，还能偶遇本地艺人讲解。适合文化爱好者、摄影控，或者想解锁朋友圈独特打卡点的小伙伴！",
     "source": "amap",
     "source_id": "B0FFK2820O",
-    "recommendation": "推荐在古城区参观丽江古城-东巴文化墙，人气评分3.8"
+    "recommendation": "纳西象形文字和壁画的立体天书墙。本地人建议黄昏时来，光线斜照壁画更清晰，还常有老艺人免费讲解。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_27d8a2cb",
@@ -1379,7 +1559,12 @@
     "description": "丽江古城里的暑古井是纳西族“三眼井”的典范，一井分三池，分别用于饮用、洗菜和洗衣，展现古老的水利智慧。井水常年清冽，周围常有本地人打水聊天，很有生活气息。建议放慢脚步，顺路看看，拍照时注意不要影响居民取水。适合喜欢人文深度游、摄影记录和",
     "source": "amap",
     "source_id": "B0FFFFH50Y",
-    "recommendation": "丽江古城-暑古井适合城市游览、景点爱好者"
+    "recommendation": "纳西三眼井典范，分池饮用洗菜洗衣。隐藏玩法：带个空瓶接井水喝一口，清冽甘甜，本地人都在这里打水。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_b1086956",
@@ -1404,7 +1589,12 @@
     "description": "卖草场是丽江古城里一处闹中取静的小广场，曾是过去交易草料的集散地。如今这里绿树成荫，周围开着小资咖啡馆和手作店，抬头就能望见玉龙雪山。建议傍晚来，坐在石阶上听民谣、看夕阳西沉，感受古城慢生活。适合喜欢拍照、想避开人流发呆的文艺青年或情侣。",
     "source": "amap",
     "source_id": "B0FFJOO49L",
-    "recommendation": "推荐在古城区参观丽江古城-卖草场，人气评分4.0"
+    "recommendation": "闹中取静的小广场，抬头可见玉龙雪山。傍晚6点来最好，夕阳染雪山，民谣歌手刚开唱，人少景美。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_a74fef31",
@@ -1429,7 +1619,12 @@
     "description": "🌺丽江古城里的这片花园广场，藏着最惬意的慢时光。四季花木簇拥着纳西雕花回廊，中央水车缓缓转动，抬头便是玉龙雪山一角。建议傍晚来，夕阳把石板路染成金色，坐在花坛边听听手鼓民谣，或找家咖啡馆发呆。适合喜欢拍照、想避开主街喧嚣的文艺青年，也适合带长辈来散步乘凉。",
     "source": "amap",
     "source_id": "B0378004L8",
-    "recommendation": "丽江古城-古城花园广场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "四季花木围纳西回廊，水车雪山同框。别坐花坛边拍照，常有浇水管喷水，躲不及湿身。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_53afced0",
@@ -1482,7 +1677,12 @@
     "description": "昌洛河广场是古城区的宝藏休闲地，紧邻福慧路，沿河漫步能感受流水与绿树交织的惬意。白天适合晒太阳发呆，傍晚灯光亮起，河面波光粼粼，特别出片。建议搭配周边老街一起逛，累了就坐在",
     "source": "amap",
     "source_id": "B0FFH0H2WC",
-    "recommendation": "古城区昌洛河广场适合城市游览、景点爱好者"
+    "recommendation": "福慧路旁的沿河休闲广场，绿树流水惬意。坐公交3路到昌洛河站下车，过马路就到，比自驾找车位省心。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_d0866592",
@@ -1585,9 +1785,14 @@
     "description": "走进玉龙雪山冰川博物馆，就像翻开一本立体的冰川百科全书。这里不仅有震撼的实景复原和互动装置，还能轻松了解冰川形成、气候变化等冷知识。建议上山前先逛一圈，看完再登顶会更有感触。特别适合亲子家庭和自然迷，室内恒温，避寒又涨知识。",
     "source": "amap",
     "source_id": "B0FFFDR6FE",
-    "recommendation": "推荐在玉龙纳西族自治县参观玉龙雪山冰川博物馆，人气评分4.2",
+    "recommendation": "立体冰川百科全书，有实景复原和互动装置。上山前先逛，看完登顶更有感触，门票含在景区大票里无需另购。",
     "open_minutes": 480,
-    "close_minutes": 1050
+    "close_minutes": 1050,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_906e9927",
@@ -1612,7 +1817,12 @@
     "description": "丽江宣科纳西古乐，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
     "source": "amap",
     "source_id": "B0MGO4TSAI",
-    "recommendation": "丽江宣科纳西古乐适合城市游览、历史文化爱好者"
+    "recommendation": "纳西族原生态古乐演出，由老艺人用千年乐器演奏。本地人常去听晚场，人少氛围更浓，还能和演员聊几句。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_ae150fdd",
@@ -1637,9 +1847,14 @@
     "description": "这个博物园把云南四种特色饮食文化搬进了室内，可以亲手体验纳西粑粑、酥油茶等美食制作，还能看到老物件和民俗场景，边吃边涨知识。建议预留1-2小时，",
     "source": "amap",
     "source_id": "B0JUYCSBTZ",
-    "recommendation": "丽江滇四食民俗文化博物园适合城市游览、历史文化爱好者",
+    "recommendation": "室内体验云南四种饮食文化，可亲手做纳西粑粑和酥油茶。问店家要个空罐子，装点自制小吃带走不另收费。",
     "open_minutes": 480,
-    "close_minutes": 1200
+    "close_minutes": 1200,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_71024e98",
@@ -1693,7 +1908,12 @@
     "description": "万格广场是宁蒗县城的城市会客厅，背靠青山，视野开阔。广场中央矗立着彝族特色雕塑，夜晚灯光亮起时格外好看。适合傍晚散步、拍民族风照片，还能偶遇当地居民跳甲搓舞。推荐停留1小时，顺道逛逛周边集市。适合喜欢人文风情、悠闲慢逛的旅行者。",
     "source": "amap",
     "source_id": "B0FFMH9RH4",
-    "recommendation": "推荐在宁蒗彝族自治县参观万格广场，人气评分4.0"
+    "recommendation": "宁蒗县城会客厅，中央有彝族特色雕塑。傍晚去最佳，灯光亮起时适合拍民族风照片，还能偶遇甲搓舞。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_c87c4e9c",
@@ -1719,7 +1939,12 @@
     "description": "丽月湖公园藏在古城一角，湖水清澈，倒映着远山和垂柳，傍晚时分尤其温柔。沿着湖岸散步或骑行，能看水鸟嬉戏，感受慢节奏的惬意。适合本地人晨练遛弯，也适合游客顺路来发呆拍照，老少皆宜，免费又舒服。",
     "source": "amap",
     "source_id": "B037814QCF",
-    "recommendation": "丽月湖公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "古城一角静谧湖景，湖水清澈倒映远山垂柳。别喂湖边水鸟，它们吃惯零食会追人要食，影响散步体验。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_d091c046",
@@ -1773,9 +1998,14 @@
     "description": "走进四方街的东巴纸坊，就像翻开一本活的纳西文化书。这里可以亲眼看匠人用古老工艺抄纸、晾晒，还能亲手体验制作一张属于自己的东巴纸，盖上东巴文印章超有仪式感。店里还卖各种纸灯、笔记本，适合当伴手礼。建议花半小时慢慢看，别错过后院晒纸的风景。特别适合喜欢手作、对非遗文化好奇的朋友，或是",
     "source": "amap",
     "source_id": "B0FFJOO485",
-    "recommendation": "阿明东巴纸坊(四方街店)是当地热门景点，建议游览90分钟左右",
+    "recommendation": "活态展示东巴纸制作工艺，可亲手体验抄纸盖章。从四方街步行2分钟就到，在巷口转弯处，别跟着导航绕远路。",
     "open_minutes": 660,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_e4363dcc",
@@ -1802,9 +2032,14 @@
     "description": "藏在四方街的宝藏小店，专营手工饰品与民族风小物，每个细节都透着匠心和设计感。店里还能淘到不少本地特色的伴手礼，精致又不撞款。建议傍晚逛古城时顺路进去逛逛，挑对耳环或手链，给旅行留个小纪念。适合喜欢淘货、热爱手工艺和追求独特风格的小伙伴。",
     "source": "amap",
     "source_id": "B0J30Y94AM",
-    "recommendation": "推荐在古城区参观A+饰物(四方街店)，人气评分3.9",
+    "recommendation": "手工饰品与民族风小物小店，设计精致不撞款。傍晚逛古城时顺路进店，买两件以上通常能打九折。",
     "open_minutes": 540,
-    "close_minutes": 1440
+    "close_minutes": 1440,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_32bdf2e1",
@@ -1831,7 +2066,12 @@
     "description": "古城深处的四方宝臧，是藏式珠宝与手工艺品的宝藏小店。这里集中了唐卡、蜜蜡、绿松石等特色物件，每一件都带着高原的灵气。建议放慢脚步慢慢逛，像寻宝一样细细把玩。店主会热心讲解背后的文化故事，很适合喜欢",
     "source": "amap",
     "source_id": "B0FFJZITT1",
-    "recommendation": "推荐在古城区参观四方宝臧，人气评分3.8"
+    "recommendation": "藏式珠宝与手工艺品宝藏店，有唐卡蜜蜡绿松石。本地人常午后去，人少能听店主讲物件背后的文化故事。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_8acf8a88",
@@ -1915,9 +2155,14 @@
     "description": "走进四方街这家辰缘朱砂，满眼都是红润剔透的朱砂饰品，从手串到摆件都透着古朴吉祥。店员会耐心讲解朱砂的鉴别和寓意，还能亲手触摸原石感受质感。建议慢慢挑，顺便讨教点民俗小知识。适合喜欢传统饰物、想带份平安纪念的游客，或是文玩爱好者来淘个心头好。",
     "source": "amap",
     "source_id": "B0JRXYSI7H",
-    "recommendation": "辰缘朱砂(四方街店)适合城市游览、街区爱好者",
+    "recommendation": "店内朱砂饰品红润剔透，可亲手触摸原石感受质感。让店员教你用打火机烧朱砂辨真假，能避开染色货。",
     "open_minutes": 600,
-    "close_minutes": 1425
+    "close_minutes": 1425,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_43e74ce7",
@@ -1972,7 +2217,12 @@
     "description": "藏在丽江古城四方街的这家小碟吧，由一对双胞胎兄弟经营，店里堆满了从民谣到世界音乐的CD",
     "source": "amap",
     "source_id": "B0FFG84WA9",
-    "recommendation": "丽江双胞胎碟吧(新义街四方街4店)适合城市游览、街区爱好者"
+    "recommendation": "双胞胎兄弟经营的CD小碟吧，收藏民谣和世界音乐。建议晚上9点后去，人少时老板会分享私藏黑胶。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_657ffe",
@@ -2028,9 +2278,14 @@
     "description": "在四方街拐角遇见的这家小店，专做云南小粒咖啡，香气浓郁带果酸，值得试试手冲或拿铁。推荐挑个午后靠窗坐，看古城人来人往，配块玫瑰鲜花饼超惬意。适合爱咖啡、爱慢时光的文艺党，也适合逛累想歇脚的游客。",
     "source": "amap",
     "source_id": "B0J23HB6F6",
-    "recommendation": "推荐在古城区参观云南小粒咖啡(四方街店)，人气评分3.9",
+    "recommendation": "专做云南小粒咖啡，手冲带果酸香气浓郁。别点加糖奶的款，会盖住咖啡本身的果酸风味。",
     "open_minutes": 600,
-    "close_minutes": 1410
+    "close_minutes": 1410,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_23852199",
@@ -2828,7 +3083,10 @@
     "source": "amap",
     "source_id": "B0FFIFHXRG",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_fe811456",
@@ -2848,13 +3106,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 5,
     "meal_type": "",
     "description": "柏悦酒店，凯悦连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0KK2RCYMF",
     "recommendation": "凯悦是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "豪华",
+    "price_range": "1200-3000元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_427ad30",
@@ -2875,13 +3136,16 @@
       "五星级宾馆"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "丽江金茂隐逸酒店·凯悦臻选，凯悦连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFIWBG44",
     "recommendation": "凯悦是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_4cac588a",
@@ -2901,13 +3165,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "凯悦花园酒店，凯悦连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0MBDRGG99",
     "recommendation": "凯悦是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_7a19c4f0",
@@ -2928,13 +3195,16 @@
       "福慧路"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "丽江古城如奕美居酒店(大水车黑龙潭公园店)，美居连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0KAO7Z15K",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_9477421b",
@@ -2954,13 +3224,16 @@
       "住宿服务相关"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "迟留隐墅·Safely集景光影270度观山美居，美居连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0J36AKLW6",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_c2650668",
@@ -2988,7 +3261,10 @@
     "source": "amap",
     "source_id": "B03780HXYP",
     "recommendation": "铂涛是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_c11e8aab",
@@ -3015,7 +3291,10 @@
     "source": "amap",
     "source_id": "B0JKJZHOCS",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_eb311581",
@@ -3035,13 +3314,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "丽江束河希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0LAVD13PY",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_ccca147c",
@@ -3067,7 +3349,10 @@
     "source": "amap",
     "source_id": "B0FFJ2BSMG",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_9559b3a2",
@@ -3093,7 +3378,10 @@
     "source": "amap",
     "source_id": "B0MB4UYOLO",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_f5673629",
@@ -3120,7 +3408,10 @@
     "source": "amap",
     "source_id": "B0FFI89FWA",
     "recommendation": "假日是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_9139b4a1",
@@ -3142,13 +3433,16 @@
       "祥和"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "如家商旅酒店(丽江古城南门店)，如家连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFFFWHT7",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_d29454c1",
@@ -3169,13 +3463,16 @@
       "祥和"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(丽江古城祥和商业广场店)，全季连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0JA1CL7AU",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_8ad37af4",
@@ -3195,13 +3492,16 @@
       "住宿服务相关"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳国际酒店(宁蒗泸沽湖大道店)，维也纳连锁品牌酒店，位于宁蒗彝族自治县，品质有保障。",
     "source": "amap",
     "source_id": "B0J1FZ94H1",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_356a6b41",
@@ -3228,7 +3528,10 @@
     "source": "amap",
     "source_id": "B0JKOULICK",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_51b3f685",
@@ -3248,13 +3551,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 5,
     "meal_type": "",
     "description": "云上四季丽江古城大水车店，首旅如家连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0LK2HQIAV",
     "recommendation": "首旅如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "豪华",
+    "price_range": "1200-3000元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_cc2569c8",
@@ -3275,13 +3581,16 @@
       "祥和"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "丽江古城美居酒店，美居连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0L2BZJ7J8",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_fbf1c6e4",
@@ -3307,7 +3616,10 @@
     "source": "amap",
     "source_id": "B0KRJS3IBY",
     "recommendation": "东呈是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "amap_e6ac8680",
@@ -3333,7 +3645,10 @@
     "description": "丽江龙宫假日酒店，来自高德 Web 服务 POI 搜索；分类：古城酒店。",
     "source": "amap",
     "source_id": "B03780HVIR",
-    "recommendation": "丽江龙宫假日酒店位于古城区，出行方便"
+    "recommendation": "丽江龙宫假日酒店位于古城区，出行方便",
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_ec9d8690",
@@ -3360,7 +3675,10 @@
     "source": "amap",
     "source_id": "B0L14O24RO",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_3ebf4f83",
@@ -3388,7 +3706,10 @@
     "source": "amap",
     "source_id": "B0IRUPZ3XO",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_6b78a421",
@@ -3415,7 +3736,10 @@
     "source": "amap",
     "source_id": "B0JRZH73N0",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_185761cd",
@@ -3442,7 +3766,10 @@
     "source": "amap",
     "source_id": "B0HARM1L87",
     "recommendation": "格林豪泰是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_29a2ea1a",
@@ -3464,13 +3791,16 @@
       "金甲路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "丽江实力希尔顿花园酒店，希尔顿连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0378009X4",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_d7b18033",
@@ -3490,13 +3820,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "丽江晶玺希尔顿酒店，希尔顿连锁品牌酒店，位于玉龙纳西族自治县，品质有保障。",
     "source": "amap",
     "source_id": "B0FFM0MWN9",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_ffb10ece",
@@ -3516,13 +3849,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "丽江古城区希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFIKJUO5",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_6bafe68b",
@@ -3548,7 +3884,10 @@
     "source": "amap",
     "source_id": "B0FFHU7KQ0",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_d09c4308",
@@ -3574,7 +3913,10 @@
     "source": "amap",
     "source_id": "B0FFIJ1I5Y",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_16552e81",
@@ -3595,13 +3937,16 @@
       "经济型连锁酒店"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "如家精选酒店(丽江古城大水车店)，如家连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFFPA06Q",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_45f14675",
@@ -3629,7 +3974,10 @@
     "source": "amap",
     "source_id": "B0FFF6PV6B",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_303c8508",
@@ -3651,13 +3999,16 @@
       "福慧路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "如家精选酒店(丽江古城北门店)，如家连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0LKPMYWML",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_28a38091",
@@ -3678,13 +4029,16 @@
       "祥和"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "如家精选酒店(丽江古城南门店)，如家连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFKYAJY8",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_b5f3ad5a",
@@ -3705,13 +4059,16 @@
       "祥和"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(丽江古城南门店)，全季连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0LABC1Z1E",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_b25e47da",
@@ -3731,13 +4088,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(丽江古城区店)，全季连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0LBMS1I9L",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_b13c43f1",
@@ -3758,13 +4118,16 @@
       "福慧路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(丽江古城大水车店)，全季连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0KDV5TSW6",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_e7fc792f",
@@ -3785,13 +4148,16 @@
       "福慧路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳酒店(丽江古城店)，维也纳连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFM18VVB",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_b5090067",
@@ -3822,7 +4188,10 @@
     "source": "amap",
     "source_id": "B0L0TUAMUX",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_68c414d6",
@@ -3842,13 +4211,16 @@
       "住宿服务相关"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 5,
     "meal_type": "",
     "description": "云上四季尚品酒店(丽江高铁站火车站店)，首旅如家连锁品牌酒店，位于玉龙纳西族自治县，品质有保障。",
     "source": "amap",
     "source_id": "B0J1GS94A2",
     "recommendation": "首旅如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "豪华",
+    "price_range": "1200-3000元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_63868853",
@@ -3868,13 +4240,16 @@
       "住宿服务相关"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "Secret Realm榕意·旅居秘境花园美居(丽江古城店)，美居连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0JKHAZA32",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_31b554d0",
@@ -3894,13 +4269,16 @@
       "住宿服务相关"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "拾乐Hot Spring.花畔品牌设计师美居，美居连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0JD1RX48F",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_2caa7e8d",
@@ -3926,7 +4304,10 @@
     "source": "amap",
     "source_id": "B0GKPRZPZ6",
     "recommendation": "东呈是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_2af678a4",
@@ -3954,7 +4335,10 @@
     "source": "amap",
     "source_id": "B0378149X3",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_d2d12f58",
@@ -3981,7 +4365,10 @@
     "source": "amap",
     "source_id": "B0FFFDB0OH",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_469585f9",
@@ -4002,13 +4389,16 @@
       "福慧路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "丽江古城大水车亚朵酒店，亚朵连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0HD0HYGW7",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_990ddb3a",
@@ -4028,13 +4418,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "丽江古城区团山北路亚朵酒店，亚朵连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0LBRS3JS2",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_f84cb9ae",
@@ -4055,13 +4448,16 @@
       "祥和"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "丽江古城木府亚朵酒店，亚朵连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0J3A5MBX1",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_1960db51",
@@ -4088,7 +4484,10 @@
     "source": "amap",
     "source_id": "B0KBPST4VH",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_6bf11765",
@@ -4114,7 +4513,10 @@
     "source": "amap",
     "source_id": "B0378002HN",
     "recommendation": "假日是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_6d94a234",
@@ -4134,13 +4536,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "如家商旅酒店(丽江古城大水车店)，如家连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFKF7ATZ",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_c996d71f",
@@ -4168,7 +4573,10 @@
     "source": "amap",
     "source_id": "B0KA97PRC7",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_4a8fe08a",
@@ -4188,13 +4596,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳国际酒店(丽江古城大水车店)，维也纳连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0LKZ4DZLT",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_1633f36f",
@@ -4215,13 +4626,16 @@
       "经济型连锁酒店"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "丽江古城大水车桔子水晶酒店，桔子连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0K64KJQYL",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_b2242eca",
@@ -4248,7 +4662,10 @@
     "source": "amap",
     "source_id": "B0FFKRTV4F",
     "recommendation": "东呈是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_52ccb2a9",
@@ -4274,7 +4691,10 @@
     "source": "amap",
     "source_id": "B0L0NMRCUK",
     "recommendation": "东呈是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_936514d1",
@@ -4302,7 +4722,10 @@
     "source": "amap",
     "source_id": "B0FFKG0T8T",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_480783d7",
@@ -4322,13 +4745,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "7天优品Premium酒店(云南泸沽湖店)，7天连锁品牌酒店，位于宁蒗彝族自治县，品质有保障。",
     "source": "amap",
     "source_id": "B0KAFSICSL",
     "recommendation": "7天是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_65c57944",
@@ -4348,13 +4774,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳3好酒店(丽江泸沽湖客运站大落水码头店)，维也纳连锁品牌酒店，位于宁蒗彝族自治县，品质有保障。",
     "source": "amap",
     "source_id": "B0HGPZTQDM",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_e319c538",
@@ -4376,13 +4805,16 @@
       "福慧路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "锦江之星(丽江古城七星街店)，锦江之星连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B037814305",
     "recommendation": "锦江之星是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_9e6ad4e0",
@@ -4404,13 +4836,16 @@
       "福慧路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "锦江之星酒店(丽江高快客运站机场大巴站店)，锦江之星连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0378153VH",
     "recommendation": "锦江之星是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_c633e414",
@@ -4431,13 +4866,16 @@
       "祥和"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 5,
     "meal_type": "",
     "description": "云上四季酒店(丽江古城南门店)，首旅如家连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0IKGC5K69",
     "recommendation": "首旅如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "豪华",
+    "price_range": "1200-3000元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_da88e6b6",
@@ -4464,7 +4902,10 @@
     "source": "amap",
     "source_id": "B0FFFCMBYP",
     "recommendation": "格林豪泰是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_102067fe",
@@ -4491,7 +4932,10 @@
     "source": "amap",
     "source_id": "B0L2AZ187R",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_4d102f65",
@@ -4519,7 +4963,10 @@
     "source": "amap",
     "source_id": "B0FFFHT4AW",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_c391c6a1",
@@ -4545,7 +4992,10 @@
     "source": "amap",
     "source_id": "B0FFKG070G",
     "recommendation": "假日是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_6983131c",
@@ -4566,13 +5016,16 @@
       "福慧路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "7天优品酒店(丽江古城大水车机场大巴站店)，7天连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFFDCAXW",
     "recommendation": "7天是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "lijiang_brand_2f2410be",
@@ -4593,13 +5046,16 @@
       "福慧路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(丽江古城店)，全季连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFIRDVDL",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_93472cf6",
@@ -4620,13 +5076,16 @@
       "五星级宾馆"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳国际酒店(丽江古城祥和广场店)，维也纳连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFFA0EGT",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_61e40bad",
@@ -4647,13 +5106,16 @@
       "金甲路"
     ],
     "popularity": 4.3,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "丽江万豪酒店，万豪连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFFDCO20",
     "recommendation": "万豪是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_fc6210f7",
@@ -4681,7 +5143,10 @@
     "source": "amap",
     "source_id": "B0FFGIONHW",
     "recommendation": "速8是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_a1209796",
@@ -4707,7 +5172,10 @@
     "source": "amap",
     "source_id": "B0FFJD7TLP",
     "recommendation": "格林豪泰是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_4915900d",
@@ -4734,7 +5202,10 @@
     "source": "amap",
     "source_id": "B037815AFE",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_d410f2f4",
@@ -4761,7 +5232,10 @@
     "source": "amap",
     "source_id": "B0FFF01IZW",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_74455e00",
@@ -4788,7 +5262,10 @@
     "source": "amap",
     "source_id": "B0FFGB9K5U",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_5706b93",
@@ -4809,13 +5286,16 @@
       "祥和"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "凯悦商务酒店(丽江古城店)，凯悦连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFHWGTAE",
     "recommendation": "凯悦是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_79b4b507",
@@ -4843,7 +5323,10 @@
     "source": "amap",
     "source_id": "B0378157FI",
     "recommendation": "假日是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_883a5a0d",
@@ -4870,7 +5353,10 @@
     "source": "amap",
     "source_id": "B03780IFZ7",
     "recommendation": "7天是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_9dd09c6a",
@@ -4897,7 +5383,10 @@
     "source": "amap",
     "source_id": "B0FFFT0YLT",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_e0877d1c",
@@ -4924,7 +5413,10 @@
     "source": "amap",
     "source_id": "B0FFFDCSH5",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_2e26499d",
@@ -4944,13 +5436,16 @@
       "宾馆酒店"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "凯悦酒店(龙泉路店)，凯悦连锁品牌酒店，位于宁蒗彝族自治县，品质有保障。",
     "source": "amap",
     "source_id": "B0FFLI8T8C",
     "recommendation": "凯悦是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_8194a0e1",
@@ -4977,7 +5472,10 @@
     "source": "amap",
     "source_id": "B0G32AFMFB",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "lijiang_brand_fb1228b4",
@@ -4998,13 +5496,16 @@
       "金甲路"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "万豪公寓，万豪连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0LRTH9SJ1",
     "recommendation": "万豪是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "lijiang_brand_ba6cfdea",
@@ -5025,13 +5526,16 @@
       "祥和"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "和米美居公寓，美居连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0L0XOM2IB",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "lijiang_brand_29445513",
@@ -5051,13 +5555,16 @@
       "住宿服务相关"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "雅石雅韵·雪山观景度假花园美居(束河古镇店)，美居连锁品牌酒店，位于古城区，品质有保障。",
     "source": "amap",
     "source_id": "B0K2SU11A2",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "amap_5d84fff6",
@@ -5082,10 +5589,15 @@
     "description": "五一街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFIMYOV7",
-    "recommendation": "五一街是当地热门景点。",
+    "recommendation": "古城核心街区，石板路两旁小吃和手作店林立。从四方街步行5分钟即到，不用打车。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_86c993a2",
@@ -5110,10 +5622,15 @@
     "description": "丽江古城-木王府驿站旧址，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKKTSNT",
-    "recommendation": "丽江古城-木王府驿站旧址是当地热门景点。",
+    "recommendation": "木王府驿站旧址保留着纳西建筑风格和驿站历史痕迹。早上8点前免费进入，能省门票钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_4bae1008",
@@ -5137,10 +5654,15 @@
     "description": "全景观景台，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LULUA367",
-    "recommendation": "全景观景台是当地热门景点。",
+    "recommendation": "可俯瞰古城全景，视野开阔。本地人常去文昌宫后的免费观景台，人少还不用排队。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_22c841c2",
@@ -5165,10 +5687,15 @@
     "description": "纸伞巷，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K6RUGR3M",
-    "recommendation": "纸伞巷是当地热门景点。",
+    "recommendation": "巷子挂满彩绘油纸伞，适合拍照打卡。早上7点去，游客少光线柔，能拍到空巷美图。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_1905029d",
@@ -5193,10 +5720,15 @@
     "description": "北门里，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKHRSBL",
-    "recommendation": "北门里是当地热门景点。",
+    "recommendation": "古城北门入口，店铺集中人流密集。傍晚5点后去，夕阳照在石板路上更有韵味。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_d6d7a06b",
@@ -5219,10 +5751,15 @@
     "description": "丽江古城-三眼井，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B037813XCK",
-    "recommendation": "丽江古城-三眼井是当地热门景点。",
+    "recommendation": "丽江古城三眼井是古代节水智慧的典范，三池分用饮、洗、涤。别直接喝最上游的水，那是居民饮用水源。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_283a7b41",
@@ -5247,10 +5784,15 @@
     "description": "四方听音，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378000SM",
-    "recommendation": "四方听音是当地热门景点。",
+    "recommendation": "四方听音是古城免费听纳西古乐的好去处。坐11路公交到古城口站，步行3分钟即达。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_5db6b86b",
@@ -5275,10 +5817,15 @@
     "description": "丽江古城北门广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JRSUNPLZ",
-    "recommendation": "丽江古城北门广场是当地热门景点。",
+    "recommendation": "丽江古城北门广场是进入古城的主要入口之一。下午5点后进古城可避开白天80元维护费。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_9e8199ae",
@@ -5304,10 +5851,15 @@
     "description": "锁翠桥，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B037814E1R",
-    "recommendation": "锁翠桥是当地热门景点。",
+    "recommendation": "锁翠桥是古城内少有的明代石拱桥，桥下流水清澈。本地人常在此发呆，比四方街安静十倍。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_edc04fbc",
@@ -5332,10 +5884,15 @@
     "description": "文化院落·雪山书院，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780IGQ8",
-    "recommendation": "文化院落·雪山书院是当地热门景点。",
+    "recommendation": "雪山书院是古城内保存完好的清代学堂，可看东巴文拓印。找值班老学者要一杯免费普洱茶，能听他讲纳西故事。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_388f7ddb",
@@ -5358,10 +5915,15 @@
     "description": "束河古镇-九鼎龙潭，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378157WN",
-    "recommendation": "束河古镇-九鼎龙潭是当地热门景点。",
+    "recommendation": "九鼎龙潭是束河的水源头，潭水清澈见底。清晨7点去，潭面无游客倒映，只有雪山和古树。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_fce41787",
@@ -5386,10 +5948,15 @@
     "description": "民谣广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0GR553OLC",
-    "recommendation": "民谣广场是当地热门景点。",
+    "recommendation": "民谣广场是古城夜生活中心，常有街头歌手驻唱。别坐第一排，会被拉去互动唱歌，社恐慎入。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_f992a943",
@@ -5416,10 +5983,15 @@
     "description": "丽江植物园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHR1W6L",
-    "recommendation": "丽江植物园是当地热门景点。",
+    "recommendation": "丽江植物园高山杜鹃品种丰富，春季花开成海。从古城乘17路公交到终点站，比打车便宜20元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_abe05de5",
@@ -5444,10 +6016,15 @@
     "description": "文化院落·接风楼，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGLQFI1",
-    "recommendation": "文化院落·接风楼是当地热门景点。",
+    "recommendation": "纳西族传统迎宾建筑，融合茶马古道文化。周二下午门票半价，可提前网上预订。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_942e0b04",
@@ -5473,10 +6050,15 @@
     "description": "丽江市人民广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B037815A04",
-    "recommendation": "丽江市人民广场是当地热门景点。",
+    "recommendation": "丽江市民休闲中心，背靠狮子山视野开阔。本地人常傍晚来跳广场舞，氛围很地道。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_b9d18003",
@@ -5500,10 +6082,15 @@
     "description": "文笔山风景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378008WK",
-    "recommendation": "文笔山风景区是当地热门景点。",
+    "recommendation": "丽江文笔峰下的文化名山，有文峰寺等古迹。从后山小路徒步上去，免费且游客少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_4f1edf78",
@@ -5528,10 +6115,15 @@
     "description": "民族文化活动广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFE1175",
-    "recommendation": "民族文化活动广场是当地热门景点。",
+    "recommendation": "展示纳西族歌舞与节庆的露天广场。晚上8点有篝火打跳，参与免费且氛围热烈。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_b9e6048b",
@@ -5556,10 +6148,15 @@
     "description": "双石公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780IG9M",
-    "recommendation": "双石公园是当地热门景点。",
+    "recommendation": "丽江古城旁的休闲公园，以双巨石为标志。别在雨后去，石阶湿滑且蚊虫多。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_97620c6c",
@@ -5584,10 +6181,15 @@
     "description": "拉市海湿地公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L2MCYN33",
-    "recommendation": "拉市海湿地公园是当地热门景点。",
+    "recommendation": "高原湖泊湿地，候鸟栖息地。坐31路公交到拉市海站，比打车省一半钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_f50b12f9",
@@ -5612,10 +6214,15 @@
     "description": "丽江古城-万子桥，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFJOO482",
-    "recommendation": "丽江古城-万子桥是当地热门景点。",
+    "recommendation": "清代石拱桥，桥上雕有百子图。早上7点前免费，游客少适合拍照。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_d1ed2783",
@@ -5638,10 +6245,15 @@
     "description": "世界记忆遗产公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780I3YQ",
-    "recommendation": "世界记忆遗产公园是当地热门景点。",
+    "recommendation": "展示东巴古籍等世界记忆遗产。本地人常去旁边的非遗馆学东巴文，免费体验。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_a6424989",
@@ -5666,10 +6278,15 @@
     "description": "听花谷，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0H2TCP8ZE",
-    "recommendation": "听花谷是当地热门景点。",
+    "recommendation": "雪山脚下的花海秘境，四季花开不断。别走主路，绕到谷东侧小径能拍到无人花田与雪山同框。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_edea60b3",
@@ -5693,10 +6310,15 @@
     "description": "文化院落·红军长征过丽江指挥部纪念馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFM18XQM",
-    "recommendation": "文化院落·红军长征过丽江指挥部纪念馆是当地热门景点。",
+    "recommendation": "见证红军长征过丽江的历史旧址，保留大量珍贵文物。上午9点开门就去，人少安静能细看展板故事。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_b902f0ed",
@@ -5720,10 +6342,15 @@
     "description": "清真寺(北门坡)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780HUOH",
-    "recommendation": "清真寺(北门坡)是当地热门景点。",
+    "recommendation": "古城内古朴的清真寺，融合纳西与伊斯兰建筑风格。注意周五主麻日游客禁入，别白跑一趟。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_10aba51f",
@@ -5747,10 +6374,15 @@
     "description": "东巴谷景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378008F8",
-    "recommendation": "东巴谷景区是当地热门景点。",
+    "recommendation": "展示纳西东巴文化的自然峡谷，有图腾和祭祀表演。从丽江古城坐6路公交直达东巴谷站，半小时一班。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_3df98631",
@@ -5776,10 +6408,15 @@
     "description": "香格里拉雪域映象，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0M69SAF3G",
-    "recommendation": "香格里拉雪域映象是当地热门景点。",
+    "recommendation": "沉浸式展示藏区风情的演艺剧场，歌舞震撼。网上提前订票比现场便宜30元，下午场人少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_6d57e922",
@@ -5802,10 +6439,15 @@
     "description": "白沙壁画，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFEJE6E",
-    "recommendation": "白沙壁画是当地热门景点。",
+    "recommendation": "明代纳西族壁画珍品，融合汉藏佛教艺术。本地人爱逛完壁画后去隔壁小店喝酥油茶，味道正宗。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_4c7d3aed",
@@ -5829,10 +6471,15 @@
     "description": "文笔山风景区-文峰寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780I1TZ",
-    "recommendation": "文笔山风景区-文峰寺是当地热门景点。",
+    "recommendation": "藏传佛教圣地，寺内有巨型转经筒和雪山远景。清晨去能偶遇僧人诵经，还可免费取泉水泡茶。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_a2871ab8",
@@ -5857,10 +6504,15 @@
     "description": "香巴拉牧场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LB3RCVHS",
-    "recommendation": "香巴拉牧场是当地热门景点。",
+    "recommendation": "高原草甸与牦牛群构成的宁静牧场，适合放松。夏季傍晚6点后游客散尽，夕阳洒在草上拍照绝美。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_6465a559",
@@ -5886,10 +6538,15 @@
     "description": "碧雪楠亭，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LKUR0H4L",
-    "recommendation": "碧雪楠亭是当地热门景点。",
+    "recommendation": "碧雪楠亭是古城区热门景点，以楠木亭台和雪景闻名。别被门口拍照收费的假僧人骗了，直接进去即可。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_eeb1b471",
@@ -5914,10 +6571,15 @@
     "description": "丽江古城-南门广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHSJFNO",
-    "recommendation": "丽江古城-南门广场是当地热门景点。",
+    "recommendation": "丽江古城南门广场是古城入口，可看大水车和纳西歌舞。坐公交2路到“古城南门”站下车，步行即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_321e67ed",
@@ -5942,10 +6604,15 @@
     "description": "玉龙锁脉寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGD1FZD",
-    "recommendation": "玉龙锁脉寺是当地热门景点。",
+    "recommendation": "玉龙锁脉寺是古城区藏传佛教古寺，内有一棵千年银杏。每周三下午免门票，记得带身份证。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_b0e5206",
@@ -5968,10 +6635,15 @@
     "description": "丽江大经幡，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LG3Z7I2E",
-    "recommendation": "丽江大经幡是当地热门景点。",
+    "recommendation": "丽江大经幡位于玉龙县，五彩经幡随风飘动。本地人常去北侧山坡，能避开游客拍到全景。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_f205f1eb",
@@ -5994,10 +6666,15 @@
     "description": "风铃街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KB9M4M3M",
-    "recommendation": "风铃街是当地热门景点。",
+    "recommendation": "风铃街挂满各式风铃，风吹过叮当作响。晚上9点后去，能听到最清脆的铃声。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_608ef25",
@@ -6022,10 +6699,15 @@
     "description": "丽江古城-南门桥，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFJOO499",
-    "recommendation": "丽江古城-南门桥是当地热门景点。",
+    "recommendation": "丽江古城南门桥是青石板拱桥，桥下溪水清澈。清晨7点去，人少光线柔和，适合拍倒影。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_b5383c22",
@@ -6048,10 +6730,15 @@
     "description": "香格里拉雄古景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFYNYZE",
-    "recommendation": "香格里拉雄古景区是当地热门景点。",
+    "recommendation": "香格里拉雄古景区以峡谷和古村落为主，海拔较高。别在景区门口买氧气瓶，古城里便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_c0d70506",
@@ -6077,10 +6764,15 @@
     "description": "丽江市市政广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780IG3P",
-    "recommendation": "丽江市市政广场是当地热门景点。",
+    "recommendation": "丽江市政广场是市民休闲地，常有纳西打跳。自驾可停广场地下停车场，2元一小时。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_97581b62",
@@ -6105,10 +6797,15 @@
     "description": "复星旅文丽江地中海国际度假区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IDVH74AL",
-    "recommendation": "复星旅文丽江地中海国际度假区是当地热门景点。",
+    "recommendation": "集住宿、娱乐于一体的综合度假区，适合家庭休闲。下午3点后门票有折扣，提前网上预订更省钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_11c86142",
@@ -6133,10 +6830,15 @@
     "description": "白沙古镇综合广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFF43YHM",
-    "recommendation": "白沙古镇综合广场是当地热门景点。",
+    "recommendation": "白沙古镇的核心广场，周边有传统手工艺店。本地人常去广场边的老茶馆喝茶，体验原汁原味的纳西生活。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_a5805305",
@@ -6162,10 +6864,15 @@
     "description": "金甲公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B037800413",
-    "recommendation": "金甲公园是当地热门景点。",
+    "recommendation": "城市中的宁静公园，绿树成荫适合散步。清晨去公园深处的小广场，能遇到本地老人打太极拳，免费参与。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_2f4b80a9",
@@ -6188,10 +6895,15 @@
     "description": "黑龙潭公园-得月楼，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KAVCEOFA",
-    "recommendation": "黑龙潭公园-得月楼是当地热门景点。",
+    "recommendation": "得月楼是黑龙潭标志建筑，倒映水中如画。清晨去，湖水最平静，能拍出完美倒影和玉龙雪山。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_c550b5e",
@@ -6216,10 +6928,15 @@
     "description": "光碧楼，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378004NS",
-    "recommendation": "光碧楼是当地热门景点。",
+    "recommendation": "古城内历史建筑，可俯瞰街景。别只看外观，上楼需额外付费，不如在楼下拍全景更划算。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_5634b0e6",
@@ -6244,10 +6961,15 @@
     "description": "丽江拉市海风景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K6D58UZB",
-    "recommendation": "丽江拉市海风景区是当地热门景点。",
+    "recommendation": "高原湖泊湿地，候鸟栖息地。从丽江古城坐31路公交直达，自驾导航拉市海湿地公园停车场。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_c251a79f",
@@ -6272,10 +6994,15 @@
     "description": "龙祥广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LDM7EGUC",
-    "recommendation": "龙祥广场是当地热门景点。",
+    "recommendation": "本地休闲广场，常有文艺表演。免费进入，周末晚上有露天电影，自带零食就能省下娱乐费用。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_b82fe482",
@@ -6299,10 +7026,15 @@
     "description": "丽江古城博物院-木府，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780I3B7",
-    "recommendation": "丽江古城博物院-木府是当地热门景点。",
+    "recommendation": "木氏土司官邸，仿紫禁城布局。从古城四方街走小巷过去，比主路快且避开游客人流。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_b65f1158",
@@ -6326,10 +7058,15 @@
     "description": "丽江市博物院，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378004JM",
-    "recommendation": "丽江市博物院是当地热门景点。",
+    "recommendation": "馆藏东巴古籍与纳西族民俗文物，可了解本土文化精髓。下午三点后有志愿者免费导览，比走马观花更有收获。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_fa22bdef",
@@ -6354,10 +7091,15 @@
     "description": "帷幕开啦蜡像馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG63RN2",
-    "recommendation": "帷幕开啦蜡像馆是当地热门景点。",
+    "recommendation": "展出多位名人蜡像，适合合影打卡。建议早晨刚开门时去，游客少光线好，拍照不用排队。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_46a4c71d",
@@ -6382,10 +7124,15 @@
     "description": "山忆舍·sys·艺术别院，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LUP5LL2T",
-    "recommendation": "山忆舍·sys·艺术别院是当地热门景点。",
+    "recommendation": "融合艺术与住宿的别院，展示本地画作与手工艺品。别被院子里的标价吓到，很多展品只是装饰而非商品。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_f21f31c6",
@@ -6413,10 +7160,15 @@
     "description": "手绘画艺术民宿(丽江古城忠义市场店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFIP6TDB",
-    "recommendation": "手绘画艺术民宿(丽江古城忠义市场店)是当地热门景点。",
+    "recommendation": "以手绘画为主题的特色民宿，房间装饰独特。从忠义市场步行5分钟即到，自驾可停在市场停车场再走路进巷子。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_fc8da722",
@@ -6442,10 +7194,15 @@
     "description": "润心谷教育信息咨询工作室，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0MGYL6UU8",
-    "recommendation": "润心谷教育信息咨询工作室是当地热门景点。",
+    "recommendation": "提供教育咨询与心理辅导服务，环境安静。提前电话预约可免咨询费，周末常有免费讲座。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_62d92634",
@@ -6471,10 +7228,15 @@
     "description": "学仕教育(丽江分校)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0J0TDX4FI",
-    "recommendation": "学仕教育(丽江分校)是当地热门景点。",
+    "recommendation": "专注本地升学辅导的教育机构，师资经验丰富。本地家长常去咨询，建议提前打电话确认课程是否对外开放。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_ab19999d",
@@ -6499,10 +7261,15 @@
     "description": "文化院落·十月文学馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFLNEP7B",
-    "recommendation": "文化院落·十月文学馆是当地热门景点。",
+    "recommendation": "展示文学手稿与书籍的文化空间，充满文艺气息。每月第一个周六有免费文学沙龙，可现场参加互动。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_fec520af",
@@ -6526,10 +7293,15 @@
     "description": "丽江东巴文化博物馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378008PN",
-    "recommendation": "丽江东巴文化博物馆是当地热门景点。",
+    "recommendation": "收藏东巴象形文字与古籍的专题博物馆，文化底蕴深厚。建议上午10点前到，避开旅行团高峰，能安静看展。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_2e53ba36",
@@ -6554,10 +7326,15 @@
     "description": "文化院落·阿妈意·丽江饮食文化传习院，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KGXUOL1J",
-    "recommendation": "文化院落·阿妈意·丽江饮食文化传习院是当地热门景点。",
+    "recommendation": "丽江饮食文化传习院，可体验传统纳西美食制作。别信门口拉客的“免费试吃”，直接买套餐更划算。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_a3706e8a",
@@ -6582,10 +7359,15 @@
     "description": "丽江古道藏家博物馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFF01NAG",
-    "recommendation": "丽江古道藏家博物馆是当地热门景点。",
+    "recommendation": "展示茶马古道与藏族文化的博物馆，藏品丰富。坐3路公交到束河路口下车，步行5分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_fa4525c4",
@@ -6612,10 +7394,15 @@
     "description": "小智的手鼓店(饮玉店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0I12SCGAG",
-    "recommendation": "小智的手鼓店(饮玉店)是当地热门景点。",
+    "recommendation": "网红手鼓体验店，可学打简单节奏。下午3点后有团购优惠，比现场单买便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_3b6a11c7",
@@ -6641,10 +7428,15 @@
     "description": "华图教育(丽江分校)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGTA2SY",
-    "recommendation": "华图教育(丽江分校)是当地热门景点。",
+    "recommendation": "丽江本地公考培训机构，课程实用。本地人常去旁边的忠义市场买小吃，价格比景区便宜。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_6c10d2f1",
@@ -6671,10 +7463,15 @@
     "description": "文化院落·老木艺术空间，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHOS2DR",
-    "recommendation": "文化院落·老木艺术空间是当地热门景点。",
+    "recommendation": "展示木雕艺术的院落，作品细腻。找老板聊聊能学到雕刻技巧，还能免费拿小木片试刻。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_2f313362",
@@ -6701,10 +7498,15 @@
     "description": "青慕白影像艺术中心(丽江店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LU9LCUVK",
-    "recommendation": "青慕白影像艺术中心(丽江店)是当地热门景点。",
+    "recommendation": "主打民族风摄影的艺术中心，场景精致。建议上午10点前到，人少光线好，出片率高。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_7b627008",
@@ -6732,10 +7534,15 @@
     "description": "玉龙纳西族自治县黄山镇长水完小，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780HYT6",
-    "recommendation": "玉龙纳西族自治县黄山镇长水完小是当地热门景点。",
+    "recommendation": "乡村小学，常有学生手工艺品展示。别在放学时间参观，容易打扰学生，上午课间去最好。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_e0ee3077",
@@ -6762,10 +7569,15 @@
     "description": "文化院落·恒裕公居民博物馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFYRS2X",
-    "recommendation": "文化院落·恒裕公居民博物馆是当地热门景点。",
+    "recommendation": "百年纳西民居改造的博物馆，保存完整。从古城四方街步行15分钟即到，别开车，巷子窄停车难。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_8ee14efc",
@@ -6793,10 +7605,15 @@
     "description": "樱花屋金酒吧b区(民谣)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFI6SXA6",
-    "recommendation": "樱花屋金酒吧b区(民谣)是当地热门景点。",
+    "recommendation": "丽江古城热门民谣酒吧，夜晚驻唱氛围浓厚。先团购套餐比单点酒水省一半，还能免座位费。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_33fb73c6",
@@ -6821,10 +7638,15 @@
     "description": "文化院落·天青阁东巴青花瓷器馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HDTHKQ25",
-    "recommendation": "文化院落·天青阁东巴青花瓷器馆是当地热门景点。",
+    "recommendation": "展示东巴文化与青花瓷融合的独特展馆，瓷器图案源自纳西象形文字。本地人常去后院学画瓷，免费体验半小时。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_f70f43b9",
@@ -6849,10 +7671,15 @@
     "description": "十九宗·藏香唐卡艺术空间，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K07DKM9U",
-    "recommendation": "十九宗·藏香唐卡艺术空间是当地热门景点。",
+    "recommendation": "展示藏香与唐卡制作工艺的艺术空间，可亲手体验唐卡描边。悄悄上二楼阳台，能拍到古城全景而且没人抢位置。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_2343bd8d",
@@ -6876,10 +7703,15 @@
     "description": "丽江市民族服饰博物馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K1TSUOLM",
-    "recommendation": "丽江市民族服饰博物馆是当地热门景点。",
+    "recommendation": "收藏纳西、彝族等民族传统服饰的博物馆，展品精美。建议下午三点去，人少光线好，拍照不用排队。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_958e616a",
@@ -6903,10 +7735,15 @@
     "description": "茶马古道博物馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378008J7",
-    "recommendation": "茶马古道博物馆是当地热门景点。",
+    "recommendation": "讲述茶马古道历史与马帮文化的专题博物馆。注意别在门口买纪念品，比馆内贵一倍，可出馆去四方街买。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_1f54894d",
@@ -6936,10 +7773,15 @@
     "description": "彩丽广告，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LURC2YQB",
-    "recommendation": "彩丽广告是当地热门景点。",
+    "recommendation": "古城内以广告艺术为主题的创意景点，展示老丽江招牌设计。坐2路公交到北门坡站，步行5分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_c67eb637",
@@ -6964,10 +7806,15 @@
     "description": "白沙细乐传习中心(千年艺语)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KUOUTIAZ",
-    "recommendation": "白沙细乐传习中心(千年艺语)是当地热门景点。",
+    "recommendation": "传承纳西族古老白沙细乐的文化中心，可听千年古乐演奏。每周三下午免费开放，记得提前预约席位。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_e1c917e6",
@@ -6992,10 +7839,15 @@
     "description": "文化院落·丽江古城历史文化展示馆(北馆)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0GDL6EHYP",
-    "recommendation": "文化院落·丽江古城历史文化展示馆(北馆)是当地热门景点。",
+    "recommendation": "系统展示丽江古城历史变迁的展馆，有沙盘和文物。本地人推荐先看二楼短片，再逛一楼展区，理解更深。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_e2d07b04",
@@ -7020,10 +7872,15 @@
     "description": "云南理根教育丽江分校，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0G2G1OQA9",
-    "recommendation": "云南理根教育丽江分校是当地热门景点。",
+    "recommendation": "云南理根教育丽江分校是融合教育氛围与地域文化的特色景点。绕过正门，从侧巷进去能拍到光影交错的复古走廊。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_f0f7ed76",
@@ -7050,10 +7907,15 @@
     "description": "向山view homestay，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0I0XA9QRY",
-    "recommendation": "向山view homestay是当地热门景点。",
+    "recommendation": "向山view homestay是坐拥山景的静谧民宿。清晨六点去天台，能看到晨雾缭绕的雪山倒映在露水中。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_842320c4",
@@ -7078,10 +7940,15 @@
     "description": "中和公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKHHBVP",
-    "recommendation": "中和公园是当地热门景点。",
+    "recommendation": "中和公园是古城区内的本地休闲绿地。别在午后去，树荫少且蚊虫多，建议傍晚带驱蚊液散步。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_71eae928",
@@ -7106,10 +7973,15 @@
     "description": "玉泉公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HUYCRURA",
-    "recommendation": "玉泉公园是当地热门景点。",
+    "recommendation": "玉泉公园以黑龙潭和古建筑群闻名。坐3路公交到北门下车，步行五分钟即达，比自驾省停车费。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_23442f79",
@@ -7134,10 +8006,15 @@
     "description": "文华公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03781594O",
-    "recommendation": "文华公园是当地热门景点。",
+    "recommendation": "文华公园是玉龙雪山脚下的生态公园。每周二上午免费开放，提前领券能省30元门票。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_cd8660d9",
@@ -7163,10 +8040,15 @@
     "description": "白龙苑，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B037814E3M",
-    "recommendation": "白龙苑是当地热门景点。",
+    "recommendation": "白龙苑是藏着纳西族老宅的庭院景区。本地人爱去后院石凳上喝茶，那里有棵百年紫薇树。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_9288428f",
@@ -7192,10 +8074,15 @@
     "description": "丽江市崇文公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B037814E2T",
-    "recommendation": "丽江市崇文公园是当地热门景点。",
+    "recommendation": "丽江市崇文公园以孔子雕像和科举文化墙为特色。从东侧小径上山，能找到刻着古诗词的隐秘石碑。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_ad131cb3",
@@ -7220,10 +8107,15 @@
     "description": "宝华寺公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B037815BMU",
-    "recommendation": "宝华寺公园是当地热门景点。",
+    "recommendation": "宝华寺公园是融合汉藏佛教的古寺园林。冬季雪后清晨去，薄雾中金顶和红墙最出片。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_86664f34",
@@ -7248,10 +8140,15 @@
     "description": "蛇山公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFF0ES29",
-    "recommendation": "蛇山公园是当地热门景点。",
+    "recommendation": "古城区的蛇山公园植被茂密，可俯瞰老城风貌。别信门口拉客的“免费导游”，都是推销购物点的。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_c6206cd5",
@@ -7276,10 +8173,15 @@
     "description": "富兴公园fuxing park，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0MDBRHVZY",
-    "recommendation": "富兴公园fuxing park是当地热门景点。",
+    "recommendation": "古城区核心的富兴公园，湖心亭和步道最宜散步。坐公交7路到“富兴公园站”下车，直达南门。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_de0a1c7b",
@@ -7304,10 +8206,15 @@
     "description": "寨后公园南园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03781582Z",
-    "recommendation": "寨后公园南园是当地热门景点。",
+    "recommendation": "寨后公园南园以盆景园和竹林小径著称。每天上午10点前入园免费，省下门票钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_d90a149c",
@@ -7333,10 +8240,15 @@
     "description": "寨后公园北园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03781582W",
-    "recommendation": "寨后公园北园是当地热门景点。",
+    "recommendation": "寨后公园北园有片隐秘的樱花园，本地人常去晨练。从东侧小门进，人少景更美。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_50a7614d",
@@ -7361,10 +8273,15 @@
     "description": "锦上坊游园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKG0J91",
-    "recommendation": "锦上坊游园是当地热门景点。",
+    "recommendation": "锦上坊游园藏着古城最老的石拱桥，桥下流水声特别清脆。傍晚绕到桥底，能发现刻着古诗词的石壁。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_c061c5f4",
@@ -7389,10 +8306,15 @@
     "description": "小公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IKP7ZB9I",
-    "recommendation": "小公园是当地热门景点。",
+    "recommendation": "小公园虽不大，但古树参天、闹中取静。建议清晨7点去，晨雾未散时整座园子像水墨画。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_5c42e4ec",
@@ -7417,10 +8339,15 @@
     "description": "丽江美泉三文鱼公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG1KBMM",
-    "recommendation": "丽江美泉三文鱼公园是当地热门景点。",
+    "recommendation": "玉龙雪山脚下的三文鱼公园，溪水清澈见鱼。别在园内餐厅点“雪山三文鱼”，其实是虹鳟鱼，价格虚高。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_16b828b6",
@@ -7445,10 +8372,15 @@
     "description": "拉市海鸟屿花乡湿地生态公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LA1H6O7Q",
-    "recommendation": "拉市海鸟屿花乡湿地生态公园是当地热门景点。",
+    "recommendation": "拉市海湿地候鸟成群，秋季芦苇荡最美。从丽江古城坐31路到“湿地公园站”，比包车便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_bcbb6fa0",
@@ -7473,10 +8405,15 @@
     "description": "大野候鸟湾·拉市海湿地公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0MAGUYF0V",
-    "recommendation": "大野候鸟湾·拉市海湿地公园是当地热门景点。",
+    "recommendation": "拉市海冬季候鸟天堂，可乘船观鸟。提前在网上买套票比现场便宜30元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_ae3a1ede",
@@ -7501,10 +8438,15 @@
     "description": "路可司公园Lucas Park，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LUUCLJFN",
-    "recommendation": "路可司公园Lucas Park是当地热门景点。",
+    "recommendation": "本地人爱逛的静谧花园，适合散步拍照。从侧门进能避开正门排队，人少景美。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_20ef066a",
@@ -7529,10 +8471,15 @@
     "description": "雪山圣水度假公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHQSJHA",
-    "recommendation": "雪山圣水度假公园是当地热门景点。",
+    "recommendation": "雪山融水汇聚的天然泳池，夏季清凉。自带泳衣免费泡脚池，避开收费泡汤区。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_5b2dff97",
@@ -7557,10 +8504,15 @@
     "description": "玉龙黎明-老君山国家地质公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378000LZ",
-    "recommendation": "玉龙黎明-老君山国家地质公园是当地热门景点。",
+    "recommendation": "青藏高原丹霞地貌代表，千龟山奇观。清晨去光线最佳，日出映红岩石最震撼。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_2cf20f2",
@@ -7585,10 +8537,15 @@
     "description": "沧阳公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HGJ5IM3H",
-    "recommendation": "沧阳公园是当地热门景点。",
+    "recommendation": "永胜老牌公园，湖心亭可赏荷。别在门口买高价香烛，里面小摊便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_f77deaf0",
@@ -7613,10 +8570,15 @@
     "description": "凤凰公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780I13P",
-    "recommendation": "凤凰公园是当地热门景点。",
+    "recommendation": "依山而建的生态公园，可俯瞰县城。坐3路公交到北门站，步行5分钟即达。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_656120dd",
@@ -7641,10 +8603,15 @@
     "description": "白马公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0G06SPYLS",
-    "recommendation": "白马公园是当地热门景点。",
+    "recommendation": "纪念白马将军的文化公园，雕像群有历史。下午5点后免门票，带水入园更划算。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_c8ce20ae",
@@ -7669,10 +8636,15 @@
     "description": "虹霁公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0G06ZOXF1",
-    "recommendation": "虹霁公园是当地热门景点。",
+    "recommendation": "永胜最老的市民公园，古树葱郁。本地人常去后山晨练，清晨免费且空气好。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_484d726c",
@@ -7697,10 +8669,15 @@
     "description": "白云山公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JDPURXJR",
-    "recommendation": "白云山公园是当地热门景点。",
+    "recommendation": "永胜县热门景点，山顶可俯瞰县城全景。绕到后山步道走，人少景美还能偶遇野生菌。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_d91a141c",
@@ -7725,10 +8702,15 @@
     "description": "澜沧公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0G06SOCNM",
-    "recommendation": "澜沧公园是当地热门景点。",
+    "recommendation": "永胜县热门景点，沿江步道绿树成荫。清晨去最惬意，江面晨雾缭绕且游客稀少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_a054ecd1",
@@ -7753,10 +8735,15 @@
     "description": "白果公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IUXYB8V9",
-    "recommendation": "白果公园是当地热门景点。",
+    "recommendation": "永胜县热门景点，秋季银杏叶金黄迷人。别只走主路，侧门小径藏着百年古树。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_58047888",
@@ -7781,10 +8768,15 @@
     "description": "马店沟公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K1SUB5EU",
-    "recommendation": "马店沟公园是当地热门景点。",
+    "recommendation": "宁蒗热门景点，峡谷溪流风光原始。自驾最方便，导航到景区东门有免费停车位。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_5eaf6835",
@@ -7809,10 +8801,15 @@
     "description": "永北公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IU95UJVM",
-    "recommendation": "永北公园是当地热门景点。",
+    "recommendation": "永胜县热门景点，湖心亭是拍照打卡点。每周三上午免费开放，记得带身份证。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_57748d3e",
@@ -7837,10 +8834,15 @@
     "description": "大树公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFL1UM2F",
-    "recommendation": "大树公园是当地热门景点。",
+    "recommendation": "宁蒗热门景点，拥有千年古树群。本地人更爱去树后的观景台，视野开阔还不用挤。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_804c7050",
@@ -7865,10 +8867,15 @@
     "description": "狮山公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKNY0D1",
-    "recommendation": "狮山公园是当地热门景点。",
+    "recommendation": "华坪县热门景点，登顶可望金沙江。从东侧野路上山，半小时直达观景石。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_7d0a6588",
@@ -7893,10 +8900,15 @@
     "description": "亷政文化公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFM1YIZW",
-    "recommendation": "亷政文化公园是当地热门景点。",
+    "recommendation": "华坪县热门景点，廉政雕塑与园林结合。傍晚去最舒服，夕阳洒在石刻上光影绝佳。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_91e3e082",
@@ -7921,10 +8933,15 @@
     "description": "旧衙坪公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKJ4OI4",
-    "recommendation": "旧衙坪公园是当地热门景点。",
+    "recommendation": "华坪县热门休闲公园，适合散步放松。别被门口小贩忽悠买高价零食，公园内物价正常。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_c2fb0885",
@@ -7949,10 +8966,15 @@
     "description": "漾江河滨公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFMHQMY8",
-    "recommendation": "漾江河滨公园是当地热门景点。",
+    "recommendation": "沿江而建的河滨公园，景色宜人。坐16路公交到江滨路口站下，步行3分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_625736ac",
@@ -7976,10 +8998,15 @@
     "description": "丽江玉水寨风景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B037814VR2",
-    "recommendation": "丽江玉水寨风景区是当地热门景点。",
+    "recommendation": "纳西族文化发源地，有清澈泉水与神龙三叠水。提前在美团买电子票比现场便宜20元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_8c8cbc3c",
@@ -8002,10 +9029,15 @@
     "description": "丽江玉湖景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KAUUFZBQ",
-    "recommendation": "丽江玉湖景区是当地热门景点。",
+    "recommendation": "雪山脚下静谧湖泊，倒映玉龙十三峰。本地人喜欢从北侧小径进去，免费且人少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_358f7922",
@@ -8028,10 +9060,15 @@
     "description": "玉龙雪山国家级风景名胜区蓝月谷，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378157WA",
-    "recommendation": "玉龙雪山国家级风景名胜区蓝月谷是当地热门景点。",
+    "recommendation": "雪山融水形成的蓝色月牙形河谷，水色梦幻。别只拍照，脱鞋踩水体验冰凉触感更过瘾。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_b83a6dab",
@@ -8056,10 +9093,15 @@
     "description": "网红湖日照金山打卡点，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K2F9QL1X",
-    "recommendation": "网红湖日照金山打卡点是当地热门景点。",
+    "recommendation": "雪山倒映湖面的日出奇观，摄影圣地。最佳时间是冬季早7:30-8:00，光线最柔和。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_a40980af",
@@ -8082,10 +9124,15 @@
     "description": "白沙牌楼，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LRJSGWEN",
-    "recommendation": "白沙牌楼是当地热门景点。",
+    "recommendation": "丽江古城标志性古建筑，纳西族风格浓郁。别傻站牌楼下拍照，移到侧巷能避开人群。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_de97ceb1",
@@ -8110,10 +9157,15 @@
     "description": "指云寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378008NN",
-    "recommendation": "指云寺是当地热门景点。",
+    "recommendation": "藏传佛教古刹，建筑精美。自驾走拉市海方向山路最方便，导航直达且停车免费。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_8e74a4ea",
@@ -8138,10 +9190,15 @@
     "description": "指云寺-长寿灵感殿，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG1PPNQ",
-    "recommendation": "指云寺-长寿灵感殿是当地热门景点。",
+    "recommendation": "指云寺内的长寿灵感殿，是当地祈福求寿的灵验之地。联票可游览多个景点，单买门票更划算。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_72eefb03",
@@ -8166,10 +9223,15 @@
     "description": "丽江市福国寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780HUGN",
-    "recommendation": "丽江市福国寺是当地热门景点。",
+    "recommendation": "福国寺是丽江最早的噶举派寺院，藏匿于山林之中。本地人常去后山转经，人少景幽更清净。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_948e5fd7",
@@ -8194,10 +9256,15 @@
     "description": "玉峰寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378008J4",
-    "recommendation": "玉峰寺是当地热门景点。",
+    "recommendation": "玉峰寺以万朵山茶闻名，每年春季花开如瀑。清晨去可避开人流，独享古树与晨钟的静谧。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_4cad2712",
@@ -8222,10 +9289,15 @@
     "description": "普济寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780HVI4",
-    "recommendation": "普济寺是当地热门景点。",
+    "recommendation": "普济寺是丽江唯一的铜瓦殿，古朴庄严。建议下午四点后去，斜阳洒在铜瓦上金光熠熠，拍照绝美。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_c93b85c6",
@@ -8250,10 +9322,15 @@
     "description": "弘法寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0GUT7HOW6",
-    "recommendation": "弘法寺是当地热门景点。",
+    "recommendation": "弘法寺是汉传佛教寺院，香火旺盛。注意不要在山门口买高价香，寺内免费提供三支清香。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_2c2cc987",
@@ -8278,10 +9355,15 @@
     "description": "扎美寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780I3CS",
-    "recommendation": "扎美寺是当地热门景点。",
+    "recommendation": "扎美寺是宁蒗最大藏传佛教寺院，壁画精美。从县城打车约20元，或乘永宁方向班车到寺门下。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_632fd3c0",
@@ -8306,10 +9388,15 @@
     "description": "东山庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JA29C4GQ",
-    "recommendation": "东山庙是当地热门景点。",
+    "recommendation": "东山庙是当地民俗活动聚集地，供奉山神。每月初一、十五免门票，可趁此时前往省一笔。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_218f59a6",
@@ -8335,10 +9422,15 @@
     "description": "灵源箐观音阁，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378157WU",
-    "recommendation": "灵源箐观音阁是当地热门景点。",
+    "recommendation": "灵源箐观音阁依山而建，崖壁有摩崖石刻。本地人爱在清晨来此接山泉水，甘甜清冽不妨带一瓶。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_f716df80",
@@ -8363,10 +9455,15 @@
     "description": "华坪县荣将镇狮子山弥勒寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFI65UIQ",
-    "recommendation": "华坪县荣将镇狮子山弥勒寺是当地热门景点。",
+    "recommendation": "依山而建的弥勒寺，可俯瞰华坪全景。绕到寺后小路，能发现一处少人知的观景台，视野更开阔。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_6b5272b7",
@@ -8391,10 +9488,15 @@
     "description": "靴顶寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780I25D",
-    "recommendation": "靴顶寺是当地热门景点。",
+    "recommendation": "丽江古城内的小众寺庙，以靴形屋顶闻名。建议清晨前往，游客稀少，能静心感受古寺的安宁氛围。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_a318e6a1",
@@ -8420,10 +9522,15 @@
     "description": "财神庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG72RYO",
-    "recommendation": "财神庙是当地热门景点。",
+    "recommendation": "供奉财神的古庙，香火旺盛。别急着买门口高价香，庙内免费提供三支清香，更诚心实惠。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_bf8ea388",
@@ -8448,10 +9555,15 @@
     "description": "北岳庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378008JA",
-    "recommendation": "北岳庙是当地热门景点。",
+    "recommendation": "丽江最早的汉传佛教寺院之一，历史悠久。自驾直接导航北岳庙，门口有免费停车位，停车方便。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_7343ebae",
@@ -8476,10 +9588,15 @@
     "description": "北岳庙-玉龙祠，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378000W8",
-    "recommendation": "北岳庙-玉龙祠是当地热门景点。",
+    "recommendation": "玉龙祠是北岳庙内祭祀纳西保护神的殿堂。下午三点后游客减少，可享受半价门票，避开人流。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_b4a1acd3",
@@ -8504,10 +9621,15 @@
     "description": "达迦林寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG284LS",
-    "recommendation": "达迦林寺是当地热门景点。",
+    "recommendation": "宁蒗最古老的藏传佛教寺院，壁画精美。本地人建议带点酥油茶，和僧侣聊聊寺庙传说，体验更地道。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_86ca6230",
@@ -8532,10 +9654,15 @@
     "description": "观音堂，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFIJMRAZ",
-    "recommendation": "观音堂是当地热门景点。",
+    "recommendation": "古城闹中取静的观音堂，香客以本地人为主。从堂后侧门出去，有条石板小巷直通黑龙潭，景色清幽。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_976a34e0",
@@ -8560,10 +9687,15 @@
     "description": "三朵庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKJ8662",
-    "recommendation": "三朵庙是当地热门景点。",
+    "recommendation": "供奉纳西族保护神三朵的庙宇，每年农历二月初八最热闹。建议这个节日去，能赶上盛大的祭祀活动和打跳。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_2150f667",
@@ -8588,10 +9720,15 @@
     "description": "启文寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03780HY4S",
-    "recommendation": "启文寺是当地热门景点。",
+    "recommendation": "启文寺是当地热门的文化景点，环境清幽。别被门口拉客的“免费导游”忽悠，直接自己逛更自在。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_4a7bbbeb",
@@ -8616,10 +9753,15 @@
     "description": "文化院落·丽江古城徐霞客纪念馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFM1ALMF",
-    "recommendation": "文化院落·丽江古城徐霞客纪念馆是当地热门景点。",
+    "recommendation": "徐霞客纪念馆展示明代旅行家足迹，文化底蕴深厚。坐古城内2路公交到四方街站，步行5分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_e7f9b561",
@@ -8645,10 +9787,15 @@
     "description": "丽江古城-天雨流芳，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFJOO47W",
-    "recommendation": "丽江古城-天雨流芳是当地热门景点。",
+    "recommendation": "天雨流芳是古城标志性牌坊，寓意“读书去吧”。早晨8点前人少免费，适合拍照避开游客潮。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_1775c14a",
@@ -8674,10 +9821,15 @@
     "description": "丽江古城-激沙沙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFJP5HXN",
-    "recommendation": "丽江古城-激沙沙是当地热门景点。",
+    "recommendation": "激沙沙是古城内隐秘的水景巷弄，流水潺潺。本地人爱傍晚来这发呆，比四方街清静得多。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_813f2a59",
@@ -8703,10 +9855,15 @@
     "description": "丽江古城古道驿站，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFGMBHR",
-    "recommendation": "丽江古城古道驿站是当地热门景点。",
+    "recommendation": "古道驿站曾是茶马古道休息点，木雕马帮模型生动。租套纳西服装在驿站内拍照，比街上租便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_56631075",
@@ -8732,10 +9889,15 @@
     "description": "丽江古城-飞来亭，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHHHPPJ",
-    "recommendation": "丽江古城-飞来亭是当地热门景点。",
+    "recommendation": "飞来亭是古城制高点，可俯瞰瓦顶全景。下午4点后登亭，光线柔和适合远眺玉龙雪山。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_3b7db776",
@@ -8760,10 +9922,15 @@
     "description": "丽江古城-李群杰故居，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHHGE8O",
-    "recommendation": "丽江古城-李群杰故居是当地热门景点。",
+    "recommendation": "李群杰故居是纳西族书法家旧居，院落雅致。别信门口说“内部维修”的骗子，直接推门免费进。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_453a394f",
@@ -8789,10 +9956,15 @@
     "description": "阿溢璨古井，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFJOYHW7",
-    "recommendation": "阿溢璨古井是当地热门景点。",
+    "recommendation": "阿溢璨古井是古城千年水井，水质清冽。从大水车沿五一街步行10分钟，别坐三轮车多绕路。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_5cf656f",
@@ -8818,10 +9990,15 @@
     "description": "丽江古城-怡馨亭，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG7D3Q6",
-    "recommendation": "丽江古城-怡馨亭是当地热门景点。",
+    "recommendation": "怡馨亭是古城内一处清幽的休憩亭，可远眺玉龙雪山。建议下午4点后前往，此时游客较少且无需额外购票。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_84124ad2",
@@ -8847,10 +10024,15 @@
     "description": "丽江古城-祖训堂，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0GRPXNF6R",
-    "recommendation": "丽江古城-祖训堂是当地热门景点。",
+    "recommendation": "祖训堂是纳西族文化传承的祠堂，展示家族训诫与历史。本地人常在此参加免费的文化讲座，可提前询问开放时间。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_b0f11650",
@@ -8876,10 +10058,15 @@
     "description": "丽江古城-玉水观音，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHHCJ2H",
-    "recommendation": "丽江古城-玉水观音是当地热门景点。",
+    "recommendation": "玉水观音位于古城水畔，以清澈泉水和观音雕像闻名。清晨6点去，能避开人流并感受晨雾中的静谧氛围。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_a3283718",
@@ -8905,10 +10092,15 @@
     "description": "白沙冉象，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFX8WFN",
-    "recommendation": "白沙冉象是当地热门景点。",
+    "recommendation": "白沙冉象是白沙古镇的象形文字遗址，保留古老东巴文化。最佳时间是上午9点前，光线柔和且游客稀少，适合拍照与学习。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_d60c2aa5",
@@ -8934,10 +10126,15 @@
     "description": "清水古镇，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG0NLS4",
-    "recommendation": "清水古镇是当地热门景点。",
+    "recommendation": "清水古镇以明清建筑群和石板街著称。注意不要随意进入未开放的老宅，部分房屋年久失修，建议沿主街游览。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_f0604cfb",
@@ -8963,10 +10160,15 @@
     "description": "丽江古城-石榴井，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03781511B",
-    "recommendation": "丽江古城-石榴井是当地热门景点。",
+    "recommendation": "石榴井是古城内一口历史古井，水质甘甜。从古城四方街步行10分钟即到，或乘坐7路公交在忠义市场站下车。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_aa1d23ef",
@@ -8990,10 +10192,15 @@
     "description": "丽江古城-小石桥，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG30QUT",
-    "recommendation": "丽江古城-小石桥是当地热门景点。",
+    "recommendation": "小石桥是跨越溪流的古朴石桥，适合观赏流水与街景。建议从桥下溪边步道绕行，免费且能拍出独特角度。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_a83e0589",
@@ -9019,10 +10226,15 @@
     "description": "丽江古城-百岁桥，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHCYRO9",
-    "recommendation": "丽江古城-百岁桥是当地热门景点。",
+    "recommendation": "百岁桥是连接古城东西的石拱桥，寓意长寿。本地人推荐傍晚去桥头小吃摊买烤饵块，价格比景区便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_f25c3bf5",
@@ -9047,10 +10259,15 @@
     "description": "白沙古镇-大宝积宫，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG25UN9",
-    "recommendation": "白沙古镇-大宝积宫是当地热门景点。",
+    "recommendation": "白沙古镇大宝积宫以明代壁画闻名，是纳西文化瑰宝。找角落里的老奶奶买现烤的鸡豆凉粉，比街上摊位更地道。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_f30a3419",
@@ -9074,10 +10291,15 @@
     "description": "玉湖古村落，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0MDKABX18",
-    "recommendation": "玉湖古村落是当地热门景点。",
+    "recommendation": "玉湖古村落背靠玉龙雪山，湖水倒映雪山如画。清晨7点前到，人少雾散，能拍到雪山倒影和晨光。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_808fef33",
@@ -9103,10 +10325,15 @@
     "description": "石古城，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378157W6",
-    "recommendation": "石古城是当地热门景点。",
+    "recommendation": "石古城保留茶马古道石板路，民居古朴。别在入口买银饰，往里走价格更实在，还能看到老匠人现场打制。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_b1fda7c",
@@ -9130,10 +10357,15 @@
     "description": "茶马古道邱塘关遗址，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IBTC53WF",
-    "recommendation": "茶马古道邱塘关遗址是当地热门景点。",
+    "recommendation": "邱塘关是茶马古道上的险要关隘，现存烽火台和古道遗迹。从丽江古城坐6路公交到关坡站，步行10分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_e11ef1f",
@@ -9157,10 +10389,15 @@
     "description": "白沙古镇石门，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0MDHRSHPD",
-    "recommendation": "白沙古镇石门是当地热门景点。",
+    "recommendation": "白沙古镇石门是进入古镇的标志，百年老宅林立。下午5点后免门票，趁人少还能拍出光影古巷。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_794fefce",
@@ -9187,10 +10424,15 @@
     "description": "云南省丽江市步行街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B03781599Q",
-    "recommendation": "云南省丽江市步行街是当地热门景点。",
+    "recommendation": "步行街连接四方街和大水车，店铺琳琅满目。别挤主干道，拐进巷子里的小店能淘到手工皮具和东巴纸。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_2431dce7",
@@ -9217,10 +10459,15 @@
     "description": "仟佰汇商业步行街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHBO0XC",
-    "recommendation": "仟佰汇商业步行街是当地热门景点。",
+    "recommendation": "仟佰汇步行街是本地人爱逛的夜市，小吃和服饰丰富。晚上9点后去，找角落里的炸乳扇摊，比网红店更香脆。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_14c97f00",
@@ -9250,68 +10497,15 @@
     "description": "鱼米河商业步行街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0378002X9",
-    "recommendation": "鱼米河商业步行街是当地热门景点。",
+    "recommendation": "鱼米河步行街沿河而建，夜景灯光璀璨。傍晚6点去，河边酒吧还没涨价，边喝青梅酒边看日落最惬意。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_2cfa50ec",
-    "name": "HE赫",
-    "type": "attraction",
-    "lat": 26.875335,
-    "lng": 100.225008,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 3.1,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "HE赫，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFJ17YRT",
-    "recommendation": "HE赫是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_b7b727ca",
-    "name": "靓牛仔(丽江百货大楼古城口商业步行街店)",
-    "type": "attraction",
-    "lat": 26.877939,
-    "lng": 100.229953,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "靓牛仔(丽江百货大楼古城口商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFFDCKUD",
-    "recommendation": "靓牛仔(丽江百货大楼古城口商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_3d217480",
@@ -9337,99 +10531,15 @@
     "description": "顺锦步行街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFZGA0M",
-    "recommendation": "顺锦步行街是当地热门景点。",
+    "recommendation": "顺锦步行街是华坪县热闹的购物街，商铺林立。傍晚6点后去，部分店铺有折扣，还能蹭免费灯光秀。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_ebfeed7f",
-    "name": "佳能相机专卖店(福慧路店)",
-    "type": "attraction",
-    "lat": 26.878244,
-    "lng": 100.230378,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "家电电子卖场",
-      "数码电子",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 4.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "佳能相机专卖店(福慧路店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0GKGM5BD3",
-    "recommendation": "佳能相机专卖店(福慧路店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_688c3a30",
-    "name": "宝妈时光(鱼米河商业步行街店)",
-    "type": "attraction",
-    "lat": 26.877791,
-    "lng": 100.229725,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "儿童用品店",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 3.7,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "宝妈时光(鱼米河商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0JAYZE0NV",
-    "recommendation": "宝妈时光(鱼米河商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_81d4c070",
-    "name": "普香源(步行街店)",
-    "type": "attraction",
-    "lat": 26.872545,
-    "lng": 100.235073,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "专营店",
-      "景点"
-    ],
-    "popularity": 4,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "普香源(步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B03780IGYT",
-    "recommendation": "普香源(步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_91990610",
@@ -9454,71 +10564,15 @@
     "description": "古城口商业步行街(18口店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHLXC5I",
-    "recommendation": "古城口商业步行街(18口店)是当地热门景点。",
+    "recommendation": "古城口18口店是步行街入口之一，商铺密集。别在入口买银饰，往里走200米价格便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_bd7654b9",
-    "name": "云余茶庄(丽江百货大楼古城口商业步行街店)",
-    "type": "attraction",
-    "lat": 26.877305,
-    "lng": 100.232,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "专营店",
-      "景点"
-    ],
-    "popularity": 4,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "云余茶庄(丽江百货大楼古城口商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0GRVAT0SO",
-    "recommendation": "云余茶庄(丽江百货大楼古城口商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_4f82aff1",
-    "name": "中草集化妆品(丽江店)",
-    "type": "attraction",
-    "lat": 26.878063,
-    "lng": 100.229947,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "个人用品/化妆品店",
-      "其它个人用品店",
-      "专卖店",
-      "专营店",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 3.5,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "中草集化妆品(丽江店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFKIYC33",
-    "recommendation": "中草集化妆品(丽江店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_2d5ff928",
@@ -9545,274 +10599,15 @@
     "description": "古城口商业步行街(丽江国际购物广场店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0H0BX3ZBN",
-    "recommendation": "古城口商业步行街(丽江国际购物广场店)是当地热门景点。",
+    "recommendation": "丽江古城入口的繁华商圈，集合特产与百货。本地人常去地下层买伴手礼，价格更公道。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_46278571",
-    "name": "妈咪宝贝母婴店(福慧路店)",
-    "type": "attraction",
-    "lat": 26.877626,
-    "lng": 100.229712,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "儿童用品店",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 4,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "妈咪宝贝母婴店(福慧路店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B03780HYLM",
-    "recommendation": "妈咪宝贝母婴店(福慧路店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_f73c5bf6",
-    "name": "黄金书屋教辅书店(仟佰汇商业步行街店)",
-    "type": "attraction",
-    "lat": 26.858752,
-    "lng": 100.232871,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "书店",
-      "祥和",
-      "景点"
-    ],
-    "popularity": 3.8,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "黄金书屋教辅书店(仟佰汇商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0H19HJ9RX",
-    "recommendation": "黄金书屋教辅书店(仟佰汇商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_1ca37425",
-    "name": "凤妆阁(锦天步行街店)",
-    "type": "attraction",
-    "lat": 26.683684,
-    "lng": 100.749971,
-    "area": "永胜县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "个人用品/化妆品店",
-      "其它个人用品店",
-      "景点"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "凤妆阁(锦天步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFFWD5L6",
-    "recommendation": "凤妆阁(锦天步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_acf05134",
-    "name": "Yourself做自己潮牌集合店一店",
-    "type": "attraction",
-    "lat": 26.878279,
-    "lng": 100.229659,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 3.5,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "Yourself做自己潮牌集合店一店，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0JUVM3ZDV",
-    "recommendation": "Yourself做自己潮牌集合店一店是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_7775e60f",
-    "name": "品尚服饰(福慧路店)",
-    "type": "attraction",
-    "lat": 26.877864,
-    "lng": 100.229672,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "品尚服饰(福慧路店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFGNHRW4",
-    "recommendation": "品尚服饰(福慧路店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_47278704",
-    "name": "欧林雅竹纤维专卖店",
-    "type": "attraction",
-    "lat": 26.87882,
-    "lng": 100.229511,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "品牌服装店",
-      "景点"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "欧林雅竹纤维专卖店，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B03780HYLJ",
-    "recommendation": "欧林雅竹纤维专卖店是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_d460c476",
-    "name": "金慧百货(金官供销有限责任公司商业步行街店)",
-    "type": "attraction",
-    "lat": 26.74484,
-    "lng": 100.658161,
-    "area": "永胜县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "专营店",
-      "景点"
-    ],
-    "popularity": 3.1,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "金慧百货(金官供销有限责任公司商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0GKXLGBHV",
-    "recommendation": "金慧百货(金官供销有限责任公司商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_72c59c91",
-    "name": "泰完美百货服装批发城(七星街店)",
-    "type": "attraction",
-    "lat": 26.874425,
-    "lng": 100.224639,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 4.1,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "泰完美百货服装批发城(七星街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0LA5CTLUP",
-    "recommendation": "泰完美百货服装批发城(七星街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_fea9f3e9",
-    "name": "丽江数码相机充电器电池",
-    "type": "attraction",
-    "lat": 26.878238,
-    "lng": 100.230369,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "家电电子卖场",
-      "数码电子",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 3.7,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "丽江数码相机充电器电池，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0GKGM6H0J",
-    "recommendation": "丽江数码相机充电器电池是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_d5d0fa35",
@@ -9838,10 +10633,15 @@
     "description": "DJI大疆(丽江店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LKHZQ3W2",
-    "recommendation": "DJI大疆(丽江店)是当地热门景点。",
+    "recommendation": "DJI大疆丽江店是官方授权体验店，可试飞最新无人机。坐4路公交到古城口站下，步行5分钟即到，自驾停旁边地下车库。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_ae2c0174",
@@ -9867,156 +10667,15 @@
     "description": "景东平价烟酒，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFJRIHLZ",
-    "recommendation": "景东平价烟酒是当地热门景点。",
+    "recommendation": "景东平价烟酒主打本地烟酒，价格比景区店低三成。每天傍晚六点后，部分临期商品打八折，适合囤货。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_7ea023c0",
-    "name": "茅台王子酒云泽商贸(仟佰汇商业步行街店)",
-    "type": "attraction",
-    "lat": 26.858093,
-    "lng": 100.234187,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "烟酒专卖店",
-      "祥和",
-      "景点"
-    ],
-    "popularity": 4,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "茅台王子酒云泽商贸(仟佰汇商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0H33ZTG1M",
-    "recommendation": "茅台王子酒云泽商贸(仟佰汇商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_a250c9d9",
-    "name": "大东(宋板线店)",
-    "type": "attraction",
-    "lat": 26.743265,
-    "lng": 100.658649,
-    "area": "永胜县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "品牌鞋店",
-      "景点"
-    ],
-    "popularity": 3.4,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "大东(宋板线店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0HK01CKND",
-    "recommendation": "大东(宋板线店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_77af3a9a",
-    "name": "古城口商业步行街(39口)",
-    "type": "attraction",
-    "lat": 26.877154,
-    "lng": 100.22603,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "购物相关场所",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 3.1,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "古城口商业步行街(39口)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0L0PH0QLJ",
-    "recommendation": "古城口商业步行街(39口)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_ab61ba45",
-    "name": "世亮珠宝(金官供销有限责任公司商业步行街店)",
-    "type": "attraction",
-    "lat": 26.743072,
-    "lng": 100.658944,
-    "area": "永胜县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "珠宝首饰工艺品",
-      "景点"
-    ],
-    "popularity": 3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "世亮珠宝(金官供销有限责任公司商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0G359YS6H",
-    "recommendation": "世亮珠宝(金官供销有限责任公司商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_df451cdd",
-    "name": "三川信用商场(金官供销有限责任公司商业步行街店)",
-    "type": "attraction",
-    "lat": 26.743118,
-    "lng": 100.658972,
-    "area": "永胜县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "商场",
-      "普通商场",
-      "景点"
-    ],
-    "popularity": 3.1,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "三川信用商场(金官供销有限责任公司商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0HK1S9NXL",
-    "recommendation": "三川信用商场(金官供销有限责任公司商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_1e398768",
@@ -10042,127 +10701,15 @@
     "description": "丽江北门里步行街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKHULIT",
-    "recommendation": "丽江北门里步行街是当地热门景点。",
+    "recommendation": "古城北门的热闹步行街，汇集各类手工艺品和美食。傍晚6点后店铺打折，小吃摊更便宜。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_d1644ec",
-    "name": "孕婴世界(宁蒗店)",
-    "type": "attraction",
-    "lat": 27.280625,
-    "lng": 100.856417,
-    "area": "宁蒗彝族自治县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "儿童用品店",
-      "景点"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "孕婴世界(宁蒗店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFIUHCUG",
-    "recommendation": "孕婴世界(宁蒗店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_22604fe9",
-    "name": "百变辣妈孕妇用品(福慧路店)",
-    "type": "attraction",
-    "lat": 26.877612,
-    "lng": 100.229147,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "儿童用品店",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 3.7,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "百变辣妈孕妇用品(福慧路店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFJ142UL",
-    "recommendation": "百变辣妈孕妇用品(福慧路店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_166bc23d",
-    "name": "乖乖狗童品汇(桥东商贸步行街店)",
-    "type": "attraction",
-    "lat": 27.280771,
-    "lng": 100.855593,
-    "area": "宁蒗彝族自治县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "儿童用品店",
-      "景点"
-    ],
-    "popularity": 3.3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "乖乖狗童品汇(桥东商贸步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFKPCROY",
-    "recommendation": "乖乖狗童品汇(桥东商贸步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_63cb387e",
-    "name": "密斯曹",
-    "type": "attraction",
-    "lat": 26.875529,
-    "lng": 100.225698,
-    "area": "古城区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "福慧路",
-      "景点"
-    ],
-    "popularity": 3.3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "密斯曹，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0J11MYVIT",
-    "recommendation": "密斯曹是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_732d4e4f",
@@ -10187,10 +10734,15 @@
     "description": "香江夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L29DRIBL",
-    "recommendation": "香江夜市是当地热门景点。",
+    "recommendation": "古城热门的夜间集市，吃喝玩乐一应俱全。坐8路公交到北门坡站下车，步行5分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_ca821856",
@@ -10215,10 +10767,15 @@
     "description": "丽江茶马七星夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0MBLRTAFK",
-    "recommendation": "丽江茶马七星夜市是当地热门景点。",
+    "recommendation": "茶马古道主题夜市，集合了当地小吃和手工艺品。傍晚6点前入场免门票，趁免费时段先逛一圈再消费。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_2195b886",
@@ -10244,10 +10801,15 @@
     "description": "丽江星光夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0G0TZEC8T",
-    "recommendation": "丽江星光夜市是当地热门景点。",
+    "recommendation": "灯光璀璨的夜市，适合拍照打卡。本地人推荐去巷尾的烤乳扇摊，味道比主街更地道。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_69f5af9e",
@@ -10272,10 +10834,15 @@
     "description": "纳西公主·牦牛鲜奶茶(大水车夜市店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LKTXY5AU",
-    "recommendation": "纳西公主·牦牛鲜奶茶(大水车夜市店)是当地热门景点。",
+    "recommendation": "主打牦牛鲜奶茶的网红店，奶香浓郁。隐藏玩法是点单时说少糖，让店员加一勺青稞粉，口感更独特。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_3e6b98f9",
@@ -10300,10 +10867,15 @@
     "description": "百盈农贸市场夜市街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IU27PL49",
-    "recommendation": "百盈农贸市场夜市街是当地热门景点。",
+    "recommendation": "华坪县本地农贸市场改造的夜市，水果和熟食丰富。晚上7点半去，摊主收摊前会打折清货，捡漏好时机。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_eacf84f7",
@@ -10329,10 +10901,15 @@
     "description": "荣城夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JKZNHIP8",
-    "recommendation": "荣城夜市是当地热门景点。",
+    "recommendation": "古城区热闹的夜间市集，烧烤和饰品摊位多。避坑：别买路边标价“野生菌”的干货，多是养殖品，价格虚高。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_40609e9a",
@@ -10358,10 +10935,15 @@
     "description": "阿滇饭店，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KBD7EMKP",
-    "recommendation": "阿滇饭店是当地热门景点。",
+    "recommendation": "老字号滇菜馆，以汽锅鸡和过桥米线出名。坐公交4路到七星街站下，步行3分钟到，自驾停车难建议打车。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_15564615",
@@ -10386,10 +10968,15 @@
     "description": "渔米河夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K291YZNH",
-    "recommendation": "渔米河夜市是当地热门景点。",
+    "recommendation": "沿河而设的夜市，河鲜和烧烤是特色。省钱技巧：自带饮料进去，摊位饮品比外面贵一倍。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_2a5c6c34",
@@ -10415,10 +11002,15 @@
     "description": "金星夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JRXA3YN2",
-    "recommendation": "金星夜市是当地热门景点。",
+    "recommendation": "本地人常去的夜市，主打平价小吃和杂货。推荐去东北角卖凉粉的摊子，老板自制的辣椒酱是秘方。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_e1cca30a",
@@ -10443,10 +11035,15 @@
     "description": "忆食飨包粥坊(嘉和店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0M6Y5QYP6",
-    "recommendation": "忆食飨包粥坊(嘉和店)是当地热门景点。",
+    "recommendation": "纳西风味粥品小店，主打特色包子和养生粥。点单时让老板推荐隐藏菜单“腊排骨粥”，本地人常加一碟腐乳提味。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_4b67aac8",
@@ -10471,10 +11068,15 @@
     "description": "蜜雪冰城(忠义夜市牌坊底下第三间店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LUGZG5WF",
-    "recommendation": "蜜雪冰城(忠义夜市牌坊底下第三间店)是当地热门景点。",
+    "recommendation": "忠义夜市入口的平价饮品店，柠檬水性价比超高。建议晚上9点后去，避开排队高峰还能赶上夜市最热闹的时候。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_b35b0d8a",
@@ -10501,10 +11103,15 @@
     "description": "南门夜市重庆火锅，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KDAKFVEU",
-    "recommendation": "南门夜市重庆火锅是当地热门景点。",
+    "recommendation": "古城里地道的重庆火锅，牛油锅底香辣浓郁。别点太多菜，他家的免费小菜和冰粉就能吃半饱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_70ccae59",
@@ -10530,10 +11137,15 @@
     "description": "碳公公烧烤(星光夜市店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K3DHWDS8",
-    "recommendation": "碳公公烧烤(星光夜市店)是当地热门景点。",
+    "recommendation": "星光夜市人气烧烤摊，炭火烤串焦香四溢。坐公交4路到夜市站下，步行5分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_86a868d2",
@@ -10559,10 +11171,15 @@
     "description": "嘉和夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K3C7B6N9",
-    "recommendation": "嘉和夜市是当地热门景点。",
+    "recommendation": "玉龙县最热闹的夜市，汇集各地小吃和手工艺品。晚上8点后去，很多摊位会打折清货，能省一半钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_eb915050",
@@ -10587,10 +11204,15 @@
     "description": "唯蚝海鲜大排档，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0H25OOD3O",
-    "recommendation": "唯蚝海鲜大排档是当地热门景点。",
+    "recommendation": "古城里的海鲜大排档，生蚝扇贝现开现烤。本地人都会点一份蒜蓉烤生蚝配啤酒，记得让老板多加蒜蓉。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_ccd263ae",
@@ -10617,10 +11239,15 @@
     "description": "蚝门风云(海鲜烧烤)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HGF54VEJ",
-    "recommendation": "蚝门风云(海鲜烧烤)是当地热门景点。",
+    "recommendation": "主打海鲜烧烤的夜宵店，生蚝个头大且新鲜。隐藏吃法是让老板烤一份“芝士焗生蚝”，口感更浓郁。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_4f2d6f2f",
@@ -10646,10 +11273,15 @@
     "description": "乐呵呵烧肉米线，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L3K9CJOI",
-    "recommendation": "乐呵呵烧肉米线是当地热门景点。",
+    "recommendation": "玉龙县老字号米线店，烧肉外酥里嫩汤底鲜。建议早上10点前去，烧肉刚出锅最香脆，去晚了就卖完了。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_7b1c56a4",
@@ -10677,10 +11309,15 @@
     "description": "忠义市场夜市街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0G3TZNRZW",
-    "recommendation": "忠义市场夜市街是当地热门景点。",
+    "recommendation": "丽江本地最大的夜市，小吃和手工艺品琳琅满目。别一进门就买，往里走价格更便宜，还能讲价。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_8bd24666",
@@ -10706,10 +11343,15 @@
     "description": "螺旋桨骨汤螺蛳粉(星光夜市店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LAFSZDI6",
-    "recommendation": "螺旋桨骨汤螺蛳粉(星光夜市店)是当地热门景点。",
+    "recommendation": "以骨汤螺蛳粉出名的网红店，味道浓郁。建议骑共享电动车前往，停车方便不堵车。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_a6989dc9",
@@ -10735,10 +11377,15 @@
     "description": "建水鸡脚王 烧烤(嘉禾夜市)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L1JX9N40",
-    "recommendation": "建水鸡脚王 烧烤(嘉禾夜市)是当地热门景点。",
+    "recommendation": "建水风味烧烤代表，烤鸡脚软糯入味。点套餐比单点省20%，还能免费加炭续烤。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_12f8ff47",
@@ -10763,10 +11410,15 @@
     "description": "香格里拉砂锅王(丽江总店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K36SFHO8",
-    "recommendation": "香格里拉砂锅王(丽江总店)是当地热门景点。",
+    "recommendation": "地道砂锅菜老店，汤底用牦牛骨熬制。本地人最爱点砂锅豆腐和搭配的糍粑。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_6e573a",
@@ -10792,10 +11444,15 @@
     "description": "温泉，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG6R0TR",
-    "recommendation": "温泉是当地热门景点。",
+    "recommendation": "宁蒗天然温泉，富含矿物质，适合放松。建议自带毛巾和拖鞋，现场租借价格翻倍。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_670d2621",

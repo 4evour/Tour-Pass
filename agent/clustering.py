@@ -4,13 +4,16 @@ Groups POIs by area and creates day plans that minimize travel
 by keeping same-area attractions together.
 """
 from __future__ import annotations
+import logging
 import math
 from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Optional
 
 from .models import PoiInfo, TripIntent
-from .scorer import ScoredPoi, rank_pois
+from .scorer import ScoredPoi, rank_pois, _is_must_visit
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -42,12 +45,30 @@ def _haversine_km(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
     return R * 2 * math.asin(math.sqrt(a))
 
 
+def _find_closest_cluster(
+    poi: PoiInfo, clusters: list[DayCluster]
+) -> int:
+    """Find the day cluster whose attractions centroid is closest to the given POI."""
+    best_idx = 0
+    best_dist = float("inf")
+    for i, cluster in enumerate(clusters):
+        if not cluster.attractions:
+            continue
+        lat, lng = _area_center(cluster.attractions)
+        dist = _haversine_km(poi.lat, poi.lng, lat, lng)
+        if dist < best_dist:
+            best_dist = dist
+            best_idx = i
+    return best_idx
+
+
 def cluster_pois_for_days(
     scored_attractions: list[ScoredPoi],
     restaurants: list[PoiInfo],
     nightlife: list[PoiInfo],
     num_days: int,
     intent: TripIntent,
+    all_available_pois: Optional[list[PoiInfo]] = None,
 ) -> list[DayCluster]:
     """Distribute POIs across days using area-based clustering.
 
@@ -56,6 +77,10 @@ def cluster_pois_for_days(
     2. Assign each day a primary area (greedy: biggest cluster first)
     3. Fill each day with its area's attractions + nearby restaurants
     4. Must-visit POIs are pre-assigned to their best-fit day
+
+    Args:
+        all_available_pois: Full POI list for rescuing must-visit POIs
+            that weren't in scored_attractions (e.g. missed by search/filter).
     """
     if num_days <= 0:
         num_days = 1
@@ -66,11 +91,39 @@ def cluster_pois_for_days(
     optional_pois: list[ScoredPoi] = []
 
     for sp in scored_attractions:
-        is_must = any(mv in sp.poi.name or mv == sp.poi.id for mv in must_visit_names)
-        if is_must:
+        if _is_must_visit(sp.poi, intent.must_visit):
             must_pois.append(sp)
         else:
             optional_pois.append(sp)
+
+    # Rescue: check if any must_visit keyword is not matched in scored_attractions
+    # If so, try to find the POI in all_available_pois and inject it
+    if must_visit_names and all_available_pois:
+        matched_keywords = set()
+        for sp in must_pois:
+            for mv in must_visit_names:
+                if mv in sp.poi.name or mv == sp.poi.id:
+                    matched_keywords.add(mv)
+
+        missing_keywords = must_visit_names - matched_keywords
+        for mv in missing_keywords:
+            # Search in full POI list
+            candidates = [
+                p for p in all_available_pois
+                if (mv in p.name or mv == p.id) and p.type not in ("hotel", "transit")
+            ]
+            if candidates:
+                # Pick best match (shortest name containing keyword, highest popularity)
+                candidates.sort(key=lambda p: (p.name != mv, len(p.name), -p.popularity))
+                rescued_poi = candidates[0]
+                fake_scored = ScoredPoi(
+                    poi=rescued_poi, total_score=99999,
+                    reason=f"必去景点补救: {mv}",
+                )
+                must_pois.append(fake_scored)
+                logger.info(f"Rescued must_visit '{mv}' -> '{rescued_poi.name}' from full POI list")
+            else:
+                logger.warning(f"Must_visit '{mv}' not found in any available POI data")
 
     # Group optional attractions by area
     area_groups: dict[str, list[ScoredPoi]] = defaultdict(list)
@@ -89,7 +142,6 @@ def cluster_pois_for_days(
     # Pick top N per day based on pace
     pace_limits = {"休闲": 5, "标准": 7, "紧凑": 9}
     max_per_day = pace_limits.get(intent.pace, 7)
-    total_needed = max_per_day * num_days
 
     # Initialize day clusters
     clusters: list[DayCluster] = []
@@ -99,13 +151,22 @@ def cluster_pois_for_days(
             primary_area="",
         ))
 
-    # Assign must-visit POIs to days (spread across days)
-    for i, sp in enumerate(must_pois):
-        day_idx = i % num_days
+    # Assign must-visit POIs to days — use geographic proximity to spread them out
+    assigned_must_days: set[int] = set()
+    for sp in must_pois:
+        # Find the day with fewest must-visits, breaking ties by proximity
+        min_must = min(
+            range(num_days),
+            key=lambda d: sum(1 for a in clusters[d].attractions if _is_must_visit(a, intent.must_visit))
+        )
+        day_idx = _find_closest_cluster(sp.poi, clusters) if clusters[0].attractions else min_must
+        # If that day already has this must_visit, try the fewest-must day
+        if any(sp.poi.id == a.id for a in clusters[day_idx].attractions):
+            day_idx = min_must
         clusters[day_idx].attractions.append(sp.poi)
+        assigned_must_days.add(day_idx)
 
     # Assign optional attractions using area-based round-robin
-    # Each day gets a "theme area" rotation
     day_idx = 0
     assigned_count = {d: len(clusters[d].attractions) for d in range(num_days)}
 

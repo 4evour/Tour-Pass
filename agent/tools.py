@@ -1,4 +1,4 @@
-﻿"""Tools for the TourPass Agent — all local-first, Amap as fallback."""
+"""Tools for the TourPass Agent — all local-first, Amap as fallback."""
 from __future__ import annotations
 import json
 import logging
@@ -172,6 +172,10 @@ async def search_hotels(
                 lat=item.get("lat", 0.0),
                 lng=item.get("lng", 0.0),
                 popularity=item.get("popularity", 0.0),
+                price_level=item.get("price_level", 1),
+                price_range=item.get("price_range", ""),
+                star_rating=item.get("star_rating", 0),
+                brand_category=item.get("brand_category", ""),
                 description=item.get("description", ""),
                 tags=item.get("tags", []),
             ))
@@ -312,6 +316,10 @@ def _load_hotels_from_file(city: str, limit: int = 20) -> list[HotelInfo]:
                 lat=item.get("lat", 0.0),
                 lng=item.get("lng", 0.0),
                 popularity=item.get("popularity", 0.0),
+                price_level=item.get("price_level", 1),
+                price_range=item.get("price_range", ""),
+                star_rating=item.get("star_rating", 0),
+                brand_category=item.get("brand_category", ""),
                 description=item.get("description", ""),
                 tags=item.get("tags", []),
             ))
@@ -387,6 +395,7 @@ async def get_weather(city: str) -> dict:
     except Exception as e:
         logger.error(f"get_weather failed: {e}")
         return {}
+
 
 
 

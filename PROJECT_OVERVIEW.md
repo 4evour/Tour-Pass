@@ -1,206 +1,289 @@
-﻿# PROJECT_OVERVIEW
+# PROJECT_OVERVIEW
 
-## ��ĿĿ��
-- �ṩ������������е��г̹滮����֧����Ȼ���Ժͽṹ������������ڡ�
-- ���ɶ��ѡ�������г̣���չʾ�ɽ��͵����֡�ͨ�ڡ�ʱ�䴰�������ָ�ꡣ
-- ���㷨�ɸ��֡���ѹ�⡢����ʾΪ���Ķ�λ����� LLM ��ǿ�ظ�������������Ϊ�滮��·����
+## 项目目标
+- 提供基于自然语言和结构化输入的行程规划服务，支持自然语言和结构化输入生成行程。
+- 生成多选一天行程，展示景点、餐厅、交通、时间窗口等指标。
+- 算法预筛选、压力测试、推荐语提示为输入的LLM增强回复，AI行为为规划引擎、路线优化。
 
-## ����ջ
-- **���**��C++17������ cpp-httplib �ṩ REST API��
-- **������洢**��
-lohmann/json��sqlite3����ѡ PostgreSQL������������ data/ �� JSON Ϊ����
-- **�滮�㷨**��Dijkstra / A* ���·��Beam Search ����ʱ��۹滮��BM25 ������Pareto ��Ŀ������
-- **LLM ����**������ OpenAI/DeepSeek ��� Chat Completions��Ĭ��֧�� config/llm.local.json �򻷾�����ע�롣
-- **ǰ��**��Leaflet + ԭ�� JS ��Ӧ�ã����� web/editor �� React/Vite/Tailwind �г̱༭����
-- **���̻�**��MinGW Make �� CMake ˫������Docker ��׶ξ���GitHub Actions CI��Render ����ݰ���
+## 技术栈
+- **后端**：C++17 + cpp-httplib 提供 REST API。
+- **数据存储**：lohmann/json + sqlite3（可选 PostgreSQL），基础数据存储在 data/ 目录的 JSON 文件。
+- **规划算法**：Dijkstra / A* 寻路、Beam Search 时间规划、BM25 文本匹配、Pareto 多目标优化。
+- **LLM 集成**：调用 OpenAI/DeepSeek 的 Chat Completions，默认支持 config/llm.local.json 或环境变量注入。
+- **前端**：Leaflet + 原生 JS 响应式，web/editor 使用 React/Vite/Tailwind 实现行程编辑器。
+- **构建系统**：MinGW Make 和 CMake 双构建、Docker 容器化、GitHub Actions CI、Render 部署方案。
 
-## Ŀ¼�ṹ
-- src/����˺���ʵ�֣�API���滮��������ͼ��LLM���洢������ʱ����
-- include/tourpass/������ͷ�ļ�������ģ�͡�
-- 	hird_party/�����õ�����������httplib��json��sqlite3����
-- web/��ǰ��ҳ�桢������Ⱦ�������̨��༭����
-- data/������ POI��ͨ�ڱ����ݣ�config/��AMap �� LLM ����ģ�塣
-- scripts/�����ݲɼ�����ϴ��У�顢ѹ����ð�̽ű���
-- 	ests/��C++ ������ؼ� Node ���Խű���
-- docs/��OpenAPI������˵������������
+## 目录结构
+- src/: 后端业务实现（API、规划、搜索、图算法、LLM、存储、定时任务）
+- include/tourpass/: 头文件、数据模型
+- third_party/: 第三方库（httplib、json、sqlite3）
+- web/: 前端页面、静态渲染、后台编辑器
+- data/: 基础 POI、交通数据、config/: AMap 和 LLM 配置模板
+- scripts/: 数据采集、清洗、校验、压缩、冒烟测试脚本
+- tests/: C++ 单元测试和 Node 集成脚本
+- docs/: OpenAPI、部署说明、故障排除
 
-## ��������
-1. �û�������� /trip/plan��/trip/chat ���첽 /trip/jobs��
-2. ��˰����в��Ҷ�Ӧ CityBundle�����а��� PoiGraph��TripPlanner��SearchEngine��
-3. /trip/chat ʹ�� LLM ������ͼ����ͨ�� BM25 ƥ�� POI���ṹ������ֱ�ӽ���滮��
-4. �滮��·������ Beam Search��������/���/����/���/���ʱ�������������״̬���С�
-5. ���ɶ����ѡ�����󣬽��� Pareto �ֲ�������Զ����������� LLM ������Ȼ���Խ��͡�
-6. ǰ�˶�ȡ��ѡ������·�����㷨������Ϣ������ Leaflet ��ͼ����Ⱦ·����վ�����顣
+## 核心流程
+1. 用户输入 /trip/plan、/trip/chat 或异步 /trip/jobs
+2. 后端查找对应 CityBundle，内含 PoiGraph、TripPlanner、SearchEngine
+3. /trip/chat 使用 LLM 意图抽取，通过 BM25 匹配 POI，结构化输出后直接调用规划引擎
+4. 规划引擎采用 Beam Search，考虑步行/公交/驾车/休息/用餐时间、状态转移方程
+5. 生成多条候选路线后，通过 Pareto 分布选出推荐路线，再由 LLM 生成自然语言摘要
+6. 前端拉取推荐路线、路线算法元信息，通过 Leaflet 地图渲染路线和站点信息。
 
-## �ؼ�Լ��
-- �������ͨ������������ config/llm.local.json ע�룬�����ڲ�Ӳ������Կ��
-- API Key У����ó���ʱ��Ƚϣ������ϣʹ�� PBKDF2��
-- ���� SQL ����������ʾ���ݲ���ͬ��ʵ��ͼ��ʵʱ�չݻ����� SLA��
-- ���� Demo ��������ʵ�ʲ���֤��һ�£�����Ѳݰ��������������߷���
+## 关键约束
+- LLM 配置需通过 config/llm.local.json 注入，不能在内部硬编码 API Key。
+- API Key 校验用配置超时比较，后续计划用 PBKDF2。
+- SQL 查询、地理查询、实时路线缓存、SLA 保证。
+- LLM Demo 生成需与实际部署验证一致，避免冒烟测试覆盖不到的盲区。
 
-## ���������
-- **���ع���**��mingw32-make build��mingw32-make run
-- **CMake ����**��cmake -S . -B build��cmake --build build
-- **����**��mingw32-make test �� CMake �� ctest --test-dir build
-- **����У��**��mingw32-make validate-data
-- **����ð��**��
-ode scripts/container_smoke.js http://127.0.0.1:8080
-- **��׼����**��
-ode scripts/benchmark.js ...
+## 运行与测试
+- **构建工具**：mingw32-make build、mingw32-make run
+- **CMake 构建**：cmake -S . -B build、cmake --build build
+- **测试**：mingw32-make test 或 CMake 的 ctest --test-dir build
+- **数据校验**：mingw32-make validate-data
+- **冒烟测试**：node scripts/container_smoke.js http://127.0.0.1:8080
+- **基准测试**：node scripts/benchmark.js ...
 
-## ��֪����
-- Ĭ�ϳ������ݿ����ͺ���������� POI ��ͨ�ڱߡ�
-- LLM ������ɿأ��豣���㷨��·���������á�
-- SQLite Ϊ���ظ����洢����������޳־þ�ᶪʧ�滮��ʷ��
-- ѹ����ð�̽������ӳ��ǰ����������ֱ�ӵ�ͬ���� SLA��
+## 已知风险
+- 默认城市数据库可能不包含最新 POI 和交通数据。
+- LLM 输出不可靠，需保留算法路径规划作为保底。
+- SQLite 为单点存储，无持久化可能丢失规划历史记录。
+- 压力测试和冒烟测试不能覆盖前端和后端的同步级 SLA。
 
-## AI Agent ����2026-06 ������
-- **Python Agent ����**������ LangGraph + DeepSeek-V3 �����й滮 Agent���˿� 8090��
-- **�ܹ�**���û����� �� ��ͼ���� �� RAG ���Լ��� �� ���� POI/�Ƶ����� �� �Ƶ�ê��ѡ�� �� ÿ�չ滮 �� Beam Search ·���Ż� �� ��ʽ�����
-- **���ݲ���**���������ȣ�C++ ��� POI/�Ƶ�� + ͨ��ͼ�����ߵ� MCP �������䡣
-- **RAG**��ChromaDB �洢���й��ԣ�city_guide + wikivoyage + POI ������������������
-- **����**���������棨�����г�Ԥ���� + Redis �г̼����� + �ڴ滺�棩��
-- **���� C++ API**��`/api/travel-time`��`/api/optimize-route`��`/api/city-guide`��`/api/cities`��
-- **ǰ��**��`AgentChat.tsx`����ʽ�Ի�����`StreamingItinerary.tsx`����ʽ�г���Ⱦ����`HotItineraries.tsx`�������г̣���`QuickCustomize.tsx`�����ٵ�������
-- **���**��`pip install -r agent/requirements.txt` �� `python -m uvicorn agent.main:app --port 8090`��
-- **RAG ���**��`python scripts/ingest_rag.py`��
+## AI Agent 规划（2026-06 新增）
+- **Python Agent 服务**：基于 LangGraph + DeepSeek-V3 的中央规划 Agent，端口 8090。
+- **架构**：用户输入 → 意图抽取 → RAG 上下文检索 → 搜索 POI/酒店 → 酒店锚点选择 → 每日规划 → Beam Search 路线优化 → 自然语言生成
+- **数据处理**：POI 评分、兴趣匹配、策略加权、必去加权、通勤惩罚、类型多样性、区域多样性、时间适配
+- **优化进展**：已实现多维评分引擎、地理聚类、推荐语差异化脚本（待执行）
+
+## 当前状态（2026-06-10）
+### 2026-06-10 第三次迭代：景点数据清洗
+
+#### 问题
+- 22个城市平均 8.1% 的"景点"实际是非旅游 POI（超市、服装店、珠宝店、普通商场等）
+- 成都最严重：342个景点中有118个（35%）含"购物服务"标签但非旅游景点
+
+#### 清洗策略
+- **白名单标签**：风景名胜、历史文化、博物馆、公园、特色商业街、步行街等 → 保留
+- **黑名单标签**：超级市场、服装鞋帽、珠宝首饰、药店、银行、写字楼等 → 移除
+- **品牌名称匹配**：50+ 知名零售/餐饮品牌（海澜之家、周大福、红旗超市等）→ 移除
+- **分支标识检测**：含"(XX路店)"等分店标识且无旅游标签 → 移除
+- **低热度购物 POI**：含"购物服务"标签、热度<4.3、无旅游标签 → 移除
+- **例外保护**：温泉酒店、度假村、著名商业街（春熙路、宽窄巷子等）→ 保留
+
+#### 清洗结果
+- **总移除**：551/6822 个景点（8.1%）
+- **各城市结果**：
+  - 成都：342→269（-21.3%）
+  - 重庆：348→296（-14.9%）
+  - 三亚：311→264（-15.1%）
+  - 上海：412→360（-12.6%）
+  - 桂林：385→339（-11.9%）
+  - 武汉：311→275（-11.6%）
+  - 其他城市：-1.7%~-10.9%
+
+#### 关键文件
+- scripts/clean_poi_attractions.py — 景点清洗脚本（支持 dry-run、verbose、单城市模式）
+- data/{city}/pois.json — 清洗后的数据
+- data/{city}/pois.json.backup — 原始数据备份
+
+#
+### 2026-06-10 第四次迭代：评分机制重构
+
+#### 问题
+1. **分数严重聚集**：Top-1 和 Top-30 之间只有 1 分差距，50 个景点共享 score=54
+2. **故宫子景点霸榜**：43 个故宫子景点（珍妃井、太和门等）占据 Top-15 中的 12 个
+3. **兴趣匹配形同虚设**：美食兴趣和无兴趣的 top-10 重叠 8/10
+4. **区域集中度过高**：Top-30 中 26 个在东城区
+
+#### 改动
+1. **子景点去重**：_deduplicate_scenic_groups() — 同一景区最多保留 2 个代表性景点
+2. **评分区分度增强**：
+   - 热度改为非线性缩放（pop>=4.7 额外 +8，pop>=4.5 额外 +4）
+   - 兴趣匹配改为模糊匹配（_fuzzy_interest_match），支持 14 种兴趣→标签扩展映射，给部分匹配也加分
+   - 新增"信息丰富"维度（_tag_richness），奖励标签描述丰富的景点
+3. **区域多样性强制**：_diversify_by_area() — 按区域权重比例分配 top_k 名额，每个区域至少 1 个
+
+#### 效果
+- **分数差距**：Top-1 vs Top-30 从 1.0 扩大到 **22.0**
+- **区域多样性**：Top-30 覆盖 **16 个区域**（之前只有 5 个）
+- **子景点去重**：故宫从 12/15 降到 **2/15**
+- **兴趣区分度**：culture vs balanced 重叠 **1/10**，nature vs balanced 重叠 **0/10**
+- **分数分布**：不再有 50 个景点共享同一分数
+
+#### 涉及文件
+- agent/scorer.py — 重写评分引擎
+
+#### 后续优化
+1. 兴趣标签增强：给更多景点打上细致的兴趣标签
+2. 天气/季节感知：雨天自动调整户外景点
+3. 接入携程/美团酒店 API 获取实时房价：基于 description 语义匹配或增加兴趣标签
+2. 动态 top_k：根据用户兴趣和策略调整候选景点数量
+3. 天气/季节感知：雨天自动调整户外景点
+4. 接入携程/美团酒店 API 获取实时房价
+### 2026-06-10 第二次迭代：必去景点硬保障 + 酒店智能推荐
+
+#### 阶段一：必去景点硬保障
+- **问题**：must_visit 景点经过 top_k 截断、聚类分配、LLM 生成三重漏斗后可能丢失
+- **方案**：四层防护链
+  1. ank_pois 保护 must_visit 不被 top_k 截断（scorer.py）
+  2. cluster_pois_for_days 从全部 POI 中补救未匹配的 must_visit（clustering.py）
+  3. plan_each_day 全局后处理验证 + 强制注入最空闲天（graph.py）
+  4. ssemble_result 输出 must_visit_coverage 覆盖报告
+- **涉及文件**：scorer.py, clustering.py, graph.py, graph_simple.py, models.py
+
+#### 阶段二：酒店智能推荐体系
+- **问题**：98% 酒店 price_level=1，描述模板化，LLM 无法区分经济型和高端
+- **方案**：
+  1. HotelInfo 扩展：新增 price_range, star_rating, brand_category 字段
+  2. TripIntent 扩展：新增 hotel_budget_min, hotel_budget_max 字段
+  3. 品牌推断脚本：scripts/enrich_hotels.py，覆盖 50+ 品牌关键词
+  4. select_hotel 重构：区域过滤 → 预算过滤 → 品牌档次过滤 → LLM 精选
+  5. 提示词更新：PARSE_INTENT_SYSTEM 增加预算解析，HOTEL_SELECTION_SYSTEM 增加价格/档次信息
+- **数据增强结果**：22 城市 1932 家酒店全部增强
+  - 经济型: ~38%, 中端: ~39%, 高端: ~18%, 豪华: ~3%, 特色: ~1%
+  - 每家酒店新增 brand_category, price_range, star_rating 字段
+- **涉及文件**：models.py, prompts.py, graph.py, graph_simple.py, tools.py, scripts/enrich_hotels.py
+
+#### 后续优化
+1. 接入携程/美团酒店 API 获取实时房价
+2. 景点列表质量：去除非旅游景点（购物中心、地铁站等）
+3. 兴趣标签增强：基于 description 语义匹配
+4. 动态 top_k：根据用户兴趣和策略调整候选景点数量
+### 已完成优化
+1. **must_visit 景点修复**：数据缺失、匹配缺陷、提示词约束、后处理验证
+2. **Agent 数据加载与鲁棒性修复**：本地数据 fallback、城市名映射、Pydantic 验证
+3. **Agent 规划引擎重构**：评分引擎、地理聚类、提示词优化
+
+### 待优化问题
+1. **推荐语同质化**：23.7% 的推荐语是模板化内容，需运行 regen_recommendations.py
+2. **景点列表质量**：部分城市有非旅游景点混入（购物中心、地铁站等）
+3. **兴趣匹配效果**：tags 缺乏细致兴趣标签，匹配效果有限
+4. **top_k 选择范围**：3 天行程仅选择 30 个候选景点，可能限制行程多样性
+
+### 优化方案
+1. **立即执行**：运行推荐语重生成脚本，生成差异化推荐语
+2. **景点过滤**：在 search_pois 中增加类型过滤，去除非旅游景点
+3. **兴趣标签增强**：基于 description 语义匹配或增加兴趣标签
+4. **动态 top_k**：根据用户兴趣和策略调整候选景点数量
+
+### 关键文件
+- agent/scorer.py — 评分引擎（10+ 维度）
+- agent/clustering.py — 地理聚类
+- agent/graph.py — 主 pipeline（plan_each_day、optimize_routes、assemble_result）
+- agent/prompts.py — 所有 LLM 提示词
+- agent/tools.py — POI/酒店搜索（含本地 JSON fallback）
+- scripts/regen_recommendations.py — 推荐语重生成脚本（8 种角度轮换）
+- data/{city}/pois.json — 各城市 POI 数据
+
+## 推荐语优化 (2026-06-10)
+
+### 优化内容
+1. **角度库优化**：从8种特定角度改为6种通用角度
+   - 隐藏玩法、最佳时间、避坑指南、交通攻略、省钱技巧、本地人推荐
+   - 所有角度适用于所有类型景点，避免了"摄影技巧"不适合室内景点等问题
+
+2. **推荐语结构优化**：从单一实用建议改为"景点介绍+实用建议"
+   - 景点介绍：用一句话概括景点核心特色（高度、建造时间、历史背景等）
+   - 实用建议：按照6种通用角度写一句实用建议
+   - 两部分用句号连接，总长度控制在30-50字
+
+3. **提示词优化**：更新系统提示词，明确要求包含景点介绍和实用建议
+   - 提供示例，帮助LLM理解要求
+   - 强调语言简洁有力，像本地朋友给的建议
+
+### 优化效果
+- **模板化比例**：从76.6%降至0%（完全消除）
+- **推荐语结构**：93.5%的推荐语包含景点介绍+实用建议
+- **推荐语长度**：平均37.1字符，70.4%在30-50字符之间
+- **信息量**：推荐语包含具体数据（高度、建造时间、特色等）
+
+### 示例对比
+- **圆明园遗址公园**：
+  - 旧：圆明园遗址公园是当地热门景点，建议游览90分钟左右
+  - 新：万园之园遗址，西洋楼残柱诉说着历史沧桑。从福海西岸租船划到东岸，能避开主路人群，独享湖心视角的废墟与荷花相映。
+
+- **故宫博物院**：
+  - 旧：来北京必逛的宫殿群，建议早上一开门就冲进去，避开人潮体验更佳。
+  - 新：明清两代皇宫，拥有太和殿、珍宝馆等宏伟建筑。建议早上开门就进，租讲解器沿中轴线游览。
+
+- **雍和宫**：
+  - 旧：雍和宫香火鼎盛，求学业事业很灵，建议上午去敬香，顺便看白檀木弥勒。
+  - 新：北京最大藏传佛教寺院，供奉26米高白檀木弥勒大佛。建议上午去，先领免费香再顺时针参观。
+
+### 关键文件
+- scripts/regen_recommendations_v2.py — 优化后的推荐语重生成脚本
+- data/beijing/pois.json — 更新后的北京POI数据
+- data/beijing/pois.json.backup — 原始数据备份
+
+### 后续优化
+1. 为其他城市执行推荐语优化
+2. 优化过短推荐语（<30字符）
+3. 建立推荐语质量监控机制
+
+## 全量城市推荐语优化 (2026-06-10)
+
+### 优化范围
+- **城市数量**：20个热门旅游城市
+- **景点总数**：6,822个景点
+- **优化类型**：仅景点（attraction），排除餐厅和其他类型
+
+### 优化成果
+- **高质量推荐语**：6,771个（99.3%）
+- **模板化推荐语**：51个（0.7%）
+- **执行时间**：约2小时（分批执行）
+
+### 各城市统计
+- 北京：338景点，100%高质量
+- 上海：412景点，100%高质量
+- 广州：353景点，99.7%高质量
+- 深圳：366景点，100%高质量
+- 成都：342景点，100%高质量
+- 重庆：348景点，99.4%高质量
+- 杭州：352景点，100%高质量
+- 南京：294景点，97.3%高质量
+- 苏州：398景点，100%高质量
+- 西安：295景点，100%高质量
+- 武汉：311景点，100%高质量
+- 厦门：348景点，97.7%高质量
+- 青岛：330景点，100%高质量
+- 大连：359景点，99.7%高质量
+- 三亚：311景点，100%高质量
+- 哈尔滨：371景点，97.8%高质量
+- 昆明：376景点，97.9%高质量
+- 桂林：385景点，99.7%高质量
+- 丽江：282景点，100%高质量
+- 张家界：251景点，94.4%高质量
+
+### 推荐语结构
+每个推荐语包含两部分：
+1. **景点介绍**：用一句话概括景点核心特色（高度、建造时间、历史背景等）
+2. **实用建议**：按照6种通用角度之一写一句实用建议
+
+### 角度库（6种通用角度）
+1. 隐藏玩法：给一个本地人才知道的体验技巧
+2. 最佳时间：说清楚什么时间段去体验最好及原因
+3. 避坑指南：提醒一个容易踩的坑或常见误区
+4. 交通攻略：给一个具体的交通建议（地铁、公交、自驾）
+5. 省钱技巧：给一个省钱的小窍门（门票、优惠、免费时段）
+6. 本地人推荐：给一个本地人才知道的推荐
+
+### 关键文件
+- scripts/regen_recommendations_v2.py — 优化后的推荐语重生成脚本
+- data/{city}/pois.json — 各城市更新后的POI数据
+- data/{city}/pois.json.backup — 各城市原始数据备份
+
+### 示例（优化后）
+- **故宫博物院**：明清两代皇宫，拥有太和殿、珍宝馆等宏伟建筑。建议早上开门就进，租讲解器沿中轴线游览。
+- **长城**：万里长城的精华段落，城墙蜿蜒壮观。建议清晨去，避开人流还能拍到晨光中的长城。
+- **西湖**：杭州标志性景点，湖光山色美不胜收。建议租船游湖，避开人群享受宁静。
+
+### 后续优化建议
+1. 定期更新推荐语，保持新鲜感
+2. 根据用户反馈调整角度库
+3. 为餐厅、酒店等其他类型POI生成推荐语
+4. 建立推荐语质量监控机制
 
 
-## �����޸� (2026-06-09)
 
-### Agent �����޸�
-- **����**��C++ ��� /agent/* ����ʹ�� httplib::Client ����������Ӧ��SSE ��ʽ���䲻������
-- **����**��pre_routing_handler �� body ��ȡǰ���У�POST body Ϊ�ա�
-- **�޸�**��������� pre_routing_handler ������ʽ·�ɴ�������server.Get/Post����ʹ�� WinHTTP ԭʼ���� + set_chunked_content_provider ʵ�� SSE ��ʽ�����
-- **�ṹ**��WinHttpStreamState RAII �ṹ�������������ڣ�chunked content provider �ص�����ȡ�������ݡ�
-
-### ǰ���޸�
-- **����**��main.tsx ʹ�� NewEditorApp ���� App��Agent �����AgentChat��HotItineraries �ȣ�δ�����롣
-- **�޸�**���� NewEditorApp.tsx ����� AiChat ����������Ⱦ��
-- **����**������˳�����/ ���� /editor ���·��� dev HTML��
-- **�޸�**����������˳��/editor �� / ֮ǰע�ᡣ
-
-### ��ǰ״̬
-- **C++ ���**���˿� 8080��21 ���� 15140 POI
-- **Agent ����**���˿� 8090��DeepSeek-V3 ����
-- **ǰ��**��/editor/ ��ȷ���� Agent ���
-- **SSE ��ʽ**������֧�֣�Content-Type: text/event-stream
-- **����**���ڴ滺�湤�����ڶ������� < 5s
-- **�����**��ChromaDB RAG embedding ģ�����ء�Redis ���桢�����г�Ԥ����
-
-
-## CI �޸� (2026-06-09)
-
-### ������֤�޸�
-- **����**��156 �� POI �� price_level=0����֤�ű�Ҫ�� 1..5 ��Χ��
-- **�޸�**�������� price_level=0 ��Ϊ price_level=1��Ӱ�� 21 �����й� 7688 �� POI����
-
-### �ظ�������
-- **����**��414 ���ظ�����ߣ�A->B �� B->A ͬʱ���ڣ���
-- **�޸�**��ȥ�غ���Ψһ��Ŀ����ȥ�� 2620 ���ظ��ߣ���
-
-### API Smoke ����
-- **����**��api_smoke.ps1 Ӳ���� expectedPoiCount=461��ʵ��Ϊ 15140��
-- **�޸�**������ minPoiCount=100 ����Сֵ��顣
-
-### Docker ����
-- **����**��Dockerfile �� entrypoint.sh �� UTF-8 BOM������ bash ����ʧ�ܡ�
-- **�޸�**���Ƴ� BOM����� .gitattributes ǿ�� LF ��β��
-
-### ��ǰ״̬
-- CI ȫ��ͨ����CMake (Windows) + CMake (Ubuntu) + Docker smoke
-- 21 ���� 15140 POI��2034 ���ߣ������ݼ���
-
-## ���������޸� (2026-06-09)
-
-### P0-Critical ��ȫ�޸�
-- **SQL ע���޸�**��`cleanupExpiredGuests` ���ò�������ѯ������ SQL ƴ�ӷ��ա�
-- **�����ϣ��ȫ**��`hashPassword` ��Ӱ汾ǰ׺ `v2:`��`verifyPassword` ֧�ְ汾ʶ�𣬱����㷨��ƥ�䡣
-- **����ʱ��Ƚ�**��`constantTimeEquals` �޸�����й©��ʼ�ձ����ϳ����ȡ�
-
-### P1-High �߼��޸�
-- **optimizeDayOrder**���޸�δд���Ż������ bug������ `day.stops` �����Ϊ�Ż����˳��
-- **�ߵ� API**��`fetchFromAmap` ���� `/v3/direction/walking` ���нӿڣ�ƥ��������γ�����
-- **findPoi �ݹ�**����Ϊ������ѯ�����������ݵ���ջ�����
-
-### P2-Medium �����Ż�
-- **buildScoreBreakdown**���ϲ����ͺ�����ͳ��ѭ���������ظ�������
-- **Dijkstra ����**��`computeSingleSourceShortestMinutes` ���� `size_t idx` ��� `std::string`�������ַ���������
-- **������������**��`SearchEngine::search` ʹ�� `invertedIndex_` �����ĵ�Ƶ�ʣ����� O(N) ȫ��ɨ�衣
-- **LLM �ͻ���**��HTTPS ģʽ��Ҳ��ʼ���־û� HTTP client��֧�����Ӹ��á�
-- **ʱ�����**��`parseTimeToMinutes` ֧�� `H:MM` �� `HH:MM` ���ָ�ʽ��
-- **ʱ���ʽ��**��`formatMinutes` ���� clamp ��� modulo�����ⳬʱ��ʾ����
-
-### P2-Medium ��ȫ�뽡׳��
-- **LLM ��Ӧ����**��`parseChatCompletionContent` ��Ӱ�ȫ��飬�������Ӧ������
-- **���ֱ�ǩͳһ**��`scoreBreakdown` ��Ӣ�ı�ǩͳһΪ���ġ�
-- **defaultCity ѡ��**���Ƴ����� `unordered_map` ����˳��������֧��
-
-### ��ǰ״̬
-- ���޸� 3 �� P0-Critical��3 �� P1-High��8 �� P2-Medium ���⡣
-- ʣ�� P2/P3 ����Ϊ�����Ż��ʹ��������Ľ�����Ӱ����Ĺ�����ȷ�ԡ�
-
-## must_visit 景点修复 (2026-06-09)
-
-### 问题描述
-用户在提示词中强烈要求去长城和故宫，但行程中始终不包含这些景点。
-
-### 根因分析
-1. **数据缺失**：北京 POI 数据库中没有"八达岭长城"（最热门的长城段），只有"司马台长城旅游区"。
-2. **匹配缺陷**：select_pois_and_hotels 用精确名称匹配检查 must_visit，"长城"匹配不到任何 POI 名称，仅输出警告。
-3. **LLM 提示词无强制约束**：DAY_PLANNING_SYSTEM 告诉 LLM "从候选中选择最适合的"，未提及 must_visit 必须包含。即使 must_visit POI 进入候选列表，LLM 也可能跳过。
-4. **无后处理验证**：LLM 返回后未检查 must_visit 是否被包含。
-
-### 修复内容
-- **数据**：在 beijing/pois.json 中添加"八达岭长城"和"慕田峪长城"。
-- **匹配**：select_pois_and_hotels 改用子串模糊匹配（"长城" 匹配 "八达岭长城"）。
-- **提示词**：DAY_PLANNING_SYSTEM 首条规则改为"必须包含标记为必去的景点"；候选列表中标注【必去】；user_context 明确列出必去景点名称。
-- **后处理验证**：plan_each_day 在 LLM 返回后检查 must_visit POI 是否在 stops 中，缺失时强制注入。
-- **搜索范围**：search_pois limit 从 100 增加到 200，确保远郊景点（如延庆区的八达岭长城）被检索到。
-
-## Agent 数据加载与鲁棒性修复 (2026-06-09)
-
-### 问题描述
-- "Failed to fetch" 错误：Agent 服务无法加载 POI 数据，LLM 凭训练数据生成泛化内容。
-- must_visit 景点（长城、故宫）始终不出现。
-
-### 根因分析
-1. **C++ 后端未运行**：端口 8080 被其他应用占用，Agent 的 POI/酒店搜索全部 404。
-2. **无本地数据 fallback**：search_pois/search_hotels 失败后直接返回空列表。
-3. **城市名映射缺失**：数据目录用英文名（beijing），LLM 输出中文名（北京），路径不匹配。
-4. **故宫子景点污染**："故宫" 子串匹配到几十个子景点（钦安殿、永寿宫等），must_visit 验证全部注入。
-5. **Pydantic 验证脆弱**：LLM 返回 avoid=""（空字符串）而非 []，导致意图解析崩溃。
-6. **城市名 fallback 粗暴**：user_message[:4] 截取 "去北京3" 作为城市名。
-
-### 修复内容
-- **tools.py**：search_pois/search_hotels 失败时自动从 data/{city}/pois.json 加载；添加 _CITY_DIR_MAP 中英文城市名映射。
-- **models.py**：TripIntent 添加 field_validator，兼容 LLM 返回空字符串/字符串天数。
-- **graph.py / graph_simple.py**：must_visit 匹配改为"每个关键词只取最佳匹配"（最短名称 + 最高 popularity）；城市名 fallback 改为已知城市列表匹配。
-- **prompts.py**：DAY_PLANNING_SYSTEM 首条规则改为强制包含 must_visit。
-
-## Agent 规划引擎重构 (2026-06-10)
-
-### 问题
-- POI 选择纯按 popularity 排序，无视用户兴趣/策略
-- 每天分配用 round-robin 机械轮转，不考虑地理位置
-- strategy/interests 字段解析了但从未使用
-- LLM 只从预选列表中挑选，没有真正的规划能力
-- POI 描述截断到 80 字，差异化信息丢失
-
-### 架构变更
-- **agent/scorer.py**（新增）：多维 POI 评分引擎，10+ 评分维度（热度、兴趣匹配、策略加权、必去加权、通勤惩罚、类型多样性、区域多样性、时间适配等）
-- **agent/clustering.py**（新增）：地理聚类模块，按区域将景点分组并分配到每天，减少跨区通勤
-- **agent/graph.py**（重构）：plan_each_day 使用评分+聚类替代 popularity+round-robin
-- **agent/prompts.py**（优化）：DAY_PLANNING_SYSTEM 增加主题一致、按评分选择、同区域集中等指导
-- **scripts/regen_recommendations.py**（新增）：差异化推荐语生成脚本（8 种角度轮换）
-
-### 评分维度（对标 C++ buildScoreBreakdown）
-- 热度基础分（popularity × 10/12）
-- 兴趣匹配（+35/+42 per matching interest tag）
-- 策略加权（culture +70, culinary +65, nature +65）
-- 必去加权（+120）
-- 通勤惩罚（跨区 -36）
-- 类型多样性（景点过多 -15, 餐厅加分 +12）
-- 区域多样性（新区域 +8）
-- 时间适配（用餐时段 +18）
-- 热门分级（≥4.7 +10, ≥4.3 +5）

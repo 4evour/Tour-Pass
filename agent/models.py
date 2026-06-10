@@ -1,4 +1,4 @@
-﻿"""Pydantic data models matching C++ TourPass structures."""
+"""Pydantic data models matching C++ TourPass structures."""
 from __future__ import annotations
 from typing import Optional
 from pydantic import BaseModel, Field, field_validator
@@ -18,6 +18,8 @@ class TripIntent(BaseModel):
     avoid: list[str] = Field(default_factory=list, description="要避开的景点/类型")
     hotel_preference: str = Field(default="", description="酒店偏好描述")
     hotel_area: str = Field(default="", description="希望住在哪个区域")
+    hotel_budget_min: int = Field(default=0, description="每晚最低预算（元），0表示不限")
+    hotel_budget_max: int = Field(default=0, description="每晚最高预算（元），0表示不限")
     special_requests: str = Field(default="", description="其他特殊要求")
     strategy: str = Field(default="balanced", description="策略: balanced/cultural/culinary/nature")
 
@@ -31,14 +33,14 @@ class TripIntent(BaseModel):
             return [v.strip()]
         return v
 
-    @field_validator('days', mode='before')
+    @field_validator('days', 'hotel_budget_min', 'hotel_budget_max', mode='before')
     @classmethod
-    def coerce_days(cls, v):
-        """LLM 有时返回字符串天数。"""
+    def coerce_int_fields(cls, v):
+        """LLM 有时返回字符串数字，需要兼容。"""
         if isinstance(v, str):
             import re
             m = re.search(r'\d+', v)
-            return int(m.group()) if m else 3
+            return int(m.group()) if m else 0
         return v
 
 
@@ -70,6 +72,9 @@ class HotelInfo(BaseModel):
     lng: float = 0.0
     popularity: float = 0.0
     price_level: int = 1
+    price_range: str = Field(default="", description="价格区间，如 '200-400元/晚'")
+    star_rating: int = Field(default=0, description="星级: 0=未知, 2-5")
+    brand_category: str = Field(default="", description="品牌档次: 经济型/中端/高端/豪华")
     description: str = ""
     tags: list[str] = Field(default_factory=list)
 
@@ -101,6 +106,13 @@ class DayPlan(BaseModel):
     summary: str = ""
 
 
+class MustVisitStatus(BaseModel):
+    """Status of a single must-visit attraction in the final itinerary."""
+    name: str = Field(description="用户输入的必去景点关键词")
+    included: bool = Field(description="是否已包含在行程中")
+    matched_poi: str = Field(default="", description="实际匹配到的景点名称")
+
+
 class ItineraryResult(BaseModel):
     city: str
     days: list[DayPlan] = Field(default_factory=list)
@@ -111,6 +123,10 @@ class ItineraryResult(BaseModel):
     alternatives: list[str] = Field(default_factory=list)
     travel_tips: list[str] = Field(default_factory=list)
     summary: str = ""
+    must_visit_coverage: list[MustVisitStatus] = Field(
+        default_factory=list,
+        description="必去景点覆盖报告",
+    )
 
 
 # ── Agent state for LangGraph ─────────────────────────────────────────────────

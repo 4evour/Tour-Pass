@@ -13,7 +13,7 @@ from .config import (
 )
 from .models import (
     AgentState, TripIntent, PoiInfo, HotelInfo,
-    DayPlan, StopInfo, ItineraryResult,
+    DayPlan, StopInfo, ItineraryResult, MustVisitStatus,
 )
 from .prompts import (
     PARSE_INTENT_SYSTEM, HOTEL_SELECTION_SYSTEM,
@@ -22,7 +22,7 @@ from .prompts import (
 from . import tools
 from . import rag
 from . import cache
-from .scorer import rank_pois, ScoredPoi
+from .scorer import rank_pois, ScoredPoi, _is_must_visit
 from .clustering import cluster_pois_for_days, DayCluster
 
 logger = logging.getLogger(__name__)
@@ -67,6 +67,49 @@ async def _llm_json(llm: ChatOpenAI, system: str, user: str, state: AgentState) 
         text = text.split("```")[1].split("```")[0].strip()
 
     return json.loads(text)
+
+
+# ── Hotel budget matching helper ──────────────────────────────────────────────
+
+def _matches_budget(hotel: HotelInfo, budget_min: int, budget_max: int) -> bool:
+    """Check if a hotel's price range overlaps with the user's budget."""
+    if budget_min <= 0 and budget_max <= 0:
+        return True
+
+    # Parse price_range string like "200-400元/晚" or "300"
+    pr = hotel.price_range
+    if not pr:
+        # Fallback: use price_level to estimate
+        level_ranges = {
+            1: (100, 300), 2: (200, 400), 3: (300, 600),
+            4: (500, 1000), 5: (800, 2000),
+        }
+        lo, hi = level_ranges.get(hotel.price_level, (100, 300))
+    else:
+        import re
+        nums = re.findall(r'\d+', pr)
+        if len(nums) >= 2:
+            lo, hi = int(nums[0]), int(nums[1])
+        elif len(nums) == 1:
+            lo = hi = int(nums[0])
+        else:
+            return True  # Can't parse, don't filter out
+
+    # Check overlap: hotel range [lo, hi] vs budget [budget_min, budget_max]
+    if budget_max > 0 and lo > budget_max:
+        return False
+    if budget_min > 0 and hi < budget_min:
+        return False
+    return True
+
+
+def _hotel_category_for_budget(budget: str) -> list[str]:
+    """Map user budget string to preferred brand categories."""
+    if budget == "低":
+        return ["经济型"]
+    elif budget == "高":
+        return ["高端", "豪华"]
+    return ["中端"]
 
 
 # ── Graph nodes ───────────────────────────────────────────────────────────────
@@ -189,23 +232,52 @@ async def select_pois_and_hotels(state: AgentState) -> AgentState:
 
 
 async def select_hotel(state: AgentState) -> AgentState:
-    """Node 4: Select the best hotel as anchor point."""
+    """Node 4: Select the best hotel as anchor point.
+    
+    Filtering priority:
+    1. Area filter (if user specified hotel_area)
+    2. Budget filter (if user specified hotel_budget_min/max or budget level)
+    3. Brand category filter (based on user's budget level)
+    4. LLM final selection from filtered candidates
+    """
     if not state.intent or not state.available_hotels:
         return
 
     intent = state.intent
     yield {"type": "status", "content": "正在为您选择最佳住宿..."}
 
-    # Pre-filter hotels by area if specified
-    candidates = state.available_hotels
+    candidates = list(state.available_hotels)
+
+    # 1. Area filter
     if intent.hotel_area:
         area_hotels = [h for h in candidates if intent.hotel_area in h.area]
         if area_hotels:
             candidates = area_hotels
 
-    # Build hotel list for LLM
+    # 2. Budget filter (by explicit budget range)
+    if intent.hotel_budget_max > 0 or intent.hotel_budget_min > 0:
+        budget_hotels = [
+            h for h in candidates
+            if _matches_budget(h, intent.hotel_budget_min, intent.hotel_budget_max)
+        ]
+        if budget_hotels:
+            candidates = budget_hotels
+            logger.info(f"Budget filter: {len(candidates)} hotels match "
+                        f"{intent.hotel_budget_min}-{intent.hotel_budget_max}元")
+
+    # 3. Brand category filter
+    preferred_cats = _hotel_category_for_budget(intent.budget)
+    if preferred_cats:
+        cat_hotels = [h for h in candidates if h.brand_category in preferred_cats]
+        if cat_hotels:
+            candidates = cat_hotels
+            logger.info(f"Category filter: {len(candidates)} hotels in {preferred_cats}")
+
+    # Build hotel list for LLM (with enriched info)
     hotel_list = "\n".join([
         f"- {h.name} (ID:{h.id}, 区域:{h.area}, 评分:{h.popularity}, "
+        f"档次:{h.brand_category or '未知'}, "
+        f"价格:{h.price_range or '未知'}, "
         f"描述:{h.description[:60] if h.description else '无'})"
         for h in candidates[:15]
     ])
@@ -215,8 +287,12 @@ async def select_hotel(state: AgentState) -> AgentState:
     user_context = (
         f"城市: {intent.city}\n"
         f"出行人群: {intent.travelers or '普通'}\n"
-        f"预算: {intent.budget}\n"
-        f"必去景点: {must_visit_str}\n"
+        f"预算: {intent.budget}"
+    )
+    if intent.hotel_budget_min > 0 or intent.hotel_budget_max > 0:
+        user_context += f"（每晚{intent.hotel_budget_min}-{intent.hotel_budget_max}元）"
+    user_context += (
+        f"\n必去景点: {must_visit_str}\n"
         f"酒店偏好: {intent.hotel_preference or '无特殊要求'}\n"
         f"希望区域: {intent.hotel_area or '不限'}\n\n"
         f"候选酒店:\n{hotel_list}"
@@ -258,7 +334,15 @@ async def select_hotel(state: AgentState) -> AgentState:
 
 
 async def plan_each_day(state: AgentState) -> AgentState:
-    """Node 5: Plan each day using multi-dimensional scoring and geographic clustering."""
+    """Node 5: Plan each day using multi-dimensional scoring and geographic clustering.
+    
+    Must-visit guarantee chain:
+    1. rank_pois protects must_visit from top_k truncation
+    2. cluster_pois_for_days rescues missing must_visit from full POI list
+    3. LLM prompt marks must_visit with 【必去】
+    4. Per-day post-injection catches LLM omissions
+    5. Global post-verification catches any remaining gaps
+    """
     if not state.intent:
         return
 
@@ -271,15 +355,16 @@ async def plan_each_day(state: AgentState) -> AgentState:
     restaurants = [p for p in state.available_pois if p.type == "restaurant"]
     nightlife = [p for p in state.available_pois if p.type == "nightlife"]
 
-    # Multi-dimensional scoring
+    # Multi-dimensional scoring (must_visit protected from truncation)
     scored = rank_pois(pois=attractions, intent=intent, top_k=intent.days * 10)
 
     yield {"type": "status", "content": f"已评分 {len(scored)} 个景点，正在聚类分配..."}
 
-    # Geographic clustering
+    # Geographic clustering (must_visit rescued from full POI list)
     clusters = cluster_pois_for_days(
         scored_attractions=scored, restaurants=restaurants,
         nightlife=nightlife, num_days=intent.days, intent=intent,
+        all_available_pois=state.available_pois,
     )
 
     guide_context = "\n".join(state.city_guides[:3]) if state.city_guides else ""
@@ -355,6 +440,7 @@ async def plan_each_day(state: AgentState) -> AgentState:
                 stops.append(stop)
                 total_visit += stop.visit_duration_minutes
 
+            # Per-day must_visit post-injection
             if must_visit_ids:
                 included_ids = {s.poi_id for s in stops}
                 missing_ids = must_visit_ids - included_ids
@@ -389,6 +475,49 @@ async def plan_each_day(state: AgentState) -> AgentState:
         except Exception as e:
             logger.error(f"plan_each_day day {day_num} failed: {e}")
             state.errors.append(f"第{day_num}天规划失败: {e}")
+
+    # ── Global must_visit post-verification ──
+    if intent.must_visit and state.daily_plans:
+        all_planned_names = set()
+        for dp in state.daily_plans:
+            for s in dp.stops:
+                all_planned_names.add(s.poi_name)
+
+        still_missing = []
+        for mv in intent.must_visit:
+            if not any(mv in name for name in all_planned_names):
+                still_missing.append(mv)
+
+        if still_missing:
+            logger.warning(f"Global verification: missing must_visit: {still_missing}")
+            for mv in still_missing:
+                # Find the POI in available_pois
+                poi = None
+                for p in state.available_pois:
+                    if mv in p.name or mv == p.id:
+                        poi = p
+                        break
+                if not poi:
+                    logger.error(f"Cannot rescue must_visit '{mv}': not in available_pois")
+                    continue
+
+                # Find the lightest day
+                lightest_day = min(state.daily_plans, key=lambda d: len(d.stops))
+                inject_stop = StopInfo(
+                    slot="下午" if len(lightest_day.stops) >= 3 else "上午",
+                    poi_id=poi.id, poi_name=poi.name, poi_type=poi.type,
+                    area=poi.area, lat=poi.lat, lng=poi.lng,
+                    start_minutes=840, end_minutes=840 + poi.visit_duration_minutes,
+                    visit_duration_minutes=poi.visit_duration_minutes,
+                    reason=f"用户必去（全局补救）: {poi.name}",
+                    recommendation=poi.recommendation,
+                )
+                lightest_day.stops.append(inject_stop)
+                logger.info(f"Global rescue: injected {poi.name} into day {lightest_day.day}")
+                yield {
+                    "type": "must_visit_injected",
+                    "content": f"已强制安排行程: {mv}",
+                }
 
     return
 
@@ -475,6 +604,26 @@ async def assemble_result(state: AgentState) -> AgentState:
     if state.city_guides:
         alternatives = state.city_guides[:3]
 
+    # Build must_visit coverage report
+    must_visit_coverage = []
+    if intent.must_visit:
+        all_planned_names = set()
+        for dp in state.daily_plans:
+            for s in dp.stops:
+                all_planned_names.add(s.poi_name)
+
+        for mv in intent.must_visit:
+            matched = ""
+            included = False
+            for name in all_planned_names:
+                if mv in name:
+                    included = True
+                    matched = name
+                    break
+            must_visit_coverage.append(MustVisitStatus(
+                name=mv, included=included, matched_poi=matched,
+            ))
+
     state.result = ItineraryResult(
         city=intent.city,
         days=state.daily_plans,
@@ -483,6 +632,7 @@ async def assemble_result(state: AgentState) -> AgentState:
         strategy=intent.strategy,
         alternatives=alternatives,
         summary=summary,
+        must_visit_coverage=must_visit_coverage,
     )
 
     if state.result:
@@ -494,6 +644,14 @@ async def assemble_result(state: AgentState) -> AgentState:
             must_visit=intent.must_visit,
             itinerary=state.result.model_dump(),
         )
+
+    # Log coverage
+    if must_visit_coverage:
+        covered = sum(1 for c in must_visit_coverage if c.included)
+        logger.info(f"Must-visit coverage: {covered}/{len(must_visit_coverage)}")
+        for c in must_visit_coverage:
+            if not c.included:
+                logger.warning(f"Must-visit NOT covered: {c.name}")
 
     yield {
         "type": "itinerary_complete",
@@ -567,4 +725,3 @@ async def run_planning_pipeline(
 
     if state.errors:
         yield {"type": "warnings", "content": f"有 {len(state.errors)} 个警告", "errors": state.errors}
-

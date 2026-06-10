@@ -1,4 +1,4 @@
-﻿"""Simplified graph implementation that works without langgraph.
+"""Simplified graph implementation that works without langgraph.
 Uses basic async/await sequential execution.
 Falls back to this if langgraph is not installed."""
 from __future__ import annotations
@@ -19,7 +19,7 @@ from .config import (
 )
 from .models import (
     AgentState, TripIntent, PoiInfo, HotelInfo,
-    DayPlan, StopInfo, ItineraryResult,
+    DayPlan, StopInfo, ItineraryResult, MustVisitStatus,
 )
 from .prompts import (
     PARSE_INTENT_SYSTEM, HOTEL_SELECTION_SYSTEM,
@@ -28,8 +28,9 @@ from .prompts import (
 from . import tools
 from . import rag
 from . import cache
-from .scorer import rank_pois, ScoredPoi
+from .scorer import rank_pois, ScoredPoi, _is_must_visit
 from .clustering import cluster_pois_for_days, DayCluster
+from .graph import _matches_budget, _hotel_category_for_budget
 
 logger = logging.getLogger(__name__)
 
@@ -144,8 +145,8 @@ async def _direct_llm_chat(system: str, user: str, temperature: float = 0.7) -> 
         return data["choices"][0]["message"]["content"].strip()
 
 
-# Helper: choose JSON caller based on availability
 async def call_json(system: str, user: str, state: AgentState) -> Any:
+    """Call LLM with langchain or direct HTTP fallback."""
     if LANGCHAIN_AVAILABLE:
         llm = get_llm()
         return await _llm_json(llm, system, user, state)
@@ -153,7 +154,7 @@ async def call_json(system: str, user: str, state: AgentState) -> Any:
         return await _direct_llm_json(system, user, state)
 
 
-# ── Pipeline nodes ────────────────────────────────────────────────────────────
+# ── Graph nodes ───────────────────────────────────────────────────────────────
 
 async def parse_intent(state: AgentState) -> AsyncIterator[dict]:
     yield {"type": "status", "content": "正在理解您的需求..."}
@@ -162,16 +163,18 @@ async def parse_intent(state: AgentState) -> AsyncIterator[dict]:
         data = await call_json(PARSE_INTENT_SYSTEM, state.user_message, state)
         intent = TripIntent(**data)
         state.intent = intent
-        yield {
-            "type": "intent_parsed",
-            "content": f"目的地：{intent.city}，{intent.days}天{intent.pace}节奏",
-            "intent": intent.model_dump(),
-        }
+        yield {"type": "intent_parsed", "content": f"目的地：{intent.city}，{intent.days}天{intent.pace}节奏", "intent": intent.model_dump()}
     except Exception as e:
         logger.error(f"parse_intent failed: {e}")
         state.errors.append(f"意图解析失败: {e}")
-        known_cities = ["北京","上海","广州","深圳","成都","重庆","杭州","武汉","南京","西安","长沙","昆明","大理","丽江","三亚","桂林","厦门","青岛","哈尔滨","苏州","张家界"]
-        fallback_city = next((c for c in known_cities if c in state.user_message), state.user_message[:2])
+        known_cities = ["北京", "上海", "广州", "深圳", "成都", "重庆", "杭州", "武汉", "南京", "西安", "长沙", "昆明", "大理", "丽江", "三亚", "桂林", "厦门", "青岛", "哈尔滨", "苏州", "张家界"]
+        fallback_city = ""
+        for c in known_cities:
+            if c in state.user_message:
+                fallback_city = c
+                break
+        if not fallback_city:
+            fallback_city = state.user_message[:2]
         state.intent = TripIntent(city=fallback_city, days=3)
 
 
@@ -181,12 +184,7 @@ async def retrieve_guides(state: AgentState) -> AsyncIterator[dict]:
 
     yield {"type": "status", "content": f"正在检索{state.intent.city}攻略..."}
 
-    # Check if RAG index is ready
-    if not rag.is_rag_ready():
-        yield {"type": "guides_retrieved", "content": "攻略库初始化中，跳过检索"}
-        return
-
-    queries = [f"{state.intent.city}旅行攻略", f"{state.intent.city}交通建议"]
+    queries = [f"{state.intent.city}旅行攻略", f"{state.intent.city}交通建议", f"{state.intent.city}美食推荐"]
     if state.intent.travelers:
         queries.append(f"{state.intent.city}{state.intent.travelers}旅行")
 
@@ -196,8 +194,8 @@ async def retrieve_guides(state: AgentState) -> AsyncIterator[dict]:
         all_guides.extend(results)
 
     seen = set()
-    state.city_guides = [g for g in all_guides if g not in seen and not seen.add(g)][:10]
-
+    unique_guides = [g for g in all_guides if g not in seen and not seen.add(g)]
+    state.city_guides = unique_guides[:10]
     yield {"type": "guides_retrieved", "content": f"找到 {len(state.city_guides)} 条攻略"}
 
 
@@ -218,27 +216,49 @@ async def select_pois_and_hotels(state: AgentState) -> AsyncIterator[dict]:
 
 
 async def select_hotel(state: AgentState) -> AsyncIterator[dict]:
+    """Select the best hotel with budget/category filtering."""
     if not state.intent or not state.available_hotels:
         return
 
     intent = state.intent
     yield {"type": "status", "content": "正在为您选择最佳住宿..."}
 
-    candidates = state.available_hotels
+    candidates = list(state.available_hotels)
+
+    # 1. Area filter
     if intent.hotel_area:
         area_hotels = [h for h in candidates if intent.hotel_area in h.area]
         if area_hotels:
             candidates = area_hotels
 
+    # 2. Budget filter
+    if intent.hotel_budget_max > 0 or intent.hotel_budget_min > 0:
+        budget_hotels = [h for h in candidates if _matches_budget(h, intent.hotel_budget_min, intent.hotel_budget_max)]
+        if budget_hotels:
+            candidates = budget_hotels
+
+    # 3. Brand category filter
+    preferred_cats = _hotel_category_for_budget(intent.budget)
+    if preferred_cats:
+        cat_hotels = [h for h in candidates if h.brand_category in preferred_cats]
+        if cat_hotels:
+            candidates = cat_hotels
+
     hotel_list = "\n".join([
-        f"- {h.name} (ID:{h.id}, 区域:{h.area}, 评分:{h.popularity})"
+        f"- {h.name} (ID:{h.id}, 区域:{h.area}, 评分:{h.popularity}, "
+        f"档次:{h.brand_category or '未知'}, 价格:{h.price_range or '未知'})"
         for h in candidates[:15]
     ])
 
     must_visit_str = ", ".join(intent.must_visit) if intent.must_visit else "无"
     user_context = (
         f"城市: {intent.city}\n人群: {intent.travelers or '普通'}\n"
-        f"预算: {intent.budget}\n必去: {must_visit_str}\n"
+        f"预算: {intent.budget}"
+    )
+    if intent.hotel_budget_min > 0 or intent.hotel_budget_max > 0:
+        user_context += f"（每晚{intent.hotel_budget_min}-{intent.hotel_budget_max}元）"
+    user_context += (
+        f"\n必去: {must_visit_str}\n"
         f"酒店偏好: {intent.hotel_preference or '无'}\n区域: {intent.hotel_area or '不限'}\n\n"
         f"候选酒店:\n{hotel_list}"
     )
@@ -264,7 +284,7 @@ async def select_hotel(state: AgentState) -> AsyncIterator[dict]:
 
 
 async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
-    """Plan each day using multi-dimensional scoring and geographic clustering."""
+    """Plan each day with must_visit hard guarantee."""
     if not state.intent:
         return
 
@@ -284,6 +304,7 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
     clusters = cluster_pois_for_days(
         scored_attractions=scored, restaurants=restaurants,
         nightlife=nightlife, num_days=intent.days, intent=intent,
+        all_available_pois=state.available_pois,
     )
 
     guide_context = "\n".join(state.city_guides[:3]) if state.city_guides else ""
@@ -292,7 +313,6 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
         day_num = cluster.day_num
         yield {"type": "status", "content": f"正在规划第 {day_num} 天..."}
 
-        # Match must_visit keywords to best POI (shortest name containing keyword)
         must_visit_ids = set()
         for mv in intent.must_visit:
             matches = [a for a in cluster.attractions if mv in a.name or mv == a.id]
@@ -324,8 +344,9 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
         )
         if must_visit_ids:
             must_names = [a.name for a in cluster.attractions if a.id in must_visit_ids]
-            user_context += f"\n用户必去景点（必须安排）: {', '.join(must_names)}\n"
-        user_context += f"\n候选景点:\n{attr_list}\n\n候选餐厅:\n{rest_list}\n"
+            user_context += f"\n用户必去景点（必须安排，不可省略）: {', '.join(must_names)}\n"
+        user_context += f"\n候选景点（标有【必去】的必须安排，其余按评分排序）:\n{attr_list}\n"
+        user_context += f"\n候选餐厅:\n{rest_list}\n"
         if guide_context:
             user_context += f"\n攻略参考:\n{guide_context}\n"
 
@@ -349,9 +370,11 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
                         stop.area = p.area
                         stop.lat = p.lat
                         stop.lng = p.lng
+                        stop.recommendation = p.recommendation
                         break
                 stops.append(stop)
 
+            # Per-day must_visit post-injection
             if must_visit_ids:
                 included_ids = {s.poi_id for s in stops}
                 missing_ids = must_visit_ids - included_ids
@@ -365,6 +388,7 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
                                 start_minutes=540, end_minutes=540 + p.visit_duration_minutes,
                                 visit_duration_minutes=p.visit_duration_minutes,
                                 reason=f"用户必去: {p.name}",
+                                recommendation=p.recommendation,
                             )
                             stops.insert(0, inject_stop)
                             logger.info(f"Force-injected must_visit: {p.name}")
@@ -375,6 +399,44 @@ async def plan_each_day(state: AgentState) -> AsyncIterator[dict]:
         except Exception as e:
             logger.error(f"plan day {day_num} failed: {e}")
             state.errors.append(f"第{day_num}天规划失败: {e}")
+
+    # ── Global must_visit post-verification ──
+    if intent.must_visit and state.daily_plans:
+        all_planned_names = set()
+        for dp in state.daily_plans:
+            for s in dp.stops:
+                all_planned_names.add(s.poi_name)
+
+        still_missing = []
+        for mv in intent.must_visit:
+            if not any(mv in name for name in all_planned_names):
+                still_missing.append(mv)
+
+        if still_missing:
+            logger.warning(f"Global verification: missing must_visit: {still_missing}")
+            for mv in still_missing:
+                poi = None
+                for p in state.available_pois:
+                    if mv in p.name or mv == p.id:
+                        poi = p
+                        break
+                if not poi:
+                    logger.error(f"Cannot rescue must_visit '{mv}': not in available_pois")
+                    continue
+
+                lightest_day = min(state.daily_plans, key=lambda d: len(d.stops))
+                inject_stop = StopInfo(
+                    slot="下午" if len(lightest_day.stops) >= 3 else "上午",
+                    poi_id=poi.id, poi_name=poi.name, poi_type=poi.type,
+                    area=poi.area, lat=poi.lat, lng=poi.lng,
+                    start_minutes=840, end_minutes=840 + poi.visit_duration_minutes,
+                    visit_duration_minutes=poi.visit_duration_minutes,
+                    reason=f"用户必去（全局补救）: {poi.name}",
+                    recommendation=poi.recommendation,
+                )
+                lightest_day.stops.append(inject_stop)
+                logger.info(f"Global rescue: injected {poi.name} into day {lightest_day.day}")
+                yield {"type": "must_visit_injected", "content": f"已强制安排行程: {mv}"}
 
 
 async def optimize_routes(state: AgentState) -> AsyncIterator[dict]:
@@ -440,6 +502,23 @@ async def assemble_result(state: AgentState) -> AsyncIterator[dict]:
         logger.error(f"Summary failed: {e}")
         summary = f"{intent.city}{intent.days}天行程已生成"
 
+    # Build must_visit coverage report
+    must_visit_coverage = []
+    if intent.must_visit:
+        all_planned_names = set()
+        for dp in state.daily_plans:
+            for s in dp.stops:
+                all_planned_names.add(s.poi_name)
+        for mv in intent.must_visit:
+            matched = ""
+            included = False
+            for name in all_planned_names:
+                if mv in name:
+                    included = True
+                    matched = name
+                    break
+            must_visit_coverage.append(MustVisitStatus(name=mv, included=included, matched_poi=matched))
+
     state.result = ItineraryResult(
         city=intent.city,
         days=state.daily_plans,
@@ -448,6 +527,7 @@ async def assemble_result(state: AgentState) -> AsyncIterator[dict]:
         strategy=intent.strategy,
         alternatives=state.city_guides[:3],
         summary=summary,
+        must_visit_coverage=must_visit_coverage,
     )
 
     cache.set_cached_itinerary(
@@ -455,6 +535,10 @@ async def assemble_result(state: AgentState) -> AsyncIterator[dict]:
         strategy=intent.strategy, must_visit=intent.must_visit,
         itinerary=state.result.model_dump(),
     )
+
+    if must_visit_coverage:
+        covered = sum(1 for c in must_visit_coverage if c.included)
+        logger.info(f"Must-visit coverage: {covered}/{len(must_visit_coverage)}")
 
     yield {
         "type": "itinerary_complete",

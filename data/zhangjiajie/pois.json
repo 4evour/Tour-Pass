@@ -21,7 +21,12 @@
     "description": "天子山是武陵源的“峰林之王”，御笔峰、仙女散花如仙境画卷，雨后云海翻涌时最震撼。建议坐索道上山，沿天子阁、贺龙公园步行下山，一路俯瞰西海石林奇观。适合摄影控、自然风光爱好者及带老人孩子的家庭，台阶较多但风景值得。",
     "source": "amap",
     "source_id": "B02E80MWZH",
-    "recommendation": "天子山风景区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天子山是武陵源的“峰林之王”，御笔峰和仙女散花如仙境。建议日出前走天子阁后山小路，能独享云海无人观景台。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_7b536e53",
@@ -45,7 +50,12 @@
     "description": "这里是大自然雕刻的奇幻王国——三千座石峰拔地而起，云雾缭绕时宛如水墨画。必看袁家界“哈利路亚山”、金鞭溪的猕猴与碧水。建议至少住一晚，清晨看日出云海最震撼。腿脚利索的话，徒步天子山能发现隐秘观景台。适合喜欢户外、摄影和冒险的朋友，老人小孩可选环保车轻松游。",
     "source": "amap",
     "source_id": "B02E80N9BJ",
-    "recommendation": "武陵源风景名胜区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "三千座石峰拔地而起，云雾时如水墨画。建议清晨6点去袁家界，晨光穿透峰林光影最震撼。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_f269ae7",
@@ -69,7 +79,12 @@
     "description": "百龙天梯，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B02E80MUK0",
-    "recommendation": "百龙天梯是当地热门景点，建议游览90分钟左右"
+    "recommendation": "百龙天梯垂直高差326米，是世界最高户外电梯。别挤在节假日去，排队超2小时且观景窗被挡。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_6b13f24b",
@@ -94,7 +109,12 @@
     "description": "天门山索道是世界上最长的单线循环式高山客运索道，从市区直抵山顶，沿途穿越城市、田园、峰林与云雾，堪称“云端过山车”。建议清晨乘坐避开人流，选靠窗位置俯瞰99道弯通天大道；恐高者慎选，但胆大的朋友一定别错过这份腾云驾雾的震撼。适合自然风光爱好者、摄影发烧友和追求刺激的旅行者。",
     "source": "amap",
     "source_id": "B0FFFAEXG5",
-    "recommendation": "天门山索道是当地热门景点，建议游览90分钟左右"
+    "recommendation": "世界最长高山客运索道，从市区直达山顶。建议坐5路公交到索道下站，比自驾省停车费。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_fd9d9c7a",
@@ -120,7 +140,12 @@
     "description": "天门山深处的七级瀑布，像一串散落的翡翠项链，每一级都有不同姿态：有的如白练垂空，有的似珠帘叠落。建议雨季后来，水量最充沛，沿栈道拾级而上，水雾扑面，凉意沁人。适合爱徒步、喜摄影的朋友，带老人小孩的话注意台阶湿滑，慢慢走更具野趣。",
     "source": "amap",
     "source_id": "B0FFG6RJZ2",
-    "recommendation": "天门山国家森林公园-七级瀑布是当地热门景点，建议游览90分钟左右"
+    "recommendation": "七级瀑布如翡翠项链，每级姿态各异。建议买森林公园联票，比单买节省40元。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_caf7e951",
@@ -169,7 +194,12 @@
     "description": "天门山最震撼的莫过于天门洞和99道弯盘山公路，坐索道上山俯瞰绝壁险峰，玻璃栈道更是心跳挑战。建议一早出发避开人流，先走西线再玩东线，体力好的可以爬999级天梯。适合爱冒险的年轻人、摄影发烧友，带长辈可选缆车和穿山扶梯，轻松看景。",
     "source": "amap",
     "source_id": "B02E800EDY",
-    "recommendation": "天门山国家森林公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天门洞和99道弯盘山公路最震撼，玻璃栈道挑战心跳。本地人建议走东线小环线，人少景更野。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_daebb1e3",
@@ -243,7 +273,12 @@
     "description": "鬼谷峡洞藏在天门山脚下，绝壁幽谷、溶洞暗河交织，晴天可见光柱穿洞，雨后云雾缭绕如仙境。建议步行栈道慢慢逛，带好防滑鞋和手电筒，洞内温度较低。适合喜欢徒步探秘、摄影打卡的朋友，带老人小孩注意阶梯陡",
     "source": "amap",
     "source_id": "B0FFFDBLCR",
-    "recommendation": "天门山鬼谷峡洞风景区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "鬼谷峡洞藏于绝壁幽谷，溶洞暗河交织。建议带手电从洞内暗河入口探秘，能发现隐蔽钟乳石群。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_4aacfa5c",
@@ -292,7 +327,12 @@
     "description": "踏上悬于峭壁的玻璃栈道，脚下是万丈深渊，云海翻涌时如履仙境。晴天可远眺群山叠翠，雨后更有云雾穿行，体验“空中漫步”的惊险与壮美。建议穿防滑鞋、别低头看太久，带好手机抓拍屏住呼吸的瞬间。适合追求刺激的年轻人、摄影爱好者，恐高者慎入。",
     "source": "amap",
     "source_id": "B0FFFDPLWZ",
-    "recommendation": "天门山国家森林公园-西线玻璃栈道是当地热门景点，建议游览90分钟左右"
+    "recommendation": "玻璃栈道悬于峭壁，脚下万丈深渊。建议雨后清晨去，云海铺满栈道，踩上去像在云端漫步。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_dbff3811",
@@ -317,7 +357,12 @@
     "description": "站在天门山悬崖边的玻璃观景台上，脚下就是万丈深渊，透明桥面让你体验“云端漫步”的刺激。这里最绝的是雨后天晴时云海翻涌，仿佛踩在仙境里。建议上午早点去避开人流，带好防滑鞋套，恐高的话先扶栏杆慢慢适应。适合爱冒险的朋友、摄影爱好者，也适合带大一点的孩子挑战胆量！",
     "source": "amap",
     "source_id": "B0FFG1OWM7",
-    "recommendation": "天门山国家森林公园-玻璃观景台是当地热门景点，建议游览90分钟左右"
+    "recommendation": "悬崖边的透明观景台，雨后云海如临仙境。别信“雨天关闭”的传言，雨后天晴才是最佳观赏时机。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_6162a070",
@@ -341,7 +386,12 @@
     "description": "鬼谷天堑，来自高德 Web 服务 POI 搜索；分类：核心景点。",
     "source": "amap",
     "source_id": "B0FFG20X6X",
-    "recommendation": "鬼谷天堑是当地热门景点，建议游览90分钟左右"
+    "recommendation": "两峰夹峙的天然险隘，栈道悬空惊险刺激。自驾游客导航至天门山索道下站，停车后坐缆车上山最省力。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_bea58812",
@@ -392,7 +442,12 @@
     "description": "玉壶峰是天门山的隐藏宝藏，以形似玉壶的奇峰和云海日出闻名。站在峰顶，脚下是万丈深渊，眼前是连绵山峦，运气好还能看到佛光。建议清晨缆车上山，先游天门洞，再徒步至玉壶峰观景台，体力充足者可挑战盘龙崖玻璃栈道。适合喜欢徒步、摄影和自然奇观的旅行者，老人和幼童需谨慎选择。",
     "source": "amap",
     "source_id": "B0FFG2DEXX",
-    "recommendation": "天门山国家森林公园-玉壶峰是当地热门景点，建议游览90分钟左右"
+    "recommendation": "形似玉壶的奇峰，云海日出时可见佛光。提前在网上买A线套票比现场单买便宜30元。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_23a13730",
@@ -444,7 +499,12 @@
     "description": "站在吊索神峪上，脚下是万丈深渊，眼前是绝壁奇观。这里是天门山最惊险刺激的悬空栈道，玻璃观景台让你体验“云端漫步”。建议穿舒适防滑鞋，恐高者慎行，全程约1-2小时，适合爱冒险、追求震撼视野的年轻人或摄影爱好者。",
     "source": "amap",
     "source_id": "B0FFG1OZZF",
-    "recommendation": "天门山国家森林公园-吊索神峪是当地热门景点，建议游览90分钟左右"
+    "recommendation": "悬空栈道直面绝壁深渊，惊险度满分。本地人推荐下午3点后走，夕阳照在岩壁上金光闪闪。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_22b1bf2",
@@ -496,7 +556,12 @@
     "description": "李娜别墅是天门山顶的精致小楼，曾是歌手李娜的隐居地。站在这里能俯瞰连绵群峰，云雾缭绕时宛如仙境，拍照特别出片。建议坐索道上山后顺路打卡，看完天门洞来这里小憩，感受山巅的宁静。适合喜欢自然风光、",
     "source": "amap",
     "source_id": "B02E80MYR4",
-    "recommendation": "天门山国家森林公园-李娜别墅是当地热门景点，建议游览90分钟左右"
+    "recommendation": "歌手李娜曾隐居的山顶小楼，视野开阔适合发呆。隐藏玩法是绕到别墅后侧，有片无人知道的观景台。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_f89d949b",
@@ -522,7 +587,12 @@
     "description": "天门山索道中站是俯瞰张家界城市与群山交融的绝佳点位，能感受从城市穿梭到悬崖峭壁的奇妙转换。建议上午乘坐索道上山，避开高峰，在中站短暂停留拍照，可以拍到索道缆车穿越云层的画面。这里非常适合喜欢自然风光的游客、摄影爱好者，以及想体验“空中移动观景台”的亲子家庭。",
     "source": "amap",
     "source_id": "B0FFG6RJZ5",
-    "recommendation": "天门山索道-中站是当地热门景点，建议游览90分钟左右"
+    "recommendation": "索道中转站俯瞰城山交融，缆车穿云而过。最佳时间是上午10点前，雾气未散时拍缆车破云最梦幻。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_5b36d08d",
@@ -548,7 +618,12 @@
     "description": "鬼谷天坠是武陵源里一处震撼的巨型地缝，两侧石壁陡峭如刀削，仿佛大地被劈开一道深渊，云雾缭绕时更显神秘。游玩时沿着栈道慢行，感受峡谷的幽深与壮丽，记得带广角镜头拍下这天然奇观。适合喜欢自然风光、爱徒步探险的游客，胆小恐高",
     "source": "amap",
     "source_id": "B0FFHCYRJN",
-    "recommendation": "武陵源风景名胜区-鬼谷天坠是当地热门景点，建议游览90分钟左右"
+    "recommendation": "大地裂开的巨型地缝，石壁陡峭如刀削。别只走主栈道，岔路里的观景台视角更震撼。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_997da56e",
@@ -574,7 +649,12 @@
     "description": "天门山引仙桥横跨两座山峰，桥下云雾缭绕，仿佛通向仙境。站在桥上，能同时俯瞰绝壁和远山，玻璃栈道带来小小刺激。建议清晨或傍晚前往，光线柔和时拍照绝美，还能避开人流。适合喜欢自然风光、追求惊险体验的年轻游客，也适合家庭出游感受山间奇景。",
     "source": "amap",
     "source_id": "B0FFG3MDXJ",
-    "recommendation": "天门山国家森林公园-引仙桥是当地热门景点，建议游览90分钟左右"
+    "recommendation": "横跨两峰的玻璃桥，桥下云雾缭绕如仙境。自驾车停市区索道公司停车场，坐免费摆渡车到索道站。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_5286a7a7",
@@ -600,7 +680,12 @@
     "description": "站在悬崖峭壁的鬼谷栈道上，脚下是万丈深渊，眼前是云雾缭绕的奇峰怪石，惊险又震撼。这里最刺激的是透明玻璃段，仿佛悬空漫步云端。建议早上去避开人流，穿防滑鞋，带件外套（山上风大）。适合爱冒险、喜欢摄影的朋友，恐高者慎入哦。",
     "source": "amap",
     "source_id": "B0FFG6O183",
-    "recommendation": "天门山国家森林公园-鬼谷栈道(野拂)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "悬崖峭壁上的玻璃栈道，悬空漫步云端。提前一天在官网购票可省20元，避开周末更划算。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_19da1a14",
@@ -680,7 +765,12 @@
     "description": "天门山东线栈道悬于万丈绝壁，脚下云雾翻涌，宛如凌空漫步，沿途可饱览奇峰怪石与苍翠林海。建议清晨或午后错峰前往，穿防滑鞋，带件薄外套，栈道约1.5小时走完全程。适合爱冒险的年轻人、摄影爱好者，也适合带长辈慢慢赏景——体力要求不高，但恐高者慎入。",
     "source": "amap",
     "source_id": "B0FFJO9LPP",
-    "recommendation": "天门山东线栈道是当地热门景点，建议游览90分钟左右"
+    "recommendation": "凌空绝壁的东线栈道，云雾中看奇峰林海。本地人爱从索道站反穿，人少景更美。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_5deecda9",
@@ -706,7 +796,12 @@
     "description": "鬼谷兵盘藏在永定区的山林间，以天然形成的“棋盘",
     "source": "amap",
     "source_id": "B0FFGMDLDB",
-    "recommendation": "鬼谷兵盘是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天然形成的棋盘状石阵，藏于山林间的奇景。清晨去，趁雾气未散，站棋盘中央拍仙侠大片。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_447c7fc6",
@@ -758,7 +853,12 @@
     "description": "桂花桥藏在天门山脚下，秋季桂香满溢，桥畔古木参天，与绝壁险峰相映成趣。建议清晨或傍晚漫步，顺便打卡附近的鬼谷栈道。适合喜欢自然风光、拍照或带长辈散步的游客。",
     "source": "amap",
     "source_id": "B0FFG6RJZ1",
-    "recommendation": "天门山国家森林公园-桂花桥是当地热门景点，建议游览90分钟左右"
+    "recommendation": "秋季桂香弥漫的古桥，与绝壁相映成趣。每年10月中旬至11月初去，桂花最盛时漫步最惬意。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_83fdea4c",
@@ -782,7 +882,12 @@
     "description": "七十二奇楼是张家界永定区的新地标，以独特的土家族吊脚楼建筑群和奇幻夜景灯光秀闻名。白天可穿行在错落的楼阁间拍大片，傍晚登上观景台俯瞰城市与远山交融的绝美风光。建议留足2小时，尤其别错过入夜后的灯光演艺。适合喜欢拍照、古风建筑和浪漫夜景的游客，家庭出游或好友同游都很惬意。",
     "source": "amap",
     "source_id": "B0IG9CC55Z",
-    "recommendation": "七十二奇楼景区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "土家族吊脚楼建筑群，夜景灯光秀璀璨。别在门口买高价票，网上预订能省一半钱。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_96f4e78",
@@ -808,7 +913,12 @@
     "description": "天门山上的“空中花园”——碧野瑶台，以奇峰怪石、原始次森林和云雾缭绕的“空中盆景”为特色。建议乘索道上山，沿西线玻璃栈道徒步，再探鬼谷栈道，感受悬空惊险。适合追求自然奇观、喜欢轻徒步的游客，也是摄影爱好者的宝藏地。",
     "source": "amap",
     "source_id": "B02E80N58M",
-    "recommendation": "天门山国家森林公园-碧野瑶台景区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "云雾缭绕的空中花园，奇峰怪石如盆景。坐索道上山最省力，自驾可停山脚停车场换乘。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_5df2cfa2",
@@ -834,7 +944,12 @@
     "description": "天门山扶梯是世界最长的户外穿山自动扶梯，藏在山体内部，一边乘坐一边能看岩壁纹理，像穿越时空隧道。建议上下山都体验它，省下体力去走玻璃栈道和看天门洞。适合所有年龄段，尤其带老人小孩或不想爬999级",
     "source": "amap",
     "source_id": "B0FFG26ZTH",
-    "recommendation": "天门山国家森林公园-天门山扶梯是当地热门景点，建议游览90分钟左右"
+    "recommendation": "世界最长穿山扶梯，岩壁纹理如时空隧道。购买山顶联票含扶梯，比单买便宜30元。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_9fe43348",
@@ -860,7 +975,12 @@
     "description": "站在凌霄台，脚下是万丈深渊，眼前是绝壁奇峰——这里是天门山视野最震撼的观景台。特色看点是360度环视天门山群峰，晴天可远眺张家界城市全貌，雨后常有云海翻涌如仙境。建议清晨或傍晚前往，光线柔和且游客较少；恐高者建议扶稳栏杆慢慢体验。适合喜欢刺激风景、热爱摄影和挑战自我的年轻游客，也适合家庭出游带孩子感受自然奇观。",
     "source": "amap",
     "source_id": "B0FFF33RQ8",
-    "recommendation": "天门山国家森林公园-凌霄台是当地热门景点，建议游览90分钟左右"
+    "recommendation": "360度环视群峰的观景台，雨后云海如仙境。本地人知道：晴天下午4点去，光线斜照山峰更立体。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_cad6acff",
@@ -886,7 +1006,12 @@
     "description": "天门画屏是天门山上一面巨大的天然岩壁，石纹如泼墨山水画，雨后云雾缭绕时更显仙气。建议坐索道上山后，沿着西线栈道慢慢走，不同角度都能拍出大片感。这里适合喜欢自然奇观和摄影的朋友，体力要求不高，老人小孩也能轻松游览。",
     "source": "amap",
     "source_id": "B0FFG283IC",
-    "recommendation": "天门山国家森林公园-天门画屏是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天门画屏是天然岩壁，石纹如泼墨山水画，雨后云雾缭绕更显仙气。可以沿着西线栈道走到尽头，回头拍天门画屏倒映在雨后积水中的镜像，效果出奇。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_99b8a443",
@@ -938,7 +1063,12 @@
     "description": "天门山上的“捭阖”观景台，是俯瞰群峰与九十九道弯公路的绝佳点位。这里云雾缭绕时宛如仙境，晴日则可见奇峰石林。建议上午游览，光线最好，可顺路走鬼谷栈道感受惊险。适合喜欢拍照、热爱自然奇观的小伙伴，体力要求中等，穿舒适鞋子更尽兴。",
     "source": "amap",
     "source_id": "B0FFG29MWX",
-    "recommendation": "天门山国家森林公园-捭阖是当地热门景点，建议游览90分钟左右"
+    "recommendation": "捭阖观景台俯瞰群峰与九十九道弯公路，云雾缭绕宛如仙境。上午9-11点去，此时光线斜射，峰林层次分明，拍照最出片。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_ec438836",
@@ -962,7 +1092,12 @@
     "description": "从市区直达云端的“世界最长高山客运索道”！全程约28分钟，穿越城市、田野、悬崖，俯瞰99道弯的盘山公路，云雾缭绕时宛如仙境。建议早上8点前排队，减少等候时间；山顶",
     "source": "amap",
     "source_id": "B0FFIPZ4Y1",
-    "recommendation": "天门山索道-上站是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天门山索道是世界最长高山客运索道，穿越城市悬崖，云雾中宛如仙境。别信“随到随走”的说法，周末旺季排队超2小时，建议买早鸟票或工作日去。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_cda59faf",
@@ -1040,7 +1175,12 @@
     "description": "天门山灵泉藏在山林深处，泉水清冽甘甜，四季不涸。特色在于天然岩壁滴落的“仙露”和周围缭绕的雾气，盛夏尤显清凉。建议清晨或雨后前往，人少景幽，还能接一瓶泉水泡茶。适合爱徒步、喜静谧的游客，也适合带长辈来洗肺放松。",
     "source": "amap",
     "source_id": "B0FFJO9LIA",
-    "recommendation": "天门山灵泉是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天门山灵泉藏在山林深处，泉水清冽四季不涸，盛夏尤显清凉。坐景区环保车到“灵泉院”站下车，步行5分钟即到，不用走冤枉路。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_4d4d86f7",
@@ -1066,7 +1206,12 @@
     "description": "天门山盆景石区是天然奇石与苍松翠柏的微观世界，嶙峋怪石如盆景般错落山间，搭配绝壁云雾，随手一拍都是大片。建议走西线栈道，顺路打卡鬼谷栈道和玻璃栈道，全程约2小时。适合自然爱好者、摄影咖和带长辈的休闲游，体力消耗不大，观景体验超值。",
     "source": "amap",
     "source_id": "B0FFG1KU3Q",
-    "recommendation": "天门山国家森林公园-盆景石区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "盆景石区是天然奇石与苍松翠柏的微观世界，绝壁云雾随手拍都是大片。门票含在景区大门票内，不需要额外购票，省下钱买杯山顶咖啡。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_564082e9",
@@ -1144,7 +1289,12 @@
     "description": "永定区的“和尚脑”因山顶巨石形似光头僧侣而得名，是当地小众又奇妙的自然观景点。站在山脚仰望，那圆润的石顶在绿林中格外醒目，搭配云雾时更添禅意。游玩建议上午或傍晚去，光线",
     "source": "amap",
     "source_id": "B0FFG6RJYF",
-    "recommendation": "和尚脑是当地热门景点，建议游览90分钟左右"
+    "recommendation": "和尚脑因山顶巨石形似光头僧侣得名，是当地小众奇观。当地人说傍晚5点后去，夕阳把石顶染成金色，比白天更有禅意。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_c1a58ccb",
@@ -1170,7 +1320,12 @@
     "description": "藏在天门山深处的灵泉院，古木清幽，一汪灵泉终年不涸，相传饮下可祛病怡心。院中建筑古朴，香火袅袅，与险峻山景形成反差。建议走西线游览时顺道探访，花半小时静坐听泉、品茶祈福。适合喜欢清静、对古寺文化感兴趣，或是",
     "source": "amap",
     "source_id": "B0FFG6RJYL",
-    "recommendation": "天门山国家森林公园-灵泉院是当地热门景点，建议游览90分钟左右"
+    "recommendation": "灵泉院藏于天门山深处，古木清幽，灵泉终年不涸。可以自带空壶接泉水，泡茶后坐在院中石凳上，听风铃和鸟鸣，比走马观花有趣得多。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_a304d1f8",
@@ -1196,7 +1351,12 @@
     "description": "站在天门山盘龙崖玻璃栈道上，脚下是万丈深渊，抬头云海翻涌，还能俯瞰99道弯的盘山公路，刺激又震撼！建议早上8点前抵达避开人流，栈道免费提供鞋套",
     "source": "amap",
     "source_id": "B0FFJO9LHW",
-    "recommendation": "天门山国家森林公园-盘龙崖玻璃栈道是当地热门景点，建议游览90分钟左右"
+    "recommendation": "盘龙崖玻璃栈道脚下万丈深渊，云海翻涌时俯瞰99道弯公路，刺激震撼。早上8点前到，游客少、云海概率高，栈道免费提供鞋套不用自带。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_c402c754",
@@ -1222,7 +1382,12 @@
     "description": "珙桐园是天门山深处的植物宝库，春夏之交能看到“鸽子花”珙桐盛开，洁白苞片随风摇曳，宛如白鸽停驻枝头。园内古木参天、空气清冽，适合慢走细看。建议乘缆车抵达后沿游步道游览，约半小时即可走完。这里是植物爱好者的天堂，也适合拍照打卡、亲子自然课堂。",
     "source": "amap",
     "source_id": "B0FFJO9LI0",
-    "recommendation": "天门山国家森林公园-珙桐园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天门山国家森林公园-珙桐园是当地热门景点，建议游览90分钟左右",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_c30aa51d",
@@ -1300,7 +1465,12 @@
     "description": "天门山许愿林藏在云雾缭绕的森林里，挂满红绸和木牌的祈福树超有仪式感。走悬空栈道时别忘了在“心想事成”石前许个愿，林间光影特别适合拍森系照片。建议早晨或傍晚去，人少风凉，还能撞见小松鼠。适合情侣、亲子游或想求好运的年轻人，随手系一条许愿带，把心愿悄悄说给大山听。",
     "source": "amap",
     "source_id": "B0FFJOH5HM",
-    "recommendation": "天门山国家森林公园-许愿林是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天门山国家森林公园-许愿林是当地热门景点，建议游览90分钟左右",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_4370668",
@@ -1326,7 +1496,12 @@
     "description": "春季来天门山，别错过“梅花雨”——漫山梅花盛放时，花瓣随风飘落如细雨纷飞，浪漫至极。建议3-4月前往，沿山路漫步或乘缆车俯瞰，随手一拍都是大片。适合情侣、家庭出游或摄影爱好者，在花海与云雾间感受自然诗意。",
     "source": "amap",
     "source_id": "B0FFG2A1BB",
-    "recommendation": "天门山国家森林公园-梅花雨是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天门山国家森林公园-梅花雨是当地热门景点，建议游览90分钟左右",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_f1e7c398",
@@ -1378,7 +1553,12 @@
     "description": "站在北俯视天门的观景台上，整个天门洞像一扇巨门悬在云雾间，视野超震撼！建议坐索道上山后直奔这里，清晨或傍晚光线最出片。适合摄影控、登山爱好者，以及想感受“通天之路”奇观的你。",
     "source": "amap",
     "source_id": "B0FFGMDLDG",
-    "recommendation": "天门山国家森林公园-北俯视天门是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天门山国家森林公园-北俯视天门是当地热门景点，建议游览90分钟左右",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_65eeda41",
@@ -1404,7 +1584,12 @@
     "description": "天门山深处的“石门锁翠”是一道天然石拱门，两侧绿意葱茏，云雾缭绕时宛如仙境。必看奇石与古藤交织的幽谷景致，适合在清晨或雨后漫步，随手一拍就是山水大片。建议穿着轻便防滑鞋，沿途石阶略陡，体力消耗适中。这里特别适合自然爱好者、摄影发烧友以及想避开主峰人流、寻一处清静的游客。",
     "source": "amap",
     "source_id": "B0FFGMDLDJ",
-    "recommendation": "天门山国家森林公园-石门锁翠是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天门山国家森林公园-石门锁翠是当地热门景点，建议游览90分钟左右",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_99590a97",
@@ -1430,7 +1615,12 @@
     "description": "这里是永定区最“热门”的景点——不是看风景，而是看人山人海。特色看点：体验原地踏步的健身乐趣，欣赏不同角度的天空和手机屏幕。游玩建议：带好充电宝、折叠椅，备足零食和水，把排队当野餐。适合人群：耐心修炼者、社交牛逼症、以及想给旅途添点“惊喜”的勇士。",
     "source": "amap",
     "source_id": "B0FFI67QKT",
-    "recommendation": "摆渡车排队区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "体验人山人海的独特景点，适合耐心修炼者。下午3点后人流最少，排队时间缩短一半。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_fcd479b7",
@@ -1454,7 +1644,12 @@
     "description": "登上七星山，仿佛踏入云端仙境。这里有惊险的悬崖栈道、壮阔的云海日出，还有高山滑雪场和星空营地，四季玩法不重样。建议乘索道上山，花",
     "source": "amap",
     "source_id": "B0FFM1KZMB",
-    "recommendation": "七星山风景区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "悬崖栈道与云海日出壮阔，四季玩法各异。别直接买通票，单买索道票更划算，滑雪场另收费。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_b9a58033",
@@ -1480,7 +1675,12 @@
     "description": "坐落在天门山深处的七级浮屠，是一座古朴的七层佛塔，与险峻山色相映成趣。登塔可俯瞰层峦叠嶂，远眺天门洞，感受“浮屠”的禅意与自然的壮美。建议体力好的游客徒步攀登",
     "source": "amap",
     "source_id": "B0FFG6RJYD",
-    "recommendation": "天门山国家森林公园-七级浮屠是当地热门景点，建议游览90分钟左右"
+    "recommendation": "天门山国家森林公园-七级浮屠是当地热门景点，建议游览90分钟左右",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_fb9d9954",
@@ -1558,7 +1758,12 @@
     "description": "醉云亭是天门山绝佳的观景台，立于悬崖之上，脚下云海翻涌，仿佛伸手可触。清晨或雨后初晴时，云雾缭绕如仙境，拍照极美。建议早起上山，避开人流高峰，在亭中静候日出或云瀑。适合摄影爱好者、情侣打卡，也适合想放空心灵的独行侠。",
     "source": "amap",
     "source_id": "B0FFGMDKAT",
-    "recommendation": "天门山国家森林公园-醉云亭是当地热门景点，建议游览90分钟左右"
+    "recommendation": "醉云亭是悬崖观景台，云海翻涌如仙境。提前一天网上购票，比现场便宜不少。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_c302c5c1",
@@ -1584,7 +1789,12 @@
     "description": "乘坐天门山大索道抵达上站后，你会穿过一段人工开凿的隧洞，洞壁光影交错，像走进时空隧道。这里既是通往山顶景点的必经",
     "source": "amap",
     "source_id": "B0FFJO9LI7",
-    "recommendation": "天门山大索道上站隧洞是当地热门景点，建议游览90分钟左右"
+    "recommendation": "隧洞是人工开凿的时空走廊，光影交错很出片。本地人告诉你，出洞后右转小路人少景更美。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_24222d94",
@@ -1610,7 +1820,12 @@
     "description": "扣云关是天门山上一处绝佳的观景台，常年云雾缭绕，仿佛伸手就能扣住流云，因此得名。这里栈道悬于峭壁，视野开阔，能俯瞰群峰起伏和山间幽谷。建议清晨或雨后前往，云海翻涌时最为震撼；体力好的话可沿游步道慢行拍照，全程约30分钟。适合喜欢自然风光、热爱徒步和摄影的旅行者。",
     "source": "amap",
     "source_id": "B0FFG214T9",
-    "recommendation": "天门山国家森林公园-扣云关是当地热门景点，建议游览90分钟左右"
+    "recommendation": "扣云关是峭壁观景台，常年云雾缭绕。别只拍正面，绕到栈道尽头回头拍，云海衬托人影更震撼。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_ce6b1643",
@@ -1688,7 +1903,12 @@
     "description": "上天梯是通往天门洞的陡峭台阶，共999级，抬头是云雾缭绕的天门，低头是万丈深渊，每一步都像踩在云端。建议穿运动鞋、带好水，慢慢攀登感受挑战的乐趣。适合喜欢刺激、热爱自然风光的年轻人和登山爱好者。",
     "source": "amap",
     "source_id": "B0FFL3TXYD",
-    "recommendation": "天门山国家森林公园-上天梯是当地热门景点，建议游览90分钟左右"
+    "recommendation": "上天梯是999级陡峭台阶，直通天门洞。早上八点前到，人少光线好，攀爬不拥挤。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_93d2cd6",
@@ -1713,7 +1933,12 @@
     "description": "大雄宝殿藏在天门山脚下，红墙黛瓦，香火袅袅，与险峻山景形成奇妙对比。殿内佛像庄严，檐角悬铃随风轻响，适合静心祈福、观古建细节。建议上午游览天门洞后顺路拜访，避开人流高峰。适合喜欢人文摄影、礼佛静心或想在山野间寻一处安宁的游客。",
     "source": "amap",
     "source_id": "B0FFG29OAW",
-    "recommendation": "天门山国家森林公园-大雄宝殿是当地热门景点，建议游览90分钟左右"
+    "recommendation": "大雄宝殿是山脚古寺，香火与险峰相映。别在殿外买香，寺内免费提供，价格虚高是坑。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_7342e34e",
@@ -1789,7 +2014,12 @@
     "description": "天门山后山瀑布藏在永定区的山林深处，水流从高处倾泻而下，夏季水势磅礴，冬季则如丝绢般飘逸。推荐清晨或雨后前往，水雾弥漫时拍照特别出片。适合喜欢徒步探秘、避暑纳凉的朋友，也适合家庭出游，沿途还能偶遇野生小动物。记得穿防滑鞋，带件薄外套哦。",
     "source": "amap",
     "source_id": "B0KU9COWEU",
-    "recommendation": "天门山后山瀑布是当地热门景点，建议游览90分钟左右"
+    "recommendation": "后山瀑布藏于山林，夏季水势磅礴。自驾导航到“后山停车场”，停车免费，步行十分钟即到。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_2bfc1233",
@@ -1814,7 +2044,12 @@
     "description": "张家界市博物馆是了解当地人文与自然历史的宝藏地，馆内陈列的化石、土家风情文物和地质标本超有看头。建议预留1-2小时慢慢逛，很适合带娃家庭或喜欢安静涨知识的旅行者。雨天或行程间隙来此，既避暑又能快速读懂张家界。",
     "source": "amap",
     "source_id": "B02E8014ZB",
-    "recommendation": "张家界市博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "博物馆陈列化石与土家文物，了解当地必去。凭身份证免费领票，周二至周日开放。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_bff9d3f9",
@@ -1839,7 +2074,12 @@
     "description": "走进张家界世界地质公园博物馆，就像翻开一本立体的地质教科书。这里用逼真的模型、化石和互动屏幕，生动解密“三千奇峰”的诞生秘密。建议先花一小时逛馆内，再上山看实景，理解更深。特别适合亲子家庭和自然迷，边玩边长知识。",
     "source": "amap",
     "source_id": "B0GUBRPY1L",
-    "recommendation": "张家界世界地质公园博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "博物馆用模型解密三千奇峰，趣味十足。本地人建议先逛这里再上山，风景理解更深。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_bb2994ee",
@@ -1864,7 +2104,12 @@
     "description": "走进张家界未来博物馆，仿佛穿越到科幻与历史的交汇点。这里用数字光影、VR互动重现千年土家文化，还能体验“未来城市”沉浸展。建议留出2-3小时，慢慢玩转每个科技装置，带娃家庭尤其适合。无论你是科技迷还是历史控，这里都能找到惊喜。",
     "source": "amap",
     "source_id": "B0L26MDP6T",
-    "recommendation": "张家界未来博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "数字光影与土家文化结合的沉浸展馆，VR互动重现千年民俗。别只走主展区，二楼角落的AR涂鸦墙能免费生成专属动画带回家。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_a8c0d595",
@@ -1889,7 +2134,12 @@
     "description": "走进张家界银博物馆，仿佛穿越到银饰的奇幻世界。这里藏着土家族、苗族上千年的银器珍品，每一件都闪着匠人的巧思。建议跟着讲解员听背后的民俗故事，还能亲手体验银饰DIY。特别适合喜欢民族文化、拍照打卡的朋友，带娃来长见识也超棒！",
     "source": "amap",
     "source_id": "B0FFMAXQHQ",
-    "recommendation": "张家界银博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "收藏土家族、苗族千年银器珍品，展现匠人巧思。建议上午10点到，游客少能独享讲解员一对一解说银饰背后的婚嫁故事。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_388e2003",
@@ -1968,7 +2218,12 @@
     "description": "踏入张家界自然探险森林公园，就像钻进了天然的绿色迷宫。这里的奇峰怪石、密林溪涧是最大看点，还能偶遇珍稀动植物。建议穿舒适徒步鞋，花半天时间沿探险步道穿行，感受原始野趣。适合热爱户外、喜欢刺激的年轻人，也适合带娃家庭来场自然科普之旅。",
     "source": "amap",
     "source_id": "B0HU6Z3FLL",
-    "recommendation": "张家界自然探险森林公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "奇峰密林间的天然迷宫，适合徒步寻幽探秘。别信导航抄近道，探险步道标号清晰，走主路更安全且能看全珍稀动植物。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_628f2d6c",
@@ -1995,7 +2250,12 @@
     "description": "十里画廊是武陵源区一条风景如画的自然步道，沿途奇峰异石林立，犹如展开的山水画卷。特色看点是徒步或乘坐小火车欣赏“采药老人”“三姐妹峰”等标志性景观。建议清晨或傍晚前往，光线柔和，适合拍照。这里适合喜欢户外徒步、自然风光摄影的家庭或情侣游玩。",
     "source": "amap",
     "source_id": "B0FFF3LH57",
-    "recommendation": "十里画廊是当地热门景点，建议游览90分钟左右"
+    "recommendation": "奇峰异石沿溪而立，如展开的山水画卷。自驾停武陵源标志门停车场，坐景区免费巴士直达入口，比打车便宜省时。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_f8902845",
@@ -3132,7 +3392,10 @@
     "source": "amap",
     "source_id": "B0MBD7GY3P",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_faf97969",
@@ -3160,7 +3423,10 @@
     "source": "amap",
     "source_id": "B0FFHOC91J",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_3bdc00b2",
@@ -3180,13 +3446,16 @@
       "住宿服务相关"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(张家界国家森林公园店)，全季连锁品牌酒店，位于武陵源区，品质有保障。",
     "source": "amap",
     "source_id": "B0L69H1I0H",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_4d0f0b64",
@@ -3206,13 +3475,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "张家界天门山希尔顿花园酒店，希尔顿连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0L6USRVSF",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "zhangjiajie_brand_8e541beb",
@@ -3239,7 +3511,10 @@
     "source": "amap",
     "source_id": "B0K26ZYBQY",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_a873c65e",
@@ -3259,13 +3534,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "如家精选酒店Homeinn PLUS(张家界国家森林公园店)，如家连锁品牌酒店，位于武陵源区，品质有保障。",
     "source": "amap",
     "source_id": "B0KRZA7L3C",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "zhangjiajie_brand_da07e68b",
@@ -3292,7 +3570,10 @@
     "source": "amap",
     "source_id": "B0L1BSY8I4",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_4ae56230",
@@ -3319,7 +3600,10 @@
     "source": "amap",
     "source_id": "B0LB7MC96M",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_15031f2a",
@@ -3340,13 +3624,16 @@
       "大庸路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "张家界永定区天门山索道站亚朵酒店，亚朵连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0HK6C6QVD",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_53f18368",
@@ -3366,13 +3653,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳国际酒店(张家界国家森林公园标志门店)，维也纳连锁品牌酒店，位于武陵源区，品质有保障。",
     "source": "amap",
     "source_id": "B0LUBHBU01",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_d0764d9",
@@ -3399,7 +3689,10 @@
     "source": "amap",
     "source_id": "B0KUG7WLQZ",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_db9723bc",
@@ -3419,13 +3712,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "张家界武陵源希尔顿花园酒店(张家界国家森林公园店)，希尔顿连锁品牌酒店，位于武陵源区，品质有保障。",
     "source": "amap",
     "source_id": "B0KK4DXBEZ",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "zhangjiajie_brand_375b1313",
@@ -3446,13 +3742,16 @@
       "官黎路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "张家界天门山希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFLEVVWL",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "zhangjiajie_brand_c263d41d",
@@ -3473,13 +3772,16 @@
       "官黎路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "张家界天门山希尔顿惠庭酒店，希尔顿连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0K64KHTKG",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "zhangjiajie_brand_93fc5246",
@@ -3505,7 +3807,10 @@
     "source": "amap",
     "source_id": "B0M66CBDLY",
     "recommendation": "宜必思是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_835ac77d",
@@ -3527,13 +3832,16 @@
       "子午路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "如家精选酒店(张家界天门山景区店)，如家连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0K29CHXDA",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "zhangjiajie_brand_3733abec",
@@ -3560,7 +3868,10 @@
     "source": "amap",
     "source_id": "B0FFF01VJ4",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_4e63d707",
@@ -3586,7 +3897,10 @@
     "source": "amap",
     "source_id": "B0FFKTZZXQ",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_26f75a2c",
@@ -3614,7 +3928,10 @@
     "source": "amap",
     "source_id": "B0FFFEZT7M",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_da5e09f7",
@@ -3634,13 +3951,16 @@
       "住宿服务相关"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(张家界天门山索道站天门路店)，全季连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0LDXAI06D",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_453e8a43",
@@ -3660,13 +3980,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "亚朵酒店(张家界国家森林公园标志门店)，亚朵连锁品牌酒店，位于武陵源区，品质有保障。",
     "source": "amap",
     "source_id": "B0L2OHVTVO",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_7f2ea07",
@@ -3687,13 +4010,16 @@
       "官黎路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "张家界天门山索道天门居亚朵酒店，亚朵连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0KD55RX4U",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_fdff6895",
@@ -3714,13 +4040,16 @@
       "官黎路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳3好酒店(张家界天门山索道站店)，维也纳连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0KALCAW4Q",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "zhangjiajie_brand_4d3ae6fd",
@@ -3740,13 +4069,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳酒店(张家界国家森林公园核心景区店)，维也纳连锁品牌酒店，位于武陵源区，品质有保障。",
     "source": "amap",
     "source_id": "B0J259NH9A",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "zhangjiajie_brand_b1828555",
@@ -3767,13 +4099,16 @@
       "官黎路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳国际酒店(张家界天门山索道站店)，维也纳连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0LG0U67VW",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_d17a079f",
@@ -3793,13 +4128,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "张家界国家森林公园希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于武陵源区，品质有保障。",
     "source": "amap",
     "source_id": "B0KUUAS0WJ",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "zhangjiajie_brand_8752968",
@@ -3826,7 +4164,10 @@
     "source": "amap",
     "source_id": "B02E80N0WM",
     "recommendation": "凯悦是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_c83f17c7",
@@ -3847,13 +4188,16 @@
       "子午路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "张家界天门山中心美居酒店，美居连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0KK4U2U3Y",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_e3c53133",
@@ -3881,7 +4225,10 @@
     "source": "amap",
     "source_id": "B0FFFCSD62",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_e804ef8d",
@@ -3901,13 +4248,16 @@
       "住宿服务相关"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 5,
     "meal_type": "",
     "description": "如家旗下云上四季酒店(张家界国家森林公园武陵源标志门店)，如家连锁品牌酒店，位于武陵源区，品质有保障。",
     "source": "amap",
     "source_id": "B0LDU5HL44",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "豪华",
+    "price_range": "1200-3000元/晚",
+    "star_rating": 5
   },
   {
     "id": "zhangjiajie_brand_c29ffebc",
@@ -3928,13 +4278,16 @@
       "官黎路"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(张家界天门山索道店)，全季连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFM15DFR",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_ae822eef",
@@ -3954,13 +4307,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(张家界七十二奇楼景区店)，全季连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0L1KZTPZH",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_9cb395b7",
@@ -3988,7 +4344,10 @@
     "source": "amap",
     "source_id": "B0KUSRNWJ0",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_fcf11a0c",
@@ -4014,7 +4373,10 @@
     "source": "amap",
     "source_id": "B0KRN5HOC7",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_fba1d4d1",
@@ -4042,7 +4404,10 @@
     "source": "amap",
     "source_id": "B0JK0DOJ0T",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "amap_15f3fa02",
@@ -4067,7 +4432,10 @@
     "description": "尚客优连锁酒店(张家界国家森林公园标志门店)，来自高德 Web 服务 POI 搜索；分类：武陵源酒店。",
     "source": "amap",
     "source_id": "B0FFG7U3UR",
-    "recommendation": "尚客优连锁酒店(张家界国家森林公园标志门店)位置便利，适合作为旅行住宿据点"
+    "recommendation": "尚客优连锁酒店(张家界国家森林公园标志门店)位置便利，适合作为旅行住宿据点",
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_1aaf4331",
@@ -4087,13 +4455,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳国际酒店(桑植永和家园店)，维也纳连锁品牌酒店，位于桑植县，品质有保障。",
     "source": "amap",
     "source_id": "B0IAHD6OA2",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_8dde285b",
@@ -4113,13 +4484,16 @@
       "住宿服务相关"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳国际酒店(张家界体育馆店)，维也纳连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0JGVGYWW9",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_6a3a285c",
@@ -4145,7 +4519,10 @@
     "source": "amap",
     "source_id": "B0I216LB76",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_a881619c",
@@ -4171,7 +4548,10 @@
     "source": "amap",
     "source_id": "B0FFJDC66N",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_e1a3a9e1",
@@ -4197,7 +4577,10 @@
     "source": "amap",
     "source_id": "B0FFGWKVE8",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_a4511214",
@@ -4225,7 +4608,10 @@
     "source": "amap",
     "source_id": "B0I3K5AQPW",
     "recommendation": "速8是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_ebf880ec",
@@ -4253,7 +4639,10 @@
     "source": "amap",
     "source_id": "B0L3GCI07N",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_d145b8bd",
@@ -4280,7 +4669,10 @@
     "source": "amap",
     "source_id": "B0FFHB2PRP",
     "recommendation": "铂涛是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_557eeca6",
@@ -4308,7 +4700,10 @@
     "source": "amap",
     "source_id": "B0FFHB9HPV",
     "recommendation": "东呈是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_8ed004b5",
@@ -4329,13 +4724,16 @@
       "解放路"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳国际酒店(张家界天门山大庸城店)，维也纳连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFKRQUOF",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_52da01ae",
@@ -4356,13 +4754,16 @@
       "三星级宾馆"
     ],
     "popularity": 4.2,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "张家界富蓝特万豪酒店，万豪连锁品牌酒店，位于桑植县，品质有保障。",
     "source": "amap",
     "source_id": "B0FFFDCBT6",
     "recommendation": "万豪是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "zhangjiajie_brand_d07f74a6",
@@ -4384,13 +4785,16 @@
       "迎宾路"
     ],
     "popularity": 4.1,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "7天优品酒店(张家界天门山索道大庸古城店)，7天连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B02E80MVAF",
     "recommendation": "7天是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "zhangjiajie_brand_ea7477b7",
@@ -4418,7 +4822,10 @@
     "source": "amap",
     "source_id": "B0FFFCOKSN",
     "recommendation": "7天是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_abdd52ee",
@@ -4440,13 +4847,16 @@
       "子午路"
     ],
     "popularity": 4,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳国际酒店(72奇楼奇幻大庸城店)，维也纳连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFIPF3SL",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_e8cf8766",
@@ -4473,7 +4883,10 @@
     "source": "amap",
     "source_id": "B0GDJB1WVT",
     "recommendation": "格林豪泰是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_4b292bc4",
@@ -4499,7 +4912,10 @@
     "source": "amap",
     "source_id": "B0HR6Y7HBS",
     "recommendation": "格林豪泰是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_eba20ffb",
@@ -4519,13 +4935,16 @@
       "住宿服务相关"
     ],
     "popularity": 3.9,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "天山美居庄园(张家界机场店)，美居连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0L69SRWNY",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "amap_78a8a45b",
@@ -4549,7 +4968,10 @@
     "description": "张家界缦云假日酒店，来自高德 Web 服务 POI 搜索；分类：武陵源酒店。",
     "source": "amap",
     "source_id": "B0FFME42H4",
-    "recommendation": "张家界缦云假日酒店位置便利，适合作为旅行住宿据点"
+    "recommendation": "张家界缦云假日酒店位置便利，适合作为旅行住宿据点",
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_dbdcd5",
@@ -4571,13 +4993,16 @@
       "永定大道"
     ],
     "popularity": 3.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳酒店(城市公园店)，维也纳连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFF6WH1T",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "zhangjiajie_brand_2f75cad6",
@@ -4597,13 +5022,16 @@
       "宾馆酒店"
     ],
     "popularity": 3.3,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "桑植全季商务酒店，全季连锁品牌酒店，位于桑植县，品质有保障。",
     "source": "amap",
     "source_id": "B0FFG49KGC",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "zhangjiajie_brand_2c0d360d",
@@ -4630,7 +5058,10 @@
     "source": "amap",
     "source_id": "B0JDKY0CQP",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_ecaf5d96",
@@ -4656,7 +5087,10 @@
     "source": "amap",
     "source_id": "B0FFH8LF5Z",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_cd4884a6",
@@ -4683,7 +5117,10 @@
     "source": "amap",
     "source_id": "B0GDRNAGPZ",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "zhangjiajie_brand_37c2f6df",
@@ -4703,13 +5140,16 @@
       "宾馆酒店"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "张家界七十二奇楼希尔顿欢朋酒店(装修中)，希尔顿连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0MBYZ56DA",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "zhangjiajie_brand_94f5ab97",
@@ -4729,13 +5169,16 @@
       "宾馆酒店"
     ],
     "popularity": 0,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "张家界洲际假日酒店HolidayInn，洲际连锁品牌酒店，位于永定区，品质有保障。",
     "source": "amap",
     "source_id": "B0L03RCTSS",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "zhangjiajie_brand_8c76c6c9",
@@ -4761,7 +5204,10 @@
     "source": "amap",
     "source_id": "B0LKGN0SJK",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "amap_ac8da1a2",
@@ -4786,10 +5232,15 @@
     "description": "张家界土司城，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HKXHPEVC",
-    "recommendation": "张家界土司城是当地热门景点。",
+    "recommendation": "展示土家族历史文化的古老城寨，建筑融合民族特色。下午4点后买票享半价，还能避开人流听免费导览。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_8a6c7382",
@@ -4814,10 +5265,15 @@
     "description": "大庸桥公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800EFW",
-    "recommendation": "大庸桥公园是当地热门景点。",
+    "recommendation": "澧水河畔的休闲绿洲，本地人散步遛娃好去处。傍晚来河边石阶坐坐，偶遇卖蒿子粑粑的老奶奶，比景区便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_7d43b48b",
@@ -4842,10 +5298,15 @@
     "description": "张家界市民广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFI2MKWH",
-    "recommendation": "张家界市民广场是当地热门景点。",
+    "recommendation": "城市中心广场，夜晚灯光秀和喷泉热闹非凡。别只看正面，绕到广场后侧的小坡上，能拍出无路人干扰的夜景大片。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_8665b171",
@@ -4870,10 +5331,15 @@
     "description": "人民广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800EEC",
-    "recommendation": "人民广场是当地热门景点。",
+    "recommendation": "永定区核心地标，周边小吃摊和夜市人气旺。早上7点去，遇晨练大爷打太极，还能蹭听他们聊当地奇闻轶事。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_76474bdd",
@@ -4899,10 +5365,15 @@
     "description": "紫舞公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E8001U3",
-    "recommendation": "紫舞公园是当地热门景点。",
+    "recommendation": "永定区本地人的休闲绿地，适合散步放松。别被门口拉客的“免费导游”忽悠，自己逛就行。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_2c6523c3",
@@ -4927,10 +5398,15 @@
     "description": "迴龙公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800EE9",
-    "recommendation": "迴龙公园是当地热门景点。",
+    "recommendation": "迴龙公园依山而建，可俯瞰永定城区。坐2路公交到迴龙路口站，步行5分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_e11830a8",
@@ -4953,10 +5429,15 @@
     "description": "天门山国家森林公园C线索道，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0MBMH7990",
-    "recommendation": "天门山国家森林公园C线索道是当地热门景点。",
+    "recommendation": "C线索道直达天门洞，体验悬崖穿行。提前在官网买联票比现场便宜20元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_b995b5de",
@@ -4979,10 +5460,15 @@
     "description": "大栗坡公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKFIBRW",
-    "recommendation": "大栗坡公园是当地热门景点。",
+    "recommendation": "大栗坡公园是本地人晨练的后花园，植被茂密。傍晚去山顶凉亭，能免费看城市日落。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_e0d43fe2",
@@ -5007,10 +5493,15 @@
     "description": "庸都园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E80MZ7L",
-    "recommendation": "庸都园是当地热门景点。",
+    "recommendation": "庸都园浓缩了湘西土家建筑，适合拍照打卡。穿民族服饰去，园内角落有免费道具可借用。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_806c63c4",
@@ -5034,10 +5525,15 @@
     "description": "张家界国家森林公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800EFM",
-    "recommendation": "张家界国家森林公园是当地热门景点。",
+    "recommendation": "张家界国家森林公园以石英砂岩峰林闻名，核心是袁家界。避开节假日，清晨7点入园人少景美。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_9e216bd6",
@@ -5062,10 +5558,15 @@
     "description": "张家界基督教福音堂，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E80MUIU",
-    "recommendation": "张家界基督教福音堂是当地热门景点。",
+    "recommendation": "张家界基督教福音堂是百年西式建筑，内部彩绘玻璃精美。注意礼拜日才开放参观，别跑空。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_8492bc33",
@@ -5088,10 +5589,15 @@
     "description": "张家界黑风洞，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LBLZKS0N",
-    "recommendation": "张家界黑风洞是当地热门景点。",
+    "recommendation": "黑风洞是天然溶洞，钟乳石奇观。坐6路公交到洞湾站，下车后沿指示牌步行10分钟。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_11788fad",
@@ -5116,10 +5622,15 @@
     "description": "湘鄂川黔革命根据地纪念馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E8013D5",
-    "recommendation": "湘鄂川黔革命根据地纪念馆是当地热门景点。",
+    "recommendation": "湘鄂川黔革命根据地纪念馆，红色革命历史陈列馆。提前在官方公众号预约可免门票。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_ecc7e19a",
@@ -5142,10 +5653,15 @@
     "description": "田家大院，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG6HLRB",
-    "recommendation": "田家大院是当地热门景点。",
+    "recommendation": "田家大院，百年土家族古建筑群。后门小巷里卖的葛根粉比景区内便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_9b681117",
@@ -5169,10 +5685,15 @@
     "description": "宝峰湖风景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800EDV",
-    "recommendation": "宝峰湖风景区是当地热门景点。",
+    "recommendation": "宝峰湖风景区，高山湖泊与瀑布相连的山水画卷。坐船到湖心时让船夫关马达，能听到山歌回响。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_af4680e6",
@@ -5196,10 +5717,15 @@
     "description": "黄中宫，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFIIHMM7",
-    "recommendation": "黄中宫是当地热门景点。",
+    "recommendation": "黄中宫，道教圣地古建筑群。清晨6点去，云雾缭绕中人少清静，适合静心参拜。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_c8f1b16a",
@@ -5225,10 +5751,15 @@
     "description": "子午公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LRC4DHQO",
-    "recommendation": "子午公园是当地热门景点。",
+    "recommendation": "子午公园，市民休闲生态公园。别在雨后去，石板路湿滑且蚊虫多。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_24a13857",
@@ -5251,10 +5782,15 @@
     "description": "天门山国家森林公园通天大道，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KAMZ5EV9",
-    "recommendation": "天门山国家森林公园通天大道是当地热门景点。",
+    "recommendation": "天门山通天大道，99弯盘山公路奇观。坐景区环保车上山，选司机侧前排视野最震撼。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_986ec823",
@@ -5279,10 +5815,15 @@
     "description": "武陵源风景名胜区-黄石寨，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800EAE",
-    "recommendation": "武陵源风景名胜区-黄石寨是当地热门景点。",
+    "recommendation": "黄石寨，武陵源核心观景台。下午4点后买票半价，还能赶上看日落云海。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_ad22f6f",
@@ -5306,10 +5847,15 @@
     "description": "绿色大地生态观光园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFDCA86",
-    "recommendation": "绿色大地生态观光园是当地热门景点。",
+    "recommendation": "绿色大地生态观光园，田园采摘与农事体验区。本地人常带桶来打山泉水，比矿泉水甜。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_6268cbc",
@@ -5335,10 +5881,15 @@
     "description": "溪布老街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E80MUK9",
-    "recommendation": "溪布老街是当地热门景点。",
+    "recommendation": "土家族风情老街，汇集特色手工艺品与小吃。傍晚去，找巷子里的老银匠现场打首饰更有趣。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_775b560",
@@ -5363,10 +5914,15 @@
     "description": "水绕四门，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFAJ0K5",
-    "recommendation": "水绕四门是当地热门景点。",
+    "recommendation": "金鞭溪与索溪汇合处，四座石峰如门矗立。清晨雾气未散时去，水面倒映山峰宛如仙境。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_9c32b57d",
@@ -5389,10 +5945,15 @@
     "description": "杨家界风景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E80MNH8",
-    "recommendation": "杨家界风景区是当地热门景点。",
+    "recommendation": "以险峻峰墙闻名，天然长城景观壮丽。别跟风去热门观景台，避开人流走小环线更清净。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_9883138b",
@@ -5415,10 +5976,15 @@
     "description": "张家界千古情景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKES8PQ",
-    "recommendation": "张家界千古情景区是当地热门景点。",
+    "recommendation": "大型歌舞演出，展现湘西传奇故事。坐公交1路到景区门口，比自驾省停车费。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_a328d00e",
@@ -5443,10 +6009,15 @@
     "description": "澧水船说，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFIVO9BT",
-    "recommendation": "澧水船说是当地热门景点。",
+    "recommendation": "乘船游澧水，欣赏两岸城市与山景。提前在旅游平台订票，比现场买便宜20元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_e19ba3a8",
@@ -5471,10 +6042,15 @@
     "description": "杨家溪体育公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFK4QG9W",
-    "recommendation": "杨家溪体育公园是当地热门景点。",
+    "recommendation": "沿溪而建的休闲公园，适合散步骑行。本地人常去溪边石滩野餐，带块垫子就能坐一下午。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_88093ba6",
@@ -5497,10 +6073,15 @@
     "description": "云上花石林，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JUSSLIYT",
-    "recommendation": "云上花石林是当地热门景点。",
+    "recommendation": "奇特石林与花海交织，登高可望群山。雨后去，石头上的苔藓颜色更鲜亮，拍照特别出片。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_ef8c4489",
@@ -5525,10 +6106,15 @@
     "description": "天下第一桥，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHB8WZU",
-    "recommendation": "天下第一桥是当地热门景点。",
+    "recommendation": "天然石桥横跨两山，桥下深渊壮阔。中午时分阳光直射桥洞，能拍出光影交错的奇景。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_2048792b",
@@ -5553,10 +6139,15 @@
     "description": "中国张家界世界地质公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFH0W4FW",
-    "recommendation": "中国张家界世界地质公园是当地热门景点。",
+    "recommendation": "世界罕见的石英砂岩峰林地貌，被誉为“缩小的仙境”。别信路边拉客说走VIP通道，直接买官方门票从标志门进最靠谱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_f6337a8b",
@@ -5581,10 +6172,15 @@
     "description": "澧兰公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LAF9UOQY",
-    "recommendation": "澧兰公园是当地热门景点。",
+    "recommendation": "澧水河畔的休闲公园，适合散步赏花。坐公交7路到“澧兰公园站”下车，步行2分钟就到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_9760a6d2",
@@ -5611,10 +6207,15 @@
     "description": "土家吊脚楼，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K2HUMJNB",
-    "recommendation": "土家吊脚楼是当地热门景点。",
+    "recommendation": "依山而建的土家族传统民居，展示民族建筑智慧。下午5点后免门票，赶在关门前进去转一圈。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_d5ddfb1c",
@@ -5638,10 +6239,15 @@
     "description": "老磨湾大氧吧广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E80MYSM",
-    "recommendation": "老磨湾大氧吧广场是当地热门景点。",
+    "recommendation": "森林覆盖率超高的天然氧吧，空气负离子爆表。本地人早上6点来晨练，避开游客还能偶遇猴群。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_e9e4a7c6",
@@ -5666,10 +6272,15 @@
     "description": "乾坤柱(阿凡达悬浮山)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFF33RQB",
-    "recommendation": "乾坤柱(阿凡达悬浮山)是当地热门景点。",
+    "recommendation": "电影《阿凡达》悬浮山原型，垂直高差达150米。别跟风挤观景台，绕到后山小路拍，角度更震撼。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_6c65de59",
@@ -5694,10 +6305,15 @@
     "description": "玉皇洞石窟，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E8003VT",
-    "recommendation": "玉皇洞石窟是当地热门景点。",
+    "recommendation": "清代开凿的溶洞石窟，内有玉皇大帝像。上午9点前到，光线斜射进洞，佛像金光闪闪最适合拍照。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_d8958ce8",
@@ -5722,10 +6338,15 @@
     "description": "张家界武陵山区植物园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IGR7X013",
-    "recommendation": "张家界武陵山区植物园是当地热门景点。",
+    "recommendation": "收集武陵山区珍稀植物，如珙桐、银杏。别在门口买高价盆栽，园内免费提供植物科普手册。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_b1a640e2",
@@ -5750,10 +6371,15 @@
     "description": "《西游记》外景拍摄地，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFFAHQS",
-    "recommendation": "《西游记》外景拍摄地是当地热门景点。",
+    "recommendation": "电视剧《西游记》取景点，有花果山水帘洞场景。自驾导航到“水绕四门”，停车场免费，再步行10分钟到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_b21b5900",
@@ -5778,10 +6404,15 @@
     "description": "迷魂台，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E80MZRA",
-    "recommendation": "迷魂台是当地热门景点。",
+    "recommendation": "武陵源核心观景台，可俯瞰三千奇峰。走免费栈道比坐电梯更省钱，景色同样震撼。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_eb352464",
@@ -5806,10 +6437,15 @@
     "description": "一步登天，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFFL9EC",
-    "recommendation": "一步登天是当地热门景点。",
+    "recommendation": "杨家界最高观景台，360度全景视野。本地人建议雨后初晴去，云海概率最高。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_b612405c",
@@ -5834,10 +6470,15 @@
     "description": "张家界冰雪世界，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFH2UBYQ",
-    "recommendation": "张家界冰雪世界是当地热门景点。",
+    "recommendation": "室内滑雪场，全年可体验冰雪乐趣。自带防滑手套和袜子，租装备能省20元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_6f9a9211",
@@ -5860,10 +6501,15 @@
     "description": "沙堤街道沙子岗观景台，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LA67CVZG",
-    "recommendation": "沙堤街道沙子岗观景台是当地热门景点。",
+    "recommendation": "免费观景台，可远眺天门山全景。日落前1小时去，光线柔和最适合拍照。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_ddbfecb8",
@@ -5887,10 +6533,15 @@
     "description": "天然长城观景台，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG1UI18",
-    "recommendation": "天然长城观景台是当地热门景点。",
+    "recommendation": "石英砂岩峰林如城墙般排列。别被路边的“村民带路”忽悠，这里完全免费。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_b3bfa27e",
@@ -5915,10 +6566,15 @@
     "description": "天门山国家森林公园-天门洞前广场，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L0RH5QFQ",
-    "recommendation": "天门山国家森林公园-天门洞前广场是当地热门景点。",
+    "recommendation": "世界最高天然穿山溶洞，可近距离仰望。坐市区缆车上山最方便，半小时直达。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_6d6b0174",
@@ -5943,10 +6599,15 @@
     "description": "百龙天梯上站，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFTG9UD",
-    "recommendation": "百龙天梯上站是当地热门景点。",
+    "recommendation": "垂直高差335米的户外电梯。提前网购门票比现场便宜，选下午去人少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_99397588",
@@ -5971,10 +6632,15 @@
     "description": "湘西府，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LR3SCVI5",
-    "recommendation": "湘西府是当地热门景点。",
+    "recommendation": "浓缩湘西民俗的建筑群，有土家织锦表演。本地人推荐走侧门进，省去排队时间。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_9d6ed002",
@@ -5997,10 +6663,15 @@
     "description": "茅岩河漂流，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800EAB",
-    "recommendation": "茅岩河漂流是当地热门景点。",
+    "recommendation": "茅岩河漂流是澧水上游的激情漂流地，两岸峡谷险峻。漂流时记得带防水袋，中途有人卖姜茶，买一杯暖身又划算。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_81f1ea71",
@@ -6025,10 +6696,15 @@
     "description": "情人岛，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HBXOUOB5",
-    "recommendation": "情人岛是当地热门景点。",
+    "recommendation": "情人岛是澧水河心的小岛，以浪漫步道和爱情主题景点闻名。建议傍晚去，夕阳洒在水面上拍照极美，人也少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_1ef32a59",
@@ -6053,10 +6729,15 @@
     "description": "宝塔岗公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFMGRSH3",
-    "recommendation": "宝塔岗公园是当地热门景点。",
+    "recommendation": "宝塔岗公园是永定区老牌休闲公园，内有古塔和绿荫步道。别走正门，从侧门进免费，正门常有人收停车费。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_8168fd10",
@@ -6081,10 +6762,15 @@
     "description": "金鞭溪峡谷U型谷，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFLILZ20",
-    "recommendation": "金鞭溪峡谷U型谷是当地热门景点。",
+    "recommendation": "金鞭溪峡谷U型谷是张家界国家森林公园内的经典徒步段，溪水环绕奇峰。建议从森林公园门口坐环保车到水绕四门，步行游览最省力。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_aa0ee03e",
@@ -6109,10 +6795,15 @@
     "description": "仙人溪，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFI6RZG7",
-    "recommendation": "仙人溪是当地热门景点。",
+    "recommendation": "仙人溪是永定区的生态溪谷，水清石秀，适合溯溪。工作日去免费，周末和节假日有人收20元卫生费。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_e377c261",
@@ -6137,10 +6828,15 @@
     "description": "乌龙寨，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGM5A8L",
-    "recommendation": "乌龙寨是当地热门景点。",
+    "recommendation": "乌龙寨是武陵源核心景区内的险峻山寨，曾是土匪窝，登顶可俯瞰峰林。本地人建议清早去，游客少，还能看到云雾。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_7fc30c24",
@@ -6166,10 +6862,15 @@
     "description": "湖南旅游技师学院，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFDSODE",
-    "recommendation": "湖南旅游技师学院是当地热门景点。",
+    "recommendation": "湖南旅游技师学院是培养旅游人才的职业院校，校园内有模拟景区实训基地。周末开放时可以去免费参观，还能遇到学生导游讲解。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_2cdd44f1",
@@ -6194,10 +6895,15 @@
     "description": "九天洞藏展示厅，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L1NLXC0F",
-    "recommendation": "九天洞藏展示厅是当地热门景点。",
+    "recommendation": "九天洞藏展示厅是展示九天洞喀斯特地貌的室内科普馆，有模型和影像。建议上午10点去，有免费讲解，下午常被旅行团包场。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_b3e79cbc",
@@ -6223,10 +6929,15 @@
     "description": "张家界军声画院，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800KH5",
-    "recommendation": "张家界军声画院是当地热门景点。",
+    "recommendation": "汇集砂石画艺术的独特展馆，展现张家界山水之美。别在展馆内买画，外面小店同款便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_8e505790",
@@ -6251,10 +6962,15 @@
     "description": "张家界育才教育，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFH3KGPD",
-    "recommendation": "张家界育才教育是当地热门景点。",
+    "recommendation": "本地知名教育培训机构，专注学生辅导。坐公交2路到教场路口站下车即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_43825ac8",
@@ -6280,10 +6996,15 @@
     "description": "华图教育(张家界分校)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0G0C5W6RM",
-    "recommendation": "华图教育(张家界分校)是当地热门景点。",
+    "recommendation": "提供公务员考试培训的专业机构。关注其公众号可领免费试听课和备考资料。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_84e03cf1",
@@ -6309,10 +7030,15 @@
     "description": "芒果公考张家界分校，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HG77KPEE",
-    "recommendation": "芒果公考张家界分校是当地热门景点。",
+    "recommendation": "主打公考培训的机构，师资经验丰富。本地人常去旁边巷子吃早餐，便宜又地道。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_901845b",
@@ -6338,10 +7064,15 @@
     "description": "翰林教育(第一校区)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGXUAPO",
-    "recommendation": "翰林教育(第一校区)是当地热门景点。",
+    "recommendation": "专注中小学课外辅导的校区，教学环境好。课后可去楼上自习室免费蹭空调复习。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_b7dc8cf",
@@ -6366,10 +7097,15 @@
     "description": "湖南党史陈列馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KKB5DNT3",
-    "recommendation": "湖南党史陈列馆是当地热门景点。",
+    "recommendation": "展示湖南革命历史的重要场馆，展品丰富。推荐工作日上午去，人少能安静参观。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_d9ef7359",
@@ -6393,10 +7129,15 @@
     "description": "张家界之窗地质博物馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0J34H2W2H",
-    "recommendation": "张家界之窗地质博物馆是当地热门景点。",
+    "recommendation": "展示张家界地貌成因的科普博物馆。别被门口推销的套票骗了，单买门票更划算。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_e62a42c2",
@@ -6422,10 +7163,15 @@
     "description": "尚书房，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K1MLQF4A",
-    "recommendation": "尚书房是当地热门景点。",
+    "recommendation": "古色古香的书院建筑，藏书丰富。坐公交1路到文昌阁站，步行3分钟就到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_a73ee031",
@@ -6454,35 +7200,12 @@
     "recommendation": "瑷尔博士·皮肤管理(步步高广场店)是当地热门景点。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_996ab23b",
-    "name": "张家界山姆大叔少儿英语",
-    "type": "attraction",
-    "lat": 29.112718,
-    "lng": 110.510799,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "博物馆",
-      "室内",
-      "科教文化服务",
-      "培训机构",
-      "景点"
-    ],
-    "popularity": 4.4,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "张家界山姆大叔少儿英语，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFLE4IIW",
-    "recommendation": "张家界山姆大叔少儿英语是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_882c8cf3",
@@ -6511,7 +7234,12 @@
     "recommendation": "YANLDANCESTUDIO焰力舞室(市区维港店)是当地热门景点。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_48b49482",
@@ -6538,7 +7266,12 @@
     "recommendation": "土司行宫博物馆是当地热门景点。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_5bfed2ce",
@@ -6566,7 +7299,12 @@
     "recommendation": "丰收艺术-梵高先生美学馆是当地热门景点。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_7687ed68",
@@ -6595,7 +7333,12 @@
     "recommendation": "大庸府城-一月公园是当地热门景点。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_17bc5dd9",
@@ -6623,7 +7366,12 @@
     "recommendation": "张家界市消防主题公园是当地热门景点。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_b5d42dc0",
@@ -6651,7 +7399,12 @@
     "recommendation": "高云公园是当地热门景点。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_133e1996",
@@ -6676,10 +7429,15 @@
     "description": "天门郡莓茶主题公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JAJCXJ65",
-    "recommendation": "天门郡莓茶主题公园是当地热门景点。",
+    "recommendation": "以莓茶文化为主题的公园，可体验采茶制茶过程。找工作人员要一份免费品茶券，别直接买路边摊的茶。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_2eb27258",
@@ -6704,10 +7462,15 @@
     "description": "天泉山国家森林公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFF4IPJZ",
-    "recommendation": "天泉山国家森林公园是当地热门景点。",
+    "recommendation": "森林茂密、溪流潺潺的天然氧吧，适合徒步放松。清晨6点去，晨雾缭绕时人少景美。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_68c8c4aa",
@@ -6732,10 +7495,15 @@
     "description": "桥头公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG99F5Q",
-    "recommendation": "桥头公园是当地热门景点。",
+    "recommendation": "依河而建的休闲公园，以桥梁景观和绿道为特色。别只看主桥，沿河走200米有座废弃石桥更上镜。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_a6845eda",
@@ -6760,10 +7528,15 @@
     "description": "武陵山古稻公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L2TZ3KN7",
-    "recommendation": "武陵山古稻公园是当地热门景点。",
+    "recommendation": "展示古法稻田与农耕文化的生态公园，梯田景观独特。坐武陵源1路公交到终点站，步行5分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_8bef73e9",
@@ -6788,10 +7561,15 @@
     "description": "砂岩峰林地质公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFL6ZTRH",
-    "recommendation": "砂岩峰林地质公园是当地热门景点。",
+    "recommendation": "以奇特砂岩峰林地貌为主的地质公园，可近距离观察岩石纹理。下午4点后门票半价，还能看夕阳。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_6bf45a94",
@@ -6816,10 +7594,15 @@
     "description": "张家界清风湖长征公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IBYC4J51",
-    "recommendation": "张家界清风湖长征公园是当地热门景点。",
+    "recommendation": "融合长征红色文化与湖光山色的纪念公园，步道沿湖而建。本地人常去湖东侧小树林野餐，人少又清静。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_a1e33723",
@@ -6844,10 +7627,15 @@
     "description": "茅花界山地公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HRVR01XK",
-    "recommendation": "茅花界山地公园是当地热门景点。",
+    "recommendation": "以茅花景观和山地步道为特色的生态公园，秋季茅花如雪。带瓶水从北门上山，半山腰观景台视野比山顶更开阔。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_45cdc2a5",
@@ -6872,10 +7660,15 @@
     "description": "法治文化公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFL886HH",
-    "recommendation": "法治文化公园是当地热门景点。",
+    "recommendation": "以法治宣传为主题的开放式公园，雕塑和展板散布其间。傍晚5点后去，夕阳斜照时雕塑光影效果最佳。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_2abe9212",
@@ -6900,10 +7693,15 @@
     "description": "金坪公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HAJZ746A",
-    "recommendation": "金坪公园是当地热门景点。",
+    "recommendation": "慈利县城内的休闲公园，以绿道和湖景为主。别在周末下午去，人挤人且停车难，建议工作日清晨散步。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_51780b1d",
@@ -6928,10 +7726,15 @@
     "description": "慈利放马洲公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKTF6QH",
-    "recommendation": "慈利放马洲公园是当地热门景点。",
+    "recommendation": "澧水河畔的滨江公园，适合骑行和观鸟。坐2路公交到“放马洲”站下车，步行2分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_776c89fd",
@@ -6956,10 +7759,15 @@
     "description": "慈利龙峰公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG9HT7O",
-    "recommendation": "慈利龙峰公园是当地热门景点。",
+    "recommendation": "依山而建的登山公园，山顶可俯瞰县城。下午5点后免门票，带瓶水慢慢爬最划算。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_2c10b2e5",
@@ -6984,10 +7792,15 @@
     "description": "牛皮公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E80MXVH",
-    "recommendation": "牛皮公园是当地热门景点。",
+    "recommendation": "本地人常去的野趣公园，有隐藏的溪边小路。问门口卖冰粉的大爷要一张手绘地图，能避开大路找到瀑布。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_9a65d0ed",
@@ -7012,10 +7825,15 @@
     "description": "贺龙公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800EEW",
-    "recommendation": "贺龙公园是当地热门景点。",
+    "recommendation": "纪念贺龙元帅的主题公园，内有铜像和陈列馆。早晨7点前从东门进，能独享晨雾中的铜像广场和鸟鸣。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_846c6a10",
@@ -7040,10 +7858,15 @@
     "description": "索溪峪自然保护区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800EFQ",
-    "recommendation": "索溪峪自然保护区是当地热门景点。",
+    "recommendation": "武陵源核心景区之一，以溪流和峡谷著称。雨后初晴的上午去，水量充沛且山雾缭绕，拍照最出片。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_6259175b",
@@ -7067,10 +7890,15 @@
     "description": "张家界魅力湘西国际文化广场景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGF0JHM",
-    "recommendation": "张家界魅力湘西国际文化广场景区是当地热门景点。",
+    "recommendation": "大型实景演出广场，展现湘西民俗文化。别买门口黄牛票，官方小程序提前两小时有半价尾票。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_e20c3281",
@@ -7093,10 +7921,15 @@
     "description": "张家界白虎堂·野玩蹊谷，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0MA37Z4OQ",
-    "recommendation": "张家界白虎堂·野玩蹊谷是当地热门景点。",
+    "recommendation": "小众徒步探险谷，有溪降和岩壁攀爬。自驾导航“白虎堂村”，车停村口步行进谷，别开进去会陷泥坑。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_3d2e29f2",
@@ -7121,10 +7954,15 @@
     "description": "摘星台，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFF9ABW",
-    "recommendation": "摘星台是当地热门景点。",
+    "recommendation": "武陵源最佳观星地，夜晚可赏漫天繁星。门票含在森林公园内，无需额外付费，傍晚入园还能省下白天高峰票钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_ebb8c7ae",
@@ -7149,10 +7987,15 @@
     "description": "金鞭溪峡谷，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFFJSE9",
-    "recommendation": "金鞭溪峡谷是当地热门景点。",
+    "recommendation": "张家界最清幽的溪谷，溪水清澈见底，沿途猕猴嬉戏。本地人爱从水绕四门入口反向走，人少景美还能偶遇野猴群。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_301fc3bb",
@@ -7177,10 +8020,15 @@
     "description": "御笔峰，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E80MXXX",
-    "recommendation": "御笔峰是当地热门景点。",
+    "recommendation": "形如笔架的石峰群，云雾中宛如仙境。当地人会在清晨雾散前站上观景台，等阳光斜照时能拍到石峰倒影入云海。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_dff3c708",
@@ -7205,10 +8053,15 @@
     "description": "湖南张家界国家地质公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFEXMMT",
-    "recommendation": "湖南张家界国家地质公园是当地热门景点。",
+    "recommendation": "世界罕见的石英砂岩峰林地貌，核心景区有三千多座石柱。最佳时间是清晨6点半，晨雾未散时看峰林如画，且游客稀少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_e23bed52",
@@ -7232,10 +8085,15 @@
     "description": "龙凤庵，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HB3G7SFS",
-    "recommendation": "龙凤庵是当地热门景点。",
+    "recommendation": "建于明代的深山古刹，香火鼎盛。避坑提示：门口算命的和尚会主动搭话，说免费解签实则收费，直接摆手拒绝就好。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_4b415caf",
@@ -7260,10 +8118,15 @@
     "description": "宝峰寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHXLN55",
-    "recommendation": "宝峰寺是当地热门景点。",
+    "recommendation": "藏于宝峰湖畔的千年古寺，可俯瞰湖光山色。交通建议：从武陵源汽车站坐1路公交到宝峰湖站，下车步行5分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_9ebce30b",
@@ -7289,10 +8152,15 @@
     "description": "天门山寺(正门)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L2ZU3L00",
-    "recommendation": "天门山寺(正门)是当地热门景点。",
+    "recommendation": "建在天门山顶的古寺，可眺望99道弯公路。省门票窍门：买天门山A线票含索道和寺庙，比单独购票省40元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_35f77a19",
@@ -7317,10 +8185,15 @@
     "description": "慈利悬岩寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KA7539YI",
-    "recommendation": "慈利悬岩寺是当地热门景点。",
+    "recommendation": "悬于绝壁上的明代寺院，以险峻闻名。本地人推荐：从后山小路绕上去，能免费进寺，还能拍到岩壁上的古代栈道遗迹。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_f95c204c",
@@ -7345,10 +8218,15 @@
     "description": "福寿禅寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0H2DZCRZ8",
-    "recommendation": "福寿禅寺是当地热门景点。",
+    "recommendation": "福寿禅寺依山而建，清晨云雾缭绕如仙境。从寺院后门小径上山，可俯瞰全景且游客稀少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_501ff61b",
@@ -7374,10 +8252,15 @@
     "description": "文殊院，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E80MXX8",
-    "recommendation": "文殊院是当地热门景点。",
+    "recommendation": "文殊院始建于明代，香火鼎盛。建议清晨六点开门时去，人少清静，能听到僧人诵经声。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_47688ee1",
@@ -7402,10 +8285,15 @@
     "description": "慈利县慈善寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKLED13",
-    "recommendation": "慈利县慈善寺是当地热门景点。",
+    "recommendation": "慈善寺以慈善文化闻名，寺内古树参天。别在门口买香，寺内免费提供，价格更实在。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_2784dd89",
@@ -7431,10 +8319,15 @@
     "description": "白云庵，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0GUAODHQ5",
-    "recommendation": "白云庵是当地热门景点。",
+    "recommendation": "白云庵藏于山间，环境清幽。自驾导航到山脚停车场，再步行十五分钟即到，别直接开上山路窄难会车。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_e911698d",
@@ -7458,10 +8351,15 @@
     "description": "广济庵，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFIKU8YJ",
-    "recommendation": "广济庵是当地热门景点。",
+    "recommendation": "广济庵历史悠久，供奉着明代铜佛。下午三点后免费开放，避开上午收费时段。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_948eaf91",
@@ -7486,10 +8384,15 @@
     "description": "七姑山寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HBLRBIST",
-    "recommendation": "七姑山寺是当地热门景点。",
+    "recommendation": "七姑山寺依悬崖而建，视野开阔。本地人常带茶具去后山石桌，边品茶边赏山景。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_fc45d5c2",
@@ -7514,10 +8417,15 @@
     "description": "九龙寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HR0DTZR1",
-    "recommendation": "九龙寺是当地热门景点。",
+    "recommendation": "九龙寺有九条石龙雕刻，栩栩如生。从寺后菜地旁的小路绕到山坡上，能看到龙身全貌。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_6013f610",
@@ -7542,10 +8450,15 @@
     "description": "武当云寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K3Y1JFNW",
-    "recommendation": "武当云寺是当地热门景点。",
+    "recommendation": "武当云寺建于明代，常有云海奇观。秋季下午三点后去，阳光斜照云层，拍照效果最佳。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_c2d378fe",
@@ -7570,10 +8483,15 @@
     "description": "阳寺庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0GRM51C3O",
-    "recommendation": "阳寺庙是当地热门景点。",
+    "recommendation": "阳寺庙是桑植县热门景点，香火鼎盛。注意别在门口买高价香，庙内提供免费清香。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_e9a28a47",
@@ -7598,10 +8516,15 @@
     "description": "雷公庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFK3ZBCG",
-    "recommendation": "雷公庙是当地热门景点。",
+    "recommendation": "雷公庙位于桑植县，供奉雷神。建议自驾前往，导航直接搜庙名，门口有免费停车位。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_9e6d7b34",
@@ -7626,10 +8549,15 @@
     "description": "王皇庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0GU16W827",
-    "recommendation": "王皇庙是当地热门景点。",
+    "recommendation": "王皇庙是慈利县热门景点，建筑古朴。每周三上午免门票，下午去能省下门票钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_bb0999d2",
@@ -7654,10 +8582,15 @@
     "description": "将军庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFIKRUGY",
-    "recommendation": "将军庙是当地热门景点。",
+    "recommendation": "将军庙在慈利县，纪念古代名将。本地人习惯带自家种的茶叶去庙里泡茶，别错过这独特体验。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_b48c36bc",
@@ -7682,10 +8615,15 @@
     "description": "大圣庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0I64D04YG",
-    "recommendation": "大圣庙是当地热门景点。",
+    "recommendation": "大圣庙是慈利县供奉齐天大圣的庙宇。庙后有条隐秘小径直通山顶观景台，当地人才知道。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_a1beb7d6",
@@ -7710,10 +8648,15 @@
     "description": "岩泊庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0GU3LL864",
-    "recommendation": "岩泊庙是当地热门景点。",
+    "recommendation": "岩泊庙建于清代，依山傍水。清晨6点去最好，晨雾弥漫时拍照最美且游人稀少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_d88415ea",
@@ -7739,10 +8682,15 @@
     "description": "黔阳古城-同善社，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HKLSQOVI",
-    "recommendation": "黔阳古城-同善社是当地热门景点。",
+    "recommendation": "同善社是黔阳古城内民国建筑，保存完好。小心别被路边“免费导游”拉去购物店。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_2a1fba49",
@@ -7768,10 +8716,15 @@
     "description": "苦竹古寨，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E80MXXR",
-    "recommendation": "苦竹古寨是当地热门景点。",
+    "recommendation": "苦竹古寨是桑植县明清古村落，石板路保存完好。从县城坐中巴到寨口下车，半小时一班。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_416e4e9b",
@@ -7797,10 +8750,15 @@
     "description": "崇山云端小镇，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFL65UNJ",
-    "recommendation": "崇山云端小镇是当地热门景点。",
+    "recommendation": "主打高山云海景观的网红小镇。下午4点后门票半价，记得带学生证还能再打折。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_8ebbaa30",
@@ -7826,10 +8784,15 @@
     "description": "双溪桥老街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HR0KLOJ5",
-    "recommendation": "双溪桥老街是当地热门景点。",
+    "recommendation": "保留明清古建筑的百年老街。拐进巷弄找阿婆卖的蒿子粑粑，比主街便宜一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_a35b627e",
@@ -7855,10 +8818,15 @@
     "description": "张家界土司城-龙门，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L2HB9S4K",
-    "recommendation": "张家界土司城-龙门是当地热门景点。",
+    "recommendation": "展示土家族文化的古城门遗址。钻到龙门左侧石阶下，能拍到无人的全景照。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_7b4125f1",
@@ -7882,10 +8850,15 @@
     "description": "奇幻大庸城(暂停开放)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFLBF16M",
-    "recommendation": "奇幻大庸城(暂停开放)是当地热门景点。",
+    "recommendation": "以张家界神话为主题的沉浸式景区。建议等重新开放后的非节假日去，避开人流高峰体验更佳。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_c1f958f",
@@ -7912,10 +8885,15 @@
     "description": "商业步行街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E8001EY",
-    "recommendation": "商业步行街是当地热门景点。",
+    "recommendation": "本地最大的购物休闲街区。别在街口买特产，往里走300米巷子里价格低三成。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_44d7b973",
@@ -7944,10 +8922,15 @@
     "description": "南门口美食街(步步高广场店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HD3ZO70U",
-    "recommendation": "南门口美食街(步步高广场店)是当地热门景点。",
+    "recommendation": "汇聚湘西小吃的热门美食街。坐公交8路到步步高站下车，直达美食街入口。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_9ed66df1",
@@ -7974,40 +8957,15 @@
     "description": "胜汉步行街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HB2CW4K5",
-    "recommendation": "胜汉步行街是当地热门景点。",
+    "recommendation": "慈利县最繁华的步行街。周末晚上8点后有夜市特价，小吃比白天便宜五块。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_b3811611",
-    "name": "步步高广场(回龙路店)",
-    "type": "attraction",
-    "lat": 29.121889,
-    "lng": 110.487965,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "商场",
-      "普通商场",
-      "迎宾路",
-      "景点"
-    ],
-    "popularity": 4.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "步步高广场(回龙路店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B02E80N7DX",
-    "recommendation": "步步高广场(回龙路店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_e2b21be6",
@@ -8033,68 +8991,15 @@
     "description": "米兰女装店步行街店，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IRKRU3S0",
-    "recommendation": "米兰女装店步行街店是当地热门景点。",
+    "recommendation": "永定区热门女装店，本地人常逛的时尚地标。试穿时留意角落折扣架，常有未标出的特价款。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_88000601",
-    "name": "八八八食品商行(胜汉步行街店)",
-    "type": "attraction",
-    "lat": 29.421288,
-    "lng": 111.128497,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "便民商店/便利店",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "八八八食品商行(胜汉步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFFZ0J2R",
-    "recommendation": "八八八食品商行(胜汉步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_2dd31117",
-    "name": "野·wardrobe服装店",
-    "type": "attraction",
-    "lat": 29.120886,
-    "lng": 110.488491,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "迎宾路",
-      "景点"
-    ],
-    "popularity": 3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "野·wardrobe服装店，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0L2KCG0J3",
-    "recommendation": "野·wardrobe服装店是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_c9da3f3c",
@@ -8121,98 +9026,15 @@
     "description": "奢饰缘珠宝，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K0R5FSUE",
-    "recommendation": "奢饰缘珠宝是当地热门景点。",
+    "recommendation": "永定区珠宝店，款式精致选择多。坐公交到步行街站下车，步行3分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_60196b82",
-    "name": "啄木鸟(商业步行街店)",
-    "type": "attraction",
-    "lat": 29.12266,
-    "lng": 110.488735,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "品牌皮具店",
-      "南正街",
-      "景点"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "啄木鸟(商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B02E80MYK7",
-    "recommendation": "啄木鸟(商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_77187c61",
-    "name": "乔丹体育(商业步行街店)",
-    "type": "attraction",
-    "lat": 29.123844,
-    "lng": 110.489099,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "体育用品店",
-      "迎宾路",
-      "景点"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "乔丹体育(商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B02E80035Q",
-    "recommendation": "乔丹体育(商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_5e185506",
-    "name": "千仞岗(胜汉步行街店)",
-    "type": "attraction",
-    "lat": 29.421359,
-    "lng": 111.127906,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "千仞岗(胜汉步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B02E80035H",
-    "recommendation": "千仞岗(胜汉步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_34f24e19",
@@ -8238,69 +9060,15 @@
     "description": "铁格龙男装(一店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGXX2JW",
-    "recommendation": "铁格龙男装(一店)是当地热门景点。",
+    "recommendation": "永定区男装店，商务休闲风格为主。工作日上午去，店员空闲可帮忙搭配建议。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_82ade72e",
-    "name": "波司登(慈利县胜汉步行街店)",
-    "type": "attraction",
-    "lat": 29.421009,
-    "lng": 111.128244,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "品牌服装店",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "波司登(慈利县胜汉步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0HUAS0JO9",
-    "recommendation": "波司登(慈利县胜汉步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_56cd29ba",
-    "name": "陈记甜酒(慈姑中路店)",
-    "type": "attraction",
-    "lat": 29.424643,
-    "lng": 111.132177,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "烟酒专卖店",
-      "景点"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "陈记甜酒(慈姑中路店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0GKCKQEUV",
-    "recommendation": "陈记甜酒(慈姑中路店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_d48be6e0",
@@ -8327,155 +9095,15 @@
     "description": "招财汪宠物生活馆(商业步行街店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0H2JSUDFG",
-    "recommendation": "招财汪宠物生活馆(商业步行街店)是当地热门景点。",
+    "recommendation": "永定区商业步行街的宠物用品店，提供宠物洗护和零食。关注店铺公众号领新人券，首次消费可省20元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_cda0762",
-    "name": "香海百货(胜汉步行街店)",
-    "type": "attraction",
-    "lat": 29.420675,
-    "lng": 111.127725,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "便民商店/便利店",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "香海百货(胜汉步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFFYRDW3",
-    "recommendation": "香海百货(胜汉步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_ce1c961c",
-    "name": "RELX悦刻(胜汉步行街店)",
-    "type": "attraction",
-    "lat": 29.422207,
-    "lng": 111.128056,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "购物相关场所",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 4.1,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "RELX悦刻(胜汉步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0HAHCINI9",
-    "recommendation": "RELX悦刻(胜汉步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_ca30c260",
-    "name": "时雅家私城",
-    "type": "attraction",
-    "lat": 29.424825,
-    "lng": 111.131775,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "家居建材市场",
-      "家具城",
-      "景点"
-    ],
-    "popularity": 3.8,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "时雅家私城，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFHZRQGA",
-    "recommendation": "时雅家私城是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_822f44a",
-    "name": "以纯(慈利一店)",
-    "type": "attraction",
-    "lat": 29.422903,
-    "lng": 111.128304,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "以纯(慈利一店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFK4X89E",
-    "recommendation": "以纯(慈利一店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_3a3482cd",
-    "name": "远东男装(商业步行街店)",
-    "type": "attraction",
-    "lat": 29.122559,
-    "lng": 110.488728,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "南正街",
-      "景点"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "远东男装(商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFM87YJG",
-    "recommendation": "远东男装(商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_da7e3c44",
@@ -8504,307 +9132,15 @@
     "description": "一度假发(胜汉步行街店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFK8LDHX",
-    "recommendation": "一度假发(胜汉步行街店)是当地热门景点。",
+    "recommendation": "慈利县热门步行街店铺，提供多样假发款式。关注店铺会员日可享折扣，比工作日买更划算。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_e419b5ef",
-    "name": "罗蒙(商业步行街店)",
-    "type": "attraction",
-    "lat": 29.123709,
-    "lng": 110.489076,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "品牌服装店",
-      "解放路",
-      "景点"
-    ],
-    "popularity": 3.3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "罗蒙(商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B02E8014V2",
-    "recommendation": "罗蒙(商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_861a9253",
-    "name": "柒牌(胜汉步行街店)",
-    "type": "attraction",
-    "lat": 29.421225,
-    "lng": 111.128135,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "品牌服装店",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "柒牌(胜汉步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFF40A1P",
-    "recommendation": "柒牌(胜汉步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_a88be9f",
-    "name": "贝贝达人(胜汉步行街店)",
-    "type": "attraction",
-    "lat": 29.421375,
-    "lng": 111.128075,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "儿童用品店",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "贝贝达人(胜汉步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0H6KHBBYP",
-    "recommendation": "贝贝达人(胜汉步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_e7163c9c",
-    "name": "依思Q(商业步行街店)",
-    "type": "attraction",
-    "lat": 29.122345,
-    "lng": 110.489095,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "品牌鞋店",
-      "解放路",
-      "景点"
-    ],
-    "popularity": 3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "依思Q(商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFGUANQC",
-    "recommendation": "依思Q(商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_34c6a62a",
-    "name": "紫舞金行(商业步行街店)",
-    "type": "attraction",
-    "lat": 29.124167,
-    "lng": 110.489239,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "珠宝首饰工艺品",
-      "迎宾路",
-      "景点"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "紫舞金行(商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFG27WE5",
-    "recommendation": "紫舞金行(商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_c082b51",
-    "name": "exull(张家界步行街店)",
-    "type": "attraction",
-    "lat": 29.122345,
-    "lng": 110.489095,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "迎宾路",
-      "景点"
-    ],
-    "popularity": 3.3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "exull(张家界步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0K0DCAKA3",
-    "recommendation": "exull(张家界步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_738b4c70",
-    "name": "新合作星悦茂(新合作商业街店)",
-    "type": "attraction",
-    "lat": 29.124262,
-    "lng": 110.489128,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "商场",
-      "普通商场",
-      "迎宾路",
-      "景点"
-    ],
-    "popularity": 3.7,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "新合作星悦茂(新合作商业街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0IDAO4PTV",
-    "recommendation": "新合作星悦茂(新合作商业街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_73922246",
-    "name": "胜汉步行街杰尼威尼2店",
-    "type": "attraction",
-    "lat": 29.421624,
-    "lng": 111.127979,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 3.5,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "胜汉步行街杰尼威尼2店，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0JDCR68B2",
-    "recommendation": "胜汉步行街杰尼威尼2店是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_b8af0de0",
-    "name": "她之蝶(慈利一店)",
-    "type": "attraction",
-    "lat": 29.421506,
-    "lng": 111.128136,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "她之蝶(慈利一店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFL5WCF0",
-    "recommendation": "她之蝶(慈利一店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_c0cfee57",
-    "name": "宏博烟酒商行(胜汉步行街店)",
-    "type": "attraction",
-    "lat": 29.421147,
-    "lng": 111.128858,
-    "area": "慈利县",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "专卖店",
-      "烟酒专卖店",
-      "零阳中路",
-      "景点"
-    ],
-    "popularity": 3.7,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "宏博烟酒商行(胜汉步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFG9CFAL",
-    "recommendation": "宏博烟酒商行(胜汉步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_cd3d5431",
@@ -8831,40 +9167,15 @@
     "description": "圣得西商务男装(旅游商业步行街)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HDDH8BR6",
-    "recommendation": "圣得西商务男装(旅游商业步行街)是当地热门景点。",
+    "recommendation": "永定区旅游步行街上的商务男装店，适合挑选正装。建议坐公交2路到步行街站下，步行3分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
-  },
-  {
-    "id": "amap_726acaf4",
-    "name": "皮尔卡丹(商业步行街店)",
-    "type": "attraction",
-    "lat": 29.122675,
-    "lng": 110.488859,
-    "area": "永定区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "商圈",
-      "购物",
-      "购物服务",
-      "服装鞋帽皮具店",
-      "品牌服装店",
-      "迎宾路",
-      "景点"
-    ],
-    "popularity": 3,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "皮尔卡丹(商业步行街店)，当地热门景点，建议游览90分钟左右。",
-    "source": "amap",
-    "source_id": "B0FFG99T3S",
-    "recommendation": "皮尔卡丹(商业步行街店)是当地热门景点。",
-    "open_minutes": 540,
-    "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_44fddea9",
@@ -8889,10 +9200,15 @@
     "description": "武陵源夜市街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JRNH3N2E",
-    "recommendation": "武陵源夜市街是当地热门景点。",
+    "recommendation": "武陵源区最热闹的夜间美食街，聚集当地小吃。本地人推荐必点三下锅和炸辣椒。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_415520f",
@@ -8917,10 +9233,15 @@
     "description": "威杰夜市美食新场景(市集)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0MGN9R3UY",
-    "recommendation": "威杰夜市美食新场景(市集)是当地热门景点。",
+    "recommendation": "慈利新晋美食市集，融合创意小吃和手作摊位。建议晚上8点后去，烤串摊排队最短。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_25171482",
@@ -8945,10 +9266,15 @@
     "description": "啤酒音乐夜市街，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L22PZ3K7",
-    "recommendation": "啤酒音乐夜市街是当地热门景点。",
+    "recommendation": "武陵源区以音乐和啤酒为主题的夜市街，氛围放松。建议周五晚上去，有驻唱表演最热闹。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_9853f50f",
@@ -8974,10 +9300,15 @@
     "description": "江摊夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0M6Y7SY45",
-    "recommendation": "江摊夜市是当地热门景点。",
+    "recommendation": "慈利县人气夜市，汇集各类特色小吃。别一进门就买，往深处走价格更实惠。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_af4835e0",
@@ -9003,10 +9334,15 @@
     "description": "十里香夜市(八达小区店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHF8LC2",
-    "recommendation": "十里香夜市(八达小区店)是当地热门景点。",
+    "recommendation": "永定区八达小区旁的老牌夜市，烧烤卤味一应俱全。建议自驾，门口路边有免费停车位。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_d6637802",
@@ -9031,10 +9367,15 @@
     "description": "环环夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L34HFP33",
-    "recommendation": "环环夜市是当地热门景点。",
+    "recommendation": "慈利县本地人常去的平价夜市，摊位种类丰富。先逛一圈再下单，很多摊主熟客价更便宜。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_6c3e5348",
@@ -9060,10 +9401,15 @@
     "description": "桥边夜市城，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0I3F7R46P",
-    "recommendation": "桥边夜市城是当地热门景点。",
+    "recommendation": "慈利县桥头边上的夜市，烟火气十足。本地人最爱买桥头第三家的烤串，味道最正。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_2f8823ab",
@@ -9090,10 +9436,15 @@
     "description": "大庸桥夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LK0M7D6Q",
-    "recommendation": "大庸桥夜市是当地热门景点。",
+    "recommendation": "永定区大庸桥下的夜市，氛围热闹。可以自带空杯，找奶茶摊续杯能省几块钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_f61ceb9b",
@@ -9118,10 +9469,15 @@
     "description": "紫荆夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IR39LOR0",
-    "recommendation": "紫荆夜市是当地热门景点。",
+    "recommendation": "桑植县最热闹的夜市，小吃种类多。建议晚上8点后去，摊位全开且人流适中。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_e26858a9",
@@ -9147,10 +9503,15 @@
     "description": "玩味居夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHUM4L4",
-    "recommendation": "玩味居夜市是当地热门景点。",
+    "recommendation": "永定区玩味居旁的夜市，卤味和炒粉是招牌。注意别买标价太低的炒菜，分量会缩水。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_d6c8cc73",
@@ -9175,10 +9536,15 @@
     "description": "高桥夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0GKB7IAR7",
-    "recommendation": "高桥夜市是当地热门景点。",
+    "recommendation": "慈利县高桥下的夜市，适合夜宵聚餐。建议打车前往，桥下路边停车容易被贴条。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_2d24e1df",
@@ -9204,10 +9570,15 @@
     "description": "回味夜市城，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGKXW6S",
-    "recommendation": "回味夜市城是当地热门景点。",
+    "recommendation": "慈利县热门夜市，汇聚各类地道小吃。多人同行先团购套餐，比单点省一半钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_99ad41ad",
@@ -9232,10 +9603,15 @@
     "description": "胖子夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFL6FVZJ",
-    "recommendation": "胖子夜市是当地热门景点。",
+    "recommendation": "永定区老字号夜市，本地人夜宵首选。必点招牌烤鱼，比其他摊位更入味。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_5f761c08",
@@ -9260,10 +9636,15 @@
     "description": "阳凡夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L0DNM4FR",
-    "recommendation": "阳凡夜市是当地热门景点。",
+    "recommendation": "桑植县烟火气夜市，小吃种类丰富。找角落摊位的现炒粉，比主街排队更地道。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_9e059a76",
@@ -9288,10 +9669,15 @@
     "description": "载丢夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KKXC52NM",
-    "recommendation": "载丢夜市是当地热门景点。",
+    "recommendation": "武陵源区热闹夜市，适合夜游放松。晚上八点后人流渐少，逛吃更舒适。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_9a519337",
@@ -9316,10 +9702,15 @@
     "description": "桥头夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HBRP3EY3",
-    "recommendation": "桥头夜市是当地热门景点。",
+    "recommendation": "慈利县桥头夜市，夜晚灯火通明。别直接买门口海鲜，往里走100米价格更实惠。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_886ccdb5",
@@ -9344,10 +9735,15 @@
     "description": "四宝夜市(紫御山水壹号院店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K26PK176",
-    "recommendation": "四宝夜市(紫御山水壹号院店)是当地热门景点。",
+    "recommendation": "桑植县夜市分店，环境整洁。自驾导航到紫御山水壹号院，门口有免费停车位。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_bbb522d",
@@ -9373,10 +9769,15 @@
     "description": "过把瘾夜市城(熙城春天店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFLDBBG7",
-    "recommendation": "过把瘾夜市城(熙城春天店)是当地热门景点。",
+    "recommendation": "永定区夜市城，熙城春天商圈内。关注公众号领新人券，满50减10元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_e5e0fc48",
@@ -9402,10 +9803,15 @@
     "description": "夫妻农家夜市餐馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0G2CXC8R4",
-    "recommendation": "夫妻农家夜市餐馆是当地热门景点。",
+    "recommendation": "永定区农家风味夜市，本地人聚餐地。提前让老板去掉辣椒，适合外地游客口味。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_6261355d",
@@ -9431,10 +9837,15 @@
     "description": "老王夜市，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JD6Z1FYB",
-    "recommendation": "老王夜市是当地热门景点。",
+    "recommendation": "永定区最热闹的夜市，汇集当地小吃和手工艺品。晚上9点后去，直接找巷子深处的阿婆卖的手工凉粉。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_9d68143d",
@@ -9459,10 +9870,15 @@
     "description": "江垭温泉度假村，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E800EDT",
-    "recommendation": "江垭温泉度假村是当地热门景点。",
+    "recommendation": "慈利县知名温泉度假地，拥有多种功效泡池。清晨8点去人少水清，还能赶上第一波温泉水。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_1a7467cd",
@@ -9487,10 +9903,15 @@
     "description": "万福温泉，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E8003H6",
-    "recommendation": "万福温泉是当地热门景点。",
+    "recommendation": "慈利县大型温泉乐园，含室内外泡池。别周末去，人流拥挤且水质易浑浊，建议工作日傍晚。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_3d72604f",
@@ -9519,10 +9940,15 @@
     "description": "慈利江垭温泉度假村，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B02E8003IC",
-    "recommendation": "慈利江垭温泉度假村是当地热门景点。",
+    "recommendation": "慈利县温泉度假村，设施完善适合休闲。自驾走长张高速到慈利西出口，导航直达停车场。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_c520a054",
@@ -9548,10 +9974,15 @@
     "description": "张家界万福温泉冷泉冰泉水世界，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IGYA7ABU",
-    "recommendation": "张家界万福温泉冷泉冰泉水世界是当地热门景点。",
+    "recommendation": "集温泉与冷泉于一体的水乐园，四季可玩。提前在美团买夜场票，比白天便宜近一半。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_cff2926c",
@@ -9578,10 +10009,15 @@
     "description": "天子圣泉，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHLVBZC",
-    "recommendation": "天子圣泉是当地热门景点。",
+    "recommendation": "永定区天然温泉，水质清澈含矿物质。本地人爱去西侧角落的隐蔽泡池，安静且水温更足。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_b0a453df",
@@ -9607,10 +10043,15 @@
     "description": "张家界万福温泉·冷泉水世界4A景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LRXU13Z1",
-    "recommendation": "张家界万福温泉·冷泉水世界4A景区是当地热门景点。",
+    "recommendation": "4A级景区，温泉与冷泉交替体验独特。悄悄告诉你，更衣室旁边的石板浴免费且超舒服。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_5889ccfe",
@@ -9634,10 +10075,15 @@
     "description": "张家界大鲵温泉景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KG4DNTVM",
-    "recommendation": "张家界大鲵温泉景区是当地热门景点。",
+    "recommendation": "桑植县特色温泉，以大鲵养殖为背景。下午4点后去，阳光斜照泡池，还能看人工养殖大鲵。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_e853b3aa",
@@ -9664,10 +10110,15 @@
     "description": "农家院子，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LDC5TN4I",
-    "recommendation": "农家院子是当地热门景点。",
+    "recommendation": "慈利县特色农家院落，体验原汁原味的乡土生活。别被门口拉客的农家菜吸引，往深处走更地道实惠。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_6a43786",

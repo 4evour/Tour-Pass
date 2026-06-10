@@ -21,7 +21,12 @@
     "source": "amap",
     "source_id": "B0FFK4IHIB",
     "meal_type": "main",
-    "recommendation": "巴公房子适合城市游览、景点爱好者"
+    "recommendation": "百年俄式老建筑，红砖墙和圆拱窗自带复古滤镜。从黎黄陂路绕到后巷，能拍到无人的全景倒影。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_25928059",
@@ -47,7 +52,12 @@
     "source": "amap",
     "source_id": "B001B0IZT0",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观解放公园，人气评分4.8"
+    "recommendation": "都市绿肺，古树水榭与四季花道相映成趣。建议下午3点后去，阳光穿过银杏林的光影最美。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_b44cc5a1",
@@ -73,9 +83,14 @@
     "source": "amap",
     "source_id": "B001B0IPSG",
     "meal_type": "main",
-    "recommendation": "武昌江滩适合城市游览、景点爱好者",
+    "recommendation": "宁静滨江公园，可近观长江大桥与黄鹤楼同框。别只走主步道，往中华路码头方向拐能避开人潮看日落。",
     "open_minutes": 360,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_eaefbf57",
@@ -99,9 +114,14 @@
     "source": "amap",
     "source_id": "B0FFGJA77F",
     "meal_type": "main",
-    "recommendation": "推荐在江汉区参观江汉关大楼，人气评分4.7",
+    "recommendation": "地标钟楼，整点报时时仪式感满满。坐地铁2号线到江汉路站C口出，步行5分钟即达。",
     "open_minutes": 540,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_4776de0a",
@@ -127,7 +147,12 @@
     "source": "amap",
     "source_id": "B001B00022",
     "meal_type": "main",
-    "recommendation": "推荐在江汉区参观中山公园，人气评分4.7"
+    "recommendation": "老牌城市绿洲，摩天轮与古亭湖景并存。游乐项目可买套票比单次划算，工作日去更便宜。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_74a0109d",
@@ -153,9 +178,14 @@
     "source": "amap",
     "source_id": "B001B0IY32",
     "meal_type": "main",
-    "recommendation": "黄鹤楼公园适合城市游览、景点爱好者",
+    "recommendation": "天下江山第一楼，登顶可揽长江与三镇风光。别只走正门，从蛇山北坡的小道上人少景幽。",
     "open_minutes": 510,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_964c3940",
@@ -180,9 +210,14 @@
     "source": "amap",
     "source_id": "B001B0I4K0",
     "meal_type": "main",
-    "recommendation": "黄鹤楼适合城市游览、景点爱好者",
+    "recommendation": "蛇山之巅的经典地标，日落时古韵与城市天际线交织。从西门进先逛诗词碑廊，再上顶层避开人流。",
     "open_minutes": 510,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_b19848fc",
@@ -258,9 +293,14 @@
     "source": "amap",
     "source_id": "B001B0II5Z",
     "meal_type": "main",
-    "recommendation": "汉口江滩2期适合城市游览、景点爱好者",
+    "recommendation": "比一期更安静的滨江段，芦苇荡与亲水平台拍照绝佳。建议下午4点后去，光线柔和且能拍到芦苇金边。",
     "open_minutes": 870,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_f005fcda",
@@ -390,7 +430,12 @@
     "source": "amap",
     "source_id": "B001B1CFHO",
     "meal_type": "main",
-    "recommendation": "宋庆龄汉口旧居纪念馆适合城市游览、景点爱好者"
+    "recommendation": "红砖小楼保留民国优雅，馆内陈列珍贵生活物品。别只逛室内，二楼阳台能拍到江滩老建筑群的全景。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_5e6529eb",
@@ -416,9 +461,14 @@
     "source": "amap",
     "source_id": "B0FFK4UPJL",
     "meal_type": "main",
-    "recommendation": "沙湖公园C区是当地热门景点，建议游览90分钟左右",
+    "recommendation": "湖岸线搭配楚河汉街天际线，日落时金色波光超好拍。地铁4号线东亭站D口出，步行10分钟即到。",
     "open_minutes": 0,
-    "close_minutes": 1440
+    "close_minutes": 1440,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_4176d498",
@@ -444,7 +494,12 @@
     "source": "amap",
     "source_id": "B001B00024",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观八·七会议会址，人气评分3.0"
+    "recommendation": "1927年西式小楼，复原会场充满历史气息。免费开放，凭身份证直接入馆无需预约。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_5f44d92c",
@@ -470,7 +525,12 @@
     "source": "amap",
     "source_id": "B001B1FOKC",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观汉口江滩三阳广场，人气评分4.6"
+    "recommendation": "长江一线江景配玻璃观景台，日落时分绝美。本地人悄悄告诉你：广场东侧台阶下有个隐秘的芦苇荡，拍照人少又出片。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_ae090fd3",
@@ -496,7 +556,12 @@
     "source": "amap",
     "source_id": "B0JR6LSDQ0",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观汉口德国领事馆旧址，人气评分4.0"
+    "recommendation": "百年德式建筑红瓦黄墙，拱廊雕花适合拍照。隐藏玩法：绕到建筑背面有条林荫小径，能拍到领事馆与江滩同框的复古画面。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_25d327af",
@@ -522,9 +587,14 @@
     "source": "amap",
     "source_id": "B001B0IZN4",
     "meal_type": "main",
-    "recommendation": "宝岛公园是当地热门景点，建议游览90分钟左右",
+    "recommendation": "仿闽南建筑与日月潭景观，小桥流水充满度假感。建议清晨9点前到，人少光线柔，湖面倒影最清晰。",
     "open_minutes": 360,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_75b0241",
@@ -548,7 +618,12 @@
     "source": "amap",
     "source_id": "B001B0JP4S",
     "meal_type": "main",
-    "recommendation": "武汉长江大桥是当地热门景点，建议游览90分钟左右"
+    "recommendation": "万里长江第一桥，双层桥面看火车江轮穿行。避坑：别从武昌桥头堡的电梯上桥，排队久还收费，走旁边楼梯免费还快。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_73476946",
@@ -572,9 +647,14 @@
     "source": "amap",
     "source_id": "B001B1ASKL",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观平和打包厂旧址，人气评分4.6",
+    "recommendation": "红砖厂房、斑驳墙面，工业风随手拍大片。地铁1号线大智路站B口出，步行5分钟穿越老里份即到。",
     "open_minutes": 540,
-    "close_minutes": 1200
+    "close_minutes": 1200,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_aa4d0c95",
@@ -600,9 +680,14 @@
     "source": "amap",
     "source_id": "B0LGL5DG9X",
     "meal_type": "main",
-    "recommendation": "纵横体育公园是当地热门景点，建议游览90分钟左右",
+    "recommendation": "江岸区城市绿洲，拥有专业球场和蜿蜒步道。傍晚6点后免费入场，自带水杯省开销。",
     "open_minutes": 420,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_e213caf2",
@@ -626,9 +711,14 @@
     "source": "amap",
     "source_id": "B001B05205",
     "meal_type": "main",
-    "recommendation": "龟山风景区适合城市游览、景点爱好者",
+    "recommendation": "汉阳制高点，可俯瞰两江交汇与电视塔。本地人爱从山北小路登顶，避开主道游客。",
     "open_minutes": 420,
-    "close_minutes": 1140
+    "close_minutes": 1140,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_c45e0c43",
@@ -653,9 +743,14 @@
     "source": "amap",
     "source_id": "B001B0IZ9U",
     "meal_type": "main",
-    "recommendation": "晴川阁是当地热门景点，建议游览90分钟左右",
+    "recommendation": "楚天第一名楼，隔江对望黄鹤楼。傍晚登阁看长江大桥亮灯，比白天人少更出片。",
     "open_minutes": 540,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_caa90f57",
@@ -705,7 +800,12 @@
     "source": "amap",
     "source_id": "B0J3LH81C7",
     "meal_type": "main",
-    "recommendation": "四美塘文化公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "武昌闹市中的工业记忆花园，有老铁路和花海。建议工作日下午3点后去，避开周末人流。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_a6e0538b",
@@ -731,9 +831,14 @@
     "source": "amap",
     "source_id": "B0IGXALGAU",
     "meal_type": "main",
-    "recommendation": "长江荣耀号游船是当地热门景点，建议游览90分钟左右",
+    "recommendation": "网红夜游船，360度赏两江灯光秀。别买顶层甲板票，下层窗边座位视野更稳。",
     "open_minutes": 630,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_61d3b847",
@@ -915,7 +1020,12 @@
     "source": "amap",
     "source_id": "B0FFGMRWAT",
     "meal_type": "main",
-    "recommendation": "樱园适合城市游览、景点爱好者"
+    "recommendation": "江岸春日秘境，樱花如云与江风相映。坐地铁1号线到头道街站，步行10分钟即到。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_c7e66aa5",
@@ -941,7 +1051,12 @@
     "source": "amap",
     "source_id": "B001B0I1CR",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观汉口江滩3期，人气评分4.5"
+    "recommendation": "清净江滩，芦苇荡与观江栈道是亮点。免费开放，自带自行车骑行更省钱。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_76668606",
@@ -967,7 +1082,12 @@
     "source": "amap",
     "source_id": "B001B1GN28",
     "meal_type": "main",
-    "recommendation": "南岸嘴江滩公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "武汉之心，两江交汇清浊分明。本地人爱绕到公园东侧草坪，独享江景野餐。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_17320e2d",
@@ -991,7 +1111,12 @@
     "source": "amap",
     "source_id": "B001B0A0CK",
     "meal_type": "main",
-    "recommendation": "东湖生态旅游风景区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "东湖比西湖大几倍，绿道骑行和磨山登高是核心体验。建议从梨园入口租车，错开周末人流走湖中道更清净。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_53602734",
@@ -1018,7 +1143,12 @@
     "source": "amap",
     "source_id": "B001B08B7A",
     "meal_type": "main",
-    "recommendation": "汉口汇丰银行大楼是当地热门景点，建议游览90分钟左右"
+    "recommendation": "百年罗马柱建筑，内部保留金库大门见证金融往事。建议下午4点后去，斜阳为雕花镀金，拍照光影最佳。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_a330d890",
@@ -1044,9 +1174,14 @@
     "source": "amap",
     "source_id": "B0FFIZQD7F",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观武汉中共中央机关旧址纪念馆，人气评分0.0",
+    "recommendation": "1927年中共中央指挥中枢，复原办公室和卧室还原历史。注意别错过二楼隐蔽的会议室，常被忽略但细节最多。",
     "open_minutes": 540,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_9b89776d",
@@ -1070,9 +1205,14 @@
     "source": "amap",
     "source_id": "B0JRG5387F",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观汉口东正教堂，人气评分4.4",
+    "recommendation": "拜占庭风格绿顶建筑，穹顶壁画精美。建议坐地铁1号线到黄浦路站，步行5分钟即到。",
     "open_minutes": 420,
-    "close_minutes": 1140
+    "close_minutes": 1140,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_56479dc2",
@@ -1149,7 +1289,12 @@
     "source": "amap",
     "source_id": "B001B1BY45",
     "meal_type": "main",
-    "recommendation": "武汉江滩1期(沿江大道)是当地热门景点，建议游览90分钟左右"
+    "recommendation": "沿江大道可赏百年建筑与江景交融，傍晚灯光迷人。建议自带水杯，江滩免费无强制消费，省下饮料钱。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_a011ed26",
@@ -1196,7 +1341,12 @@
     "source": "amap",
     "source_id": "B0FFFTB9XN",
     "meal_type": "main",
-    "recommendation": "八路军武汉办事处旧址纪念馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "抗战初期八路军心脏，木楼梯和复原办公室充满年代感。建议先逛完去隔壁兰陵路吃碗热干面，老武汉标配。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_4bab53b0",
@@ -1435,7 +1585,12 @@
     "source": "amap",
     "source_id": "B001B0J07O",
     "meal_type": "main",
-    "recommendation": "龙王庙公园适合城市游览、景点爱好者"
+    "recommendation": "两江交汇地，看长江汉水清浊分明。建议傍晚蹲守防汛纪念碑旁台阶，能拍到落日沉入江面的绝佳角度。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_32e8ee57",
@@ -1461,7 +1616,12 @@
     "source": "amap",
     "source_id": "B0KKVAMHHZ",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观江汉关广场，人气评分4.2"
+    "recommendation": "紧邻百年江汉关大楼，江景与古典建筑交融。建议晚上7点后去，灯光亮起时街头艺人表演最密集。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_e2458e60",
@@ -1487,7 +1647,12 @@
     "source": "amap",
     "source_id": "B0FFKWW36W",
     "meal_type": "main",
-    "recommendation": "沙湖公园A区适合城市游览、景点爱好者"
+    "recommendation": "武昌城市绿肺，水杉樱花四季皆景。别光盯着湖边栈道，A区入口附近的儿童乐园周末人满为患，建议工作日去避开拥挤。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_aaa49f8a",
@@ -1540,7 +1705,12 @@
     "source": "amap",
     "source_id": "B001B0J03A",
     "meal_type": "main",
-    "recommendation": "大禹神话园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "汉阳江滩治水主题公园，巨型大禹雕像很震撼。坐地铁4号线到拦江路站B口出，步行10分钟即到，自驾不如地铁方便。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_c1ce93e",
@@ -1590,7 +1760,12 @@
     "source": "amap",
     "source_id": "B001B15SE2",
     "meal_type": "main",
-    "recommendation": "后襄河公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "闹市中的亲水栈道公园，秋日红叶最出片。公园免费开放，自带零食野餐比门口小摊划算，还能省下买水钱。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_de39d9ff",
@@ -1644,9 +1819,14 @@
     "source": "amap",
     "source_id": "B001B0IZEL",
     "meal_type": "main",
-    "recommendation": "推荐在江汉区参观菱角湖公园，人气评分4.6",
+    "recommendation": "江汉区闹中取静，夏日菱角飘香。本地人常去北门附近的观鸟亭，清晨能听鸟鸣，比沿湖步道更幽静。",
     "open_minutes": 360,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_31d9f658",
@@ -1698,7 +1878,12 @@
     "source": "amap",
     "source_id": "B0KUBRYCI9",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观兰陵门，人气评分4.3"
+    "recommendation": "江滩古朴城门，登楼俯瞰长江与老城交错。傍晚来拍完日落，别急着走，门洞后面有条隐蔽小巷直通江滩芦苇丛。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_37253130",
@@ -1722,7 +1907,12 @@
     "source": "amap",
     "source_id": "B0FFG26UZO",
     "meal_type": "main",
-    "recommendation": "桃花岛是当地热门景点，建议游览90分钟左右"
+    "recommendation": "江心绿洲，春季桃林与江景相映。3月下旬至4月中旬桃花盛开，此时江风最柔，花瓣飘落如同粉色波浪。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_3af816fb",
@@ -1746,9 +1936,14 @@
     "source": "amap",
     "source_id": "B001B08IJ0",
     "meal_type": "main",
-    "recommendation": "长江观景第一台是当地热门景点，建议游览90分钟左右",
+    "recommendation": "江风拂面，长江大桥与龟山电视塔同框。别在观景台正中间拍，节假日游人扎堆，往右侧50米长凳处取景更清净。",
     "open_minutes": 330,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_b4afe736",
@@ -1772,7 +1967,12 @@
     "source": "amap",
     "source_id": "B001B0IO00",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观天主教汉口总教区上海路主教座堂天主堂，人气评分4.4"
+    "recommendation": "百年哥特式教堂，玫瑰窗光影迷人。坐地铁1号线到黄浦路站A口出，步行8分钟即到，自驾得注意路边停车位稀少。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_7fa061f6",
@@ -1824,9 +2024,14 @@
     "source": "amap",
     "source_id": "B0FFFLIX1I",
     "meal_type": "main",
-    "recommendation": "解放公园鸽子广场是当地热门景点，建议游览90分钟左右",
+    "recommendation": "武汉最治愈的角落，百鸽环绕欧式喷泉。自带玉米粒比现场买饲料便宜一半，清晨去鸽子更亲人。",
     "open_minutes": 600,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_59d8a6e4",
@@ -1850,9 +2055,14 @@
     "source": "amap",
     "source_id": "B0FFG83RE8",
     "meal_type": "main",
-    "recommendation": "武汉园博园是当地热门景点，建议游览90分钟左右",
+    "recommendation": "浓缩全国园林精华的117个展园。本地人推荐从北门进，先逛荆山楚水，人少景美还能避开旅行团。",
     "open_minutes": 510,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_73a98d03",
@@ -1878,7 +2088,12 @@
     "source": "amap",
     "source_id": "B001B06WBD",
     "meal_type": "main",
-    "recommendation": "硚口公园适合城市游览、景点爱好者"
+    "recommendation": "闹市区古树参天的绿洲，有小桥流水。隐藏玩法是找园内老石凳，坐那听大爷拉二胡，比逛景点更接地气。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_b89ea48d",
@@ -1928,9 +2143,14 @@
     "source": "amap",
     "source_id": "B0HDGGKRW5",
     "meal_type": "main",
-    "recommendation": "推荐在江汉区参观武汉两江游览(武汉关2号码头)，人气评分4.2",
+    "recommendation": "夜游长江汉江交汇处，看灯光秀与地标。19点后航班最佳，江风凉爽且两岸灯光全亮，观景最震撼。",
     "open_minutes": 1050,
-    "close_minutes": 1230
+    "close_minutes": 1230,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_21566491",
@@ -1954,9 +2174,14 @@
     "source": "amap",
     "source_id": "B0FFL2U3PD",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观古德寺-禅堂，人气评分4.3",
+    "recommendation": "哥特与缅甸风格融合的异域寺庙，彩色玻璃梦幻。避坑：别穿短裙或露肩装，否则可能被拦在门外。",
     "open_minutes": 480,
-    "close_minutes": 990
+    "close_minutes": 990,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_9b589b19",
@@ -2010,7 +2235,12 @@
     "source": "amap",
     "source_id": "B0H01ZMO8H",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观城市公园(沙湖公园E区)，人气评分4.2"
+    "recommendation": "武昌宝藏绿洲，湖光与湿地栈道相映。坐地铁4号线东亭站下，步行10分钟即到，比自驾省停车费。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_81a16d8e",
@@ -2035,7 +2265,12 @@
     "source": "amap",
     "source_id": "B0FFH25BNJ",
     "meal_type": "main",
-    "recommendation": "推荐在江汉区参观龙王庙，人气评分4.3"
+    "recommendation": "江汉江滩地理标志，可看两江交汇。免费开放，傍晚去自带水杯，省下买饮料钱，江风配夕阳更惬意。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_166f81ad",
@@ -2059,7 +2294,12 @@
     "source": "amap",
     "source_id": "B001B0J0B5",
     "meal_type": "main",
-    "recommendation": "东湖磨山景区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "城市绿肺，四季花海登顶俯瞰东湖。本地人推荐从南门进，租车环湖避开人流，早上7点前免门票。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_4efb84b3",
@@ -2085,9 +2325,14 @@
     "source": "amap",
     "source_id": "B001B065B6",
     "meal_type": "main",
-    "recommendation": "推荐在江汉区参观武汉博物馆，人气评分4.7",
+    "recommendation": "武汉博物馆藏品丰富，涵盖从史前到近现代的历史脉络。周三下午去人少，还能偶遇志愿者的深度讲解彩蛋。",
     "open_minutes": 540,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_36428c11",
@@ -2113,9 +2358,14 @@
     "source": "amap",
     "source_id": "B001B1ASIC",
     "meal_type": "main",
-    "recommendation": "推荐在黄陂区参观武汉市黄陂区博物馆，人气评分3.9",
+    "recommendation": "黄陂区博物馆以木兰文化为特色，展品生动还原地方历史。建议上午9点开门就进，避开人流且光线最适合看青铜器纹饰。",
     "open_minutes": 540,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_87025835",
@@ -2196,7 +2446,12 @@
     "source": "amap",
     "source_id": "B001B08BC3",
     "meal_type": "main",
-    "recommendation": "江汉关博物馆是当地热门景点，建议游览90分钟左右"
+    "recommendation": "江汉关博物馆是百年海关建筑，钟楼和地砖保存完好。别只逛一层，二楼窗口能拍到钟楼全景，比挤在楼下拍强百倍。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_da52a2e6",
@@ -2223,9 +2478,14 @@
     "source": "amap",
     "source_id": "B001B18NPG",
     "meal_type": "main",
-    "recommendation": "武汉科学技术馆适合城市游览、历史文化爱好者",
+    "recommendation": "武汉科学技术馆互动展项多，适合亲子探索。坐地铁1号线到三阳路站B口出，步行5分钟即达，比开车省心。",
     "open_minutes": 540,
-    "close_minutes": 990
+    "close_minutes": 990,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_4049bd0d",
@@ -2252,7 +2512,12 @@
     "source": "amap",
     "source_id": "B0IDVCEC1O",
     "meal_type": "main",
-    "recommendation": "武汉市公安局交通管理局车辆管理所江南考场是当地热门景点，建议游览90分钟左右"
+    "recommendation": "江南考场实为交通文化博物馆，展出历代驾照和装备。每周二下午免费开放，记得带上身份证换票。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_c3f761ee",
@@ -2279,9 +2544,14 @@
     "source": "amap",
     "source_id": "B001B0IOU3",
     "meal_type": "main",
-    "recommendation": "武汉国际会展中心是当地热门景点，建议游览90分钟左右",
+    "recommendation": "武汉国际会展中心常有科技和文博大展。本地人逛完会去旁边巷子吃热干面，比馆内快餐便宜又地道。",
     "open_minutes": 540,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_2cb01d7b",
@@ -2308,9 +2578,14 @@
     "source": "amap",
     "source_id": "B001B0I2M9",
     "meal_type": "main",
-    "recommendation": "武汉图书馆是当地热门景点，建议游览90分钟左右",
+    "recommendation": "武汉图书馆藏书丰富，建筑设计感十足。三楼古籍阅览室有免费抄经活动，待一下午心静如水。",
     "open_minutes": 510,
-    "close_minutes": 1230
+    "close_minutes": 1230,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_c2cd852e",
@@ -2337,9 +2612,14 @@
     "source": "amap",
     "source_id": "B001B0II9U",
     "meal_type": "main",
-    "recommendation": "武汉美术馆(汉口馆)适合城市游览、历史文化爱好者",
+    "recommendation": "武汉美术馆位于金城银行旧址，古典建筑与当代艺术碰撞。建议工作日下午去，人少光线好，拍建筑剪影最出片。",
     "open_minutes": 540,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_a961b296",
@@ -2422,7 +2702,12 @@
     "source": "amap",
     "source_id": "B001B0I1W1",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观武汉市青少年宫，人气评分0.0"
+    "recommendation": "老武汉的童年地标，有复古建筑和科技馆。别直奔科普馆，先去西侧看免费的老武汉生活展，人少更有味。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_203ee387",
@@ -2449,9 +2734,14 @@
     "source": "amap",
     "source_id": "B001B0HZJC",
     "meal_type": "main",
-    "recommendation": "武汉市少年儿童图书馆是当地热门景点，建议游览90分钟左右",
+    "recommendation": "百年建筑里的童书天堂，有复古旋转楼梯。坐地铁2号线到江汉路站C口出，步行5分钟即到。",
     "open_minutes": 570,
-    "close_minutes": 1050
+    "close_minutes": 1050,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_3ade19fb",
@@ -2507,9 +2797,14 @@
     "source": "amap",
     "source_id": "B001B06RH0",
     "meal_type": "main",
-    "recommendation": "武汉市群众艺术馆适合城市游览、历史文化爱好者",
+    "recommendation": "集展览与非遗体验的文化空间，常有免费演出。所有展览和活动均免费，直接进门不用预约。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_e7782916",
@@ -2563,9 +2858,14 @@
     "source": "amap",
     "source_id": "B0IDVCGF9I",
     "meal_type": "main",
-    "recommendation": "江城书房适合城市游览、历史文化爱好者",
+    "recommendation": "百年老建筑改造的书香空间，藏有武汉绝版书籍。本地人爱挑工作日下午去，人少还能独享整面书墙。",
     "open_minutes": 570,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_914c0c51",
@@ -2592,9 +2892,14 @@
     "source": "amap",
     "source_id": "B0FFK9CE33",
     "meal_type": "main",
-    "recommendation": "鹅社书店艺术馆(青岛路馆)适合城市游览、历史文化爱好者",
+    "recommendation": "百年老建筑里的书店艺廊，穹顶与地砖超有氛围。绕到书架背面有个隐藏小阳台，能拍出复古窗景照。",
     "open_minutes": 630,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_2107386b",
@@ -2622,7 +2927,12 @@
     "source": "amap",
     "source_id": "B0LU9MBJYP",
     "meal_type": "main",
-    "recommendation": "庐月又·城市书院(龙湖滨江天街)适合城市游览、历史文化爱好者"
+    "recommendation": "武昌滨江的旋转楼梯书店，文创与展览俱全。建议工作日上午去，人少光线好，旋转楼梯随便拍。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_11482142",
@@ -2648,9 +2958,14 @@
     "source": "amap",
     "source_id": "B0FFHCWQGI",
     "meal_type": "main",
-    "recommendation": "横渡长江博物馆适合城市游览、历史文化爱好者",
+    "recommendation": "汉口江滩内的博物馆，记录武汉人渡江历史。别从江滩大门进，直接导航“横渡长江博物馆”侧门更快。",
     "open_minutes": 540,
-    "close_minutes": 960
+    "close_minutes": 960,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_a2cb82fc",
@@ -2677,9 +2992,14 @@
     "source": "amap",
     "source_id": "B0KKSU4BBG",
     "meal_type": "main",
-    "recommendation": "武汉工人文化宫是当地热门景点，建议游览90分钟左右",
+    "recommendation": "积玉桥的苏式老建筑，有工人运动史展馆。坐地铁2号线到积玉桥站D口出，沿和平大道步行8分钟即到。",
     "open_minutes": 540,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_2e9587a",
@@ -2708,9 +3028,14 @@
     "source": "amap",
     "source_id": "B0HUKM5JVY",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观度世界精酿啤酒博物馆(汉口店)，人气评分4.7",
+    "recommendation": "汇集近百种全球精酿的啤酒主题乐园。免费入场，点单前先查团购套餐能省一半钱。",
     "open_minutes": 1020,
-    "close_minutes": 180
+    "close_minutes": 180,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_5a5d543c",
@@ -2738,7 +3063,12 @@
     "source": "amap",
     "source_id": "B001B160YN",
     "meal_type": "main",
-    "recommendation": "武汉广播电视台是当地热门景点，建议游览90分钟左右"
+    "recommendation": "可近距离看演播厅和转播车的传媒探秘地。本地人告诉你，预约下午场的科普讲解人少体验好。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_e2a6a923",
@@ -2765,7 +3095,12 @@
     "source": "amap",
     "source_id": "B001B0K5JE",
     "meal_type": "main",
-    "recommendation": "武汉市规划设计研究院适合城市游览、历史文化爱好者"
+    "recommendation": "展示武汉历史地图与未来蓝图的城市智慧大脑。隐藏玩法是问前台要一份江滩导览图，顺路散步更省心。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_eccc7ff1",
@@ -2791,7 +3126,12 @@
     "source": "amap",
     "source_id": "B0FFF0ER1B",
     "meal_type": "main",
-    "recommendation": "推荐在蔡甸区参观后官湖国家湿地公园，人气评分4.6"
+    "recommendation": "城市绿肺中湖面开阔、芦苇摇曳的湿地公园。最佳时间是清晨8点前，晨雾未散、鸟群活跃，人少又静谧。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_a6d0b8c5",
@@ -2817,7 +3157,12 @@
     "source": "amap",
     "source_id": "B0FFLHZP8D",
     "meal_type": "main",
-    "recommendation": "武汉杜公湖国家湿地公园适合城市游览、公园爱好者"
+    "recommendation": "水鸟成群、木栈道穿行芦苇荡的城市绿洲。避坑提醒：别穿浅色鞋走雨后泥泞栈道，带双拖鞋更稳妥。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_5d2494d5",
@@ -2847,9 +3192,14 @@
     "source": "amap",
     "source_id": "B0FFGYBKU8",
     "meal_type": "main",
-    "recommendation": "推荐在蔡甸区参观武汉足球主题公园，人气评分4.6",
+    "recommendation": "超大草坪足球场和足球文化雕塑的运动乐园。坐地铁3号线到体育中心站，从C口出步行10分钟即到。",
     "open_minutes": 360,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_1af352cc",
@@ -2876,7 +3226,12 @@
     "source": "amap",
     "source_id": "B0FFHRO7NS",
     "meal_type": "main",
-    "recommendation": "武昌江滩(大堤口广场)-外滩公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "视野开阔的亲水长廊，可近距离感受长江壮阔。免费开放，傍晚带个空瓶接点江水拍照，零成本出大片。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_7416f0b7",
@@ -2903,7 +3258,12 @@
     "source": "amap",
     "source_id": "B001B0J4DA",
     "meal_type": "main",
-    "recommendation": "小南湖公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "江岸区闹中取静的休闲绿地。本地人悄悄告诉你，公园东门旁的小径直通网红书店，顺路打卡不绕远。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_6dfbd842",
@@ -2957,7 +3317,12 @@
     "source": "amap",
     "source_id": "B0FFH6SIXF",
     "meal_type": "main",
-    "recommendation": "武昌江滩-海棠园适合城市游览、公园爱好者"
+    "recommendation": "春季海棠如云霞，搭配江景与绿道超治愈。建议绕到园后小径，避开人潮独享花海与江风。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_873bce6b",
@@ -3011,7 +3376,12 @@
     "source": "amap",
     "source_id": "B001B0IZLW",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观喷泉公园，人气评分4.1"
+    "recommendation": "音乐喷泉配灯光秀，闹中取静好去处。建议晚上7点半到，正好赶上喷泉表演和灯光最璀璨的时段。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_9be28a8f",
@@ -3038,7 +3408,12 @@
     "source": "amap",
     "source_id": "B0LURZ1OXY",
     "meal_type": "main",
-    "recommendation": "西北湖小游园适合城市游览、公园爱好者"
+    "recommendation": "湖光配天际线，拍照超治愈。注意晚樱季周末人很多，建议工作日清晨去避开拥挤。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_ce455789",
@@ -3119,7 +3494,12 @@
     "source": "amap",
     "source_id": "B0FFF35Y30",
     "meal_type": "main",
-    "recommendation": "二七公园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "历史雕塑与绿荫并存，适合散步放风。建议坐地铁1号线到二七路站，出站步行5分钟即到。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_b8033c82",
@@ -3146,7 +3526,12 @@
     "source": "amap",
     "source_id": "B0IAHA2RQG",
     "meal_type": "main",
-    "recommendation": "健康路游园适合城市游览、公园爱好者"
+    "recommendation": "藏于积玉桥的口袋公园，市井气十足。建议自带水杯和零食，省下门口小卖部的高价消费。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_49f79905",
@@ -3199,7 +3584,12 @@
     "source": "amap",
     "source_id": "B0FFFGV5QG",
     "meal_type": "main",
-    "recommendation": "沙湖公园B区是当地热门景点，建议游览90分钟左右"
+    "recommendation": "湖面开阔，亲水栈道适合骑行发呆。本地人爱从后门进，避开正门人流直接到湖边。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_a84d6012",
@@ -3253,7 +3643,12 @@
     "source": "amap",
     "source_id": "B001B16F8O",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观武昌廉政文化公园，人气评分4.3"
+    "recommendation": "廉政雕塑与江景结合，长知识又放松。建议傍晚顺道走到江边，发现隐藏的观景石阶。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_430400c4",
@@ -3280,7 +3675,12 @@
     "source": "amap",
     "source_id": "B0FFHUVNRF",
     "meal_type": "main",
-    "recommendation": "汉阳门花园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "樱花紫藤配长江大桥，市井烟火气足。建议下午4点半到，先拍花再等日落，火车穿桥时最出片。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_57071b48",
@@ -3336,7 +3736,12 @@
     "source": "amap",
     "source_id": "B001B0AYU1",
     "meal_type": "main",
-    "recommendation": "莲花湖公园适合城市游览、公园爱好者"
+    "recommendation": "夏季荷花满池，与古廊桥相映成趣。别在正午去，傍晚吹湖风划船最惬意，野餐记得带防潮垫。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_460f710",
@@ -3363,9 +3768,14 @@
     "source": "amap",
     "source_id": "B0LBDDXX3N",
     "meal_type": "main",
-    "recommendation": "金桥体育公园是当地热门景点，建议游览90分钟左右",
+    "recommendation": "后湖新晋运动休闲地，有智能步道和迷你球场。坐地铁3号线到后湖大道站，B口出步行10分钟即达。",
     "open_minutes": 300,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_5d19f563",
@@ -3419,7 +3829,12 @@
     "source": "amap",
     "source_id": "B0IGPSG3TN",
     "meal_type": "main",
-    "recommendation": "武昌江边禁毒公园适合城市游览、公园爱好者"
+    "recommendation": "临江可赏长江大桥与落日，寓教于乐。公园完全免费开放，无需门票就能逛到底。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_7b06226c",
@@ -3473,7 +3888,12 @@
     "source": "amap",
     "source_id": "B0L0LS8IHX",
     "meal_type": "main",
-    "recommendation": "汉阳江滩公园适合城市游览、公园爱好者"
+    "recommendation": "紧邻晴川阁与长江大桥，傍晚江面金光灿灿。本地人最爱从晴川阁侧门进，人少景更幽。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_31d7cc1",
@@ -3500,7 +3920,12 @@
     "source": "amap",
     "source_id": "B0FFG38TZ6",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观沙湖公园-琴园公园，人气评分3.8"
+    "recommendation": "闹市静谧氧吧，碧湖亭台错落有致。清晨去环湖步道慢走，偶遇晨练大爷下棋，能发现隐藏小亭。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_db3e1977",
@@ -3527,9 +3952,14 @@
     "source": "amap",
     "source_id": "B0MDKXDUNA",
     "meal_type": "main",
-    "recommendation": "旷野公园适合城市游览、公园爱好者",
+    "recommendation": "闹市野趣绿洲，原生林木与起伏草坪相融。最佳是傍晚5点，夕阳染红天际线，光影最出片。",
     "open_minutes": 480,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_2f79ffff",
@@ -3584,7 +4014,12 @@
     "source": "amap",
     "source_id": "B0KUFCVVJ9",
     "meal_type": "main",
-    "recommendation": "沙湖公园E区-畅园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "栈桥穿水岸，夏荷秋枫最出片。别周末下午去，人挤人；清晨或傍晚光线柔美，拍照更清净。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_2df7b1d6",
@@ -3611,7 +4046,12 @@
     "source": "amap",
     "source_id": "B0G3178KS7",
     "meal_type": "main",
-    "recommendation": "琴台公园适合城市游览、公园爱好者"
+    "recommendation": "古琴台畔，知音文化浓郁，湖光亭台清幽。坐地铁6号线到琴台站，C口出沿月湖步行5分钟到。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_2a6b82e9",
@@ -3638,7 +4078,12 @@
     "source": "amap",
     "source_id": "B001B0IH4B",
     "meal_type": "main",
-    "recommendation": "常青人才公园适合城市游览、公园爱好者"
+    "recommendation": "江汉区闹市绿洲，遍布人才主题雕塑与智慧景观。免费开放，自带野餐垫和零食更省钱。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_f6e3fcc2",
@@ -3750,7 +4195,12 @@
     "source": "amap",
     "source_id": "B0JRNH1HTO",
     "meal_type": "main",
-    "recommendation": "推荐在江岸区参观清廉公园，人气评分3.8"
+    "recommendation": "江岸区廉政文化公园，廉洁雕塑与清莲水池相映。本地人常清晨来，人少还能听鸟鸣。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_39acb098",
@@ -3833,9 +4283,14 @@
     "source": "amap",
     "source_id": "B001B0K94I",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观楚望台遗址公园，人气评分4.5",
+    "recommendation": "武昌古城墙边小众遗址，可眺望起义门与古炮台。从起义门方向进入，顺带打卡古城砖。",
     "open_minutes": 360,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_1c96ef5c",
@@ -3862,7 +4317,12 @@
     "source": "amap",
     "source_id": "B001B0IZVM",
     "meal_type": "main",
-    "recommendation": "洪山公园适合城市游览、公园爱好者"
+    "recommendation": "武昌闹市古树绿洲，千年无影塔藏身其中。清晨来最清幽，还能避开人流独享宝通寺钟声。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_f0523c20",
@@ -3916,7 +4376,12 @@
     "source": "amap",
     "source_id": "B0GR36GI1P",
     "meal_type": "main",
-    "recommendation": "奇趣蛋壳公园适合城市游览、公园爱好者"
+    "recommendation": "硚口区童话乐园，巨型蛋壳装置与彩绘步道。别周末下午来，滑梯和沙坑人满为患。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_ad15277b",
@@ -3996,7 +4461,12 @@
     "source": "amap",
     "source_id": "B0FFGFQYIE",
     "meal_type": "main",
-    "recommendation": "后湖公园适合城市游览、公园爱好者"
+    "recommendation": "江岸区湖景绿道，黄昏倒影与秋日水杉林绝美。地铁3号线后湖大道站A口出，步行10分钟即到。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_589778e2",
@@ -4053,69 +4523,14 @@
     "source": "amap",
     "source_id": "B0FFKC5A44",
     "meal_type": "main",
-    "recommendation": "武汉K11购物艺术中心适合城市游览、街区爱好者",
+    "recommendation": "硚口区艺术商场，先锋装置与设计师品牌云集。关注公众号领免费展览票，省下百元门票。",
     "open_minutes": 600,
-    "close_minutes": 1320
-  },
-  {
-    "id": "amap_9a66d7ef",
-    "name": "泛悦南国中心",
-    "type": "attraction",
-    "lat": 30.585473,
-    "lng": 114.281959,
-    "area": "江汉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "商场",
-      "购物中心",
-      "普通商场"
-    ],
-    "popularity": 4.5,
-    "price_level": 1,
-    "description": "泛悦南国中心是江汉区一处融合购物与城市漫步的时髦街区。这里既有潮流品牌店，也有露天餐饮外摆和艺术装置，适合边逛边拍。建议傍晚过来，灯光亮起后氛围感十足；逛累了随便找家咖啡馆或小吃店歇脚。适合喜欢拍照打卡的年轻人、闺蜜聚会，也适合家庭遛娃或情侣约会。",
-    "source": "amap",
-    "source_id": "B0L24SNYE5",
-    "meal_type": "main",
-    "recommendation": "泛悦南国中心逛街购物很全，周末人潮涌动，建议平日傍晚去慢慢逛。",
-    "open_minutes": 600,
-    "close_minutes": 1320
-  },
-  {
-    "id": "amap_19c48e3c",
-    "name": "武汉凯越鑫不锈钢有限公司",
-    "type": "attraction",
-    "lat": 30.577563,
-    "lng": 114.280995,
-    "area": "江汉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家居建材市场",
-      "建材五金市场",
-      "前进"
-    ],
-    "popularity": 3.4,
-    "price_level": 1,
-    "description": "武汉凯越鑫不锈钢有限公司听起来冷门，却是硬核工业风宝藏地！这里陈列着各类不锈钢板材、管材和定制成品，从厨房台面到艺术装置应有尽有，适合探店拍赛博朋克大片。建议预留1小时，带上卷尺记录尺寸，跟老板聊定制可能挖到便宜好货。推荐给装修控、工业风迷和想淘实用五金",
-    "source": "amap",
-    "source_id": "B0FFF9ZKHS",
-    "meal_type": "main",
-    "recommendation": "武汉凯越鑫不锈钢有限公司是当地热门景点，建议游览90分钟左右",
-    "open_minutes": 480,
-    "close_minutes": 1080
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_52aa082d",
@@ -4142,66 +4557,14 @@
     "source": "amap",
     "source_id": "B0FFKDII2S",
     "meal_type": "main",
-    "recommendation": "武汉大悦城适合城市游览、街区爱好者",
+    "recommendation": "光谷年轻人的潮流聚集地，顶楼星空露台和网红阶梯超好拍。别只逛一楼，绕到侧面的隐藏涂鸦墙打卡更出片。",
     "open_minutes": 600,
-    "close_minutes": 1320
-  },
-  {
-    "id": "amap_d3deb1a2",
-    "name": "小米粒童装店",
-    "type": "attraction",
-    "lat": 30.518539,
-    "lng": 114.154848,
-    "area": "蔡甸区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "专卖店",
-      "儿童用品店",
-      "武汉经济技术开发区"
-    ],
-    "popularity": 3,
-    "price_level": 1,
-    "description": "这家藏在武汉经济技术开发区的小米粒童装店，简直是宝妈们的宝藏地！从软萌爬服到潮酷小童装，款式新颖又耐穿，性价比超高。建议带娃来慢慢淘，店内还有迷你试衣区和玩具角，逛着不费妈。适合家有0-12岁宝贝的家庭，或是想挑礼物送朋友",
-    "source": "amap",
-    "source_id": "B0FFK1DH18",
-    "meal_type": "main",
-    "recommendation": "小米粒童装店童装款式超萌，带孩子来逛准能挑到心仪衣裳，建议避开周末高峰。"
-  },
-  {
-    "id": "amap_6d56cc30",
-    "name": "欣欣文具(知音路店)",
-    "type": "attraction",
-    "lat": 30.568777,
-    "lng": 114.209308,
-    "area": "汉阳区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "文化用品店",
-      "王家湾"
-    ],
-    "popularity": 3.5,
-    "price_level": 1,
-    "description": "走进欣欣文具(知音路店)，就像掉进了一个怀旧又治愈的宝藏盒子。这里不仅有琳琅满目的文创手账、日系文具和复古杂货，还有超多拍照打卡的可爱角落。建议留出半小时慢慢逛，淘几件独特小物，顺便在王家湾街区来一场城市漫步。适合文具控、手账爱好者、亲子家庭以及所有想找回童年快乐的人。",
-    "source": "amap",
-    "source_id": "B0FFFZKVAY",
-    "meal_type": "main",
-    "recommendation": "文具控的天堂，各种创意小物超好逛，记得淘些特色手",
-    "open_minutes": 420,
-    "close_minutes": 1230
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_9ba8e561",
@@ -4229,9 +4592,14 @@
     "source": "amap",
     "source_id": "B001B1GKIU",
     "meal_type": "main",
-    "recommendation": "推荐在汉阳区参观人信汇(汉阳店)，人气评分4.7",
+    "recommendation": "王家湾的宝藏综合商场，室内步行街设计感十足。傍晚来最好，先吃负一楼美食街，再上楼逛街避开人流高峰。",
     "open_minutes": 600,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_5f32e0c0",
@@ -4264,296 +4632,6 @@
     "close_minutes": 1320
   },
   {
-    "id": "amap_d69f4cd6",
-    "name": "中国电信(郭茨口云丰专营店)",
-    "type": "attraction",
-    "lat": 30.567654,
-    "lng": 114.212258,
-    "area": "汉阳区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家电电子卖场",
-      "手机销售",
-      "生活服务",
-      "电讯营业厅",
-      "中国电信营业厅"
-    ],
-    "popularity": 3.7,
-    "price_level": 1,
-    "description": "别看是电信营业厅，这里其实是汉阳街区的“数码补给站”！除了办号办宽带，还能零距离体验5G黑科技、试玩新款智能家居。建议逛累了进来蹭个空调，顺便给手机贴膜充电。适合数码控、带娃家长和",
-    "source": "amap",
-    "source_id": "B0FFHS1GZZ",
-    "meal_type": "main",
-    "recommendation": "办业务顺便逛汉阳商圈，傍晚人少效率高，别忘领积分。",
-    "open_minutes": 510,
-    "close_minutes": 1230
-  },
-  {
-    "id": "amap_251b7892",
-    "name": "小米之家(武汉汉阳区王家湾工贸专区店)",
-    "type": "attraction",
-    "lat": 30.560475,
-    "lng": 114.213825,
-    "area": "汉阳区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家电电子卖场",
-      "手机销售",
-      "王家湾"
-    ],
-    "popularity": 3.7,
-    "price_level": 1,
-    "description": "一进门就被各种黑科技亮瞎眼！最新手机、智能家居随便摸，还能体验AIoT联动玩法，逛起来像在玩未来生活馆。建议留出1-2小时慢慢试玩，别忘了看看米家生态链的小家电，性价比超高。适合数码控、米粉、想淘实用好物的家庭，也适合带娃来感受科技魅力。",
-    "source": "amap",
-    "source_id": "B0FFIPYVZO",
-    "meal_type": "main",
-    "recommendation": "新品首发体验区，人少时来慢慢试玩，就在王家湾地铁口。",
-    "open_minutes": 570,
-    "close_minutes": 1200
-  },
-  {
-    "id": "amap_b86e54fb",
-    "name": "世凤烟酒副食",
-    "type": "attraction",
-    "lat": 30.564046,
-    "lng": 114.215704,
-    "area": "汉阳区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "便民商店/便利店"
-    ],
-    "popularity": 3.8,
-    "price_level": 1,
-    "description": "开在汉阳老街区的世凤烟酒副食，麻雀虽小五脏俱全，是本地人最爱光顾的宝藏小铺。除了烟酒饮料，还能淘到童年记忆里的零食和日杂。建议路过时买瓶汽水跟老板唠两句，感受老武汉的市井温情。适合想体验慢节奏城市漫步、喜欢淘特色小物的旅行者。",
-    "source": "amap",
-    "source_id": "B0FFHS3IBU",
-    "meal_type": "main",
-    "recommendation": "世凤烟酒副食适合城市游览、街区爱好者"
-  },
-  {
-    "id": "amap_c490e28f",
-    "name": "慧秀百货超市",
-    "type": "attraction",
-    "lat": 30.561094,
-    "lng": 114.216388,
-    "area": "汉阳区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "便民商店/便利店"
-    ],
-    "popularity": 3.5,
-    "price_level": 1,
-    "description": "慧秀百货超市是汉阳区超好逛的宝藏小店，既有日常百货也有本地特色零食，适合citywalk时顺路淘点小玩意。建议傍晚来，周边街区烟火气十足，买",
-    "source": "amap",
-    "source_id": "B0FFGARGSX",
-    "meal_type": "main",
-    "recommendation": "推荐在汉阳区参观慧秀百货超市，人气评分3.5"
-  },
-  {
-    "id": "amap_ec7c2ad2",
-    "name": "佳源地矿(十里和府店)",
-    "type": "attraction",
-    "lat": 30.557144,
-    "lng": 114.216147,
-    "area": "汉阳区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "专卖店",
-      "专营店"
-    ],
-    "popularity": 3.7,
-    "price_level": 1,
-    "description": "位于汉阳十里铺的佳源地矿，是一家宝藏级的矿石与宝石专营店。店内琳琅满目，从晶莹剔透的水晶原石到精致小巧的宝石饰品，还有",
-    "source": "amap",
-    "source_id": "B0FFFZJ6IT",
-    "meal_type": "main",
-    "recommendation": "淘独特矿石小物，行",
-    "open_minutes": 480,
-    "close_minutes": 1200
-  },
-  {
-    "id": "amap_a67a226a",
-    "name": "牛哞哞(七里庙店)",
-    "type": "attraction",
-    "lat": 30.55691,
-    "lng": 114.225538,
-    "area": "汉阳区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "综合市场",
-      "农副产品市场",
-      "七里庙"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "description": "藏在汉阳七里庙的“牛哞哞”是个烟火气十足的宝藏市场！新鲜农副特产、地道小吃扎堆，还能淘到不少本地好货。建议傍晚来",
-    "source": "amap",
-    "source_id": "B0FFJ7ZDSI",
-    "meal_type": "main",
-    "recommendation": "买新鲜牛肉的好去处，肉质鲜嫩价格实在。建议早上赶早去，品种最全。",
-    "open_minutes": 420,
-    "close_minutes": 1200
-  },
-  {
-    "id": "amap_3db73e01",
-    "name": "江汉区常青便民摊群",
-    "type": "attraction",
-    "lat": 30.604955,
-    "lng": 114.246125,
-    "area": "江汉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "综合市场",
-      "农副产品市场",
-      "常青"
-    ],
-    "popularity": 3.7,
-    "price_level": 1,
-    "description": "江汉区常青便民摊群是武汉最接地气的市井烟火地，这里汇聚了新鲜蔬果、特色小吃和日用杂货，价格亲民，还能淘到地道汉味零食。建议傍晚时分去，边逛边尝豆皮、面窝",
-    "source": "amap",
-    "source_id": "B001B09Z5K",
-    "meal_type": "main",
-    "recommendation": "推荐在江汉区参观江汉区常青便民摊群，人气评分3.7",
-    "open_minutes": 390,
-    "close_minutes": 1140
-  },
-  {
-    "id": "amap_b90c491e",
-    "name": "和蕊茶行(汉口茶市店)",
-    "type": "attraction",
-    "lat": 30.572642,
-    "lng": 114.261908,
-    "area": "硚口区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "专卖店",
-      "专营店",
-      "荣华"
-    ],
-    "popularity": 3.9,
-    "price_level": 1,
-    "description": "走进和蕊茶行，就像闯入老武汉的茶香江湖。店里摆满来自全国的好茶，老板会热情地请你坐下喝一杯，从普洱聊到铁观音，不知不觉就能淘到合心意的伴手礼。建议留出半小时慢慢逛、慢慢品",
-    "source": "amap",
-    "source_id": "B0FFM64ZYC",
-    "meal_type": "main",
-    "recommendation": "和蕊茶行(汉口茶市店)是当地热门景点，建议游览90分钟左右",
-    "open_minutes": 480,
-    "close_minutes": 1290
-  },
-  {
-    "id": "amap_432a278c",
-    "name": "翠玉缘(锦荣花园店)",
-    "type": "attraction",
-    "lat": 30.570305,
-    "lng": 114.261875,
-    "area": "硚口区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "专卖店",
-      "珠宝首饰工艺品",
-      "崇仁路"
-    ],
-    "popularity": 3.3,
-    "price_level": 1,
-    "description": "走进翠玉缘（锦荣花园店），就像闯入一座藏在汉口老街里的玉石博物馆。这里主打翡翠、和田玉等精品首饰，从温润手镯到精巧挂件，件件透着东方雅韵。建议留出半小时慢慢逛，听店员聊聊玉石鉴定小知识，还能亲手触摸对比不同料子的质感。适合喜欢淘高性价比珠宝的年轻人、想给长辈挑礼物的逛街爱好者，或是城市漫步时想寻个安静角落的文艺党。",
-    "source": "amap",
-    "source_id": "B001B0JS9P",
-    "meal_type": "main",
-    "recommendation": "翠玉缘(锦荣花园店)是当地热门景点，建议游览90分钟左右",
-    "open_minutes": 510,
-    "close_minutes": 1050
-  },
-  {
-    "id": "amap_bc1d812a",
-    "name": "壹号中心(沿海·菱角湖壹号店)臻享瘦",
-    "type": "attraction",
-    "lat": 30.605284,
-    "lng": 114.272319,
-    "area": "江汉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "购物相关场所",
-      "新华路"
-    ],
-    "popularity": 3.9,
-    "price_level": 1,
-    "description": "这里是个宝藏逛吃地，集购物、美食和城市漫步于一体。紧邻菱角湖，逛累了能坐在湖边吹吹风。店铺种类丰富，适合慢慢淘货、打卡拍照。建议傍晚来，逛街顺便看日落。推荐给",
-    "source": "amap",
-    "source_id": "B0FFKFOLHI",
-    "meal_type": "main",
-    "recommendation": "推荐在江汉区参观壹号中心(沿海·菱角湖壹号店)臻享瘦，人气评分0.0"
-  },
-  {
     "id": "amap_e8306f21",
     "name": "御茗富硒茶业(京汉大道店)",
     "type": "attraction",
@@ -4584,386 +4662,6 @@
     "close_minutes": 1380
   },
   {
-    "id": "amap_a992ee3",
-    "name": "零食顽家(长江日报路店)",
-    "type": "attraction",
-    "lat": 30.604061,
-    "lng": 114.274499,
-    "area": "江汉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "专卖店",
-      "专营店",
-      "菱角湖"
-    ],
-    "popularity": 4,
-    "price_level": 1,
-    "description": "藏在菱角湖附近的零食宝藏店！一进门就被整墙的网红零食、进口小食和怀旧童年味道包围，价格比便利店亲民，适合慢慢淘货。建议带上购物篮扫货，顺便在周边城市漫步。推荐给囤零食党、追剧爱好者、带娃家庭——记得控制手速，小心买上头！",
-    "source": "amap",
-    "source_id": "B0K3T4WDKN",
-    "meal_type": "main",
-    "recommendation": "推荐在江汉区参观零食顽家(长江日报路店)，人气评分4.0",
-    "open_minutes": 450,
-    "close_minutes": 1350
-  },
-  {
-    "id": "amap_7e7a934b",
-    "name": "海尔卡萨帝(创世纪工贸店)",
-    "type": "attraction",
-    "lat": 30.57708,
-    "lng": 114.269589,
-    "area": "硚口区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家电电子卖场",
-      "武广"
-    ],
-    "popularity": 3.4,
-    "price_level": 1,
-    "description": "海尔卡萨帝（创世纪工贸店）是硚口区的高端家电体验地，这里不仅能零距离触摸卡萨帝的智能家电，还能感受科技与生活美学的融合。建议预留半小时逛店，顺便在武广商圈来一场城市漫步。适合对家电品质有追求、喜欢逛新潮家居的年轻人或家庭。",
-    "source": "amap",
-    "source_id": "B0L0HUQGS8",
-    "meal_type": "main",
-    "recommendation": "海尔卡萨帝(创世纪工贸店)适合城市游览、街区爱好者",
-    "open_minutes": 570,
-    "close_minutes": 1260
-  },
-  {
-    "id": "amap_42d63c17",
-    "name": "吉安装饰(楼梯)",
-    "type": "attraction",
-    "lat": 30.575926,
-    "lng": 114.27219,
-    "area": "硚口区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家居建材市场",
-      "建材五金市场",
-      "江滩"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "description": "吉安装饰(楼梯)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
-    "source": "amap",
-    "source_id": "B0FFFLIVVU",
-    "meal_type": "main",
-    "recommendation": "想找特色楼梯装修？这里款式多到挑花眼。记得带好户型图再慢慢逛。",
-    "open_minutes": 480,
-    "close_minutes": 1080
-  },
-  {
-    "id": "amap_34cca6cc",
-    "name": "常顺锁具",
-    "type": "attraction",
-    "lat": 30.578017,
-    "lng": 114.277174,
-    "area": "江汉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家居建材市场",
-      "建材五金市场",
-      "江滩"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "description": "常顺锁具，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
-    "source": "amap",
-    "source_id": "B0G3A7HV56",
-    "meal_type": "main",
-    "recommendation": "常顺锁具适合城市游览、街区爱好者"
-  },
-  {
-    "id": "amap_f96a98dc",
-    "name": "新世纪花艺(汉正街华贸一号楼109号)",
-    "type": "attraction",
-    "lat": 30.565798,
-    "lng": 114.275024,
-    "area": "硚口区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "花鸟鱼虫市场",
-      "花卉市场",
-      "江滩"
-    ],
-    "popularity": 3.5,
-    "price_level": 1,
-    "description": "新世纪花艺(汉正街华贸一号楼109号)，来自高德 Web 服务 POI 搜索；分类：商圈街区。",
-    "source": "amap",
-    "source_id": "B0GRH7Z065",
-    "meal_type": "main",
-    "recommendation": "推荐在硚口区参观新世纪花艺(汉正街华贸一号楼109号)，人气评分3.5"
-  },
-  {
-    "id": "amap_b3d30c0e",
-    "name": "贵州茅台股份有限公司汉酱烟酒专卖(商圈店)",
-    "type": "attraction",
-    "lat": 30.582382,
-    "lng": 114.279896,
-    "area": "江汉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "专卖店",
-      "烟酒专卖店",
-      "新华路"
-    ],
-    "popularity": 3.9,
-    "price_level": 1,
-    "description": "位于武汉江汉区新华路的茅台汉酱专卖店，不仅有经典酱香白酒，还能淘到限量款和精美礼盒。建议顺路逛周边商圈，把购物和城市漫步结合——买瓶小酒当伴手礼，累了就在街边咖啡馆歇脚。适合懂酒的老饕、送礼需求的朋友，或想体验武汉街头烟火气的旅行者。",
-    "source": "amap",
-    "source_id": "B0FFK4MKHN",
-    "meal_type": "main",
-    "recommendation": "贵州茅台股份有限公司汉酱烟酒专卖(商圈店)适合城市游览、街区爱好者",
-    "open_minutes": 480,
-    "close_minutes": 1320
-  },
-  {
-    "id": "amap_a3c6c747",
-    "name": "欢欢副食(华贸四号楼B区居民区店)",
-    "type": "attraction",
-    "lat": 30.565134,
-    "lng": 114.275935,
-    "area": "硚口区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "便民商店/便利店",
-      "满春"
-    ],
-    "popularity": 3.2,
-    "price_level": 1,
-    "description": "藏在硚口区居民楼里的欢欢副食，像个小型的城市记忆博物馆。店内塞满老式零食、日用杂货，货架间藏着老街坊的日常。建议傍晚来逛，顺便在满春街区溜达，感受老武汉的烟火气。适合喜欢城市漫步、探店拍照的游客，或是想寻味童年零食的怀旧党。",
-    "source": "amap",
-    "source_id": "B0KDNLUVE1",
-    "meal_type": "main",
-    "recommendation": "推荐在硚口区参观欢欢副食(华贸四号楼B区居民区店)，人气评分3.2"
-  },
-  {
-    "id": "amap_70fb0485",
-    "name": "威宝五金城",
-    "type": "attraction",
-    "lat": 30.572775,
-    "lng": 114.282825,
-    "area": "江汉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家居建材市场",
-      "建材五金市场",
-      "江滩"
-    ],
-    "popularity": 4.2,
-    "price_level": 1,
-    "description": "威宝五金城可不是普通建材市场——它藏身江汉区老街区，像一座工业风迷宫。堆满铜锁、",
-    "source": "amap",
-    "source_id": "B0GRHZT0IX",
-    "meal_type": "main",
-    "recommendation": "五金控的宝藏地！找工具配件来这就对了，记得多逛几家比价~",
-    "open_minutes": 480,
-    "close_minutes": 1080
-  },
-  {
-    "id": "amap_b9bc225b",
-    "name": "balabala巴拉巴拉(银泰·御华园店)",
-    "type": "attraction",
-    "lat": 30.641826,
-    "lng": 114.308077,
-    "area": "江岸区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "专卖店",
-      "儿童用品店",
-      "后湖"
-    ],
-    "popularity": 3,
-    "price_level": 1,
-    "description": "在热闹的后湖商圈，巴拉巴拉（银泰·御华园店）是带娃逛街的宝藏地。店内童",
-    "source": "amap",
-    "source_id": "B0HD3CPE9P",
-    "meal_type": "main",
-    "recommendation": "巴拉巴拉儿童服饰品质有",
-    "open_minutes": 540,
-    "close_minutes": 1260
-  },
-  {
-    "id": "amap_1432842",
-    "name": "小米之家(武汉武昌区漫时区专卖店)",
-    "type": "attraction",
-    "lat": 30.574581,
-    "lng": 114.323833,
-    "area": "武昌区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家电电子卖场",
-      "数码电子",
-      "手机销售",
-      "徐家棚"
-    ],
-    "popularity": 4.3,
-    "price_level": 1,
-    "description": "小米之家漫时区店不只是手机店，更像一个科技体验馆！全屋智能家居、潮流数码都能上手玩，还能顺便逛漫时区文艺街区。建议安排半小时到一小时，边逛边拍，适合科技控、米粉和想感受智能生活的家庭游客。",
-    "source": "amap",
-    "source_id": "B0HRDRX4TW",
-    "meal_type": "main",
-    "recommendation": "小米之家(武汉武昌区漫时区专卖店)是当地热门景点，建议游览90分钟左右",
-    "open_minutes": 570,
-    "close_minutes": 1260
-  },
-  {
-    "id": "amap_a653586f",
-    "name": "鑫宏达建材商行",
-    "type": "attraction",
-    "lat": 30.543678,
-    "lng": 114.321796,
-    "area": "武昌区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家居建材市场",
-      "建材五金市场",
-      "中南路/中南"
-    ],
-    "popularity": 3.6,
-    "price_level": 1,
-    "description": "鑫宏达建材商行是武昌中南路一带的宝藏级家居建材市场，从五金配件到瓷砖卫浴应有尽有，价格比商场亲民，还能淘到不少设计感独特的小众材料。建议城市漫步时顺路逛逛，提前列好清单更高效，商家也乐意科普选材小技巧。适合正在装修的业主",
-    "source": "amap",
-    "source_id": "B0GR2YAMSO",
-    "meal_type": "main",
-    "recommendation": "一站式购齐五金建材，老板专业又热情。先量好尺寸再出发，省时省力。",
-    "open_minutes": 480,
-    "close_minutes": 1080
-  },
-  {
-    "id": "amap_bc74cf16",
-    "name": "鑫源五金",
-    "type": "attraction",
-    "lat": 30.539063,
-    "lng": 114.325028,
-    "area": "武昌区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家居建材市场",
-      "建材五金市场",
-      "中南路/中南"
-    ],
-    "popularity": 3.8,
-    "price_level": 1,
-    "description": "鑫源五金是武昌中南路上的“硬核”宝藏地，整条街的螺丝、管件、电动工具应有尽有，比普通超市专业百倍。来这里像逛工具博物馆，适合装修党、DIY手工迷或想淘冷门五金零件的朋友。建议预留1-2小时慢慢翻找",
-    "source": "amap",
-    "source_id": "B001B16P9H",
-    "meal_type": "main",
-    "recommendation": "鑫源五金适合城市游览、街区爱好者"
-  },
-  {
-    "id": "amap_5a6866ae",
-    "name": "芙蓉兴盛便利超市(小刘家湾店)",
-    "type": "attraction",
-    "lat": 30.539479,
-    "lng": 114.330524,
-    "area": "武昌区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "便民商店/便利店",
-      "中南路/中南"
-    ],
-    "popularity": 3.5,
-    "price_level": 1,
-    "description": "藏在小刘家湾居民区里的宝藏便利店，门头不大却五脏俱全。冰柜里的二厂汽水、货架上的热干面伴手礼，都是地道武汉味。建议路过时买支老冰棍，站在",
-    "source": "amap",
-    "source_id": "B0FFGIMBTF",
-    "meal_type": "main",
-    "recommendation": "芙蓉兴盛便利超市(小刘家湾店)适合城市游览、街区爱好者",
-    "open_minutes": 420,
-    "close_minutes": 1320
-  },
-  {
     "id": "amap_3c0e80ef",
     "name": "楚河汉街",
     "type": "attraction",
@@ -4991,96 +4689,14 @@
     "source": "amap",
     "source_id": "B0FFID01CO",
     "meal_type": "main",
-    "recommendation": "楚河汉街是当地热门景点，建议游览90分钟左右",
+    "recommendation": "武汉最潮的滨水商业街，民国风情建筑群与碧波楚河相映。本地人更爱去汉街尽头的老巷子吃糊汤粉，游客少且正宗。",
     "open_minutes": 600,
-    "close_minutes": 1320
-  },
-  {
-    "id": "amap_2964f91d",
-    "name": "福星烟酒行(沙湖路店)",
-    "type": "attraction",
-    "lat": 30.580859,
-    "lng": 114.354634,
-    "area": "武昌区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "专卖店",
-      "烟酒专卖店",
-      "徐东"
-    ],
-    "popularity": 3.9,
-    "price_level": 1,
-    "description": "藏在武昌沙湖路的老牌烟酒行，是城市漫步时值得一探的烟火地。店内陈列着琳琅满目的烟酒品牌，既有经典国货，也有小众尖货，像个迷你博物馆。路过可以进去淘淘特色伴手礼，或听老板聊聊烟酒故事。适合想感受本地生活气息的游客，以及爱逛特色小",
-    "source": "amap",
-    "source_id": "B0FFHM94O9",
-    "meal_type": "main",
-    "recommendation": "福星烟酒行(沙湖路店)适合城市游览、街区爱好者",
-    "open_minutes": 480,
-    "close_minutes": 1440
-  },
-  {
-    "id": "amap_ce9863e6",
-    "name": "东苑书店",
-    "type": "attraction",
-    "lat": 30.518805,
-    "lng": 114.351379,
-    "area": "洪山区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "专卖店",
-      "书店",
-      "珞南"
-    ],
-    "popularity": 3.9,
-    "price_level": 1,
-    "description": "东苑书店藏在洪山区珞南的街角，是武汉人心中的“寻宝地”。店里堆满旧书、绝版画册和独立出版物，连空气都带着油墨香。建议花半天时间慢慢淘，偶遇店主手写的推荐小卡超有温度。适合爱逛独立书店的文青、城市漫步爱好者，或是想给孩子挑本特别绘本的家长。",
-    "source": "amap",
-    "source_id": "B0J6MCLH1X",
-    "meal_type": "main",
-    "recommendation": "东苑书店是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_c85a5475",
-    "name": "罗明副食店",
-    "type": "attraction",
-    "lat": 30.530739,
-    "lng": 114.355913,
-    "area": "洪山区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "便民商店/便利店",
-      "广埠屯"
-    ],
-    "popularity": 3.3,
-    "price_level": 1,
-    "description": "藏在广埠屯的罗明副食店，是家开了多年的老牌便利店。店面虽小，却堆满了零食饮料、日用杂货，还有不少怀旧小零嘴，是附近学生和居民的“百宝箱”。建议路过时顺道进去淘淘童年味道，适合想感受市井烟火气、体验武汉社区慢生活的朋友。",
-    "source": "amap",
-    "source_id": "B0FFLFOESA",
-    "meal_type": "main",
-    "recommendation": "罗明副食店适合城市游览、街区爱好者",
-    "open_minutes": 360,
-    "close_minutes": 1350
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_cbbe1b38",
@@ -5107,7 +4723,12 @@
     "source": "amap",
     "source_id": "B001B0JGF5",
     "meal_type": "main",
-    "recommendation": "江夏商业街(长隆楼东南)适合城市游览、街区爱好者"
+    "recommendation": "纸坊老城区的烟火气聚集地，藏着小吃和手作小物。建议坐地铁7号线到纸坊大街站，D口出步行5分钟就到。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_c4bc2bb7",
@@ -5135,37 +4756,12 @@
     "source": "amap",
     "source_id": "B0FFKGQ7T6",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观7-ELEVEn(武汉大学店)，人气评分4.3"
-  },
-  {
-    "id": "amap_3e4824a6",
-    "name": "小米之家(武汉洪山区光谷融众国际专卖店)",
-    "type": "attraction",
-    "lat": 30.507973,
-    "lng": 114.396349,
-    "area": "洪山区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步",
-      "购物服务",
-      "家电电子卖场",
-      "数码电子",
-      "光谷"
-    ],
-    "popularity": 4.1,
-    "price_level": 1,
-    "description": "武汉光谷的小米之家旗舰店，是科技爱好者的游乐场！这里能第一时间上手小米手机、平板，还能沉浸式体验智能家居和米家生态链产品，甚至近距离接触小米汽车。店内空间开阔，灯光酷炫，随手一拍就是未来感大片。建议留出1小时慢慢逛，从手环到扫地机都能玩一遍。特别适合数码控、米粉和带娃家庭，一边逛一边感受黑科技的生活乐趣。",
-    "source": "amap",
-    "source_id": "B0KRV5LOIO",
-    "meal_type": "main",
-    "recommendation": "小米之家(武汉洪山区光谷融众国际专卖店)是当地热门景点，建议游览90分钟左右",
-    "open_minutes": 570,
-    "close_minutes": 1170
+    "recommendation": "武大人的“第二食堂”，售卖樱花季限定周边。每天傍晚6点后关东煮打8折，还能看珞珈山夕阳。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_92211678",
@@ -6025,9 +5621,14 @@
     "source": "amap",
     "source_id": "B0FFMCDLTX",
     "meal_type": "main",
-    "recommendation": "武商梦时代适合城市游览、购物爱好者",
+    "recommendation": "亚洲最大单体商业综合体，室内滑雪场和过山车一应俱全。别只逛一楼，直奔五楼冰雪乐园入口旁的隐藏拍照点，人少还能拍到全景。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_b794398f",
@@ -6055,9 +5656,14 @@
     "source": "amap",
     "source_id": "B0FFHFHITS",
     "meal_type": "main",
-    "recommendation": "武汉万象城是当地热门景点，建议游览90分钟左右",
+    "recommendation": "建设大道上的艺术感地标，近400家品牌和限定快闪集结。建议工作日傍晚去，人少光线柔，天台花园和下沉广场随手出片。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_d5a93c7b",
@@ -6083,9 +5689,14 @@
     "source": "amap",
     "source_id": "B0FFLIN96L",
     "meal_type": "main",
-    "recommendation": "推荐在江汉区参观武汉江宸天街，人气评分4.9",
+    "recommendation": "江汉区潮流地标，空中连廊和‘YUE’街区特别出片。别直接进商场，先坐电梯到室外平台拍照，能避开网红店排队。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_ffecf071",
@@ -6142,9 +5753,14 @@
     "source": "amap",
     "source_id": "B0FFFFP4PD",
     "meal_type": "main",
-    "recommendation": "推荐在汉阳区参观武汉经开永旺梦乐城，人气评分4.9",
+    "recommendation": "汉阳超人气购物中心，日系杂货和美食广场是亮点。建议地铁3号线直达A出口，自驾从江城大道进停车场更顺。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_f8cf46f1",
@@ -6171,9 +5787,14 @@
     "source": "amap",
     "source_id": "B0FFGBGLNB",
     "meal_type": "main",
-    "recommendation": "推荐在硚口区参观武汉荟聚，人气评分4.9",
+    "recommendation": "北欧风超大空间，300+品牌和宜家齐聚。先逛完宜家再出去吃饭，凭宜家购物小票可领商场餐饮区折扣券。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_242e8f9c",
@@ -6202,66 +5823,6 @@
     "source_id": "B001B0JYZC",
     "meal_type": "main",
     "recommendation": "武商MALL|武汉老牌高端商场，品牌齐全新潮，周末人挤人，建议工作日慢慢淘。"
-  },
-  {
-    "id": "amap_6a3c8682",
-    "name": "武商MALL•世贸",
-    "type": "attraction",
-    "lat": 30.579955,
-    "lng": 114.268947,
-    "area": "江汉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "购物",
-      "商圈",
-      "室内",
-      "购物服务",
-      "商场",
-      "普通商场",
-      "江滩"
-    ],
-    "popularity": 4.7,
-    "price_level": 1,
-    "description": "武商MALL·世贸是江汉区的老牌购物地标，集潮流品牌、美食餐饮与休闲娱乐于一体，尤其是中庭的巨型玻璃穹顶和不定期的艺术展览很出片。建议周末下午来，逛完商场顺道去江滩散步看日落。适合爱逛街的年轻人、家庭亲子出游，或是想一站式解决吃喝玩乐的剁手党。",
-    "source": "amap",
-    "source_id": "B001B063DA",
-    "meal_type": "main",
-    "recommendation": "推荐在江汉区参观武商MALL•世贸，人气评分4.7",
-    "open_minutes": 600,
-    "close_minutes": 1320
-  },
-  {
-    "id": "amap_6d103ce5",
-    "name": "银泰创意城",
-    "type": "attraction",
-    "lat": 30.526436,
-    "lng": 114.356574,
-    "area": "洪山区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "购物",
-      "商圈",
-      "室内",
-      "购物服务",
-      "商场",
-      "普通商场",
-      "广埠屯"
-    ],
-    "popularity": 4.8,
-    "price_level": 1,
-    "description": "银泰创意城是洪山区广埠屯的潮流地标，吃喝玩乐购一站式搞定。里面不仅有各种时尚品牌和创意小店，还有超多网红美食和电影院，不定期举办艺术展和快闪活动。建议周末下午去，逛吃拍照看场电影，晚上还能去露天平台吹风。特别适合学生党、年轻情侣和家庭休闲聚会。",
-    "source": "amap",
-    "source_id": "B0FFHF1JEF",
-    "meal_type": "main",
-    "recommendation": "银泰创意城|学生党最爱，吃喝玩乐一站搞定，负一楼小吃平价又顶饱。",
-    "open_minutes": 600,
-    "close_minutes": 1290
   },
   {
     "id": "amap_56f50806",
@@ -6319,9 +5880,14 @@
     "source": "amap",
     "source_id": "B001B16M10",
     "meal_type": "main",
-    "recommendation": "光谷天地是当地热门景点，建议游览90分钟左右",
+    "recommendation": "洪山区一站式商圈，网红餐饮和IMAX影院齐全。晚上别走主街，绕到背后小巷里的露天精酿摊，便宜又热闹。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_92656e7b",
@@ -6349,9 +5915,14 @@
     "source": "amap",
     "source_id": "B0G2XPKM14",
     "meal_type": "main",
-    "recommendation": "武汉SKP是当地热门景点，建议游览90分钟左右",
+    "recommendation": "武昌奢华地标，全球一线品牌和艺术感设计齐聚。建议工作日午后来，人少能慢慢逛，地下一层网红甜品不用排队。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_10c2ad2d",
@@ -6379,9 +5950,14 @@
     "source": "amap",
     "source_id": "B001B1BPME",
     "meal_type": "main",
-    "recommendation": "世界城广场适合城市游览、购物爱好者",
+    "recommendation": "室内步行街设计感十足，汇聚国际快销和网红餐厅。别被光谷步行街的人流带偏，直接上二楼逛更清静。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_604f59b7",
@@ -6409,9 +5985,14 @@
     "source": "amap",
     "source_id": "B001B0JX9J",
     "meal_type": "main",
-    "recommendation": "武汉摩尔城是当地热门景点，建议游览90分钟左右",
+    "recommendation": "汉阳王家湾的超大购物天堂，云集潮流品牌和IMAX影院。地铁3号线王家湾站J口出直达，别开车，周末车位难找。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_a0d31aa4",
@@ -6439,9 +6020,14 @@
     "source": "amap",
     "source_id": "B0HGYZWLIY",
     "meal_type": "main",
-    "recommendation": "武汉滨江天街是当地热门景点，建议游览90分钟左右",
+    "recommendation": "武昌滨江新晋购物中心，江景视野开阔。关注官方公众号领新人优惠券，餐饮购物都能省一笔。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_d9c8e959",
@@ -6499,9 +6085,14 @@
     "source": "amap",
     "source_id": "B0FFFGULCQ",
     "meal_type": "main",
-    "recommendation": "推荐在东西湖区参观永旺梦乐城(武汉金银潭店)，人气评分4.8",
+    "recommendation": "东西湖区的日式购物天堂，品牌齐全还有亲子乐园。本地人告诉你，周二会员日积分翻倍，囤货最划算。",
     "open_minutes": 570,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_c2a9f70d",
@@ -6529,37 +6120,14 @@
     "source": "amap",
     "source_id": "B0HALS4E4I",
     "meal_type": "main",
-    "recommendation": "永旺梦乐城(武汉江夏店)适合城市游览、购物爱好者",
+    "recommendation": "江夏区一站式购物天堂，日式百货和亲子乐园齐全。本地人才知道，下午3点后去负一层美食市集，小吃打折还不用排队。",
     "open_minutes": 600,
-    "close_minutes": 1320
-  },
-  {
-    "id": "amap_78753de",
-    "name": "群光广场",
-    "type": "attraction",
-    "lat": 30.525199,
-    "lng": 114.355294,
-    "area": "洪山区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "购物",
-      "商圈",
-      "室内",
-      "购物服务",
-      "商场",
-      "普通商场",
-      "珞南"
-    ],
-    "popularity": 4.8,
-    "price_level": 1,
-    "description": "群光广场是武昌逛街首选地，超大室内空间集合了潮牌、美食和影院，顶楼还有空中花园可以小憩。建议周末下午来，逛完顺便吃顿人气餐厅，晚上再看场电影。适合想一站式购物聚餐的朋友，也适合情侣或家庭休闲逛吃。",
-    "source": "amap",
-    "source_id": "B001B07U0L",
-    "meal_type": "main",
-    "recommendation": "群光广场是当地热门景点，建议游览90分钟左右"
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_401072cc",
@@ -6676,9 +6244,14 @@
     "source": "amap",
     "source_id": "B001B1FTN7",
     "meal_type": "main",
-    "recommendation": "群星城是当地热门景点，建议游览90分钟左右",
+    "recommendation": "徐家棚人气商场，中庭飞瀑绿植和穹顶光影超适合拍照。别只逛一楼，三层有隐藏观景台，拍穹顶角度更绝。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_bf10fe1e",
@@ -6705,9 +6278,14 @@
     "source": "amap",
     "source_id": "B0KRYC0ZA9",
     "meal_type": "main",
-    "recommendation": "武汉亲橙万象汇适合城市游览、购物爱好者",
+    "recommendation": "徐东新晋潮流地标，沉浸式展区和网红餐饮聚集。地铁8号线徐东站D口出，别自驾，商场周边容易堵车。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_be1e913d",
@@ -6737,9 +6315,14 @@
     "source": "amap",
     "source_id": "B0FFG87QDO",
     "meal_type": "main",
-    "recommendation": "武汉新天地南馆是当地热门景点，建议游览90分钟左右",
+    "recommendation": "江岸区潮流地标，集购物美食与数码体验于一体。先关注商场公众号领新人优惠券，再慢慢逛。",
     "open_minutes": 480,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_d4826138",
@@ -6766,41 +6349,14 @@
     "source": "amap",
     "source_id": "B0FFHEWWXZ",
     "meal_type": "main",
-    "recommendation": "首创奥特莱斯是当地热门景点，建议游览90分钟左右",
+    "recommendation": "欧式建筑与品牌折扣店结合，拍照逛街两不误。本地人常去B区仓库淘断码鞋，折扣更低。",
     "open_minutes": 600,
-    "close_minutes": 1260
-  },
-  {
-    "id": "amap_55ed6a3e",
-    "name": "万科未来中心VFC",
-    "type": "attraction",
-    "lat": 30.553969,
-    "lng": 114.244197,
-    "area": "汉阳区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "购物",
-      "商圈",
-      "室内",
-      "购物服务",
-      "商场",
-      "购物中心",
-      "普通商场",
-      "商务住宅",
-      "商务住宅相关"
-    ],
-    "popularity": 4.8,
-    "price_level": 1,
-    "description": "万科未来中心VFC是汉阳区的新潮地标，集合了潮流服饰、美食餐饮和亲子娱乐，室内空间明亮宽敞，逛街拍照两不误。推荐周末来打卡网红店铺，或是带娃玩转室内乐园。适合闺蜜聚会、家庭休闲或想体验城市一站式购物的你。",
-    "source": "amap",
-    "source_id": "B0GD3Z1LDN",
-    "meal_type": "main",
-    "recommendation": "推荐在汉阳区参观万科未来中心VFC，人气评分4.8",
-    "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1260,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_52fffc6f",
@@ -6828,39 +6384,14 @@
     "source": "amap",
     "source_id": "B0IR3DHHDT",
     "meal_type": "main",
-    "recommendation": "推荐在洪山区参观龙湖武汉白沙天街，人气评分4.7",
+    "recommendation": "洪山区一站式购物天堂，室内外空间结合。傍晚去最佳，灯光亮起后屋顶花园夜景超美。",
     "open_minutes": 600,
-    "close_minutes": 1320
-  },
-  {
-    "id": "amap_febea71a",
-    "name": "龙湖武汉白沙天街B馆",
-    "type": "attraction",
-    "lat": 30.47922,
-    "lng": 114.288378,
-    "area": "洪山区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "购物",
-      "商圈",
-      "室内",
-      "购物服务",
-      "商场",
-      "普通商场",
-      "张家湾"
-    ],
-    "popularity": 4.7,
-    "price_level": 1,
-    "description": "龙湖武汉白沙天街B馆是洪山区超好逛的潮流聚集地，室内外连廊设计自带打卡属性。从网红餐饮到设计师品牌店一应俱全，中庭常办快闪展览和市集活动。建议傍晚来，逛完直通户外街区看夜景，周末还有乐队live。适合想一站式吃喝玩乐的家庭、爱拍照的闺蜜党或找地方闲逛的年轻人。",
-    "source": "amap",
-    "source_id": "B0HG47SLEM",
-    "meal_type": "main",
-    "recommendation": "推荐在洪山区参观龙湖武汉白沙天街B馆，人气评分4.7",
-    "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_a6d16da4",
@@ -6913,7 +6444,12 @@
     "source": "amap",
     "source_id": "B0FFG4E2HR",
     "meal_type": "main",
-    "recommendation": "武汉东湖风景区落雁景区-长咀适合城市游览、自然风光爱好者"
+    "recommendation": "东湖落雁景区的宝藏观湖半岛，芦苇荡配日落绝美。坐地铁4号线到武汉站，转公交643路直达景区门口。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_b7944cb8",
@@ -6940,9 +6476,14 @@
     "source": "amap",
     "source_id": "B0FFKCUZ8J",
     "meal_type": "main",
-    "recommendation": "东湖游船是当地热门景点，建议游览90分钟左右",
+    "recommendation": "畅游东湖的最佳方式，泛舟赏碧波与磨山。买联票比单程划算，下午四点后登船还能看日落。",
     "open_minutes": 540,
-    "close_minutes": 1050
+    "close_minutes": 1050,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_5a412599",
@@ -6998,9 +6539,14 @@
     "source": "amap",
     "source_id": "B0G17OZO48",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观东湖之眼，人气评分4.7",
+    "recommendation": "磨山摩天轮，升至最高点360度俯瞰东湖。本地人爱在非节假日傍晚去，排队短且光线柔和。",
     "open_minutes": 600,
-    "close_minutes": 1140
+    "close_minutes": 1140,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_9d38a0da",
@@ -7025,7 +6571,12 @@
     "source": "amap",
     "source_id": "B001B1ASEB",
     "meal_type": "main",
-    "recommendation": "东湖生态旅游风景区-异国风情园是当地热门景点，建议游览90分钟左右"
+    "recommendation": "东湖里的异国风情园集欧式城堡、荷兰风车与日式庭院于一体。日落时分光影洒在建筑上最出片，建议带个野餐垫在湖边草坪坐等晚霞。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_42d52563",
@@ -7050,7 +6601,12 @@
     "source": "amap",
     "source_id": "B0KUB7XPLQ",
     "meal_type": "main",
-    "recommendation": "推荐在洪山区参观东湖鹿岛，人气评分3.5"
+    "recommendation": "东湖深处现实版“小奈良”，有梅花鹿可投喂。选晴朗下午去，阳光透水杉林照在鹿身上，拍照和互动体验最佳。",
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_6cd73fd7",
@@ -7076,9 +6632,14 @@
     "source": "amap",
     "source_id": "B001B08LWR",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观东湖牡丹园，人气评分4.5",
+    "recommendation": "城市绿肺里的春季花海，品种多且有古亭水榭。别开车去，周末停车难；建议3-4月盛花期早8点前到，独享花海。",
     "open_minutes": 540,
-    "close_minutes": 1110
+    "close_minutes": 1110,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_d9a0350d",
@@ -7133,7 +6694,12 @@
     "source": "amap",
     "source_id": "B0FFLID6I8",
     "meal_type": "main",
-    "recommendation": "东湖音乐公园适合城市游览、自然风光爱好者"
+    "recommendation": "东湖边会“唱歌”的宝藏地，有露天音乐广场和音符装置。坐地铁8号线到梨园站，步行10分钟即到，比自驾省心。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_4c9e8973",
@@ -7158,7 +6724,12 @@
     "source": "amap",
     "source_id": "B0LA6DBE48",
     "meal_type": "main",
-    "recommendation": "春到东湖是当地热门景点，建议游览90分钟左右"
+    "recommendation": "春天湖边樱花梅花盛开，搭配湖景如壁纸。免费入园，建议自带零食和水，租共享单车环湖比买景区小吃省一半钱。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_9c50a42d",
@@ -7185,7 +6756,12 @@
     "source": "amap",
     "source_id": "B001B1ASOE",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观东湖楚市，人气评分3.4"
+    "recommendation": "东湖绿道旁的楚风古街，有手工艺作坊和地道小吃。本地人傍晚去，先逛湖景再溜达市集，推荐尝豆皮和藕汤，比主店便宜。",
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_ea110ac8",
@@ -7212,9 +6788,14 @@
     "source": "amap",
     "source_id": "B0JBO7VPZS",
     "meal_type": "main",
-    "recommendation": "凌波门东湖观景点适合城市游览、自然风光爱好者",
+    "recommendation": "东湖最出片的网红栈桥，石阶与水齐平能拍“水上走”。清晨5点半来蹲日出，带双拖鞋踩水，避开周末人少更出片。",
     "open_minutes": 540,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_5509553d",
@@ -7242,9 +6823,14 @@
     "source": "amap",
     "source_id": "B0FFITKZCW",
     "meal_type": "main",
-    "recommendation": "东湖飞鸟世界是当地热门景点，建议游览90分钟左右",
+    "recommendation": "东湖绿道边的零距离鸟园，可喂鹦鹉看孔雀开屏。上午9-11点鸟儿最活跃，阳光好时鹈鹕会追船，带面包屑但别喂太多。",
     "open_minutes": 540,
-    "close_minutes": 1050
+    "close_minutes": 1050,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_1a3e2c55",
@@ -7269,7 +6855,12 @@
     "source": "amap",
     "source_id": "B0FFG4GLEQ",
     "meal_type": "main",
-    "recommendation": "推荐在洪山区参观东湖国家湿地公园，人气评分4.0"
+    "recommendation": "芦苇荡和杉林栈道是拍照核心区，但湿地迷宫容易迷路。别穿高跟鞋去栈道，木条缝隙会卡鞋跟。",
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_1be64182",
@@ -7296,9 +6887,14 @@
     "source": "amap",
     "source_id": "B0L2RDLQB0",
     "meal_type": "main",
-    "recommendation": "东湖森林烤场适合城市游览、自然风光爱好者",
+    "recommendation": "藏在洪山区绿意里的露天烧烤台，可边撸串边赏东湖日落。乘地铁2号线到光谷广场，转乘公交513路到东湖东路站下车即到。",
     "open_minutes": 540,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_a75297ba",
@@ -7325,7 +6921,12 @@
     "source": "amap",
     "source_id": "B0FFFV4A3W",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观东湖生态旅游风景区-大假山，人气评分3.5"
+    "recommendation": "人造假山登顶可俯瞰东湖碧波与城市天际线，适合沿湖散步拍照。下午4点后免费入园，避开周末人流更划算。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_25f3aa50",
@@ -7352,9 +6953,14 @@
     "source": "amap",
     "source_id": "B0IGCOL8BM",
     "meal_type": "main",
-    "recommendation": "武汉东湖海洋世界适合城市游览、自然风光爱好者",
+    "recommendation": "海底隧道看鲨鱼穿梭，海豚表演很呆萌，但周末人多拥挤。本地人告诉你：侧门出口旁的小店卖鱼食比正门便宜一半。",
     "open_minutes": 540,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_8556f04",
@@ -7379,7 +6985,12 @@
     "source": "amap",
     "source_id": "B0FFFV4A40",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观东湖生态旅游风景区-森林广场，人气评分3.5"
+    "recommendation": "高大水杉林间藏着小径和草坪，适合清晨或傍晚去拍照。带个吊床挂在最北边的杉树群，人少景美还能避光。",
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_121acf21",
@@ -7406,9 +7017,14 @@
     "source": "amap",
     "source_id": "B0FFIQ1MQI",
     "meal_type": "main",
-    "recommendation": "东湖磨山景区-磨山挹翠适合城市游览、自然风光爱好者",
+    "recommendation": "登高可俯瞰东湖碧波与城市天际线，春季樱花盛开最惊艳。下午3点后去，斜阳照在湖面上色彩最层次。",
     "open_minutes": 480,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_ad64b06a",
@@ -7435,9 +7051,14 @@
     "source": "amap",
     "source_id": "B0HKASKKW7",
     "meal_type": "main",
-    "recommendation": "东湖观光氦气球是当地热门景点，建议游览90分钟左右",
+    "recommendation": "150米高空360度俯瞰东湖，拍照超震撼但天气不好会停运。别选雨天去，即使放晴雾气也遮视野，白花钱。",
     "open_minutes": 600,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_9f9a1699",
@@ -7464,7 +7085,12 @@
     "source": "amap",
     "source_id": "B0G39AM1B2",
     "meal_type": "main",
-    "recommendation": "东湖生态旅游风景区-新时空飞盘广场适合城市游览、自然风光爱好者"
+    "recommendation": "超大草坪专为飞盘和野餐设计，四周湖水绿树环绕。自驾走东湖路从梨园入口进，停车场步行5分钟到广场。",
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_d6f887c0",
@@ -7546,7 +7172,12 @@
     "source": "amap",
     "source_id": "B0FFG03EAU",
     "meal_type": "main",
-    "recommendation": "推荐在武昌区参观东湖磨山景区-杜鹃园，人气评分4.3"
+    "recommendation": "四月百种杜鹃盛放，如霞似锦。清晨或傍晚来，沿步道慢行赏花。提前查东湖官方公众号，有时有免费预约名额。",
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "transit_B001B0000A",
@@ -8561,7 +8192,10 @@
     "source": "amap",
     "source_id": "B0FFG6VXLJ",
     "recommendation": "速8是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_15fb9fe3",
@@ -8588,7 +8222,10 @@
     "source": "amap",
     "source_id": "B0FFI47L64",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_6c50ac8d",
@@ -8610,13 +8247,16 @@
       "常青"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(武汉青年路酒店)，全季连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B0M6SC4IYK",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_6eae26f7",
@@ -8637,13 +8277,16 @@
       "建设大道"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉汉口金融中心香港路亚朵酒店，亚朵连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B0L0JXHABI",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_67144bf",
@@ -8671,7 +8314,10 @@
     "source": "amap",
     "source_id": "B0L25MCAFZ",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_30a561ae",
@@ -8698,7 +8344,10 @@
     "source": "amap",
     "source_id": "B0MBK5QF07",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_8f57ba9",
@@ -8719,13 +8368,16 @@
       "常青"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉青年路希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B0IRBC02CI",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_3bfb0f90",
@@ -8751,7 +8403,10 @@
     "source": "amap",
     "source_id": "B0JGPZFYV7",
     "recommendation": "洲际是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_a5b241b3",
@@ -8771,13 +8426,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.9,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉光谷科技会展中心福朋喜来登酒店，喜来登连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0M61ZGF3N",
     "recommendation": "喜来登是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_c6a4a5bf",
@@ -8797,13 +8455,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳酒店(武汉花博汇店)，维也纳连锁品牌酒店，位于蔡甸区，品质有保障。",
     "source": "amap",
     "source_id": "B0H3S1MOLW",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_56b9491b",
@@ -8825,13 +8486,16 @@
       "光谷"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉光谷潮漫凯瑞国际酒店武汉东站店大堂，铂涛连锁品牌酒店，位于江夏区，品质有保障。",
     "source": "amap",
     "source_id": "B0KB9U523Y",
     "recommendation": "铂涛是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_c51302dd",
@@ -8859,7 +8523,10 @@
     "source": "amap",
     "source_id": "B0FFFAOWBM",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_94536b3e",
@@ -8886,7 +8553,10 @@
     "source": "amap",
     "source_id": "B0FFFGXNP8",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_e815294b",
@@ -8907,13 +8577,16 @@
       "新华路"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉广场汉口金融中心亚朵酒店，亚朵连锁品牌酒店，位于江岸区，品质有保障。",
     "source": "amap",
     "source_id": "B0H1755JL4",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_9e4f275c",
@@ -8934,13 +8607,16 @@
       "东亭"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉湖北省博物馆东湖路亚朵酒店，亚朵连锁品牌酒店，位于武昌区，品质有保障。",
     "source": "amap",
     "source_id": "B0L39SSC9O",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_8350175a",
@@ -8961,13 +8637,16 @@
       "建设大道"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉国际广场青年路桔子水晶酒店，桔子连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B0LUYASYJB",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_9809fa3e",
@@ -8988,13 +8667,16 @@
       "杨园"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉东湖岳家嘴桔子水晶酒店，桔子连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0LR35D4MV",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_f1a5ab5",
@@ -9021,7 +8703,10 @@
     "source": "amap",
     "source_id": "B0LKTUX8KI",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_ad8085c2",
@@ -9041,13 +8726,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉光谷科技会展中心希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0JDR5OQK7",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_8e98c94d",
@@ -9069,13 +8757,16 @@
       "紫阳"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉黄鹤楼希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于武昌区，品质有保障。",
     "source": "amap",
     "source_id": "B0J3VC8DG3",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_dd6c482c",
@@ -9096,13 +8787,16 @@
       "古田"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉硚口古田希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于硚口区，品质有保障。",
     "source": "amap",
     "source_id": "B0H2NSFJND",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_c834995f",
@@ -9129,7 +8823,10 @@
     "source": "amap",
     "source_id": "B0FFFHCFKD",
     "recommendation": "速8是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_c84334e5",
@@ -9150,13 +8847,16 @@
       "水果湖"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉楚河汉街开元名都酒店，开元连锁品牌酒店，位于武昌区，品质有保障。",
     "source": "amap",
     "source_id": "B0LDGA34Y8",
     "recommendation": "开元是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_1368b7d3",
@@ -9176,13 +8876,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.8,
-    "price_level": 1,
+    "price_level": 5,
     "meal_type": "",
     "description": "武汉丽思卡尔顿酒店，丽思卡尔顿连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B0HKKSK5PU",
     "recommendation": "丽思卡尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "豪华",
+    "price_range": "1200-3000元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_b233a054",
@@ -9204,13 +8907,16 @@
       "街道口"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "如家商旅酒店(金标-武汉大学街道口店)，如家连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B001B1DVPE",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_b648a03a",
@@ -9237,7 +8943,10 @@
     "source": "amap",
     "source_id": "B0FFLKJY4O",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "120-325元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_8aa5bcc3",
@@ -9259,13 +8968,16 @@
       "建设大道"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "如家商旅酒店(武汉万松园美食街取水楼地铁站店)，如家连锁品牌酒店，位于江岸区，品质有保障。",
     "source": "amap",
     "source_id": "B001B0I8WY",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_bc6c1a91",
@@ -9293,7 +9005,10 @@
     "source": "amap",
     "source_id": "B0FFFFO2FK",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_2aeb533b",
@@ -9314,13 +9029,16 @@
       "鲁巷"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(武汉光谷广场工程大学店)，全季连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0L3L4PL21",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_c53c5b61",
@@ -9342,13 +9060,16 @@
       "纱帽"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(武汉汉南兴城大道店)，全季连锁品牌酒店，位于汉南区，品质有保障。",
     "source": "amap",
     "source_id": "B0IKYCEFFA",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_5e1802bc",
@@ -9370,13 +9091,16 @@
       "江滩"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季武汉江汉路步行街江滩江景酒店，全季连锁品牌酒店，位于江岸区，品质有保障。",
     "source": "amap",
     "source_id": "B0M6RZZPFL",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_46ed9f60",
@@ -9398,13 +9122,16 @@
       "江滩"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(武汉江汉路步行街店)，全季连锁品牌酒店，位于江岸区，品质有保障。",
     "source": "amap",
     "source_id": "B0LKN7R09Z",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_2a8e0876",
@@ -9425,13 +9152,16 @@
       "纸坊"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "依山亚朵酒店，亚朵连锁品牌酒店，位于江夏区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFKHD4TZ",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_b8745f9",
@@ -9452,13 +9182,16 @@
       "江滩"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉江汉路IFC国金天地店亚朵酒店(V3.6)，亚朵连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B0M6MSUNIA",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_4a1e1357",
@@ -9479,13 +9212,16 @@
       "汉兴"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉汉口站常青路亚朵酒店，亚朵连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFI9NYRO",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_69b9b584",
@@ -9506,13 +9242,16 @@
       "厂前"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉站西广场亚朵S酒店，亚朵连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0M6FAWR4X",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_b801544c",
@@ -9539,7 +9278,10 @@
     "source": "amap",
     "source_id": "B0LA5HPU42",
     "recommendation": "格林豪泰是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_d7a34406",
@@ -9565,7 +9307,10 @@
     "source": "amap",
     "source_id": "B0J6HACKUC",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_8f2c9ad",
@@ -9586,13 +9331,16 @@
       "杨园"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉徐东希尔顿惠庭酒店，希尔顿连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0I6VL7M78",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_68173f9d",
@@ -9613,13 +9361,16 @@
       "沌口"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉经开希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于蔡甸区，品质有保障。",
     "source": "amap",
     "source_id": "B0I6AD30YV",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_7ac72c42",
@@ -9640,13 +9391,16 @@
       "中北路"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉襄投万豪酒店，万豪连锁品牌酒店，位于武昌区，品质有保障。",
     "source": "amap",
     "source_id": "B0JANCIMXG",
     "recommendation": "万豪是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_aba2926c",
@@ -9666,13 +9420,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉光谷万豪酒店，万豪连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFLGWPWZ",
     "recommendation": "万豪是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_e4a8f4a8",
@@ -9697,13 +9454,16 @@
       "常青"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉汉口喜来登大酒店，喜来登连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFFAGODH",
     "recommendation": "喜来登是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_c844cc05",
@@ -9724,13 +9484,16 @@
       "永清"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉汉口福朋喜来登酒店，喜来登连锁品牌酒店，位于江岸区，品质有保障。",
     "source": "amap",
     "source_id": "B0L1PC64KO",
     "recommendation": "喜来登是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_bf11c458",
@@ -9758,7 +9521,10 @@
     "source": "amap",
     "source_id": "B001B0JORA",
     "recommendation": "速8是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_7e861b05",
@@ -9785,7 +9551,10 @@
     "source": "amap",
     "source_id": "B0FFMGYS1M",
     "recommendation": "开元是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_a4601601",
@@ -9806,13 +9575,16 @@
       "张家湾"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "鲜柚美居影院公寓(白沙洲店)，美居连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0KGX7V42W",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_4287269",
@@ -9833,13 +9605,16 @@
       "武广"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "美居酒店(武汉崇仁路地铁站同济医院店)，美居连锁品牌酒店，位于硚口区，品质有保障。",
     "source": "amap",
     "source_id": "B0K3376G6M",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_9c7600d7",
@@ -9860,13 +9635,16 @@
       "长江新区"
     ],
     "popularity": 4.7,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "美居酒店(阳逻店)，美居连锁品牌酒店，位于新洲区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFKD9LFT",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_1c281434",
@@ -9893,7 +9671,10 @@
     "source": "amap",
     "source_id": "B0FFF67PIO",
     "recommendation": "假日是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_c075443d",
@@ -9921,7 +9702,10 @@
     "source": "amap",
     "source_id": "B001B1GKV0",
     "recommendation": "东呈是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_hotel_5",
@@ -9940,13 +9724,16 @@
       "武汉"
     ],
     "popularity": 4.6,
-    "price_level": 2,
+    "price_level": 3,
     "description": "亚朵酒店武汉武昌区店，位于武昌区核心地段，交通便利。标准连锁酒店，干净舒适，性价比高。",
     "source": "generated",
     "source_id": "wuhan_hotel_5",
     "meal_type": "",
     "recommendation": "亚朵酒店是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_502bbde6",
@@ -9967,13 +9754,16 @@
       "关山"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳3好酒店(武汉光谷软件园店)，维也纳连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFLOAEIM",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_958fb70f",
@@ -9993,13 +9783,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳国际酒店(武汉宜家竹叶海地铁站店)，维也纳连锁品牌酒店，位于硚口区，品质有保障。",
     "source": "amap",
     "source_id": "B0HRUMEB1B",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_f70eaf28",
@@ -10027,7 +9820,10 @@
     "source": "amap",
     "source_id": "B001B1CAQL",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_a158c47a",
@@ -10054,7 +9850,10 @@
     "source": "amap",
     "source_id": "B0G16S0UZE",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_84a20608",
@@ -10082,7 +9881,10 @@
     "source": "amap",
     "source_id": "B0L1OCOCG9",
     "recommendation": "汉庭是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_6e1f4277",
@@ -10103,13 +9905,16 @@
       "鲁巷"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季创意民宿(武汉光谷广场地铁站店)，全季连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0K6JDQ2OQ",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_23bae92e",
@@ -10130,13 +9935,16 @@
       "江滩"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉江汉路步行街高空江景亚朵酒店，亚朵连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B0KDOMTSPU",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_ae511802",
@@ -10157,13 +9965,16 @@
       "经济型连锁酒店"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "锦江之星酒店(吴家山经济开发区店)，锦江之星连锁品牌酒店，位于东西湖区，品质有保障。",
     "source": "amap",
     "source_id": "B001B1CK5X",
     "recommendation": "锦江之星是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-585元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_97288b9e",
@@ -10185,13 +9996,16 @@
       "建设大道"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "锦江之星品尚酒店(武汉新华路协和医院店)，锦江之星连锁品牌酒店，位于江岸区，品质有保障。",
     "source": "amap",
     "source_id": "B0L2SD5PJI",
     "recommendation": "锦江之星是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_99c1acfb",
@@ -10219,7 +10033,10 @@
     "source": "amap",
     "source_id": "B0IGYHF1ZJ",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_dcb59dc5",
@@ -10243,13 +10060,16 @@
       "餐饮相关"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉光谷希尔顿酒店，希尔顿连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B001B17SXN",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_16fd5a13",
@@ -10271,13 +10091,16 @@
       "奥特莱斯广场"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉天河机场东希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于黄陂区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFH5OGDG",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_c3182c0",
@@ -10298,13 +10121,16 @@
       "藏龙岛"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉光谷一路希尔顿欢朋酒店，希尔顿连锁品牌酒店，位于江夏区，品质有保障。",
     "source": "amap",
     "source_id": "B0I1KAWPND",
     "recommendation": "希尔顿是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_14b95bc4",
@@ -10326,13 +10152,16 @@
       "武汉客厅"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉卓尔万豪酒店，万豪连锁品牌酒店，位于东西湖区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFI40O1J",
     "recommendation": "万豪是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "720-1950元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_f93cfd42",
@@ -10352,13 +10181,16 @@
       "宾馆酒店"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉江夏联投福朋喜来登酒店，喜来登连锁品牌酒店，位于江夏区，品质有保障。",
     "source": "amap",
     "source_id": "B0G2JSJBYR",
     "recommendation": "喜来登是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_24ebb87b",
@@ -10379,13 +10211,16 @@
       "流芳"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉光谷福朋喜来登酒店，喜来登连锁品牌酒店，位于江夏区，品质有保障。",
     "source": "amap",
     "source_id": "B0LBLDN949",
     "recommendation": "喜来登是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_1fb2b197",
@@ -10410,13 +10245,16 @@
       "光谷"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉光谷凯悦酒店，凯悦连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFG7LQWV",
     "recommendation": "凯悦是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_76394eb4",
@@ -10444,7 +10282,10 @@
     "source": "amap",
     "source_id": "B001B0JVVL",
     "recommendation": "首旅如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_6061a7bd",
@@ -10472,7 +10313,10 @@
     "source": "amap",
     "source_id": "B001B0IHQE",
     "recommendation": "首旅如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_98cf247a",
@@ -10500,7 +10344,10 @@
     "source": "amap",
     "source_id": "B001B18OXJ",
     "recommendation": "首旅如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_113335a9",
@@ -10527,7 +10374,10 @@
     "source": "amap",
     "source_id": "B0FFMGUPP9",
     "recommendation": "开元是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_557932ab",
@@ -10552,13 +10402,16 @@
       "建设大道"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉香格里拉大酒店，香格里拉连锁品牌酒店，位于江岸区，品质有保障。",
     "source": "amap",
     "source_id": "B001B0003F",
     "recommendation": "香格里拉是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "600-1500元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_ab940e90",
@@ -10579,13 +10432,16 @@
       "藏龙岛"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "禧瑭美居酒店(武汉藏龙岛湖北经济学院店)，美居连锁品牌酒店，位于江夏区，品质有保障。",
     "source": "amap",
     "source_id": "B0JRHZJSZ0",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_81d7f357",
@@ -10607,13 +10463,16 @@
       "宝丰"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "美居酒店(葛洲坝店)，美居连锁品牌酒店，位于硚口区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFJ35TH2",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_27ca506f",
@@ -10636,13 +10495,16 @@
       "关山"
     ],
     "popularity": 4.6,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "光谷·美居|Designer·BritishstyleEsports酒店(杨家湾地铁站店)，美居连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0H6UHTGAY",
     "recommendation": "美居是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_9584ea09",
@@ -10670,7 +10532,10 @@
     "source": "amap",
     "source_id": "B001B16Q43",
     "recommendation": "东呈是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "amap_b311b174",
@@ -10696,7 +10561,10 @@
     "source": "amap",
     "source_id": "B001B0JOR5",
     "meal_type": "main",
-    "recommendation": "7天酒店(武汉汉口江滩江汉路步行街店)位置便利，适合作为旅行住宿据点"
+    "recommendation": "7天酒店(武汉汉口江滩江汉路步行街店)位置便利，适合作为旅行住宿据点",
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_38837a31",
@@ -10717,13 +10585,16 @@
       "鲁巷"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉维也纳酒店公寓(光谷广场地铁站店)，维也纳连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFGNFR2K",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_4987538",
@@ -10746,13 +10617,16 @@
       "珞南"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "维也纳酒店(武汉理工大学南湖文治街地铁站店)，维也纳连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFIARTYR",
     "recommendation": "维也纳是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_69bda935",
@@ -10779,7 +10653,10 @@
     "source": "amap",
     "source_id": "B0I1J5E875",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_e5f0af26",
@@ -10807,7 +10684,10 @@
     "source": "amap",
     "source_id": "B001B1GF5A",
     "recommendation": "如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_4940f7d1",
@@ -10828,13 +10708,16 @@
       "菱角湖"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(武汉万象城新华路店)，全季连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B0KKPGBD89",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_5977c538",
@@ -10856,13 +10739,16 @@
       "关山"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(武汉光谷广场店)，全季连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFFFWHMO",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_a0f894f7",
@@ -10884,13 +10770,16 @@
       "二七"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季酒店(武汉汉口江滩二七高空江景店)，全季连锁品牌酒店，位于江岸区，品质有保障。",
     "source": "amap",
     "source_id": "B0LR77JIWR",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_4b4b0132",
@@ -10912,13 +10801,16 @@
       "后湖"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "全季武汉汉口城市广场后湖大道酒店，全季连锁品牌酒店，位于江岸区，品质有保障。",
     "source": "amap",
     "source_id": "B0L2GUTDUF",
     "recommendation": "全季是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_a485be71",
@@ -10939,13 +10831,16 @@
       "八大家"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉站青山印象城亚朵酒店，亚朵连锁品牌酒店，位于青山区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFKQ2EB7",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_ccd57241",
@@ -10966,13 +10861,16 @@
       "中北路"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "武汉楚河汉街中北路亚朵S酒店，亚朵连锁品牌酒店，位于武昌区，品质有保障。",
     "source": "amap",
     "source_id": "B0H1PZQE21",
     "recommendation": "亚朵是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "300-600元/晚",
+    "star_rating": 4
   },
   {
     "id": "wuhan_brand_3fa80cb9",
@@ -10994,13 +10892,16 @@
       "广埠屯"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "锦江之星品尚(武汉大学广埠屯地铁站店)，锦江之星连锁品牌酒店，位于洪山区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFH748P5",
     "recommendation": "锦江之星是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_c8d954b9",
@@ -11022,13 +10923,16 @@
       "江滩"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "锦江之星(武汉江汉路地铁站江滩步行街店)，锦江之星连锁品牌酒店，位于江岸区，品质有保障。",
     "source": "amap",
     "source_id": "B001B0IOAF",
     "recommendation": "锦江之星是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_13c24183",
@@ -11050,13 +10954,16 @@
       "常青"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "锦江之星酒店(武汉汉口火车站大武汉1911店)，锦江之星连锁品牌酒店，位于江汉区，品质有保障。",
     "source": "amap",
     "source_id": "B001B0IIT9",
     "recommendation": "锦江之星是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_6a138ea5",
@@ -11078,13 +10985,16 @@
       "流芳"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "锦江之星(武汉光谷金融港工程大学店)，锦江之星连锁品牌酒店，位于江夏区，品质有保障。",
     "source": "amap",
     "source_id": "B0FFFH9C17",
     "recommendation": "锦江之星是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_d1ca12a7",
@@ -11106,13 +11016,16 @@
       "紫阳"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 3,
     "meal_type": "",
     "description": "锦江之星(武汉黄鹤楼武昌火车站店)，锦江之星连锁品牌酒店，位于武昌区，品质有保障。",
     "source": "amap",
     "source_id": "B001B17CBF",
     "recommendation": "锦江之星是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "中端",
+    "price_range": "250-450元/晚",
+    "star_rating": 3
   },
   {
     "id": "wuhan_brand_330da766",
@@ -11140,7 +11053,10 @@
     "source": "amap",
     "source_id": "B0HA64594V",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_33d01809",
@@ -11167,7 +11083,10 @@
     "source": "amap",
     "source_id": "B0G339ZKL1",
     "recommendation": "桔子是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_8028fc07",
@@ -11188,13 +11107,16 @@
       "四星级宾馆"
     ],
     "popularity": 4.5,
-    "price_level": 1,
+    "price_level": 4,
     "meal_type": "",
     "description": "武汉福朋喜来登酒店(汉口火车站店)，喜来登连锁品牌酒店，位于东西湖区，品质有保障。",
     "source": "amap",
     "source_id": "B0L1KNTUCN",
     "recommendation": "喜来登是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "高端",
+    "price_range": "720-1950元/晚",
+    "star_rating": 5
   },
   {
     "id": "wuhan_brand_92309729",
@@ -11220,7 +11142,10 @@
     "source": "amap",
     "source_id": "B0H2AS57AG",
     "recommendation": "华住是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_5230debd",
@@ -11247,7 +11172,10 @@
     "source": "amap",
     "source_id": "B0L215TE54",
     "recommendation": "首旅如家是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "wuhan_brand_a30838fc",
@@ -11275,7 +11203,10 @@
     "source": "amap",
     "source_id": "B0FFHJSOIN",
     "recommendation": "速8是知名连锁品牌，品质有保障。",
-    "visit_duration": 30
+    "visit_duration": 30,
+    "brand_category": "经济型",
+    "price_range": "100-250元/晚",
+    "star_rating": 2
   },
   {
     "id": "amap_957c946e",
@@ -11301,10 +11232,15 @@
     "description": "咸安坊，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFIPHLDP",
-    "recommendation": "咸安坊是当地热门景点。",
+    "recommendation": "武汉保存完好的里份建筑群，石库门老宅很有味道。本地人推荐从鄱阳街侧门进，人少还能拍出老城烟火气。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_dd18565a",
@@ -11327,10 +11263,15 @@
     "description": "知音文化旅游区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0J1VZ7KKC",
-    "recommendation": "知音文化旅游区是当地热门景点。",
+    "recommendation": "以高山流水传说打造的文化景区，古琴台是核心。隐藏玩法是去钟子期墓旁的竹林深处，坐听琴音，几乎没人。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_e19cebb4",
@@ -11355,10 +11296,15 @@
     "description": "汉口俄租界巡捕房旧址，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B08MFE",
-    "recommendation": "汉口俄租界巡捕房旧址是当地热门景点。",
+    "recommendation": "百年俄式建筑，红砖墙配绿窗框很有复古感。最佳时间是下午3点后，阳光斜照在墙上，光影绝美。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_e39b9f14",
@@ -11382,10 +11328,15 @@
     "description": "武汉长江大桥建成纪念碑，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFF4EEKP",
-    "recommendation": "武汉长江大桥建成纪念碑是当地热门景点。",
+    "recommendation": "纪念新中国第一座长江大桥的丰碑，刻有建桥史实。别只拍碑身，绕到碑后能拍到桥与黄鹤楼的同框。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_99de433e",
@@ -11411,10 +11362,15 @@
     "description": "武昌江滩横堤，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFLFO3VY",
-    "recommendation": "武昌江滩横堤是当地热门景点。",
+    "recommendation": "武昌江滩上的观江平台，视野开阔。坐地铁5号线到三层楼站，从C口出步行10分钟直达。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_d82e106c",
@@ -11441,10 +11397,15 @@
     "description": "武汉市第二中学，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B0IVG6",
-    "recommendation": "武汉市第二中学是当地热门景点。",
+    "recommendation": "百年名校，校园内有历史建筑和樱花道。免费开放，周末去不用预约，直接进。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_be529af8",
@@ -11470,10 +11431,15 @@
     "description": "时光展览馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K35LPIST",
-    "recommendation": "时光展览馆是当地热门景点。",
+    "recommendation": "展示武汉老城记忆的沉浸式展览馆。本地人推荐逛完去隔壁的黎黄陂路咖啡馆坐坐，体验更完整。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_78802f42",
@@ -11498,10 +11464,15 @@
     "description": "武汉革命博物馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B0J00B",
-    "recommendation": "武汉革命博物馆是当地热门景点。",
+    "recommendation": "武汉革命博物馆，收藏大量红色文物，见证武昌起义历史。记得去二楼找隐藏的旧报亭，那里有复原的民国印刷机可互动体验。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_9daa310c",
@@ -11531,10 +11502,15 @@
     "description": "良之隆新食材(总店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IDCYK1HR",
-    "recommendation": "良之隆新食材(总店)是当地热门景点。",
+    "recommendation": "良之隆新食材(总店)，汇聚各地新鲜食材，适合美食爱好者。建议工作日上午10点去，避开人流高峰，能慢慢挑到当季限量食材。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_2e3f0e63",
@@ -11560,10 +11536,15 @@
     "description": "小宋唱片(江汉路店)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0M6P7MYR2",
-    "recommendation": "小宋唱片(江汉路店)是当地热门景点。",
+    "recommendation": "小宋唱片(江汉路店)，武汉老牌唱片店，藏有黑胶和独立音乐。别只逛一楼，二楼折扣区常有绝版磁带，但价格标得不清，问店员更准。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_24bb481c",
@@ -11588,10 +11569,15 @@
     "description": "湖北省电力博物馆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFLJTW8",
-    "recommendation": "湖北省电力博物馆是当地热门景点。",
+    "recommendation": "湖北省电力博物馆，展示电力发展史，有老式发电设备。坐地铁2号线到循礼门站，从E口出步行5分钟即达，比公交省时。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_f370944c",
@@ -11617,10 +11603,15 @@
     "description": "王家墩公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFDUMTM",
-    "recommendation": "王家墩公园是当地热门景点。",
+    "recommendation": "王家墩公园，城市绿肺，有湖景步道和儿童乐园。免费入园，建议自带野餐垫，周末常办露天市集，省下买零食的钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_374cccf",
@@ -11646,10 +11637,15 @@
     "description": "汉阳树公园北园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0J2BMS3RG",
-    "recommendation": "汉阳树公园北园是当地热门景点。",
+    "recommendation": "汉阳树公园北园，以百年银杏树闻名，秋景如画。本地人推荐从北门进，绕过主道去东侧小径，那里有棵少人知的古枫，落叶更密。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_e229769b",
@@ -11675,10 +11671,15 @@
     "description": "常青藤口袋公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HBBM18OK",
-    "recommendation": "常青藤口袋公园是当地热门景点。",
+    "recommendation": "常青藤口袋公园，小而精致的社区绿地，有藤蔓长廊。傍晚去时，带本书坐在西侧角落，能听到附近教堂的钟声，很治愈。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_ff76a99a",
@@ -11704,10 +11705,15 @@
     "description": "姑嫂树游园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFM18Q8X",
-    "recommendation": "姑嫂树游园是当地热门景点。",
+    "recommendation": "姑嫂树游园，老街区里的休闲广场，有古树和健身区。建议清晨6点半去，晨雾中看老人打太极，比白天安静得多。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_14968b98",
@@ -11734,10 +11740,15 @@
     "description": "百步亭生育文化园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B17015",
-    "recommendation": "百步亭生育文化园是当地热门景点。",
+    "recommendation": "以生育文化为主题的社区公园，雕塑和展板展示生命历程。别被“文化园”名字唬住，其实就是个普通社区绿地，专程来会失望。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_67d3d35",
@@ -11762,10 +11773,15 @@
     "description": "落雁景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B0J076",
-    "recommendation": "落雁景区是当地热门景点。",
+    "recommendation": "东湖核心景区之一，以古建筑和湖光山色闻名。坐地铁8号线到梨园站，换乘景区电瓶车直达，比自驾省心。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_42e8aa2e",
@@ -11789,10 +11805,15 @@
     "description": "中国科学院武汉植物园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B0IRKH",
-    "recommendation": "中国科学院武汉植物园是当地热门景点。",
+    "recommendation": "拥有万余种植物的大型科研植物园，温室和珍稀植物是亮点。每周三上午9点前免费入园，记得提前预约。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_8b067c6",
@@ -11815,10 +11836,15 @@
     "description": "吹笛景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B0IZXU",
-    "recommendation": "吹笛景区是当地热门景点。",
+    "recommendation": "以森林湿地和湖滨步道为特色的生态景区。本地人爱从后山小路上山，避开主入口人流，还能偶遇野花。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_394a781d",
@@ -11843,10 +11869,15 @@
     "description": "东西湖极地海洋公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0IUDKB3ZX",
-    "recommendation": "东西湖极地海洋公园是当地热门景点。",
+    "recommendation": "集极地动物展示与海洋剧场于一体的主题公园。下午4点后入场人少，海豚表演前排位置随便挑。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_28dc664b",
@@ -11871,10 +11902,15 @@
     "description": "梧桐·雨，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JGJC37F4",
-    "recommendation": "梧桐·雨是当地热门景点。",
+    "recommendation": "以梧桐树和光影秀闻名的夜游景点。建议晚上7点半亮灯后去，梧桐叶在灯光下像金色雨幕，拍照绝佳。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_a0681463",
@@ -11899,10 +11935,15 @@
     "description": "杨泗港大桥江滩公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HGV6LXZE",
-    "recommendation": "杨泗港大桥江滩公园是当地热门景点。",
+    "recommendation": "长江上的双层公路桥，桥下江滩可露营观景。别停在桥头停车场，周末车多难找位，停桥下小路更近江滩。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_75a1eb75",
@@ -11929,10 +11970,15 @@
     "description": "归元禅寺-钟楼(归元寺路)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFCOFF2",
-    "recommendation": "归元禅寺-钟楼(归元寺路)是当地热门景点。",
+    "recommendation": "归元禅寺内的明代钟楼，铜钟重约千斤。坐地铁4号线到钟家村站，出站步行5分钟，比打车快。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_f708d3d9",
@@ -11959,10 +12005,15 @@
     "description": "圎通阁，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFCOEHC",
-    "recommendation": "圎通阁是当地热门景点。",
+    "recommendation": "汉阳热门景点，可登阁远眺。提前在旅游平台购票，比现场便宜不少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_653cc5e0",
@@ -11988,10 +12039,15 @@
     "description": "归元禅寺-财宝天王殿，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B1ASGB",
-    "recommendation": "归元禅寺-财宝天王殿是当地热门景点。",
+    "recommendation": "归元禅寺核心殿宇，供奉财宝天王。本地人常去后殿求签，灵验又清静。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_c7d4d24c",
@@ -12016,10 +12072,15 @@
     "description": "木兰山风景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B0IZIP",
-    "recommendation": "木兰山风景区是当地热门景点。",
+    "recommendation": "黄陂道教名山，风景秀丽。走西侧野路登山，人少景美还能偶遇古寺。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_1d37591f",
@@ -12045,10 +12106,15 @@
     "description": "木兰山风景区-金顶，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFG1V6W1",
-    "recommendation": "木兰山风景区-金顶是当地热门景点。",
+    "recommendation": "木兰山最高处，视野开阔。清晨六点前登顶，看日出云海最壮观。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_b0510f58",
@@ -12073,10 +12139,15 @@
     "description": "木兰山国家地质公园-第一庙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B0HZQK",
-    "recommendation": "木兰山国家地质公园-第一庙是当地热门景点。",
+    "recommendation": "园内历史最久的庙宇，香火旺盛。别在门口买香，庙里免费提供三支清香。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_f84c7ccd",
@@ -12101,10 +12172,15 @@
     "description": "长春观-太清殿，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFI2FZZ1",
-    "recommendation": "长春观-太清殿是当地热门景点。",
+    "recommendation": "武汉最大道教宫观主殿，供奉太上老君。坐地铁2号线到宝通寺站，步行就到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_df95260a",
@@ -12130,10 +12206,15 @@
     "description": "宝通禅寺-观音殿，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFL4RTQF",
-    "recommendation": "宝通禅寺-观音殿是当地热门景点。",
+    "recommendation": "武昌千年古寺，观音殿香客众多。每月初一、十五免门票，记得带现金添香油。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_d24b87dd",
@@ -12159,10 +12240,15 @@
     "description": "宝通禅寺-财宝殿，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKDW015",
-    "recommendation": "宝通禅寺-财宝殿是当地热门景点。",
+    "recommendation": "寺内求财灵验的偏殿，金碧辉煌。本地人喜欢摸殿前铜貔貅，顺时针转三圈。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_816c5887",
@@ -12186,10 +12272,15 @@
     "description": "龙泉山风景区，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B0J0AJ",
-    "recommendation": "龙泉山风景区是当地热门景点。",
+    "recommendation": "江夏区龙泉山风景区，藏有明代楚王陵墓群和登山步道。绕到山后小路，能发现一片无人野花坡，拍照绝美。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_78981a9e",
@@ -12214,10 +12305,15 @@
     "description": "灵泉寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B1601H",
-    "recommendation": "灵泉寺是当地热门景点。",
+    "recommendation": "江夏区灵泉寺，始建于唐代的古刹，以清澈灵泉闻名。清晨七点去，人少雾轻，能听到僧侣早课诵经声。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_d56d34f0",
@@ -12243,10 +12339,15 @@
     "description": "武汉莲华寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFH1JAGB",
-    "recommendation": "武汉莲华寺是当地热门景点。",
+    "recommendation": "武汉莲华寺，现代仿唐风格寺院，素斋馆很有名。别在初一十五去，人挤人且素斋排队太久，平日更清净。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_1948b72f",
@@ -12272,10 +12373,15 @@
     "description": "灵泉寺-牌坊，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0G39XVCL8",
-    "recommendation": "灵泉寺-牌坊是当地热门景点。",
+    "recommendation": "灵泉寺-牌坊，明代石雕牌坊，刻有精美龙纹。坐地铁2号线到佛祖岭站，转公交926路直达门口。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_9a5b4a16",
@@ -12301,10 +12407,15 @@
     "description": "龙华寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B0I4M0",
-    "recommendation": "龙华寺是当地热门景点。",
+    "recommendation": "武昌区龙华寺，千年古寺藏于闹市，免门票开放。每月初一、十五免费赠香，省下买香钱。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_2732e829",
@@ -12330,10 +12441,15 @@
     "description": "卓刀泉寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B08RA8",
-    "recommendation": "卓刀泉寺是当地热门景点。",
+    "recommendation": "洪山区卓刀泉寺，关羽卓刀得泉的传说之地。本地人常去后院古井打水泡茶，泉水甘甜免费取。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_c1eba315",
@@ -12359,10 +12475,15 @@
     "description": "铁佛寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFLEO7VC",
-    "recommendation": "铁佛寺是当地热门景点。",
+    "recommendation": "汉阳区铁佛寺，寺内供奉明代铁铸佛像，工艺精湛。绕到殿后小院，有一棵百年桂花树，秋天满寺飘香。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_7f77359e",
@@ -12388,10 +12509,15 @@
     "description": "汉口栖隐寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B1C0S1",
-    "recommendation": "汉口栖隐寺是当地热门景点。",
+    "recommendation": "汉口栖隐寺，隐藏在老租界里的尼姑庵，香火清淡。下午三点去，阳光穿过天井，光影斑驳特别适合静坐。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_db4cd26c",
@@ -12416,10 +12542,15 @@
     "description": "仰山禅寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFMHKDJA",
-    "recommendation": "仰山禅寺是当地热门景点。",
+    "recommendation": "仰山禅寺是当地香火颇旺的禅宗道场。别信路边拉客的“免费导游”，直接沿主路进寺更清净。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_6c86654f",
@@ -12445,10 +12576,15 @@
     "description": "斗战胜佛，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0JB5U6ZOK",
-    "recommendation": "斗战胜佛是当地热门景点。",
+    "recommendation": "斗战胜佛以巨型孙悟空雕像闻名。坐地铁2号线到光谷广场站，转乘公交789路直达。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_b9eb82a3",
@@ -12473,10 +12609,15 @@
     "description": "洞山万寿禅寺，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFSGWXK",
-    "recommendation": "洞山万寿禅寺是当地热门景点。",
+    "recommendation": "洞山万寿禅寺是江夏区历史悠久的佛教古刹。每月初一、十五免门票，可省20元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_eb4d4324",
@@ -12502,10 +12643,15 @@
     "description": "千年古镇黄花涝，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFK7XYPF",
-    "recommendation": "千年古镇黄花涝是当地热门景点。",
+    "recommendation": "黄花涝是黄陂区保存完好的明清古镇。本地人爱去镇东老码头看夕阳，游客少风景好。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_60867005",
@@ -12530,10 +12676,15 @@
     "description": "茅庙集，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGT96L2",
-    "recommendation": "茅庙集是当地热门景点。",
+    "recommendation": "茅庙集是东西湖区传统市集改造的景点。周末早市有非遗手艺人现场表演，比逛商铺更有趣。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_b696f187",
@@ -12558,10 +12709,15 @@
     "description": "武昌古城，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LUSM0QW9",
-    "recommendation": "武昌古城是当地热门景点。",
+    "recommendation": "武昌古城是武汉历史核心区，保留起义门等遗迹。清晨7点去，游客稀少能独享城墙晨光。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_42e9e1c2",
@@ -12585,10 +12741,15 @@
     "description": "古镇仓埠，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFITUDQ8",
-    "recommendation": "古镇仓埠是当地热门景点。",
+    "recommendation": "古镇仓埠以百年老街和民俗馆著称。别在正午去，店铺大多午休，建议下午2点后逛。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_611a4323",
@@ -12612,10 +12773,15 @@
     "description": "临嶂古城垣，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGACKFD",
-    "recommendation": "临嶂古城垣是当地热门景点。",
+    "recommendation": "临嶂古城垣是蔡甸区明代城墙遗址。自驾走汉蔡高速到侏儒山出口，再沿指示牌开5分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_b09059f0",
@@ -12639,10 +12805,15 @@
     "description": "茶溪古镇，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HGSH4IYU",
-    "recommendation": "茶溪古镇是当地热门景点。",
+    "recommendation": "茶溪古镇是黄陂区热门景点，主打明清古建筑群。网上提前订票比现场便宜20元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_54df9cfa",
@@ -12669,10 +12840,15 @@
     "description": "古城墙，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0GKJ5Y6G2",
-    "recommendation": "古城墙是当地热门景点。",
+    "recommendation": "古城墙是武昌区历史地标，可俯瞰长江与城市风光。本地人爱去东段人少清静，适合拍照。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_45734ba8",
@@ -12697,10 +12873,15 @@
     "description": "码头古村，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KUBRYJP4",
-    "recommendation": "码头古村是当地热门景点。",
+    "recommendation": "码头古村是东西湖区保留完好的水乡聚落，石桥与老宅错落。清晨去河边码头，能偶遇渔民撒网。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_165bee0e",
@@ -12724,10 +12905,15 @@
     "description": "新沟古镇市集，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0LRYDVLXH",
-    "recommendation": "新沟古镇市集是当地热门景点。",
+    "recommendation": "新沟古镇市集汇集当地手工艺品与小吃，氛围热闹。建议周末上午10点前到，避开人流高峰，货物更新鲜。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_9cbbeca6",
@@ -12754,10 +12940,15 @@
     "description": "钟祥石牌古镇豆腐坊，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0KUYYXHH5",
-    "recommendation": "钟祥石牌古镇豆腐坊是当地热门景点。",
+    "recommendation": "钟祥石牌古镇豆腐坊以传统手工豆腐闻名，香嫩细腻。别被摊主推荐的高价套餐忽悠，单点一碗原味豆腐脑才正宗。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_29b7264e",
@@ -12784,10 +12975,15 @@
     "description": "湖北省武汉市黄陂区横店街今古城头面妆，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L2YHVEQ6",
-    "recommendation": "湖北省武汉市黄陂区横店街今古城头面妆是当地热门景点。",
+    "recommendation": "今古城头面妆是黄陂区特色文化体验，复原古代妆容与服饰。乘地铁2号线至天河机场站转公交P70直达。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_76f46764",
@@ -12814,10 +13010,15 @@
     "description": "黄陵古镇圆子，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K0HSH99E",
-    "recommendation": "黄陵古镇圆子是当地热门景点。",
+    "recommendation": "黄陵古镇圆子是蔡甸区非遗小吃，外酥里嫩，馅料丰富。下午2点后去，店家常打折处理当天剩余圆子。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_ce54893f",
@@ -12843,10 +13044,15 @@
     "description": "盘龙城国家考古遗址公园，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFIJLD4I",
-    "recommendation": "盘龙城国家考古遗址公园是当地热门景点。",
+    "recommendation": "盘龙城国家考古遗址公园是武汉最早古城遗址，出土大量商代文物。本地人推荐从西门进，先看遗址博物馆再逛城墙区。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_5d28cfd9",
@@ -12870,10 +13076,15 @@
     "description": "锦鲤土司城，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B0K60J",
-    "recommendation": "锦鲤土司城是当地热门景点。",
+    "recommendation": "以土家文化为特色的仿古建筑群。穿过主殿后左手边有条石阶通往无人后山，俯瞰全城视野绝佳。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_ea6cb35c",
@@ -12897,10 +13108,15 @@
     "description": "盘龙城国家考古遗址公园盘龙城遗址，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFGH3BY4",
-    "recommendation": "盘龙城国家考古遗址公园盘龙城遗址是当地热门景点。",
+    "recommendation": "长江流域发现的第一座商代古城遗址。清晨开园时去，光线柔和且游客稀少，更能感受历史苍茫。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_b6c4e6e1",
@@ -12924,10 +13140,15 @@
     "description": "大余湾，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B001B1HB59",
-    "recommendation": "大余湾是当地热门景点。",
+    "recommendation": "保存完好的明清古村落，青石板路和徽派老宅错落有致。别只看门口老房子，往深处走有免费祠堂和古井，更原汁原味。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_4ad89f48",
@@ -12951,10 +13172,15 @@
     "description": "武汉桃源集亲子小镇，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKX9X25",
-    "recommendation": "武汉桃源集亲子小镇是当地热门景点。",
+    "recommendation": "集亲子娱乐与自然景观于一体的主题小镇。建议自驾，导航直达且停车场免费，公交需转两趟耗时较长。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_6a0dc66d",
@@ -12980,10 +13206,15 @@
     "description": "问津缘探索小镇，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFKKFXAA",
-    "recommendation": "问津缘探索小镇是当地热门景点。",
+    "recommendation": "以探索体验为特色的户外小镇。提前在官网购买联票比现场单买便宜30元，还送一张免费餐饮券。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_2071466",
@@ -13007,10 +13238,15 @@
     "description": "侏儒山街六海赛生态小镇，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFIDQZZ3",
-    "recommendation": "侏儒山街六海赛生态小镇是当地热门景点。",
+    "recommendation": "依山傍水的田园生态小镇，有荷花池和果园。本地人爱去镇口王婶家吃柴火灶农家饭，价格实惠味道正。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_d1f9519b",
@@ -13036,10 +13272,15 @@
     "description": "沉湖国际小镇玲珑塔，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0L0PR15XT",
-    "recommendation": "沉湖国际小镇玲珑塔是当地热门景点。",
+    "recommendation": "现代风格七层观光塔，可俯瞰沉湖湿地。塔基东侧有条木栈道通向湖心观鸟台，傍晚去能拍到成群白鹭归巢。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_33327eeb",
@@ -13064,10 +13305,15 @@
     "description": "码头潭文旅小镇，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0G1A5ZAHA",
-    "recommendation": "码头潭文旅小镇是当地热门景点。",
+    "recommendation": "以明清码头文化为主题的仿古小镇，复原了老茶馆和戏台。黄昏时分去，夕阳洒在潭水上，灯光初上，拍照最出片且人少。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "timing",
+      "label": "最佳时间",
+      "instruction": "说清楚什么时间段去体验最好及原因"
+    }
   },
   {
     "id": "amap_6a8c3ffe",
@@ -13093,10 +13339,15 @@
     "description": "时光里汤泉酒店，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0J0BA3LKZ",
-    "recommendation": "时光里汤泉酒店是当地热门景点。",
+    "recommendation": "江汉区热门汤泉，提供多种温泉泡池与休息区。周末人流量大，建议工作日前往避免排队拥挤。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "avoid",
+      "label": "避坑指南",
+      "instruction": "提醒一个容易踩的坑或常见误区"
+    }
   },
   {
     "id": "amap_6e01b104",
@@ -13122,10 +13373,15 @@
     "description": "米兰泪·温泉暴风雨，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0K3MHNEYX",
-    "recommendation": "米兰泪·温泉暴风雨是当地热门景点。",
+    "recommendation": "江汉区特色温泉，以暴风雨主题淋浴体验著称。地铁2号线江汉路站C口出，步行5分钟即到。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "transport",
+      "label": "交通攻略",
+      "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
+    }
   },
   {
     "id": "amap_18cd3c13",
@@ -13149,10 +13405,15 @@
     "description": "仙女池，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0HGK4FN4V",
-    "recommendation": "仙女池是当地热门景点。",
+    "recommendation": "江夏区自然温泉池，环境清幽适合放松。可通过景区官网提前购票，通常比现场便宜20元。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "saving",
+      "label": "省钱技巧",
+      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
+    }
   },
   {
     "id": "amap_12794ea",
@@ -13179,10 +13440,15 @@
     "description": "武汉木兰天池田园人家，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFFFZEBJ",
-    "recommendation": "武汉木兰天池田园人家是当地热门景点。",
+    "recommendation": "黄陂区田园风格温泉，融入木兰天池自然景观。本地人更爱傍晚去，泡汤后还能尝农家土菜。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "local",
+      "label": "本地人推荐",
+      "instruction": "给一个本地人才知道的推荐"
+    }
   },
   {
     "id": "amap_21dab5d5",
@@ -13210,10 +13476,15 @@
     "description": "康之泉活水馆(武汉四新馆)，当地热门景点，建议游览90分钟左右。",
     "source": "amap",
     "source_id": "B0FFHQB3A1",
-    "recommendation": "康之泉活水馆(武汉四新馆)是当地热门景点。",
+    "recommendation": "汉阳区室内活水馆，含泳池、温泉与SPA。自带泳帽和毛巾可省去租借费，储物柜免费使用。",
     "open_minutes": 540,
     "close_minutes": 1290,
-    "visit_duration": 90
+    "visit_duration": 90,
+    "_angle": {
+      "key": "hidden",
+      "label": "隐藏玩法",
+      "instruction": "给一个本地人才知道的体验技巧"
+    }
   },
   {
     "id": "amap_984df8a4",
