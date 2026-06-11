@@ -1,9 +1,4 @@
-"""POI Agent - Search and recommend Points of Interest with scoring.
-
-This agent uses a hybrid approach:
-1. Score-based pre-filtering (from legacy scorer.py)
-2. LLM-based selection and explanation
-"""
+"""POI Agent - Search and recommend Points of Interest with scoring."""
 
 import json
 import logging
@@ -18,29 +13,41 @@ from tools.scoring import rank_pois
 
 logger = logging.getLogger(__name__)
 
-POI_SYSTEM = """You are a POI (Point of Interest) recommendation expert.
+# City name to directory mapping
+CITY_DIR_MAP = {
+    "广州": "guangzhou",
+    "北京": "beijing",
+    "上海": "shanghai",
+    "深圳": "shenzhen",
+    "成都": "chengdu",
+    "重庆": "chongqing",
+    "杭州": "hangzhou",
+    "武汉": "wuhan",
+    "南京": "nanjing",
+    "西安": "xian",
+    "长沙": "changsha",
+    "昆明": "kunming",
+    "大理": "dali",
+    "丽江": "lijiang",
+    "三亚": "sanya",
+    "桂林": "guilin",
+    "厦门": "xiamen",
+    "青岛": "qingdao",
+    "哈尔滨": "harbin",
+    "苏州": "suzhou",
+    "张家界": "zhangjiajie",
+}
 
-You receive a pre-scored list of candidate POIs. Your job is to:
-1. Select the best {top_k} POIs for the trip
-2. Ensure ALL must_visit places (marked with 【必去】) are included
-3. Provide a brief reason for each selection
-4. Balance variety (different types of attractions)
+POI_SYSTEM = """You are a POI recommendation expert.
 
-Output format (JSON array):
-[
-  {
-    "id": "poi_id",
-    "name": "景点名称",
-    "reason": "推荐理由",
-    "priority": 1
-  }
-]
+You receive a pre-scored list of candidate POIs. Select the best POIs for the trip.
+
+Output format: JSON array with objects containing id, name, reason, priority fields.
 
 RULES:
-- MUST include all 【必去】 POIs (priority 1)
-- Select diverse attractions (not all temples or all parks)
-- Consider geographic distribution
-- Return exactly {top_k} POIs"""
+- MUST include all must_visit POIs
+- Select diverse attractions
+- Consider geographic distribution"""
 
 
 class PoiAgent(BaseTourAgent):
@@ -64,111 +71,72 @@ class PoiAgent(BaseTourAgent):
             ("human", "{context}"),
         ])
     
+    def _get_city_dir(self, city: str) -> str:
+        """Get directory name for city."""
+        if (self.data_dir / city).exists():
+            return city
+        if city in CITY_DIR_MAP:
+            return CITY_DIR_MAP[city]
+        return city.lower()
+    
     def _load_pois(self, city: str) -> list[dict]:
         """Load POIs from local JSON file."""
-        poi_file = self.data_dir / city / "pois.json"
+        city_dir = self._get_city_dir(city)
+        poi_file = self.data_dir / city_dir / "pois.json"
+        
         if not poi_file.exists():
-            logger.warning(f"POI file not found: {poi_file}")
+            logger.warning("POI file not found: " + str(poi_file))
             return []
         
         try:
             with open(poi_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                # Filter to attractions and nightlife
                 attractions = [p for p in data if p.get("type") in ("attraction", "nightlife")]
-                logger.info(f"Loaded {len(attractions)} attractions for {city}")
+                logger.info("Loaded " + str(len(attractions)) + " attractions for " + city)
                 return attractions
         except Exception as e:
-            logger.error(f"Failed to load POIs: {e}")
+            logger.error("Failed to load POIs: " + str(e))
             return []
     
     async def execute(self, state: TourState) -> dict:
-        """Search and recommend POIs using hybrid scoring + LLM."""
-        intent = state.get("intent", {})
+        """Search and recommend POIs."""
+        intent = state.get("trip_intent", {})
         city = intent.get("city", state.get("city", ""))
         days = intent.get("days", 3)
         must_visit = intent.get("must_visit", [])
         
         if not city:
-            return {"errors": state.get("errors", []) + ["No city specified"]}
+            return {"pois": []}
         
-        # Load POIs from local data
+        # Load POIs
         all_pois = self._load_pois(city)
         
         if not all_pois:
-            return {"errors": state.get("errors", []) + [f"No POI data for {city}"]}
+            return {"pois": []}
         
-        # Step 1: Score-based pre-filtering
-        logger.info("Step 1: Scoring and ranking POIs...")
-        top_k = days * 5  # 5 POIs per day as candidates
-        scored_pois = rank_pois(
-            pois=all_pois,
-            intent=intent,
-            top_k=top_k,
-        )
+        # Score and rank POIs
+        logger.info("Scoring and ranking POIs...")
+        top_k = days * 5
+        scored_pois = rank_pois(pois=all_pois, intent=intent, top_k=top_k)
         
-        # Step 2: LLM-based selection
-        logger.info("Step 2: LLM selection from top candidates...")
+        # Ensure must_visit are included
+        enriched_pois = []
+        for mv in must_visit:
+            for poi in scored_pois:
+                if mv in poi.get("name", ""):
+                    poi_copy = poi.copy()
+                    poi_copy["is_must_visit"] = True
+                    poi_copy["recommend_reason"] = "Must visit: " + mv
+                    enriched_pois.append(poi_copy)
+                    break
         
-        # Prepare context for LLM
-        poi_list = "\n".join([
-            f"- {p['name']} (ID:{p['id']}, 区域:{p.get('area', '')}, "
-            f"评分:{p.get('popularity', 0)}, 分数:{p.get('_score', 0):.1f}, "
-            f"标签:{','.join(p.get('tags', [])[:3])})"
-            + (" 【必去】" if p.get("is_must_visit") or any(mv in p["name"] for mv in must_visit) else "")
-            for p in scored_pois
-        ])
+        # Add other top POIs
+        for poi in scored_pois:
+            if poi not in enriched_pois:
+                enriched_pois.append(poi)
         
-        context = f"""城市: {city}
-旅行天数: {days}
-必去景点: {', '.join(must_visit) if must_visit else '无'}
-
-预筛选候选景点 (已按评分排序):
-{poi_list}
-
-请从以上候选中选择 {days * 3} 个最合适的景点。"""
+        # Limit to days * 3
+        enriched_pois = enriched_pois[:days * 3]
         
-        runnable = self.get_runnable()
-        response = await runnable.ainvoke({"context": context})
-        
-        try:
-            content = response.content
-            if "```json" in content:
-                content = content.split("```json")[1].split("```")[0]
-            elif "```" in content:
-                content = content.split("```")[1].split("```")[0]
-            
-            recommended = json.loads(content.strip())
-            
-            # Merge with full POI data
-            poi_map = {p["id"]: p for p in all_pois}
-            enriched_pois = []
-            
-            for rec in recommended:
-                poi_id = rec.get("id", "")
-                if poi_id in poi_map:
-                    poi = poi_map[poi_id].copy()
-                    poi["recommend_reason"] = rec.get("reason", "")
-                    poi["priority"] = rec.get("priority", 5)
-                    enriched_pois.append(poi)
-            
-            # Ensure must_visit are included
-            for mv in must_visit:
-                if not any(mv in p.get("name", "") for p in enriched_pois):
-                    # Find in original data
-                    for poi in all_pois:
-                        if mv in poi.get("name", ""):
-                            poi_copy = poi.copy()
-                            poi_copy["recommend_reason"] = f"用户必去: {mv}"
-                            poi_copy["priority"] = 1
-                            poi_copy["is_must_visit"] = True
-                            enriched_pois.insert(0, poi_copy)
-                            break
-            
-            logger.info(f"Selected {len(enriched_pois)} POIs (including {len(must_visit)} must-visit)")
-            return {"pois": enriched_pois}
-        
-        except Exception as e:
-            logger.error(f"Failed to parse POI recommendations: {e}")
-            # Fallback: use scored POIs directly
-            return {"pois": scored_pois[:days * 3]}
+        logger.info("Selected " + str(len(enriched_pois)) + " POIs")
+        return {"pois": enriched_pois}

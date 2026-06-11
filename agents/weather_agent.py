@@ -1,5 +1,6 @@
 """Weather Agent - Fetch weather forecast for the trip."""
 
+import json
 import logging
 from datetime import datetime, timedelta
 
@@ -16,8 +17,9 @@ WEATHER_SYSTEM = """You are a weather forecast assistant.
 Given a city and date range, provide a weather forecast with activity suggestions.
 
 Output format (JSON array, one per day):
+```json
 [
-  {
+  {{
     "date": "2024-01-15",
     "temperature_high": 15,
     "temperature_low": 5,
@@ -25,8 +27,9 @@ Output format (JSON array, one per day):
     "humidity": 40,
     "wind_speed": 10,
     "suggestion": "适合户外活动，建议穿外套"
-  }
+  }}
 ]
+```
 
 Weather conditions: 晴, 多云, 阴, 小雨, 中雨, 大雨, 雪, 雾"""
 
@@ -50,27 +53,23 @@ class WeatherAgent(BaseTourAgent):
     
     async def execute(self, state: TourState) -> dict:
         """Fetch weather forecast."""
-        intent = state.get("intent", {})
+        intent = state.get("trip_intent", {})
         city = intent.get("city", state.get("city", ""))
         days = intent.get("days", 3)
         
         if not city:
-            return {"errors": state.get("errors", []) + ["No city specified"]}
+            return {"weather": []}
         
         # Generate date range
-        start_date = datetime.now() + timedelta(days=1)  # Tomorrow
+        start_date = datetime.now() + timedelta(days=1)
         dates = [(start_date + timedelta(days=i)).strftime("%Y-%m-%d") for i in range(days)]
         
-        context = f"""城市: {city}
-日期范围: {dates[0]} 到 {dates[-1]} (共{days}天)
-
-请提供天气预报。"""
+        context = "City: " + city + "\nDate range: " + dates[0] + " to " + dates[-1] + " (" + str(days) + " days)\n\nPlease provide weather forecast."
         
         runnable = self.get_runnable()
         response = await runnable.ainvoke({"context": context})
         
         try:
-            import json
             content = response.content
             if "```json" in content:
                 content = content.split("```json")[1].split("```")[0]
@@ -78,12 +77,11 @@ class WeatherAgent(BaseTourAgent):
                 content = content.split("```")[1].split("```")[0]
             
             weather_data = json.loads(content.strip())
-            logger.info(f"Got weather forecast for {days} days")
+            logger.info("Got weather forecast for " + str(days) + " days")
             return {"weather": weather_data}
         
         except Exception as e:
-            logger.error(f"Failed to parse weather: {e}")
-            # Fallback: generate dummy weather
+            logger.error("Failed to parse weather: " + str(e))
             fallback = [
                 {
                     "date": d,

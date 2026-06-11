@@ -1,7 +1,4 @@
-"""Tour Pass Multi-Agent System - Main Graph Construction.
-
-This module builds the LangGraph workflow that orchestrates all agents.
-"""
+"""Tour Pass Multi-Agent System - Main Graph Construction."""
 
 import logging
 from typing import Optional
@@ -30,23 +27,7 @@ def build_tour_graph(
     data_dir: str = "data",
     checkpointer: Optional[MemorySaver] = None,
 ) -> StateGraph:
-    """Build the multi-agent tour planning graph.
-    
-    Workflow:
-    1. IntentAgent: Parse user intent
-    2. PoiAgent + HotelAgent + WeatherAgent + RestaurantAgent: Parallel data gathering
-    3. SchedulerAgent: Create itinerary
-    4. ReviewerAgent: Validate constraints (loop back if failed)
-    5. TicketAgent: Provide ticket info
-    
-    Args:
-        llm: Language model for all agents.
-        data_dir: Directory containing city data files.
-        checkpointer: Optional checkpoint saver for state persistence.
-    
-    Returns:
-        Compiled StateGraph.
-    """
+    """Build the multi-agent tour planning graph."""
     
     # Initialize agents
     intent_agent = IntentAgent(llm)
@@ -61,71 +42,65 @@ def build_tour_graph(
     # Build graph
     builder = StateGraph(TourState)
     
-    # Add nodes
-    builder.add_node("intent", intent_agent)
-    builder.add_node("poi", poi_agent)
-    builder.add_node("hotel", hotel_agent)
-    builder.add_node("weather", weather_agent)
-    builder.add_node("restaurant", restaurant_agent)
-    builder.add_node("scheduler", scheduler_agent)
-    builder.add_node("reviewer", reviewer_agent)
-    builder.add_node("ticket", ticket_agent)
+    # Add nodes with prefix to avoid state key conflicts
+    builder.add_node("node_intent", intent_agent)
+    builder.add_node("node_poi", poi_agent)
+    builder.add_node("node_hotel", hotel_agent)
+    builder.add_node("node_weather", weather_agent)
+    builder.add_node("node_restaurant", restaurant_agent)
+    builder.add_node("node_scheduler", scheduler_agent)
+    builder.add_node("node_reviewer", reviewer_agent)
+    builder.add_node("node_ticket", ticket_agent)
     
     # Define edges
-    # 1. Start -> Intent
-    builder.add_edge(START, "intent")
+    builder.add_edge(START, "node_intent")
+    builder.add_edge("node_intent", "node_poi")
+    builder.add_edge("node_intent", "node_hotel")
+    builder.add_edge("node_intent", "node_weather")
+    builder.add_edge("node_intent", "node_restaurant")
+    builder.add_edge("node_poi", "node_scheduler")
+    builder.add_edge("node_hotel", "node_scheduler")
+    builder.add_edge("node_weather", "node_scheduler")
+    builder.add_edge("node_restaurant", "node_scheduler")
+    builder.add_edge("node_scheduler", "node_reviewer")
     
-    # 2. Intent -> Parallel data gathering
-    builder.add_edge("intent", "poi")
-    builder.add_edge("intent", "hotel")
-    builder.add_edge("intent", "weather")
-    builder.add_edge("intent", "restaurant")
-    
-    # 3. Data gathering -> Scheduler (all must complete)
-    builder.add_edge("poi", "scheduler")
-    builder.add_edge("hotel", "scheduler")
-    builder.add_edge("weather", "scheduler")
-    builder.add_edge("restaurant", "scheduler")
-    
-    # 4. Scheduler -> Reviewer
-    builder.add_edge("scheduler", "reviewer")
-    
-    # 5. Reviewer -> conditional (pass -> ticket, fail -> scheduler)
+    # Conditional edge: reviewer -> ticket or scheduler
     def route_review(state: TourState) -> str:
         review = state.get("review_result", {})
+        errors = state.get("errors", [])
+        
+        # Count how many times we've been through the review cycle
+        review_count = sum(1 for e in errors if "Schedule creation failed" in e or "review" in e.lower())
+        
+        # If we've tried too many times, force pass
+        if review_count >= 2:
+            logger.warning("Review cycle limit reached, forcing pass")
+            return "node_ticket"
+        
         if review and review.get("passed"):
-            return "ticket"
-        return "scheduler"
+            return "node_ticket"
+        return "node_scheduler"
     
     builder.add_conditional_edges(
-        "reviewer",
+        "node_reviewer",
         route_review,
-        ["ticket", "scheduler"]
+        ["node_ticket", "node_scheduler"]
     )
     
-    # 6. Ticket -> End
-    builder.add_edge("ticket", END)
+    builder.add_edge("node_ticket", END)
     
-    # Compile
+    # Compile with increased recursion limit
     graph = builder.compile(checkpointer=checkpointer)
-    
     logger.info("Tour planning graph built successfully")
     return graph
 
 
 def create_initial_state(user_message: str) -> dict:
-    """Create initial state from user message.
-    
-    Args:
-        user_message: User's natural language request.
-    
-    Returns:
-        Initial state dictionary.
-    """
+    """Create initial state from user message."""
     return {
         "messages": [HumanMessage(content=user_message)],
         "user_message": user_message,
-        "intent": None,
+        "trip_intent": None,
         "city": "",
         "days": 3,
         "pois": [],

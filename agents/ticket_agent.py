@@ -11,29 +11,9 @@ from agents.state import TourState
 
 logger = logging.getLogger(__name__)
 
-TICKET_SYSTEM = """You are a ticket booking assistant.
+TICKET_SYSTEM = """You are a ticket booking assistant. Provide ticket information for attractions.
 
-Given the planned itinerary, provide ticket information for attractions.
-
-For each attraction, provide:
-1. Ticket type (entrance, combo, vip)
-2. Estimated price
-3. Booking tips
-4. Any discounts or special notes
-
-Output format (JSON):
-{
-  "tickets": [
-    {
-      "poi_id": "xxx",
-      "poi_name": "景点名称",
-      "ticket_type": "entrance",
-      "price": 100,
-      "booking_url": null,
-      "notes": "建议提前网上预订，可享受9折优惠"
-    }
-  ]
-}"""
+Output JSON with tickets array. Each ticket should have: poi_id, poi_name, ticket_type, price, notes."""
 
 
 class TicketAgent(BaseTourAgent):
@@ -74,45 +54,16 @@ class TicketAgent(BaseTourAgent):
         if not attractions:
             return {"tickets": []}
         
-        # Prepare context
-        attr_list = "\n".join([
-            f"- {a['name']} (ID:{a['id']}, 区域:{a['area']})"
-            for a in attractions
-        ])
+        # Generate basic ticket info
+        tickets = []
+        for attr in attractions:
+            tickets.append({
+                "poi_id": attr["id"],
+                "poi_name": attr["name"],
+                "ticket_type": "entrance",
+                "price": 0,
+                "notes": "Please check official website for pricing",
+            })
         
-        context = f"""行程中的景点:
-{attr_list}
-
-请提供每个景点的门票信息。"""
-        
-        runnable = self.get_runnable()
-        response = await runnable.ainvoke({"context": context})
-        
-        try:
-            content = response.content
-            if "```json" in content:
-                content = content.split("```json")[1].split("```")[0]
-            elif "```" in content:
-                content = content.split("```")[1].split("```")[0]
-            
-            result = json.loads(content.strip())
-            tickets = result.get("tickets", [])
-            
-            logger.info(f"Got ticket info for {len(tickets)} attractions")
-            return {"tickets": tickets}
-        
-        except Exception as e:
-            logger.error(f"Failed to parse ticket info: {e}")
-            # Fallback: generate basic ticket info
-            fallback = [
-                {
-                    "poi_id": a["id"],
-                    "poi_name": a["name"],
-                    "ticket_type": "entrance",
-                    "price": 0,
-                    "booking_url": None,
-                    "notes": "请查询官方票价",
-                }
-                for a in attractions
-            ]
-            return {"tickets": fallback}
+        logger.info("Got ticket info for " + str(len(tickets)) + " attractions")
+        return {"tickets": tickets}

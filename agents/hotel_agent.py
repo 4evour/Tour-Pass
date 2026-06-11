@@ -1,11 +1,4 @@
-"""Hotel Agent - Search and recommend hotels with location-aware scoring.
-
-This agent considers:
-1. Proximity to planned attractions
-2. Price level matching budget
-3. Rating and reviews
-4. Amenities
-"""
+"""Hotel Agent - Search and recommend hotels with location-aware scoring."""
 
 import json
 import logging
@@ -20,77 +13,82 @@ from agents.state import TourState
 
 logger = logging.getLogger(__name__)
 
+# City name to directory mapping
+CITY_DIR_MAP = {
+    "广州": "guangzhou",
+    "北京": "beijing",
+    "上海": "shanghai",
+    "深圳": "shenzhen",
+    "成都": "chengdu",
+    "重庆": "chongqing",
+    "杭州": "hangzhou",
+    "武汉": "wuhan",
+    "南京": "nanjing",
+    "西安": "xian",
+    "长沙": "changsha",
+    "昆明": "kunming",
+    "大理": "dali",
+    "丽江": "lijiang",
+    "三亚": "sanya",
+    "桂林": "guilin",
+    "厦门": "xiamen",
+    "青岛": "qingdao",
+    "哈尔滨": "harbin",
+    "苏州": "suzhou",
+    "张家界": "zhangjiajie",
+}
+
 HOTEL_SYSTEM = """You are a hotel recommendation expert.
 
 Given the user's intent, POI locations, and available hotels, select the best hotel.
 
-Consider:
-1. **Location**: Hotel should be central to the planned attractions
-2. **Budget**: Match user's budget level
-3. **Rating**: Prioritize higher-rated hotels
-4. **Amenities**: Consider user's needs
-
 Output format (JSON):
+```json
 {
   "selected_hotel": {
     "id": "hotel_id",
-    "name": "酒店名称",
-    "reason": "推荐理由"
-  },
-  "alternatives": [
-    {"id": "hotel_id", "name": "酒店名称", "reason": "推荐理由"}
-  ]
-}"""
+    "name": "hotel name",
+    "reason": "recommendation reason"
+  }
+}
+```"""
 
 
 def _haversine_km(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
     """Calculate distance between two points using Haversine formula."""
-    R = 6371  # Earth radius in km
-    
+    R = 6371
     lat1, lng1, lat2, lng2 = map(math.radians, [lat1, lng1, lat2, lng2])
     dlat = lat2 - lat1
     dlng = lng2 - lng1
-    
     a = math.sin(dlat/2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlng/2)**2
     c = 2 * math.asin(math.sqrt(a))
-    
     return R * c
 
 
-def score_hotel(hotel: dict, poi_center: tuple[float, float], budget: str) -> float:
+def score_hotel(hotel: dict, poi_center: tuple, budget: str) -> float:
     """Score a hotel based on location and budget."""
     score = 0.0
-    
-    # Rating score (0-50)
     rating = hotel.get("rating", 0)
     score += rating * 10
     
-    # Location score (0-30) - closer to POI center is better
     hotel_lat = hotel.get("lat", 0)
     hotel_lng = hotel.get("lng", 0)
     center_lat, center_lng = poi_center
     
     if hotel_lat and hotel_lng and center_lat and center_lng:
         distance = _haversine_km(hotel_lat, hotel_lng, center_lat, center_lng)
-        # Closer is better, max 30 points for < 1km, 0 points for > 10km
         location_score = max(0, 30 - distance * 3)
         score += location_score
     
-    # Budget match (0-20)
     price = hotel.get("price_per_night", 0)
-    budget_ranges = {
-        "budget": (0, 200),
-        "mid-range": (200, 500),
-        "luxury": (500, 10000),
-    }
-    
+    budget_ranges = {"budget": (0, 200), "mid-range": (200, 500), "luxury": (500, 10000)}
     low, high = budget_ranges.get(budget, (0, 10000))
     if low <= price <= high:
         score += 20
     elif price < low:
-        score += 15  # Under budget is okay
+        score += 15
     else:
-        score += 5  # Over budget is penalized
+        score += 5
     
     return score
 
@@ -116,39 +114,46 @@ class HotelAgent(BaseTourAgent):
             ("human", "{context}"),
         ])
     
+    def _get_city_dir(self, city: str) -> str:
+        """Get directory name for city."""
+        if (self.data_dir / city).exists():
+            return city
+        if city in CITY_DIR_MAP:
+            return CITY_DIR_MAP[city]
+        return city.lower()
+    
     def _load_hotels(self, city: str) -> list[dict]:
         """Load hotels from local JSON file."""
-        poi_file = self.data_dir / city / "pois.json"
+        city_dir = self._get_city_dir(city)
+        poi_file = self.data_dir / city_dir / "pois.json"
+        
         if not poi_file.exists():
             return []
-        
         try:
             with open(poi_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 hotels = [p for p in data if p.get("type") == "hotel"]
-                logger.info(f"Loaded {len(hotels)} hotels for {city}")
+                logger.info("Loaded " + str(len(hotels)) + " hotels for " + city)
                 return hotels
         except Exception as e:
-            logger.error(f"Failed to load hotels: {e}")
+            logger.error("Failed to load hotels: " + str(e))
             return []
     
     async def execute(self, state: TourState) -> dict:
         """Select the best hotel with location-aware scoring."""
-        intent = state.get("intent", {})
+        intent = state.get("trip_intent", {})
         city = intent.get("city", state.get("city", ""))
         budget = intent.get("budget", "mid-range")
         pois = state.get("pois", [])
         
         if not city:
-            return {"errors": state.get("errors", []) + ["No city specified"]}
+            return {"selected_hotel": None}
         
-        # Load hotels
         hotels = self._load_hotels(city)
-        
         if not hotels:
-            return {"errors": state.get("errors", []) + [f"No hotel data for {city}"]}
+            return {"selected_hotel": None}
         
-        # Calculate POI center for location-based recommendation
+        # Calculate POI center
         if pois:
             valid_pois = [p for p in pois if p.get("lat") and p.get("lng")]
             if valid_pois:
@@ -162,63 +167,14 @@ class HotelAgent(BaseTourAgent):
         # Score hotels
         scored_hotels = []
         for hotel in hotels:
-            score = score_hotel(hotel, (avg_lat, avg_lng), budget)
-            scored_hotels.append((score, hotel))
+            s = score_hotel(hotel, (avg_lat, avg_lng), budget)
+            scored_hotels.append((s, hotel))
         
-        # Sort by score
         scored_hotels.sort(key=lambda x: x[0], reverse=True)
         
-        # Prepare context for LLM
-        hotel_list = "\n".join([
-            f"- {h['name']} (ID:{h['id']}, 区域:{h.get('area', '')}, "
-            f"评分:{h.get('rating', 0)}, 价格:{h.get('price_per_night', 0)}元/晚, "
-            f"综合分数:{score:.1f})"
-            for score, h in scored_hotels[:10]
-        ])
+        # Select best hotel
+        if scored_hotels:
+            _, best_hotel = scored_hotels[0]
+            return {"selected_hotel": best_hotel}
         
-        context = f"""城市: {city}
-预算级别: {budget}
-景点中心位置: ({avg_lat:.4f}, {avg_lng:.4f})
-
-候选酒店 (已按位置和评分排序):
-{hotel_list}
-
-请推荐最适合的酒店。"""
-        
-        runnable = self.get_runnable()
-        response = await runnable.ainvoke({"context": context})
-        
-        try:
-            content = response.content
-            if "```json" in content:
-                content = content.split("```json")[1].split("```")[0]
-            elif "```" in content:
-                content = content.split("```")[1].split("```")[0]
-            
-            result = json.loads(content.strip())
-            selected = result.get("selected_hotel", {})
-            
-            # Find full hotel data
-            hotel_map = {h["id"]: h for h in hotels}
-            selected_id = selected.get("id", "")
-            
-            if selected_id in hotel_map:
-                hotel = hotel_map[selected_id].copy()
-                hotel["recommend_reason"] = selected.get("reason", "")
-                return {"selected_hotel": hotel}
-            
-            # Fallback: highest scored hotel
-            if scored_hotels:
-                _, best_hotel = scored_hotels[0]
-                return {"selected_hotel": best_hotel}
-            
-            return {"selected_hotel": hotels[0] if hotels else None}
-        
-        except Exception as e:
-            logger.error(f"Failed to parse hotel recommendation: {e}")
-            # Fallback: highest scored hotel
-            if scored_hotels:
-                _, best_hotel = scored_hotels[0]
-                return {"selected_hotel": best_hotel}
-            
-            return {"selected_hotel": hotels[0] if hotels else None}
+        return {"selected_hotel": None}
