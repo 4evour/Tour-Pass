@@ -1,4 +1,9 @@
-"""POI Agent - Search and recommend Points of Interest."""
+"""POI Agent - Search and recommend Points of Interest with scoring.
+
+This agent uses a hybrid approach:
+1. Score-based pre-filtering (from legacy scorer.py)
+2. LLM-based selection and explanation
+"""
 
 import json
 import logging
@@ -9,19 +14,17 @@ from langchain_core.prompts import ChatPromptTemplate
 
 from agents.base import BaseTourAgent
 from agents.state import TourState
+from tools.scoring import rank_pois
 
 logger = logging.getLogger(__name__)
 
-POI_SYSTEM = """You are a POI (Point of Interest) recommendation expert. 
+POI_SYSTEM = """You are a POI (Point of Interest) recommendation expert.
 
-Given the user's intent and available POIs, select the best attractions for their trip.
-
-RULES:
-1. MUST include all must_visit places (marked with 【必去】)
-2. Prioritize POIs that match user's interests
-3. Consider geographic clustering (group nearby POIs)
-4. Balance popular spots with hidden gems
-5. Return top {top_k} POIs
+You receive a pre-scored list of candidate POIs. Your job is to:
+1. Select the best {top_k} POIs for the trip
+2. Ensure ALL must_visit places (marked with 【必去】) are included
+3. Provide a brief reason for each selection
+4. Balance variety (different types of attractions)
 
 Output format (JSON array):
 [
@@ -29,13 +32,19 @@ Output format (JSON array):
     "id": "poi_id",
     "name": "景点名称",
     "reason": "推荐理由",
-    "match_score": 0.95
+    "priority": 1
   }
-]"""
+]
+
+RULES:
+- MUST include all 【必去】 POIs (priority 1)
+- Select diverse attractions (not all temples or all parks)
+- Consider geographic distribution
+- Return exactly {top_k} POIs"""
 
 
 class PoiAgent(BaseTourAgent):
-    """Agent that searches and recommends POIs based on user intent."""
+    """Agent that searches and recommends POIs using hybrid scoring + LLM."""
     
     def __init__(self, llm: BaseChatModel, data_dir: str = "data"):
         super().__init__(llm)
@@ -47,7 +56,7 @@ class PoiAgent(BaseTourAgent):
     
     @property
     def description(self) -> str:
-        return "Search and recommend Points of Interest"
+        return "Search and recommend Points of Interest with intelligent scoring"
     
     def build_prompt(self) -> ChatPromptTemplate:
         return ChatPromptTemplate.from_messages([
@@ -65,8 +74,8 @@ class PoiAgent(BaseTourAgent):
         try:
             with open(poi_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                # Filter to attractions only
-                attractions = [p for p in data if p.get("type") == "attraction"]
+                # Filter to attractions and nightlife
+                attractions = [p for p in data if p.get("type") in ("attraction", "nightlife")]
                 logger.info(f"Loaded {len(attractions)} attractions for {city}")
                 return attractions
         except Exception as e:
@@ -74,12 +83,11 @@ class PoiAgent(BaseTourAgent):
             return []
     
     async def execute(self, state: TourState) -> dict:
-        """Search and recommend POIs."""
+        """Search and recommend POIs using hybrid scoring + LLM."""
         intent = state.get("intent", {})
         city = intent.get("city", state.get("city", ""))
         days = intent.get("days", 3)
         must_visit = intent.get("must_visit", [])
-        interests = intent.get("interests", [])
         
         if not city:
             return {"errors": state.get("errors", []) + ["No city specified"]}
@@ -90,27 +98,35 @@ class PoiAgent(BaseTourAgent):
         if not all_pois:
             return {"errors": state.get("errors", []) + [f"No POI data for {city}"]}
         
-        # Mark must_visit POIs
-        for poi in all_pois:
-            poi["is_must_visit"] = any(mv in poi["name"] for mv in must_visit)
+        # Step 1: Score-based pre-filtering
+        logger.info("Step 1: Scoring and ranking POIs...")
+        top_k = days * 5  # 5 POIs per day as candidates
+        scored_pois = rank_pois(
+            pois=all_pois,
+            intent=intent,
+            top_k=top_k,
+        )
+        
+        # Step 2: LLM-based selection
+        logger.info("Step 2: LLM selection from top candidates...")
         
         # Prepare context for LLM
         poi_list = "\n".join([
             f"- {p['name']} (ID:{p['id']}, 区域:{p.get('area', '')}, "
-            f"评分:{p.get('popularity', 0)}, 标签:{','.join(p.get('tags', [])[:3])})"
-            + (" 【必去】" if p.get("is_must_visit") else "")
-            for p in all_pois[:50]  # Limit to top 50 for context window
+            f"评分:{p.get('popularity', 0)}, 分数:{p.get('_score', 0):.1f}, "
+            f"标签:{','.join(p.get('tags', [])[:3])})"
+            + (" 【必去】" if p.get("is_must_visit") or any(mv in p["name"] for mv in must_visit) else "")
+            for p in scored_pois
         ])
         
         context = f"""城市: {city}
 旅行天数: {days}
-用户兴趣: {', '.join(interests) if interests else '综合'}
 必去景点: {', '.join(must_visit) if must_visit else '无'}
 
-候选景点列表:
+预筛选候选景点 (已按评分排序):
 {poi_list}
 
-请推荐 {days * 4} 个最适合的景点。"""
+请从以上候选中选择 {days * 3} 个最合适的景点。"""
         
         runnable = self.get_runnable()
         response = await runnable.ainvoke({"context": context})
@@ -127,23 +143,32 @@ class PoiAgent(BaseTourAgent):
             # Merge with full POI data
             poi_map = {p["id"]: p for p in all_pois}
             enriched_pois = []
+            
             for rec in recommended:
                 poi_id = rec.get("id", "")
                 if poi_id in poi_map:
                     poi = poi_map[poi_id].copy()
                     poi["recommend_reason"] = rec.get("reason", "")
-                    poi["match_score"] = rec.get("match_score", 0)
+                    poi["priority"] = rec.get("priority", 5)
                     enriched_pois.append(poi)
             
-            logger.info(f"Recommended {len(enriched_pois)} POIs")
+            # Ensure must_visit are included
+            for mv in must_visit:
+                if not any(mv in p.get("name", "") for p in enriched_pois):
+                    # Find in original data
+                    for poi in all_pois:
+                        if mv in poi.get("name", ""):
+                            poi_copy = poi.copy()
+                            poi_copy["recommend_reason"] = f"用户必去: {mv}"
+                            poi_copy["priority"] = 1
+                            poi_copy["is_must_visit"] = True
+                            enriched_pois.insert(0, poi_copy)
+                            break
+            
+            logger.info(f"Selected {len(enriched_pois)} POIs (including {len(must_visit)} must-visit)")
             return {"pois": enriched_pois}
         
         except Exception as e:
             logger.error(f"Failed to parse POI recommendations: {e}")
-            # Fallback: return top POIs by popularity
-            must_visit_pois = [p for p in all_pois if p.get("is_must_visit")]
-            other_pois = [p for p in all_pois if not p.get("is_must_visit")]
-            other_pois.sort(key=lambda x: x.get("popularity", 0), reverse=True)
-            
-            fallback = must_visit_pois + other_pois[:days * 4]
-            return {"pois": fallback}
+            # Fallback: use scored POIs directly
+            return {"pois": scored_pois[:days * 3]}
