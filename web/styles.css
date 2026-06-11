@@ -1470,10 +1470,10 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 }
 .form-collapsible summary::-webkit-details-marker { display: none; }
 .form-collapsible summary::before {
-  content: "â–?";
+  content: "ï¿½?";
   transition: transform 0.2s;
 }
-.form-collapsible[open] summary::before { content: "â–?"; }
+.form-collapsible[open] summary::before { content: "ï¿½?"; }
 .compact-form {
   padding: 0 16px 16px;
 }
@@ -2076,6 +2076,58 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   line-height: 1.4;
 }
 
+/* Stop card: hero image from XHS */
+.stop-hero-img {
+  width: 100%;
+  max-height: 160px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px 8px 0 0;
+  background: var(--soft);
+}
+.stop-hero-img[src=""],
+.stop-hero-img.error {
+  display: none;
+}
+
+/* Stop card: guide text from XHS travel notes */
+.stop-guide {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+  padding: 6px 10px;
+  border-left: 3px solid var(--accent);
+  background: var(--soft);
+  border-radius: 0 6px 6px 0;
+  line-height: 1.5;
+  position: relative;
+}
+.stop-guide-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+.stop-guide-text.expanded {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+.stop-guide-toggle {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--accent);
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  font-weight: 600;
+}
+.stop-guide-toggle:hover {
+  text-decoration: underline;
+}
+
 /* Meal stop enhancements */
 .stop-meal { border-left-color: #f59e0b !important; }
 .stop-meal-badge {
@@ -2622,3 +2674,12 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .empty-state-box p { margin: 4px 0; font-size: 14px; }
 .empty-state-box a { color: var(--accent); text-decoration: none; font-weight: 600; }
 .guest-retention-banner a:hover { text-decoration: underline; }
+
+/* Map popup image */
+.map-popup-img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 6px;
+}

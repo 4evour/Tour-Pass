@@ -481,10 +481,10 @@ std::vector<ScoreComponent> TripPlanner::buildScoreBreakdown(const TripRequest& 
         else if (usedPoi->type == PoiType::Restaurant) restaurantCount++;
     }
     if (poi.type == PoiType::Attraction && attractionCount > restaurantCount + 1) {
-        breakdown.push_back({"type_diversity", -15.0, "Too many attractions, prefer variety."});
+        breakdown.push_back({"\xe7\xb1\xbb\xe5\x9e\x8b\xe5\xa4\x9a\xe6\xa0\xb7", -15.0, "\xe6\x99\xaf\xe7\x82\xb9\xe8\xbf\x87\xe5\xa4\x9a\xef\xbc\x8c\xe5\x81\x8f\xe5\xa5\xbd\xe5\xa4\x9a\xe6\xa0\xb7\xe6\x80\xa7\xe3\x80\x82"});
     }
     if (poi.type == PoiType::Restaurant && restaurantCount < attractionCount) {
-        breakdown.push_back({"type_diversity", 12.0, "Good time for a meal break."});
+        breakdown.push_back({"\xe7\xb1\xbb\xe5\x9e\x8b\xe5\xa4\x9a\xe6\xa0\xb7", 12.0, "\xe7\x94\xa8\xe9\xa4\x90\xe6\x97\xb6\xe6\xae\xb5\xe5\x8a\xa0\xe5\x88\x86\xe3\x80\x82"});
     }
 
     // === Area diversity bonus ===
@@ -494,26 +494,26 @@ std::vector<ScoreComponent> TripPlanner::buildScoreBreakdown(const TripRequest& 
         if (usedPoi && !usedPoi->area.empty()) visitedAreas.insert(usedPoi->area);
     }
     if (!poi.area.empty() && visitedAreas.count(poi.area) == 0) {
-        breakdown.push_back({"area_diversity", 8.0, "New area adds variety."});
+        breakdown.push_back({"\xe5\x8c\xba\xe5\x9f\x9f\xe5\xa4\x9a\xe6\xa0\xb7", 8.0, "\xe6\x8e\xa2\xe7\xb4\xa2\xe6\x96\xb0\xe5\x8c\xba\xe5\x9f\x9f\xe5\xa2\x9e\xe5\x8a\xa0\xe5\xa4\x9a\xe6\xa0\xb7\xe6\x80\xa7\xe3\x80\x82"});
     }
 
     // === Time-appropriate bonus ===
     if (poi.type == PoiType::Restaurant) {
         bool isLunchTime = (arrival >= 660 && arrival <= 780);
         bool isDinnerTime = (arrival >= 1020 && arrival <= 1200);
-        if (isLunchTime) breakdown.push_back({"time_fit", 18.0, "Lunch hours."});
-        else if (isDinnerTime) breakdown.push_back({"time_fit", 18.0, "Dinner hours."});
-        else breakdown.push_back({"time_fit", -10.0, "Outside meal hours."});
+        if (isLunchTime) breakdown.push_back({"\xe6\x97\xb6\xe9\x97\xb4\xe9\x80\x82\xe9\x85\x8d", 18.0, "\xe5\x8d\x88\xe9\xa4\x90\xe6\x97\xb6\xe6\xae\xb5\xe3\x80\x82"});
+        else if (isDinnerTime) breakdown.push_back({"\xe6\x97\xb6\xe9\x97\xb4\xe9\x80\x82\xe9\x85\x8d", 18.0, "\xe6\x99\x9a\xe9\xa4\x90\xe6\x97\xb6\xe6\xae\xb5\xe3\x80\x82"});
+        else breakdown.push_back({"\xe6\x97\xb6\xe9\x97\xb4\xe9\x80\x82\xe9\x85\x8d", -10.0, "\xe9\x9d\x9e\xe7\x94\xa8\xe9\xa4\x90\xe6\x97\xb6\xe6\xae\xb5\xe3\x80\x82"});
     }
     if (poi.type == PoiType::Nightlife && arrival >= 1080) {
-        breakdown.push_back({"time_fit", 15.0, "Evening nightlife."});
+        breakdown.push_back({"\xe6\x97\xb6\xe9\x97\xb4\xe9\x80\x82\xe9\x85\x8d", 15.0, "\xe5\xa4\x9c\xe9\x97\xb4\xe5\x9c\xba\xe6\x99\xaf\xe3\x80\x82"});
     }
 
     // === Popularity tier bonus ===
     if (poi.popularity >= 4.7) {
-        breakdown.push_back({"top_attraction", 10.0, "Must-see top-rated."});
+        breakdown.push_back({"\xe9\xa1\xb6\xe7\xba\xa7\xe6\x99\xaf\xe7\x82\xb9", 10.0, "\xe5\xbf\x85\xe7\x9c\x8b\xe9\xa1\xb6\xe7\xba\xa7\xe6\x99\xaf\xe7\x82\xb9\xe3\x80\x82"});
     } else if (poi.popularity >= 4.3) {
-        breakdown.push_back({"top_attraction", 5.0, "High-rated attraction."});
+        breakdown.push_back({"\xe9\xa1\xb6\xe7\xba\xa7\xe6\x99\xaf\xe7\x82\xb9", 5.0, "\xe9\xab\x98\xe5\x88\x86\xe6\x99\xaf\xe7\x82\xb9\xe3\x80\x82"});
     }
 
     return breakdown;
@@ -680,6 +680,8 @@ Stop TripPlanner::makeStop(const std::string& slot, const Poi& poi, int startMin
     stop.area = poi.area;
     stop.lat = poi.lat;
     stop.lng = poi.lng;
+    stop.imageUrl = poi.imageUrl;
+    stop.guideText = poi.guideText;
     stop.startMinutes = actualStart;
     stop.endMinutes = actualStart + poi.visitDurationMinutes;
     stop.visitDurationMinutes = poi.visitDurationMinutes;
@@ -906,6 +908,11 @@ void TripPlanner::optimizeDayOrder(const std::string& startId, DayPlan& day) con
             << " 分钟，理论更优顺序 " << day.optimizedTravelMinutes
             << " 分钟，可节省 " << saved << " 分钟；只有同时满足开放时间、餐饮窗口和站点顺序的交换才计入收益。";
     day.optimizationSummary = summary.str();
+
+    // Write back optimized order if improvement found
+    if (saved > 0) {
+        day.stops = candidateStops;
+    }
 }
 
 void TripPlanner::explainDayConstraints(const TripRequest& request, const std::set<std::string>& used, DayPlan& day) const {
@@ -1161,13 +1168,24 @@ std::vector<Itinerary> TripPlanner::planCandidates(const TripRequest& request) c
         if (static_cast<int>(candidates.size()) >= request.candidateCount) break;
         auto variant = variants[index];
         Itinerary itinerary = plan(variant);
+        // Build signature including variant name to preserve strategy diversity
+        std::string signature = names[index] + ":";
+        for (const auto& day : itinerary.days) {
+            for (const auto& stop : day.stops) {
+                signature += stop.poiId + "|";
+            }
+            signature += ";";
+        }
         bool duplicate = false;
         for (const auto& existing : candidates) {
-            if (!existing.days.empty() && !itinerary.days.empty() &&
-                !existing.days.front().stops.empty() && !itinerary.days.front().stops.empty() &&
-                existing.days.front().stops.front().poiId == itinerary.days.front().stops.front().poiId &&
-                existing.days.front().stops.size() == itinerary.days.front().stops.size() &&
-                existing.variantName == names[index]) {
+            std::string existingSig = existing.variantName + ":";
+            for (const auto& day : existing.days) {
+                for (const auto& stop : day.stops) {
+                    existingSig += stop.poiId + "|";
+                }
+                existingSig += ";";
+            }
+            if (signature == existingSig) {
                 duplicate = true;
                 break;
             }

@@ -52,7 +52,11 @@ const Poi* PoiGraph::findPoi(const std::string& idOrName) const {
     }
     auto nameIt = idByName_.find(idOrName);
     if (nameIt != idByName_.end()) {
-        return findPoi(nameIt->second);
+        // Iterative lookup: name -> id -> index (no recursion to avoid stack overflow)
+        auto idIt2 = indexById_.find(nameIt->second);
+        if (idIt2 != indexById_.end()) {
+            return &pois_[idIt2->second];
+        }
     }
     return nullptr;
 }

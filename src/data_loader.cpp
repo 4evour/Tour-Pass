@@ -1,8 +1,11 @@
-﻿#include "tourpass/data_loader.h"
+#include "tourpass/data_loader.h"
 
 #include <fstream>
+#include <iostream>
+#include <queue>
 #include <set>
 #include <stdexcept>
+#include <unordered_map>
 
 #include "tourpass/graph.h"
 
@@ -75,6 +78,17 @@ std::vector<Poi> loadPois(const std::string& path) {
         poi.area = requiredString(item, "area");
         poi.mealType = item.value("meal_type", "main");
         poi.recommendation = item.value("recommendation", "");
+          poi.imageUrl = item.value("image_url", "");
+          poi.guideText = item.value("guide_text", "");
+          if (item.contains("images") && item["images"].is_array()) {
+              for (const auto& img : item["images"]) {
+                  PoiImage pi;
+                  pi.url = img.value("url", "");
+                  pi.source = img.value("source", "");
+                  pi.noteUrl = img.value("note_url", "");
+                  poi.images.push_back(pi);
+              }
+          }
 
         if (!ids.insert(poi.id).second) {
             throw std::runtime_error("duplicate poi id: " + poi.id);
@@ -117,6 +131,47 @@ DataSet loadDataSet(const std::string& poiPath, const std::string& edgePath) {
     DataSet data;
     data.pois = loadPois(poiPath);
     data.edges = loadEdges(edgePath, data.pois);
+
+    // Check graph connectivity and warn if disconnected
+    if (!data.pois.empty() && !data.edges.empty()) {
+        // Build adjacency set from loaded edges
+        std::unordered_map<std::string, std::vector<std::string>> adj;
+        for (const auto& edge : data.edges) {
+            adj[edge.from].push_back(edge.to);
+            adj[edge.to].push_back(edge.from);
+        }
+
+        // BFS from first POI
+        std::set<std::string> visited;
+        std::queue<std::string> bfsQueue;
+        bfsQueue.push(data.pois.front().id);
+        visited.insert(data.pois.front().id);
+        while (!bfsQueue.empty()) {
+            std::string current = bfsQueue.front();
+            bfsQueue.pop();
+            auto it = adj.find(current);
+            if (it != adj.end()) {
+                for (const auto& neighbor : it->second) {
+                    if (visited.insert(neighbor).second) {
+                        bfsQueue.push(neighbor);
+                    }
+                }
+            }
+        }
+
+        // Count non-hotel/transit POIs that are unreachable
+        int unreachable = 0;
+        for (const auto& poi : data.pois) {
+            if (poi.type != PoiType::Hotel && poi.type != PoiType::Transit && visited.count(poi.id) == 0) {
+                ++unreachable;
+            }
+        }
+        if (unreachable > 0) {
+            std::cerr << "WARNING: " << unreachable << " POIs are unreachable from the main graph component. "
+                      << "This may indicate missing edges in " << edgePath << std::endl;
+        }
+    }
+
     return data;
 }
 

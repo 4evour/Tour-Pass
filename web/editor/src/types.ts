@@ -10,6 +10,9 @@ export interface Poi {
   description: string;
   meal_type: string;
   recommendation: string;
+  image_url?: string;
+  images?: { url: string; source: string; note_url?: string }[];
+  guide_text?: string;
   open_minutes?: number;
   close_minutes?: number;
   visit_duration?: number;

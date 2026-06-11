@@ -100,6 +100,12 @@ int main() {
             return 1;
         }
 
+        // Warn if auth is running without OpenSSL (insecure fallbacks)
+        if (!tourpass::isAuthSecure()) {
+            std::cerr << "WARNING: Building without OpenSSL. Password hashing and JWT signatures use insecure fallbacks." << std::endl;
+            std::cerr << "WARNING: Production deployments MUST enable TOURPASS_ENABLE_OPENSSL." << std::endl;
+        }
+
         // ---- Config ----
         tourpass::RuntimeConfig config = tourpass::runtimeConfigFromEnv();
         config.dbPath = resolveRelativePath(config.dbPath);

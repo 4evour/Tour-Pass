@@ -179,7 +179,9 @@ def score_poi(
     # --- Tag richness bonus (new: rewards well-described POIs) ---
     richness = _tag_richness(poi.tags)
     if richness > 0:
-        breakdown.append(ScoreComponent("信息丰富", richness, f"{len([t for t in poi.tags if t not in ('城市游览','景点','室内','户外','休闲') and len(t)>=2])}个有效标签"))
+        generic = {'城市游览', '景点', '室内', '户外', '休闲'}
+        meaningful_count = len([t for t in poi.tags if t not in generic and len(t) >= 2])
+        breakdown.append(ScoreComponent("\u4fe1\u606f\u4e30\u5bcc", richness, f"{meaningful_count}\u4e2a\u6709\u6548\u6807\u7b7e"))
 
     # --- Must-visit bonus ---
     for mv in intent.must_visit:
@@ -294,7 +296,9 @@ def _diversify_by_area(scored: list[ScoredPoi], top_k: int) -> list[ScoredPoi]:
 
     remaining_k = top_k - len(must_visit_items)
     if remaining_k <= 0:
-        return scored[:top_k]
+        # Must-visit items alone fill or exceed top_k; return them sorted by score
+        must_visit_items.sort(key=lambda x: x.total_score, reverse=True)
+        return must_visit_items[:top_k]
 
     # Group regular items by area
     area_groups: dict[str, list[ScoredPoi]] = defaultdict(list)

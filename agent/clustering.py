@@ -151,18 +151,22 @@ def cluster_pois_for_days(
             primary_area="",
         ))
 
-    # Assign must-visit POIs to days — use geographic proximity to spread them out
+    # Assign must-visit POIs to days — distribute evenly first, then by proximity
     assigned_must_days: set[int] = set()
-    for sp in must_pois:
-        # Find the day with fewest must-visits, breaking ties by proximity
-        min_must = min(
-            range(num_days),
-            key=lambda d: sum(1 for a in clusters[d].attractions if _is_must_visit(a, intent.must_visit))
-        )
-        day_idx = _find_closest_cluster(sp.poi, clusters) if clusters[0].attractions else min_must
-        # If that day already has this must_visit, try the fewest-must day
-        if any(sp.poi.id == a.id for a in clusters[day_idx].attractions):
-            day_idx = min_must
+    for i, sp in enumerate(must_pois):
+        if i < num_days:
+            # First N must-visits go to different days (round-robin)
+            day_idx = i % num_days
+        else:
+            # Remaining must-visits: find day with fewest must-visits
+            min_must = min(
+                range(num_days),
+                key=lambda d: sum(1 for a in clusters[d].attractions if _is_must_visit(a, intent.must_visit))
+            )
+            day_idx = _find_closest_cluster(sp.poi, clusters) if clusters[0].attractions else min_must
+            # If that day already has this must_visit, try the fewest-must day
+            if any(sp.poi.id == a.id for a in clusters[day_idx].attractions):
+                day_idx = min_must
         clusters[day_idx].attractions.append(sp.poi)
         assigned_must_days.add(day_idx)
 
@@ -211,9 +215,9 @@ def cluster_pois_for_days(
 
         cluster.restaurants = day_rests[:3]
 
-        # Add nightlife
+        # Add nightlife — use (day_num - 1) for 0-based indexing to rotate properly
         if nightlife:
-            cluster.nightlife = [nightlife[cluster.day_num % len(nightlife)]]
+            cluster.nightlife = [nightlife[(cluster.day_num - 1) % len(nightlife)]]
 
         # Set theme based on attractions
         cluster.theme = _infer_theme(cluster.attractions, intent)

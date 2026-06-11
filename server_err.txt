@@ -1,0 +1,14 @@
+WARNING: 22 POIs are unreachable from the main graph component. This may indicate missing edges in data/dali/edges.json
+WARNING: 26 POIs are unreachable from the main graph component. This may indicate missing edges in data/lijiang/edges.json
+WARNING: 10 POIs are unreachable from the main graph component. This may indicate missing edges in data/chengdu/edges.json
+WARNING: 483 POIs are unreachable from the main graph component. This may indicate missing edges in data/chongqing/edges.json
+WARNING: 12 POIs are unreachable from the main graph component. This may indicate missing edges in data/hangzhou/edges.json
+WARNING: 2 POIs are unreachable from the main graph component. This may indicate missing edges in data/beijing/edges.json
+WARNING: 5 POIs are unreachable from the main graph component. This may indicate missing edges in data/shanghai/edges.json
+WARNING: 12 POIs are unreachable from the main graph component. This may indicate missing edges in data/qingdao/edges.json
+WARNING: 82 POIs are unreachable from the main graph component. This may indicate missing edges in data/guilin/edges.json
+WARNING: 2 POIs are unreachable from the main graph component. This may indicate missing edges in data/sanya/edges.json
+WARNING: 2 POIs are unreachable from the main graph component. This may indicate missing edges in data/kunming/edges.json
+LLM HTTP client init failed: 'https' scheme is not supported.
+WARNING: Building without OpenSSL. Password hashing and JWT signatures use insecure fallbacks.
+WARNING: Production deployments MUST enable TOURPASS_ENABLE_OPENSSL.

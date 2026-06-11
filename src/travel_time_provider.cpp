@@ -92,9 +92,9 @@ void AmapLiveProvider::putCache(const std::string& key, int minutes) {
 }
 
 int AmapLiveProvider::fetchFromAmap(const Poi& from, const Poi& to) const {
-    // Use walking directions for city tourism (more appropriate than driving)
+    // Use driving directions for commute time estimation
     std::ostringstream path;
-    path << "/v3/direction/walking?origin=" << std::fixed << from.lng << "," << from.lat
+    path << "/v3/direction/driving?origin=" << std::fixed << from.lng << "," << from.lat
          << "&destination=" << std::fixed << to.lng << "," << to.lat
          << "&key=" << apiKey_;
 

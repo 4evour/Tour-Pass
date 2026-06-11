@@ -28,6 +28,9 @@ struct SearchResult {
     int openMinutes = 0;
     int closeMinutes = 24 * 60;
     std::string recommendation;
+    std::string imageUrl;
+    std::string guideText;
+    std::vector<PoiImage> images;
 };
 
 struct PoiSearchIndex {

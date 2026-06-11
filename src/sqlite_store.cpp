@@ -579,7 +579,7 @@ nlohmann::json SQLiteStore::listTrips(int64_t userId) {
             {"created_at", safeColumnText(stmt.get(), 2)}
         };
         const char* shareId = safeColumnText(stmt.get(), 3);
-        item["share_id"] = shareId ? std::string(shareId) : "";
+        item["share_id"] = std::string(shareId);  // safeColumnText guarantees non-null
         arr.push_back(item);
     }
     return arr;
@@ -773,13 +773,22 @@ nlohmann::json SQLiteStore::queryStatsByDay(int days) {
 
 void SQLiteStore::cleanupExpiredGuests(int daysRetention) {
     std::lock_guard<std::mutex> lock(mutex_);
-    std::string cutoff = "datetime('now', '-" + std::to_string(daysRetention) + " days')";
+    std::string interval = "-" + std::to_string(daysRetention) + " days";
     try {
-        exec("DELETE FROM saved_trips WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
-        exec("DELETE FROM easter_egg_log WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
-        exec("DELETE FROM query_usage WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
-        exec("DELETE FROM feedback WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < " + cutoff + ");");
-        exec("DELETE FROM users WHERE role = 'guest' AND created_at < " + cutoff + ";");
+        // Use parameterized queries to prevent SQL injection
+        const char* cleanupTables[] = {"saved_trips", "easter_egg_log", "query_usage", "feedback"};
+        for (const char* table : cleanupTables) {
+            std::string sql = std::string("DELETE FROM ") + table +
+                " WHERE user_id IN (SELECT id FROM users WHERE role = 'guest' AND created_at < datetime('now', ?));";
+            Statement stmt(db_, sql);
+            bindText(stmt.get(), 1, interval);
+            sqlite3_step(stmt.get());
+        }
+        {
+            Statement stmt(db_, "DELETE FROM users WHERE role = 'guest' AND created_at < datetime('now', ?);");
+            bindText(stmt.get(), 1, interval);
+            sqlite3_step(stmt.get());
+        }
     } catch (const std::exception& ex) {
         std::cerr << "cleanupExpiredGuests failed: " << ex.what() << std::endl;
     }

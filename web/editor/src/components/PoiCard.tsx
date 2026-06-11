@@ -56,11 +56,18 @@ export default function PoiCard({ poi, variant, stop, index, day, onRemove }: Po
         title={poi.description || ''}
         className="flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-gray-200 cursor-grab hover:border-primary-400 hover:shadow-sm active:cursor-grabbing"
       >
-        <span className="text-lg">{TYPE_ICONS[poi.type] || '📍'}</span>
+        {poi.image_url ? (
+          <img src={`/${poi.image_url}`} alt={poi.name} className="w-10 h-10 rounded object-cover flex-shrink-0" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = ''; (e.target as HTMLImageElement).style.display = 'none'; }} />
+        ) : (
+          <div className="w-10 h-10 rounded bg-gray-100 flex items-center justify-center flex-shrink-0 text-xs text-gray-400">
+            {TYPE_ICONS[poi.type] || '📍'}
+          </div>
+        )}
         <div className="flex-1 min-w-0">
           <div className="text-sm font-medium truncate">{poi.name}</div>
           <div className="text-xs text-gray-500 truncate">{poi.area}{poi.open_minutes != null ? ` · ${formatMin(poi.open_minutes)}-${formatMin(poi.close_minutes || 0)}` : ''}</div>
           {shortDesc && <div className="text-xs text-gray-400 truncate mt-0.5">{shortDesc}</div>}
+          {poi.guide_text && <div className="text-xs text-gray-400 truncate mt-0.5" title={poi.guide_text}>📝 {poi.guide_text.length > 60 ? poi.guide_text.substring(0, 60) + "..." : poi.guide_text}</div>}
         </div>
       </div>
     );
@@ -94,7 +101,13 @@ export default function PoiCard({ poi, variant, stop, index, day, onRemove }: Po
           {index + 1}
         </div>
       )}
-      <span className="text-lg flex-shrink-0">{TYPE_ICONS[poi.type] || '📍'}</span>
+      {poi.image_url ? (
+        <img src={`/${poi.image_url}`} alt={poi.name} className="w-10 h-10 rounded object-cover flex-shrink-0" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).src = ''; (e.target as HTMLImageElement).style.display = 'none'; }} />
+      ) : (
+        <div className="w-10 h-10 rounded bg-gray-100 flex items-center justify-center flex-shrink-0 text-xs text-gray-400">
+          {TYPE_ICONS[poi.type] || '📍'}
+        </div>
+      )}
       <div className="flex-1 min-w-0">
         <div className="text-sm font-medium truncate">{poi.name}</div>
         {stop && (
@@ -111,6 +124,7 @@ export default function PoiCard({ poi, variant, stop, index, day, onRemove }: Po
             {stop.travelMinutes > 0 && <span className="text-gray-400"> · 🚶 {stop.travelMinutes}分</span>}
           </div>
         )}
+        {poi.guide_text && <div className="text-xs text-gray-400 mt-0.5 line-clamp-2" title={poi.guide_text}>📝 {poi.guide_text.length > 80 ? poi.guide_text.substring(0, 80) + "..." : poi.guide_text}</div>}
       </div>
       {onRemove && (
         <button onClick={onRemove} className="text-gray-400 hover:text-red-500 flex-shrink-0">

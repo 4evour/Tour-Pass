@@ -112,15 +112,9 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
 
     std::unordered_map<std::string, int> documentFrequency;
     for (const auto& token : tokens) {
-        int count = 0;
-        for (const auto& entry : index_) {
-            if (entry.nameLc.find(token) != std::string::npos ||
-                entry.tagsTextLc.find(token) != std::string::npos ||
-                entry.areaLc.find(token) != std::string::npos ||
-                entry.descriptionLc.find(token) != std::string::npos) {
-                ++count;
-            }
-        }
+        // Use pre-built inverted index for O(1) DF lookup instead of O(N) scan
+        auto invIt = invertedIndex_.find(token);
+        int count = (invIt != invertedIndex_.end()) ? static_cast<int>(invIt->second.size()) : 0;
         documentFrequency[token] = std::max(1, count);
     }
 
@@ -232,6 +226,9 @@ std::vector<SearchResult> SearchEngine::search(const std::string& query, const s
             result.openMinutes = entry.poi->openMinutes;
             result.closeMinutes = entry.poi->closeMinutes;
             result.recommendation = entry.poi->recommendation;
+            result.imageUrl = entry.poi->imageUrl;
+            result.guideText = entry.poi->guideText;
+            result.images = entry.poi->images;
             results.push_back(result);
         }
     }
@@ -250,7 +247,7 @@ nlohmann::json searchResultToJson(const SearchResult& result) {
     for (const auto& component : result.scoreContributions) {
         contributions.push_back(scoreComponentToJson(component));
     }
-    return {
+    nlohmann::json j = {
         {"id", result.id},
         {"name", result.name},
         {"type", result.type},
@@ -268,8 +265,17 @@ nlohmann::json searchResultToJson(const SearchResult& result) {
         {"visit_duration", result.visitDurationMinutes},
         {"open_minutes", result.openMinutes},
         {"close_minutes", result.closeMinutes},
-        {"recommendation", result.recommendation}
+        {"recommendation", result.recommendation},
+        {"image_url", result.imageUrl},
+        {"guide_text", result.guideText}
     };
+    // Serialize images array
+    nlohmann::json imgs = nlohmann::json::array();
+    for (const auto& img : result.images) {
+        imgs.push_back({{"url", img.url}, {"source", img.source}});
+    }
+    j["images"] = imgs;
+    return j;
 }
 
 }  // namespace tourpass

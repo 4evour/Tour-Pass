@@ -1,4 +1,4 @@
-﻿#include "tourpass/api.h"
+#include "tourpass/api.h"
 
 #include <chrono>
 #include <cstdlib>
@@ -27,6 +27,24 @@
 
 // ---- Email sending via Resend API ----
 namespace {
+
+// HTML-escape a string to prevent XSS in email templates
+std::string htmlEscape(const std::string& input) {
+    std::string out;
+    out.reserve(input.size());
+    for (char c : input) {
+        switch (c) {
+            case '&': out += "&amp;"; break;
+            case '<': out += "&lt;"; break;
+            case '>': out += "&gt;"; break;
+            case '"': out += "&quot;"; break;
+            case '\'': out += "&#39;"; break;
+            default: out += c;
+        }
+    }
+    return out;
+}
+
 bool sendVerificationEmail(const std::string& toEmail, const std::string& code) {
     const char* apiKey = std::getenv("RESEND_API_KEY");
     const char* fromEmail = std::getenv("RESEND_FROM_EMAIL");
@@ -41,7 +59,7 @@ bool sendVerificationEmail(const std::string& toEmail, const std::string& code) 
         {"from", std::string(fromEmail)},
         {"to", toEmail},
         {"subject", "Tour Pass - 验证码"},
-        {"html", "<h2>Tour Pass 注册验证</h2><p>您的验证码是：<strong>" + code + "</strong></p><p>5 分钟内有效。</p>"}
+        {"html", "<h2>Tour Pass 注册验证</h2><p>您的验证码是：<strong>" + htmlEscape(code) + "</strong></p><p>5 分钟内有效。</p>"}
     };
     std::string body = bodyJson.dump();
     httplib::Headers headers = {
@@ -350,11 +368,11 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
     }
 }
 
-    static EmailRateLimiter emailLimiter(60);
-    static VerificationAttemptLimiter verifyAttemptLimiter;
+static EmailRateLimiter emailLimiter(60);
+static VerificationAttemptLimiter verifyAttemptLimiter;
 
-    void installMiddleware(httplib::Server& server, ApiContext& context) {
-        static IpRateLimiter rateLimiter(60, 60);
+void installMiddleware(httplib::Server& server, ApiContext& context) {
+    static IpRateLimiter rateLimiter(60, 60);
     server.set_payload_max_length(context.config.maxBodyBytes);
     server.set_pre_routing_handler([&](const httplib::Request& req, httplib::Response& res) {
         std::string requestId = req.get_header_value("X-Request-Id");
@@ -595,6 +613,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     };
     server.set_mount_point("/editor", "web/editor-dist");
     server.set_mount_point("/", "web");
+    server.set_mount_point("/images", "data");
     // ── Agent service reverse proxy (WinHTTP streaming) ─────────────────
     {
         // State holder for streaming WinHTTP proxy (RAII closes handles)
@@ -1307,8 +1326,16 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 {"area", e.poi->area},
                 {"popularity", e.poi->popularity},
                 {"description", e.poi->description},
-                {"recommendation", e.poi->recommendation}
+                {"recommendation", e.poi->recommendation},
+                {"image_url", e.poi->imageUrl},
+                {"guide_text", e.poi->guideText}
             };
+            // Serialize images array
+            nlohmann::json imgs = nlohmann::json::array();
+            for (const auto& img : e.poi->images) {
+                imgs.push_back({{"url", img.url}, {"source", img.source}});
+            }
+            item["images"] = imgs;
             data.push_back(item);
         }
         nlohmann::json result = {{"data", data}, {"total", static_cast<int>(entries.size())}};

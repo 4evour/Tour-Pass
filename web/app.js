@@ -1,4 +1,4 @@
-﻿const state = {
+const state = {
   candidates: [],
   selectedIndex: 0,
   lastPayload: null,
@@ -141,8 +141,9 @@ function renderOverviewMap(candidate) {
 
       // Minimal popup: name + time only. Details in card sidebar.
       const marker = L.marker(coord, { icon: markerIcon, draggable: true });
+      const popupImg = stop.image_url ? '<img src="/' + stop.image_url + '" class="map-popup-img" loading="lazy" onerror="this.style.display=\'none\'">' : '';
       marker.bindPopup(
-        '<div class="map-popup">' +
+        '<div class="map-popup">' + popupImg +
           '<div class="map-popup-name">' + escapeHtml(stop.poi_name) + '</div>' +
           '<div class="map-popup-time">' + typeIcon(stop.poi_type) + ' ' + escapeHtml(stop.start_time) + '-' + escapeHtml(stop.end_time) + '</div>' +
         '</div>'
@@ -1682,8 +1683,14 @@ function renderStop(stop) {
   const hasRisk = stop.time_window_status && stop.time_window_status !== "ok";
   const isMeal = stop.slot === "午餐" || stop.slot === "晚餐" || stop.slot === "下午茶" || stop.slot === "下午茶";
   const mealLabel = isMeal ? `<div class="stop-meal-badge">${stop.slot}</div>` : "";
+  const hasImg = stop.image_url && stop.image_url.length > 0;
+  const guideText = stop.guide_text || "";
+  const shortGuide = guideText.length > 120 ? guideText.substring(0, 120) : guideText;
+  const needToggle = guideText.length > 120;
+  const uid = "g_" + (stop.poi_id || Math.random().toString(36).slice(2, 8));
   return `
     <article class="stop-card type-${stop.poi_type || "attraction"} ${hasRisk ? "stop-risk" : ""} ${isMeal ? "stop-meal" : ""}" draggable="true" data-poi-id="${stop.poi_id || ""}">
+      ${hasImg ? `<img class="stop-hero-img" src="/${stop.image_url}" alt="${escapeHtml(stop.poi_name)}" loading="lazy" onerror="this.classList.add('error')">` : ""}
       ${travel > 0 ? `<div class="stop-transport-bar">${transportIcon(travel)} ${travel} 分钟</div>` : ""}
       <div class="stop-main">
         <span class="stop-type-icon">${typeIcon(stop.poi_type)}</span>
@@ -1697,6 +1704,7 @@ function renderStop(stop) {
           ${isMeal ? `<div class="stop-area-hint">📍 建议在 <strong>${escapeHtml(stop.area)}</strong> 一带用餐</div>` : ""}
           <div class="stop-reason">${escapeHtml(stop.reason) || ""}</div>
           ${stop.recommendation ? `<div class="stop-tip">💡 ${escapeHtml(stop.recommendation)}</div>` : ""}
+          ${guideText ? `<div class="stop-guide"><div class="stop-guide-text" id="${uid}">${escapeHtml(shortGuide)}${needToggle ? "..." : ""}</div>${needToggle ? `<button class="stop-guide-toggle" data-full-text="${escapeHtml(guideText)}" data-short-text="${escapeHtml(shortGuide)}..." data-target="${uid}" onclick="toggleGuide(this)">展开攻略</button>` : ""}</div>` : ""}
         </div>
       </div>
       <div class="stop-actions">
@@ -1706,6 +1714,20 @@ function renderStop(stop) {
       ${isMeal ? `<div class="stop-alternatives" data-poi-id="${stop.poi_id || ""}" hidden></div>` : ""}
     </article>
   `;
+}
+
+function toggleGuide(btn) {
+  const target = document.getElementById(btn.dataset.target);
+  if (!target) return;
+  if (target.classList.contains("expanded")) {
+    target.classList.remove("expanded");
+    target.textContent = btn.dataset.shortText;
+    btn.textContent = "展开攻略";
+  } else {
+    target.classList.add("expanded");
+    target.textContent = btn.dataset.fullText;
+    btn.textContent = "收起";
+  }
 }
 
 function timeWindowLabel(status) {

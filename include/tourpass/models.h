@@ -15,6 +15,12 @@ enum class PoiType {
     Nightlife
 };
 
+
+struct PoiImage {
+    std::string url;
+    std::string source;    // "xiaohongshu" / "amap"
+    std::string noteUrl;
+};
 struct Poi {
     std::string id;
     std::string name;
@@ -31,6 +37,10 @@ struct Poi {
     std::string area;
     std::string mealType = "main";  // main | snack | drink (only for Restaurant type)
     std::string recommendation;     // user-friendly tip, e.g. "傍晚去橘子洲看日落"
+
+    std::string imageUrl;              // main image path for backward compat
+    std::vector<PoiImage> images;      // all candidate images
+    std::string guideText;             // guide text from travel notes
 };
 
 struct Edge {
@@ -78,7 +88,10 @@ struct Stop {
     std::string poiType;
     std::string mealType;
     std::string recommendation;
+
     std::string area;
+    std::string imageUrl;
+    std::string guideText;
     double lat = 0.0;
     double lng = 0.0;
     int startMinutes = 0;
@@ -175,3 +188,5 @@ nlohmann::json routeResultToJson(const RouteResult& route);
 TripRequest tripRequestFromJson(const nlohmann::json& input, const std::string& defaultCity = "");
 
 }  // namespace tourpass
+
+

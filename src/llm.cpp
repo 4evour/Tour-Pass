@@ -93,6 +93,14 @@ Endpoint parseEndpoint(std::string baseUrl) {
 
 std::string parseChatCompletionContent(const std::string& responseBody) {
     auto json = nlohmann::json::parse(responseBody);
+    if (!json.contains("choices") || !json["choices"].is_array() || json["choices"].empty()) {
+        // Handle non-standard responses (e.g. rate limiting, errors)
+        if (json.contains("error")) {
+            std::string errMsg = json["error"].is_object() ? json["error"].value("message", "unknown") : json["error"].dump();
+            debugLlm("LLM API error: " + errMsg);
+        }
+        return "";
+    }
     return json.at("choices").at(0).at("message").at("content").get<std::string>();
 }
 
@@ -266,15 +274,14 @@ LlmClient::LlmClient(const std::string& configPath) {
     if (isConfigured()) {
         try {
             Endpoint ep = parseEndpoint(config_.baseUrl);
-            if (!ep.https) {
-                httpClient_ = std::make_shared<httplib::Client>(ep.origin());
-                if (httpClient_->is_valid()) {
-                    httpClient_->set_connection_timeout(5);
-                    httpClient_->set_read_timeout(30);
-                    httpClient_->set_write_timeout(30);
-                } else {
-                    httpClient_.reset();
-                }
+            // Always create persistent client (both HTTP and HTTPS)
+            httpClient_ = std::make_shared<httplib::Client>(ep.origin());
+            if (httpClient_->is_valid()) {
+                httpClient_->set_connection_timeout(5);
+                httpClient_->set_read_timeout(30);
+                httpClient_->set_write_timeout(30);
+            } else {
+                httpClient_.reset();
             }
         } catch (const std::exception& ex) {
             std::cerr << "LLM HTTP client init failed: " << ex.what() << std::endl;
@@ -633,7 +640,9 @@ int LlmClient::evaluateItinerary(const std::vector<Itinerary>& candidates, const
                 }
             }
         }
-    } catch (...) {}
+    } catch (const std::exception& ex) {
+        debugLlm(std::string("evaluateItinerary exception: ") + ex.what());
+    }
     debugLlm("LLM evaluation failed, defaulting to candidate 0");
     return 0;
 }

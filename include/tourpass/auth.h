@@ -33,4 +33,7 @@ std::string randomHex(size_t bytes);
 // Constant-time string comparison (safe for cryptographic comparisons)
 bool constantTimeEquals(const std::string& a, const std::string& b);
 
+// Returns true if OpenSSL is available for secure password hashing and JWT signing
+bool isAuthSecure();
+
 }  // namespace tourpass

@@ -94,10 +94,13 @@ std::string hmacSha256(const std::string& key, const std::string& data) {
 }  // namespace
 
 bool constantTimeEquals(const std::string& a, const std::string& b) {
-    if (a.size() != b.size()) return false;
-    volatile unsigned char result = 0;
-    for (size_t i = 0; i < a.size(); ++i) {
-        result |= static_cast<unsigned char>(a[i]) ^ static_cast<unsigned char>(b[i]);
+    // Always compare the full length of the longer string to avoid leaking length info
+    size_t maxLen = std::max(a.size(), b.size());
+    volatile unsigned char result = static_cast<unsigned char>(a.size() ^ b.size());
+    for (size_t i = 0; i < maxLen; ++i) {
+        unsigned char ac = (i < a.size()) ? static_cast<unsigned char>(a[i]) : 0;
+        unsigned char bc = (i < b.size()) ? static_cast<unsigned char>(b[i]) : 0;
+        result |= ac ^ bc;
     }
     return result == 0;
 }
@@ -121,16 +124,29 @@ std::string randomHex(size_t bytes) {
 std::string hashPassword(const std::string& password) {
     std::string salt = randomHex(16);
     std::string hash = pbkdf2Hex(password, salt);
-    return salt + ":" + hash;
+    // Prefix with algorithm version: "v2:" for PBKDF2, "v1:" for legacy SHA256
+    return "v2:" + salt + ":" + hash;
 }
 
 bool verifyPassword(const std::string& password, const std::string& storedHash) {
-    auto colonPos = storedHash.find(':');
+    // Parse versioned hash format: "v2:salt:hash" or legacy "salt:hash"
+    std::string working = storedHash;
+    bool isLegacy = false;
+    if (working.substr(0, 3) == "v2:") {
+        working = working.substr(3);
+    } else if (working.substr(0, 3) == "v1:") {
+        working = working.substr(3);
+        isLegacy = true;
+    } else {
+        isLegacy = true;  // No version prefix = legacy format
+    }
+
+    auto colonPos = working.find(':');
     if (colonPos == std::string::npos) return false;
-    std::string salt = storedHash.substr(0, colonPos);
-    std::string expectedHash = storedHash.substr(colonPos + 1);
+    std::string salt = working.substr(0, colonPos);
+    std::string expectedHash = working.substr(colonPos + 1);
     std::string computedHash;
-    if (expectedHash.size() == 64) {
+    if (isLegacy && expectedHash.size() == 64) {
         computedHash = sha256(salt + ":" + password);
     } else {
         computedHash = pbkdf2Hex(password, salt);
@@ -261,6 +277,14 @@ std::optional<TokenPayload> verifyToken(const std::string& token) {
     } catch (...) {
         return std::nullopt;
     }
+}
+
+bool isAuthSecure() {
+#ifdef CPPHTTPLIB_OPENSSL_SUPPORT
+    return true;
+#else
+    return false;
+#endif
 }
 
 }  // namespace tourpass

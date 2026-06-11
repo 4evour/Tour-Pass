@@ -56,11 +56,13 @@ PoiType poiTypeFromString(const std::string& value) {
 }
 
 int parseTimeToMinutes(const std::string& value) {
-    if (value.size() != 5 || value[2] != ':') {
-        throw std::runtime_error("invalid time format: " + value);
+    // Support both "HH:MM" and "H:MM" formats
+    auto colonPos = value.find(':');
+    if (colonPos == std::string::npos || colonPos == 0 || colonPos >= value.size() - 1) {
+        throw std::runtime_error("invalid time format: " + value + " (expected H:MM or HH:MM)");
     }
-    int hour = std::stoi(value.substr(0, 2));
-    int minute = std::stoi(value.substr(3, 2));
+    int hour = std::stoi(value.substr(0, colonPos));
+    int minute = std::stoi(value.substr(colonPos + 1));
     if (hour < 0 || hour > 23 || minute < 0 || minute > 59) {
         throw std::runtime_error("invalid time value: " + value);
     }
@@ -69,7 +71,7 @@ int parseTimeToMinutes(const std::string& value) {
 
 std::string formatMinutes(int minutes) {
     if (minutes < 0) minutes = 0;
-    minutes %= 24 * 60;
+    if (minutes > 24 * 60) minutes = 24 * 60;  // Clamp instead of modulo to avoid misleading wrap-around
     std::ostringstream out;
     out << std::setw(2) << std::setfill('0') << (minutes / 60)
         << ":" << std::setw(2) << std::setfill('0') << (minutes % 60);
@@ -145,7 +147,9 @@ nlohmann::json stopToJson(const Stop& stop) {
         {"time_window_reason", stop.timeWindowReason},
         {"score", stop.score},
         {"score_breakdown", breakdown},
-        {"reason", stop.reason}
+        {"reason", stop.reason},
+        {"image_url", stop.imageUrl},
+        {"guide_text", stop.guideText}
     };
 }
 

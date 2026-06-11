@@ -50,6 +50,14 @@ def get_llm_creative() -> ChatOpenAI:
     )
 
 
+# Allowed fields for TripIntent construction from LLM output
+_INTENT_ALLOWED_FIELDS = {
+    "city", "days", "pace", "budget", "travelers", "interests",
+    "must_visit", "avoid", "hotel_preference", "hotel_area",
+    "hotel_budget_min", "hotel_budget_max", "special_requests", "strategy",
+}
+
+
 async def _llm_json(llm: ChatOpenAI, system: str, user: str, state: AgentState) -> Any:
     """Call LLM and parse JSON response. Increments call counter."""
     if state.llm_call_count >= MAX_LLM_CALLS_PER_REQUEST:
@@ -66,7 +74,13 @@ async def _llm_json(llm: ChatOpenAI, system: str, user: str, state: AgentState) 
     elif "```" in text:
         text = text.split("```")[1].split("```")[0].strip()
 
-    return json.loads(text)
+    data = json.loads(text)
+
+    # Whitelist filter: only keep known TripIntent fields to prevent injection
+    if isinstance(data, dict):
+        data = {k: v for k, v in data.items() if k in _INTENT_ALLOWED_FIELDS}
+
+    return data
 
 
 # ── Hotel budget matching helper ──────────────────────────────────────────────
@@ -118,6 +132,15 @@ async def parse_intent(state: AgentState) -> AgentState:
     """Node 1: Parse user's natural language into structured TripIntent."""
     yield {"type": "status", "content": "正在理解您的需求..."}
 
+    # Skip if intent was already parsed (e.g. from cache pre-check)
+    if state.intent and state.intent.city:
+        yield {
+            "type": "intent_parsed",
+            "content": f"目的地：{state.intent.city}，{state.intent.days}天{state.intent.pace}节奏",
+            "intent": state.intent.model_dump(),
+        }
+        return
+
     llm = get_llm()
     try:
         data = await _llm_json(llm, PARSE_INTENT_SYSTEM, state.user_message, state)
@@ -143,8 +166,9 @@ async def parse_intent(state: AgentState) -> AgentState:
                 fallback_city = c
                 break
         if not fallback_city:
-            fallback_city = state.user_message[:2]
-        state.intent = TripIntent(city=fallback_city, days=3)
+            # Try to extract any known city from the message using substring match
+            fallback_city = ""
+        state.intent = TripIntent(city=fallback_city or "长沙", days=3)
 
     return
 
@@ -673,10 +697,12 @@ async def run_planning_pipeline(
 
     # Check cache first
     # (We need intent first, so do a quick parse)
+    pre_parsed_intent = None
     llm = get_llm()
     try:
         data = await _llm_json(llm, PARSE_INTENT_SYSTEM, user_message, state)
         intent = TripIntent(**data)
+        pre_parsed_intent = intent
         state.intent = intent
 
         # Check cache
@@ -697,9 +723,10 @@ async def run_planning_pipeline(
     except Exception:
         pass  # Continue with full pipeline
 
-    # Reset state for full pipeline
+    # Reset state for full pipeline, but reuse pre-parsed intent if available
     state = AgentState(user_message=user_message)
-    state.llm_call_count = 0  # Reset since the above was just a pre-check
+    if pre_parsed_intent:
+        state.intent = pre_parsed_intent
 
     # Run nodes sequentially, yielding events
     nodes = [

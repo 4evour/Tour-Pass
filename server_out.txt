@@ -1,0 +1,47 @@
+Loaded city 长沙: 705 POIs
+Loaded city 武汉: 679 POIs
+Loaded city 大理: 594 POIs
+Loaded city 丽江: 501 POIs
+Loaded city 南京: 710 POIs
+Loaded city 苏州: 774 POIs
+Loaded city 成都: 694 POIs
+Loaded city 重庆: 688 POIs
+Loaded city 西安: 695 POIs
+Loaded city 杭州: 793 POIs
+Loaded city 北京: 740 POIs
+Loaded city 上海: 796 POIs
+Loaded city 广州: 797 POIs
+Loaded city 深圳: 790 POIs
+Loaded city 厦门: 780 POIs
+Loaded city 青岛: 753 POIs
+Loaded city 桂林: 726 POIs
+Loaded city 三亚: 554 POIs
+Loaded city 哈尔滨: 677 POIs
+Loaded city 昆明: 677 POIs
+Loaded city 张家界: 468 POIs
+Total cities loaded: 21
+Using SQLite backend: D:\Tour Pass/storage/tourpass.sqlite
+Cleaning up expired guest accounts (7 days)...
+Note: TOURPASS_DEFAULT_CITY not set, using first available city: 长沙
+Default city: 长沙
+Tour Pass server listening on http://127.0.0.1:8080
+Demo UI available at http://127.0.0.1:8080/
+Runtime workers=8 job_workers=1 max_queue=64
+GET /poi/search -> 200 5ms request_id=req-18b7f525489b7f48-1
+GET /poi/search -> 200 0ms request_id=req-18b7f52e0b9951e8-2
+GET /poi/search -> 200 5ms request_id=req-18b7f53252da7984-3
+GET /poi/search -> 200 4ms request_id=req-18b7f53884c66a10-4
+GET /poi/browse -> 200 4ms request_id=req-18b7f53d4dd41804-5
+GET /poi/search -> 200 6ms request_id=req-18b7f54137503e60-6
+GET /editor -> 200 0ms request_id=req-18b7f54a669ec1ec-7
+GET /editor/assets/index-BC-rBVKB.js -> 200 0ms request_id=req-18b7f54a686c3720-8
+GET /editor/assets/index-C4DbJlSJ.css -> 200 0ms request_id=req-18b7f54a6878b84c-9
+GET /cities -> 200 0ms request_id=req-18b7f54b7ba7ad64-a
+GET /poi/search -> 200 10ms request_id=req-18b7f54bd827e680-b
+GET /poi/browse -> 200 22ms request_id=req-18b7f54d982f0228-c
+GET /editor -> 200 0ms request_id=req-18b7f550cf3d4768-d
+GET /editor/assets/index-BC-rBVKB.js -> 200 0ms request_id=req-18b7f550cf984780-e
+GET /editor/assets/index-C4DbJlSJ.css -> 200 0ms request_id=req-18b7f550cfa97dc0-f
+GET /cities -> 200 0ms request_id=req-18b7f5515a0dc7f0-10
+GET /poi/search -> 200 2ms request_id=req-18b7f551a9f38f20-11
+GET /poi/browse -> 200 7ms request_id=req-18b7f55209ab4c28-12
