@@ -3742,58 +3742,9 @@
     "recommendation": "俯瞰漓江全景的绝佳制高点，日落时分去，金黄洒满群山。注意山路陡峭，穿运动鞋。"
   },
   {
-    "id": "amap_2f277749",
-    "name": "广西壮族自治区桂林市秀峰区正阳路",
-    "type": "attraction",
-    "lat": 25.279223,
-    "lng": 110.29874,
-    "area": "桂林市",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "街区",
-      "购物",
-      "城市漫步"
-    ],
-    "popularity": 3.9,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "正阳路是桂林最热闹的步行街，老字号小吃与时尚店铺并存，夜晚灯火璀璨，随手一拍就是烟火气满满的街景。建议傍晚来逛，边尝一碗地道桂林米粉，边溜达至东西巷感受明清古韵。适合喜欢城市漫步、热衷搜罗美食与特色伴手礼的旅行者。",
-    "source": "amap",
-    "source_id": "",
-    "recommendation": "桂林最热闹的步行街，傍晚来吃碗米粉、逛小店，夜景灯光超有烟火气。"
-  },
-  {
-    "id": "amap_d81fa8ed",
-    "name": "隐沫酒店(桂林两江四湖万象城店)",
-    "type": "nightlife",
-    "lat": 25.268783,
-    "lng": 110.274347,
-    "area": "秀峰区",
-    "open_time": "18:00",
-    "close_time": "23:00",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "夜景",
-      "夜市",
-      "休闲",
-      "餐饮服务",
-      "中餐厅"
-    ],
-    "popularity": 4.5,
-    "price_level": 2,
-    "meal_type": "main",
-    "description": "隐沫酒店藏身桂林两江四湖与万象城之间，夜晚出门就能溜",
-    "source": "amap",
-    "source_id": "B0G3Z5QPW9",
-    "recommendation": "隐沫酒店(桂林两江四湖万象城店)是夜间休闲好去处"
-  },
-  {
     "id": "amap_2c1c4813",
     "name": "汉唐寻味(西山公园店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.279562,
     "lng": 110.280892,
     "area": "秀峰区",
@@ -3820,7 +3771,7 @@
   {
     "id": "amap_3f0c4a5e",
     "name": "柴火灶系列菜",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.263738,
     "lng": 110.283347,
     "area": "象山区",
@@ -3844,37 +3795,9 @@
     "recommendation": "柴火灶系列菜是夜间休闲好去处"
   },
   {
-    "id": "amap_d8169b6c",
-    "name": "桂林宾馆(贵宾楼)",
-    "type": "nightlife",
-    "lat": 25.273196,
-    "lng": 110.285907,
-    "area": "象山区",
-    "open_time": "18:00",
-    "close_time": "23:00",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "夜景",
-      "夜市",
-      "休闲",
-      "住宿服务",
-      "宾馆酒店",
-      "餐饮服务",
-      "中餐厅",
-      "信义"
-    ],
-    "popularity": 4.2,
-    "price_level": 2,
-    "meal_type": "main",
-    "description": "桂林宾馆(贵宾楼)，来自高德 Web 服务 POI 搜索；分类：夜游夜市。",
-    "source": "amap",
-    "source_id": "B0FFFK6TAE",
-    "recommendation": "桂林宾馆贵宾楼晚餐后可以散步看夜景，信义路方向走10分钟就到两江四湖啦。"
-  },
-  {
     "id": "amap_98fa6e24",
     "name": "榕湖饭店",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.277544,
     "lng": 110.287104,
     "area": "秀峰区",
@@ -3903,7 +3826,7 @@
   {
     "id": "amap_878ef222",
     "name": "白公馆下午茶餐厅",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.276267,
     "lng": 110.287888,
     "area": "秀峰区",
@@ -3928,7 +3851,7 @@
   {
     "id": "amap_f13a3bb3",
     "name": "桂林饭店",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.26064,
     "lng": 110.28453,
     "area": "象山区",
@@ -3956,7 +3879,7 @@
   {
     "id": "amap_4218ffb6",
     "name": "白公馆咖啡厅",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.27631,
     "lng": 110.287922,
     "area": "秀峰区",
@@ -3981,7 +3904,7 @@
   {
     "id": "amap_131b8a5c",
     "name": "胡记啤酒鱼馆",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.266563,
     "lng": 110.286579,
     "area": "象山区",
@@ -4005,36 +3928,9 @@
     "recommendation": "胡记啤酒鱼馆是夜间休闲好去处"
   },
   {
-    "id": "amap_ab1629f3",
-    "name": "妍舍民宿(城中心象鼻山二店)",
-    "type": "nightlife",
-    "lat": 25.271075,
-    "lng": 110.291675,
-    "area": "象山区",
-    "open_time": "18:00",
-    "close_time": "23:00",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "夜景",
-      "夜市",
-      "休闲",
-      "餐饮服务",
-      "餐饮相关场所",
-      "餐饮相关",
-      "西城"
-    ],
-    "popularity": 4.5,
-    "price_level": 2,
-    "meal_type": "main",
-    "description": "住在象鼻山脚下，出门就是热闹夜市和地道小吃。民宿自带观景露台，晚上吹着江风看城市灯火，超有氛围感。老板会贴心推荐周边隐藏美食，适合爱逛吃、想体验桂林夜生活的朋友。入住建议选夜景房，别错过西城路的深夜烧烤摊！",
-    "source": "amap",
-    "source_id": "B0L6GMET3H",
-    "recommendation": "离象鼻山步行即到，订观景房看两江四湖夜景，记得提前预约阳台位。"
-  },
-  {
     "id": "amap_15260d39",
     "name": "Black Boots黑靴子咖啡店",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.268351,
     "lng": 110.286952,
     "area": "象山区",
@@ -4060,7 +3956,7 @@
   {
     "id": "amap_402c6800",
     "name": "烩食堂(白公馆店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.276293,
     "lng": 110.287921,
     "area": "秀峰区",
@@ -4086,7 +3982,7 @@
   {
     "id": "amap_74ebd0f2",
     "name": "风·咖啡(两江四湖店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.278081,
     "lng": 110.289651,
     "area": "秀峰区",
@@ -4111,7 +4007,7 @@
   {
     "id": "amap_8de45bdd",
     "name": "蜂子油茶(桂林两江四湖象鼻山店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.270104,
     "lng": 110.287338,
     "area": "象山区",
@@ -4138,7 +4034,7 @@
   {
     "id": "amap_c058bf71",
     "name": "云雀咖啡(中山南路店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.268426,
     "lng": 110.287046,
     "area": "象山区",
@@ -4163,7 +4059,7 @@
   {
     "id": "amap_cc75abe8",
     "name": "南环路106号铺面",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.268225,
     "lng": 110.291125,
     "area": "象山区",
@@ -4188,7 +4084,7 @@
   {
     "id": "amap_1344092d",
     "name": "望月湖畔·榕湖秘境餐厅",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.277169,
     "lng": 110.289561,
     "area": "秀峰区",
@@ -4213,7 +4109,7 @@
   {
     "id": "amap_2bd2d06f",
     "name": "王记肠粉皇",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.25923,
     "lng": 110.304168,
     "area": "七星区",
@@ -4239,7 +4135,7 @@
   {
     "id": "amap_2e719e3e",
     "name": "旭鲜米粉(中山北路店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.297852,
     "lng": 110.298874,
     "area": "叠彩区",
@@ -4265,7 +4161,7 @@
   {
     "id": "amap_fd79fd4",
     "name": "戊念·如院临江艺宿卤煮cafe小馆",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.285413,
     "lng": 110.307576,
     "area": "七星区",
@@ -4289,36 +4185,9 @@
     "recommendation": "戊念·如院临江艺宿卤煮cafe小馆是夜间休闲好去处"
   },
   {
-    "id": "amap_9b3464de",
-    "name": "中心璞云酒店(桂林两江四湖象鼻山公园店)·路飞的茶香研习社",
-    "type": "nightlife",
-    "lat": 25.27508,
-    "lng": 110.30028,
-    "area": "秀峰区",
-    "open_time": "18:00",
-    "close_time": "23:00",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "夜景",
-      "夜市",
-      "休闲",
-      "餐饮服务",
-      "餐饮相关场所",
-      "餐饮相关",
-      "正阳"
-    ],
-    "popularity": 4.1,
-    "price_level": 2,
-    "meal_type": "main",
-    "description": "藏身于中心璞云酒店内的路飞的茶香研习社，是正阳街附近新晋的夜生活据点。这里既有创意茶饮，又能远眺两江四湖的璀璨夜景。建议傍晚登露台，点一杯桂花酒酿奶茶，边品边赏象鼻山灯光秀。适合想避开夜市喧嚣、找个安静角落发呆的年轻人或闺蜜小聚。",
-    "source": "amap",
-    "source_id": "B0L15ZZKOK",
-    "recommendation": "在酒店顶楼赏两江四湖夜景，边品茶边等象鼻山灯光秀，记得选靠窗位。"
-  },
-  {
     "id": "amap_7ef4bd7d",
     "name": "鸿印昌茶馆",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.273095,
     "lng": 110.296467,
     "area": "秀峰区",
@@ -4344,7 +4213,7 @@
   {
     "id": "amap_ded5ab12",
     "name": "正新鸡排(书城店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.276975,
     "lng": 110.295575,
     "area": "秀峰区",
@@ -4370,7 +4239,7 @@
   {
     "id": "amap_45eb0f3",
     "name": "大嘴巴小吃店(麻辣烫清补凉粥油炸小吃)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.295077,
     "lng": 110.298708,
     "area": "叠彩区",
@@ -4396,7 +4265,7 @@
   {
     "id": "amap_eab52040",
     "name": "霸哥郴州猪脑壳盒饭专营店(穿山北路店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.292302,
     "lng": 110.31007,
     "area": "七星区",
@@ -4421,7 +4290,7 @@
   {
     "id": "amap_e304fad2",
     "name": "ampm",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.267075,
     "lng": 110.292825,
     "area": "象山区",
@@ -4448,7 +4317,7 @@
   {
     "id": "amap_ca4f38e1",
     "name": "湘厨酸菜鱼",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.29302,
     "lng": 110.311232,
     "area": "七星区",
@@ -4473,7 +4342,7 @@
   {
     "id": "amap_f4a63f4a",
     "name": "老北京烤鸭桂林地道本味菜",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.296112,
     "lng": 110.298801,
     "area": "叠彩区",
@@ -4500,7 +4369,7 @@
   {
     "id": "amap_5579dea7",
     "name": "三金美食城",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.268075,
     "lng": 110.305275,
     "area": "七星区",
@@ -4525,7 +4394,7 @@
   {
     "id": "amap_2b2f9736",
     "name": "湘聚德烤鸭(叠彩观音阁店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.29634,
     "lng": 110.298769,
     "area": "叠彩区",
@@ -4552,7 +4421,7 @@
   {
     "id": "amap_6931ae5a",
     "name": "NSC Coffee&钟刺青",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.280425,
     "lng": 110.306325,
     "area": "七星区",
@@ -4578,7 +4447,7 @@
   {
     "id": "amap_9a620f70",
     "name": "漓上Coffee Hotel(两江四湖店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.292015,
     "lng": 110.308487,
     "area": "七星区",
@@ -4603,7 +4472,7 @@
   {
     "id": "amap_a44085ab",
     "name": "勺得百货大楼店",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.271459,
     "lng": 110.292807,
     "area": "象山区",
@@ -4630,7 +4499,7 @@
   {
     "id": "amap_fbebfeb1",
     "name": "雅致江景餐厅",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.267587,
     "lng": 110.289436,
     "area": "象山区",
@@ -4656,7 +4525,7 @@
   {
     "id": "amap_c559f621",
     "name": "漓江大瀑布饭店-漓江轩餐厅",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 25.273048,
     "lng": 110.296469,
     "area": "秀峰区",

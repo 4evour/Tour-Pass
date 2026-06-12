@@ -4513,7 +4513,7 @@
   {
     "id": "amap_22ced4a4",
     "name": "浆小白豆浆夜市(夫子庙店)",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 32.025257,
     "lng": 118.796542,
     "area": "秦淮区",
@@ -4539,7 +4539,7 @@
   {
     "id": "amap_2a93c99c",
     "name": "淮清桥烧烤南京长白街店",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 32.023505,
     "lng": 118.794719,
     "area": "秦淮区",
@@ -5458,32 +5458,6 @@
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
     }
-  },
-  {
-    "id": "amap_525d4952",
-    "name": "南京禄口国际机场T2航站楼(国内到达)",
-    "type": "transit",
-    "lat": 31.730706,
-    "lng": 118.875492,
-    "area": "江宁区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "机场相关",
-      "机场出发/到达"
-    ],
-    "popularity": 0,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "南京禄口国际机场T2航站楼(国内到达)，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "B0FFF6X2UV",
-    "recommendation": "国内到达出口旁就是地铁，接机超方便。提前查航班动态，在咖啡店等更惬意。"
   },
   {
     "id": "transit_B00190YOCU",

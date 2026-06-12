@@ -165,6 +165,11 @@ def score_poi(
     if not has_shopping_interest and any(t in shopping_tags for t in tags):
         breakdown.append(ScoreComponent("购物降权", -35.0, "非购物行程，降低商场权重"))
 
+
+    # Image availability bonus - prefer POIs with photos for better UX
+    if poi.get("image_url"):
+        breakdown.append(ScoreComponent("图片加分", 8.0, "有实景图片"))
+
     
     # Area diversity
     if visited_areas and poi.get("area") and poi["area"] not in visited_areas:

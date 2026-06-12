@@ -92,8 +92,25 @@ class PoiAgent(BaseTourAgent):
             with open(poi_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
                 attractions = [p for p in data if p.get("type") in ("attraction", "nightlife")]
-                logger.info("Loaded " + str(len(attractions)) + " attractions for " + city)
-                return attractions
+                # Deduplicate sub-POIs: if "广州塔" exists, drop "广州塔-东广场", "广州塔E区" etc.
+                # Sort by name length so shorter (main) POIs come first
+                attractions.sort(key=lambda p: len(p["name"]))
+                seen_bases = set()
+                deduped = []
+                for p in attractions:
+                    name = p["name"]
+                    is_sub = False
+                    for base in seen_bases:
+                        if name.startswith(base) and len(name) > len(base):
+                            is_sub = True
+                            break
+                    if not is_sub:
+                        deduped.append(p)
+                        # Register as a base name (only if short enough to be a main POI)
+                        if len(name) <= 6:
+                            seen_bases.add(name)
+                logger.info("Loaded " + str(len(deduped)) + " attractions for " + city + " (deduped from " + str(len(attractions)) + ")")
+                return deduped
         except Exception as e:
             logger.error("Failed to load POIs: " + str(e))
             return []
@@ -119,16 +136,21 @@ class PoiAgent(BaseTourAgent):
         top_k = days * 5
         scored_pois = rank_pois(pois=all_pois, intent=intent, top_k=top_k)
         
-        # Ensure must_visit are included
+        # Ensure must_visit are included (prefer exact match, then shortest name)
         enriched_pois = []
         for mv in must_visit:
+            candidates = []
             for poi in scored_pois:
-                if mv in poi.get("name", ""):
-                    poi_copy = poi.copy()
-                    poi_copy["is_must_visit"] = True
-                    poi_copy["recommend_reason"] = "Must visit: " + mv
-                    enriched_pois.append(poi_copy)
-                    break
+                name = poi.get("name", "")
+                if mv in name:
+                    candidates.append(poi)
+            if candidates:
+                # Prefer exact match, then shortest name (main POI over sub-POIs)
+                best = min(candidates, key=lambda p: (p.get("name", "") != mv, len(p.get("name", ""))))
+                best_copy = best.copy()
+                best_copy["is_must_visit"] = True
+                best_copy["recommend_reason"] = "Must visit: " + mv
+                enriched_pois.append(best_copy)
         
         # Add other top POIs
         for poi in scored_pois:

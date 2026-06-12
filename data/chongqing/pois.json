@@ -4784,7 +4784,7 @@
   {
     "id": "amap_93f537ae",
     "name": "10617星光夜市",
-    "type": "nightlife",
+    "type": "restaurant",
     "lat": 29.527069,
     "lng": 106.603457,
     "area": "南岸区",
@@ -5844,82 +5844,6 @@
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
     }
-  },
-  {
-    "id": "amap_cf16e41e",
-    "name": "万州机场高铁北站候机楼",
-    "type": "transit",
-    "lat": 30.861496,
-    "lng": 108.366095,
-    "area": "万州区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "交通服务相关"
-    ],
-    "popularity": 0,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "万州机场高铁北站候机楼，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "B0IU3DJ39B",
-    "recommendation": "推荐在万州区参观万州机场高铁北站候机楼，人气评分0.0"
-  },
-  {
-    "id": "amap_fd7bd2d1",
-    "name": "江北机场站",
-    "type": "transit",
-    "lat": 29.707134,
-    "lng": 106.654858,
-    "area": "两江新区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "火车站"
-    ],
-    "popularity": 0,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "江北机场站，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "B0J66MXNGB",
-    "recommendation": "江北机场站是当地热门景点，建议游览90分钟左右"
-  },
-  {
-    "id": "amap_2e53507",
-    "name": "空港广场地铁站2号口",
-    "type": "transit",
-    "lat": 29.736858,
-    "lng": 106.633993,
-    "area": "两江新区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "交通",
-      "枢纽",
-      "交通设施服务",
-      "地铁站",
-      "出入口"
-    ],
-    "popularity": 0,
-    "price_level": 1,
-    "meal_type": "main",
-    "description": "空港广场地铁站2号口，来自高德 Web 服务 POI 搜索；分类：高铁机场交通。",
-    "source": "amap",
-    "source_id": "BX10022102",
-    "recommendation": "从这里去机场超快，记得提前查好地铁班次，避开早晚高峰更轻松哦～"
   },
   {
     "id": "transit_B00170133B",
