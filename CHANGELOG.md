@@ -38,3 +38,21 @@
 - 创建 Tag: v1.0-legacy
 - 创建分支: feat/multi-agent-refactor
 - 首次提交: e878b6e
+
+## 2026-06-12 16:00 - 前端集成 + 景点评分优化
+
+### 变更内容
+- **vite.config.ts**: 移除 /editor 代理（与 ase: '/editor/' 冲突），新增 /agent 代理转发到 8001 端口
+- **AgentChat.tsx**: 修复 SSE 事件类型匹配，后端发送 itinerary 前端现可正确识别
+- **AgentToolStatus.tsx**: 新增多 agent 事件图标（pois_found, schedule_created, weather_checked, restaurant_found 等）
+- **tools/scoring.py**: 新增购物降权逻辑，非购物行程中商场类景点降权 -35 分
+
+### 原因
+- Vite /editor 代理与 base path 冲突导致 500 错误
+- 后端发送 	ype: "itinerary" 但前端只识别 itinerary_complete
+- 太古汇/正佳广场等商场因 popularity=4.9 排在广州塔/白云山前面
+
+### 影响范围
+- 前端开发服务器正常启动
+- AI 聊天窗口可正确生成并展示行程
+- 景点推荐从商场变为真正的旅游景点（广州博物馆、花城广场、中山纪念堂等）

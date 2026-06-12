@@ -157,6 +157,14 @@ def score_poi(
     price_level = poi.get("price_level", 1)
     price_penalty = -(price_level) * 3.0
     breakdown.append(ScoreComponent("价格惩罚", price_penalty, f"价格等级{price_level}"))
+
+    # Shopping/commercial penalty (unless user explicitly wants shopping)
+    shopping_tags = {"购物", "商圈", "商场", "购物中心", "免税"}
+    interests = intent.get("interests", [])
+    has_shopping_interest = any(i in ("shopping", "购物") for i in interests)
+    if not has_shopping_interest and any(t in shopping_tags for t in tags):
+        breakdown.append(ScoreComponent("购物降权", -35.0, "非购物行程，降低商场权重"))
+
     
     # Area diversity
     if visited_areas and poi.get("area") and poi["area"] not in visited_areas:
@@ -235,3 +243,4 @@ def rank_pois(
         enriched.append(poi)
     
     return enriched
+
