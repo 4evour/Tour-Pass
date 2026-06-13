@@ -175,4 +175,50 @@ DataSet loadDataSet(const std::string& poiPath, const std::string& edgePath) {
     return data;
 }
 
+
+
+void savePois(const std::string& path, const std::vector<Poi>& pois) {
+    // Read existing JSON to preserve fields not in Poi struct (source, source_id, _angle, etc.)
+    nlohmann::json existing = nlohmann::json::array();
+    {
+        std::ifstream input(path);
+        if (input) {
+            try { input >> existing; } catch (...) { existing = nlohmann::json::array(); }
+        }
+    }
+
+    // Build id -> index map for existing data
+    std::unordered_map<std::string, size_t> existingIndex;
+    if (existing.is_array()) {
+        for (size_t i = 0; i < existing.size(); ++i) {
+            if (existing[i].contains("id") && existing[i]["id"].is_string()) {
+                existingIndex[existing[i]["id"].get<std::string>()] = i;
+            }
+        }
+    }
+
+    nlohmann::json output = nlohmann::json::array();
+    for (const auto& poi : pois) {
+        nlohmann::json item = poiToJson(poi);
+        // Merge extra fields from original JSON
+        auto it = existingIndex.find(poi.id);
+        if (it != existingIndex.end() && existing[it->second].is_object()) {
+            const auto& orig = existing[it->second];
+            for (auto& [key, val] : orig.items()) {
+                if (!item.contains(key)) {
+                    item[key] = val;
+                }
+            }
+        }
+        output.push_back(item);
+    }
+
+    // Write with pretty print (indent=2) matching project convention
+    std::ofstream out(path);
+    if (!out) {
+        throw std::runtime_error("cannot write file: " + path);
+    }
+    out << output.dump(2) << std::endl;
+}
+
 }  // namespace tourpass

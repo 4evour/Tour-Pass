@@ -61,6 +61,14 @@ const Poi* PoiGraph::findPoi(const std::string& idOrName) const {
     return nullptr;
 }
 
+Poi* PoiGraph::findMutablePoi(const std::string& id) {
+    auto it = indexById_.find(id);
+    if (it != indexById_.end()) {
+        return &pois_[it->second];
+    }
+    return nullptr;
+}
+
 int PoiGraph::shortestMinutes(const std::string& from, const std::string& to) const {
     auto fromIt = indexById_.find(from);
     if (fromIt == indexById_.end()) {

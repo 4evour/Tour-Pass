@@ -1,4 +1,4 @@
-﻿interface AgentEvent {
+interface AgentEvent {
   type: string;
   content?: string;
   [key: string]: unknown;
@@ -17,15 +17,22 @@ const STATUS_ICONS: Record<string, string> = {
   day_planned: '📅',
   routes_optimized: '🗺️',
   itinerary_complete: '✅',
+  itinerary: '✅',
   cache_hit: '⚡',
   warning: '⚠️',
   error: '❌',
+  // Multi-agent specific events
+  pois_found: '📍',
+  schedule_created: '🗓️',
+  weather_checked: '🌤️',
+  restaurant_found: '🍜',
+  tickets_info: '🎫',
+  review_passed: '✅',
 };
 
 export default function AgentToolStatus({ events }: Props) {
   if (events.length === 0) return null;
 
-  // Show the latest meaningful events
   const meaningful = events.filter(
     e => e.type !== 'status' || events.indexOf(e) === events.length - 1
   );
@@ -42,7 +49,6 @@ export default function AgentToolStatus({ events }: Props) {
           </span>
         </div>
       ))}
-      {/* Pulsing indicator for the last event */}
       <div className="flex items-center gap-1 text-xs text-gray-400 mt-1">
         <span className="animate-pulse">●</span>
         <span>处理中...</span>
@@ -61,7 +67,14 @@ function formatEventType(type: string): string {
     day_planned: '已规划一天',
     routes_optimized: '路线已优化',
     itinerary_complete: '行程生成完成',
+    itinerary: '行程生成完成',
     cache_hit: '命中缓存',
+    pois_found: '已找到景点',
+    schedule_created: '行程已安排',
+    weather_checked: '天气已查询',
+    restaurant_found: '已找餐厅',
+    tickets_info: '门票信息已获取',
+    review_passed: '审核通过',
   };
   return map[type] || type;
 }

@@ -1,4 +1,9 @@
-﻿"""Lightweight RAG pipeline using TF-IDF — no ChromaDB or ML models needed."""
+"""Lightweight RAG pipeline using TF-IDF — no ChromaDB or ML models needed.
+
+Supports two data sources:
+  1. city_guide.json + guidebook.json (original, LLM-generated)
+  2. poi_knowledge.json (unified POI knowledge base with real traveler tips)
+"""
 from __future__ import annotations
 import json
 import logging
@@ -19,6 +24,9 @@ _idf: dict[str, float] = {}
 _indexed_cities: set[str] = set()
 _ready = False
 _skip = False
+
+# POI knowledge store: city -> {poi_id: {name, tips, closed_days, ...}}
+_poi_knowledge: dict[str, dict[str, dict]] = {}
 
 
 def _tokenize(text: str) -> list[str]:
@@ -155,6 +163,82 @@ def ingest_guidebook(city: str, guidebook_path: str) -> int:
     return count
 
 
+def ingest_poi_knowledge(city: str, knowledge_path: str) -> int:
+    """Load poi_knowledge.json into both the BM25 index and the direct lookup store."""
+    if not os.path.exists(knowledge_path):
+        logger.debug(f"poi_knowledge.json not found for {city}")
+        return 0
+
+    with open(knowledge_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    pois = data.get("pois", {})
+    if not pois:
+        return 0
+
+    # Store for direct lookup (used by scheduler, etc.)
+    _poi_knowledge[city] = pois
+
+    # Index tips into BM25 corpus
+    count = 0
+    for poi_id, poi in pois.items():
+        name = poi.get("name", "")
+        tips = poi.get("tips", [])
+        if not tips:
+            continue
+        # Create one chunk per POI combining all tips
+        tip_texts = [f"[{t['category']}] {t['text']}" for t in tips]
+        combined = f"【{name}攻略】" + "；".join(tip_texts)
+        _add_chunk(city, "poi_knowledge", combined)
+        count += 1
+
+    _indexed_cities.add(city)
+    logger.info(f"Indexed {count} POI knowledge entries for {city}")
+    return count
+
+
+def get_poi_knowledge(city: str) -> dict[str, dict]:
+    """Get the full POI knowledge store for a city. Returns {} if not loaded."""
+    return _poi_knowledge.get(city, {})
+
+
+def get_poi_tips(city: str, poi_name: str) -> list[dict]:
+    """Get tips for a specific POI by name (fuzzy match)."""
+    pois = _poi_knowledge.get(city, {})
+    for pid, poi in pois.items():
+        if poi.get("name") == poi_name:
+            return poi.get("tips", [])
+    # Fuzzy: substring match
+    for pid, poi in pois.items():
+        name = poi.get("name", "")
+        if poi_name in name or name in poi_name:
+            return poi.get("tips", [])
+    return []
+
+
+def search_poi_tips(city: str, query: str, top_k: int = 3) -> list[str]:
+    """Search POI knowledge tips by query, return tip texts."""
+    if not is_rag_ready():
+        return []
+
+    query_tokens = _tokenize(query)
+    if not query_tokens:
+        return []
+
+    candidates = [doc for doc in _corpus if doc["city"] == city and doc["category"] == "poi_knowledge"]
+    if not candidates:
+        return []
+
+    scored = []
+    for doc in candidates:
+        score = _bm25_score(query_tokens, doc["tokens"])
+        if score > 0:
+            scored.append((score, doc["text"]))
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+    return [text for _, text in scored[:top_k]]
+
+
 def search_guides(city: str, query: str, top_k: int = 5) -> list[str]:
     """Retrieve relevant city guide snippets for a query using BM25."""
     if not is_rag_ready():
@@ -207,7 +291,15 @@ def init_rag(data_dir: str = "data"):
                 continue
             guide_path = os.path.join(city_dir, "city_guide.json")
             guidebook_path = os.path.join(city_dir, "guidebook.json")
+            knowledge_path = os.path.join(city_dir, "poi_knowledge.json")
             city_loaded = False
+            # Priority: poi_knowledge > city_guide + guidebook
+            try:
+                if os.path.exists(knowledge_path):
+                    ingest_poi_knowledge(entry, knowledge_path)
+                    city_loaded = True
+            except Exception as e:
+                logger.warning(f"Failed to ingest poi_knowledge for {entry}: {e}")
             try:
                 if os.path.exists(guide_path):
                     ingest_city_guide(entry, guide_path)

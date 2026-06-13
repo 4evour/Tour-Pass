@@ -252,4 +252,34 @@ nlohmann::json routeResultToJson(const RouteResult& route) {
     };
 }
 
+
+nlohmann::json poiToJson(const Poi& poi) {
+    nlohmann::json imgs = nlohmann::json::array();
+    for (const auto& img : poi.images) {
+        nlohmann::json imgObj = {{"url", img.url}, {"source", img.source}};
+        if (!img.noteUrl.empty()) imgObj["note_url"] = img.noteUrl;
+        imgs.push_back(imgObj);
+    }
+    return {
+        {"id", poi.id},
+        {"name", poi.name},
+        {"type", poiTypeToString(poi.type)},
+        {"lat", poi.lat},
+        {"lng", poi.lng},
+        {"area", poi.area},
+        {"open_time", formatMinutes(poi.openMinutes)},
+        {"close_time", formatMinutes(poi.closeMinutes)},
+        {"visit_duration_minutes", poi.visitDurationMinutes},
+        {"tags", poi.tags},
+        {"popularity", poi.popularity},
+        {"price_level", poi.priceLevel},
+        {"description", poi.description},
+        {"meal_type", poi.mealType},
+        {"recommendation", poi.recommendation},
+        {"image_url", poi.imageUrl},
+        {"images", imgs},
+        {"guide_text", poi.guideText}
+    };
+}
+
 }  // namespace tourpass

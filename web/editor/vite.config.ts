@@ -27,12 +27,15 @@ export default defineConfig({
   server: {
     port: 5174,
     proxy: {
-      '/editor': 'http://localhost:8080',
       '/cities': 'http://localhost:8080',
       '/poi': 'http://localhost:8080',
       '/trip': 'http://localhost:8080',
       '/trips': 'http://localhost:8080',
       '/auth': 'http://localhost:8080',
+      '/agent': {
+        target: 'http://localhost:8001',
+        changeOrigin: true,
+      },
     },
   },
 });

@@ -77,20 +77,16 @@ function leafletReady() {
 }
 
 function addBaseTileLayer(map) {
-  // 高德浅色底图（减少路名/小区名标注，更清爽）
+  // OSM as default (no API key required, ToS compliant)
+  var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+  osm.addTo(map);
+  // Amap light tiles as optional overlay (requires Amap JS API key for production use)
   var amapLight = L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}", {
     subdomains: "1234", maxZoom: 18, attribution: '&copy; 高德地图'
   });
-  // 高德标准底图（详细道路信息）
-  var amapStd = L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}", {
-    subdomains: "1234", maxZoom: 18, attribution: '&copy; 高德地图'
-  });
-  // OSM 备用
-  var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 18, attribution: '&copy; OSM'
-  });
-  amapLight.addTo(map);
-  L.control.layers({"高德极简": amapLight, "高德标准": amapStd, "OpenStreetMap": osm}, null, {position: "topright"}).addTo(map);
+  L.control.layers({"OpenStreetMap": osm, "高德极简": amapLight}, null, {position: "topright"}).addTo(map);
 }
 
 function renderOverviewMap(candidate) {
@@ -1882,44 +1878,59 @@ async function chatPlan() {
   $("chatBtnText").hidden = true;
   $("chatBtnLoading").hidden = false;
   $("chatButton").disabled = true;
-  showLoading();
+  $("chatOutput").hidden = true;
+
+  var prog = $("agentProgress");
+  var stepsEl = $("progressSteps");
+  if (prog) { prog.hidden = false; }
+  if (stepsEl) { stepsEl.innerHTML = ""; }
+  var agentRes = $("agentResult");
+  if (agentRes) { agentRes.hidden = true; agentRes.innerHTML = ""; }
+  var planOut = $("planOutput");
+  if (planOut) { planOut.hidden = true; }
+
   try {
-    const data = await api("/trip/chat", {
+    var itinerary = null;
+    var response = await fetch("/agent/plan", {
       method: "POST",
-      body: JSON.stringify({ message, context: [] }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: message }),
     });
-    hideLoading();
-    let html = "";
-    if (data.reply) {
-      html += `<p>${escapeHtml(data.reply)}</p>`;
+    if (!response.ok) throw new Error("HTTP " + response.status);
+
+    var reader = response.body.getReader();
+    var decoder = new TextDecoder();
+    var buffer = "";
+    while (true) {
+      var result = await reader.read();
+      if (result.done) break;
+      buffer += decoder.decode(result.value, { stream: true });
+      var lines = buffer.split("\n");
+      buffer = lines.pop() || "";
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        if (line.startsWith("event: ")) continue;
+        if (line.startsWith("data: ")) {
+          try {
+            var evt = JSON.parse(line.slice(6));
+            if (evt.type === "itinerary") { itinerary = evt.itinerary; }
+            else if (evt.type === "error") { throw new Error(evt.content || "Planning failed"); }
+            else if (evt.type !== "done" && stepsEl) {
+              stepsEl.innerHTML += '<span class="agent-progress-step done">' + escapeHtml(evt.content || evt.type) + "</span>";
+            }
+          } catch (e) {}
+        }
+      }
     }
-    if (data.suggestions && data.suggestions.length > 0) {
-      html += data.suggestions.map(s => `<p style="color:var(--warn);font-size:13px;">⚠️ ${escapeHtml(s)}</p>`).join("");
-    }
-    if (data.candidates && data.candidates.length > 0) {
-      state.candidates = data.candidates;
-      state.selectedIndex = 0;
-      const req = data.parsed_request || {};
-      state.lastPayload = {
-        city: req.city || data.candidates[0]?.city || "旅行",
-        days: req.days || data.candidates[0]?.days?.length || 1,
-        interests: req.interests || [],
-        must_visit: req.must_visit || [],
-        avoid: req.avoid || [],
-        pace: req.pace || "标准",
-      };
-      renderPlan();
-      setStage("overview");
-      saveTripState();
-      // Update guidebook for the planned city
-      loadGuidebook(state.lastPayload.city);
-      html += `<p style="font-size:13px;color:var(--muted);">已生成 ${data.candidates.length} 个方案，切换查看详情。</p>`;
-    }
-    $("chatOutput").innerHTML = html || "规划完成。";
-    $("chatOutput").hidden = false;
+    if (prog) prog.hidden = true;
+    if (itinerary) {
+      renderAgentResult(itinerary);
+      $("chatOutput").innerHTML = '<p style="color:var(--accent-dark);font-size:13px;">&#10003; 行程已生成，请查看详情</p>';
+      $("chatOutput").hidden = false;
+    } else { throw new Error("未能生成行程"); }
   } catch (error) {
-    hideLoading();
-    $("chatOutput").innerHTML = `<p style="color:#c0392b;">${escapeHtml(error.message)}</p>`;
+    if (prog) prog.hidden = true;
+    $("chatOutput").innerHTML = '<p style="color:#c0392b;">' + escapeHtml(error.message) + "</p>";
     $("chatOutput").hidden = false;
   } finally {
     $("chatButton").disabled = false;
@@ -1928,6 +1939,167 @@ async function chatPlan() {
   }
 }
 
+function renderAgentResult(itinerary) {
+  var container = $("agentResult");
+  if (!container) return;
+  container.hidden = false;
+  container.innerHTML = "";
+  var city = itinerary.city || "";
+  var days = itinerary.days || [];
+  var hotel = itinerary.hotel;
+  var summary = itinerary.summary || "";
+
+  var header = document.createElement("div");
+  header.className = "agent-header";
+  var h = '<h2>' + escapeHtml(city) + ' &middot; AI 智能行程</h2>';
+  h += '<div class="agent-header-summary">' + escapeHtml(summary) + '</div>';
+  h += '<div class="agent-header-meta"><span>&#128197; ' + days.length + ' 天</span>';
+  if (hotel) h += '<span>&#127976; ' + escapeHtml(hotel.name) + '</span>';
+  h += '</div>';
+  header.innerHTML = h;
+  container.appendChild(header);
+
+  if (hotel) {
+    var hCard = document.createElement("div");
+    hCard.className = "agent-hotel-card";
+    var hImgSrc = hotel.image_url || "/vendor/images/hotel-placeholder.svg";
+    var hImg = document.createElement("img");
+    hImg.className = "agent-hotel-img";
+    hImg.src = hImgSrc;
+    hImg.alt = hotel.name || "";
+    hImg.onerror = function() { this.src = "/vendor/images/hotel-placeholder.svg"; };
+    hCard.appendChild(hImg);
+    var hInfo = document.createElement("div");
+    hInfo.className = "agent-hotel-info";
+    hInfo.innerHTML = '<h3>&#127976; ' + escapeHtml(hotel.name) + '</h3><p>&#128205; ' + escapeHtml(hotel.area || '') + '</p>';
+    hCard.appendChild(hInfo);
+    container.appendChild(hCard);
+  }
+
+  var timeline = document.createElement("div");
+  timeline.className = "agent-timeline";
+  for (var d = 0; d < days.length; d++) {
+    var day = days[d];
+    var dayDiv = document.createElement("div");
+    dayDiv.className = "agent-day";
+    var dn = document.createElement("div");
+    dn.className = "agent-day-node";
+    dayDiv.appendChild(dn);
+    var dt = document.createElement("h3");
+    dt.className = "agent-day-title";
+    dt.textContent = '\u{1F4C5} \u7B2C ' + day.day + ' \u5929';
+    dayDiv.appendChild(dt);
+    if (day.summary) {
+      var ds = document.createElement("p");
+      ds.className = "agent-day-summary";
+      ds.textContent = day.summary;
+      dayDiv.appendChild(ds);
+    }
+    var stops = day.stops || [];
+    for (var s = 0; s < stops.length; s++) {
+      dayDiv.appendChild(renderStopCard(stops[s]));
+    }
+    timeline.appendChild(dayDiv);
+  }
+  container.appendChild(timeline);
+  container.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function renderStopCard(stop) {
+  var card = document.createElement("div");
+  card.className = "agent-stop";
+  var poiType = stop.poi_type || "attraction";
+  var typeLabels = { attraction: "\u{1F3DB}\uFE0F \u666F\u70B9", restaurant: "\u{1F35C} \u9910\u5385", hotel: "\u{1F3E8} \u9152\u5E97", nightlife: "\u{1F319} \u591C\u751F\u6D3B" };
+  var typeLabel = typeLabels[poiType] || "\u{1F4CD} \u666F\u70B9";
+  var hasImg = stop.image_url && stop.image_url.length > 0;
+  var timeStr = (stop.start_time || "") + (stop.end_time ? " - " + stop.end_time : "");
+
+  if (hasImg) {
+    var imgWrap = document.createElement("div");
+    imgWrap.className = "agent-stop-img-wrap";
+    var img = document.createElement("img");
+    img.className = "agent-stop-img";
+    img.src = stop.image_url;
+    img.alt = stop.poi_name || "";
+    img.loading = "lazy";
+    img.onerror = function() {
+      this.classList.add("error");
+      var ph = document.createElement("div");
+      ph.className = "agent-stop-noimg";
+      ph.textContent = poiType === "restaurant" ? "\u{1F35C}" : "\u{1F3DB}\uFE0F";
+      this.parentNode.appendChild(ph);
+    };
+    imgWrap.appendChild(img);
+    if (timeStr) {
+      var tb = document.createElement("div");
+      tb.className = "agent-stop-time-badge";
+      tb.textContent = timeStr;
+      imgWrap.appendChild(tb);
+    }
+    var tpb = document.createElement("div");
+    tpb.className = "agent-stop-type-badge";
+    tpb.textContent = typeLabel;
+    imgWrap.appendChild(tpb);
+    card.appendChild(imgWrap);
+  }
+
+  var body = document.createElement("div");
+  body.className = "agent-stop-body";
+  var nameEl = document.createElement("h4");
+  nameEl.className = "agent-stop-name";
+  nameEl.textContent = (hasImg ? "" : typeLabel + " ") + (stop.poi_name || "");
+  body.appendChild(nameEl);
+
+  if (stop.area) {
+    var areaEl = document.createElement("p");
+    areaEl.className = "agent-stop-area";
+    areaEl.textContent = '\u{1F4CD} ' + stop.area + (timeStr && !hasImg ? ' \u00B7 ' + timeStr : '');
+    body.appendChild(areaEl);
+  }
+  if (stop.reason) {
+    var reasonEl = document.createElement("div");
+    reasonEl.className = "agent-stop-reason";
+    reasonEl.textContent = stop.reason;
+    body.appendChild(reasonEl);
+  }
+  var guide = (stop.guide_text || "").trim();
+  if (guide) {
+    var guideDiv = document.createElement("div");
+    guideDiv.className = "agent-stop-guide";
+    var guideId = "guide_" + Math.random().toString(36).slice(2, 8);
+    var guideText = document.createElement("div");
+    guideText.className = "agent-stop-guide-text";
+    guideText.id = guideId;
+    guideText.textContent = guide;
+    guideDiv.appendChild(guideText);
+    if (guide.length > 120) {
+      var toggleBtn = document.createElement("button");
+      toggleBtn.className = "agent-stop-guide-toggle";
+      toggleBtn.textContent = '\u5C55\u5F00\u653B\u7565';
+      toggleBtn.setAttribute("data-guide-id", guideId);
+      toggleBtn.onclick = function() {
+        var el = document.getElementById(this.getAttribute("data-guide-id"));
+        if (el.classList.contains("expanded")) {
+          el.classList.remove("expanded");
+          this.textContent = '\u5C55\u5F00\u653B\u7565';
+        } else {
+          el.classList.add("expanded");
+          this.textContent = '\u6536\u8D77';
+        }
+      };
+      guideDiv.appendChild(toggleBtn);
+    }
+    body.appendChild(guideDiv);
+  }
+  if (stop.recommendation) {
+    var tipEl = document.createElement("div");
+    tipEl.className = "agent-stop-tip";
+    tipEl.innerHTML = '\u{1F4A1} ' + escapeHtml(stop.recommendation);
+    body.appendChild(tipEl);
+  }
+  card.appendChild(body);
+  return card;
+}
 
 $("chatButton").addEventListener("click", chatPlan);
 document.querySelectorAll(".chat-hint").forEach(function(btn) {
@@ -1936,6 +2108,17 @@ document.querySelectorAll(".chat-hint").forEach(function(btn) {
     chatPlan();
   });
 });
+document.querySelectorAll(".agent-keyword").forEach(function(tag) {
+  tag.addEventListener("click", function() {
+    var input = $("chatInput");
+    var kw = tag.dataset.kw;
+    if (input.value.indexOf(kw) === -1) {
+      input.value = input.value.trim() + (input.value.trim() ? "\uFF0C" : "") + "\u559C\u6B22" + kw;
+    }
+    input.focus();
+  });
+});
+
 // Event delegation for stop remove buttons (CSP-safe)
 document.addEventListener("click", function(e) {
   var rmBtn = e.target.closest(".stop-remove-btn");

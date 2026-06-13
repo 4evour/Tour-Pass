@@ -83,30 +83,42 @@
         <section class="chat-hero" id="chatHero">
           <div class="chat-hero-inner">
             <textarea id="chatInput" class="chat-hero-input" rows="2"
-              placeholder="告诉我你的旅行计划，比如：3天武汉行，想去黄鹤楼，带老人不要太累"></textarea>
+              placeholder="描述你的旅行计划，例如：3天广州行，想去广州塔和沙面，喜欢美食"></textarea>
             <button id="chatButton" class="chat-hero-btn" type="button">
-              <span id="chatBtnText">AI 规划</span>
-              <span id="chatBtnLoading" hidden>规划中...</span>
+              <span id="chatBtnText">🤖 AI 多Agent规划</span>
+              <span id="chatBtnLoading" hidden>⏳ 规划中...</span>
             </button>
           </div>
           <div class="chat-hero-hints">
-            <button type="button" class="chat-hint" data-prompt="3天城市美食之旅，想去当地著名景点，喜欢美食">🏖 3天城市美食之旅</button>
+            <button type="button" class="chat-hint" data-prompt="3天广州行，想去广州塔和沙面，喜欢美食和拍照">🏖 广州美食打卡</button>
             <button type="button" class="chat-hint" data-prompt="2天北京，带老人不要太累，想去故宫和颐和园">👨‍👩‍👧 带老人游北京</button>
-            <button type="button" class="chat-hint" data-prompt="2天成都，喜欢火锅和熊猫基地，网红打卡">🐼 成都网红打卡</button>
+            <button type="button" class="chat-hint" data-prompt="3天成都，喜欢火锅和熊猫基地，网红打卡">🐼 成都网红打卡</button>
             <button type="button" class="chat-hint" data-prompt="3天西安，历史文化深度游，想去兵马俑和大雁塔">🏛 西安历史之旅</button>
+            <button type="button" class="chat-hint" data-prompt="3天三亚，海边度假，想住海景酒店放松">🌊 三亚海边度假</button>
+            <button type="button" class="chat-hint" data-prompt="2天广州亲子游，想去长隆野生动物世界">🎓 亲子长隆游</button>
+            <button type="button" class="chat-hint" data-prompt="2天杭州，情侣文艺游，想去西湖和灵隐寺">💑 杭州文艺游</button>
+            <button type="button" class="chat-hint" data-prompt="3天重庆，山城探险，火锅夜景都不能少">🏔 重庆山城探险</button>
           </div>
-          <div class="chat-hero-subhint">Ctrl+Enter 发送 · 或点击上方快捷开始</div>
+          <div class="agent-keyword-bar" id="keywordBar">
+            <span class="agent-keyword" data-kw="美食">🍜 美食</span>
+            <span class="agent-keyword" data-kw="文化">🏛 文化</span>
+            <span class="agent-keyword" data-kw="自然">🌿 自然</span>
+            <span class="agent-keyword" data-kw="购物">🛍 购物</span>
+            <span class="agent-keyword" data-kw="亲子">👶 亲子</span>
+            <span class="agent-keyword" data-kw="情侣">💑 情侣</span>
+            <span class="agent-keyword" data-kw="穷游">💰 穷游</span>
+            <span class="agent-keyword" data-kw="奢华">👑 奢华</span>
+            <span class="agent-keyword" data-kw="拍照">📸 拍照</span>
+            <span class="agent-keyword" data-kw="历史">📜 历史</span>
+          </div>
+          <div class="chat-hero-subhint">Ctrl+Enter 发送 · 点击标签添加关键词 · 或选择快捷模板</div>
           <div class="chat-hero-actions">
             <a href="/editor" class="secondary-action" style="margin-top:8px;display:inline-block;">✏️ 手动规划行程</a>
           </div>
           <div id="chatOutput" class="chat-hero-output" hidden></div>
-          <!-- Loading animation -->
-          <div id="loadingOverlay" class="loading-overlay" hidden>
-            <div class="loading-steps">
-              <div class="loading-step active" id="loadStep1">🧠 正在理解你的需求…</div>
-              <div class="loading-step" id="loadStep2">🗺️ 正在规划路线…</div>
-              <div class="loading-step" id="loadStep3">✨ 正在优化行程…</div>
-            </div>
+          <div id="agentProgress" class="agent-progress" hidden>
+            <div class="agent-progress-spinner"></div>
+            <div class="agent-progress-steps" id="progressSteps"></div>
           </div>
         </section>
 
@@ -190,10 +202,8 @@
         </details>
 
         <!-- 3 tabs -->
-        <section class="stage-nav" aria-label="结果导航">
-          <button class="stage-tab active" type="button" data-stage="overview">🗺️ 行程总览</button>
-          <button class="stage-tab" type="button" data-stage="itinerary">📋 每日详情</button>
-          <button class="stage-tab" type="button" data-stage="debug">🔧 技术详情</button>
+        <section class="stage-nav" aria-label="结果导航" id="agentStageNav" hidden>
+          <button class="stage-tab active" type="button" data-stage="agent-result">📋 行程详情</button>
         </section>
 
         <!-- Result area -->
@@ -201,8 +211,9 @@
           <div id="candidateSummary" class="candidate-summary"></div>
           <div id="candidateTabs" class="tabs" role="tablist"></div>
           <div id="planOutput" class="plan-output empty-state">
-            用上方聊天框描述你的旅行计划，或手动设置偏好后生成行程。
+            用上方聊天框描述你的旅行计划，AI 多Agent 将为你智能规划行程。
           </div>
+          <div id="agentResult" class="agent-result" hidden></div>
         </section>
 
         <!-- Technical details (collapsed, for debug tab) -->

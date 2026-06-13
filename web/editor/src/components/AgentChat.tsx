@@ -1,7 +1,6 @@
-﻿import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import AgentToolStatus from './AgentToolStatus';
 import StreamingItinerary from './StreamingItinerary';
-import type { DayPlan } from '../types';
 
 interface AgentEvent {
   type: string;
@@ -79,7 +78,6 @@ export default function AgentChat({ city, onItineraryGenerated }: Props) {
 
         for (const line of lines) {
           if (line.startsWith('event: ')) {
-            // Event type line - next line will have data
             continue;
           }
           if (line.startsWith('data: ')) {
@@ -88,7 +86,8 @@ export default function AgentChat({ city, onItineraryGenerated }: Props) {
               events.push(data);
               setCurrentEvents([...events]);
 
-              if (data.type === 'itinerary_complete' || data.type === 'cache_hit') {
+              // Backend sends type: "itinerary" for the final result
+              if (data.type === 'itinerary' || data.type === 'itinerary_complete' || data.type === 'cache_hit') {
                 finalItinerary = data.itinerary || null;
                 setCurrentItinerary(finalItinerary);
               }
@@ -99,7 +98,6 @@ export default function AgentChat({ city, onItineraryGenerated }: Props) {
         }
       }
 
-      // Add assistant response
       const summary = finalItinerary?.summary as string || '行程已生成！';
       const assistantMsg: Message = {
         role: 'assistant',
@@ -128,7 +126,6 @@ export default function AgentChat({ city, onItineraryGenerated }: Props) {
     const msg = input.trim();
     setInput('');
 
-    // If we have an existing itinerary, use chat endpoint for modifications
     if (currentItinerary && isModificationRequest(msg)) {
       await sendChatMessage(msg);
     } else {

@@ -53,3 +53,9 @@ data/chromadb/
 pip_install*.log
 agent_server*.log
 cpp_server*.log
+__pycache__/
+*.pyc
+*.pyo
+.env
+error.log
+output.log
