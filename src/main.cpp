@@ -77,7 +77,9 @@ int main() {
             try {
                 auto data = tourpass::loadDataSet(poisPath, edgesPath);
                 std::cout << "Loaded city " << entry.name << ": " << data.pois.size() << " POIs" << std::endl;
-                cities[entry.name] = std::make_unique<tourpass::CityBundle>(std::move(data.pois), std::move(data.edges));
+                auto bundle = std::make_unique<tourpass::CityBundle>(std::move(data.pois), std::move(data.edges));
+                bundle->poisPath = poisPath;
+                cities[entry.name] = std::move(bundle);
             } catch (const std::exception& ex) {
                 std::cerr << "Warning: failed to load " << entry.name << ": " << ex.what() << std::endl;
             }

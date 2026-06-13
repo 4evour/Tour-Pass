@@ -48,6 +48,7 @@ public:
     PoiGraph& operator=(PoiGraph&&) = delete;
 
     const Poi* findPoi(const std::string& idOrName) const;
+    Poi* findMutablePoi(const std::string& id);
     const std::vector<Poi>& pois() const { return pois_; }
     size_t edgeCount() const { return edgeCount_; }
     int shortestMinutes(const std::string& from, const std::string& to) const;

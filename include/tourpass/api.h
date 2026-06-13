@@ -16,6 +16,7 @@ struct CityBundle {
     PoiGraph graph;
     TripPlanner planner;
     SearchEngine search;
+    std::string poisPath;
     CityBundle(std::vector<Poi> pois, std::vector<Edge> edges)
         : graph(std::move(pois), std::move(edges)), planner(graph), search(graph) {}
     CityBundle(const CityBundle&) = delete;

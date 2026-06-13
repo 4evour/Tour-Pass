@@ -24,6 +24,7 @@
 #include <errno.h>
 #endif
 #include "tourpass/auth.h"
+#include "tourpass/data_loader.h"
 
 // ---- Email sending via Resend API ----
 namespace {
@@ -2249,6 +2250,164 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     // ---- Track query usage after successful trip/plan and trip/chat ----
     // (We add a post-routing handler specifically for these)
     // Note: This is handled by incrementing in the existing post-routing handler
+
+    // ---- Admin POI Management ----
+    // GET /admin/pois - list POIs for a city with pagination
+    server.Get("/admin/pois", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
+        auto* city = context.findCityExact(cityName);
+        if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+
+        std::string typeFilter = req.has_param("type") ? req.get_param_value("type") : "";
+        std::string q = req.has_param("q") ? req.get_param_value("q") : "";
+        int page = 1;
+        int pageSize = 50;
+        if (req.has_param("page")) { try { page = std::stoi(req.get_param_value("page")); } catch (...) {} }
+        if (req.has_param("page_size")) { try { pageSize = std::stoi(req.get_param_value("page_size")); } catch (...) {} }
+        page = std::max(1, page);
+        pageSize = std::max(1, std::min(200, pageSize));
+
+        // Collect filtered POIs
+        std::vector<const Poi*> filtered;
+        for (const auto& poi : city->graph.pois()) {
+            if (!typeFilter.empty() && poiTypeToString(poi.type) != typeFilter) continue;
+            if (!q.empty()) {
+                std::string lower = poi.name;
+                std::string lowerQ = q;
+                for (auto& c : lower) c = std::tolower(c);
+                for (auto& c : lowerQ) c = std::tolower(c);
+                if (lower.find(lowerQ) == std::string::npos &&
+                    poi.id.find(q) == std::string::npos) continue;
+            }
+            filtered.push_back(&poi);
+        }
+
+        int total = static_cast<int>(filtered.size());
+        int start = (page - 1) * pageSize;
+        nlohmann::json data = nlohmann::json::array();
+        for (int i = start; i < std::min(start + pageSize, total); ++i) {
+            data.push_back(poiToJson(*filtered[i]));
+        }
+        setJson(res, {{"data", data}, {"total", total}, {"page", page}, {"page_size", pageSize}});
+    });
+
+    // GET /admin/pois/:id - get single POI detail
+    server.Get(R"(/admin/pois/([^/]+))", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string poiId = req.matches[1];
+        // Search across all cities
+        for (auto& [name, city] : context.cities) {
+            const auto* poi = city->graph.findPoi(poiId);
+            if (poi) {
+                nlohmann::json result = poiToJson(*poi);
+                result["_city"] = name;
+                setJson(res, result);
+                return;
+            }
+        }
+        setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404);
+    });
+
+    // PUT /admin/pois/:id - update POI fields
+    server.Put(R"(/admin/pois/([^/]+))", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string poiId = req.matches[1];
+        nlohmann::json body;
+        try { body = nlohmann::json::parse(req.body); } catch (...) {
+            setJson(res, errorJson("VALIDATION_ERROR", "无效的 JSON"), 400); return;
+        }
+
+        std::string cityName = body.value("_city", "");
+        CityBundle* city = nullptr;
+        if (!cityName.empty()) {
+            city = context.findCityExact(cityName);
+        } else {
+            // Search all cities
+            for (auto& [name, c] : context.cities) {
+                if (c->graph.findPoi(poiId)) { city = c; cityName = name; break; }
+            }
+        }
+        if (!city) { setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404); return; }
+
+        Poi* poi = city->graph.findMutablePoi(poiId);
+        if (!poi) { setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404); return; }
+
+        // Update fields
+        if (body.contains("name")) poi->name = body["name"].get<std::string>();
+        if (body.contains("type")) poi->type = poiTypeFromString(body["type"].get<std::string>());
+        if (body.contains("lat")) poi->lat = body["lat"].get<double>();
+        if (body.contains("lng")) poi->lng = body["lng"].get<double>();
+        if (body.contains("area")) poi->area = body["area"].get<std::string>();
+        if (body.contains("description")) poi->description = body["description"].get<std::string>();
+        if (body.contains("recommendation")) poi->recommendation = body["recommendation"].get<std::string>();
+        if (body.contains("guide_text")) poi->guideText = body["guide_text"].get<std::string>();
+        if (body.contains("meal_type")) poi->mealType = body["meal_type"].get<std::string>();
+        if (body.contains("popularity")) poi->popularity = body["popularity"].get<double>();
+        if (body.contains("price_level")) poi->priceLevel = body["price_level"].get<int>();
+        if (body.contains("visit_duration_minutes")) poi->visitDurationMinutes = body["visit_duration_minutes"].get<int>();
+        if (body.contains("tags") && body["tags"].is_array()) {
+            poi->tags.clear();
+            for (const auto& tag : body["tags"]) poi->tags.push_back(tag.get<std::string>());
+        }
+        if (body.contains("open_time")) poi->openMinutes = parseTimeToMinutes(body["open_time"].get<std::string>());
+        if (body.contains("close_time")) poi->closeMinutes = parseTimeToMinutes(body["close_time"].get<std::string>());
+        if (body.contains("image_url")) poi->imageUrl = body["image_url"].get<std::string>();
+        if (body.contains("images") && body["images"].is_array()) {
+            poi->images.clear();
+            for (const auto& img : body["images"]) {
+                PoiImage pi;
+                pi.url = img.value("url", "");
+                pi.source = img.value("source", "");
+                pi.noteUrl = img.value("note_url", "");
+                poi->images.push_back(pi);
+            }
+        }
+
+        // Save to disk
+        try {
+            savePois(city->poisPath, city->graph.pois());
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("SAVE_FAILED", "保存失败: " + std::string(ex.what())), 500);
+            return;
+        }
+
+        setJson(res, {{"status", "updated"}, {"poi", poiToJson(*poi)}});
+    });
+
+    // PUT /admin/pois/:id/image - set primary image
+    server.Put(R"(/admin/pois/([^/]+)/image)", [&](const httplib::Request& req, httplib::Response& res) {
+        std::string poiId = req.matches[1];
+        nlohmann::json body;
+        try { body = nlohmann::json::parse(req.body); } catch (...) {
+            setJson(res, errorJson("VALIDATION_ERROR", "无效的 JSON"), 400); return;
+        }
+
+        std::string imageUrl = body.value("image_url", "");
+        if (imageUrl.empty()) {
+            setJson(res, errorJson("VALIDATION_ERROR", "image_url 不能为空"), 400); return;
+        }
+
+        std::string cityName = body.value("_city", "");
+        CityBundle* city = nullptr;
+        if (!cityName.empty()) {
+            city = context.findCityExact(cityName);
+        } else {
+            for (auto& [name, c] : context.cities) {
+                if (c->graph.findPoi(poiId)) { city = c; break; }
+            }
+        }
+        if (!city) { setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404); return; }
+
+        Poi* poi = city->graph.findMutablePoi(poiId);
+        if (!poi) { setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404); return; }
+
+        poi->imageUrl = imageUrl;
+        try {
+            savePois(city->poisPath, city->graph.pois());
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("SAVE_FAILED", "保存失败: " + std::string(ex.what())), 500);
+            return;
+        }
+        setJson(res, {{"status", "updated"}, {"poi_id", poiId}, {"image_url", imageUrl}});
+    });
 
     // ---- Editor APIs ----
     server.Post("/editor/batch-route", [&](const httplib::Request& req, httplib::Response& res) {

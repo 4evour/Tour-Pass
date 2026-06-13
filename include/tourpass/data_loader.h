@@ -15,5 +15,6 @@ struct DataSet {
 std::vector<Poi> loadPois(const std::string& path);
 std::vector<Edge> loadEdges(const std::string& path, const std::vector<Poi>& pois);
 DataSet loadDataSet(const std::string& poiPath, const std::string& edgePath);
+void savePois(const std::string& path, const std::vector<Poi>& pois);
 
 }  // namespace tourpass
