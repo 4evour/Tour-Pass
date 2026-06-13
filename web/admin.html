@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
@@ -50,6 +50,61 @@
       .fb-reply button { padding: 6px 12px; border-radius: 6px; border: none; cursor: pointer; font-size: 12px; }
 
       .admin-error { padding: 40px; text-align: center; color: var(--muted); }
+
+      /* POI Management */
+      .poi-toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+      .poi-select, .poi-input { padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 13px; background: var(--surface); }
+      .poi-input { flex: 1; min-width: 200px; }
+      .poi-count { font-size: 13px; color: var(--muted); margin-left: auto; }
+      .poi-list { display: grid; gap: 8px; }
+      .poi-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center; cursor: pointer; transition: border-color 0.15s; }
+      .poi-card:hover { border-color: var(--accent); }
+      .poi-thumb { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; background: var(--soft); }
+      .poi-thumb-placeholder { width: 64px; height: 64px; border-radius: 8px; background: var(--soft); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 24px; }
+      .poi-info h4 { margin: 0 0 4px; font-size: 14px; }
+      .poi-info h4 small { font-weight: 400; color: var(--muted); font-size: 12px; margin-left: 6px; }
+      .poi-meta { font-size: 12px; color: var(--muted); display: flex; gap: 12px; flex-wrap: wrap; }
+      .poi-meta span { white-space: nowrap; }
+      .poi-actions { display: flex; gap: 6px; }
+      .poi-actions button { padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); cursor: pointer; font-size: 12px; transition: all 0.15s; }
+      .poi-actions button:hover { border-color: var(--accent); color: var(--accent); }
+      .poi-pagination { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
+      .poi-pagination button { padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); cursor: pointer; font-size: 13px; }
+      .poi-pagination button.active { border-color: var(--accent); background: var(--soft); font-weight: 600; }
+      .poi-pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+      /* Modal */
+      .poi-modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
+      .poi-modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+      .poi-modal-content { position: relative; background: var(--surface); border-radius: 14px; box-shadow: 0 8px 32px rgba(0,0,0,0.18); width: 90%; max-width: 600px; max-height: 85vh; display: flex; flex-direction: column; }
+      .poi-modal-wide { max-width: 900px; }
+      .poi-modal-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+      .poi-modal-header h3 { margin: 0; font-size: 16px; }
+      .poi-modal-close { border: none; background: none; font-size: 22px; cursor: pointer; color: var(--muted); padding: 4px 8px; }
+      .poi-modal-body { padding: 20px; overflow-y: auto; flex: 1; }
+      .poi-modal-footer { padding: 12px 20px; border-top: 1px solid var(--line); display: flex; justify-content: flex-end; gap: 8px; }
+      .btn-cancel { padding: 8px 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); cursor: pointer; font-size: 13px; }
+      .btn-save { padding: 8px 20px; border: none; border-radius: 8px; background: var(--accent); color: #fff; cursor: pointer; font-size: 13px; font-weight: 600; }
+
+      /* Edit form */
+      .poi-form { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      .poi-form .full { grid-column: 1 / -1; }
+      .poi-form label { font-size: 12px; font-weight: 600; color: var(--muted); display: block; margin-bottom: 4px; }
+      .poi-form input, .poi-form select, .poi-form textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 6px; font-size: 13px; box-sizing: border-box; background: var(--surface); }
+      .poi-form textarea { resize: vertical; min-height: 60px; }
+      .poi-form .tags-input { display: flex; flex-wrap: wrap; gap: 4px; padding: 6px; border: 1px solid var(--line); border-radius: 6px; min-height: 36px; }
+      .poi-form .tag { background: var(--soft); padding: 2px 8px; border-radius: 999px; font-size: 12px; display: flex; align-items: center; gap: 4px; }
+      .poi-form .tag button { border: none; background: none; cursor: pointer; font-size: 14px; color: var(--muted); padding: 0; }
+      .poi-form .tag-input-field { border: none; outline: none; font-size: 13px; flex: 1; min-width: 80px; }
+
+      /* Image picker */
+      .img-picker-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px; }
+      .img-picker-card { border: 3px solid transparent; border-radius: 10px; overflow: hidden; cursor: pointer; transition: border-color 0.15s; position: relative; }
+      .img-picker-card.selected { border-color: var(--accent); }
+      .img-picker-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+      .img-picker-card .img-label { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); color: #fff; font-size: 11px; padding: 4px 8px; text-align: center; }
+      .img-picker-current { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+      .img-picker-current img { width: 120px; border-radius: 8px; vertical-align: middle; margin-left: 8px; }
     </style>
   </head>
   <body>
@@ -73,6 +128,7 @@
           <button class="active" data-tab="dashboard">📊 仪表盘</button>
           <button data-tab="users">👥 用户管理</button>
           <button data-tab="feedback">💬 反馈管理</button>
+          <button data-tab="pois">🏔️ 景点管理</button>
         </nav>
 
         <!-- Dashboard -->
@@ -102,6 +158,54 @@
           </div>
           <div id="feedbackList"></div>
         </section>
+        <!-- POI Management -->
+        <section id="sec-pois" class="admin-section">
+          <div class="poi-toolbar">
+            <select id="poiCitySelect" class="poi-select"></select>
+            <select id="poiTypeFilter" class="poi-select">
+              <option value="">全部类型</option>
+              <option value="attraction">景点</option>
+              <option value="restaurant">餐厅</option>
+              <option value="hotel">酒店</option>
+              <option value="transit">交通</option>
+              <option value="nightlife">夜间活动</option>
+            </select>
+            <input type="text" id="poiSearch" placeholder="搜索名称/ID..." class="poi-input" />
+            <span id="poiCount" class="poi-count"></span>
+          </div>
+          <div id="poiList" class="poi-list"></div>
+          <div id="poiPagination" class="poi-pagination"></div>
+        </section>
+        <!-- POI Edit Modal -->
+        <div id="poiEditModal" class="poi-modal" hidden>
+          <div class="poi-modal-overlay"></div>
+          <div class="poi-modal-content">
+            <div class="poi-modal-header">
+              <h3 id="poiModalTitle">编辑 POI</h3>
+              <button id="poiModalClose" class="poi-modal-close">&times;</button>
+            </div>
+            <div class="poi-modal-body" id="poiModalBody"></div>
+            <div class="poi-modal-footer">
+              <button id="poiModalCancel" class="btn-cancel">取消</button>
+              <button id="poiModalSave" class="btn-save">保存</button>
+            </div>
+          </div>
+        </div>
+        <!-- Image Picker Modal -->
+        <div id="imagePickerModal" class="poi-modal" hidden>
+          <div class="poi-modal-overlay"></div>
+          <div class="poi-modal-content poi-modal-wide">
+            <div class="poi-modal-header">
+              <h3>选择主图</h3>
+              <button id="imagePickerClose" class="poi-modal-close">&times;</button>
+            </div>
+            <div class="poi-modal-body" id="imagePickerBody"></div>
+            <div class="poi-modal-footer">
+              <button id="imagePickerCancel" class="btn-cancel">取消</button>
+              <button id="imagePickerSave" class="btn-save">确认选择</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="/admin.js"></script>
