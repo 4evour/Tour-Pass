@@ -28,7 +28,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_88b9448b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_88b9448b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_88b9448b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_88b9448b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_965dd51d",
@@ -93,7 +108,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_35e8b523/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_35e8b523/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_35e8b523/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_35e8b523/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7902ef1e",
@@ -148,7 +178,22 @@
     "source_id": "B000A81CB2",
     "recommendation": "天坛祈年殿超上镜，建议清晨去听回音壁的回音，还能见大爷大妈晨练。",
     "open_minutes": 360,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/beijing/images/amap_7bd0466e/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_7bd0466e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_7bd0466e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_7bd0466e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1ab69822",
@@ -211,7 +256,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_a4fd351b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_a4fd351b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a4fd351b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a4fd351b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_701cf4e0",
@@ -276,7 +336,22 @@
       "key": "history",
       "label": "历史故事",
       "instruction": "讲一个这个景点鲜为人知的历史细节或典故，20字以内"
-    }
+    },
+    "image_url": "images/beijing/images/amap_b7cea346/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_b7cea346/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b7cea346/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b7cea346/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_be8e17e2",
@@ -334,7 +409,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧，15字以内"
-    }
+    },
+    "image_url": "images/beijing/images/amap_1f2ba3a/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_1f2ba3a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1f2ba3a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1f2ba3a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b2706770",
@@ -392,7 +482,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_8d64df6/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_8d64df6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_8d64df6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_8d64df6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bf316d2e",
@@ -450,7 +555,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_dd939db1/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_dd939db1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_dd939db1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_dd939db1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_44d0c49",
@@ -500,7 +620,22 @@
     "source_id": "B000AABXEH",
     "recommendation": "夜游司马台长城，泡温泉赏星空，记得住一晚体验水镇静谧夜景。",
     "open_minutes": 540,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "image_url": "images/beijing/images/amap_27e44706/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_27e44706/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_27e44706/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_27e44706/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_803c1d0b",
@@ -554,7 +689,22 @@
     "source_id": "B0FFFS33G2",
     "recommendation": "鼓楼是老城地标，登顶能俯瞰中轴线车水马龙。傍晚去，夕阳",
     "open_minutes": 510,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "image_url": "images/beijing/images/amap_bc5678b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_bc5678b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_bc5678b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_bc5678b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_dddcd0fb",
@@ -612,7 +762,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/beijing/images/amap_fa85b41b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_fa85b41b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_fa85b41b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_fa85b41b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_81da6b45",
@@ -671,7 +836,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_9338545d/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_9338545d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9338545d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9338545d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2ef119d9",
@@ -731,7 +911,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_5c715e37/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_5c715e37/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_5c715e37/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_5c715e37/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c3e71632",
@@ -789,7 +984,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_2d772e8d/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_2d772e8d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2d772e8d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2d772e8d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_76cc63e8",
@@ -855,7 +1065,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧，15字以内"
-    }
+    },
+    "image_url": "images/beijing/images/amap_1817fce/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_1817fce/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1817fce/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1817fce/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e51351b9",
@@ -914,7 +1139,22 @@
     "source_id": "B0JDP5M5DW",
     "recommendation": "金石博物馆小众又有趣，可以亲手体验拓印，还能了解印章篆刻文化，适合带娃长知识。",
     "open_minutes": 600,
-    "close_minutes": 960
+    "close_minutes": 960,
+    "image_url": "images/beijing/images/amap_df22bb79/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_df22bb79/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_df22bb79/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_df22bb79/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4b65d116",
@@ -976,7 +1216,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_1e278282/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_1e278282/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1e278282/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1e278282/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_862371",
@@ -1042,7 +1297,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_b401a1fb/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_b401a1fb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b401a1fb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b401a1fb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1a5dbd5d",
@@ -1105,7 +1375,18 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_4673d452/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_4673d452/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4673d452/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e3aca685",
@@ -1171,7 +1452,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_a128d80b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_a128d80b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a128d80b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a128d80b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_68fd321f",
@@ -1237,7 +1533,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_75d08fe3/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_75d08fe3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_75d08fe3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_75d08fe3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c6821323",
@@ -1294,7 +1605,22 @@
     "source_id": "B000AA0HTV",
     "recommendation": "想看看海关扣押的“奇珍异宝”吗？这里展品超有意思。建议周末去，人少能慢慢逛。",
     "open_minutes": 540,
-    "close_minutes": 960
+    "close_minutes": 960,
+    "image_url": "images/beijing/images/amap_1e2f49a3/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_1e2f49a3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1e2f49a3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1e2f49a3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_cc40c82a",
@@ -1360,7 +1686,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_caa9cb2/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_caa9cb2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_caa9cb2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_caa9cb2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c5480fba",
@@ -1420,7 +1761,22 @@
     "description": "北京国际饭店会议中心位于东城区朝阳门，既是现代会展场馆，也常举办文化展览与科普活动。内部空间宽敞明亮，设计融合了传统元素与都市气息。建议提前查看近期展览或会议安排，适合商务人士、历史爱好者及带娃家庭。这里是了解京城文化、参与特色活动的室内好去处",
     "source": "amap",
     "source_id": "B000A80RN3",
-    "recommendation": "会议中心常有高端展览和论坛开放，运气好能蹭到免费讲座，记得先查官网活动日历。"
+    "recommendation": "会议中心常有高端展览和论坛开放，运气好能蹭到免费讲座，记得先查官网活动日历。",
+    "image_url": "images/beijing/images/amap_3b981f93/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_3b981f93/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_3b981f93/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_3b981f93/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2e315c34",
@@ -1481,7 +1837,22 @@
     "source_id": "B0HD9U1XM4",
     "recommendation": "藏在胡同里的美术馆，展览小而精致。记得提前预约，拍照超级出片。",
     "open_minutes": 600,
-    "close_minutes": 780
+    "close_minutes": 780,
+    "image_url": "images/beijing/images/amap_f26c0b31/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_f26c0b31/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f26c0b31/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f26c0b31/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_276a9d82",
@@ -1543,7 +1914,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_eecf32d8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_eecf32d8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_eecf32d8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_eecf32d8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4e4d9180",
@@ -1605,7 +1991,22 @@
       "key": "family",
       "label": "亲子建议",
       "instruction": "给带小孩的家庭一个实用建议，15字以内"
-    }
+    },
+    "image_url": "images/beijing/images/amap_92915383/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_92915383/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_92915383/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_92915383/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_710b08ee",
@@ -1664,7 +2065,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/beijing/images/amap_4e290ee9/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_4e290ee9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4e290ee9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4e290ee9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_efa6f27b",
@@ -1732,7 +2148,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_9844a192/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_9844a192/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9844a192/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9844a192/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3533937b",
@@ -1788,7 +2219,22 @@
     "source_id": "B000A85E86",
     "recommendation": "主题独特，展览有趣互动强。亲子游必去，很多适合孩子的体验项目。",
     "open_minutes": 540,
-    "close_minutes": 1020
+    "close_minutes": 1020,
+    "image_url": "images/beijing/images/amap_fdac31ce/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_fdac31ce/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_fdac31ce/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_fdac31ce/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7b393497",
@@ -1849,7 +2295,22 @@
     "source_id": "B000A87KTH",
     "recommendation": "登明代古城墙俯瞰京城，历史感扑面而来。傍晚去，看城墙与",
     "open_minutes": 510,
-    "close_minutes": 1050
+    "close_minutes": 1050,
+    "image_url": "images/beijing/images/amap_336a8c3c/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_336a8c3c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_336a8c3c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_336a8c3c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4a030f93",
@@ -1910,7 +2371,22 @@
     "description": "皇城根遗址公园是北京二环内一条狭长的城市绿带，沿着明清皇城东墙遗址而建。这里不仅有老城墙遗迹、石刻等历史碎片，还布满了银杏、松柏和四季花坛，是闹市中的静谧之地。建议从南到北慢慢散步，顺便打卡周边的老胡同和故宫角楼。适合想避开人潮、喜欢城市漫游或对历史感兴趣的游客。",
     "source": "amap",
     "source_id": "B000A7VRNI",
-    "recommendation": "皇城根遗址公园是闹市里的“绿色城墙”，傍晚散步能看古城墙剪影。"
+    "recommendation": "皇城根遗址公园是闹市里的“绿色城墙”，傍晚散步能看古城墙剪影。",
+    "image_url": "images/beijing/images/amap_427b1852/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_427b1852/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_427b1852/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_427b1852/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c923235c",
@@ -1978,7 +2454,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_66ee8c1d/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_66ee8c1d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_66ee8c1d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_66ee8c1d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5acc169b",
@@ -2046,7 +2537,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区，15字以内"
-    }
+    },
+    "image_url": "images/beijing/images/amap_a445188f/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_a445188f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a445188f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a445188f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1385a803",
@@ -2104,7 +2610,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_ec18b32f/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_ec18b32f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ec18b32f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ec18b32f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4294dfd5",
@@ -2170,7 +2691,22 @@
       "key": "culture",
       "label": "文化体验",
       "instruction": "推荐一个能深度感受当地文化的体验方式，15字以内"
-    }
+    },
+    "image_url": "images/beijing/images/amap_f467af1c/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_f467af1c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f467af1c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f467af1c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4e2b0852",
@@ -2229,7 +2765,22 @@
       "key": "photography",
       "label": "摄影技巧",
       "instruction": "写一句实用的拍照建议（最佳机位、光线、构图），15字以内"
-    }
+    },
+    "image_url": "images/beijing/images/amap_17ea2bb2/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_17ea2bb2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_17ea2bb2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_17ea2bb2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f974db75",
@@ -2295,7 +2846,22 @@
       "key": "history",
       "label": "历史故事",
       "instruction": "讲一个这个景点鲜为人知的历史细节或典故，20字以内"
-    }
+    },
+    "image_url": "images/beijing/images/amap_cd7db350/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_cd7db350/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_cd7db350/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_cd7db350/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_49fe5e97",
@@ -2361,7 +2927,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_ac368cf3/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_ac368cf3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ac368cf3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ac368cf3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ff7f74b",
@@ -2422,7 +3003,22 @@
     "source_id": "B000A84NQ3",
     "recommendation": "老城墙根下的免费公园，傍晚时分看夕阳余晖洒在城砖上，超有历史感～",
     "open_minutes": 360,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/beijing/images/amap_684e7ce0/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_684e7ce0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_684e7ce0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_684e7ce0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b992448f",
@@ -2488,7 +3084,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_bbf78fb0/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_bbf78fb0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_bbf78fb0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_bbf78fb0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_88a8e64b",
@@ -2552,7 +3163,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_219b70fb/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_219b70fb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_219b70fb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_219b70fb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ba71f10a",
@@ -2610,7 +3236,22 @@
     "source_id": "B000A840SD",
     "recommendation": "南馆公园闹中取静，适合晨练或傍晚散步，还能偶遇小松鼠，带包饼干更开心。",
     "open_minutes": 360,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "image_url": "images/beijing/images/amap_85bd8d/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_85bd8d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_85bd8d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_85bd8d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bfe4c12",
@@ -2669,7 +3310,22 @@
     "description": "天桥街道学雷锋志愿服务主题公园，藏着北京胡同里的红色温情。园内设有雷锋事迹展板、志愿服务雕塑和便民驿站，处处传递着助人精神。建议花半小时悠闲漫步，看看互动展板，在“爱心墙”前拍照打卡。适合亲子家庭带孩子接受品德教育，也适合学生团体或社区居民日常休闲散步。",
     "source": "amap",
     "source_id": "B0FFK5V9XC",
-    "recommendation": "学雷锋主题公园，带孩子来感受志愿精神，顺便在绿荫里歇脚，很适合亲子游。"
+    "recommendation": "学雷锋主题公园，带孩子来感受志愿精神，顺便在绿荫里歇脚，很适合亲子游。",
+    "image_url": "images/beijing/images/amap_e18b5ac7/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_e18b5ac7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_e18b5ac7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_e18b5ac7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_49c1ec58",
@@ -2725,7 +3381,22 @@
     "description": "东四奥林匹克社区公园藏在二环里，是闹市中的一片绿洲。园内随处可见奥运主题雕塑和健身步道，春天樱花和秋天银杏特别出片。建议傍晚来散步，顺便看看大爷们下棋打太极。适合想避开人潮的游客、附近遛娃的家长，以及跑步或打太极的健身党。",
     "source": "amap",
     "source_id": "B000A7BKTU",
-    "recommendation": "藏在胡同里的社区公园，晨练氛围超浓，早起溜达能感受老北京的烟火气。"
+    "recommendation": "藏在胡同里的社区公园，晨练氛围超浓，早起溜达能感受老北京的烟火气。",
+    "image_url": "images/beijing/images/amap_fb3d84bf/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_fb3d84bf/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_fb3d84bf/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_fb3d84bf/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1c9c5b7a",
@@ -2784,7 +3455,22 @@
     "description": "藏在西城区天桥附近的蜡烛园，是个小而美的休闲秘境。园内最吸睛的是各种蜡烛造型的雕塑和景观，白天清新文艺，夜晚灯光亮起更是浪漫满分。适合散步拍照、放空发呆。推荐傍晚来，看夕阳染红“烛",
     "source": "amap",
     "source_id": "B0FFKS8F2O",
-    "recommendation": "蜡烛园傍晚灯光亮起，桥上俯瞰城市夜景超美，适合散步拍照打卡。"
+    "recommendation": "蜡烛园傍晚灯光亮起，桥上俯瞰城市夜景超美，适合散步拍照打卡。",
+    "image_url": "images/beijing/images/amap_b457f554/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_b457f554/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b457f554/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b457f554/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6131a443",
@@ -2848,7 +3534,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_637a037b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_637a037b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_637a037b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_637a037b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_92f89831",
@@ -2914,7 +3615,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因，15字以内"
-    }
+    },
+    "image_url": "images/beijing/images/amap_ab083440/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_ab083440/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ab083440/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ab083440/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d9c55806",
@@ -2973,7 +3689,22 @@
     "description": "西单体育游园藏在繁华商圈里，闹中取静。这里有标准篮球场、乒乓球台和健身步道，绿荫环绕，适合运动后坐在长椅上发呆。建议傍晚去，路灯亮起时还能看到街头艺人的即兴表演。推荐想活动筋骨的上班族、带娃的爸妈，或是逛街累了想喘口气的你。",
     "source": "amap",
     "source_id": "B0H01COTLH",
-    "recommendation": "西单闹市里的运动小天地，逛街累了来这拉伸一下，傍晚人少更惬意。"
+    "recommendation": "西单闹市里的运动小天地，逛街累了来这拉伸一下，傍晚人少更惬意。",
+    "image_url": "images/beijing/images/amap_a705227c/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_a705227c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a705227c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a705227c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_da61defa",
@@ -3033,7 +3764,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_9820bc68/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_9820bc68/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9820bc68/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9820bc68/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c6f9f482",
@@ -3098,7 +3844,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_fa51628c/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_fa51628c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_fa51628c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_fa51628c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8eb241ec",
@@ -3163,7 +3924,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_2cfc4efc/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_2cfc4efc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2cfc4efc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2cfc4efc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b3fd8ce0",
@@ -3229,7 +4005,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_6c0a2a68/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_6c0a2a68/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_6c0a2a68/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_6c0a2a68/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ae517067",
@@ -3296,7 +4087,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_a885216a/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_a885216a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a885216a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a885216a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f1501a0a",
@@ -3361,7 +4167,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_aa4946b8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_aa4946b8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_aa4946b8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_aa4946b8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9625b6b5",
@@ -3427,7 +4248,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/beijing/images/amap_55ad3b8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_55ad3b8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_55ad3b8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_55ad3b8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a88f4931",
@@ -3493,7 +4329,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_9535604a/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_9535604a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9535604a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9535604a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7cf7352e",
@@ -3559,7 +4410,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_3086dad6/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_3086dad6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_3086dad6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_3086dad6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f11aefc7",
@@ -3625,7 +4491,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_eb0d570d/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_eb0d570d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_eb0d570d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_eb0d570d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e0dade14",
@@ -3692,7 +4573,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_7fdbb1fa/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_7fdbb1fa/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_7fdbb1fa/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_7fdbb1fa/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d5c73038",
@@ -3757,7 +4653,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_867bcac8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_867bcac8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_867bcac8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_867bcac8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_31bac8e4",
@@ -3822,7 +4733,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_25cecd53/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_25cecd53/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_25cecd53/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_25cecd53/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ae63d535",
@@ -3887,7 +4813,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_e79d9b94/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_e79d9b94/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_e79d9b94/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_e79d9b94/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_256c6768",
@@ -3950,7 +4891,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_1d910bf9/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_1d910bf9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1d910bf9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1d910bf9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b71227e",
@@ -4014,7 +4970,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_2e4fe6bf/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_2e4fe6bf/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2e4fe6bf/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2e4fe6bf/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_92442f10",
@@ -4081,7 +5052,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_f501ecc0/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_f501ecc0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f501ecc0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f501ecc0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9fd6e9d",
@@ -4149,7 +5135,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_f380a6eb/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_f380a6eb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f380a6eb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f380a6eb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ce9087f2",
@@ -4217,7 +5218,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/beijing/images/amap_40a8cb96/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_40a8cb96/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_40a8cb96/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_40a8cb96/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_279379fe",
@@ -4285,7 +5301,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_585268bd/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_585268bd/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_585268bd/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_585268bd/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d261fc96",
@@ -4353,7 +5384,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_4ce08ea/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_4ce08ea/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4ce08ea/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4ce08ea/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f40b6d7d",
@@ -4421,7 +5467,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_eb713e8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_eb713e8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_eb713e8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_eb713e8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_425a45af",
@@ -4489,7 +5550,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_1404d440/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_1404d440/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1404d440/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1404d440/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b1fb709b",
@@ -4557,7 +5633,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_c3afd5af/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_c3afd5af/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_c3afd5af/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_c3afd5af/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6b4ec319",
@@ -4625,7 +5716,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_8309029d/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_8309029d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_8309029d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_8309029d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8a8a5ebb",
@@ -4693,7 +5799,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_19014326/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_19014326/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_19014326/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_19014326/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ff1aea29",
@@ -4761,7 +5882,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/beijing/images/amap_751d1303/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_751d1303/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_751d1303/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_751d1303/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8a7af874",
@@ -4828,7 +5964,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_751a6a7/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_751a6a7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_751a6a7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_751a6a7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bbfc93d1",
@@ -4896,7 +6047,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_848fb68b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_848fb68b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_848fb68b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_848fb68b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_97a0ae61",
@@ -4964,7 +6130,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/beijing/images/amap_add1b88a/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_add1b88a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_add1b88a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_add1b88a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_972062d0",
@@ -5034,7 +6215,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_20839134/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_20839134/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_20839134/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_20839134/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d96f55ef",
@@ -5102,7 +6298,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_e82c148/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_e82c148/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_e82c148/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_e82c148/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_570eb1e9",
@@ -5170,7 +6381,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/beijing/images/amap_c8aed7ef/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_c8aed7ef/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_c8aed7ef/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_c8aed7ef/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_80d73ffe",
@@ -5238,7 +6464,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_62ddd907/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_62ddd907/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_62ddd907/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_62ddd907/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_37840dd9",
@@ -5304,7 +6545,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_66a1f868/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_66a1f868/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_66a1f868/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_66a1f868/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_112c981f",
@@ -5372,7 +6628,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_cbb30860/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_cbb30860/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_cbb30860/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_cbb30860/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bd5972bb",
@@ -5438,7 +6709,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_21149436/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_21149436/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_21149436/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_21149436/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_809793fa",
@@ -5504,7 +6790,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_6bab1af4/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_6bab1af4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_6bab1af4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_6bab1af4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e93f383d",
@@ -5570,7 +6871,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_65ba9735/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_65ba9735/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_65ba9735/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_65ba9735/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_aed29e25",
@@ -5635,7 +6951,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_279f76f5/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_279f76f5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_279f76f5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_279f76f5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d2c7456e",
@@ -5700,7 +7031,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_9da8281c/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_9da8281c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9da8281c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9da8281c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_da81c7b0",
@@ -5765,7 +7111,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/beijing/images/amap_ce245d36/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_ce245d36/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ce245d36/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ce245d36/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ce7a9f66",
@@ -5830,7 +7191,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_d726c098/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_d726c098/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d726c098/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d726c098/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2d3b50ba",
@@ -5898,7 +7274,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/beijing/images/amap_17660fcf/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_17660fcf/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_17660fcf/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_17660fcf/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6e1fdfab",
@@ -5963,7 +7354,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_ebc0ef90/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_ebc0ef90/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ebc0ef90/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ebc0ef90/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9a9c61d7",
@@ -6096,7 +7502,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_9559dcf/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_9559dcf/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9559dcf/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9559dcf/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_35795e7d",
@@ -6230,7 +7651,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_7779c047/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_7779c047/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_7779c047/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_7779c047/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e47f79bc",
@@ -6300,7 +7736,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_c1201ca8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_c1201ca8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_c1201ca8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_c1201ca8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d5baa182",
@@ -6372,7 +7823,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_d546b335/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_d546b335/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d546b335/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d546b335/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_cbc3541e",
@@ -6442,7 +7908,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/beijing/images/amap_7d8cbe32/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_7d8cbe32/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_7d8cbe32/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_7d8cbe32/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5a4d8388",
@@ -6512,7 +7993,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_6895cbbf/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_6895cbbf/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_6895cbbf/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_6895cbbf/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b6b4f823",
@@ -6585,7 +8081,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_9051f9fa/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_9051f9fa/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9051f9fa/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9051f9fa/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8ca17603",
@@ -6653,7 +8164,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/beijing/images/amap_e1d1e591/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_e1d1e591/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_e1d1e591/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_e1d1e591/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e4150941",
@@ -6724,7 +8250,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/beijing/images/amap_2fba86b6/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_2fba86b6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2fba86b6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2fba86b6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ef6b0a3a",
@@ -6790,7 +8331,14 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/beijing/images/amap_46f3985a/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_46f3985a/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6b6450da",
@@ -6849,7 +8397,22 @@
     "description": "夜幕降临，来西部马华牛肉面·烧烤(白家庄店)最对味！招牌牛肉面汤浓肉香，搭配现烤羊肉串，烟火气十足。适合约上朋友夜宵聚会，边撸串边聊天，感受朝阳区的热闹夜生活。清真菜馆，牛羊肉品质放心，推荐搭配一碗面解腻。适合夜猫子、聚餐党，休闲放松首选。",
     "source": "amap",
     "source_id": "B0HRUZFNSA",
-    "recommendation": "牛肉面配烤串是绝配，晚上来吃最过瘾，记得加份小菜解腻。"
+    "recommendation": "牛肉面配烤串是绝配，晚上来吃最过瘾，记得加份小菜解腻。",
+    "image_url": "images/beijing/images/amap_1e22e7e6/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_1e22e7e6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1e22e7e6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1e22e7e6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e7fcf75",
@@ -6907,7 +8470,22 @@
     "source_id": "B0FFK7GTSV",
     "recommendation": "在西城区觅食推荐四季民福烤鸭店(前门大栅栏店)，性价比不错",
     "open_minutes": 630,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "image_url": "images/beijing/images/amap_5bcc96b7/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_5bcc96b7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_5bcc96b7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_5bcc96b7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a97616ef",
@@ -6965,7 +8543,22 @@
     "source_id": "B000A5BAC8",
     "recommendation": "紫光园·烤鸭·北京菜(红庙总店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 360,
-    "close_minutes": 600
+    "close_minutes": 600,
+    "image_url": "images/beijing/images/amap_ee47c03f/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_ee47c03f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ee47c03f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ee47c03f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_55c1b8eb",
@@ -7021,7 +8614,22 @@
     "source_id": "B0KKL5RBFZ",
     "recommendation": "八次方烤鸭店的荷叶饼薄到透光，",
     "open_minutes": 600,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/beijing/images/amap_2b3c69c6/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_2b3c69c6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2b3c69c6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2b3c69c6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_41e595a8",
@@ -7079,7 +8687,22 @@
     "source_id": "B000A8YE0N",
     "recommendation": "在西城区觅食推荐北平食府·北京烤鸭(北京南站陶然亭店)，性价比不错",
     "open_minutes": 540,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "image_url": "images/beijing/images/amap_5a1a39da/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_5a1a39da/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_5a1a39da/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_5a1a39da/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1d8eaead",
@@ -7137,7 +8760,22 @@
     "source_id": "B000A87FDT",
     "recommendation": "大鸭梨烤鸭店(大望路店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/beijing/images/amap_f0e65947/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_f0e65947/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f0e65947/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f0e65947/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_546bb7ae",
@@ -7193,7 +8831,22 @@
     "source_id": "B0KRS5F9PY",
     "recommendation": "在东城区觅食推荐尹三豆汁·尹三烤鸭(南锣鼓巷店)，性价比不错",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/beijing/images/amap_13aaec74/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_13aaec74/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_13aaec74/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_13aaec74/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b62cbb0d",
@@ -7251,7 +8904,22 @@
     "source_id": "B0KUHA7GLS",
     "recommendation": "在海淀区觅食推荐小吊梨汤·北京菜·烤鸭(畅春园店)，性价比不错",
     "open_minutes": 660,
-    "close_minutes": 900
+    "close_minutes": 900,
+    "image_url": "images/beijing/images/amap_4a6bb22f/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_4a6bb22f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4a6bb22f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4a6bb22f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_772937",
@@ -7305,7 +8973,22 @@
     "description": "红红烤鸭店是西单老牌京味馆子，招牌烤鸭皮脆肉嫩，片鸭师傅手法利落，搭配荷叶饼和甜面酱，一口入魂。建议饭点早去或错峰，不然排队能排到腿软。适合朋友聚餐、外地游客尝鲜，带爸妈来也妥妥满意。",
     "source": "amap",
     "source_id": "B000A587B0",
-    "recommendation": "在西城区觅食推荐红红烤鸭店(西单店)，性价比不错"
+    "recommendation": "在西城区觅食推荐红红烤鸭店(西单店)，性价比不错",
+    "image_url": "images/beijing/images/amap_bb4e4d52/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_bb4e4d52/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_bb4e4d52/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_bb4e4d52/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7d768968",
@@ -7362,7 +9045,22 @@
     "source_id": "B000A8UL3E",
     "recommendation": "京城九门轩烤鸭店(前门店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 630,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "image_url": "images/beijing/images/amap_d259bf5b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_d259bf5b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d259bf5b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d259bf5b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_905e1b54",
@@ -7418,7 +9116,22 @@
     "source_id": "B0HUBMD6LZ",
     "recommendation": "全福德烤鸭店(故宫东门店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 570,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "image_url": "images/beijing/images/amap_f93d340d/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_f93d340d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f93d340d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f93d340d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ac46769",
@@ -7475,7 +9188,22 @@
     "source_id": "B0JA6MFNU2",
     "recommendation": "在朝阳区觅食推荐聚京民福烤鸭店(青年路店)，性价比不错",
     "open_minutes": 570,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/beijing/images/amap_d1b89aa8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_d1b89aa8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d1b89aa8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d1b89aa8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f45bb4b1",
@@ -7531,7 +9259,22 @@
     "source_id": "B0KBKRC4HO",
     "recommendation": "尹三烤鸭(前门大栅栏店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 630,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "image_url": "images/beijing/images/amap_a2f0e459/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_a2f0e459/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a2f0e459/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a2f0e459/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_74fa0266",
@@ -7587,7 +9330,22 @@
     "source_id": "B0FFHF130I",
     "recommendation": "在东城区觅食推荐簋街，性价比不错",
     "open_minutes": 1020,
-    "close_minutes": 240
+    "close_minutes": 240,
+    "image_url": "images/beijing/images/amap_ca7306b6/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_ca7306b6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ca7306b6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ca7306b6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_69ab33b",
@@ -7646,7 +9404,22 @@
     "source_id": "B0LR1ASZHJ",
     "recommendation": "簋街龙虾庄的招牌蒜蓉虾，个头大且入味",
     "open_minutes": 660,
-    "close_minutes": 240
+    "close_minutes": 240,
+    "image_url": "images/beijing/images/amap_b3689e28/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_b3689e28/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b3689e28/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b3689e28/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a3cf2696",
@@ -7757,7 +9530,18 @@
     "source_id": "B0IAJL44A9",
     "recommendation": "在平谷区觅食推荐簋街印象(广场店)，性价比不错",
     "open_minutes": 990,
-    "close_minutes": 300
+    "close_minutes": 300,
+    "image_url": "images/beijing/images/amap_73637e09/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_73637e09/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_73637e09/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_22407d46",
@@ -7815,7 +9599,22 @@
     "source_id": "B0FFFO60LR",
     "recommendation": "簋街吃虾首选！麻小配冰啤酒，晚上十点后更热闹，记得早点排队。",
     "open_minutes": 1020,
-    "close_minutes": 240
+    "close_minutes": 240,
+    "image_url": "images/beijing/images/amap_9368f318/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_9368f318/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9368f318/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9368f318/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_edc2f60f",
@@ -7867,7 +9666,14 @@
     "description": "簋街同款小龙虾，活虾现炒是灵魂！招牌“第三风味”麻辣鲜香，虾肉弹牙饱满；北京好又好小吃店的秘制酱汁更是点睛之笔。建议傍晚过来，点上小龙虾配啤酒，再撸几串烤串，烟火气十足。适合无辣不欢的吃货、夜宵党，以及想体验京城宵夜文化的朋友。",
     "source": "amap",
     "source_id": "B0LANPUFTO",
-    "recommendation": "在昌平区觅食推荐簋街小龙虾·活虾现炒(第3风味+北京好又好小吃店)，性价比不错"
+    "recommendation": "在昌平区觅食推荐簋街小龙虾·活虾现炒(第3风味+北京好又好小吃店)，性价比不错",
+    "image_url": "images/beijing/images/amap_1873d38c/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_1873d38c/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_78d4ba2d",
@@ -7923,7 +9729,22 @@
     "description": "大兴黄村这家店，把簋街的麻辣小龙虾和地道锦州烧烤搬到一起了！小龙虾个大入味，烤串儿火候足，孜然辣椒香得诱人。建议晚上来，点份龙虾配烤油边和鸡爪，再来瓶冰啤酒，过足夜宵瘾。适合三五好友聚会，或者馋这口儿的美食老饕。",
     "source": "amap",
     "source_id": "B0IGMS5T3L",
-    "recommendation": "簋街龙虾锦州烧烤(兴华大街辅路店)口碑很好，建议避开高峰期就餐"
+    "recommendation": "簋街龙虾锦州烧烤(兴华大街辅路店)口碑很好，建议避开高峰期就餐",
+    "image_url": "images/beijing/images/amap_a610111/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_a610111/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a610111/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_a610111/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f217b984",
@@ -7979,7 +9800,14 @@
     "description": "簋街小红烤翅是夜宵党的快乐老家！招牌烤翅外焦里嫩，蜜汁、麻辣、蒜香多种口味任选，咬一口汁水四溢。建议傍晚去，避开高峰排队，搭配一份烤面包和冰镇酸梅汤，解腻又过瘾。适合三五好友聚餐、游客打卡簋街烟火气，无辣不欢的吃货千万别错过！",
     "source": "amap",
     "source_id": "B0M6TR5U66",
-    "recommendation": "簋街小红烤翅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "簋街小红烤翅是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/beijing/images/amap_4c00fb54/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_4c00fb54/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_dfd1ccb5",
@@ -8033,7 +9861,22 @@
     "source_id": "B000A8ZH4E",
     "recommendation": "在东城区觅食推荐姚记炒肝店(簋街店)，性价比不错",
     "open_minutes": 360,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/beijing/images/amap_187cfbf7/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_187cfbf7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_187cfbf7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_187cfbf7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ef58f4e8",
@@ -8087,7 +9930,22 @@
     "source_id": "B0FFF9WFKW",
     "recommendation": "金波亭章鱼烧(北京簋街店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 660,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "image_url": "images/beijing/images/amap_80ccd389/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_80ccd389/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_80ccd389/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_80ccd389/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d4dc4757",
@@ -8143,7 +10001,22 @@
     "source_id": "B0FFHDWHK4",
     "recommendation": "簋街大肠卤煮(东坝店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 630,
-    "close_minutes": 1170
+    "close_minutes": 1170,
+    "image_url": "images/beijing/images/amap_20732ebb/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_20732ebb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_20732ebb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_20732ebb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_601d4766",
@@ -8199,7 +10072,22 @@
     "source_id": "B0H1URZIA7",
     "recommendation": "满分炸串(北京旭辉天地南城新簋街店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 630,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/beijing/images/amap_9480a3be/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_9480a3be/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9480a3be/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9480a3be/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_dfad467",
@@ -8252,7 +10140,22 @@
     "description": "坐落在簋街的「天一阁」可不是藏书楼，而是地道的海鲜酒楼！招牌椒盐皮皮虾和蒜蓉粉丝蒸扇贝鲜掉眉毛，夜晚搭配露天位吃宵夜，烟火气十足。建议提前约上三五好友，点一锅海鲜大咖再配扎啤，人均百元就能撑到扶墙。适合爱吃海鲜、喜欢热闹聚餐的夜猫子，尤其推荐给想体验簋街氛围的游客。",
     "source": "amap",
     "source_id": "B000A7BBW1",
-    "recommendation": "簋街老牌海鲜店，晚上去更热闹，记得点招牌蒸鱼和椒盐皮皮虾。"
+    "recommendation": "簋街老牌海鲜店，晚上去更热闹，记得点招牌蒸鱼和椒盐皮皮虾。",
+    "image_url": "images/beijing/images/amap_2b5ad8eb/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_2b5ad8eb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2b5ad8eb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2b5ad8eb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c4136b56",
@@ -8309,7 +10212,22 @@
     "source_id": "B0LU4ZMCXZ",
     "recommendation": "山河薈·萃(雍和宫簋街店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 360,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/beijing/images/amap_3afeb3b8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_3afeb3b8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_3afeb3b8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_3afeb3b8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2d033817",
@@ -8366,7 +10284,22 @@
     "source_id": "B0G0KST2VQ",
     "recommendation": "和牛品质超赞，建议提前订座，烤到微焦",
     "open_minutes": 660,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "image_url": "images/beijing/images/amap_ca2ab7d5/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_ca2ab7d5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ca2ab7d5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ca2ab7d5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_38d52cdf",
@@ -8423,7 +10356,22 @@
     "source_id": "B000A2E98E",
     "recommendation": "通乐饭馆(北京簋街店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 960,
-    "close_minutes": 180
+    "close_minutes": 180,
+    "image_url": "images/beijing/images/amap_f4ee2301/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_f4ee2301/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f4ee2301/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f4ee2301/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_45bcc20d",
@@ -8537,7 +10485,22 @@
     "source_id": "B0FFG2O0T6",
     "recommendation": "小春日和(北京簋街店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 690,
-    "close_minutes": 1440
+    "close_minutes": 1440,
+    "image_url": "images/beijing/images/amap_c333157b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_c333157b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_c333157b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_c333157b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2cc26990",
@@ -8594,7 +10557,22 @@
     "source_id": "B0JGUZHG2T",
     "recommendation": "伊犁楼兰餐厅(簋街新店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 630,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/beijing/images/amap_1010e1a0/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_1010e1a0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1010e1a0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_1010e1a0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ed19730d",
@@ -8653,7 +10631,22 @@
     "source_id": "B0HAF7WSV0",
     "recommendation": "JoinYin-联和印学院茶是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 540,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/beijing/images/amap_f95c959b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_f95c959b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f95c959b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_f95c959b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b7032473",
@@ -8707,7 +10700,22 @@
     "description": "暖暖咖啡（马甸店）藏在街角，暖色调灯光配原木桌椅，像走进朋友家的客厅。招牌海盐焦糖拿铁层次分明，手冲单品豆单常换，搭配当日手工甜点刚好。建议下午两点后去，人少光线柔，靠窗位能发呆一下午。适合闺蜜聊天、一人办公，或想暂离喧嚣的咖啡控。",
     "source": "amap",
     "source_id": "B0FFIYMABO",
-    "recommendation": "在朝阳区觅食推荐暖暖咖啡(马甸店)，性价比不错"
+    "recommendation": "在朝阳区觅食推荐暖暖咖啡(马甸店)，性价比不错",
+    "image_url": "images/beijing/images/amap_d292d250/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_d292d250/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d292d250/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d292d250/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_73a23f02",
@@ -8762,7 +10770,22 @@
     "source_id": "B0L1OUO7WG",
     "recommendation": "素拾忆咖啡·素食口碑很好，建议避开高峰期就餐",
     "open_minutes": 540,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/beijing/images/amap_2e162e44/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_2e162e44/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2e162e44/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_2e162e44/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2f6554d2",
@@ -8816,7 +10839,22 @@
     "source_id": "B0G0ANQJP8",
     "recommendation": "星坐咖啡(朝来绿色家园广华居店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 540,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "image_url": "images/beijing/images/amap_d3962468/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_d3962468/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d3962468/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d3962468/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1ffa96af",
@@ -8929,7 +10967,22 @@
     "source_id": "B0IRKAT305",
     "recommendation": "北平印象·咖啡馆·酒馆(月坛店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 540,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "image_url": "images/beijing/images/amap_45eb7676/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_45eb7676/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_45eb7676/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_45eb7676/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9d3d40d8",
@@ -8983,7 +11036,14 @@
     "description": "藏在凯迪克格兰云天大酒店里的这家咖啡厅，环境静谧雅致，适合发呆或商务小坐。招牌手冲咖啡和创意茶饮口碑不错，搭配精致甜品，口感在线。建议避开下午两点后的集中时段，选靠窗位更惬意。适合追求品质的咖啡控、想在北辰附近找安静角落的上班族或情侣。",
     "source": "amap",
     "source_id": "B0J06UJSYS",
-    "recommendation": "在朝阳区觅食推荐凯迪克格兰云天大酒店-咖啡厅，性价比不错"
+    "recommendation": "在朝阳区觅食推荐凯迪克格兰云天大酒店-咖啡厅，性价比不错",
+    "image_url": "images/beijing/images/amap_255f6d57/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_255f6d57/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1a1f06a0",
@@ -9039,7 +11099,22 @@
     "source_id": "B0FFKTAFXX",
     "recommendation": "朝花夕室口碑很好，建议避开高峰期就餐",
     "open_minutes": 570,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "image_url": "images/beijing/images/amap_25c606f7/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_25c606f7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_25c606f7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_25c606f7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a7855b3b",
@@ -9094,7 +11169,22 @@
     "source": "amap",
     "source_id": "B0HUNR9LHI",
     "recommendation": "西贝(宣武门店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_3a8c64a2/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_3a8c64a2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_3a8c64a2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_3a8c64a2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c905661a",
@@ -9148,7 +11238,22 @@
     "source": "amap",
     "source_id": "B0JDJZDZH5",
     "recommendation": "双流老妈兔头(双井店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_ac6873b0/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_ac6873b0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ac6873b0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ac6873b0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e3af9a02",
@@ -9200,7 +11305,22 @@
     "source": "amap",
     "source_id": "B000A85P01",
     "recommendation": "那家小馆(798艺术区店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_e43f1ff8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_e43f1ff8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_e43f1ff8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_e43f1ff8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_caf0da64",
@@ -9251,7 +11371,22 @@
     "source": "amap",
     "source_id": "B0FFFADIGF",
     "recommendation": "二张农家菜(昌平店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_4b9a6398/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_4b9a6398/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4b9a6398/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4b9a6398/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e97ca7fc",
@@ -9306,7 +11441,22 @@
     "source": "amap",
     "source_id": "B0J12D4ZC7",
     "recommendation": "徽小宴·私房菜(航天桥店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_b0b3a190/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_b0b3a190/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b0b3a190/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b0b3a190/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_96ab1867",
@@ -9360,7 +11510,22 @@
     "source": "amap",
     "source_id": "B0H0OSWYVK",
     "recommendation": "湘舍壹号(国贸店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_9dc0842/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_9dc0842/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9dc0842/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_9dc0842/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_335b8bd2",
@@ -9412,7 +11577,22 @@
     "source": "amap",
     "source_id": "B000AA163A",
     "recommendation": "胡大饭馆(簋街三店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_4c3ff0de/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_4c3ff0de/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4c3ff0de/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4c3ff0de/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a9e22c1b",
@@ -9467,7 +11647,22 @@
     "source": "amap",
     "source_id": "B0I36U6YY0",
     "recommendation": "京华楼饭庄(亚运村店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_d336d28a/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_d336d28a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d336d28a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_d336d28a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ede211f8",
@@ -9520,7 +11715,22 @@
     "source": "amap",
     "source_id": "B0H26C27DO",
     "recommendation": "方砖厂69号炸酱面( 前门大街店 )口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_787fe298/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_787fe298/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_787fe298/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_787fe298/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_179f8090",
@@ -9573,7 +11783,22 @@
     "source": "amap",
     "source_id": "B0FFHF6EZV",
     "recommendation": "北京宜宾招待所·餐厅口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_41095928/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_41095928/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_41095928/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_41095928/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4d9fcae",
@@ -9627,7 +11852,22 @@
     "source": "amap",
     "source_id": "B0KAMU3JNK",
     "recommendation": "牛街洪记小吃店口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_eed763ff/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_eed763ff/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_eed763ff/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_eed763ff/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4384bce9",
@@ -9682,7 +11922,22 @@
     "source": "amap",
     "source_id": "B0FFIBWJFD",
     "recommendation": "五路居便民商业街美食广场口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_b5970f07/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_b5970f07/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b5970f07/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b5970f07/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1c0281a9",
@@ -9736,7 +11991,22 @@
     "source": "amap",
     "source_id": "B0J17UIW7G",
     "recommendation": "苹东夜市口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_6d834994/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_6d834994/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_6d834994/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_6d834994/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b42b8272",
@@ -9791,7 +12061,22 @@
     "source": "amap",
     "source_id": "B0K6XH4YUS",
     "recommendation": "萍姐火锅·公路夜市(望京麒麟社店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_5adf6f79/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_5adf6f79/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_5adf6f79/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_5adf6f79/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1594e96b",
@@ -9846,7 +12131,22 @@
     "source": "amap",
     "source_id": "B0LGOZ32A8",
     "recommendation": "小清河夜市口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/beijing/images/amap_71a84243/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_71a84243/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_71a84243/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_71a84243/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_8fee7618",
@@ -9905,7 +12205,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_b14d90a0/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_b14d90a0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_b14d90a0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_b14d90a0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_1a5b2cfb",
@@ -9965,7 +12280,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_8093fdb8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_8093fdb8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_8093fdb8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_8093fdb8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_bc525544",
@@ -10024,7 +12354,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_e0bc4f8b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_e0bc4f8b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_e0bc4f8b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_e0bc4f8b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_97350e9",
@@ -10086,7 +12431,22 @@
     "recommendation": "推荐入住北京华尔道夫酒店，交通便利",
     "brand_category": "豪华",
     "price_range": "1200-3000元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/amap_ed4515b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_ed4515b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ed4515b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_ed4515b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d876ac3d",
@@ -10146,7 +12506,22 @@
     "recommendation": "北京国贸CBD建国门漫心酒店位置便利，适合作为旅行住宿据点",
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/amap_b6583f93/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_b6583f93/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b6583f93/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_b6583f93/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6c8c75e9",
@@ -10204,7 +12579,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_4f49aa29/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_4f49aa29/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_4f49aa29/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_4f49aa29/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_bbbb5564",
@@ -10263,7 +12653,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_e4e0529a/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_e4e0529a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_e4e0529a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_e4e0529a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_d8628fae",
@@ -10324,7 +12729,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "360-780元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_e3b3cd73/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_e3b3cd73/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_e3b3cd73/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_e3b3cd73/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_87ed93f9",
@@ -10384,7 +12804,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_8a06caf1/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_8a06caf1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_8a06caf1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_8a06caf1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_69d498b5",
@@ -10444,7 +12879,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_69fa175a/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_69fa175a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_69fa175a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_69fa175a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_c4f2f489",
@@ -10504,7 +12954,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/beijing/images/beijing_brand_ac491b1e/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_ac491b1e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_ac491b1e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_ac491b1e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_e35b57b1",
@@ -10564,7 +13029,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/beijing_brand_1f9241c2/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_1f9241c2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_1f9241c2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_1f9241c2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_bd656057",
@@ -10624,7 +13104,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/beijing_brand_c5a4409e/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_c5a4409e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_c5a4409e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_c5a4409e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_bed9b77d",
@@ -10684,7 +13179,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_3d0ca5a0/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_3d0ca5a0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_3d0ca5a0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_3d0ca5a0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_8ab3bfdb",
@@ -10745,7 +13255,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_b3efa02d/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_b3efa02d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_b3efa02d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_b3efa02d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_d7967344",
@@ -10806,7 +13331,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_4bc94988/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_4bc94988/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_4bc94988/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_4bc94988/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_96551091",
@@ -10862,7 +13402,22 @@
     "recommendation": "推荐入住北京天安门王府井合院漫心府，交通便利",
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/amap_71ac74d2/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_71ac74d2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_71ac74d2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_71ac74d2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_23fec5c5",
@@ -10919,7 +13474,22 @@
     "recommendation": "推荐入住北京王府半岛酒店，交通便利",
     "brand_category": "豪华",
     "price_range": "1200-3000元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/amap_21eb80b6/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_21eb80b6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_21eb80b6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_21eb80b6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2a174f79",
@@ -10976,7 +13546,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_8b51b2ef/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_8b51b2ef/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_8b51b2ef/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_8b51b2ef/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_e79539be",
@@ -11036,7 +13621,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "360-780元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_95eb85e3/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_95eb85e3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_95eb85e3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_95eb85e3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_fc352146",
@@ -11098,7 +13698,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_c4c31865/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_c4c31865/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_c4c31865/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_c4c31865/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_45e6b0e1",
@@ -11158,7 +13773,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/beijing_brand_be819320/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_be819320/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_be819320/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_be819320/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_994d71a3",
@@ -11219,7 +13849,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/beijing_brand_3d4823bf/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_3d4823bf/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_3d4823bf/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_3d4823bf/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_f83fc41f",
@@ -11279,7 +13924,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "720-1950元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/beijing_brand_c62a30ab/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_c62a30ab/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_c62a30ab/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_c62a30ab/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_943784bc",
@@ -11340,7 +14000,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/beijing/images/beijing_brand_fc2cf17b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_fc2cf17b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_fc2cf17b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_fc2cf17b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_34c2d049",
@@ -11401,7 +14076,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_be2a3fe6/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_be2a3fe6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_be2a3fe6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_be2a3fe6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_7fa290d9",
@@ -11461,7 +14151,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_2e3ce0a9/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_2e3ce0a9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_2e3ce0a9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_2e3ce0a9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_8e57c2c6",
@@ -11522,7 +14227,22 @@
     "visit_duration": 30,
     "brand_category": "豪华",
     "price_range": "1440-3900元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/beijing_brand_c20b9a43/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_c20b9a43/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_c20b9a43/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_c20b9a43/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_8dcf4aba",
@@ -11582,7 +14302,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_49617aa0/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_49617aa0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_49617aa0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_49617aa0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_5ab99d00",
@@ -11641,7 +14376,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_e5cb2b40/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_e5cb2b40/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_e5cb2b40/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_e5cb2b40/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_a014a9c2",
@@ -11699,7 +14449,22 @@
     "recommendation": "推荐入住汉庭酒店(北京王府井店)，交通便利",
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/amap_44275838/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_44275838/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_44275838/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_44275838/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fac91d08",
@@ -11756,7 +14521,22 @@
     "recommendation": "推荐入住北京浪漫四季酒店(王府井大街协和医院店)，交通便利",
     "brand_category": "豪华",
     "price_range": "1200-3000元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/amap_659265c2/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_659265c2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_659265c2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_659265c2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ab662e60",
@@ -11817,7 +14597,22 @@
     "recommendation": "北京柏悦酒店位置便利，适合作为旅行住宿据点",
     "brand_category": "豪华",
     "price_range": "1440-3900元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/amap_4fcaab7/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_4fcaab7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4fcaab7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4fcaab7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_74fa522e",
@@ -11878,7 +14673,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_5e4c1663/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_5e4c1663/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_5e4c1663/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_5e4c1663/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_fb6a47ce",
@@ -11938,7 +14748,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_9cbe3997/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_9cbe3997/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_9cbe3997/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_9cbe3997/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_dcfc0311",
@@ -12000,7 +14825,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_9600bc44/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_9600bc44/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_9600bc44/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_9600bc44/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_d3ca2521",
@@ -12060,7 +14900,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-585元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/beijing/images/beijing_brand_95a89cc5/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_95a89cc5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_95a89cc5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_95a89cc5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_f2acffb4",
@@ -12119,7 +14974,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_90bb633e/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_90bb633e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_90bb633e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_90bb633e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_48f8a689",
@@ -12179,7 +15049,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/beijing_brand_3e9b383f/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_3e9b383f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_3e9b383f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_3e9b383f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_33c14cd9",
@@ -12244,7 +15129,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_835c29c8/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_835c29c8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_835c29c8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_835c29c8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_fdcf2996",
@@ -12312,7 +15212,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_de33059e/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_de33059e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_de33059e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_de33059e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_2924b52b",
@@ -12377,7 +15292,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/beijing_brand_35fceb20/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_35fceb20/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_35fceb20/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_35fceb20/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_3b354201",
@@ -12438,7 +15368,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "120-325元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_ccc24bf0/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_ccc24bf0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_ccc24bf0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_ccc24bf0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_ba799732",
@@ -12500,7 +15445,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_d027376d/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_d027376d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_d027376d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_d027376d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_eafcb492",
@@ -12561,7 +15521,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/beijing/images/beijing_brand_806bc53b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_806bc53b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_806bc53b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_806bc53b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_4385fb0c",
@@ -12625,7 +15600,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/beijing_brand_83fb535/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_83fb535/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_83fb535/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_83fb535/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_brand_a868b83e",
@@ -12685,7 +15675,22 @@
     "recommendation": "推荐入住桔子酒店(北京王府井店)，交通便利",
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/amap_c14fd836/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_c14fd836/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_c14fd836/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_c14fd836/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e26fe72f",
@@ -12743,7 +15748,22 @@
     "recommendation": "全季酒店(北京国贸世贸天阶店)位于朝阳区，出行方便",
     "brand_category": "中端",
     "price_range": "360-780元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/beijing/images/amap_4657fd4d/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/amap_4657fd4d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4657fd4d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/amap_4657fd4d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "beijing_hotel_3",
@@ -12859,7 +15879,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/beijing/images/beijing_brand_d99bc53b/1.jpg",
+    "images": [
+      {
+        "url": "images/beijing/images/beijing_brand_d99bc53b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_d99bc53b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/beijing/images/beijing_brand_d99bc53b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "transit_B0FFJKHNUU",

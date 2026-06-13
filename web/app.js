@@ -77,20 +77,16 @@ function leafletReady() {
 }
 
 function addBaseTileLayer(map) {
-  // 高德浅色底图（减少路名/小区名标注，更清爽）
+  // OSM as default (no API key required, ToS compliant)
+  var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18, attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+  osm.addTo(map);
+  // Amap light tiles as optional overlay (requires Amap JS API key for production use)
   var amapLight = L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}", {
     subdomains: "1234", maxZoom: 18, attribution: '&copy; 高德地图'
   });
-  // 高德标准底图（详细道路信息）
-  var amapStd = L.tileLayer("https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}", {
-    subdomains: "1234", maxZoom: 18, attribution: '&copy; 高德地图'
-  });
-  // OSM 备用
-  var osm = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 18, attribution: '&copy; OSM'
-  });
-  amapLight.addTo(map);
-  L.control.layers({"高德极简": amapLight, "高德标准": amapStd, "OpenStreetMap": osm}, null, {position: "topright"}).addTo(map);
+  L.control.layers({"OpenStreetMap": osm, "高德极简": amapLight}, null, {position: "topright"}).addTo(map);
 }
 
 function renderOverviewMap(candidate) {

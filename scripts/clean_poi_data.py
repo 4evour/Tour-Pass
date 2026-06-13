@@ -1,8 +1,11 @@
-"""Clean POI data: fix nightlife, remove no-source_id, remove pop=0."""
-import json, os, re
-from collections import Counter
+"""Clean POI data: fix nightlife, remove no-source_id, remove pop=0.
 
-DATA_DIR = r'D:\Tour Pass\data'
+Usage: python scripts/clean_poi_data.py [--data-dir data]
+"""
+import argparse
+import json
+import os
+from collections import Counter
 
 HOTEL_KW = ['酒店','宾馆','客栈','民宿','旅馆','公寓','度假村']
 REST_KW = ['烧烤','火锅','餐厅','饭店','菜','面','粉','粥','串','锅','小吃','美食','料理','烤肉','烤鱼','炖品','肠粉','茶楼','早茶']
@@ -22,11 +25,20 @@ def classify_nightlife(name):
         return 'restaurant'
     return 'restaurant'  # default: merge to restaurant
 
-results = {}
-for city_dir in sorted(os.listdir(DATA_DIR)):
-    poi_path = os.path.join(DATA_DIR, city_dir, 'pois.json')
-    if not os.path.isfile(poi_path): continue
-    pois = json.load(open(poi_path, 'r', encoding='utf-8'))
+
+def main():
+    parser = argparse.ArgumentParser(description="Clean POI data")
+    parser.add_argument("--data-dir", default=os.path.join(os.path.dirname(__file__), "..", "data"),
+                        help="Path to data directory")
+    args = parser.parse_args()
+    data_dir = os.path.abspath(args.data_dir)
+
+    results = {}
+    for city_dir in sorted(os.listdir(data_dir)):
+        poi_path = os.path.join(data_dir, city_dir, 'pois.json')
+        if not os.path.isfile(poi_path): continue
+        with open(poi_path, 'r', encoding='utf-8') as f:
+            pois = json.load(f)
     
     stats = {'nightlife_removed': 0, 'nightlife_merged': 0, 'no_sid_removed': 0, 'pop0_removed': 0}
     cleaned = []
@@ -63,10 +75,10 @@ for city_dir in sorted(os.listdir(DATA_DIR)):
     # Save
     with open(poi_path, 'w', encoding='utf-8') as f:
         json.dump(cleaned, f, ensure_ascii=False, indent=2)
-    
+
     # Count by type
     types = Counter(p.get('type') for p in cleaned)
-    
+
     results[city_dir] = {
         'before': len(pois),
         'after': len(cleaned),
@@ -75,26 +87,30 @@ for city_dir in sorted(os.listdir(DATA_DIR)):
         'types': dict(types),
     }
 
-print('%-15s %5s %5s %5s  %s' % ('City', 'Before', 'After', 'Removed', 'Details'))
-print('-' * 80)
-tb = ta = tr = 0
-for city, r in results.items():
-    tb += r['before']
-    ta += r['after']
-    tr += r['removed']
-    s = r['stats']
-    details = 'night_del=%d night_merge=%d no_sid=%d pop0=%d' % (
-        s['nightlife_removed'], s['nightlife_merged'], s['no_sid_removed'], s['pop0_removed'])
-    print('%-15s %5d %5d %5d  %s' % (city, r['before'], r['after'], r['removed'], details))
-print('-' * 80)
-print('%-15s %5d %5d %5d' % ('TOTAL', tb, ta, tr))
+    print('%-15s %5s %5s %5s  %s' % ('City', 'Before', 'After', 'Removed', 'Details'))
+    print('-' * 80)
+    tb = ta = tr = 0
+    for city, r in results.items():
+        tb += r['before']
+        ta += r['after']
+        tr += r['removed']
+        s = r['stats']
+        details = 'night_del=%d night_merge=%d no_sid=%d pop0=%d' % (
+            s['nightlife_removed'], s['nightlife_merged'], s['no_sid_removed'], s['pop0_removed'])
+        print('%-15s %5d %5d %5d  %s' % (city, r['before'], r['after'], r['removed'], details))
+    print('-' * 80)
+    print('%-15s %5d %5d %5d' % ('TOTAL', tb, ta, tr))
 
-# Show type distribution after cleanup
-print()
-print('Final type distribution (all cities):')
-all_types = Counter()
-for r in results.values():
-    for t, c in r['types'].items():
-        all_types[t] += c
-for t, c in all_types.most_common():
-    print('  %s: %d' % (t, c))
+    # Show type distribution after cleanup
+    print()
+    print('Final type distribution (all cities):')
+    all_types = Counter()
+    for r in results.values():
+        for t, c in r['types'].items():
+            all_types[t] += c
+    for t, c in all_types.most_common():
+        print('  %s: %d' % (t, c))
+
+
+if __name__ == '__main__':
+    main()

@@ -28,7 +28,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_2fa1efbc/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_2fa1efbc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_2fa1efbc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_2fa1efbc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_af18b4e7",
@@ -90,7 +105,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_614cc306/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_614cc306/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_614cc306/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_614cc306/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f591ce38",
@@ -138,7 +168,22 @@
     "description": "十八梯是重庆山城记忆的活化石，老阶梯、吊脚楼和青石板路还原了旧时市井烟火。特色看点：老街巷与灯光交织的梦幻夜景、铜像和壁画里的巴渝生活。建议傍晚去逛，先爬梯拍照，再吃碗酥肉和冰粉。适合爱拍照、想体验山城文化的年轻人和家庭游客。",
     "source": "amap",
     "source_id": "B0G1XDI8P4",
-    "recommendation": "十八梯藏着老重庆的烟火气，爬坡上坎间感受山城生活，记得穿双舒服的鞋慢慢逛。"
+    "recommendation": "十八梯藏着老重庆的烟火气，爬坡上坎间感受山城生活，记得穿双舒服的鞋慢慢逛。",
+    "image_url": "images/chongqing/images/amap_bb80e5e2/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_bb80e5e2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_bb80e5e2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_bb80e5e2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9eba3ee7",
@@ -190,7 +235,22 @@
     "description": "魁星楼是重庆魔幻地形的经典缩影——你以为在一楼，其实可能在二十二楼！这里因电影《少年的你》取景而爆火，最神奇的是两座天桥连接着三栋高楼，从底层出来是马路，顶层出来还是马路。建议傍晚去，灯光亮起后更有赛博朋克既视感；拍照一定找好机",
     "source": "amap",
     "source_id": "B00170COA9",
-    "recommendation": "魁星楼让你体验8D魔幻——1楼出去是马路，12楼出去还是马路，记得试试从不同楼层出门。"
+    "recommendation": "魁星楼让你体验8D魔幻——1楼出去是马路，12楼出去还是马路，记得试试从不同楼层出门。",
+    "image_url": "images/chongqing/images/amap_7647a35f/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_7647a35f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7647a35f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7647a35f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e00e1d0a",
@@ -248,7 +308,22 @@
     "source_id": "B001702CBC",
     "recommendation": "罗汉寺藏于闹市却古朴宁静，建议清晨去听早课钟声，感受都市中的禅意。",
     "open_minutes": 480,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "image_url": "images/chongqing/images/amap_2c535407/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_2c535407/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_2c535407/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_2c535407/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c648bf40",
@@ -297,7 +372,22 @@
     "description": "朝天门广场坐拥长江与嘉陵江交汇的壮观奇景，是重庆最地标的观景台。白天看两江清浊分明，夜晚赏璀璨渝中夜景，还能搭乘游船感受“两江游”的独特魅力。建议傍晚前往，先逛来福士，再等华灯初上拍大片。适合所有游客，尤其摄影发烧友和夜景控。",
     "source": "amap",
     "source_id": "B00170L11G",
-    "recommendation": "朝天门广场是看两江交汇的绝佳位置，傍晚去能同时拍到江水与霓虹同框。"
+    "recommendation": "朝天门广场是看两江交汇的绝佳位置，傍晚去能同时拍到江水与霓虹同框。",
+    "image_url": "images/chongqing/images/amap_8c4c5010/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_8c4c5010/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_8c4c5010/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_8c4c5010/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_274646e8",
@@ -353,7 +443,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_223c52a1/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_223c52a1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_223c52a1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_223c52a1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f728aea8",
@@ -406,7 +511,22 @@
     "source_id": "B001706L1A",
     "recommendation": "横跨长江的空中巴士，必坐！建议傍晚去，夕阳和夜景一次看够。",
     "open_minutes": 480,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "image_url": "images/chongqing/images/amap_20dd6153/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_20dd6153/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_20dd6153/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_20dd6153/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bdb2dd75",
@@ -462,7 +582,22 @@
     "source_id": "B0L3A1X06S",
     "recommendation": "小众观景台，两江交汇尽收",
     "open_minutes": 540,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "image_url": "images/chongqing/images/amap_5a4f9bb7/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_5a4f9bb7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_5a4f9bb7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_5a4f9bb7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b564cae5",
@@ -525,7 +660,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_b1a3e568/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_b1a3e568/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_b1a3e568/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_b1a3e568/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_749474a",
@@ -618,7 +768,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_735d6f8c/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_735d6f8c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_735d6f8c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_735d6f8c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b430795a",
@@ -677,7 +842,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_677ad420/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_677ad420/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_677ad420/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_677ad420/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_12b0cc05",
@@ -739,7 +919,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_7830614b/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_7830614b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7830614b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7830614b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a10ca26",
@@ -1125,7 +1320,22 @@
     "source_id": "B001706G5Q",
     "recommendation": "闹市中的悠闲角落，老茶馆里看下棋、听鸟叫，一秒回到老重庆的慢生活。",
     "open_minutes": 480,
-    "close_minutes": 1200
+    "close_minutes": 1200,
+    "image_url": "images/chongqing/images/amap_9f51253a/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_9f51253a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9f51253a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9f51253a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a714e2fc",
@@ -1153,7 +1363,22 @@
     "source_id": "B0FFGAMI8G",
     "recommendation": "看渝中半岛夜景的绝杀机位！日落前上山，从华灯初上",
     "open_minutes": 540,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "image_url": "images/chongqing/images/amap_a714e2fc/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_a714e2fc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_a714e2fc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_a714e2fc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bfd94ab5",
@@ -1215,7 +1440,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_123e2393/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_123e2393/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_123e2393/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_123e2393/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_21a029b1",
@@ -1278,7 +1518,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_ced4e2c6/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_ced4e2c6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_ced4e2c6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_ced4e2c6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8d7c2453",
@@ -1453,7 +1708,22 @@
     "description": "站在下浩里观景平台，长江与渝中半岛的天际线尽收眼底，老重庆的市井烟火和现代都市的璀璨灯火在此奇妙交融。傍晚来最好，吹江风看落日，等两岸亮灯后随手一拍都是大片。适合爱拍照的年轻人、想找个浪漫约会地的小情侣，或是想安静发呆的城市漫游者。",
     "source": "amap",
     "source_id": "B0LKLC8PKW",
-    "recommendation": "傍晚去下浩里观景平台，看江面金光与两岸灯火交织，记得带广角镜头拍全景。"
+    "recommendation": "傍晚去下浩里观景平台，看江面金光与两岸灯火交织，记得带广角镜头拍全景。",
+    "image_url": "images/chongqing/images/amap_ada59ff9/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_ada59ff9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_ada59ff9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_ada59ff9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_78acb2bf",
@@ -1508,7 +1778,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_15a85fd6/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_15a85fd6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_15a85fd6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_15a85fd6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_291a3218",
@@ -1571,7 +1856,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_576e0036/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_576e0036/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_576e0036/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_576e0036/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d21e95d7",
@@ -1628,7 +1928,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_3cff2b65/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_3cff2b65/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_3cff2b65/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_3cff2b65/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2cb9e10e",
@@ -1688,7 +2003,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_1c2b047b/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_1c2b047b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_1c2b047b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_1c2b047b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f2a3a3ab",
@@ -1751,7 +2081,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_abd34344/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_abd34344/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_abd34344/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_abd34344/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b81e9b88",
@@ -1810,7 +2155,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_e86c0746/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_e86c0746/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_e86c0746/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_e86c0746/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_eeb222f1",
@@ -1861,7 +2221,22 @@
     "source_id": "B001792U7Q",
     "recommendation": "鸿恩阁夜景超美，建议晚饭后散步上去，还能拍到渝中半岛的灯火与江面倒影。",
     "open_minutes": 480,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "image_url": "images/chongqing/images/amap_fdfe4c61/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_fdfe4c61/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_fdfe4c61/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_fdfe4c61/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7cfedc2b",
@@ -1915,7 +2290,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_6c69ab4b/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_6c69ab4b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_6c69ab4b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_6c69ab4b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_621afe4c",
@@ -1976,7 +2366,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_343a9714/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_343a9714/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_343a9714/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_343a9714/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_86b88e13",
@@ -2041,7 +2446,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_f3e86171/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_f3e86171/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f3e86171/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f3e86171/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2d47fda8",
@@ -2098,7 +2518,22 @@
     "source_id": "B0FFG9MYE2",
     "recommendation": "仁爱堂是解放碑的老教堂，拍照很有电影感，建议傍晚去，光影超美。",
     "open_minutes": 540,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "image_url": "images/chongqing/images/amap_ea9476a/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_ea9476a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_ea9476a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_ea9476a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_41a39ffc",
@@ -2216,7 +2651,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_aa5497ca/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_aa5497ca/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_aa5497ca/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_aa5497ca/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_797a54d",
@@ -2281,7 +2731,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_8eb797b8/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_8eb797b8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_8eb797b8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_8eb797b8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c87dcbaa",
@@ -2344,7 +2809,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_b5f16dc0/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_b5f16dc0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_b5f16dc0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_b5f16dc0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_386e81ff",
@@ -2594,7 +3074,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_e1a29e62/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_e1a29e62/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_e1a29e62/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_e1a29e62/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fe27cb50",
@@ -2656,7 +3151,22 @@
     "source_id": "B00178VUML",
     "recommendation": "渝中区图书馆藏书丰富，自习座位抢手，建议早上去占个好位置。",
     "open_minutes": 840,
-    "close_minutes": 1140
+    "close_minutes": 1140,
+    "image_url": "images/chongqing/images/amap_dc089a9f/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_dc089a9f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_dc089a9f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_dc089a9f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1948f814",
@@ -2716,7 +3226,22 @@
     "source_id": "B0FFHN0I29",
     "recommendation": "旧仓库改造的文艺阅读空间，挑个晴天坐在玻璃顶下看书拍照超惬意。",
     "open_minutes": 600,
-    "close_minutes": 1200
+    "close_minutes": 1200,
+    "image_url": "images/chongqing/images/amap_316c265f/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_316c265f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_316c265f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_316c265f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_71948b8c",
@@ -2905,7 +3430,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_9c3b0c0a/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_9c3b0c0a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9c3b0c0a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9c3b0c0a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3fb92742",
@@ -2966,7 +3506,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_d6a88d0c/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_d6a88d0c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_d6a88d0c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_d6a88d0c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ee727477",
@@ -3030,7 +3585,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_fbd8d2b0/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_fbd8d2b0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_fbd8d2b0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_fbd8d2b0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1c984ca6",
@@ -3093,7 +3663,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_a568e907/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_a568e907/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_a568e907/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_a568e907/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d9bc1ac4",
@@ -3151,7 +3736,22 @@
     "description": "邹容公园藏在两路口的老城烟火里，绿荫掩映着纪念邹容烈士的碑刻与雕塑，是闹中取静的宝藏地。这里几乎没有游客喧哗，适合散步发呆、拍复古胶片感照片，或是带孩子了解重庆的近代历史。建议傍晚来，吹着江风看轻轨穿楼，再顺路吃碗山城碗杂面。适合喜欢人文、慢节奏的旅行者，尤其推荐给想避开网红景点的自由行小伙伴。",
     "source": "amap",
     "source_id": "B00170L2XK",
-    "recommendation": "闹中取静的小公园，适合散步发呆！建议带杯茶，"
+    "recommendation": "闹中取静的小公园，适合散步发呆！建议带杯茶，",
+    "image_url": "images/chongqing/images/amap_9ec28894/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_9ec28894/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9ec28894/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9ec28894/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_35043408",
@@ -3210,7 +3810,22 @@
     "description": "呼归石花阶公园依山而建，层层花阶与长江对岸的渝中天际线相映成趣，是俯瞰两江交汇的宝藏机位。建议傍晚来，看落日余晖洒在阶梯花海上，再等一场夜景亮灯。适合喜欢拍照、散步的年轻人，也适合带长辈来吹江风、赏景，放松又治愈。",
     "source": "amap",
     "source_id": "B0FFMEF5UO",
-    "recommendation": "呼归石花阶公园沿江而建，视野超棒。傍晚去，看两江夜景刚刚好。"
+    "recommendation": "呼归石花阶公园沿江而建，视野超棒。傍晚去，看两江夜景刚刚好。",
+    "image_url": "images/chongqing/images/amap_97b97fc0/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_97b97fc0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_97b97fc0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_97b97fc0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a60be7b6",
@@ -3265,7 +3880,22 @@
     "description": "融侨公园是南岸区的宝藏地，园内有大片草坪、湖泊和欧式建筑，随手一拍都是大片。特别适合傍晚散步、周末野餐或带娃放风筝。建议绕湖慢跑一圈，再在长椅上吹吹风，享受悠闲时光。适合情侣、家庭或想逃离喧嚣的上班族。",
     "source": "amap",
     "source_id": "B001785GF6",
-    "recommendation": "南岸的隐秘花园，有湖有亭。周末带本书来，坐草坪上发呆一整天。"
+    "recommendation": "南岸的隐秘花园，有湖有亭。周末带本书来，坐草坪上发呆一整天。",
+    "image_url": "images/chongqing/images/amap_895afa7/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_895afa7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_895afa7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_895afa7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_476bd211",
@@ -3326,7 +3956,22 @@
     "source_id": "B001791SGW",
     "recommendation": "化龙桥的明珠，夜景灯光倒影绝了。推荐晚餐后散步，吹江风看月亮。",
     "open_minutes": 480,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "image_url": "images/chongqing/images/amap_d3242686/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_d3242686/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_d3242686/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_d3242686/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1eb0d45a",
@@ -3385,7 +4030,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_26d35073/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_26d35073/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_26d35073/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_26d35073/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7320d702",
@@ -3514,7 +4174,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_9417aa04/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_9417aa04/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9417aa04/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9417aa04/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fc4b1e79",
@@ -3578,7 +4253,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_9de86a87/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_9de86a87/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9de86a87/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9de86a87/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b6dee87a",
@@ -3642,7 +4332,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_42bba2d0/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_42bba2d0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_42bba2d0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_42bba2d0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2ef93395",
@@ -3706,7 +4411,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_405883d3/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_405883d3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_405883d3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_405883d3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_710a361c",
@@ -3771,7 +4491,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_28695b46/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_28695b46/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_28695b46/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_28695b46/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1fc6cde1",
@@ -3824,7 +4559,22 @@
     "description": "下肖家湾公园藏在渝中区闹市里，是本地人偏爱的“绿色阳台”。站在观景台能俯瞰山城立体街景，层叠楼宇与绿树相映，傍晚看江对岸灯光亮起特别治愈。园内步道平缓，适合饭后散步或晨练，带份晚报找个长椅坐坐最惬意。喜欢城市漫游、想避开游客潮的休闲党，或是带长辈遛弯都很合适。",
     "source": "amap",
     "source_id": "B0FFH2K2YU",
-    "recommendation": "藏在居民区的宝藏公园，晨练或午后发呆都很惬意，记得带驱蚊水。"
+    "recommendation": "藏在居民区的宝藏公园，晨练或午后发呆都很惬意，记得带驱蚊水。",
+    "image_url": "images/chongqing/images/amap_182158ca/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_182158ca/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_182158ca/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_182158ca/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_da527ea7",
@@ -3878,7 +4628,22 @@
     "description": "盘溪河公园藏在两江新区的绿肺里，沿河步道被大树温柔环抱，四季花境与亲水平台错落有致，晨跑或傍晚散步都超治愈。适合带野餐垫来草坪发呆，或遛娃看小桥流水。爱拍照的别错过水边光影，全家老少都能在这里找到慢生活的节奏。",
     "source": "amap",
     "source_id": "B0FFM6ZAJ0",
-    "recommendation": "盘溪河公园沿河而建，适合散步遛狗，早上来晨跑空气超好。"
+    "recommendation": "盘溪河公园沿河而建，适合散步遛狗，早上来晨跑空气超好。",
+    "image_url": "images/chongqing/images/amap_831f1807/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_831f1807/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_831f1807/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_831f1807/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_478a1f5b",
@@ -3936,7 +4701,22 @@
     "description": "位于渝中区的肖家湾体育文化公园，将运动场与山林景观巧妙融合，既有专业篮球场、健身步道，也有绿树成荫的休闲平台。适合周末带家人来散步打球，或约朋友在草坪野餐发呆。这里台阶较多，建议穿平底鞋，傍晚还能俯瞰城市灯火。喜欢运动、自然风光的年轻人和亲子家庭都会爱上这里。",
     "source": "amap",
     "source_id": "B0FFK71PFO",
-    "recommendation": "体育与文化的碰撞，篮球场和步道都有，建议周末上午来体验社区活力。"
+    "recommendation": "体育与文化的碰撞，篮球场和步道都有，建议周末上午来体验社区活力。",
+    "image_url": "images/chongqing/images/amap_90d2e92f/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_90d2e92f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_90d2e92f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_90d2e92f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ff43879a",
@@ -4002,7 +4782,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_46f8c32/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_46f8c32/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_46f8c32/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_46f8c32/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_379a9831",
@@ -4060,7 +4855,22 @@
     "description": "一匹山公园藏在渝中区，是闹中取静的宝藏地。山顶视野超赞，能俯瞰山城立体街景和江景，尤其日落时分特别出片。公园不大，适合散步、慢跑或发呆，台阶和步道串起绿荫凉亭，走走停停很惬意。推荐带杯咖啡来坐坐，适合想避开人群、爱拍照或寻求片刻宁静的本地人和游客。",
     "source": "amap",
     "source_id": "B0MACZVURW",
-    "recommendation": "一匹山公园视野超棒，傍晚来散步看日落最惬意，记得带驱蚊液哦！"
+    "recommendation": "一匹山公园视野超棒，傍晚来散步看日落最惬意，记得带驱蚊液哦！",
+    "image_url": "images/chongqing/images/amap_f73073ce/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_f73073ce/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f73073ce/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f73073ce/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_24b8038b",
@@ -4121,7 +4931,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_75c95042/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_75c95042/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_75c95042/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_75c95042/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3648c14e",
@@ -4187,7 +5012,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_dbacf5ad/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_dbacf5ad/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_dbacf5ad/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_dbacf5ad/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b78300c0",
@@ -4246,7 +5086,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_87f3ad4/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_87f3ad4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_87f3ad4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_87f3ad4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_57867558",
@@ -4312,7 +5167,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_7de49f36/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_7de49f36/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7de49f36/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7de49f36/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2595f439",
@@ -4433,7 +5303,22 @@
     "source_id": "B0FFKGU0T8",
     "recommendation": "核雕手艺精湛，适合买来当特色伴手礼，建议看师傅现场雕刻，更有纪念意义。",
     "open_minutes": 900,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/chongqing/images/amap_850ac5b0/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_850ac5b0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_850ac5b0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_850ac5b0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5470a2c2",
@@ -4497,7 +5382,22 @@
     "source_id": "B0FFIDZWKI",
     "recommendation": "特产总店品类齐全，想一站式购齐重庆味道就来这，火锅底料是必买！",
     "open_minutes": 480,
-    "close_minutes": 1440
+    "close_minutes": 1440,
+    "image_url": "images/chongqing/images/amap_c484ef09/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_c484ef09/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_c484ef09/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_c484ef09/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b016fbe8",
@@ -4557,7 +5457,22 @@
     "description": "哈哈Home藏在解放碑与洪崖洞之间的热闹街巷里，是个超好逛的宝藏小店。店里摆满脑洞大开的重庆特色文创和趣味伴手礼，能淘到独一无二的冰箱贴、方言T恤和辣味零食。建议傍晚顺路过来，逛完直接溜达去洪崖洞看夜景。适合喜欢淘新奇小物、想带点有趣纪念品的年轻人，或者带着小朋友的亲子家庭。",
     "source": "amap",
     "source_id": "B0L0N7SREH",
-    "recommendation": "解放碑旁的宝藏集合店，卖各种有趣文创和重庆特色小物，适合淘手信。"
+    "recommendation": "解放碑旁的宝藏集合店，卖各种有趣文创和重庆特色小物，适合淘手信。",
+    "image_url": "images/chongqing/images/amap_a60245d4/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_a60245d4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_a60245d4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_a60245d4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5f561368",
@@ -4679,7 +5594,22 @@
     "source_id": "B00178371R",
     "recommendation": "两江奥莱品牌折扣超给力，淘大牌好去处！建议早上去，人少货全。",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/chongqing/images/amap_7942d33a/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_7942d33a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7942d33a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7942d33a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_673ca75b",
@@ -4744,7 +5674,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_32fb306a/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_32fb306a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_32fb306a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_32fb306a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_657300e8",
@@ -4812,7 +5757,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_cbc98b8a/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_cbc98b8a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_cbc98b8a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_cbc98b8a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_13e0dd60",
@@ -4949,7 +5909,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_19ef64a1/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_19ef64a1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_19ef64a1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_19ef64a1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_64bb73d7",
@@ -5017,7 +5992,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_62b5e57b/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_62b5e57b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_62b5e57b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_62b5e57b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d541da3e",
@@ -5085,7 +6075,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_e93c5d8c/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_e93c5d8c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_e93c5d8c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_e93c5d8c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4852ff25",
@@ -5285,7 +6290,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_2ff8c90c/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_2ff8c90c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_2ff8c90c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_2ff8c90c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_136bdd59",
@@ -5353,7 +6373,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_625e9465/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_625e9465/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_625e9465/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_625e9465/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7130c7a1",
@@ -5555,7 +6590,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_5dfb0c7c/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_5dfb0c7c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_5dfb0c7c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_5dfb0c7c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_35dbe1b7",
@@ -5623,7 +6673,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_f88e22c6/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_f88e22c6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f88e22c6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f88e22c6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_929c88ac",
@@ -5824,7 +6889,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_7815af6b/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_7815af6b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7815af6b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7815af6b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_956866d1",
@@ -5889,7 +6969,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_90f4f03d/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_90f4f03d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_90f4f03d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_90f4f03d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1930eb81",
@@ -5956,7 +7051,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_6c1a944f/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_6c1a944f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_6c1a944f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_6c1a944f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d5dfeb53",
@@ -6285,7 +7395,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_1be9be8d/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_1be9be8d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_1be9be8d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_1be9be8d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_13477429",
@@ -6351,7 +7476,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_b0580e8f/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_b0580e8f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_b0580e8f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_b0580e8f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5bf55f10",
@@ -6418,7 +7558,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_4754ce98/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_4754ce98/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_4754ce98/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_4754ce98/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_10bd57bf",
@@ -6683,7 +7838,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_7e62c13e/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_7e62c13e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7e62c13e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7e62c13e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_beb349df",
@@ -6751,7 +7921,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_342edead/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_342edead/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_342edead/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_342edead/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b99dbd98",
@@ -6819,7 +8004,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_4c5bb91d/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_4c5bb91d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_4c5bb91d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_4c5bb91d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c7a77308",
@@ -6955,7 +8155,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_a5d8dd92/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_a5d8dd92/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_a5d8dd92/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_a5d8dd92/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7a8bbd1f",
@@ -7027,7 +8242,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_7f9c40a4/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_7f9c40a4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7f9c40a4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7f9c40a4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ef01fd4",
@@ -7097,7 +8327,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_f001c0df/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_f001c0df/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f001c0df/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f001c0df/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6e8cfdf4",
@@ -7303,7 +8548,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_5574dbb/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_5574dbb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_5574dbb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_5574dbb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_53bbcd15",
@@ -7373,7 +8633,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_aa33a38d/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_aa33a38d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_aa33a38d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_aa33a38d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_297719ef",
@@ -7442,7 +8717,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_e1fe94b5/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_e1fe94b5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_e1fe94b5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_e1fe94b5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8ff73da8",
@@ -7581,7 +8871,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_f4b8f27b/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_f4b8f27b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f4b8f27b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f4b8f27b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_98e62ba",
@@ -7718,7 +9023,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/chongqing/images/amap_dd66b1/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_dd66b1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_dd66b1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_dd66b1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_74ad8a25",
@@ -7961,7 +9281,22 @@
     "source_id": "B0K3CZZNTY",
     "recommendation": "在渝中区觅食推荐陈胖子火锅(临江门店)，性价比不错",
     "open_minutes": 630,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/chongqing/images/amap_9f02902f/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_9f02902f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9f02902f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9f02902f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7a6d6a52",
@@ -8019,7 +9354,22 @@
     "source_id": "B0IRB5ZEXQ",
     "recommendation": "紧邻大剧院，吃完火锅散步看江景，建议傍晚去，夜景超赞。",
     "open_minutes": 600,
-    "close_minutes": 120
+    "close_minutes": 120,
+    "image_url": "images/chongqing/images/amap_5db8e77f/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_5db8e77f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_5db8e77f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_5db8e77f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1ff7399a",
@@ -8075,7 +9425,22 @@
     "source_id": "B0K15R32HO",
     "recommendation": "在九龙坡区觅食推荐飚万火锅，性价比不错",
     "open_minutes": 630,
-    "close_minutes": 120
+    "close_minutes": 120,
+    "image_url": "images/chongqing/images/amap_55a3ddf0/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_55a3ddf0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_55a3ddf0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_55a3ddf0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b3fef8ee",
@@ -8191,7 +9556,22 @@
     "source_id": "B0JR9CLHUB",
     "recommendation": "年白老火锅(弹子石店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 630,
-    "close_minutes": 1440
+    "close_minutes": 1440,
+    "image_url": "images/chongqing/images/amap_d8963d8c/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_d8963d8c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_d8963d8c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_d8963d8c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_25002e65",
@@ -8248,7 +9628,22 @@
     "source_id": "B0LAZAP3UI",
     "recommendation": "在渝中区觅食推荐正霞老火锅，性价比不错",
     "open_minutes": 660,
-    "close_minutes": 1410
+    "close_minutes": 1410,
+    "image_url": "images/chongqing/images/amap_3534d6de/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_3534d6de/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_3534d6de/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_3534d6de/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5ffe28b2",
@@ -8305,7 +9700,22 @@
     "source_id": "B0FFIJSYX0",
     "recommendation": "周嬢嬢火锅是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 630,
-    "close_minutes": 60
+    "close_minutes": 60,
+    "image_url": "images/chongqing/images/amap_ed654528/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_ed654528/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_ed654528/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_ed654528/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_90083677",
@@ -8418,7 +9828,22 @@
     "source_id": "B0FFHJ9882",
     "recommendation": "一斗火锅(北温泉九号店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 570,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "image_url": "images/chongqing/images/amap_df7ed732/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_df7ed732/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_df7ed732/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_df7ed732/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_cae12101",
@@ -8475,7 +9900,22 @@
     "source_id": "B0I3RCS9ZB",
     "recommendation": "回龙湾美食街人气王，本地人常打卡。招牌牛肉必点，辣得过瘾。",
     "open_minutes": 600,
-    "close_minutes": 60
+    "close_minutes": 60,
+    "image_url": "images/chongqing/images/amap_26cd2e04/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_26cd2e04/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_26cd2e04/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_26cd2e04/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3d943491",
@@ -8533,7 +9973,22 @@
     "source_id": "B0J1XHQGVH",
     "recommendation": "渝富贵火锅(洪崖洞店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 1440
+    "close_minutes": 1440,
+    "image_url": "images/chongqing/images/amap_fbe1badc/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_fbe1badc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_fbe1badc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_fbe1badc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e13f79be",
@@ -8591,7 +10046,22 @@
     "source_id": "B0J0PH9GM7",
     "recommendation": "过道火锅(总店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 660,
-    "close_minutes": 1440
+    "close_minutes": 1440,
+    "image_url": "images/chongqing/images/amap_66418949/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_66418949/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_66418949/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_66418949/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9599835f",
@@ -8648,7 +10118,22 @@
     "source_id": "B0LG0BZGKW",
     "recommendation": "渝厨生态火锅(沙坪坝店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 660,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/chongqing/images/amap_6b469bf9/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_6b469bf9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_6b469bf9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_6b469bf9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bbf24f70",
@@ -8705,7 +10190,22 @@
     "source_id": "B0FFKKFUC1",
     "recommendation": "在渝中区觅食推荐堂客老火锅(总部城店)，性价比不错",
     "open_minutes": 570,
-    "close_minutes": 60
+    "close_minutes": 60,
+    "image_url": "images/chongqing/images/amap_55957c24/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_55957c24/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_55957c24/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_55957c24/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a80e6ca9",
@@ -8821,7 +10321,22 @@
     "source_id": "B0JDGSZ5XN",
     "recommendation": "九火锅(珠江国际店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 660,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/chongqing/images/amap_a2af6418/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_a2af6418/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_a2af6418/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_a2af6418/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e395254e",
@@ -8879,7 +10394,22 @@
     "source_id": "B0JGGHQ9P4",
     "recommendation": "在渝中区觅食推荐渝中区惠姐炫火锅，性价比不错",
     "open_minutes": 600,
-    "close_minutes": 1410
+    "close_minutes": 1410,
+    "image_url": "images/chongqing/images/amap_99d6980d/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_99d6980d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_99d6980d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_99d6980d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_21d6519",
@@ -8937,7 +10467,22 @@
     "source_id": "B0HU1UD62V",
     "recommendation": "周师兄重庆火锅(磁器口直营店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/chongqing/images/amap_37f6b014/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_37f6b014/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_37f6b014/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_37f6b014/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a968a41c",
@@ -8995,7 +10540,22 @@
     "source_id": "B00179434F",
     "recommendation": "品健老灶火锅口碑很好，建议避开高峰期就餐",
     "open_minutes": 600,
-    "close_minutes": 120
+    "close_minutes": 120,
+    "image_url": "images/chongqing/images/amap_c88d3ad7/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_c88d3ad7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_c88d3ad7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_c88d3ad7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_55f7ed7f",
@@ -9050,7 +10610,22 @@
     "source_id": "B0FFKV3TRG",
     "recommendation": "在两江新区觅食推荐脸谱自助火锅，性价比不错",
     "open_minutes": 600,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/chongqing/images/amap_8e14ce4a/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_8e14ce4a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_8e14ce4a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_8e14ce4a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fccbdb31",
@@ -9275,7 +10850,22 @@
     "source_id": "B0J1RRMD8V",
     "recommendation": "巴国城景区旁的火锅，逛完景点正好",
     "open_minutes": 570,
-    "close_minutes": 810
+    "close_minutes": 810,
+    "image_url": "images/chongqing/images/amap_75cd281/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_75cd281/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_75cd281/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_75cd281/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4b15d92d",
@@ -9331,7 +10921,22 @@
     "source_id": "B0H3K5YGFH",
     "recommendation": "渝宗老重庆火锅(长嘉汇店)口碑很好，建议避开高峰期就餐",
     "open_minutes": 630,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "image_url": "images/chongqing/images/amap_89698c94/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_89698c94/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_89698c94/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_89698c94/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e8e80f3b",
@@ -9388,7 +10993,22 @@
     "source_id": "B0J0TUX6YA",
     "recommendation": "夏孃老火锅(总店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 660,
-    "close_minutes": 60
+    "close_minutes": 60,
+    "image_url": "images/chongqing/images/amap_5aea1fe/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_5aea1fe/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_5aea1fe/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_5aea1fe/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4953b22f",
@@ -9502,7 +11122,22 @@
     "source_id": "B0H0BC04FY",
     "recommendation": "黎小曼重庆椒麻鸡火锅是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/chongqing/images/amap_87d62e1/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_87d62e1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_87d62e1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_87d62e1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bd227f1a",
@@ -9560,7 +11195,22 @@
     "source_id": "B0LRNUMAWO",
     "recommendation": "在渝中区觅食推荐渝宗老灶火锅(石油路店)，性价比不错",
     "open_minutes": 600,
-    "close_minutes": 180
+    "close_minutes": 180,
+    "image_url": "images/chongqing/images/amap_9991dc8/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_9991dc8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9991dc8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9991dc8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9ef52186",
@@ -9618,7 +11268,22 @@
     "source_id": "B0FFILBYM1",
     "recommendation": "庖丁家牛肆.鲜牛肉火锅(铜元局店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/chongqing/images/amap_751b42c9/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_751b42c9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_751b42c9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_751b42c9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d667e27c",
@@ -9778,7 +11443,14 @@
     "description": "江惠儿糊辣壳面是长寿区地道的老字号，主打焦香四溢的糊辣壳辣椒油，搭配劲道手工面，一口下去麻辣鲜香直冲脑门。建议点碗招牌糊辣壳面再加个煎蛋，辣度可选微辣到重辣。适合无辣不欢的吃货，或是想体验",
     "source": "amap",
     "source_id": "B0LDP6TLYV",
-    "recommendation": "糊辣壳是灵魂，焦香微辣上瘾，下午去现炒辣椒油最香。"
+    "recommendation": "糊辣壳是灵魂，焦香微辣上瘾，下午去现炒辣椒油最香。",
+    "image_url": "images/chongqing/images/amap_86f7569a/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_86f7569a/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_daa16bde",
@@ -9831,7 +11503,14 @@
     "source_id": "B0KA9RQM8X",
     "recommendation": "水云间肥肠饭口碑很好，建议避开高峰期就餐",
     "open_minutes": 480,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "image_url": "images/chongqing/images/amap_5c9ebd22/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_5c9ebd22/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fcc61607",
@@ -9886,7 +11565,22 @@
     "source_id": "B0KUFZ51P7",
     "recommendation": "藏在森林里的咖啡秘境，午后阳光透过树叶洒下超美。建议带本书，享受静谧时光。",
     "open_minutes": 570,
-    "close_minutes": 1140
+    "close_minutes": 1140,
+    "image_url": "images/chongqing/images/amap_70cf7688/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_70cf7688/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_70cf7688/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_70cf7688/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6901ba40",
@@ -10052,7 +11746,22 @@
     "source_id": "B0JAOCUTBU",
     "recommendation": "库迪咖啡(九龙坡万象里店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 450,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/chongqing/images/amap_87e782e0/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_87e782e0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_87e782e0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_87e782e0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e08e8bb9",
@@ -10106,7 +11815,22 @@
     "description": "藏在解放碑巷弄里的老街咖啡，用复古木质门窗和手冲咖啡香，营造出老重庆的慢时光。招牌弱水拿铁配上一块提拉米苏，坐在窗边看人来人往，特别出片。建议避开周末下午高峰，适合想躲开喧嚣、爱拍照或喜欢安静发呆的文艺青年。",
     "source": "amap",
     "source_id": "B0L61CVPZG",
-    "recommendation": "弱水老街咖啡是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "弱水老街咖啡是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/chongqing/images/amap_7fc1c4fc/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_7fc1c4fc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7fc1c4fc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_7fc1c4fc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_162c1828",
@@ -10215,7 +11939,22 @@
     "description": "坐落在南岸区的山与咖啡馆，是闹中取静的绝佳去处。最大看点就是临窗的绝美山景，搭配手冲咖啡或创意茶饮，随手一拍都出片。建议下午三点后来，避开烈日，点一份提拉米苏配拿铁，悠哉坐到黄昏。适合想暂时逃离喧嚣的文艺青年、情侣或独自放空的朋友。",
     "source": "amap",
     "source_id": "B0KKX1EC7W",
-    "recommendation": "山与咖啡馆是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "山与咖啡馆是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/chongqing/images/amap_f0699618/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_f0699618/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f0699618/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_f0699618/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6485827",
@@ -10325,7 +12064,22 @@
     "source": "amap",
     "source_id": "B0FFI1SIS9",
     "recommendation": "西贝(时代天街店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_4fc350c9/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_4fc350c9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_4fc350c9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_4fc350c9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_920e6a7a",
@@ -10379,7 +12133,22 @@
     "source": "amap",
     "source_id": "B0G0256NQV",
     "recommendation": "Naisnow奈雪(重庆金沙天街店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_9347c462/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_9347c462/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9347c462/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_9347c462/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_514b0045",
@@ -10433,7 +12202,22 @@
     "source": "amap",
     "source_id": "B0J19U4XTF",
     "recommendation": "隐小二·鲜活点杀·江湖菜·农家菜(回兴创始店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_adc7f7f6/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_adc7f7f6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_adc7f7f6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_adc7f7f6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3efe677a",
@@ -10593,7 +12377,22 @@
     "source": "amap",
     "source_id": "B0FFGJN6UN",
     "recommendation": "陈蹄花·家常菜(总店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_4b645c41/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_4b645c41/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_4b645c41/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_4b645c41/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_79151432",
@@ -10645,7 +12444,22 @@
     "source": "amap",
     "source_id": "B0FFKP7SJ6",
     "recommendation": "农家小院私房菜口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_d7202c86/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_d7202c86/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_d7202c86/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_d7202c86/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4037a967",
@@ -10696,7 +12510,22 @@
     "source": "amap",
     "source_id": "B0I27UM076",
     "recommendation": "道角里民间菜·特色鱼蛋·现划黄鳝(巴南店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_8b951ee0/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_8b951ee0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_8b951ee0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_8b951ee0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b5e9ec55",
@@ -10852,7 +12681,22 @@
     "source": "amap",
     "source_id": "B0FFGJN6SW",
     "recommendation": "杨记隆府(重庆总店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_72558f1c/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_72558f1c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_72558f1c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_72558f1c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_afd0a156",
@@ -10906,7 +12750,22 @@
     "source": "amap",
     "source_id": "B0FFKPVYEP",
     "recommendation": "老来福·酸汤兔(凯旋路店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_8b57cf00/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_8b57cf00/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_8b57cf00/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_8b57cf00/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4e32f47c",
@@ -10959,7 +12818,22 @@
     "source": "amap",
     "source_id": "B0FFH80COM",
     "recommendation": "俏巴渝.特色家宴·生日宴(新牌坊店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_dccbabf6/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_dccbabf6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_dccbabf6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_dccbabf6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b1f8e750",
@@ -11179,7 +13053,22 @@
     "source": "amap",
     "source_id": "B0FFF4UAA1",
     "recommendation": "望江夜市烧烤口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_eefc0505/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_eefc0505/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_eefc0505/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_eefc0505/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_567b6b63",
@@ -11232,7 +13121,22 @@
     "source": "amap",
     "source_id": "B0FFGBNQMZ",
     "recommendation": "白土坝夜市口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/chongqing/images/amap_3555cfe8/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/amap_3555cfe8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_3555cfe8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/amap_3555cfe8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6863c2e2",
@@ -11524,7 +13428,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/chongqing/images/chongqing_brand_68044a8f/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_68044a8f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_68044a8f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_68044a8f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_b19e4564",
@@ -11586,7 +13505,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/chongqing/images/chongqing_brand_1d3cf7e1/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_1d3cf7e1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_1d3cf7e1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_1d3cf7e1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_e81e1476",
@@ -11648,7 +13582,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/chongqing/images/chongqing_brand_72885509/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_72885509/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_72885509/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_72885509/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_ddd08f18",
@@ -11830,7 +13779,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/chongqing/images/chongqing_brand_3bf05f9b/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_3bf05f9b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_3bf05f9b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_3bf05f9b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_58113f71",
@@ -11888,7 +13852,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/chongqing/images/chongqing_brand_b4e7954c/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_b4e7954c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_b4e7954c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_b4e7954c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_268addb7",
@@ -11949,7 +13928,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/chongqing/images/chongqing_brand_f2406151/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_f2406151/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_f2406151/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_f2406151/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_5955699b",
@@ -12311,7 +14305,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/chongqing/images/chongqing_brand_b1846d87/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_b1846d87/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_b1846d87/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_b1846d87/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_f63e998d",
@@ -12373,7 +14382,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/chongqing/images/chongqing_brand_48b3c5fd/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_48b3c5fd/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_48b3c5fd/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_48b3c5fd/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_d0d227c2",
@@ -12435,7 +14459,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/chongqing/images/chongqing_brand_242eb693/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_242eb693/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_242eb693/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_242eb693/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_ea0a1ca6",
@@ -12613,7 +14652,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/chongqing/images/chongqing_brand_b0a55e1d/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_b0a55e1d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_b0a55e1d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_b0a55e1d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_cacfb9ea",
@@ -12672,7 +14726,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/chongqing/images/chongqing_brand_d7830724/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_d7830724/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_d7830724/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_d7830724/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_959e7686",
@@ -12731,7 +14800,22 @@
     "visit_duration": 30,
     "brand_category": "豪华",
     "price_range": "1200-3000元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/chongqing/images/chongqing_brand_9db1da9a/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_9db1da9a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_9db1da9a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_9db1da9a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_78996ea1",
@@ -12973,7 +15057,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/chongqing/images/chongqing_brand_bc689436/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_bc689436/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_bc689436/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_bc689436/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_84ba762a",
@@ -13032,7 +15131,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/chongqing/images/chongqing_brand_6525001c/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_6525001c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_6525001c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_6525001c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_2815ff8a",
@@ -13094,7 +15208,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/chongqing/images/chongqing_brand_771798e0/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_771798e0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_771798e0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_771798e0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b7aef141",
@@ -13334,7 +15463,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/chongqing/images/chongqing_brand_afa7a601/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_afa7a601/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_afa7a601/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_afa7a601/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_6d3eff",
@@ -13395,7 +15539,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/chongqing/images/chongqing_brand_b3e6764e/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_b3e6764e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_b3e6764e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_b3e6764e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_d996c169",
@@ -13454,7 +15613,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/chongqing/images/chongqing_brand_15b62bd3/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_15b62bd3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_15b62bd3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_15b62bd3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_b0de6d12",
@@ -13756,7 +15930,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/chongqing/images/chongqing_brand_65233bab/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_65233bab/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_65233bab/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_65233bab/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_98e764f8",
@@ -13816,7 +16005,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/chongqing/images/chongqing_brand_1a19f4d4/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_1a19f4d4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_1a19f4d4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_1a19f4d4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_fd07732b",
@@ -13876,7 +16080,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/chongqing/images/chongqing_brand_ede49207/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_ede49207/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_ede49207/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_ede49207/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_39a8d74d",
@@ -14176,7 +16395,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/chongqing/images/chongqing_brand_3f9b80a7/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_3f9b80a7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_3f9b80a7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_3f9b80a7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_3f9cdf2d",
@@ -14238,7 +16472,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/chongqing/images/chongqing_brand_f9d45448/1.jpg",
+    "images": [
+      {
+        "url": "images/chongqing/images/chongqing_brand_f9d45448/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_f9d45448/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/chongqing/images/chongqing_brand_f9d45448/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "chongqing_brand_6645a493",

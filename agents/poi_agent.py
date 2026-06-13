@@ -1,164 +1,97 @@
-"""POI Agent - Search and recommend Points of Interest with scoring."""
+"""POI Agent - Search and recommend Points of Interest with scoring.
+
+Pure deterministic agent — no LLM required.
+Uses algorithmic scoring from ``tools.scoring`` and local JSON data.
+"""
 
 import json
 import logging
 from pathlib import Path
 
-from langchain_core.language_models import BaseChatModel
-from langchain_core.prompts import ChatPromptTemplate
-
-from agents.base import BaseTourAgent
+from agents.base import BaseAgent
+from agents.constants import resolve_city_dir, CITY_DIR_MAP
 from agents.state import TourState
 from tools.scoring import rank_pois
 
 logger = logging.getLogger(__name__)
 
-# City name to directory mapping
-CITY_DIR_MAP = {
-    "广州": "guangzhou",
-    "北京": "beijing",
-    "上海": "shanghai",
-    "深圳": "shenzhen",
-    "成都": "chengdu",
-    "重庆": "chongqing",
-    "杭州": "hangzhou",
-    "武汉": "wuhan",
-    "南京": "nanjing",
-    "西安": "xian",
-    "长沙": "changsha",
-    "昆明": "kunming",
-    "大理": "dali",
-    "丽江": "lijiang",
-    "三亚": "sanya",
-    "桂林": "guilin",
-    "厦门": "xiamen",
-    "青岛": "qingdao",
-    "哈尔滨": "harbin",
-    "苏州": "suzhou",
-    "张家界": "zhangjiajie",
-}
 
-POI_SYSTEM = """You are a POI recommendation expert.
+class PoiAgent(BaseAgent):
+    """Search and recommend POIs using hybrid scoring."""
 
-You receive a pre-scored list of candidate POIs. Select the best POIs for the trip.
-
-Output format: JSON array with objects containing id, name, reason, priority fields.
-
-RULES:
-- MUST include all must_visit POIs
-- Select diverse attractions
-- Consider geographic distribution"""
-
-
-class PoiAgent(BaseTourAgent):
-    """Agent that searches and recommends POIs using hybrid scoring + LLM."""
-    
-    def __init__(self, llm: BaseChatModel, data_dir: str = "data"):
-        super().__init__(llm)
+    def __init__(self, data_dir: str = "data"):
         self.data_dir = Path(data_dir)
-    
+
     @property
     def name(self) -> str:
         return "PoiAgent"
-    
+
     @property
     def description(self) -> str:
         return "Search and recommend Points of Interest with intelligent scoring"
-    
-    def build_prompt(self) -> ChatPromptTemplate:
-        return ChatPromptTemplate.from_messages([
-            ("system", POI_SYSTEM),
-            ("human", "{context}"),
-        ])
-    
-    def _get_city_dir(self, city: str) -> str:
-        """Get directory name for city."""
-        if (self.data_dir / city).exists():
-            return city
-        if city in CITY_DIR_MAP:
-            return CITY_DIR_MAP[city]
-        return city.lower()
-    
+
     def _load_pois(self, city: str) -> list[dict]:
-        """Load POIs from local JSON file."""
-        city_dir = self._get_city_dir(city)
-        poi_file = self.data_dir / city_dir / "pois.json"
-        
+        """Load attraction-type POIs from local JSON."""
+        city_dir = resolve_city_dir(self.data_dir, city)
+        poi_file = city_dir / "pois.json"
         if not poi_file.exists():
-            logger.warning("POI file not found: " + str(poi_file))
+            logger.warning("POI file not found: %s", poi_file)
             return []
-        
         try:
             with open(poi_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                attractions = [p for p in data if p.get("type") in ("attraction", "nightlife")]
-                # Deduplicate sub-POIs: if "广州塔" exists, drop "广州塔-东广场", "广州塔E区" etc.
-                # Sort by name length so shorter (main) POIs come first
-                attractions.sort(key=lambda p: len(p["name"]))
-                seen_bases = set()
-                deduped = []
-                for p in attractions:
-                    name = p["name"]
-                    is_sub = False
-                    for base in seen_bases:
-                        if name.startswith(base) and len(name) > len(base):
-                            is_sub = True
-                            break
-                    if not is_sub:
-                        deduped.append(p)
-                        # Register as a base name (only if short enough to be a main POI)
-                        if len(name) <= 6:
-                            seen_bases.add(name)
-                logger.info("Loaded " + str(len(deduped)) + " attractions for " + city + " (deduped from " + str(len(attractions)) + ")")
-                return deduped
+            attractions = [p for p in data if p.get("type") in ("attraction", "nightlife")]
+
+            # De-duplicate sub-POIs (e.g. "广州塔-东广场" when "广州塔" exists)
+            attractions.sort(key=lambda p: len(p["name"]))
+            seen_bases: set[str] = set()
+            deduped: list[dict] = []
+            for p in attractions:
+                name = p["name"]
+                if any(name.startswith(b) and len(name) > len(b) for b in seen_bases):
+                    continue
+                deduped.append(p)
+                if len(name) <= 6:
+                    seen_bases.add(name)
+
+            logger.info("Loaded %d attractions for %s (deduped from %d)", len(deduped), city, len(attractions))
+            return deduped
         except Exception as e:
-            logger.error("Failed to load POIs: " + str(e))
+            logger.error("Failed to load POIs: %s", e)
             return []
-    
+
     async def execute(self, state: TourState) -> dict:
-        """Search and recommend POIs."""
         intent = state.get("trip_intent", {})
         city = intent.get("city", state.get("city", ""))
         days = intent.get("days", 3)
         must_visit = intent.get("must_visit", [])
-        
+
         if not city:
-            return {"pois": []}
-        
-        # Load POIs
+            return {"pois": [], "errors": ["PoiAgent: no city specified"]}
+
         all_pois = self._load_pois(city)
-        
         if not all_pois:
-            return {"pois": []}
-        
-        # Score and rank POIs
-        logger.info("Scoring and ranking POIs...")
+            return {"pois": [], "errors": [f"PoiAgent: no POI data found for {city}"]}
+
+        # Algorithmic scoring + ranking
         top_k = days * 5
         scored_pois = rank_pois(pois=all_pois, intent=intent, top_k=top_k)
-        
-        # Ensure must_visit are included (prefer exact match, then shortest name)
-        enriched_pois = []
+
+        # Ensure must_visit POIs are included
+        enriched: list[dict] = []
         for mv in must_visit:
-            candidates = []
-            for poi in scored_pois:
-                name = poi.get("name", "")
-                if mv in name:
-                    candidates.append(poi)
+            candidates = [p for p in scored_pois if mv in p.get("name", "")]
             if candidates:
-                # Prefer exact match, then shortest name (main POI over sub-POIs)
                 best = min(candidates, key=lambda p: (p.get("name", "") != mv, len(p.get("name", ""))))
-                best_copy = best.copy()
-                best_copy["is_must_visit"] = True
-                best_copy["recommend_reason"] = "Must visit: " + mv
-                enriched_pois.append(best_copy)
-        
-        # Add other top POIs
+                best = best.copy()
+                best["is_must_visit"] = True
+                best["recommend_reason"] = f"Must visit: {mv}"
+                enriched.append(best)
+
         for poi in scored_pois:
-            if poi not in enriched_pois:
-                enriched_pois.append(poi)
-        
-        # Limit to days * 3
-        enriched_pois = enriched_pois[:days * 3]
-        
-        logger.info("Selected " + str(len(enriched_pois)) + " POIs")
-        return {"pois": enriched_pois}
+            if poi not in enriched:
+                enriched.append(poi)
+
+        enriched = enriched[: days * 3]
+        logger.info("Selected %d POIs for %s", len(enriched), city)
+        return {"pois": enriched}

@@ -143,31 +143,46 @@ def cluster_pois_for_days(
             min_cluster = min(clusters, key=lambda c: len(c.attractions))
             min_cluster.attractions.append(attr)
     
-    # Assign restaurants to clusters based on location
+    # Assign restaurants to clusters with cross-day deduplication
+    assigned_restaurant_ids: set[str] = set()
+
     for cluster in clusters:
         if not cluster.center_lat or not cluster.center_lng:
             cluster.center_lat, cluster.center_lng = _area_center(cluster.attractions)
-        
-        # Find closest restaurants
+
+        # Find closest restaurants not yet assigned to other days
         cluster_restaurants = []
         for rest in restaurants:
+            rest_id = rest.get("id", rest.get("name", ""))
+            if rest_id in assigned_restaurant_ids:
+                continue  # Skip already-assigned restaurant
+
             rest_lat = rest.get("lat", 0)
             rest_lng = rest.get("lng", 0)
-            
             if not rest_lat or not rest_lng:
                 continue
-            
+
             dist = _haversine_km(
                 cluster.center_lat, cluster.center_lng,
-                rest_lat, rest_lng
+                rest_lat, rest_lng,
             )
-            
+
             if dist < 5.0:  # Within 5km
-                cluster_restaurants.append((dist, rest))
-        
-        # Sort by distance and take top 3
-        cluster_restaurants.sort(key=lambda x: x[0])
-        cluster.restaurants = [r for _, r in cluster_restaurants[:3]]
+                # Bonus for score from RestaurantAgent
+                agent_score = rest.get("_score", 0)
+                # Combine: lower distance = better, higher score = better
+                combined = agent_score - dist * 10
+                cluster_restaurants.append((combined, dist, rest))
+
+        # Sort by combined score (best first), take top 3
+        cluster_restaurants.sort(key=lambda x: x[0], reverse=True)
+        cluster.restaurants = [r for _, _, r in cluster_restaurants[:3]]
+
+        # Track assigned restaurant IDs to prevent cross-day duplicates
+        for r in cluster.restaurants:
+            rid = r.get("id", r.get("name", ""))
+            if rid:
+                assigned_restaurant_ids.add(rid)
     
     # Infer themes
     for cluster in clusters:

@@ -59,7 +59,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_52f1d3c6/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_52f1d3c6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_52f1d3c6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_52f1d3c6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1d420b19",
@@ -120,7 +135,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_bc180c98/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_bc180c98/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_bc180c98/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_bc180c98/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_789fbd62",
@@ -179,7 +209,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_d8c2d5de/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_d8c2d5de/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_d8c2d5de/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_d8c2d5de/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7a7cbccf",
@@ -298,7 +343,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_125bc2b6/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_125bc2b6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_125bc2b6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_125bc2b6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d8e3c863",
@@ -362,7 +422,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_330ebbb3/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_330ebbb3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_330ebbb3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_330ebbb3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f4ea620d",
@@ -971,7 +1046,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_6431f7fd/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_6431f7fd/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_6431f7fd/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_6431f7fd/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5737a49",
@@ -1061,7 +1151,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_5040e30b/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_5040e30b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5040e30b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5040e30b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d5d41a46",
@@ -1121,7 +1226,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_9acf4037/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_9acf4037/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_9acf4037/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_9acf4037/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_596579d9",
@@ -1424,7 +1544,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_2e415c38/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_2e415c38/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_2e415c38/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_2e415c38/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e7a93d99",
@@ -1486,7 +1621,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_49c659f3/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_49c659f3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_49c659f3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_49c659f3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bc35505",
@@ -1544,7 +1694,18 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_a61d7d90/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_a61d7d90/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a61d7d90/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_20289d98",
@@ -1727,7 +1888,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_a3f63953/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_a3f63953/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a3f63953/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a3f63953/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8ecc020",
@@ -1789,7 +1965,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_c945bf38/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_c945bf38/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_c945bf38/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_c945bf38/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a4cf4ff5",
@@ -1855,7 +2046,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_b3fb5cd7/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_b3fb5cd7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b3fb5cd7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b3fb5cd7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9600b0a5",
@@ -2121,7 +2327,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_4593e21a/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_4593e21a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4593e21a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4593e21a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c943ceb8",
@@ -2188,7 +2409,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_28ff0aba/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_28ff0aba/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_28ff0aba/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_28ff0aba/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a87f0b34",
@@ -2387,7 +2623,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_efb6fa6a/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_efb6fa6a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_efb6fa6a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_efb6fa6a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2afe3ec7",
@@ -2449,7 +2700,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_c68decb9/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_c68decb9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_c68decb9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_c68decb9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c7f925c0",
@@ -2513,7 +2779,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_1c2a0dbb/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_1c2a0dbb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_1c2a0dbb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_1c2a0dbb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d38bbbc4",
@@ -2703,7 +2984,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_1427ed17/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_1427ed17/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_1427ed17/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_1427ed17/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e5d1b0d9",
@@ -2766,7 +3062,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_8ac868e7/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_8ac868e7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8ac868e7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8ac868e7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2add41e",
@@ -2831,7 +3142,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_1e609f03/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_1e609f03/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_1e609f03/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_1e609f03/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9fca6392",
@@ -2959,7 +3285,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_ab24267c/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_ab24267c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ab24267c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ab24267c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_99a1be12",
@@ -3022,7 +3363,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_4df09ed3/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_4df09ed3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4df09ed3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4df09ed3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7ccf6796",
@@ -3085,7 +3441,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_a32805e6/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_a32805e6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a32805e6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a32805e6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6bba6905",
@@ -3211,7 +3582,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_3831f87/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_3831f87/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_3831f87/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_3831f87/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_38b26082",
@@ -3274,7 +3660,18 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_b905371f/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_b905371f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b905371f/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bb1dd4c8",
@@ -3338,7 +3735,14 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_a19b775c/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_a19b775c/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_38057d14",
@@ -3528,7 +3932,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_4b3d7d0f/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_4b3d7d0f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4b3d7d0f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4b3d7d0f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a5b7f4cf",
@@ -3596,7 +4015,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_f39ed659/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_f39ed659/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_f39ed659/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_f39ed659/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_567c6ad9",
@@ -3663,7 +4097,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_cd722375/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_cd722375/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_cd722375/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_cd722375/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_505e7ae0",
@@ -3938,7 +4387,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_54c8adc6/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_54c8adc6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_54c8adc6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_54c8adc6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9902ef5",
@@ -4006,7 +4470,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_9c64c57c/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_9c64c57c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_9c64c57c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_9c64c57c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_302d5450",
@@ -4073,7 +4552,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_5627788d/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_5627788d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5627788d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5627788d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4621308f",
@@ -4136,7 +4630,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_cb399f7e/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_cb399f7e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_cb399f7e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_cb399f7e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_212b38bc",
@@ -4266,7 +4775,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_ce26bc17/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_ce26bc17/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ce26bc17/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ce26bc17/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1dd7d933",
@@ -4531,7 +5055,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_176e7ed7/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_176e7ed7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_176e7ed7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_176e7ed7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ecb59038",
@@ -4596,7 +5135,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_6d0f73e6/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_6d0f73e6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_6d0f73e6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_6d0f73e6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8a91191b",
@@ -4661,7 +5215,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_a216d739/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_a216d739/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a216d739/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a216d739/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b4067f84",
@@ -4791,7 +5360,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_140825a5/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_140825a5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_140825a5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_140825a5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_597470b9",
@@ -4856,7 +5440,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_e79c76aa/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_e79c76aa/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_e79c76aa/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_e79c76aa/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c168d208",
@@ -4918,7 +5517,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_e4048d76/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_e4048d76/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_e4048d76/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_e4048d76/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2fbdf1e7",
@@ -4982,7 +5596,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_acffec69/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_acffec69/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_acffec69/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_acffec69/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ab1a0b69",
@@ -5048,7 +5677,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_ddd426de/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_ddd426de/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ddd426de/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ddd426de/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bbec46e9",
@@ -5244,7 +5888,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_b8de298/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_b8de298/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b8de298/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b8de298/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e9c3ca98",
@@ -5312,7 +5971,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_8dd7782a/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_8dd7782a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8dd7782a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8dd7782a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e9e1e1d3",
@@ -5379,7 +6053,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_bd482350/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_bd482350/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_bd482350/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_bd482350/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5b4bfe7b",
@@ -5513,7 +6202,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_74f73b54/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_74f73b54/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_74f73b54/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_74f73b54/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6dd7a927",
@@ -5580,7 +6284,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_8b5d4661/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_8b5d4661/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8b5d4661/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8b5d4661/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ddb9c426",
@@ -5647,7 +6366,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_cf218940/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_cf218940/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_cf218940/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_cf218940/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a9878c26",
@@ -5779,7 +6513,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_416541b1/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_416541b1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_416541b1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_416541b1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_35f60153",
@@ -5846,7 +6595,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_ba5484ed/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_ba5484ed/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ba5484ed/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ba5484ed/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3e906ece",
@@ -5913,7 +6677,14 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_a0a9ba82/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_a0a9ba82/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_234e24ff",
@@ -5979,7 +6750,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_783735c5/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_783735c5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_783735c5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_783735c5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fb31decf",
@@ -6047,7 +6833,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_4fd2ee2a/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_4fd2ee2a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4fd2ee2a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4fd2ee2a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b454d173",
@@ -6114,7 +6915,18 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_15b5edf2/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_15b5edf2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_15b5edf2/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a415a8d6",
@@ -6247,7 +7059,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_39f695e2/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_39f695e2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_39f695e2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_39f695e2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e8f1a7f5",
@@ -6381,7 +7208,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_a4cce255/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_a4cce255/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a4cce255/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a4cce255/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f976a104",
@@ -6446,7 +7288,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_29412a60/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_29412a60/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_29412a60/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_29412a60/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8f36be3c",
@@ -6514,7 +7371,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_f881bc1f/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_f881bc1f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_f881bc1f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_f881bc1f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ff56506",
@@ -6577,7 +7449,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_2f4c8d6f/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_2f4c8d6f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_2f4c8d6f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_2f4c8d6f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_31ef3f42",
@@ -6642,7 +7529,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_4333260/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_4333260/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4333260/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4333260/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ba35da71",
@@ -6709,7 +7611,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_402c84fe/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_402c84fe/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_402c84fe/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_402c84fe/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4ce71afe",
@@ -6908,7 +7825,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_5aff7f40/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_5aff7f40/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5aff7f40/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5aff7f40/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d06238c2",
@@ -6973,7 +7905,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_4ff3ebaa/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_4ff3ebaa/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4ff3ebaa/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4ff3ebaa/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3a0750c0",
@@ -7038,7 +7985,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_b44b28ed/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_b44b28ed/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b44b28ed/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b44b28ed/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fd5fc93b",
@@ -7175,7 +8137,14 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_86ba6772/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_86ba6772/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_432a28ca",
@@ -7244,7 +8213,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_63595e3/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_63595e3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_63595e3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_63595e3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d2091376",
@@ -7310,7 +8294,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_fa0a59ed/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_fa0a59ed/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_fa0a59ed/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_fa0a59ed/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1d142fe",
@@ -7515,7 +8514,18 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_2caaf858/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_2caaf858/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_2caaf858/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2970559b",
@@ -7579,7 +8589,18 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_2baa36fd/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_2baa36fd/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_2baa36fd/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2e594bb3",
@@ -7646,7 +8667,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_ecbae3be/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_ecbae3be/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ecbae3be/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ecbae3be/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_eeb7ca6d",
@@ -7780,7 +8816,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_523c283e/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_523c283e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_523c283e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_523c283e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2107c13e",
@@ -7917,7 +8968,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_3fe4a94a/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_3fe4a94a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_3fe4a94a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_3fe4a94a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5bf8f9ea",
@@ -8121,7 +9187,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_c5597982/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_c5597982/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_c5597982/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_c5597982/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a705dd24",
@@ -8188,7 +9269,14 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_4cb293e/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_4cb293e/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fda58e52",
@@ -8257,7 +9345,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_f3edc114/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_f3edc114/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_f3edc114/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_f3edc114/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7c79aca9",
@@ -8597,7 +9700,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_ef7d58ce/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_ef7d58ce/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ef7d58ce/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ef7d58ce/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3a0de768",
@@ -8664,7 +9782,18 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_79b02386/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_79b02386/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_79b02386/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a5e3be38",
@@ -8734,7 +9863,14 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/xiamen/images/amap_e5beb294/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_e5beb294/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d0d79ee7",
@@ -8922,7 +10058,22 @@
     "source_id": "B0I3F9142O",
     "recommendation": "小鱼号酸菜鱼(湖里海涵时代店)是夜间休闲好去处",
     "open_minutes": 600,
-    "close_minutes": 1230
+    "close_minutes": 1230,
+    "image_url": "images/xiamen/images/amap_48aba00/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_48aba00/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_48aba00/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_48aba00/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d2d26067",
@@ -8976,7 +10127,22 @@
     "source_id": "B0FFIRAYL6",
     "recommendation": "闽南特色小吃(珍珠湾店)是夜间休闲好去处",
     "open_minutes": 570,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/xiamen/images/amap_6e811ef8/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_6e811ef8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_6e811ef8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_6e811ef8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6ebab02d",
@@ -9029,7 +10195,22 @@
     "description": "思明区滨海夜游必打卡！碗碗香面庄的招牌汤面配海鲜，暖胃又过瘾。坐在露天位吹海",
     "source": "amap",
     "source_id": "B0FFIXZG85",
-    "recommendation": "碗碗香面庄是夜间休闲好去处"
+    "recommendation": "碗碗香面庄是夜间休闲好去处",
+    "image_url": "images/xiamen/images/amap_1cf18a2/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_1cf18a2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_1cf18a2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_1cf18a2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9ea1dd8f",
@@ -9142,7 +10323,22 @@
     "source_id": "B0FFIQFZUV",
     "recommendation": "无味舒食(环岛路店)是夜间休闲好去处",
     "open_minutes": 630,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "image_url": "images/xiamen/images/amap_df537d2a/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_df537d2a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_df537d2a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_df537d2a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d2ad66d4",
@@ -9197,7 +10393,14 @@
     "source_id": "B0L6N4R4RY",
     "recommendation": "陈伯沙茶面是夜间休闲好去处",
     "open_minutes": 480,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/xiamen/images/amap_562e7930/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_562e7930/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9d7d48f6",
@@ -9251,7 +10454,22 @@
     "description": "位于思明区会展北天虹的肯悦咖啡，是夜间休闲的好去处。店内氛围轻松，适合约会或独处，窗外夜景迷人，逛完夜市来此小坐最惬意。推荐试试手冲单品搭配甜点，与朋友闲聊或安静放空都合适。适合喜欢咖啡、追求舒适环境的年轻人或夜游族。",
     "source": "amap",
     "source_id": "B0M6DZ5G0G",
-    "recommendation": "肯悦咖啡会展北天虹店是夜间休闲好去处"
+    "recommendation": "肯悦咖啡会展北天虹店是夜间休闲好去处",
+    "image_url": "images/xiamen/images/amap_abc6921f/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_abc6921f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_abc6921f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_abc6921f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d3cc5d77",
@@ -9360,7 +10578,22 @@
     "source_id": "B0H3LZL2FC",
     "recommendation": "汀小厨·客家蒸菜(观音山店)是夜间休闲好去处",
     "open_minutes": 540,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "image_url": "images/xiamen/images/amap_be4f24ed/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_be4f24ed/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_be4f24ed/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_be4f24ed/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2e3e98b5",
@@ -9417,7 +10650,22 @@
     "source_id": "B0FFJGV5BF",
     "recommendation": "豪客来牛排(厦门君尚广场餐厅)是夜间休闲好去处",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/xiamen/images/amap_ade8c129/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_ade8c129/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ade8c129/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ade8c129/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d63a69c1",
@@ -9474,7 +10722,22 @@
     "source_id": "B0KA7D39LW",
     "recommendation": "茶山派(湖里创新园店)是夜间休闲好去处",
     "open_minutes": 600,
-    "close_minutes": 1350
+    "close_minutes": 1350,
+    "image_url": "images/xiamen/images/amap_3d6cd6e5/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_3d6cd6e5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_3d6cd6e5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_3d6cd6e5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3d6fbd91",
@@ -9700,7 +10963,22 @@
     "source_id": "B0H6FC2WZG",
     "recommendation": "闽南大院-款待贵宾的闽南菜是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 660,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/xiamen/images/amap_6b0bd5c6/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_6b0bd5c6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_6b0bd5c6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_6b0bd5c6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_28044f0",
@@ -9757,7 +11035,22 @@
     "source_id": "B0GKK5YLS7",
     "recommendation": "上屿水产(鼓浪屿店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 900
+    "close_minutes": 900,
+    "image_url": "images/xiamen/images/amap_62aec636/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_62aec636/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_62aec636/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_62aec636/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ca7ca6b4",
@@ -9814,7 +11107,22 @@
     "source_id": "B02500TK3E",
     "recommendation": "同安饭店•闽南土菜•23年老品牌(金尚店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 660,
-    "close_minutes": 900
+    "close_minutes": 900,
+    "image_url": "images/xiamen/images/amap_1801d3b/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_1801d3b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_1801d3b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_1801d3b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_16664a63",
@@ -9986,7 +11294,22 @@
     "description": "开了16年的本地老牌海鲜排档，招牌煎蟹膏满肉肥，锅气十足的闽式小炒和地道酱油水也是必点。建议傍晚来，先点份煎蟹配啤酒，再试试海蛎炸和紫菜饭。适合想体验厦门烟火气、不怕排队的朋友，尤其是蟹控和海鲜爱好者。",
     "source": "amap",
     "source_id": "B0FFGBLUBP",
-    "recommendation": "鑫悦楼煎蟹·16年海鲜大排档(机场店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鑫悦楼煎蟹·16年海鲜大排档(机场店)是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/xiamen/images/amap_be249deb/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_be249deb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_be249deb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_be249deb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d45fcec5",
@@ -10042,7 +11365,22 @@
     "source_id": "B02500S51V",
     "recommendation": "日月鲜海鲜大排档·厦门美食地标店是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 630,
-    "close_minutes": 90
+    "close_minutes": 90,
+    "image_url": "images/xiamen/images/amap_adcb8261/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_adcb8261/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_adcb8261/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_adcb8261/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_cfc06a9b",
@@ -10098,7 +11436,22 @@
     "source_id": "B0J6CCOV8I",
     "recommendation": "球风海鲜大排档(马巷店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 660,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/xiamen/images/amap_befd5dd7/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_befd5dd7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_befd5dd7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_befd5dd7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b40e5d1b",
@@ -10266,7 +11619,22 @@
     "source_id": "B0GK1DXKBA",
     "recommendation": "阿强海鲜加工·大排档(八市店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 60
+    "close_minutes": 60,
+    "image_url": "images/xiamen/images/amap_42efc514/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_42efc514/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_42efc514/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_42efc514/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ed4c43ae",
@@ -10322,7 +11690,22 @@
     "source_id": "B0LB2CQZZP",
     "recommendation": "林锦记·闽菜(八市总店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/xiamen/images/amap_d7e7afc7/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_d7e7afc7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_d7e7afc7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_d7e7afc7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c2ba27fc",
@@ -10380,7 +11763,22 @@
     "source_id": "B0FFFYGRKE",
     "recommendation": "悦来福东山海鲜(莲花店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 1410
+    "close_minutes": 1410,
+    "image_url": "images/xiamen/images/amap_8dc583cf/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_8dc583cf/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8dc583cf/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8dc583cf/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a33b84e2",
@@ -10547,7 +11945,22 @@
     "source_id": "B0GUNAGUG9",
     "recommendation": "阿里元·海鲜闽菜(明发店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 630,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/xiamen/images/amap_b609139a/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_b609139a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b609139a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b609139a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_887d77fb",
@@ -10605,7 +12018,22 @@
     "source_id": "B0LGRXF8Q4",
     "recommendation": "闽南行闽菜·海鲜·姜母鸭(沙尾坡店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/xiamen/images/amap_5ef6378b/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_5ef6378b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5ef6378b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5ef6378b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5f54866",
@@ -10663,7 +12091,22 @@
     "source_id": "B0LUZUUJU7",
     "recommendation": "鑫东兴特色排档•35年老店(万象城店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 660,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/xiamen/images/amap_8aebba0a/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_8aebba0a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8aebba0a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8aebba0a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6f86ffc1",
@@ -10778,7 +12221,22 @@
     "source_id": "B0K3MCMLC7",
     "recommendation": "此食·陈氏传家菜是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 660,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/xiamen/images/amap_805b6a9a/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_805b6a9a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_805b6a9a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_805b6a9a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_12cd2867",
@@ -10835,7 +12293,22 @@
     "source_id": "B02500418D",
     "recommendation": "海中鲜平价活鲜大排档(湖里美食地标店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/xiamen/images/amap_a8d49fb9/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_a8d49fb9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a8d49fb9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a8d49fb9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2a238be5",
@@ -10949,7 +12422,22 @@
     "source_id": "B0HKJZX5SY",
     "recommendation": "环季海鲜软件园店是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/xiamen/images/amap_5f89e491/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_5f89e491/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5f89e491/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5f89e491/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_40fdfa92",
@@ -11061,7 +12549,22 @@
     "description": "藏在思明区的老厦门鼓新一品，主打地道本港海鲜，现捞现做，清蒸白灼保留原汁鲜甜。招牌酱油水小管、海蛎煎全是古早味。建议提前订位，傍晚去还能吹海风看街景。适合带家人或朋友聚餐，嘴馋鲜货的老饕别错过。",
     "source": "amap",
     "source_id": "B0G2UO5IID",
-    "recommendation": "老厦门鼓新一品本港海鲜是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "老厦门鼓新一品本港海鲜是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/xiamen/images/amap_79e74d51/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_79e74d51/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_79e74d51/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_79e74d51/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_84030d62",
@@ -11117,7 +12620,22 @@
     "source_id": "B0GRHBORFP",
     "recommendation": "吕妈妈私房菜是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "image_url": "images/xiamen/images/amap_b15326a3/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_b15326a3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b15326a3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b15326a3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1b212b0a",
@@ -11174,7 +12692,22 @@
     "source_id": "B0LRN1MRY2",
     "recommendation": "古味轩·闽菜海鲜餐厅(万科云城店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 570,
-    "close_minutes": 810
+    "close_minutes": 810,
+    "image_url": "images/xiamen/images/amap_d26fd5ec/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_d26fd5ec/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_d26fd5ec/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_d26fd5ec/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b84e415f",
@@ -11287,7 +12820,22 @@
     "source_id": "B02500TQ8V",
     "recommendation": "曾有味闽菜·海鲜·湘菜(曾厝垵店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 630,
-    "close_minutes": 1380
+    "close_minutes": 1380,
+    "image_url": "images/xiamen/images/amap_49676f83/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_49676f83/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_49676f83/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_49676f83/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3a44cc00",
@@ -11343,7 +12891,22 @@
     "source_id": "B02500QE7A",
     "recommendation": "小眼镜大排档(万佳东方店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 630,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/xiamen/images/amap_d14f786c/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_d14f786c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_d14f786c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_d14f786c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5d975444",
@@ -11400,7 +12963,22 @@
     "source_id": "B0G0RNA2XZ",
     "recommendation": "仙海阁|闽菜小海鲜是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 660,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/xiamen/images/amap_bdb4a7e1/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_bdb4a7e1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_bdb4a7e1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_bdb4a7e1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9ca34b91",
@@ -11457,7 +13035,22 @@
     "source_id": "B0250040ZG",
     "recommendation": "鑫林滨餐厅(江头东路店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 660,
-    "close_minutes": 300
+    "close_minutes": 300,
+    "image_url": "images/xiamen/images/amap_a8e9d26d/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_a8e9d26d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a8e9d26d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_a8e9d26d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_99bf3bc6",
@@ -11511,7 +13104,22 @@
     "source_id": "B0LURC2YY1",
     "recommendation": "厦门有亿海鲜酒楼是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/xiamen/images/amap_5c41619c/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_5c41619c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5c41619c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5c41619c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_39260765",
@@ -11679,7 +13287,22 @@
     "source_id": "B0FFKATOFU",
     "recommendation": "曾厝垵步行街是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 540,
-    "close_minutes": 1440
+    "close_minutes": 1440,
+    "image_url": "images/xiamen/images/amap_c8416003/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_c8416003/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_c8416003/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_c8416003/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_56cea2ae",
@@ -11731,7 +13354,22 @@
     "description": "闽篮美食夜市是翔安区烟火气十足的夜宵天堂，汇聚了地道的闽南小吃和各地网红美食。海鲜大排档、沙茶面、炸醋肉、海蛎煎应有尽有，边走边吃最过瘾。建议傍晚六七点来，避开排队高峰，约上三五好友边逛边尝。适合爱尝鲜的吃货、家庭聚餐或年轻人聚会，人均几十块就能吃得心满意足。",
     "source": "amap",
     "source_id": "B0MBD9GH5J",
-    "recommendation": "闽篮美食夜市是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "闽篮美食夜市是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/xiamen/images/amap_4af66b3/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_4af66b3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4af66b3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_4af66b3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ce287783",
@@ -11784,7 +13422,22 @@
     "source_id": "B0I01UX42Z",
     "recommendation": "纳德福美食反诈一条街是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 570,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/xiamen/images/amap_402b6e38/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_402b6e38/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_402b6e38/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_402b6e38/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a3a83a3c",
@@ -11889,7 +13542,14 @@
     "description": "凤山古厝里把闽南老厝的韵味和网红美食巧妙结合，既能拍到复古街景大片，又能从街头吃到街尾——沙茶面、芋泥冰、海蛎煎应有尽有。建议傍晚来，灯光亮起后氛围感拉满，边逛边吃刚刚好。适合",
     "source": "amap",
     "source_id": "B0KGHU2NKX",
-    "recommendation": "凤山古厝里网红美食商业街是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "凤山古厝里网红美食商业街是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/xiamen/images/amap_49ec1259/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_49ec1259/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a543066f",
@@ -11945,7 +13605,22 @@
     "source_id": "B0GKAMZS59",
     "recommendation": "名堂咖啡是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 510,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "image_url": "images/xiamen/images/amap_5691f8be/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_5691f8be/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5691f8be/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_5691f8be/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a429e22e",
@@ -12001,7 +13676,18 @@
     "description": "走进翡翠城这家一站式咖啡饮品店，就像掉进了咖啡豆的魔法世界！从精品手冲到创意特调，再到搭配的轻食甜品，全都能一站搞定。推荐试试招牌“翡翠冷萃”，清爽回甘。适合约上闺蜜来拍照闲聊，或是独自带本书安静发呆——无论是咖啡控还是茶饮爱好者，都能在这里找到心头好。",
     "source": "amap",
     "source_id": "B0FFLDY97S",
-    "recommendation": "一站式咖啡饮品服务商(翡翠城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "一站式咖啡饮品服务商(翡翠城店)是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/xiamen/images/amap_df71e033/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_df71e033/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_df71e033/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_52993a7",
@@ -12166,7 +13852,22 @@
     "source_id": "B0FFKS8D64",
     "recommendation": "沫厘(新景中心B栋店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 540,
-    "close_minutes": 120
+    "close_minutes": 120,
+    "image_url": "images/xiamen/images/amap_65d704ab/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_65d704ab/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_65d704ab/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_65d704ab/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6f05c67d",
@@ -12218,7 +13919,22 @@
     "source": "amap",
     "source_id": "B0FFH67HUR",
     "recommendation": "西贝(SM二期购物广场店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_39fd3499/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_39fd3499/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_39fd3499/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_39fd3499/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c94e4d6",
@@ -12273,7 +13989,22 @@
     "source": "amap",
     "source_id": "B0FFKKV17R",
     "recommendation": "McDonald's(南中广场店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_9e436235/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_9e436235/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_9e436235/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_9e436235/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5162c27c",
@@ -12379,7 +14110,22 @@
     "source": "amap",
     "source_id": "B025003HQL",
     "recommendation": "鹭风酒楼口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_ca653c70/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_ca653c70/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ca653c70/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_ca653c70/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5e403c31",
@@ -12432,7 +14178,22 @@
     "source": "amap",
     "source_id": "B0FFGO1D37",
     "recommendation": "大厨的餐厅(曾厝垵总店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_8f1ed2a/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_8f1ed2a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8f1ed2a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_8f1ed2a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_82f21115",
@@ -12482,7 +14243,22 @@
     "source": "amap",
     "source_id": "B0IRHUV40R",
     "recommendation": "添大福•莆田融合菜(观音山店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_9e12e9c7/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_9e12e9c7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_9e12e9c7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_9e12e9c7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_284f4750",
@@ -12589,7 +14365,22 @@
     "source": "amap",
     "source_id": "B0FFIAWLH9",
     "recommendation": "荣先森(厦门湖里万达广场店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_fb41312d/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_fb41312d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_fb41312d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_fb41312d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b7c9178b",
@@ -12641,7 +14432,22 @@
     "source": "amap",
     "source_id": "B02500QG1G",
     "recommendation": "阿忠食坊大排档·20年老店(万象城店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_686e99a6/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_686e99a6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_686e99a6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_686e99a6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d55813b0",
@@ -12693,7 +14499,22 @@
     "source": "amap",
     "source_id": "B0FFHK91PN",
     "recommendation": "大鼎石锅鱼(春江里店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_59edd7da/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_59edd7da/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_59edd7da/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_59edd7da/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3c3421bf",
@@ -12905,7 +14726,22 @@
     "source": "amap",
     "source_id": "B0FFHRSDFN",
     "recommendation": "黑市街川伯四果汤口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_fb22678e/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_fb22678e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_fb22678e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_fb22678e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f1ad1014",
@@ -12962,7 +14798,22 @@
     "source": "amap",
     "source_id": "B0FFKCMNDM",
     "recommendation": "妙香海鲜一条街(来雅百货店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_95cbc8dd/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_95cbc8dd/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_95cbc8dd/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_95cbc8dd/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3cde7972",
@@ -13015,7 +14866,22 @@
     "source": "amap",
     "source_id": "B0FFF4JN3W",
     "recommendation": "河沿庙街枸杞(厦门千禧园店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_6a92932b/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_6a92932b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_6a92932b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_6a92932b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_80e1ee01",
@@ -13181,7 +15047,22 @@
     "source": "amap",
     "source_id": "B0JRNMY99A",
     "recommendation": "海沧本地人常去的平价夜市，烧烤和卤味是招牌。别被门口的海鲜大排挡吸引，往里走第三家的沙茶面才是精髓。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/xiamen/images/amap_b5846f46/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/amap_b5846f46/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b5846f46/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/amap_b5846f46/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_2908e9e6",
@@ -13241,7 +15122,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/xiamen/images/xiamen_brand_8397b628/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_8397b628/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_8397b628/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_8397b628/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_dafb1aea",
@@ -13301,7 +15197,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/xiamen/images/xiamen_brand_e36a69ac/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_e36a69ac/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_e36a69ac/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_e36a69ac/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_2212cb5d",
@@ -13541,7 +15452,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/xiamen/images/xiamen_brand_9a9c37f2/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_9a9c37f2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_9a9c37f2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_9a9c37f2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_af90a8ba",
@@ -13602,7 +15528,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/xiamen/images/xiamen_brand_3e8c4fd6/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_3e8c4fd6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_3e8c4fd6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_3e8c4fd6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_2b4225c2",
@@ -13663,7 +15604,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/xiamen/images/xiamen_brand_22471362/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_22471362/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_22471362/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_22471362/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_f46060f9",
@@ -13964,7 +15920,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/xiamen/images/xiamen_brand_d3e50e7c/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_d3e50e7c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_d3e50e7c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_d3e50e7c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_157f2ad6",
@@ -14026,7 +15997,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/xiamen/images/xiamen_brand_cd53a7b2/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_cd53a7b2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_cd53a7b2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_cd53a7b2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_ce2c8522",
@@ -14086,7 +16072,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/xiamen/images/xiamen_brand_84cbcb81/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_84cbcb81/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_84cbcb81/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_84cbcb81/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_5fe03156",
@@ -14149,7 +16150,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/xiamen/images/xiamen_brand_df40ec67/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_df40ec67/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_df40ec67/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_df40ec67/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_9c27f303",
@@ -14209,7 +16225,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/xiamen/images/xiamen_brand_2d0f8b0e/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_2d0f8b0e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_2d0f8b0e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_2d0f8b0e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_e66f7ac8",
@@ -14269,7 +16300,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/xiamen/images/xiamen_brand_ce26432/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_ce26432/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_ce26432/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_ce26432/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_e25936ff",
@@ -14448,7 +16494,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/xiamen/images/xiamen_brand_c3d9050d/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_c3d9050d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_c3d9050d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_c3d9050d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_2d9a957b",
@@ -14509,7 +16570,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/xiamen/images/xiamen_brand_cc4d29b9/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_cc4d29b9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_cc4d29b9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_cc4d29b9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_22b6f2ee",
@@ -14569,7 +16645,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/xiamen/images/xiamen_brand_7848e4bd/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_7848e4bd/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_7848e4bd/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_7848e4bd/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_eb8061ff",
@@ -14752,7 +16843,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/xiamen/images/xiamen_brand_29eaf081/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_29eaf081/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_29eaf081/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_29eaf081/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_31586b85",
@@ -14811,7 +16917,22 @@
     "visit_duration": 30,
     "brand_category": "豪华",
     "price_range": "1200-3000元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/xiamen/images/xiamen_brand_efa76396/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_efa76396/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_efa76396/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_efa76396/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_cc88b84f",
@@ -14871,7 +16992,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/xiamen/images/xiamen_brand_5045c808/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_5045c808/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_5045c808/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_5045c808/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_4946652d",
@@ -15228,7 +17364,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/xiamen/images/xiamen_brand_8cdf732f/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_8cdf732f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_8cdf732f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_8cdf732f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_48e9b166",
@@ -15289,7 +17440,22 @@
     "visit_duration": 30,
     "brand_category": "特色",
     "price_range": "150-800元/晚",
-    "star_rating": 0
+    "star_rating": 0,
+    "image_url": "images/xiamen/images/xiamen_brand_c1ee85d4/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_c1ee85d4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_c1ee85d4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_c1ee85d4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_bbf7d1a5",
@@ -15593,7 +17759,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/xiamen/images/xiamen_brand_d0921ca3/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_d0921ca3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_d0921ca3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_d0921ca3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_dfd1151c",
@@ -15652,7 +17833,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/xiamen/images/xiamen_brand_578d44f1/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_578d44f1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_578d44f1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_578d44f1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_dc35974",
@@ -15712,7 +17908,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/xiamen/images/xiamen_brand_e36dd130/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_e36dd130/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_e36dd130/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_e36dd130/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4d94b1e7",
@@ -15893,7 +18104,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/xiamen/images/xiamen_brand_8d12b85f/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_8d12b85f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_8d12b85f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_8d12b85f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_58194da5",
@@ -15954,7 +18180,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/xiamen/images/xiamen_brand_44dc7582/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_44dc7582/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_44dc7582/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_44dc7582/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_7ce5eb86",
@@ -16012,7 +18253,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/xiamen/images/xiamen_brand_c4c12e8d/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_c4c12e8d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_c4c12e8d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_c4c12e8d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "xiamen_brand_5d01110a",
@@ -16198,7 +18454,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/xiamen/images/xiamen_brand_3b82893b/1.jpg",
+    "images": [
+      {
+        "url": "images/xiamen/images/xiamen_brand_3b82893b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_3b82893b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/xiamen/images/xiamen_brand_3b82893b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "transit_B025004DVF",

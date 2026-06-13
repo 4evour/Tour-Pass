@@ -19,6 +19,15 @@ class TripIntent(BaseModel):
     special_requests: Optional[str] = Field(default=None, description="Special requests")
 
 
+class ReviewFeedback(BaseModel):
+    """Structured review feedback passed from Reviewer to Scheduler."""
+    passed: bool = True
+    issues: list[dict] = Field(default_factory=list)
+    suggestions: list[str] = Field(default_factory=list)
+    missing_must_visit: list[str] = Field(default_factory=list)
+    severity: str = "none"
+
+
 def update_dialog_stack(left: list[str], right: Optional[str]) -> list[str]:
     """Update the dialog state stack."""
     if right is None:
@@ -37,6 +46,11 @@ def reduce_list(left: list, right: list) -> list:
     return left + right
 
 
+def replace_list(left: list, right: list) -> list:
+    """Replace left with right (for errors that should reset each cycle)."""
+    return right if right else left
+
+
 class TourState(TypedDict):
     """Shared state for the entire tour planning workflow."""
     messages: Annotated[list[AnyMessage], add_messages]
@@ -48,11 +62,14 @@ class TourState(TypedDict):
     hotels: list[dict]
     restaurants: list[dict]
     weather: list[dict]
+    city_guides: list[str]
     daily_plans: list[dict]
     selected_hotel: Optional[dict]
     review_result: Optional[dict]
+    review_feedback: Optional[dict]
+    review_cycle: int
     tickets: list[dict]
-    errors: Annotated[list[str], reduce_list]
+    errors: Annotated[list[str], replace_list]
     dialog_state: Annotated[
         list[
             Literal[

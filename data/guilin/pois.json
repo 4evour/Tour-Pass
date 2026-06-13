@@ -56,7 +56,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guilin/images/amap_55902460/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_55902460/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_55902460/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_55902460/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7f48e89d",
@@ -113,7 +128,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_c3b35520/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_c3b35520/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_c3b35520/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_c3b35520/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4a1023b8",
@@ -171,7 +201,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guilin/images/amap_3507bc4f/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_3507bc4f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3507bc4f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3507bc4f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5953e379",
@@ -226,7 +271,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_ff8bb129/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_ff8bb129/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_ff8bb129/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_ff8bb129/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_31ef435d",
@@ -282,7 +342,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_2b73abd5/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_2b73abd5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_2b73abd5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_2b73abd5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bcea2cfe",
@@ -330,7 +405,22 @@
     "description": "银子岩是桂林荔浦的喀斯特溶洞奇观，因钟乳石洁白如银得名。洞内“三绝”雪山飞瀑、音乐石屏、瑶池仙境如梦似幻，灯光映衬下宛如地下宫殿。建议游玩2小时，洞内阶梯较多，穿舒适防滑鞋。适合摄影爱好者、地质迷及喜欢奇幻景观的游客，亲子家庭也能轻松游览。",
     "source": "amap",
     "source_id": "B0305026C5",
-    "recommendation": "银光闪闪的钟乳石世界，跟着讲解听故事更有趣，拍照别开闪光灯哦。"
+    "recommendation": "银光闪闪的钟乳石世界，跟着讲解听故事更有趣，拍照别开闪光灯哦。",
+    "image_url": "images/guilin/images/amap_d612935d/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_d612935d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_d612935d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_d612935d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_46253426",
@@ -386,7 +476,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_7525f8a/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_7525f8a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_7525f8a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_7525f8a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ce0e0997",
@@ -435,7 +540,22 @@
     "description": "阳朔公园藏在县城中心，却自带山水灵气。园内古树参天，小溪蜿蜒，抬眼就能望见标志性的喀斯特峰林，拍照超出片。建议清晨或傍晚去，和本地人一起散步",
     "source": "amap",
     "source_id": "B030500A3D",
-    "recommendation": "本地人晨练的宝藏地，爬上山顶观景台俯瞰阳朔，黄昏时分最出片。"
+    "recommendation": "本地人晨练的宝藏地，爬上山顶观景台俯瞰阳朔，黄昏时分最出片。",
+    "image_url": "images/guilin/images/amap_fcde58a1/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_fcde58a1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_fcde58a1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_fcde58a1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fd0081f5",
@@ -492,7 +612,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_592c0f75/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_592c0f75/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_592c0f75/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_592c0f75/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1ae25335",
@@ -546,7 +681,22 @@
     "description": "坐上排筏漂在漓江兴坪段，两岸青山如画，黄布倒影、九马画山等经典风光尽收眼底，真正“舟行碧波上，人在画中游”。建议清晨或傍晚出发，光线柔和，游人较少，拍照更出片；游玩约1-2小时，记得带好防晒和防水袋。适合喜欢自然风光、摄影爱好者，以及带长辈或孩子悠闲感受漓江精华的朋友。",
     "source": "amap",
     "source_id": "B03050WIV2",
-    "recommendation": "20元人民币背景就在这里！坐竹筏漂在漓江上，清晨薄雾时最美。"
+    "recommendation": "20元人民币背景就在这里！坐竹筏漂在漓江上，清晨薄雾时最美。",
+    "image_url": "images/guilin/images/amap_32c85305/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_32c85305/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_32c85305/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_32c85305/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ec9d68de",
@@ -626,7 +776,22 @@
     "description": "来漓江古东景区，最过瘾的就是能“爬”瀑布！穿上草鞋、戴上头盔，逆流而上攀爬清凉的八级瀑布，刺激又解暑。景区里还有茂密的森林和层层叠叠的溪流，秋天红叶漫山，美得像油画。建议穿速干衣和防",
     "source": "amap",
     "source_id": "B03050096C",
-    "recommendation": "可以踩水爬瀑布的景区，夏天来记得多带一套衣服，穿防滑鞋还能玩溪降！"
+    "recommendation": "可以踩水爬瀑布的景区，夏天来记得多带一套衣服，穿防滑鞋还能玩溪降！",
+    "image_url": "images/guilin/images/amap_f1c53261/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_f1c53261/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f1c53261/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f1c53261/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_920bc43c",
@@ -684,7 +849,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_a5dd2124/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_a5dd2124/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_a5dd2124/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_a5dd2124/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_36e19784",
@@ -730,7 +910,22 @@
     "description": "逍遥湖藏在灵川的山水间，湖水清澈如镜，四周绿树成荫，还有古桥、栈道和瀑布点缀其间，颇有几分隐世仙境的韵味。建议花半天时间慢慢逛，可以走走湖边步道、坐坐竹筏，再体验一下丛林穿越的刺激。适合喜欢徒步拍照、全家出游或想短暂逃离城市喧嚣的朋友。",
     "source": "amap",
     "source_id": "B0FFFEE94M",
-    "recommendation": "逍遥湖的湖光山色超治愈，建议清晨或傍晚去，人少景美，随手一拍就是大片！"
+    "recommendation": "逍遥湖的湖光山色超治愈，建议清晨或傍晚去，人少景美，随手一拍就是大片！",
+    "image_url": "images/guilin/images/amap_9fb89707/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_9fb89707/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_9fb89707/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_9fb89707/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6ab9e2fa",
@@ -843,7 +1038,14 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_fc524e39/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_fc524e39/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f3e87153",
@@ -904,7 +1106,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guilin/images/amap_37888019/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_37888019/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_37888019/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_37888019/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2345d5fd",
@@ -952,7 +1169,22 @@
     "description": "虎山瀑布隐藏在阳朔的青山之间，水势磅礴，飞流直下，激起的水雾在阳光下常现彩虹。建议清晨或雨后前往，水量更大，还可避开人流。适合爱拍照、喜欢自然徒步的游客，带娃家庭也能轻松游玩，记得穿防滑鞋。",
     "source": "amap",
     "source_id": "B0FFLLC4QR",
-    "recommendation": "小众瀑布打卡地，雨后水量大但路滑。建议清晨去，人少光线好，拍水雾彩虹绝了。"
+    "recommendation": "小众瀑布打卡地，雨后水量大但路滑。建议清晨去，人少光线好，拍水雾彩虹绝了。",
+    "image_url": "images/guilin/images/amap_6b1889bb/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_6b1889bb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_6b1889bb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_6b1889bb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7ba164ef",
@@ -1002,7 +1234,22 @@
     "description": "浪石乡村旅游景区藏身阳朔山水间，奇峰倒映、田园如画，是体验原味桂林的宝藏地。建议骑车或徒步穿行古村石巷，探访百年老宅，再乘竹筏漂过漓江精华段。适合喜欢慢旅行、摄影写生，或想逃离喧嚣的亲子家庭与文艺青年。",
     "source": "amap",
     "source_id": "B0FFG2CY9L",
-    "recommendation": "宁静的田园乡村，体验原生态慢生活。建议"
+    "recommendation": "宁静的田园乡村，体验原生态慢生活。建议",
+    "image_url": "images/guilin/images/amap_71885de7/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_71885de7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_71885de7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_71885de7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_68872bb2",
@@ -1063,7 +1310,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guilin/images/amap_e740d3d7/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_e740d3d7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_e740d3d7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_e740d3d7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_85961b3d",
@@ -1146,7 +1408,18 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_8a116e49/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_8a116e49/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_8a116e49/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fae4d0fb",
@@ -1201,7 +1474,22 @@
     "description": "螺丝山因形似螺蛳得名，是阳朔绝佳的免费观景台。山顶可360°俯瞰漓江、田园与连绵峰林，尤其日落时分光影绝美。建议傍晚花20分钟轻松登顶，带上水和小风扇，穿舒适运动鞋。适合喜欢徒步、摄影和自然风光的游客，情侣或亲子家庭也能尽兴。",
     "source": "amap",
     "source_id": "B0FFG6RK2Y",
-    "recommendation": "登顶俯瞰全城风光，清晨或黄昏去光线最好，"
+    "recommendation": "登顶俯瞰全城风光，清晨或黄昏去光线最好，",
+    "image_url": "images/guilin/images/amap_f9524980/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_f9524980/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f9524980/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f9524980/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fa524b13",
@@ -1256,7 +1544,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_87b513d9/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_87b513d9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_87b513d9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_87b513d9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d270461c",
@@ -1516,7 +1819,18 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_decd8301/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_decd8301/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_decd8301/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_583fae9c",
@@ -1567,7 +1881,22 @@
     "description": "在漓江边感受非遗魅力！这里既有传统手工艺体验，又能淘到独特的文创好物，还能欣赏灵川山水。建议留出半天时间，亲手做件扎染或竹编，再喝杯茶看江景。文艺青年、亲子家庭和手作爱好者千万别错过～",
     "source": "amap",
     "source_id": "B0L29AQUN1",
-    "recommendation": "想感受漓江边的非遗魅力？来这儿亲手体验手作，记得留足时间拍照打卡哦！"
+    "recommendation": "想感受漓江边的非遗魅力？来这儿亲手体验手作，记得留足时间拍照打卡哦！",
+    "image_url": "images/guilin/images/amap_5ff11e54/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_5ff11e54/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5ff11e54/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5ff11e54/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_80fb9127",
@@ -1845,7 +2174,22 @@
     "description": "桂林博物馆藏着从史前到民国的文物宝藏，最吸睛的是梅瓶展和少数民族服饰，件件精致。建议留2-3小时慢慢逛，有免费讲解器租借。特别适合爱历史细节的小伙伴、亲子家庭，或想在雨天找室内文化好去处的你。",
     "source": "amap",
     "source_id": "B0FFHNK1MQ",
-    "recommendation": "藏品很丰富，能快速了解桂林历史。记得提前查免费开放时间，省门票。"
+    "recommendation": "藏品很丰富，能快速了解桂林历史。记得提前查免费开放时间，省门票。",
+    "image_url": "images/guilin/images/amap_37d8ed8b/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_37d8ed8b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_37d8ed8b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_37d8ed8b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d496bf88",
@@ -1901,7 +2245,22 @@
     "description": "这里藏着桂林抗战时期的名人往事和珍贵史料，展陈很有温度。适合花1-2小时细看，馆内还有互动体验区。推荐历史迷、学生族和带娃家庭来涨知识，室内参观不怕日晒雨淋，是临桂区感受红色文化的宝藏地。",
     "source": "amap",
     "source_id": "B0L2K7GSCO",
-    "recommendation": "了解桂林抗战故事的冷门博物馆，建议留出1小时，静静感受历史温度。"
+    "recommendation": "了解桂林抗战故事的冷门博物馆，建议留出1小时，静静感受历史温度。",
+    "image_url": "images/guilin/images/amap_a9980267/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_a9980267/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_a9980267/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_a9980267/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9c1defbd",
@@ -1957,7 +2316,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_31a4c572/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_31a4c572/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_31a4c572/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_31a4c572/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d2af9c33",
@@ -2176,7 +2550,22 @@
     "description": "临桂区图书馆不只是看书的地方，馆内常设临桂历史文化主题展，能了解状元之乡的古今故事。室内空间宽敞明亮，设有亲子阅读区和休闲自习区。适合想安静充电的学生、带娃体验的家长，以及喜欢逛博物馆式图书馆的旅行者。建议留出1-2小时，边翻书边看展，感受书香与历史的碰撞。",
     "source": "amap",
     "source_id": "B030506VEO",
-    "recommendation": "安静的自习宝地，藏书很全，下午人少光线好，适合泡一整天。"
+    "recommendation": "安静的自习宝地，藏书很全，下午人少光线好，适合泡一整天。",
+    "image_url": "images/guilin/images/amap_50ed4311/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_50ed4311/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_50ed4311/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_50ed4311/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a2f22d7f",
@@ -2238,7 +2627,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guilin/images/amap_2902fdf8/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_2902fdf8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_2902fdf8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_2902fdf8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_77c2904c",
@@ -2295,7 +2699,22 @@
     "description": "金水公园是临桂区闹中取静的城市绿洲，湖面如镜、绿树成荫，适合散步、慢跑或野餐。傍晚夕阳洒在水面，随手一拍都是画。建议清晨或黄昏前往，避开正午日晒。亲子家庭、情侣约会或独处放空都很合适，是周末躺平的好去处。",
     "source": "amap",
     "source_id": "B0FFGADBV0",
-    "recommendation": "城市里的天然氧吧，适合晨跑或遛娃，午后树荫下小憩超惬意～"
+    "recommendation": "城市里的天然氧吧，适合晨跑或遛娃，午后树荫下小憩超惬意～",
+    "image_url": "images/guilin/images/amap_bf0a9f9b/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_bf0a9f9b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_bf0a9f9b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_bf0a9f9b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_26be38d6",
@@ -2516,7 +2935,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_1f1c4ca0/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_1f1c4ca0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_1f1c4ca0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_1f1c4ca0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2c85cbc3",
@@ -2573,7 +3007,18 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_3b207b80/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_3b207b80/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3b207b80/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8fb31300",
@@ -2625,7 +3070,22 @@
     "description": "鸭湖公园是叠彩区闹中取静的城市绿肺，湖面波光粼粼，常有野鸭嬉戏，岸边垂柳依依。特色看点包括环湖步道和观鸟亭，适合晨跑或傍晚散步。建议带上相机捕捉水鸟灵动瞬间，也可在草坪野餐放松。适合周边居民、亲子家庭以及喜欢悠闲户外时光的游客。",
     "source": "amap",
     "source_id": "B0IUS7B09H",
-    "recommendation": "鸭湖公园的鸭子超亲人，带点面包来喂，湖边长"
+    "recommendation": "鸭湖公园的鸭子超亲人，带点面包来喂，湖边长",
+    "image_url": "images/guilin/images/amap_53dcfd34/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_53dcfd34/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_53dcfd34/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_53dcfd34/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a2af4acb",
@@ -2854,7 +3314,18 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guilin/images/amap_f066dc1c/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_f066dc1c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f066dc1c/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3ced1c78",
@@ -2911,7 +3382,22 @@
     "description": "雁山园是桂林的“私家园林之王”，融合了山水、园林与民国建筑。园内有奇石、古树、碧湖，一步一景，随手拍都像明信片。建议花2-3小时慢慢逛，适合喜欢拍照、历史建筑或想避开拥挤景点的休闲游客。",
     "source": "amap",
     "source_id": "B030507TU3",
-    "recommendation": "雁山园是古风园林与民国建筑的结合，适合穿汉服拍照，园内千年榕树别错过。"
+    "recommendation": "雁山园是古风园林与民国建筑的结合，适合穿汉服拍照，园内千年榕树别错过。",
+    "image_url": "images/guilin/images/amap_fe992002/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_fe992002/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_fe992002/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_fe992002/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1d618cd1",
@@ -2969,7 +3455,14 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_1ea351f/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_1ea351f/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_79e95ad6",
@@ -3151,7 +3644,14 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_feddea49/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_feddea49/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5388635c",
@@ -3208,7 +3708,14 @@
     "description": "灵田起义纪念园是一座融合红色历史与自然风光的休闲公园。园内矗立着起义纪念碑和陈列馆，可了解那段峥嵘岁月，同时绿树成荫、步道宽敞，适合散步拍照。建议花1-2小时边逛边学，带长辈重温历史，或与孩子进行户外教育。适合历史爱好者、家庭出游及想找个安静地方发呆的休闲党。",
     "source": "amap",
     "source_id": "B0JAPLA2RU",
-    "recommendation": "红色历史与自然风光结合，适合拍照打卡。建议傍晚去，光线柔和且人少。"
+    "recommendation": "红色历史与自然风光结合，适合拍照打卡。建议傍晚去，光线柔和且人少。",
+    "image_url": "images/guilin/images/amap_76ec7fc0/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_76ec7fc0/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d387d53b",
@@ -3510,7 +4017,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guilin/images/amap_9f6ac33f/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_9f6ac33f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_9f6ac33f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_9f6ac33f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f7b736a9",
@@ -3576,7 +4098,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_ae331675/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_ae331675/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_ae331675/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_ae331675/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bc745971",
@@ -3639,7 +4176,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guilin/images/amap_5ee56095/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_5ee56095/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5ee56095/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5ee56095/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_be8dc4a9",
@@ -3899,7 +4451,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_97881ff1/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_97881ff1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_97881ff1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_97881ff1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_81b91d04",
@@ -3964,7 +4531,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_7f422cd8/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_7f422cd8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_7f422cd8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_7f422cd8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_31aa0a56",
@@ -4031,7 +4613,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_2d1c7654/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_2d1c7654/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_2d1c7654/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_2d1c7654/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e8d4122a",
@@ -4160,7 +4757,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_3ee7ae89/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_3ee7ae89/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3ee7ae89/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3ee7ae89/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2d3614c9",
@@ -4223,7 +4835,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_2e4e0315/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_2e4e0315/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_2e4e0315/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_2e4e0315/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_dda83e94",
@@ -4286,7 +4913,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_165f0d4/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_165f0d4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_165f0d4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_165f0d4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e536117e",
@@ -4480,7 +5122,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_26e639d1/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_26e639d1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_26e639d1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_26e639d1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2c185a0f",
@@ -4547,7 +5204,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_a140d128/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_a140d128/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_a140d128/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_a140d128/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7d5e8ef3",
@@ -4612,7 +5284,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_1b7122b/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_1b7122b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_1b7122b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_1b7122b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_177ed214",
@@ -4807,7 +5494,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_28b834fe/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_28b834fe/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_28b834fe/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_28b834fe/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_dccc7d57",
@@ -4872,7 +5574,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_c4f2330f/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_c4f2330f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_c4f2330f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_c4f2330f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_20e9d57b",
@@ -4937,7 +5654,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_9086c544/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_9086c544/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_9086c544/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_9086c544/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3af38b00",
@@ -5064,7 +5796,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_276c11fd/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_276c11fd/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_276c11fd/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_276c11fd/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_41420914",
@@ -5130,7 +5877,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_96d780c1/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_96d780c1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_96d780c1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_96d780c1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a692c63f",
@@ -5194,7 +5956,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_5b0aec7a/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_5b0aec7a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5b0aec7a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5b0aec7a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_98ddbe9f",
@@ -5327,7 +6104,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guilin/images/amap_90e312d9/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_90e312d9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_90e312d9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_90e312d9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a3e3e26e",
@@ -5463,7 +6255,14 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_ccf79b6b/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_ccf79b6b/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_992c7df0",
@@ -5727,7 +6526,18 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guilin/images/amap_c712935c/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_c712935c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_c712935c/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_deb13793",
@@ -5793,7 +6603,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_f2d4bc27/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_f2d4bc27/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f2d4bc27/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f2d4bc27/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f61239d7",
@@ -5859,7 +6684,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guilin/images/amap_5e47a38e/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_5e47a38e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5e47a38e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5e47a38e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4116c5fb",
@@ -6124,7 +6964,14 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guilin/images/amap_e6192e99/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_e6192e99/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_88abddcb",
@@ -6188,7 +7035,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_fde60d20/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_fde60d20/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_fde60d20/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_fde60d20/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_72940255",
@@ -6253,7 +7115,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_7438475/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_7438475/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_7438475/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_7438475/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d095f3f0",
@@ -6520,7 +7397,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_74e8d390/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_74e8d390/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_74e8d390/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_74e8d390/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_21ab5b87",
@@ -6586,7 +7478,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_b7a9544d/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_b7a9544d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b7a9544d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b7a9544d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_89b4106",
@@ -6652,7 +7559,18 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_2e5ba51f/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_2e5ba51f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_2e5ba51f/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ebad008a",
@@ -6784,7 +7702,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_781827b0/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_781827b0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_781827b0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_781827b0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_de37e6d1",
@@ -6852,7 +7785,14 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_8145f351/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_8145f351/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_9ee21084",
@@ -6919,7 +7859,18 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guilin/images/amap_dbdbe617/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_dbdbe617/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_dbdbe617/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_17db99b9",
@@ -7251,7 +8202,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_f055c1ff/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_f055c1ff/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f055c1ff/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f055c1ff/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b7284826",
@@ -7319,7 +8285,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_34a15378/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_34a15378/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_34a15378/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_34a15378/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fc54aea4",
@@ -7385,7 +8366,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_5b380ebc/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_5b380ebc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5b380ebc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5b380ebc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_52a802f5",
@@ -7588,7 +8584,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guilin/images/amap_b13dd882/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_b13dd882/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b13dd882/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b13dd882/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c333ca36",
@@ -7660,7 +8671,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guilin/images/amap_9dda3b05/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_9dda3b05/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_9dda3b05/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_9dda3b05/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4caaaa2",
@@ -7728,7 +8754,18 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_276790ff/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_276790ff/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_276790ff/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c6e4b56b",
@@ -7930,7 +8967,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_84202223/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_84202223/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_84202223/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_84202223/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1b932e28",
@@ -7997,7 +9049,18 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guilin/images/amap_b7b3738b/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_b7b3738b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b7b3738b/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_6d40b816",
@@ -8065,7 +9128,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_b40396b6/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_b40396b6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b40396b6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b40396b6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_603a3cee",
@@ -8402,7 +9480,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_c424ab91/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_c424ab91/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_c424ab91/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_c424ab91/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ac289abb",
@@ -8535,7 +9628,14 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guilin/images/amap_f6ae2b5c/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_f6ae2b5c/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ef9302ff",
@@ -8801,7 +9901,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guilin/images/amap_921a01cc/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_921a01cc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_921a01cc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_921a01cc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8b666927",
@@ -8869,7 +9984,14 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guilin/images/amap_35ca80e2/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_35ca80e2/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_afc61162",
@@ -8935,7 +10057,14 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guilin/images/amap_56bd5768/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_56bd5768/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_92c77177",
@@ -9312,7 +10441,18 @@
     "description": "藏在秀峰区的白公馆，白天是优雅下午茶，入夜后摇身一变小资夜生活据点。坐拥绝佳夜景，窗外就是热闹夜市与璀璨灯火，点杯特调配小食，吹着晚风超惬意。适合想避开酒吧喧嚣、边吃边看城市夜景的朋友，情侣或三五好友小聚都很棒，记得留",
     "source": "amap",
     "source_id": "B0LKC51MJH",
-    "recommendation": "白公馆下午茶餐厅是夜间休闲好去处"
+    "recommendation": "白公馆下午茶餐厅是夜间休闲好去处",
+    "image_url": "images/guilin/images/amap_878ef222/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_878ef222/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_878ef222/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f13a3bb3",
@@ -9365,7 +10505,22 @@
     "description": "在秀峰区逛完夜市，不妨拐进白公馆咖啡厅坐坐。这座老建筑自带复古韵味，夜晚灯光亮起时格外有氛围。推荐点一杯特调饮品，搭配简餐，坐在窗边看街景发呆。适合喜欢安静、拍照打卡的情侣或独行客，也适合逛累了的夜市吃货们歇脚。",
     "source": "amap",
     "source_id": "B0J2A78TRA",
-    "recommendation": "白公馆咖啡厅是夜间休闲好去处"
+    "recommendation": "白公馆咖啡厅是夜间休闲好去处",
+    "image_url": "images/guilin/images/amap_4218ffb6/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_4218ffb6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_4218ffb6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_4218ffb6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_131b8a5c",
@@ -9417,7 +10572,22 @@
     "description": "藏在象山区中山南路的Black Boots黑靴子咖啡店，是夜游桂林的宝藏落脚点。招牌手冲配落地窗夜景，还能顺带逛附近夜市。建议晚上八点后去，点杯特调坐室外吹风，超有氛围感。适合爱拍照、想体验本地夜生活的年轻人或独自发呆的咖啡控。",
     "source": "amap",
     "source_id": "B0JA7AUJ48",
-    "recommendation": "Black Boots黑靴子咖啡店是夜间休闲好去处"
+    "recommendation": "Black Boots黑靴子咖啡店是夜间休闲好去处",
+    "image_url": "images/guilin/images/amap_15260d39/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_15260d39/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_15260d39/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_15260d39/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_402c6800",
@@ -9622,7 +10792,22 @@
     "description": "藏在象山区翠竹路的旭鲜米粉，是本地人私藏的老味道。主打卤水醇厚的传统桂林米粉，锅烧酥脆、牛肉入味，配上酸笋辣椒，一碗下肚超满足。建议早上去吃“头锅汤”，加个卤蛋或香肠更地道。适合想体验正宗市井烟火气的吃货，或是赶时间填饱肚子的上班族。",
     "source": "amap",
     "source_id": "B0J3XSTX0K",
-    "recommendation": "旭鲜米粉是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "旭鲜米粉是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_af522198/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_af522198/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_af522198/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_af522198/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_fd79fd4",
@@ -9674,7 +10859,22 @@
     "description": "正新鸡排(书城店)位于秀峰区解放东路，是夜市觅食的好去处。招牌鸡排外酥里嫩，撒上孜然或辣椒粉，边逛边吃超满足。建议晚上溜达过来，搭配一杯冰饮，感受街头烟火气。适合学生党、夜游族和饿着肚子逛街的你，简单粗暴解馋首选。",
     "source": "amap",
     "source_id": "B0FFGPAKXV",
-    "recommendation": "正新鸡排(书城店)是夜间休闲好去处"
+    "recommendation": "正新鸡排(书城店)是夜间休闲好去处",
+    "image_url": "images/guilin/images/amap_ded5ab12/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_ded5ab12/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_ded5ab12/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_ded5ab12/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_45eb0f3",
@@ -10039,7 +11239,22 @@
     "description": "坐落在阳朔的古榕江景餐厅，窗外就是漓江风光和千年古榕树。主打地道的本帮菜和特色小吃，边赏江景边尝美食，惬意十足。建议傍晚来，选靠窗位看日落，拍照绝美。适合情侣约会、家庭聚餐或独自发呆的旅行者。",
     "source": "amap",
     "source_id": "B0FFIJG4VY",
-    "recommendation": "边吃桂林菜边赏江景，推荐田螺酿，记得提前订靠窗位，傍晚看夕阳更浪漫。"
+    "recommendation": "边吃桂林菜边赏江景，推荐田螺酿，记得提前订靠窗位，傍晚看夕阳更浪漫。",
+    "image_url": "images/guilin/images/amap_d47febd2/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_d47febd2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_d47febd2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_d47febd2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a60a43d7",
@@ -10089,7 +11304,14 @@
     "description": "坐落在灵川江畔的观景楼江景餐厅，主打地道本帮菜和特色小吃。一边品尝浓油赤酱的排骨、鲜美的清蒸白鱼，一边透过落地窗饱览江景，日落时分尤其浪漫。建议提前预约靠窗位，傍晚来用餐体验最佳。适合情侣约会、家庭聚餐或喜欢边吃边赏景的吃货们。",
     "source": "amap",
     "source_id": "B0MBOCXENF",
-    "recommendation": "观景楼江景餐厅是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "观景楼江景餐厅是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_bedd715/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_bedd715/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e2bb81f8",
@@ -10141,7 +11363,22 @@
     "description": "来阳朔一定要尝尝黄大姐家的啤酒鱼，鱼肉鲜嫩入味，配上地道的桂林米粉，一鱼两吃超满足。店里还有香糯的田螺酿和清爽的炒时蔬。建议饭点早去，避开旅游团高峰，点一份招牌啤酒鱼再加碗米粉，人均五六十吃得很撑。适合喜欢地道桂北风味、不怕辣的吃货，也适合带家人来体验。",
     "source": "amap",
     "source_id": "B0FFKVTTKH",
-    "recommendation": "黄大姐啤酒鱼正宗桂林米粉店(蟠桃路店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "黄大姐啤酒鱼正宗桂林米粉店(蟠桃路店)是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_9dad1e0d/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_9dad1e0d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_9dad1e0d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_9dad1e0d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_aed087cc",
@@ -10344,7 +11581,22 @@
     "description": "要问阳朔啤酒鱼哪家强？这家1992年创立的李记是桂林本地老饕心中的“白月光”。招牌啤酒鱼鲜嫩无腥，酱汁浓郁得能下三碗饭，锅底铺满番茄和青椒，越煮越香。建议饭点早去，招牌菜常火到断货；吃完拐弯就是象鼻山，消食散步刚刚好。适合家庭聚餐、朋友小聚，或是想用一顿地道风味犒劳自己的",
     "source": "amap",
     "source_id": "B0FFLA68BT",
-    "recommendation": "李记阳朔啤酒鱼·1992年创立 (象山店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "李记阳朔啤酒鱼·1992年创立 (象山店)是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_52de37b0/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_52de37b0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_52de37b0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_52de37b0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a457aa01",
@@ -10397,7 +11649,22 @@
     "description": "藏在秀峰区正阳街的大榕树鸡公煲，是 locals 私藏的“下饭神器”。秘制川味酱汁浓香微辣，鸡肉嫩滑入味，连垫底的洋葱都吸饱了精华。建议点中辣配泡面，越煮越香。适合爱烟火气的学生党、想解馋的上班族，或是奔着市井美食来的游客——别错过隔壁的冰绿豆沙，解辣又爽口。",
     "source": "amap",
     "source_id": "B0LDSKWKUT",
-    "recommendation": "大榕树鸡公煲是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "大榕树鸡公煲是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_ae346096/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_ae346096/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_ae346096/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_ae346096/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a80e3a48",
@@ -10448,7 +11715,22 @@
     "description": "来桂林必尝的啤酒鱼，这家是本地人常去的老店。招牌金牌啤酒鱼外焦里嫩，酱汁浓郁入味，配上一碗米饭超满足。店里还有桂林米粉、田螺酿等地道小菜，价格亲民。建议傍晚逛完正阳步行街后过来，避开饭",
     "source": "amap",
     "source_id": "B0KD0M13IE",
-    "recommendation": "鲜桂厨金牌啤酒鱼桂林菜(文化宫店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "鲜桂厨金牌啤酒鱼桂林菜(文化宫店)是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_4937c159/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_4937c159/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_4937c159/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_4937c159/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5e06bec8",
@@ -10601,7 +11883,22 @@
     "description": "到阳朔别只顾着看山水，蒋大姐家的桂林米粉才是隐藏的宝藏！卤水香浓，锅烧酥脆，米粉滑溜爽口，一口下去直接封神。建议当早餐或逛累了来一碗，加个卤蛋更过瘾",
     "source": "amap",
     "source_id": "B0JRJAF6CE",
-    "recommendation": "巷子里的宝藏小店，本地人强推。记得加份酸笋和辣椒，酸辣过瘾。"
+    "recommendation": "巷子里的宝藏小店，本地人强推。记得加份酸笋和辣椒，酸辣过瘾。",
+    "image_url": "images/guilin/images/amap_65e27566/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_65e27566/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_65e27566/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_65e27566/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_da79a2e1",
@@ -10652,7 +11949,18 @@
     "description": "阳朔必打卡的地道美味！招牌啤酒鱼用鲜活漓江鱼配秘制酱料焖煮，鱼肉鲜嫩无腥，汤汁浓郁微辣，配米饭绝了。建议傍晚错峰去，二楼窗边能望见西街灯火。适合爱吃鱼、喜欢烟火气的食客，人多记得点份荔浦芋扣肉搭配。",
     "source": "amap",
     "source_id": "B0FFFSEP7E",
-    "recommendation": "渔逸乡正宗啤酒鱼是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "渔逸乡正宗啤酒鱼是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_d6b3cb11/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_d6b3cb11/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_d6b3cb11/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_81d71de4",
@@ -10704,7 +12012,22 @@
     "description": "原老字号胜发啤酒鸭是象山区中山南路的老牌餐厅，招牌啤酒鸭酱香浓郁、鸭肉软烂入味，搭配秘制汤汁越煮越香。除了主菜，这里的本帮风味小炒也值得一试。建议",
     "source": "amap",
     "source_id": "B0FFIQI0ID",
-    "recommendation": "原老字号胜发啤酒鸭是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "原老字号胜发啤酒鸭是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_5b618515/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_5b618515/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5b618515/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5b618515/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7ec1480a",
@@ -10905,7 +12228,18 @@
     "description": "碧缘早餐店是阳朔本地人常去的老店，主打地道本帮风味小吃。招牌的米粉滑嫩爽口，搭配现炸油条和秘制酱料，一口入魂。推荐早上九点前到店，避开排队高峰。适合想体验阳朔市井烟火气的吃货，尤其适合喜欢清淡鲜香口味的游客。",
     "source": "amap",
     "source_id": "B0JBHCWPJD",
-    "recommendation": "碧缘早餐店是唤醒一天的魔法！必点现磨豆浆配油条，早去才有现炸的哦。"
+    "recommendation": "碧缘早餐店是唤醒一天的魔法！必点现磨豆浆配油条，早去才有现炸的哦。",
+    "image_url": "images/guilin/images/amap_6c91a3db/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_6c91a3db/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_6c91a3db/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_907517ee",
@@ -10955,7 +12289,22 @@
     "description": "阳朔街头的烟火气，尽在唐记振强大排档。招牌本帮菜融合当地风味，酱香浓郁、口味地道，尤其推荐招牌红烧肉和特色小吃。晚饭时段最热闹，建议傍晚来，点几道小菜配啤酒，享受地道市井氛围。适合喜欢烟火气、想感受阳朔本地饮食文化的游客和美食爱好者。",
     "source": "amap",
     "source_id": "B0G25SU1R4",
-    "recommendation": "唐记振强大排档是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "唐记振强大排档是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_ebb48c0e/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_ebb48c0e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_ebb48c0e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_ebb48c0e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2870f0ed",
@@ -11006,7 +12355,22 @@
     "description": "坐拥漓江一线江景，望江楼餐吧用地道本帮菜和特色小吃征服了无数食客。推荐傍晚来，边啖啤酒鱼、田螺酿，边看夕阳染红江面。适合情侣约会、家庭聚餐或独自发呆的旅行者。",
     "source": "amap",
     "source_id": "B0FFF6TNVN",
-    "recommendation": "江边露台吃啤酒鱼超有氛围，推荐靠窗位看夜景。招牌菜必点，价格稍高但值。"
+    "recommendation": "江边露台吃啤酒鱼超有氛围，推荐靠窗位看夜景。招牌菜必点，价格稍高但值。",
+    "image_url": "images/guilin/images/amap_d348314d/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_d348314d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_d348314d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_d348314d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b129a390",
@@ -11313,7 +12677,22 @@
     "description": "阳朔西街的“杰仔美食”是本地人也会排队的宝藏小店！招牌啤酒鱼外酥里嫩，搭配手工米粉和酸野小吃，一口尝尽漓江风味。建议傍晚错峰去，避开旅行团高峰，点一份田螺酿配漓泉啤酒，坐在街边看人来人往。适合想体验地道阳朔烟火气的吃货们，尤其是喜欢重口味小吃的年轻人。",
     "source": "amap",
     "source_id": "B0MBML7TPM",
-    "recommendation": "西街人气王，必点啤酒鱼配漓泉啤酒，记得早去排队哦！"
+    "recommendation": "西街人气王，必点啤酒鱼配漓泉啤酒，记得早去排队哦！",
+    "image_url": "images/guilin/images/amap_e94e7f35/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_e94e7f35/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_e94e7f35/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_e94e7f35/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_31983c79",
@@ -11364,7 +12743,22 @@
     "description": "桂林尊神庙美食文化城是秀峰区超热闹的美食天堂！这里汇集了地道桂林米粉、油茶和各色小吃，还有文创小店可以逛。建议傍晚来，边吃边感受夜市烟火气，记得留肚子给烤串和甜品。适合嘴馋的吃货、爱淘小玩意的年轻人，以及想体验本地生活的游客。",
     "source": "amap",
     "source_id": "B0FFKH0C7W",
-    "recommendation": "一站式吃遍桂林特色，推荐尝尝桂花糕，逛文化街能淘到小玩意。"
+    "recommendation": "一站式吃遍桂林特色，推荐尝尝桂花糕，逛文化街能淘到小玩意。",
+    "image_url": "images/guilin/images/amap_f885966b/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_f885966b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f885966b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f885966b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2fc23550",
@@ -11566,7 +12960,22 @@
     "description": "伴璧江山茶会馆藏在七星区，是个能喝茶、吃美食、喝咖啡的雅致空间。特色是茶艺与创意餐食搭配，环境古风禅意，拍照很出片。建议约上三五好友来品一壶好茶，再尝尝茶香融合的菜肴，消磨半日闲。适合喜欢安静氛围、追求品质生活的年轻人，也适合带长辈来体验中式慢生活。",
     "source": "amap",
     "source_id": "B0FFF9QHMM",
-    "recommendation": "想找个雅致地方发呆？来这喝茶配点心超惬意，下午去人少光线好。"
+    "recommendation": "想找个雅致地方发呆？来这喝茶配点心超惬意，下午去人少光线好。",
+    "image_url": "images/guilin/images/amap_b6a5d861/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_b6a5d861/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b6a5d861/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b6a5d861/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_56dc49c5",
@@ -11616,7 +13025,22 @@
     "description": "在七星区一定要试试「瑶境油茶坊」！招牌瑶族油茶现打现熬，姜香浓郁，配上炒米花生超满足，还有创意油茶咖啡、瑶家小吃。建议下午来，点份油茶配糍粑，慢悠悠坐一下午。适合想体验地道桂林味、爱尝鲜的美食控，或找地方歇脚的游客。",
     "source": "amap",
     "source_id": "B0H3YD5OFB",
-    "recommendation": "瑶境油茶坊是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "瑶境油茶坊是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_b09245c7/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_b09245c7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b09245c7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_b09245c7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_11926931",
@@ -11668,7 +13092,22 @@
     "description": "阳朔漓墨茶坊藏身漓江畔，集茶香、咖啡与创意美食于一体，窗边抬眼便是山水画卷。午后点一壶桂花茶配本地小点，或端着拿铁临窗发呆，随手一拍都是大片。适合想从西街喧闹中偷闲的文艺青年，也给爱慢旅行的你留一处停靠时光的小角落。",
     "source": "amap",
     "source_id": "B0J0A7809R",
-    "recommendation": "阳朔漓墨茶坊是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "阳朔漓墨茶坊是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_d719316/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_d719316/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_d719316/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_d719316/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_84003210",
@@ -11872,7 +13311,22 @@
     "description": "在桂林七星区藏着这家宝藏茶牌社，既有地道漓江茶饮，又有精致咖啡和创意美食。店内的茶艺表演和临窗江景位是最大特色，适合午后约朋友品茶聊天，或者独自安静发呆",
     "source": "amap",
     "source_id": "B0JD4ZEY5D",
-    "recommendation": "壹岂茶牌社(财富名城店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "壹岂茶牌社(财富名城店)是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guilin/images/amap_6d740f9c/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_6d740f9c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_6d740f9c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_6d740f9c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_96571b07",
@@ -11924,7 +13378,22 @@
     "source": "amap",
     "source_id": "B0305093BB",
     "recommendation": "椿记烧鹅(叠彩店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_f6ebad91/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_f6ebad91/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f6ebad91/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f6ebad91/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d730128f",
@@ -11975,7 +13444,22 @@
     "source": "amap",
     "source_id": "B0KATSOZFA",
     "recommendation": "山味.本地农家菜口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_3250d7d2/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_3250d7d2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3250d7d2/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3250d7d2/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_27d4e306",
@@ -12128,7 +13612,22 @@
     "source": "amap",
     "source_id": "B0FFKT1SNH",
     "recommendation": "花鸿喜客·本地特色菜(阳朔店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_3c913ed6/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_3c913ed6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3c913ed6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3c913ed6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_63430629",
@@ -12178,7 +13677,22 @@
     "source": "amap",
     "source_id": "B0H33CY2YY",
     "recommendation": "肥妈柴柴腊味馆口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_49259c1d/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_49259c1d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_49259c1d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_49259c1d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c0674c96",
@@ -12228,7 +13742,22 @@
     "source": "amap",
     "source_id": "B0GKJ1YI5S",
     "recommendation": "遇窑记私房菜馆口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_5b0e7ed6/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_5b0e7ed6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5b0e7ed6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5b0e7ed6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d086b696",
@@ -12331,7 +13860,22 @@
     "source": "amap",
     "source_id": "B0FFGT3FIJ",
     "recommendation": "随缘小馆(红岭店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_3df26706/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_3df26706/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3df26706/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3df26706/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_497a37e7",
@@ -12384,7 +13928,22 @@
     "source": "amap",
     "source_id": "B0K3C1DZBN",
     "recommendation": "溯源·油茶街坊菜口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_774c796b/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_774c796b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_774c796b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_774c796b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8cae9762",
@@ -12436,7 +13995,22 @@
     "source": "amap",
     "source_id": "B0FFFVO8KR",
     "recommendation": "老街坊餐吧口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_3b9196b1/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_3b9196b1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3b9196b1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_3b9196b1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_af284b2b",
@@ -12594,7 +14168,22 @@
     "source": "amap",
     "source_id": "B0GR3AIJ55",
     "recommendation": "满意烧烤芦笛店口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_846fe7ab/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_846fe7ab/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_846fe7ab/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_846fe7ab/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d3d0147c",
@@ -12647,7 +14236,14 @@
     "source": "amap",
     "source_id": "B0LR1RUGLB",
     "recommendation": "德兵夜市口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_e2fe4700/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_e2fe4700/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_282882d",
@@ -12700,7 +14296,22 @@
     "source": "amap",
     "source_id": "B0K16CWD9K",
     "recommendation": "龙胜鱼生.两广烧烤(叠彩D3小区店)口碑不错，值得一试。",
-    "visit_duration": 60
+    "visit_duration": 60,
+    "image_url": "images/guilin/images/amap_5e08523f/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_5e08523f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5e08523f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_5e08523f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_a48e950",
@@ -12756,7 +14367,22 @@
     "recommendation": "如家睿柏·云酒店(阳朔西街店)位置便利，适合作为旅行住宿据点",
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/amap_f307abbd/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_f307abbd/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f307abbd/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_f307abbd/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_95befb7a",
@@ -12815,7 +14441,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_e9b6d1a0/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_e9b6d1a0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_e9b6d1a0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_e9b6d1a0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_d8a50e40",
@@ -12996,7 +14637,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guilin/images/guilin_brand_bfc1b6ad/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_bfc1b6ad/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_bfc1b6ad/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_bfc1b6ad/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_c42abf5e",
@@ -13054,7 +14710,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guilin/images/guilin_brand_ce69b726/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_ce69b726/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_ce69b726/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_ce69b726/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_8195bc72",
@@ -13111,7 +14782,22 @@
     "recommendation": "全季酒店(桂林阳朔十里画廊店)位置便利，适合作为旅行住宿据点",
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guilin/images/amap_bbc4dff0/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/amap_bbc4dff0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_bbc4dff0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/amap_bbc4dff0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_94d7c7eb",
@@ -13402,7 +15088,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_47d4493f/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_47d4493f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_47d4493f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_47d4493f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_9f31c373",
@@ -13461,7 +15162,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_cc0cdd87/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_cc0cdd87/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_cc0cdd87/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_cc0cdd87/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_744b8356",
@@ -13520,7 +15236,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guilin/images/guilin_brand_ed9c07c9/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_ed9c07c9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_ed9c07c9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_ed9c07c9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_762e92b7",
@@ -13814,7 +15545,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_39cfc6f4/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_39cfc6f4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_39cfc6f4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_39cfc6f4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_c6a3a0e4",
@@ -13874,7 +15620,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guilin/images/guilin_brand_55d98fd1/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_55d98fd1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_55d98fd1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_55d98fd1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_61230e69",
@@ -13932,7 +15693,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guilin/images/guilin_brand_e3833420/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_e3833420/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_e3833420/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_e3833420/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_2188ab1a",
@@ -14107,7 +15883,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guilin/images/guilin_brand_4deaf8a4/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_4deaf8a4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_4deaf8a4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_4deaf8a4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_57f13b51",
@@ -14166,7 +15957,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_1c19bb5f/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_1c19bb5f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_1c19bb5f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_1c19bb5f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_4294235f",
@@ -14227,7 +16033,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_3cf56791/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_3cf56791/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_3cf56791/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_3cf56791/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_832a0361",
@@ -14406,7 +16227,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_b84e6291/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_b84e6291/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_b84e6291/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_b84e6291/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_65f66c46",
@@ -14470,7 +16306,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guilin/images/guilin_brand_8aa29700/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_8aa29700/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_8aa29700/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_8aa29700/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_9463ce97",
@@ -14528,7 +16379,22 @@
     "visit_duration": 30,
     "brand_category": "豪华",
     "price_range": "1200-3000元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guilin/images/guilin_brand_8ab50ed8/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_8ab50ed8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_8ab50ed8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_8ab50ed8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_7f87bf06",
@@ -14827,7 +16693,22 @@
     "visit_duration": 30,
     "brand_category": "豪华",
     "price_range": "1200-3000元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guilin/images/guilin_brand_d87ebe4a/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_d87ebe4a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_d87ebe4a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_d87ebe4a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_31ef811c",
@@ -14889,7 +16770,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_f00f960a/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_f00f960a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_f00f960a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_f00f960a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_48adf67b",
@@ -14949,7 +16845,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/guilin/images/guilin_brand_51b8a139/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_51b8a139/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_51b8a139/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_51b8a139/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_7c9b988f",
@@ -15184,7 +17095,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_63a8cf74/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_63a8cf74/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_63a8cf74/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_63a8cf74/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_167ef68b",
@@ -15243,7 +17169,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_f5afaad9/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_f5afaad9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_f5afaad9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_f5afaad9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_b0b17367",
@@ -15302,7 +17243,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_88cb69bf/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_88cb69bf/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_88cb69bf/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_88cb69bf/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guilin_brand_89711105",
@@ -15660,7 +17616,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guilin/images/guilin_brand_16c55e51/1.jpg",
+    "images": [
+      {
+        "url": "images/guilin/images/guilin_brand_16c55e51/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_16c55e51/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guilin/images/guilin_brand_16c55e51/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "transit_B030502105",

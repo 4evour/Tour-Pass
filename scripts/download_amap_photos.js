@@ -1,28 +1,44 @@
 /**
- * Download Amap POI photos via Detail API.
- * Usage: node scripts/download_amap_photos.js [--limit N]
+ * Download Amap POI photos — multi-key, multi-city, concurrent version.
+ *
+ * Usage:
+ *   node scripts/download_amap_photos.js                      # all cities
+ *   node scripts/download_amap_photos.js --city guangzhou     # single city
+ *   node scripts/download_amap_photos.js --limit 50
+ *   node scripts/download_amap_photos.js --concurrency 10     # 10 parallel requests
  */
 const fs = require("fs");
 const path = require("path");
 const https = require("https");
 const http = require("http");
 
+// ============ Config ============
 const AMAP_DETAIL_URL = "https://restapi.amap.com/v3/place/detail";
-const API_KEY = "2bcf1910bfdffcff162453d02153d64c";
-const DATA_DIR = path.join(__dirname, "..", "data", "guangzhou");
-const POIS_PATH = path.join(DATA_DIR, "pois.json");
-const IMG_DIR = path.join(DATA_DIR, "images");
+const API_KEYS = [
+  "2bcf1910bfdffcff162453d02153d64c",
+  "64ca7624c4f373ec3b123b2298b81019",
+];
+
+const DATA_DIR = path.join(__dirname, "..", "data");
 const CACHE_DIR = path.join(__dirname, "..", "output", "amap-detail-cache");
-const TARGETS_PATH = path.join(__dirname, "..", "output", "guangzhou_photo_targets.json");
 const MAX_PHOTOS = 3;
-const DELAY_MS = 300;
 
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+// ============ Key rotation ============
+let keyIdx = 0;
+function nextKey() {
+  const key = API_KEYS[keyIdx % API_KEYS.length];
+  keyIdx++;
+  return key;
+}
 
+// ============ HTTP helpers ============
 function downloadImage(url, dest) {
   return new Promise((resolve, reject) => {
+    if (fs.existsSync(dest) && fs.statSync(dest).size > 1000) {
+      return resolve(fs.statSync(dest).size);
+    }
     const proto = url.startsWith("https") ? https : http;
-    const opts = { headers: { Referer: "https://www.amap.com/" }, timeout: 15000 };
+    const opts = { headers: { Referer: "https://www.amap.com/" }, timeout: 10000 };
     const req = proto.get(url, opts, res => {
       if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
         return downloadImage(res.headers.location, dest).then(resolve).catch(reject);
@@ -32,7 +48,7 @@ function downloadImage(url, dest) {
       res.on("data", c => chunks.push(c));
       res.on("end", () => {
         const buf = Buffer.concat(chunks);
-        if (buf.length < 1000) { reject(new Error("Too small: " + buf.length)); return; }
+        if (buf.length < 1000) { reject(new Error("Too small")); return; }
         fs.mkdirSync(path.dirname(dest), { recursive: true });
         fs.writeFileSync(dest, buf);
         resolve(buf.length);
@@ -47,111 +63,171 @@ function downloadImage(url, dest) {
 async function fetchDetail(sourceId) {
   const cacheFile = path.join(CACHE_DIR, sourceId + ".json");
   if (fs.existsSync(cacheFile)) {
-    const cached = JSON.parse(fs.readFileSync(cacheFile, "utf8"));
-    if (cached.status === "1") return cached;
+    try {
+      const cached = JSON.parse(fs.readFileSync(cacheFile, "utf8"));
+      if (cached.status === "1") return cached;
+      return null;
+    } catch {}
+  }
+  const key = nextKey();
+  const url = AMAP_DETAIL_URL + "?id=" + sourceId + "&key=" + key;
+  try {
+    const resp = await fetch(url);
+    if (!resp.ok) return null;
+    const json = await resp.json();
+    fs.mkdirSync(CACHE_DIR, { recursive: true });
+    fs.writeFileSync(cacheFile, JSON.stringify(json, null, 2));
+    if (json.status !== "1") return null;
+    return json;
+  } catch {
     return null;
   }
-  const url = AMAP_DETAIL_URL + "?id=" + sourceId + "&key=" + API_KEY;
-  const resp = await fetch(url);
-  if (!resp.ok) throw new Error("HTTP " + resp.status);
-  const json = await resp.json();
-  fs.mkdirSync(CACHE_DIR, { recursive: true });
-  fs.writeFileSync(cacheFile, JSON.stringify(json, null, 2));
-  if (json.status !== "1") return null;
-  return json;
 }
 
-async function main() {
-  const limitArg = process.argv.indexOf("--limit");
-  const limit = limitArg > 0 ? parseInt(process.argv[limitArg + 1]) : 100;
+// ============ Process single POI ============
+async function processPoi(poi, cityImgDir, cityName) {
+  try {
+    const detail = await fetchDetail(poi.source_id);
+    if (!detail || !detail.pois || !detail.pois[0]) return false;
+    const photos = detail.pois[0].photos || [];
+    if (!photos.length) return false;
 
-  const targets = JSON.parse(fs.readFileSync(TARGETS_PATH, "utf8"));
-  const pois = JSON.parse(fs.readFileSync(POIS_PATH, "utf8"));
-  const poiByName = {};
-  for (const p of pois) poiByName[p.name] = p;
+    const imgSubDir = path.join(cityImgDir, poi.id);
+    fs.mkdirSync(imgSubDir, { recursive: true });
 
-  // Filter: skip POIs that already have images
-  const needPhotos = targets.filter(t => {
-    const poi = poiByName[t.name];
-    if (!poi) return false;
-    if (poi.image_url && poi.images && poi.images.length >= 2) return false;
-    return true;
-  });
+    // Download all photos in parallel
+    const tasks = [];
+    for (let j = 0; j < Math.min(photos.length, MAX_PHOTOS); j++) {
+      const photoUrl = photos[j].url || "";
+      if (!photoUrl) continue;
+      const fileName = (j + 1) + ".jpg";
+      const dest = path.join(imgSubDir, fileName);
+      const relPath = "images/" + cityName + "/images/" + poi.id + "/" + fileName;
+      tasks.push(
+        downloadImage(photoUrl, dest)
+          .then(() => ({ url: relPath, source: "amap" }))
+          .catch(() => null)
+      );
+    }
 
-  console.log("Total targets: " + targets.length);
-  console.log("Already have images: " + (targets.length - needPhotos.length));
-  console.log("Need photos: " + needPhotos.length);
-  console.log("Will process: " + Math.min(needPhotos.length, limit));
+    const results = await Promise.all(tasks);
+    const imageUrls = results.filter(Boolean);
+    if (imageUrls.length > 0) {
+      poi.image_url = imageUrls[0].url;
+      poi.images = imageUrls;
+      return true;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
 
-  let success = 0, failed = 0, noPhoto = 0, totalPhotos = 0;
-  const batch = needPhotos.slice(0, limit);
+// ============ Concurrent batch processor ============
+async function processBatch(items, concurrency, fn) {
+  let idx = 0;
+  let completed = 0;
+  const total = items.length;
 
-  for (let i = 0; i < batch.length; i++) {
-    const target = batch[i];
-    const sid = target.source_id;
-    const name = target.name;
-    const poi = poiByName[name];
-    if (!poi) continue;
-
-    try {
-      const detail = await fetchDetail(sid);
-      if (!detail) { noPhoto++; continue; }
-
-      const amapPoi = detail.pois[0];
-      const photos = amapPoi.photos || [];
-      if (!photos.length) { noPhoto++; continue; }
-
-      const imgSubDir = path.join(IMG_DIR, poi.id);
-      fs.mkdirSync(imgSubDir, { recursive: true });
-
-      const imageUrls = [];
-      for (let j = 0; j < Math.min(photos.length, MAX_PHOTOS); j++) {
-        const photoUrl = photos[j].url || "";
-        if (!photoUrl) continue;
-        const ext = ".jpg";
-        const fileName = (j + 1) + ext;
-        const dest = path.join(imgSubDir, fileName);
-        const relPath = "images/guangzhou/images/" + poi.id + "/" + fileName;
-
-        if (fs.existsSync(dest) && fs.statSync(dest).size > 1000) {
-          imageUrls.push({ url: relPath, source: "amap" });
-          continue;
-        }
-        try {
-          await downloadImage(photoUrl, dest);
-          imageUrls.push({ url: relPath, source: "amap" });
-          totalPhotos++;
-        } catch (e) { /* skip */ }
-      }
-
-      if (imageUrls.length > 0) {
-        poi.image_url = imageUrls[0].url;
-        poi.images = imageUrls;
-        success++;
-      }
-
-      if ((i + 1) % 10 === 0) {
-        console.log("[" + (i + 1) + "/" + batch.length + "] ok=" + success + " noPhoto=" + noPhoto + " fail=" + failed + " photos=" + totalPhotos);
-      }
-
-      await sleep(DELAY_MS);
-    } catch (e) {
-      failed++;
-      if (e.message.includes("10044") || e.message.includes("OVER_LIMIT")) {
-        console.error("API limit hit at step " + (i + 1));
-        break;
+  async function worker() {
+    while (idx < items.length) {
+      const i = idx++;
+      await fn(items[i], i);
+      completed++;
+      if (completed % 100 === 0) {
+        console.log("    progress: " + completed + "/" + total);
       }
     }
   }
 
-  fs.writeFileSync(POIS_PATH, JSON.stringify(pois, null, 2));
+  const workers = [];
+  for (let w = 0; w < concurrency; w++) {
+    workers.push(worker());
+  }
+  await Promise.all(workers);
+  return completed;
+}
 
-  console.log("\n=== DONE ===");
-  console.log("  Updated: " + success + " POIs");
-  console.log("  No photos: " + noPhoto);
-  console.log("  Failed: " + failed);
-  console.log("  Photos downloaded: " + totalPhotos);
-  console.log("  Remaining: " + Math.max(0, needPhotos.length - batch.length));
+// ============ City processing ============
+async function processCity(cityName, limit, concurrency, dryRun) {
+  const cityDir = path.join(DATA_DIR, cityName);
+  const poisPath = path.join(cityDir, "pois.json");
+  if (!fs.existsSync(poisPath)) {
+    console.log("[" + cityName + "] skipped (no pois.json)");
+    return { city: cityName, skipped: true };
+  }
+
+  const pois = JSON.parse(fs.readFileSync(poisPath, "utf8"));
+  const imgDir = path.join(cityDir, "images");
+
+  const needPhotos = pois
+    .filter(p => p.source_id)
+    .filter(p => !(p.image_url && p.images && p.images.length >= 2))
+    .sort((a, b) => {
+      const ord = { attraction: 0, nightlife: 1, restaurant: 2, hotel: 3, transit: 4 };
+      return (ord[a.type] ?? 5) - (ord[b.type] ?? 5);
+    });
+
+  const batch = needPhotos.slice(0, limit);
+  console.log("[" + cityName + "] " + pois.length + " total, " + batch.length + " to process (concurrency=" + concurrency + ")");
+
+  if (dryRun) return { city: cityName, total: pois.length, batch: batch.length, dryRun: true };
+
+  const t0 = Date.now();
+  let success = 0;
+
+  await processBatch(batch, concurrency, async (poi) => {
+    const ok = await processPoi(poi, imgDir, cityName);
+    if (ok) success++;
+  });
+
+  // Write back
+  fs.writeFileSync(poisPath, JSON.stringify(pois, null, 2));
+  const elapsed = ((Date.now() - t0) / 1000).toFixed(1);
+  const rate = (batch.length / (Date.now() - t0) * 1000).toFixed(1);
+  console.log("[" + cityName + "] done: " + success + "/" + batch.length + " in " + elapsed + "s (" + rate + "/s)");
+  return { city: cityName, success, total: batch.length, elapsed: parseFloat(elapsed) };
+}
+
+// ============ Main ============
+async function main() {
+  const args = process.argv.slice(2);
+  const cityArg = args.indexOf("--city");
+  const limitArg = args.indexOf("--limit");
+  const concArg = args.indexOf("--concurrency");
+  const dryRun = args.includes("--dry-run");
+
+  const limit = limitArg > 0 ? parseInt(args[limitArg + 1]) : 9999;
+  const concurrency = concArg > 0 ? parseInt(args[concArg + 1]) : 5;
+
+  let cities;
+  if (cityArg > 0 && args[cityArg + 1]) {
+    cities = [args[cityArg + 1]];
+  } else {
+    cities = fs.readdirSync(DATA_DIR)
+      .filter(d => fs.existsSync(path.join(DATA_DIR, d, "pois.json")))
+      .sort();
+  }
+
+  console.log("=== Amap Photo Downloader (concurrent) ===");
+  console.log("Keys: " + API_KEYS.length + ", Cities: " + cities.length + ", Concurrency: " + concurrency);
+  console.log("");
+
+  const results = [];
+  for (const city of cities) {
+    const r = await processCity(city, limit, concurrency, dryRun);
+    results.push(r);
+  }
+
+  console.log("\n=== SUMMARY ===");
+  let totalOk = 0, totalAll = 0;
+  for (const r of results) {
+    if (r.skipped || r.dryRun) continue;
+    totalOk += r.success || 0;
+    totalAll += r.total || 0;
+    console.log("  " + r.city + ": " + (r.success || 0) + "/" + (r.total || 0) + " (" + (r.elapsed || 0) + "s)");
+  }
+  console.log("Total: " + totalOk + "/" + totalAll + " POIs updated");
 }
 
 main().catch(e => { console.error("Fatal:", e.message); process.exit(1); });

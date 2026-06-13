@@ -218,11 +218,14 @@ def rank_pois(
     must_visit_pois = []
     
     for poi in pois:
+        # Copy POI dict to avoid mutating the input
+        poi_copy = poi.copy()
+
         # Check if this is a must-visit
-        is_must = any(mv in poi.get("name", "") or mv == poi.get("id") for mv in must_visit)
-        
-        result = score_poi(poi, intent, current_area, visited_areas=visited_areas)
-        
+        is_must = any(mv in poi_copy.get("name", "") or mv == poi_copy.get("id") for mv in must_visit)
+
+        result = score_poi(poi_copy, intent, current_area, visited_areas=visited_areas)
+
         if is_must:
             result.poi["is_must_visit"] = True
             must_visit_pois.append(result)

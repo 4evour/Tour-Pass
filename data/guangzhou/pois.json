@@ -950,7 +950,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_fc03520a/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_fc03520a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_fc03520a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_fc03520a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a0d833e3",
@@ -1244,7 +1259,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_3774dd42/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_3774dd42/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_3774dd42/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_3774dd42/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a594dc85",
@@ -1306,7 +1336,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_802a2eb1/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_802a2eb1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_802a2eb1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_802a2eb1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_672953db",
@@ -1372,7 +1417,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_9ad68537/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_9ad68537/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_9ad68537/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_9ad68537/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2315df09",
@@ -1435,7 +1495,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_81666b29/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_81666b29/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_81666b29/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_81666b29/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ca1d5bd4",
@@ -1498,7 +1573,14 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_dc981d20/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_dc981d20/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2b5011ab",
@@ -1562,7 +1644,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_b951ecbc/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_b951ecbc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b951ecbc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b951ecbc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1ab5195",
@@ -2409,7 +2506,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_d5f81eb7/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_d5f81eb7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_d5f81eb7/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_d5f81eb7/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_74ca0588",
@@ -2669,7 +2781,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_606d1a8a/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_606d1a8a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_606d1a8a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_606d1a8a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_462766e7",
@@ -2882,7 +3009,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_a05e6e3d/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_a05e6e3d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a05e6e3d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a05e6e3d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c73b269d",
@@ -3429,7 +3571,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_5c9ef074/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_5c9ef074/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_5c9ef074/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_5c9ef074/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e1b6105b",
@@ -3640,7 +3797,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_42bfa36a/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_42bfa36a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_42bfa36a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_42bfa36a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f56104fe",
@@ -3706,7 +3878,18 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_15dd71a7/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_15dd71a7/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_15dd71a7/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_149e50ec",
@@ -3770,7 +3953,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_ef222ad6/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_ef222ad6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_ef222ad6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_ef222ad6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2eebe698",
@@ -3960,7 +4158,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_cf05a6ea/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_cf05a6ea/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_cf05a6ea/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_cf05a6ea/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3fd93697",
@@ -4074,7 +4287,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_9ee9ab41/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_9ee9ab41/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_9ee9ab41/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_9ee9ab41/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d1a2859",
@@ -4137,7 +4365,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_a27f54a6/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_a27f54a6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a27f54a6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a27f54a6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8106dfae",
@@ -4622,7 +4865,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_38ad32ae/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_38ad32ae/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_38ad32ae/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_38ad32ae/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_5783f688",
@@ -4883,7 +5141,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_8af334b3/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_8af334b3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_8af334b3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_8af334b3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_44beac88",
@@ -5092,7 +5365,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_82fd1a2d/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_82fd1a2d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_82fd1a2d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_82fd1a2d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7a722477",
@@ -6695,7 +6983,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_ba0aeddc/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_ba0aeddc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_ba0aeddc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_ba0aeddc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ff2ed88d",
@@ -6763,7 +7066,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_5a143a8c/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_5a143a8c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_5a143a8c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_5a143a8c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8b80abe2",
@@ -6880,7 +7198,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_7ce0ad02/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_7ce0ad02/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_7ce0ad02/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_7ce0ad02/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_67069db1",
@@ -7113,7 +7446,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_f74396ed/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_f74396ed/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_f74396ed/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_f74396ed/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_14b47874",
@@ -7183,7 +7531,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_7115f09a/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_7115f09a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_7115f09a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_7115f09a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f4daff1d",
@@ -7250,7 +7613,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_39135b58/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_39135b58/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_39135b58/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_39135b58/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_2c9f45dd",
@@ -7318,7 +7696,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_fdd4dbab/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_fdd4dbab/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_fdd4dbab/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_fdd4dbab/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1687f37d",
@@ -7433,7 +7826,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_390dedf4/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_390dedf4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_390dedf4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_390dedf4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ecd54933",
@@ -7500,7 +7908,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_751d04f8/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_751d04f8/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_751d04f8/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_751d04f8/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4da1fcd5",
@@ -7567,7 +7990,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_6a7258db/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_6a7258db/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_6a7258db/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_6a7258db/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_98e74ca5",
@@ -7635,7 +8073,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_c01531f4/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_c01531f4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_c01531f4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_c01531f4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a7fd4f3a",
@@ -7703,7 +8156,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_ded5d1c/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_ded5d1c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_ded5d1c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_ded5d1c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_b77c1fa6",
@@ -8441,7 +8909,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_8796e4f1/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_8796e4f1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_8796e4f1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_8796e4f1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1a11ee0b",
@@ -8509,7 +8992,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_a8606cda/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_a8606cda/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a8606cda/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a8606cda/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a21f979a",
@@ -8644,7 +9142,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_b3cfd78c/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_b3cfd78c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b3cfd78c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b3cfd78c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_31faf1d2",
@@ -8710,7 +9223,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_8af2801e/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_8af2801e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_8af2801e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_8af2801e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_76e030f5",
@@ -8777,7 +9305,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_a6fd9158/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_a6fd9158/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a6fd9158/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a6fd9158/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1df7e6e",
@@ -8844,7 +9387,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_b6b8d2e5/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_b6b8d2e5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b6b8d2e5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b6b8d2e5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d22c1bba",
@@ -8911,7 +9469,22 @@
       "key": "local",
       "label": "本地人推荐",
       "instruction": "给一个本地人才知道的推荐"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_282b9bfb/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_282b9bfb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_282b9bfb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_282b9bfb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_50d2c5d3",
@@ -9028,7 +9601,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_33ec6fb3/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_33ec6fb3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_33ec6fb3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_33ec6fb3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_aa4222d6",
@@ -10076,7 +10664,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_e80f3f0e/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_e80f3f0e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_e80f3f0e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_e80f3f0e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_475865ee",
@@ -10141,7 +10744,22 @@
       "key": "transport",
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_d98f0522/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_d98f0522/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_d98f0522/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_d98f0522/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_8d3322bb",
@@ -10208,7 +10826,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_a8e85ec1/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_a8e85ec1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a8e85ec1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a8e85ec1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e9400b55",
@@ -10279,7 +10912,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_6dde916b/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_6dde916b/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_6dde916b/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_6dde916b/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1adb80d",
@@ -10348,7 +10996,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_3d052463/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_3d052463/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_3d052463/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_3d052463/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_549c66ae",
@@ -10419,7 +11082,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_aeb6d7ac/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_aeb6d7ac/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_aeb6d7ac/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_aeb6d7ac/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_441dcc4e",
@@ -10534,7 +11212,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_9a797a56/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_9a797a56/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_9a797a56/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_9a797a56/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d3e11fef",
@@ -10605,7 +11298,22 @@
       "key": "hidden",
       "label": "隐藏玩法",
       "instruction": "给一个本地人才知道的体验技巧"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_9b781484/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_9b781484/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_9b781484/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_9b781484/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_63f2368e",
@@ -10673,7 +11381,22 @@
       "key": "avoid",
       "label": "避坑指南",
       "instruction": "提醒一个容易踩的坑或常见误区"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_9ef24827/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_9ef24827/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_9ef24827/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_9ef24827/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f1ec4385",
@@ -10741,7 +11464,22 @@
       "key": "saving",
       "label": "省钱技巧",
       "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_dc498c9c/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_dc498c9c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_dc498c9c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_dc498c9c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_df0133b3",
@@ -10810,7 +11548,22 @@
       "key": "timing",
       "label": "最佳时间",
       "instruction": "说清楚什么时间段去体验最好及原因"
-    }
+    },
+    "image_url": "images/guangzhou/images/amap_912366fc/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_912366fc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_912366fc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_912366fc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d4263176",
@@ -10986,7 +11739,22 @@
     "source_id": "B0KRNHIW9Y",
     "recommendation": "娱悦公馆(珠江新城店)是夜间休闲好去处",
     "open_minutes": 540,
-    "close_minutes": 870
+    "close_minutes": 870,
+    "image_url": "images/guangzhou/images/amap_b73c600e/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_b73c600e/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b73c600e/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b73c600e/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_7328b773",
@@ -11044,7 +11812,22 @@
     "source_id": "B0H3TDG8TD",
     "recommendation": "江景一号(猎德店)是夜间休闲好去处",
     "open_minutes": 690,
-    "close_minutes": 870
+    "close_minutes": 870,
+    "image_url": "images/guangzhou/images/amap_b61155/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_b61155/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b61155/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b61155/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_e45ce560",
@@ -11102,7 +11885,22 @@
     "source_id": "B0JGLUIODI",
     "recommendation": "Coco's Party Bar 派对餐吧(琶醍店)是夜间休闲好去处",
     "open_minutes": 1080,
-    "close_minutes": 180
+    "close_minutes": 180,
+    "image_url": "images/guangzhou/images/amap_d7952f6c/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_d7952f6c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_d7952f6c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_d7952f6c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a622dbd0",
@@ -11158,7 +11956,22 @@
     "source_id": "B0J0L9QGGF",
     "recommendation": "广州湾名宴·早茶粤菜·海鲜宴会(白云白宫店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 420,
-    "close_minutes": 870
+    "close_minutes": 870,
+    "image_url": "images/guangzhou/images/amap_460db87/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_460db87/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_460db87/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_460db87/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f6f61365",
@@ -11216,7 +12029,22 @@
     "source_id": "B0I3OY531Y",
     "recommendation": "鸣和囍苑是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 420,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/guangzhou/images/amap_4e25a619/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_4e25a619/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_4e25a619/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_4e25a619/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4d626635",
@@ -11316,7 +12144,22 @@
     "source_id": "B0FFF3UGK5",
     "recommendation": "夫子园(亚运大道店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 510,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/guangzhou/images/amap_483e0ec4/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_483e0ec4/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_483e0ec4/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_483e0ec4/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d2fa4f8",
@@ -11370,7 +12213,22 @@
     "description": "藏在增城区的榕景湖早茶店，环境清幽，临湖而坐，一盅两件格外惬意。特色是现做虾饺、肠粉和传统蒸点，用料实在，本帮风味的小笼包也值得一试。建议周末早上去，避开高峰，边喝茶边赏湖景。适合想体验广式慢生活的吃货、家庭聚餐或带老人慢慢叹茶。",
     "source": "amap",
     "source_id": "B0H1CS2W9X",
-    "recommendation": "榕景湖早茶店是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "榕景湖早茶店是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guangzhou/images/amap_a5e0fabc/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_a5e0fabc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a5e0fabc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_a5e0fabc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_95515398",
@@ -11425,7 +12283,22 @@
     "source_id": "B0KAFHIDAI",
     "recommendation": "友谊早茶是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 300,
-    "close_minutes": 720
+    "close_minutes": 720,
+    "image_url": "images/guangzhou/images/amap_54e98682/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_54e98682/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_54e98682/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_54e98682/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_4421498",
@@ -11526,7 +12399,22 @@
     "source_id": "B001424119",
     "recommendation": "春隆海鲜餐厅(珠江中路店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 420,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/guangzhou/images/amap_47e0f3ef/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_47e0f3ef/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_47e0f3ef/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_47e0f3ef/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_ad98b686",
@@ -12012,7 +12900,18 @@
     "source_id": "B0FFLI17BD",
     "recommendation": "广顺湛江鸡饭店(金沙南路店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 660,
-    "close_minutes": 840
+    "close_minutes": 840,
+    "image_url": "images/guangzhou/images/amap_caab82d2/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_caab82d2/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_caab82d2/2.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_cb240e4f",
@@ -12327,7 +13226,22 @@
     "source_id": "B0H0RCCCAA",
     "recommendation": "迎点茶楼·点心粤菜(豪利店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 420,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "image_url": "images/guangzhou/images/amap_e1b84e80/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_e1b84e80/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_e1b84e80/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_e1b84e80/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_3e193629",
@@ -12473,7 +13387,22 @@
     "source_id": "B0LBPA6FHS",
     "recommendation": "伊尚宫·清真广式早茶·韩式烤肉·火锅是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 420,
-    "close_minutes": 60
+    "close_minutes": 60,
+    "image_url": "images/guangzhou/images/amap_bf4ece97/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_bf4ece97/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_bf4ece97/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_bf4ece97/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f55568c1",
@@ -12530,7 +13459,22 @@
     "source_id": "B0J12A6V7A",
     "recommendation": "锦粤臻品·点心粤菜(欣荣广场店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 480,
-    "close_minutes": 1290
+    "close_minutes": 1290,
+    "image_url": "images/guangzhou/images/amap_3df37c67/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_3df37c67/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_3df37c67/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_3df37c67/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a398fc71",
@@ -12588,7 +13532,22 @@
     "source_id": "B0KUOOI5FK",
     "recommendation": "淇乐多·三十年经典粤菜(胜汇里店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 420,
-    "close_minutes": 870
+    "close_minutes": 870,
+    "image_url": "images/guangzhou/images/amap_8d75b3a0/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_8d75b3a0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_8d75b3a0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_8d75b3a0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_cd703cae",
@@ -12731,7 +13690,22 @@
     "source_id": "B00140HXR3",
     "recommendation": "圣保逻粤菜餐厅是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 870
+    "close_minutes": 870,
+    "image_url": "images/guangzhou/images/amap_1fe4112f/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_1fe4112f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_1fe4112f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_1fe4112f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_324e70e4",
@@ -12788,7 +13762,14 @@
     "source_id": "B0FFKY8OVK",
     "recommendation": "华伟洲心鸡鹅食庄是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 540,
-    "close_minutes": 1260
+    "close_minutes": 1260,
+    "image_url": "images/guangzhou/images/amap_5ed460f1/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_5ed460f1/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_da2b76ec",
@@ -12845,7 +13826,22 @@
     "source_id": "B0I1OR9UHC",
     "recommendation": "市桥人家·纯手工点心·粤菜·喜宴是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 450,
-    "close_minutes": 870
+    "close_minutes": 870,
+    "image_url": "images/guangzhou/images/amap_37bdb56f/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_37bdb56f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_37bdb56f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_37bdb56f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_93d95e8b",
@@ -12900,7 +13896,14 @@
     "source_id": "B0JRSDNVLK",
     "recommendation": "明记早茶是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 360,
-    "close_minutes": 720
+    "close_minutes": 720,
+    "image_url": "images/guangzhou/images/amap_5e900061/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_5e900061/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_bfe63e8b",
@@ -12954,7 +13957,22 @@
     "source_id": "B0FFM5KYVG",
     "recommendation": "鸿福新厨(客家农家菜)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 660,
-    "close_minutes": 870
+    "close_minutes": 870,
+    "image_url": "images/guangzhou/images/amap_aa4e0aea/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_aa4e0aea/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_aa4e0aea/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_aa4e0aea/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_88593026",
@@ -13281,7 +14299,22 @@
     "source_id": "B0L1VZBFUN",
     "recommendation": "粤食粤好(天源路店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 330,
-    "close_minutes": 1170
+    "close_minutes": 1170,
+    "image_url": "images/guangzhou/images/amap_6d5b44e3/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_6d5b44e3/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_6d5b44e3/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_6d5b44e3/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_f891f118",
@@ -13647,7 +14680,22 @@
     "source_id": "B0J0SOND6M",
     "recommendation": "广州市番禺区沙湾长廊艺术咖啡馆是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 600,
-    "close_minutes": 1080
+    "close_minutes": 1080,
+    "image_url": "images/guangzhou/images/amap_e42b32cc/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_e42b32cc/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_e42b32cc/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_e42b32cc/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_c51bebbf",
@@ -13706,7 +14754,14 @@
     "source_id": "B0ID77GAAD",
     "recommendation": "幸运小馆柠檬茶咖啡是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 780,
-    "close_minutes": 1320
+    "close_minutes": 1320,
+    "image_url": "images/guangzhou/images/amap_4263b871/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_4263b871/1.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_1ee4b842",
@@ -13763,7 +14818,22 @@
     "source_id": "B0JK7RU818",
     "recommendation": "A+咖啡饮品店(建设二马路店)是当地人气餐厅，推荐尝试特色菜品",
     "open_minutes": 720,
-    "close_minutes": 60
+    "close_minutes": 60,
+    "image_url": "images/guangzhou/images/amap_b3f12f45/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_b3f12f45/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b3f12f45/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_b3f12f45/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_a647e500",
@@ -14036,7 +15106,22 @@
     "description": "藏在沙湾古镇巷弄里的一味茶舍，是个能坐一下午的宝藏地。品杯手冲咖啡或一壶好茶，配上精致茶点，窗外是岭南老建筑的青砖黛瓦。推荐点杯姜撞奶茶搭配沙湾特色甜品，周末约朋友聊天发呆最惬意。适合喜欢慢节奏、爱拍照打卡的文艺青年或家庭小聚。",
     "source": "amap",
     "source_id": "B0KUMD5DIU",
-    "recommendation": "一味茶舍(沙湾古镇店)是当地人气餐厅，推荐尝试特色菜品"
+    "recommendation": "一味茶舍(沙湾古镇店)是当地人气餐厅，推荐尝试特色菜品",
+    "image_url": "images/guangzhou/images/amap_cd8edb61/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_cd8edb61/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_cd8edb61/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_cd8edb61/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_16f1b83",
@@ -15234,7 +16319,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guangzhou/images/guangzhou_brand_7990e7e5/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_7990e7e5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_7990e7e5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_7990e7e5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_63121f30",
@@ -15295,7 +16395,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guangzhou/images/guangzhou_brand_2acd374f/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_2acd374f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_2acd374f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_2acd374f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_e3378286",
@@ -15355,7 +16470,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/guangzhou/images/guangzhou_brand_7ceacf7d/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_7ceacf7d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_7ceacf7d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_7ceacf7d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "amap_d8b15407",
@@ -15594,7 +16724,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/guangzhou/images/guangzhou_brand_c8e59a27/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_c8e59a27/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_c8e59a27/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_c8e59a27/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_5d50e5b8",
@@ -15653,7 +16798,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guangzhou/images/guangzhou_brand_bcf863b6/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_bcf863b6/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_bcf863b6/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_bcf863b6/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_2afcdf76",
@@ -15954,7 +17114,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guangzhou/images/guangzhou_brand_5bebd316/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_5bebd316/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_5bebd316/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_5bebd316/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_ac2ed2d8",
@@ -16014,7 +17189,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guangzhou/images/guangzhou_brand_59a5db9f/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_59a5db9f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_59a5db9f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_59a5db9f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_ac119ec9",
@@ -16074,7 +17264,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/guangzhou/images/guangzhou_brand_71573fa0/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_71573fa0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_71573fa0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_71573fa0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_d37ee01b",
@@ -16316,7 +17521,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guangzhou/images/guangzhou_brand_e122713/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_e122713/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_e122713/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_e122713/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_6518c1d5",
@@ -16376,7 +17596,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guangzhou/images/guangzhou_brand_4e289df1/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_4e289df1/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_4e289df1/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_4e289df1/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_ad910e89",
@@ -16437,7 +17672,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guangzhou/images/guangzhou_brand_c5c7b11f/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_c5c7b11f/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_c5c7b11f/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_c5c7b11f/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_c7fc586",
@@ -16619,7 +17869,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guangzhou/images/guangzhou_brand_d1adabb9/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_d1adabb9/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_d1adabb9/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_d1adabb9/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_7c6f3e49",
@@ -16678,7 +17943,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guangzhou/images/guangzhou_brand_8c27978/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_8c27978/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_8c27978/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_8c27978/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_ee53ff1c",
@@ -16737,7 +18017,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guangzhou/images/guangzhou_brand_cd606942/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_cd606942/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_cd606942/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_cd606942/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_85c6180a",
@@ -16917,7 +18212,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/guangzhou/images/guangzhou_brand_236f4600/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_236f4600/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_236f4600/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_236f4600/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_8b74c609",
@@ -16978,7 +18288,22 @@
     "visit_duration": 30,
     "brand_category": "经济型",
     "price_range": "100-250元/晚",
-    "star_rating": 2
+    "star_rating": 2,
+    "image_url": "images/guangzhou/images/guangzhou_brand_ccefc0bb/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_ccefc0bb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_ccefc0bb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_ccefc0bb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_b5476ef1",
@@ -17036,7 +18361,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guangzhou/images/guangzhou_brand_c5c0578a/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_c5c0578a/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_c5c0578a/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_c5c0578a/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_64433913",
@@ -17338,7 +18678,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guangzhou/images/guangzhou_brand_8b7240eb/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_8b7240eb/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_8b7240eb/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_8b7240eb/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_9cddd007",
@@ -17400,7 +18755,22 @@
     "visit_duration": 30,
     "brand_category": "豪华",
     "price_range": "1200-3000元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guangzhou/images/guangzhou_brand_85753c9c/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_85753c9c/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_85753c9c/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_85753c9c/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_d45893ec",
@@ -17764,7 +19134,22 @@
     "visit_duration": 30,
     "brand_category": "特色",
     "price_range": "150-800元/晚",
-    "star_rating": 0
+    "star_rating": 0,
+    "image_url": "images/guangzhou/images/guangzhou_brand_30a712c0/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_30a712c0/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_30a712c0/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_30a712c0/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_3e0f1f7b",
@@ -17825,7 +19210,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "300-600元/晚",
-    "star_rating": 4
+    "star_rating": 4,
+    "image_url": "images/guangzhou/images/guangzhou_brand_b93ba152/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_b93ba152/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_b93ba152/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_b93ba152/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_f5d5398e",
@@ -17885,7 +19285,22 @@
     "visit_duration": 30,
     "brand_category": "中端",
     "price_range": "250-450元/晚",
-    "star_rating": 3
+    "star_rating": 3,
+    "image_url": "images/guangzhou/images/guangzhou_brand_f4ef806d/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_f4ef806d/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_f4ef806d/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_f4ef806d/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_9ded21a4",
@@ -18070,7 +19485,22 @@
     "visit_duration": 30,
     "brand_category": "高端",
     "price_range": "600-1500元/晚",
-    "star_rating": 5
+    "star_rating": 5,
+    "image_url": "images/guangzhou/images/guangzhou_brand_e996b5f5/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_e996b5f5/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_e996b5f5/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/guangzhou_brand_e996b5f5/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "guangzhou_brand_4d16c269",
@@ -18125,7 +19555,22 @@
     "source": "amap",
     "source_id": "B0G0F57F0G",
     "recommendation": "白云机场北站(T2)(城际站)是重要交通枢纽。",
-    "visit_duration": 15
+    "visit_duration": 15,
+    "image_url": "images/guangzhou/images/amap_774d5bd/1.jpg",
+    "images": [
+      {
+        "url": "images/guangzhou/images/amap_774d5bd/1.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_774d5bd/2.jpg",
+        "source": "amap"
+      },
+      {
+        "url": "images/guangzhou/images/amap_774d5bd/3.jpg",
+        "source": "amap"
+      }
+    ]
   },
   {
     "id": "transit_B0FFLHQPEP",

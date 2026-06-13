@@ -1,133 +1,195 @@
-"""Restaurant Agent - Search and recommend restaurants using local data."""
+"""Restaurant Agent - Recommend restaurants with interest-aware scoring.
 
-import json
+Pure deterministic agent — no LLM required.
+Returns a broader candidate pool; the clustering step handles per-day
+assignment and cross-day deduplication.
+"""
+
 import logging
+import re
 from pathlib import Path
 
-from langchain_core.language_models import BaseChatModel
-from langchain_core.prompts import ChatPromptTemplate
-
-from agents.base import BaseTourAgent
+from agents.base import BaseAgent
+from agents.constants import haversine_km, load_pois_by_type
 from agents.state import TourState
 
 logger = logging.getLogger(__name__)
 
-# City name to directory mapping
-CITY_DIR_MAP = {
-    "广州": "guangzhou",
-    "北京": "beijing",
-    "上海": "shanghai",
-    "深圳": "shenzhen",
-    "成都": "chengdu",
-    "重庆": "chongqing",
-    "杭州": "hangzhou",
-    "武汉": "wuhan",
-    "南京": "nanjing",
-    "西安": "xian",
-    "长沙": "changsha",
-    "昆明": "kunming",
-    "大理": "dali",
-    "丽江": "lijiang",
-    "三亚": "sanya",
-    "桂林": "guilin",
-    "厦门": "xiamen",
-    "青岛": "qingdao",
-    "哈尔滨": "harbin",
-    "苏州": "suzhou",
-    "张家界": "zhangjiajie",
+# Cuisine keywords for interest matching
+FOOD_KEYWORDS = {
+    "美食", "小吃", "夜市", "火锅", "烧烤", "粤菜", "川菜", "湘菜",
+    "日料", "西餐", "甜品", "茶饮", "早茶", "海鲜", "老字号",
 }
 
-RESTAURANT_SYSTEM = """You are a restaurant recommendation expert.
-
-Given the user's preferences and available restaurants, select the best dining options.
-
-Output format (JSON):
-```json
-{
-  "restaurants": [
-    {
-      "id": "restaurant_id",
-      "name": "restaurant name",
-      "meal_type": "lunch",
-      "day": 1,
-      "reason": "recommendation reason"
-    }
-  ]
+CUISINE_INTEREST_MAP: dict[str, set[str]] = {
+    "culinary": {"美食", "小吃", "夜市", "火锅", "烧烤", "老字号"},
+    "food": {"美食", "小吃", "火锅", "粤菜", "川菜", "湘菜", "海鲜"},
+    "nightlife": {"夜市", "酒吧", "烧烤"},
+    "culture": {"老字号", "传统"},
 }
-```"""
+
+# Budget → price_level range
+BUDGET_PRICE_MAP = {
+    "budget": (0, 1),
+    "mid-range": (1, 3),
+    "luxury": (3, 5),
+}
+
+# Extract cuisine type from tags or description
+_CUISINE_PATTERNS = {
+    "粤菜": re.compile(r"粤菜|广东菜|广府|早茶|点心|肠粉|烧鹅|虾饺"),
+    "川菜": re.compile(r"川菜|火锅|串串|麻辣|重庆"),
+    "湘菜": re.compile(r"湘菜|湖南菜|辣椒|剁椒"),
+    "潮汕": re.compile(r"潮汕|潮州|牛肉|砂锅粥|卤水"),
+    "日料": re.compile(r"日料|日本|寿司|刺身|拉面"),
+    "西餐": re.compile(r"西餐|牛排|意面|披萨|法餐"),
+    "东南亚": re.compile(r"东南亚|泰式|越南|冬阴功"),
+    "海鲜": re.compile(r"海鲜|石斑|螃蟹|虾|生蚝"),
+    "烧烤": re.compile(r"烧烤|烤肉|串串|撸串"),
+    "甜品": re.compile(r"甜品|糖水|蛋糕|奶茶|咖啡"),
+}
 
 
-class RestaurantAgent(BaseTourAgent):
-    """Agent that searches and recommends restaurants."""
-    
-    def __init__(self, llm: BaseChatModel, data_dir: str = "data"):
-        super().__init__(llm)
+def _detect_cuisine(rest: dict) -> str:
+    """Detect primary cuisine type from tags and description."""
+    tags = " ".join(rest.get("tags", []))
+    desc = rest.get("description", "") or ""
+    text = tags + " " + desc
+
+    for cuisine, pattern in _CUISINE_PATTERNS.items():
+        if pattern.search(text):
+            return cuisine
+    return "综合"
+
+
+def _detect_meal_period(rest: dict) -> str:
+    """Detect suitable meal period from tags and description."""
+    tags = " ".join(rest.get("tags", []))
+    desc = rest.get("description", "") or ""
+    text = tags + " " + desc
+
+    if re.search(r"早茶|早点|早餐|brunch", text):
+        return "breakfast"
+    if re.search(r"夜市|宵夜|夜宵|酒吧|夜景|深夜|night", text, re.IGNORECASE):
+        return "dinner"
+    if re.search(r"下午茶|甜品|咖啡|tea", text, re.IGNORECASE):
+        return "afternoon"
+    return "any"
+
+
+class RestaurantAgent(BaseAgent):
+    """Recommend restaurants with interest-aware scoring.
+
+    Returns enough candidates for the clustering step to assign
+    per-day restaurants with cross-day deduplication.
+    """
+
+    def __init__(self, data_dir: str = "data"):
         self.data_dir = Path(data_dir)
-    
+
     @property
     def name(self) -> str:
         return "RestaurantAgent"
-    
+
     @property
     def description(self) -> str:
-        return "Search and recommend restaurants"
-    
-    def build_prompt(self) -> ChatPromptTemplate:
-        return ChatPromptTemplate.from_messages([
-            ("system", RESTAURANT_SYSTEM),
-            ("human", "{context}"),
-        ])
-    
-    def _get_city_dir(self, city: str) -> str:
-        """Get directory name for city."""
-        if (self.data_dir / city).exists():
-            return city
-        if city in CITY_DIR_MAP:
-            return CITY_DIR_MAP[city]
-        return city.lower()
-    
-    def _load_restaurants(self, city: str) -> list[dict]:
-        """Load restaurants from local JSON file."""
-        city_dir = self._get_city_dir(city)
-        poi_file = self.data_dir / city_dir / "pois.json"
-        
-        if not poi_file.exists():
-            return []
-        try:
-            with open(poi_file, "r", encoding="utf-8") as f:
-                data = json.load(f)
-                restaurants = [p for p in data if p.get("type") == "restaurant"]
-                logger.info("Loaded " + str(len(restaurants)) + " restaurants for " + city)
-                return restaurants
-        except Exception as e:
-            logger.error("Failed to load restaurants: " + str(e))
-            return []
-    
+        return "Search and recommend restaurants with interest awareness"
+
+    def _score(self, rest: dict, interests: list[str], budget: str) -> float:
+        score = 0.0
+
+        # Rating (0-5 → 0-50)
+        rating = rest.get("rating", 0) or rest.get("popularity", 0) or 0
+        score += rating * 10
+
+        # Interest match bonus
+        tags = set(rest.get("tags", []))
+        name = rest.get("name", "")
+        for interest in interests:
+            preferred = CUISINE_INTEREST_MAP.get(interest, set())
+            if preferred & tags:
+                score += 30
+                break
+            if interest in ("food", "culinary"):
+                if tags & FOOD_KEYWORDS or any(kw in name for kw in FOOD_KEYWORDS):
+                    score += 25
+                    break
+
+        # Popularity bonus
+        pop = rest.get("popularity", 0)
+        if pop and pop >= 4.5:
+            score += 10
+
+        # Budget match
+        price_level = rest.get("price_level", 1)
+        lo, hi = BUDGET_PRICE_MAP.get(budget, (0, 5))
+        if lo <= price_level <= hi:
+            score += 15
+        elif price_level < lo:
+            score += 5  # cheaper is OK
+        else:
+            score -= 10  # over budget
+
+        # Description richness bonus (prefer POIs with useful descriptions)
+        desc = rest.get("description", "") or ""
+        if len(desc) > 50:
+            score += 5
+
+        return score
+
     async def execute(self, state: TourState) -> dict:
-        """Select restaurants for the trip."""
         intent = state.get("trip_intent", {})
         city = intent.get("city", state.get("city", ""))
         days = intent.get("days", 3)
         interests = intent.get("interests", [])
-        
+        budget = intent.get("budget", "mid-range") or "mid-range"
+
         if not city:
-            return {"restaurants": []}
-        
-        restaurants = self._load_restaurants(city)
+            return {"restaurants": [], "errors": ["RestaurantAgent: no city specified"]}
+
+        restaurants = load_pois_by_type(self.data_dir, city, "restaurant")
         if not restaurants:
-            return {"restaurants": []}
-        
-        # Select top rated restaurants
-        restaurants.sort(key=lambda x: x.get("rating", 0), reverse=True)
-        
-        # Assign to days
-        enriched = []
-        for i, r in enumerate(restaurants[:days * 2]):
+            return {"restaurants": [], "errors": [f"RestaurantAgent: no restaurant data for {city}"]}
+
+        # Score all candidates
+        scored = [
+            (self._score(r, interests, budget), r)
+            for r in restaurants
+        ]
+        scored.sort(key=lambda x: x[0], reverse=True)
+
+        # Enrich with cuisine type and meal period metadata
+        # Return enough candidates: days * 4 (clustering will select per-day)
+        candidates = []
+        seen_names = set()
+        for score, r in scored:
+            name = r.get("name", "")
+            if name in seen_names:
+                continue
+            seen_names.add(name)
+
             r_copy = r.copy()
-            r_copy["meal_type"] = "lunch" if i % 2 == 0 else "dinner"
-            r_copy["day"] = (i // 2) + 1
-            r_copy["recommend_reason"] = "High rated restaurant"
-            enriched.append(r_copy)
-        
-        logger.info("Recommended " + str(len(enriched)) + " restaurants")
-        return {"restaurants": enriched}
+            r_copy["_score"] = score
+            r_copy["_cuisine"] = _detect_cuisine(r)
+            r_copy["_meal_period"] = _detect_meal_period(r)
+
+            # Build reason
+            reasons = []
+            cuisine = r_copy["_cuisine"]
+            if cuisine != "综合":
+                reasons.append(cuisine)
+            if interests and (set(r.get("tags", [])) & FOOD_KEYWORDS):
+                reasons.append("符合美食偏好")
+            if r.get("popularity", 0) and r["popularity"] >= 4.5:
+                reasons.append(f"高评分{r['popularity']}")
+            r_copy["recommend_reason"] = "；".join(reasons) if reasons else "推荐餐厅"
+
+            candidates.append(r_copy)
+
+        # Return top candidates for clustering to assign per-day
+        max_candidates = days * 5
+        result = candidates[:max_candidates]
+
+        logger.info("Selected %d restaurant candidates for %s (from %d total)",
+                     len(result), city, len(restaurants))
+        return {"restaurants": result}

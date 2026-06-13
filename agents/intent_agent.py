@@ -1,4 +1,10 @@
-"""Intent Agent - Parse user natural language into structured TripIntent."""
+"""Intent Agent - Parse user natural language into structured TripIntent.
+
+Uses a three-tier strategy:
+1. Regex fast-path (zero cost, instant)
+2. LLM structured-output fallback (only when regex fails city extraction)
+3. Explicit error if city cannot be resolved (no silent default)
+"""
 
 import json
 import logging
@@ -8,193 +14,233 @@ from typing import Optional
 from langchain_core.language_models import BaseChatModel
 from langchain_core.prompts import ChatPromptTemplate
 
-from agents.base import BaseTourAgent
+from agents.base import LLMAgent
+from agents.constants import KNOWN_CITIES, ENGLISH_CITY_MAP, CITY_DIR_MAP
 from agents.state import TourState, TripIntent
 
 logger = logging.getLogger(__name__)
 
-# City name mapping for DeepSeek API encoding issues
-CITY_NAME_MAP = {
-    "guangzhou": "广州",
-    "beijing": "北京",
-    "shanghai": "上海",
-    "shenzhen": "深圳",
-    "chengdu": "成都",
-    "chongqing": "重庆",
-    "hangzhou": "杭州",
-    "wuhan": "武汉",
-    "nanjing": "南京",
-    "xian": "西安",
-    "changsha": "长沙",
-    "kunming": "昆明",
-    "dali": "大理",
-    "lijiang": "丽江",
-    "sanya": "三亚",
-    "guilin": "桂林",
-    "xiamen": "厦门",
-    "qingdao": "青岛",
-    "harbin": "哈尔滨",
-    "suzhou": "苏州",
-    "zhangjiajie": "张家界",
-}
+# ---------------------------------------------------------------------------
+# Regex extractors
+# ---------------------------------------------------------------------------
 
-# Known Chinese city names
-KNOWN_CITIES = [
-    "北京", "上海", "广州", "深圳", "成都", "重庆", "杭州", "武汉",
-    "南京", "西安", "长沙", "昆明", "大理", "丽江", "三亚", "桂林",
-    "厦门", "青岛", "哈尔滨", "苏州", "张家界", "郑州", "合肥",
-    "济南", "福州", "贵阳", "南宁", "兰州", "太原", "石家庄",
+_DAYS_RE = re.compile(r"(\d+)\s*[天日]")
+
+_MUST_VISIT_RES = [
+    re.compile(r"(?:一定|必须|必)要去(.+?)(?:[，。]|$)"),
+    re.compile(r"想去(.+?)(?:[，。]|$)"),
+    re.compile(r"必去(.+?)(?:[，。]|$)"),
 ]
 
-PARSE_INTENT_SYSTEM = """You are a travel intent parser. Extract structured information from user's natural language request.
+_AVOID_RES = [
+    re.compile(r"(?:不去|别去|不想去|避免|不要|别安排|不想|跳过)(.+?)(?:[，。]|$)"),
+]
 
-Extract the following information:
-1. city: Destination city name
-2. days: Number of travel days (default 3)
-3. pace: Travel pace - "relaxed", "balanced", or "intense"
-4. travelers: Traveler type - "solo", "couple", "family", "friends", "elderly"
-5. interests: List of interest tags like ["culture", "food", "nature", "shopping"]
-6. must_visit: List of specific places the user MUST visit
-7. avoid: List of places/types to avoid
-8. budget: Budget level - "budget", "mid-range", "luxury", or null
-9. special_requests: Any other special requests
+_INTEREST_MAP: dict[str, str] = {
+    "美食": "food", "吃": "food", "火锅": "food", "串串": "food",
+    "小吃": "food", "夜市": "food", "烧烤": "food", "早茶": "food",
+    "文化": "culture", "历史": "history", "古迹": "history",
+    "博物馆": "culture", "寺庙": "culture", "古城": "culture", "古镇": "culture",
+    "自然": "nature", "风景": "nature", "爬山": "nature", "登山": "nature",
+    "徒步": "nature", "海边": "nature", "沙滩": "nature", "公园": "nature",
+    "购物": "shopping", "逛街": "shopping",
+    "夜生活": "nightlife", "夜景": "nightlife", "酒吧": "nightlife",
+    "摄影": "photography", "拍照": "photography",
+    "休闲": "leisure", "度假": "leisure", "温泉": "leisure",
+    "游乐": "entertainment", "主题公园": "entertainment", "演出": "entertainment",
+}
 
-Return valid JSON only."""
+_TRAVELER_MAP: list[tuple[str, str]] = [
+    # Longer patterns first to avoid false positives
+    ("一家人", "family"), ("一家", "family"), ("带孩子", "family"),
+    ("带娃", "family"), ("亲子", "family"), ("小孩", "family"), ("宝宝", "family"),
+    ("男朋友", "couple"), ("女朋友", "couple"), ("情侣", "couple"),
+    ("老公", "couple"), ("老婆", "couple"), ("媳妇", "couple"), ("两人", "couple"),
+    ("和朋友", "friends"), ("闺蜜", "friends"), ("哥们", "friends"),
+    ("同学", "friends"), ("同事", "friends"), ("团建", "friends"),
+    ("爸妈", "elderly"), ("父母", "elderly"), ("长辈", "elderly"), ("老人", "elderly"),
+    ("一个人", "solo"), ("独自", "solo"), ("自己去", "solo"), ("单独", "solo"),
+    ("朋友", "friends"),  # after "和朋友"
+    ("孩子", "family"),
+]
+
+_BUDGET_LUXURY = {"奢华", "豪华", "高端", "五星", "5星", "顶级", "不差钱", "住好", "好的酒店", "好点的酒店"}
+_BUDGET_CHEAP = {"穷游", "省钱", "便宜", "经济", "实惠", "性价比", "背包", "青年旅舍", "青旅"}
+_BUDGET_MID = {"中等", "适中", "一般", "普通", "差不多"}
+
+# ---------------------------------------------------------------------------
+# Prompt for LLM fallback
+# ---------------------------------------------------------------------------
+
+PARSE_SYSTEM = """You are a travel intent parser. Extract structured information from the user's request.
+
+Return valid JSON only with these fields:
+city (string, Chinese), days (int, default 3), pace (relaxed|balanced|intense),
+travelers (solo|couple|family|friends|elderly), interests (string[]),
+must_visit (string[]), avoid (string[]), budget (budget|mid-range|luxury|null),
+special_requests (string|null)."""
 
 
-class IntentAgent(BaseTourAgent):
-    """Agent that parses user's natural language into structured TripIntent."""
-    
+class IntentAgent(LLMAgent):
+    """Parse user natural language into structured TripIntent."""
+
+    def __init__(self, llm: BaseChatModel):
+        super().__init__(llm)
+
     @property
     def name(self) -> str:
         return "IntentAgent"
-    
+
     @property
     def description(self) -> str:
-        return "Parse user's natural language request into structured TripIntent"
-    
+        return "Parse user natural language into TripIntent"
+
     def build_prompt(self) -> ChatPromptTemplate:
         return ChatPromptTemplate.from_messages([
-            ("system", PARSE_INTENT_SYSTEM),
+            ("system", PARSE_SYSTEM),
             ("human", "{user_message}"),
         ])
-    
-    def _extract_city_from_text(self, text: str) -> str:
-        """Extract city name from text using regex."""
-        # Try to find Chinese city names
+
+    # -- regex helpers -------------------------------------------------------
+
+    @staticmethod
+    def _extract_city(text: str) -> str:
         for city in KNOWN_CITIES:
             if city in text:
                 return city
-        
-        # Try to find English city names and map to Chinese
-        for eng, chn in CITY_NAME_MAP.items():
-            if eng in text.lower():
+        lower = text.lower()
+        for eng, chn in ENGLISH_CITY_MAP.items():
+            if eng in lower:
                 return chn
-        
         return ""
-    
-    def _extract_days_from_text(self, text: str) -> int:
-        """Extract number of days from text."""
-        days_match = re.search(r'(\d+)\s*[天日]', text)
-        if days_match:
-            return int(days_match.group(1))
-        return 3
-    
-    def _extract_must_visit_from_text(self, text: str) -> list:
-        """Extract must-visit places from text."""
-        must_visit = []
-        must_patterns = [
-            r'一定要去(.+?)(?:，|。|$)',
-            r'必须去(.+?)(?:，|。|$)',
-            r'想去(.+?)(?:，|。|$)',
-            r'必去(.+?)(?:，|。|$)',
-        ]
-        for pattern in must_patterns:
-            match = re.search(pattern, text)
-            if match:
-                places = re.split(r'[和、]', match.group(1))
-                must_visit.extend([p.strip() for p in places if p.strip()])
-                break
-        return must_visit
-    
-    def _extract_interests_from_text(self, text: str) -> list:
-        """Extract interests from text."""
-        interests = []
-        interest_map = {
-            "美食": "food",
-            "吃": "food",
-            "文化": "culture",
-            "历史": "history",
-            "自然": "nature",
-            "购物": "shopping",
-            "夜生活": "nightlife",
-            "摄影": "photography",
-        }
-        for chn, eng in interest_map.items():
-            if chn in text:
+
+    @staticmethod
+    def _extract_days(text: str) -> int:
+        m = _DAYS_RE.search(text)
+        return int(m.group(1)) if m else 3
+
+    @staticmethod
+    def _extract_must_visit(text: str) -> list[str]:
+        for pat in _MUST_VISIT_RES:
+            m = pat.search(text)
+            if m:
+                return [p.strip() for p in re.split(r"[和、]", m.group(1)) if p.strip()]
+        return []
+
+    @staticmethod
+    def _extract_avoid(text: str) -> list[str]:
+        result: list[str] = []
+        seen: set[str] = set()
+        for pat in _AVOID_RES:
+            m = pat.search(text)
+            if m:
+                for item in re.split(r"[和、]", m.group(1)):
+                    item = item.strip()
+                    if item and item not in seen:
+                        seen.add(item)
+                        result.append(item)
+        return result
+
+    @staticmethod
+    def _extract_interests(text: str) -> list[str]:
+        interests: list[str] = []
+        for chn, eng in _INTEREST_MAP.items():
+            if chn in text and eng not in interests:
                 interests.append(eng)
         return interests
-    
+
+    @staticmethod
+    def _extract_travelers(text: str) -> str:
+        for chn, eng in _TRAVELER_MAP:
+            if chn in text:
+                return eng
+        return "solo"
+
+    @staticmethod
+    def _extract_budget(text: str) -> Optional[str]:
+        for kw in _BUDGET_LUXURY:
+            if kw in text:
+                return "luxury"
+        for kw in _BUDGET_CHEAP:
+            if kw in text:
+                return "budget"
+        for kw in _BUDGET_MID:
+            if kw in text:
+                return "mid-range"
+        return None
+
+    # -- LLM fallback -------------------------------------------------------
+
+    async def _llm_parse(self, user_message: str) -> dict:
+        """Use LLM to parse intent; returns a raw dict."""
+        content = await self.invoke_llm({"user_message": user_message})
+        # Strip markdown fences if present
+        if "```json" in content:
+            content = content.split("```json", 1)[1].rsplit("```", 1)[0]
+        elif "```" in content:
+            content = content.split("```", 1)[1].rsplit("```", 1)[0]
+        return json.loads(content.strip())
+
+    # -- main ----------------------------------------------------------------
+
     async def execute(self, state: TourState) -> dict:
-        """Parse user intent from natural language."""
         user_message = state.get("user_message", "")
-        
-        # Skip if intent already parsed
+
         if state.get("trip_intent") and state["trip_intent"].get("city"):
-            logger.info("Intent already parsed, skipping")
-            return {}
-        
-        logger.info("Parsing intent from: " + user_message[:50] + "...")
-        
-        # Use regex-based extraction as primary method
-        city = self._extract_city_from_text(user_message)
-        days = self._extract_days_from_text(user_message)
-        must_visit = self._extract_must_visit_from_text(user_message)
-        interests = self._extract_interests_from_text(user_message)
-        
+            return {}  # already parsed
+
+        # --- Regex fast-path ---
+        city = self._extract_city(user_message)
+        days = self._extract_days(user_message)
+        must_visit = self._extract_must_visit(user_message)
+        interests = self._extract_interests(user_message)
+        travelers = self._extract_travelers(user_message)
+        budget = self._extract_budget(user_message)
+        avoid = self._extract_avoid(user_message)
+
+        # --- LLM fallback only when city is missing ---
         if not city:
-            # Fallback to LLM
             try:
-                runnable = self.get_runnable()
-                response = await runnable.ainvoke({"user_message": user_message})
-                
-                content = response.content
-                if "```json" in content:
-                    content = content.split("```json")[1].split("```")[0]
-                elif "```" in content:
-                    content = content.split("```")[1].split("```")[0]
-                
-                data = json.loads(content.strip())
-                
-                # Map city name if needed
+                data = await self._llm_parse(user_message)
                 llm_city = data.get("city", "")
-                if llm_city in CITY_NAME_MAP:
-                    city = CITY_NAME_MAP[llm_city]
+                # Normalise
+                if llm_city in CITY_DIR_MAP:
+                    city = llm_city
                 elif llm_city in KNOWN_CITIES:
                     city = llm_city
-                
-                if not days:
-                    days = data.get("days", 3)
+                elif llm_city.lower() in ENGLISH_CITY_MAP:
+                    city = ENGLISH_CITY_MAP[llm_city.lower()]
+                # Fill gaps from LLM
                 if not must_visit:
                     must_visit = data.get("must_visit", [])
                 if not interests:
                     interests = data.get("interests", [])
+                if travelers == "solo":
+                    travelers = data.get("travelers", travelers)
+                if budget is None:
+                    budget = data.get("budget")
+                if not avoid:
+                    avoid = data.get("avoid", [])
+                if days == 3:
+                    days = data.get("days", 3)
             except Exception as e:
-                logger.error("LLM parsing failed: " + str(e))
-        
+                logger.error("LLM parsing failed: %s", e)
+
         if not city:
-            city = "广州"  # Default to Guangzhou
-        
+            # Explicit error instead of silent default
+            return {"errors": [f"IntentAgent: 无法识别目的地城市，请明确指定城市名称（支持: {', '.join(KNOWN_CITIES[:10])}...）"]}
+
         intent = TripIntent(
             city=city,
             days=days,
             must_visit=must_visit,
             interests=interests,
+            travelers=travelers,
+            budget=budget,
+            avoid=avoid,
         )
-        
-        logger.info("Parsed intent: city=" + intent.city + ", days=" + str(intent.days) + 
-                   ", must_visit=" + str(intent.must_visit))
-        
+        logger.info("Parsed intent: %s", intent.model_dump())
+
         return {
             "trip_intent": intent.model_dump(),
             "city": intent.city,
