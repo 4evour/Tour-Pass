@@ -38,6 +38,7 @@ htest.py
 final_test.py
 test_body.json
 start_cpp.bat
+scripts/
 
 # Python cache
 __pycache__/
@@ -46,3 +47,8 @@ agent/__pycache__/
 
 # ChromaDB data (generated at runtime)
 data/chromadb/
+
+# Large image corpus is served from object storage/CDN in production
+data/*/images/
+data/.xhs_session.json
+data/*/xhs_*.json

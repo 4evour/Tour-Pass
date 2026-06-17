@@ -266,13 +266,13 @@ nlohmann::json searchResultToJson(const SearchResult& result) {
         {"open_minutes", result.openMinutes},
         {"close_minutes", result.closeMinutes},
         {"recommendation", result.recommendation},
-        {"image_url", result.imageUrl},
+        {"image_url", resolveAssetUrl(result.imageUrl)},
         {"guide_text", result.guideText}
     };
     // Serialize images array
     nlohmann::json imgs = nlohmann::json::array();
     for (const auto& img : result.images) {
-        imgs.push_back({{"url", img.url}, {"source", img.source}});
+        imgs.push_back(poiImageToJson(img, true));
     }
     j["images"] = imgs;
     return j;

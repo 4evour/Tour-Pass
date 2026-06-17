@@ -177,6 +177,8 @@ PoiType poiTypeFromString(const std::string& value);
 int parseTimeToMinutes(const std::string& value);
 std::string formatMinutes(int minutes);
 bool containsText(const std::vector<std::string>& values, const std::string& value);
+std::string resolveAssetUrl(const std::string& url);
+nlohmann::json poiImageToJson(const PoiImage& image, bool resolveUrl = false);
 
 nlohmann::json stopToJson(const Stop& stop);
 nlohmann::json scoreComponentToJson(const ScoreComponent& component);

@@ -1,7 +1,10 @@
 #include "tourpass/api.h"
 
+#include <algorithm>
+#include <cctype>
 #include <chrono>
 #include <cstdlib>
+#include <filesystem>
 #include <fstream>
 #include <functional>
 #include <iostream>
@@ -273,19 +276,45 @@ void setJson(httplib::Response& res, const nlohmann::json& body, int status = 20
     res.set_content(body.dump(2), "application/json; charset=utf-8");
 }
 
-std::string corsOrigin() {
-    static const std::string origin = [] {
-        const char* env = std::getenv("TOURPASS_CORS_ORIGIN");
-        return env ? std::string(env) : std::string();
-    }();
-    return origin;
+std::string trimCopy(const std::string& value) {
+    const auto start = value.find_first_not_of(" \t\r\n");
+    if (start == std::string::npos) return "";
+    const auto end = value.find_last_not_of(" \t\r\n");
+    return value.substr(start, end - start + 1);
 }
 
-void setCommonHeaders(httplib::Response& res, const std::string& requestId) {
+std::vector<std::string> allowedCorsOrigins() {
+    static const std::vector<std::string> origins = [] {
+        const char* env = std::getenv("TOURPASS_ALLOWED_ORIGINS");
+        if (!env || !*env) env = std::getenv("TOURPASS_CORS_ORIGIN");
+        std::vector<std::string> values;
+        if (!env || !*env) return values;
+        std::istringstream input(env);
+        std::string item;
+        while (std::getline(input, item, ',')) {
+            item = trimCopy(item);
+            if (!item.empty()) values.push_back(item);
+        }
+        return values;
+    }();
+    return origins;
+}
+
+std::string allowedCorsOrigin(const httplib::Request& req) {
+    const std::string origin = req.get_header_value("Origin");
+    if (origin.empty()) return "";
+    const auto origins = allowedCorsOrigins();
+    if (origins.empty()) return "";
+    if (std::find(origins.begin(), origins.end(), "*") != origins.end()) return "*";
+    return std::find(origins.begin(), origins.end(), origin) != origins.end() ? origin : "";
+}
+
+void setCommonHeaders(const httplib::Request& req, httplib::Response& res, const std::string& requestId) {
     res.set_header("X-Request-Id", requestId);
-    std::string origin = corsOrigin();
+    std::string origin = allowedCorsOrigin(req);
     if (!origin.empty()) {
         res.set_header("Access-Control-Allow-Origin", origin);
+        res.set_header("Vary", "Origin");
     }
     res.set_header("Access-Control-Allow-Headers", "Content-Type, X-Request-Id, Authorization");
     res.set_header("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE, OPTIONS");
@@ -300,6 +329,44 @@ std::string queryString(const httplib::Request& req) {
     auto pos = req.target.find('?');
     if (pos == std::string::npos) return "";
     return req.target.substr(pos + 1);
+}
+
+bool isAllowedImageRequestPath(const std::string& path) {
+    if (path.empty() || path.front() == '/' || path.find("..") != std::string::npos || path.find('\\') != std::string::npos) {
+        return false;
+    }
+    std::string lowered = path;
+    std::transform(lowered.begin(), lowered.end(), lowered.begin(), [](unsigned char c) {
+        return static_cast<char>(std::tolower(c));
+    });
+    const std::vector<std::string> extensions = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".svg"};
+    bool hasImageExtension = false;
+    for (const auto& ext : extensions) {
+        if (lowered.size() >= ext.size() && lowered.compare(lowered.size() - ext.size(), ext.size(), ext) == 0) {
+            hasImageExtension = true;
+            break;
+        }
+    }
+    return hasImageExtension && (lowered.find("/images/") != std::string::npos || lowered.find("images/") == 0);
+}
+
+void serveWhitelistedImage(const httplib::Request& req, httplib::Response& res) {
+    const std::string relative = req.matches.size() > 1 ? req.matches[1].str() : "";
+    if (!isAllowedImageRequestPath(relative)) {
+        setJson(res, errorJson("NOT_FOUND", "图片不存在"), 404);
+        return;
+    }
+
+    std::filesystem::path root = std::filesystem::weakly_canonical("data");
+    std::filesystem::path file = std::filesystem::weakly_canonical(root / std::filesystem::path(relative));
+    const std::string rootString = root.string();
+    const std::string fileString = file.string();
+    if (fileString.compare(0, rootString.size(), rootString) != 0 || !std::filesystem::is_regular_file(file)) {
+        setJson(res, errorJson("NOT_FOUND", "图片不存在"), 404);
+        return;
+    }
+
+    res.set_file_content(fileString);
 }
 
 std::string routeName(const httplib::Request& req) {
@@ -380,7 +447,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
 
         if (requestId.empty()) requestId = makeRequestId();
         context.metrics.beginRequest();
-        setCommonHeaders(res, requestId);
+        setCommonHeaders(req, res, requestId);
         {
             std::lock_guard<std::mutex> lock(metaMutex);
             requestMeta[&req] = RequestMeta{requestId, std::chrono::steady_clock::now(), 0, ""};
@@ -571,7 +638,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                 meta = RequestMeta{makeRequestId(), std::chrono::steady_clock::now(), 0, ""};
             }
         }
-        setCommonHeaders(res, meta.id);
+        setCommonHeaders(req, res, meta.id);
         setJson(res, errorJson("INTERNAL_ERROR", "服务端处理失败", nlohmann::json::object()), 500);
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - meta.startedAt);
         res.set_header("X-Response-Time-Ms", std::to_string(elapsed.count()));
@@ -614,9 +681,18 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     };
     server.set_mount_point("/editor", "web/editor-dist");
     server.set_mount_point("/", "web");
-    server.set_mount_point("/images", "data");
+    server.Get(R"(/images/(.+))", serveWhitelistedImage);
     // ── Agent service reverse proxy (WinHTTP streaming) ─────────────────
     {
+        // Read agent port from environment (default 8090)
+        int agentPort = 8090;
+        if (const char* envAgentPort = std::getenv("AGENT_PORT")) {
+            try {
+                int p = std::stoi(envAgentPort);
+                if (p > 0 && p <= 65535) agentPort = p;
+            } catch (...) {}
+        }
+
         // State holder for streaming WinHTTP proxy (RAII closes handles)
 #ifdef _WIN32
         struct WinHttpStreamState {
@@ -647,7 +723,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 return;
             }
 
-            HINTERNET hConnect = WinHttpConnect(hSession, L"127.0.0.1", 8090, 0);
+            HINTERNET hConnect = WinHttpConnect(hSession, L"127.0.0.1", agentPort, 0);
             if (!hConnect) {
                 WinHttpCloseHandle(hSession);
                 res.status = 502;
@@ -766,7 +842,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
 
             struct sockaddr_in addr{};
             addr.sin_family = AF_INET;
-            addr.sin_port = htons(8090);
+            addr.sin_port = htons(agentPort);
             inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr);
 
             // Connect with timeout
@@ -785,7 +861,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
 
             // Build and send HTTP request
             std::string reqStr = req.method + " " + req.path + " HTTP/1.1\r\n";
-            reqStr += "Host: 127.0.0.1:8090\r\n";
+            reqStr += "Host: 127.0.0.1:" + std::to_string(agentPort) + "\r\n";
             reqStr += "Content-Type: application/json\r\n";
             if (!req.body.empty()) {
                 reqStr += "Content-Length: " + std::to_string(req.body.size()) + "\r\n";
@@ -919,6 +995,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         server.Get("/agent/hot", agentProxyHandler);
         server.Post("/agent/plan", agentProxyHandler);
         server.Post("/agent/plan-sync", agentProxyHandler);
+        server.Post("/agent/plan-multi", agentProxyHandler);
         server.Post("/agent/chat", agentProxyHandler);
         server.Post("/agent/rag/ingest", agentProxyHandler);
     }
@@ -1328,13 +1405,13 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 {"popularity", e.poi->popularity},
                 {"description", e.poi->description},
                 {"recommendation", e.poi->recommendation},
-                {"image_url", e.poi->imageUrl},
+                {"image_url", resolveAssetUrl(e.poi->imageUrl)},
                 {"guide_text", e.poi->guideText}
             };
             // Serialize images array
             nlohmann::json imgs = nlohmann::json::array();
             for (const auto& img : e.poi->images) {
-                imgs.push_back({{"url", img.url}, {"source", img.source}});
+                imgs.push_back(poiImageToJson(img, true));
             }
             item["images"] = imgs;
             data.push_back(item);

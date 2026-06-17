@@ -69,6 +69,24 @@ _BUDGET_CHEAP = {"穷游", "省钱", "便宜", "经济", "实惠", "性价比", 
 _BUDGET_MID = {"中等", "适中", "一般", "普通", "差不多"}
 
 # ---------------------------------------------------------------------------
+# Hotel / strategy extractors
+# ---------------------------------------------------------------------------
+
+# Hotel area patterns: "住在XX区", "住XX", "酒店在XX"
+_HOTEL_AREA_RE = re.compile(r"(?:住在?|酒店在?)(.{2,6}(?:区|商圈|路|街|镇))")
+
+# Hotel budget patterns: "每晚300-500", "预算200元", "酒店500以内"
+_HOTEL_BUDGET_RANGE_RE = re.compile(r"(?:每晚|酒店|住宿).{0,5}?(\d+)\s*[-~到至]\s*(\d+)")
+_HOTEL_BUDGET_MAX_RE = re.compile(r"(?:每晚|酒店|住宿).{0,5}?(\d+)\s*(?:以內|以内|以下|左右)")
+
+# Strategy keywords
+_STRATEGY_KEYWORDS: dict[str, list[str]] = {
+    "culture": ["文化", "历史", "古迹", "博物馆", "寺庙"],
+    "culinary": ["美食", "小吃", "吃货", "火锅", "烧烤", "夜市"],
+    "nature": ["自然", "风景", "户外", "爬山", "登山", "海边"],
+}
+
+# ---------------------------------------------------------------------------
 # Prompt for LLM fallback
 # ---------------------------------------------------------------------------
 
@@ -78,7 +96,12 @@ Return valid JSON only with these fields:
 city (string, Chinese), days (int, default 3), pace (relaxed|balanced|intense),
 travelers (solo|couple|family|friends|elderly), interests (string[]),
 must_visit (string[]), avoid (string[]), budget (budget|mid-range|luxury|null),
-special_requests (string|null)."""
+special_requests (string|null),
+hotel_preference (string, hotel type preference, default ""),
+hotel_area (string, preferred hotel district, default ""),
+hotel_budget_min (int, min nightly budget in CNY, default 0),
+hotel_budget_max (int, max nightly budget in CNY, default 0),
+strategy (balanced|culture|culinary|nature, default balanced)."""
 
 
 class IntentAgent(LLMAgent):
@@ -169,11 +192,35 @@ class IntentAgent(LLMAgent):
                 return "mid-range"
         return None
 
+    @staticmethod
+    def _extract_hotel_area(text: str) -> str:
+        m = _HOTEL_AREA_RE.search(text)
+        return m.group(1).strip() if m else ""
+
+    @staticmethod
+    def _extract_hotel_budget(text: str) -> tuple[int, int]:
+        """Return (min, max) nightly budget in CNY; (0,0) if not specified."""
+        m = _HOTEL_BUDGET_RANGE_RE.search(text)
+        if m:
+            return int(m.group(1)), int(m.group(2))
+        m = _HOTEL_BUDGET_MAX_RE.search(text)
+        if m:
+            return 0, int(m.group(1))
+        return 0, 0
+
+    @staticmethod
+    def _extract_strategy(text: str) -> str:
+        for strategy, keywords in _STRATEGY_KEYWORDS.items():
+            for kw in keywords:
+                if kw in text:
+                    return strategy
+        return "balanced"
+
     # -- LLM fallback -------------------------------------------------------
 
-    async def _llm_parse(self, user_message: str) -> dict:
+    async def _llm_parse(self, user_message: str, state: Optional[TourState] = None) -> dict:
         """Use LLM to parse intent; returns a raw dict."""
-        content = await self.invoke_llm({"user_message": user_message})
+        content = await self.invoke_llm({"user_message": user_message}, state=state)
         # Strip markdown fences if present
         if "```json" in content:
             content = content.split("```json", 1)[1].rsplit("```", 1)[0]
@@ -198,10 +245,15 @@ class IntentAgent(LLMAgent):
         budget = self._extract_budget(user_message)
         avoid = self._extract_avoid(user_message)
 
+        # --- Hotel / strategy regex ---
+        hotel_area = self._extract_hotel_area(user_message)
+        hotel_budget_min, hotel_budget_max = self._extract_hotel_budget(user_message)
+        strategy = self._extract_strategy(user_message)
+
         # --- LLM fallback only when city is missing ---
         if not city:
             try:
-                data = await self._llm_parse(user_message)
+                data = await self._llm_parse(user_message, state=state)
                 llm_city = data.get("city", "")
                 # Normalise
                 if llm_city in CITY_DIR_MAP:
@@ -223,6 +275,14 @@ class IntentAgent(LLMAgent):
                     avoid = data.get("avoid", [])
                 if days == 3:
                     days = data.get("days", 3)
+                # Fill hotel/strategy gaps from LLM
+                if not hotel_area:
+                    hotel_area = data.get("hotel_area", "")
+                if hotel_budget_max == 0:
+                    hotel_budget_min = int(data.get("hotel_budget_min", 0) or 0)
+                    hotel_budget_max = int(data.get("hotel_budget_max", 0) or 0)
+                if strategy == "balanced":
+                    strategy = data.get("strategy", "balanced")
             except Exception as e:
                 logger.error("LLM parsing failed: %s", e)
 
@@ -238,6 +298,10 @@ class IntentAgent(LLMAgent):
             travelers=travelers,
             budget=budget,
             avoid=avoid,
+            hotel_area=hotel_area,
+            hotel_budget_min=hotel_budget_min,
+            hotel_budget_max=hotel_budget_max,
+            strategy=strategy,
         )
         logger.info("Parsed intent: %s", intent.model_dump())
 
@@ -245,4 +309,8 @@ class IntentAgent(LLMAgent):
             "trip_intent": intent.model_dump(),
             "city": intent.city,
             "days": intent.days,
+            "sse_events": [{
+                "type": "intent_parsed",
+                "content": f"目的地：{intent.city}，{intent.days}天{intent.pace}节奏",
+            }],
         }

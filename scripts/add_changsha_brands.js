@@ -12,7 +12,7 @@ const brands = [
 
 const city = { name: "长沙", areas: ["芙蓉区", "天心区", "岳麓区", "开福区", "雨花区"], lat: 28.2282, lng: 112.9388 };
 
-const poisPath = "data/pois.json";
+const poisPath = "data/changsha/pois.json";
 let pois = JSON.parse(fs.readFileSync(poisPath, "utf8"));
 const existingHotels = pois.filter(p => p.type === "hotel").length;
 

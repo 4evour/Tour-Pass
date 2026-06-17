@@ -1,6 +1,10 @@
 """Tour Pass Multi-Agent System - Geographic Clustering Tools.
 
-Adapted from legacy agent/clustering.py with enhancements.
+Merged from:
+- agent/clustering.py  — must-visit rescue from full POI list, nightlife
+                          assignment, area-based theme inference
+- tools/clustering.py  — cross-day restaurant deduplication, distance-based
+                          scoring, RestaurantAgent _score integration
 """
 
 import math
@@ -73,21 +77,51 @@ def _find_closest_cluster(
     return closest_idx
 
 
-def _infer_theme(pois: list[dict]) -> str:
-    """Infer a theme for a cluster of POIs based on their tags."""
-    tag_counts = defaultdict(int)
-    
+def _infer_theme(pois: list[dict], intent: dict | None = None) -> str:
+    """Infer a theme for a cluster of POIs.
+
+    Migrated from agent/clustering.py — includes area names and strategy-aware
+    labels when intent is provided.
+    """
+    if not pois:
+        return "休闲探索"
+
+    areas = {p.get("area", "") for p in pois if p.get("area")}
+    all_tags: set[str] = set()
+    for p in pois:
+        all_tags.update(p.get("tags", []))
+
+    if any("历史" in t or "文化" in t or "世界遗产" in t for t in all_tags):
+        return f"历史文化之旅（{'、'.join(list(areas)[:2])}）"
+    if any("美食" in t or "小吃" in t for t in all_tags):
+        return f"美食探店之旅（{'、'.join(list(areas)[:2])}）"
+    if any("自然" in t or "公园" in t or "山水" in t for t in all_tags):
+        return f"自然风光之旅（{'、'.join(list(areas)[:2])}）"
+    if any("购物" in t or "商圈" in t for t in all_tags):
+        return f"城市探索之旅（{'、'.join(list(areas)[:2])}）"
+
+    # Fallback: tag-count based
+    tag_counts: dict[str, int] = defaultdict(int)
     for poi in pois:
         for tag in poi.get("tags", []):
             if tag not in {"城市游览", "景点", "风景名胜"}:
                 tag_counts[tag] += 1
-    
-    if not tag_counts:
-        return "综合游览"
-    
-    # Get top 2 tags
-    top_tags = sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:2]
-    return "·".join(tag for tag, _ in top_tags)
+    if tag_counts:
+        top_tags = sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)[:2]
+        label = "·".join(tag for tag, _ in top_tags)
+        return f"{label}（{'、'.join(list(areas)[:2])}）" if areas else label
+
+    return f"{'、'.join(list(areas)[:2])}深度游" if areas else "综合游览"
+
+
+def _is_must_visit(poi: dict, must_visit: list[str]) -> bool:
+    """Check if a POI matches any must_visit keyword."""
+    name = poi.get("name", "")
+    pid = poi.get("id", "")
+    for mv in must_visit:
+        if mv in name or mv == pid:
+            return True
+    return False
 
 
 def cluster_pois_for_days(
@@ -95,51 +129,116 @@ def cluster_pois_for_days(
     restaurants: list[dict],
     num_days: int,
     intent: dict,
+    all_available_pois: list[dict] | None = None,
+    nightlife: list[dict] | None = None,
 ) -> list[DayCluster]:
     """Cluster POIs into day groups based on geographic proximity.
-    
+
+    Extended with:
+    - **all_available_pois** rescue: if a must_visit keyword was not matched
+      inside *scored_attractions* (e.g. truncated by top_k), search the full
+      POI list and inject it with a high synthetic score.
+    - **nightlife** rotation: assign one nightlife POI per day.
+    - **closest-cluster** must_visit assignment for overflow (not just round-robin).
+
     Args:
-        scored_attractions: List of scored attraction POIs.
-        restaurants: List of restaurant POIs.
-        num_days: Number of days.
-        intent: User intent dictionary.
-    
+        scored_attractions: Scored attraction dicts (output of rank_pois).
+        restaurants: Restaurant dicts (output of RestaurantAgent).
+        num_days: Number of travel days.
+        intent: User intent dict.
+        all_available_pois: Full POI list for must_visit rescue.
+        nightlife: Nightlife POI list.
+
     Returns:
-        List of DayCluster objects, one per day.
+        List of DayCluster, one per day.
     """
+    if num_days <= 0:
+        num_days = 1
     if not scored_attractions:
-        return [DayCluster(day_num=i+1, theme="自由活动") for i in range(num_days)]
-    
-    # Initialize clusters
-    clusters = [DayCluster(day_num=i+1, theme="") for i in range(num_days)]
-    
-    # Separate must-visit and regular attractions
-    must_visit = [a for a in scored_attractions if a.get("is_must_visit")]
-    regular = [a for a in scored_attractions if not a.get("is_must_visit")]
-    
-    # Distribute must-visit attractions evenly across days
-    for i, attr in enumerate(must_visit):
-        day_idx = i % num_days
+        return [DayCluster(day_num=i + 1, theme="自由活动") for i in range(num_days)]
+
+    must_visit_names = intent.get("must_visit", [])
+
+    # ── Separate must_visit and regular attractions ──────────────────────────
+    must_pois = [a for a in scored_attractions if _is_must_visit(a, must_visit_names)]
+    regular = [a for a in scored_attractions if not _is_must_visit(a, must_visit_names)]
+
+    # ── Layer 2: must_visit rescue from all_available_pois ───────────────────
+    # If a must_visit keyword was not matched in scored_attractions, try to
+    # find the POI in the full list and inject it (migrated from
+    # agent/clustering.py:99-126).
+    if must_visit_names and all_available_pois:
+        must_visit_set = set(must_visit_names)
+        matched_keywords: set[str] = set()
+        for poi in must_pois:
+            for mv in must_visit_names:
+                if mv in poi.get("name", "") or mv == poi.get("id"):
+                    matched_keywords.add(mv)
+
+        for mv in must_visit_set - matched_keywords:
+            candidates = [
+                p for p in all_available_pois
+                if (mv in p.get("name", "") or mv == p.get("id"))
+                and p.get("type") not in ("hotel", "transit")
+            ]
+            if candidates:
+                candidates.sort(
+                    key=lambda p: (
+                        p.get("name", "") != mv,
+                        len(p.get("name", "")),
+                        -(p.get("popularity", 0) or 0),
+                    ),
+                )
+                rescued = candidates[0].copy()
+                rescued["_score"] = 99999
+                rescued["is_must_visit"] = True
+                must_pois.append(rescued)
+                logger.info(
+                    "Rescued must_visit '%s' -> '%s' from full POI list",
+                    mv, rescued.get("name"),
+                )
+            else:
+                logger.warning("must_visit '%s' not found in any available POI", mv)
+
+    # ── Initialise clusters ──────────────────────────────────────────────────
+    clusters = [DayCluster(day_num=i + 1, theme="") for i in range(num_days)]
+
+    # ── Assign must_visit attractions ────────────────────────────────────────
+    # First N go to different days (round-robin); overflow uses closest cluster
+    # or the day with fewest must-visits.
+    for i, attr in enumerate(must_pois):
+        if i < num_days:
+            day_idx = i % num_days
+        else:
+            min_must_day = min(
+                range(num_days),
+                key=lambda d: sum(
+                    1 for a in clusters[d].attractions
+                    if _is_must_visit(a, must_visit_names)
+                ),
+            )
+            day_idx = (
+                _find_closest_cluster(attr, clusters)
+                if clusters[0].attractions
+                else min_must_day
+            )
+            if any(a.get("id") == attr.get("id") for a in clusters[day_idx].attractions):
+                day_idx = min_must_day
         clusters[day_idx].attractions.append(attr)
     
-    # Assign regular attractions to closest clusters
+    # ── Assign regular attractions ───────────────────────────────────────────
+    pace = intent.get("pace", "balanced")
+    max_per_day = {"relaxed": 4, "balanced": 6, "intense": 8}.get(pace, 6)
+
     for attr in regular:
-        # Calculate current cluster centers
         for cluster in clusters:
             if cluster.attractions:
                 cluster.center_lat, cluster.center_lng = _area_center(cluster.attractions)
-        
-        # Find closest cluster
+
         closest_idx = _find_closest_cluster(attr, clusters)
-        
-        # Balance: limit attractions per day based on pace
-        pace = intent.get("pace", "balanced")
-        max_per_day = {"relaxed": 4, "balanced": 6, "intense": 8}.get(pace, 6)
-        
         if len(clusters[closest_idx].attractions) < max_per_day:
             clusters[closest_idx].attractions.append(attr)
         else:
-            # Find cluster with fewest attractions
             min_cluster = min(clusters, key=lambda c: len(c.attractions))
             min_cluster.attractions.append(attr)
     
@@ -184,9 +283,16 @@ def cluster_pois_for_days(
             if rid:
                 assigned_restaurant_ids.add(rid)
     
-    # Infer themes
+    # ── Nightlife rotation ───────────────────────────────────────────────────
+    nightlife = nightlife or []
     for cluster in clusters:
-        cluster.theme = _infer_theme(cluster.attractions)
+        if nightlife:
+            nl = nightlife[(cluster.day_num - 1) % len(nightlife)]
+            cluster.restaurants.append(nl)
+
+    # ── Infer themes (with area-aware labels) ────────────────────────────────
+    for cluster in clusters:
+        cluster.theme = _infer_theme(cluster.attractions, intent)
     
     # Fill empty clusters
     for i, cluster in enumerate(clusters):

@@ -6,8 +6,8 @@ function parseArgs(argv) {
   const args = {
     app: "bin/tourpass.exe",
     port: 8110,
-    pois: "data/pois.json",
-    edges: "data/edges.json",
+    pois: "data/changsha/pois.json",
+    edges: "data/changsha/edges.json",
     subset: 9,
     report: "docs/algorithm_quality_report.md",
   };

@@ -1,0 +1,368 @@
+[
+  {
+    "source_note_id": "69f3704e0000000038034ebd",
+    "source_url": "https://www.xiaohongshu.com/explore/69f3704e0000000038034ebd",
+    "source_title": "🎓五一长沙三天两夜｜",
+    "source_likes": "307",
+    "crawled_at": "2026-06-14T10:30:25.431Z",
+    "city": "changsha",
+    "city_name": "长沙",
+    "days": 3,
+    "travel_style": "穷游、特种兵、区域集中",
+    "season": "春季（五一）",
+    "budget_hint": "人均约500元（不含住宿，含吃饭¥230+门票小交通¥40+市内交通¥15+寄存备用¥215）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天（下午到，晚上活动）",
+        "stops": [
+          {
+            "time_hint": "晚上",
+            "name": "市中心",
+            "duration_hint": "全程步行",
+            "activity": "逛街、小吃",
+            "transport_to_next": "步行（全程不跨区）"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天（全天河西）",
+        "stops": [
+          {
+            "time_hint": "全天（含橘子洲、岳麓山、大学城）",
+            "name": "河西（橘子洲+岳麓山+大学城）",
+            "duration_hint": "全天游览",
+            "activity": "游览橘子洲、爬岳麓山、逛大学城",
+            "transport_to_next": "步行/地铁（区域内移动）"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天（上午活动，下午返��）",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "市井扫街",
+            "duration_hint": "约3小时",
+            "activity": "扫街、体验市井生活",
+            "transport_to_next": "步行返回（下午返程）"
+          }
+        ]
+      }
+    ],
+    "route_summary": "专为下午到、第三天下午返程的大学生设计，全程按区域集中游玩：第一天晚上逛市中心步行街，第二天全天游玩河西（橘子洲、岳麓山、大学城），第三天上午市井扫街后下午返程。总花费约500元，适合穷游和学生党。",
+    "tags": [
+      "穷游",
+      "学生党",
+      "特种兵",
+      "五一",
+      "长沙",
+      "三天两夜",
+      "区域集中",
+      "步行"
+    ]
+  },
+  {
+    "source_note_id": "6a2c11620000000022008b59",
+    "source_url": "https://www.xiaohongshu.com/explore/6a2c11620000000022008b59",
+    "source_title": "长沙四天三夜超详细攻略请收好📝（附住宿",
+    "source_likes": "2",
+    "crawled_at": "2026-06-14T10:33:04.453Z",
+    "city": "changsha",
+    "city_name": "长沙",
+    "days": 3,
+    "travel_style": "自由行",
+    "season": "夏季",
+    "budget_hint": "经济型",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "晚上",
+            "name": "五一广场",
+            "duration_hint": "未提供",
+            "activity": "逛街",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "晚上",
+            "name": "IFS国金中心",
+            "duration_hint": "未提供",
+            "activity": "打卡",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南门口",
+            "duration_hint": "未提供",
+            "activity": "解决晚饭",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "晚上",
+            "name": "杜甫江阁",
+            "duration_hint": "未提供",
+            "activity": "晚上亮灯拍照",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "橘子洲",
+            "duration_hint": "未提供",
+            "activity": "游览（需提前3天预约）",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "中午",
+            "name": "麓山南路",
+            "duration_hint": "未提供",
+            "activity": "美食街品尝美食",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "湖南大学",
+            "duration_hint": "未提供",
+            "activity": "随意进出参观",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "岳麓书院",
+            "duration_hint": "未提供",
+            "activity": "游览（门票40元，有讲解更好）",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "岳麓山",
+            "duration_hint": "未提供",
+            "activity": "俯瞰城市风光",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "未指定",
+            "name": "零食王国",
+            "duration_hint": "未提供",
+            "activity": "排队购物",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "未指定",
+            "name": "黄兴路步行街",
+            "duration_hint": "未提供",
+            "activity": "打卡蜜雪旗舰店",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "长沙三天行程：第一天夜游五一广场、IFS国金中心、南门口、杜甫江阁；第二天游览橘子洲、麓山南路美食街、湖南大学、岳麓书院、岳麓山；第三天逛零食王国和黄兴路步行街。",
+    "tags": [
+      "长沙旅游",
+      "大学生旅游",
+      "橘子洲",
+      "岳麓山",
+      "杜甫江阁",
+      "黄兴路步行街"
+    ]
+  },
+  {
+    "source_note_id": "6a0067450000000008000b78",
+    "source_url": "https://www.xiaohongshu.com/explore/6a0067450000000008000b78",
+    "source_title": "长沙四天三晚保姆级攻略，直接闭眼收藏！",
+    "source_likes": "35",
+    "crawled_at": "2026-06-14T10:32:36.994Z",
+    "city": "changsha",
+    "city_name": "长沙",
+    "days": 4,
+    "travel_style": "城市深度游+美食打卡",
+    "season": "五一（春季）",
+    "budget_hint": "住宿五一广场最贵，可选地铁1/2号线沿线（芙蓉广场、袁家岭）性价比更高；餐饮人均50-150元",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "IFS国金中心",
+            "duration_hint": "约1-2小时",
+            "activity": "打卡KAWS雕塑",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "黄兴路步行街",
+            "duration_hint": "约1小时",
+            "activity": "逛街",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "坡子街",
+            "duration_hint": "约1小时",
+            "activity": "火宫殿拍照",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "太平老街",
+            "duration_hint": "约1-2小时",
+            "activity": "吃小吃、拍古风照",
+            "transport_to_next": "步行或地铁"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "杜甫江阁",
+            "duration_hint": "约1小时",
+            "activity": "看亮灯瞬间",
+            "transport_to_next": "地铁或打车"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "扬帆夜市",
+            "duration_hint": "约2小时",
+            "activity": "吃夜市小吃",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "岳麓山",
+            "duration_hint": "约2-3小时",
+            "activity": "坐索道/滑道上山",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "爱晚亭",
+            "duration_hint": "约30分钟",
+            "activity": "参观",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "岳麓书院",
+            "duration_hint": "约1-2小时",
+            "activity": "参观千年学府",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "湖南大学",
+            "duration_hint": "约1小时",
+            "activity": "逛小吃街",
+            "transport_to_next": "地铁"
+          },
+          {
+            "time_hint": "下午",
+            "name": "橘子洲头",
+            "duration_hint": "约2小时",
+            "activity": "坐小火车看毛主席雕像",
+            "transport_to_next": "地铁或打车"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "渔人码头",
+            "duration_hint": "约2小时",
+            "activity": "吹江风、吃小龙虾、看夜景",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "湖南省博物院",
+            "duration_hint": "约3小时",
+            "activity": "参观马王堆汉墓",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "烈士公园",
+            "duration_hint": "约1小时",
+            "activity": "散步",
+            "transport_to_next": "步行或地铁"
+          },
+          {
+            "time_hint": "下午",
+            "name": "米粉街",
+            "duration_hint": "约1小时",
+            "activity": "打卡“长沙”红墙，喝杯茶颜悦色",
+            "transport_to_next": "地铁"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "万家丽广场",
+            "duration_hint": "约2小时",
+            "activity": "顶楼停机坪看日落",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "开福寺",
+            "duration_hint": "约1-2小时",
+            "activity": "祈福求签",
+            "transport_to_next": "步行或地铁"
+          },
+          {
+            "time_hint": "上午",
+            "name": "潮宗街",
+            "duration_hint": "约1-2小时",
+            "activity": "逛网红街、咖啡店",
+            "transport_to_next": "地铁"
+          },
+          {
+            "time_hint": "下午",
+            "name": "李自健美术馆",
+            "duration_hint": "约2小时",
+            "activity": "参观（或谢子龙影像艺术馆二选一）",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "第一天市中心步行逛街+夜市，第二天岳麓山+橘子洲+江边夜景，第三天文博+公园+日落，第四天寺庙+文艺展馆，基本不走回头路，覆盖长沙经典景点与美食。",
+    "tags": [
+      "长沙",
+      "长沙旅游",
+      "长沙旅游攻略",
+      "长沙美食",
+      "五一",
+      "保姆级攻略",
+      "闭眼收藏"
+    ]
+  }
+]

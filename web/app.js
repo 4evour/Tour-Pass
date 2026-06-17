@@ -137,7 +137,7 @@ function renderOverviewMap(candidate) {
 
       // Minimal popup: name + time only. Details in card sidebar.
       const marker = L.marker(coord, { icon: markerIcon, draggable: true });
-      const popupImg = stop.image_url ? '<img src="/' + stop.image_url + '" class="map-popup-img" loading="lazy" onerror="this.style.display=\'none\'">' : '';
+      const popupImg = stop.image_url ? '<img src="' + stop.image_url + '" class="map-popup-img" loading="lazy" onerror="this.style.display=\'none\'">' : '';
       marker.bindPopup(
         '<div class="map-popup">' + popupImg +
           '<div class="map-popup-name">' + escapeHtml(stop.poi_name) + '</div>' +
@@ -1686,7 +1686,7 @@ function renderStop(stop) {
   const uid = "g_" + (stop.poi_id || Math.random().toString(36).slice(2, 8));
   return `
     <article class="stop-card type-${stop.poi_type || "attraction"} ${hasRisk ? "stop-risk" : ""} ${isMeal ? "stop-meal" : ""}" draggable="true" data-poi-id="${stop.poi_id || ""}">
-      ${hasImg ? `<img class="stop-hero-img" src="/${stop.image_url}" alt="${escapeHtml(stop.poi_name)}" loading="lazy" onerror="this.classList.add('error')">` : ""}
+      ${hasImg ? `<img class="stop-hero-img" src="${stop.image_url}" alt="${escapeHtml(stop.poi_name)}" loading="lazy" onerror="this.classList.add('error');var _p=document.createElement('div');_p.className='agent-stop-noimg';_p.textContent='\uD83C\uDFDB\uFE0F';this.parentNode.insertBefore(_p,this.nextSibling)">` : ""}
       ${travel > 0 ? `<div class="stop-transport-bar">${transportIcon(travel)} ${travel} 分钟</div>` : ""}
       <div class="stop-main">
         <span class="stop-type-icon">${typeIcon(stop.poi_type)}</span>

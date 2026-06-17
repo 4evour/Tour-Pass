@@ -4,6 +4,7 @@ Consumes:
 - city_guides from RetrieveAgent (injected into schedule context)
 - review_feedback from ReviewerAgent (full structured feedback, not just
   missing_must_visit) on re-run cycles
+- available_pois from PoiAgent (full POI list for must-visit rescue)
 
 Features:
 - POI opening time awareness
@@ -11,15 +12,19 @@ Features:
 - Pace-aware gap times and stop limits
 - City guide context enrichment
 - POI knowledge-aware closed_days filtering
+- Must-visit 4-layer guarantee chain (layers 3 & 4 in this agent)
+- C++ Beam Search route optimization via optimize_route_smart
+- Fine-grained SSE event emission
 """
 
 import logging
 
 from agents.base import BaseAgent
 from agents.state import TourState
+from agents.config import USE_CPP_ROUTE_OPTIMIZER
 from tools import rag
-from tools.clustering import cluster_pois_for_days
-from tools.route import optimize_route, calculate_total_travel_time
+from tools.clustering import cluster_pois_for_days, _is_must_visit
+from tools.route import optimize_route_smart, calculate_total_travel_time
 
 logger = logging.getLogger(__name__)
 
@@ -169,6 +174,135 @@ class SchedulerAgent(BaseAgent):
             logger.info("Filtered %d closed POIs for day %d (%s)", removed, day_idx + 1, weekday_name)
         return filtered
 
+    @staticmethod
+    def _inject_missing_must_visit(
+        stops: list[dict],
+        must_visit_ids: set[str],
+        cluster_attractions: list[dict],
+    ) -> list[dict]:
+        """Layer 3: Per-day must_visit post-injection.
+
+        After building the stops list for a day, check whether any
+        must_visit attraction assigned to this cluster is missing.
+        If so, force-inject it into the schedule.
+        """
+        if not must_visit_ids:
+            return stops
+
+        included_ids = {s.get("poi_id", "") for s in stops}
+        missing_ids = must_visit_ids - included_ids
+        if not missing_ids:
+            return stops
+
+        for attr in cluster_attractions:
+            aid = attr.get("id", "")
+            if aid not in missing_ids:
+                continue
+            slot = "上午" if not any(s.get("slot") == "上午" for s in stops) else "下午"
+            injected = {
+                "slot": slot,
+                "poi_id": aid,
+                "poi_name": attr.get("name", ""),
+                "start_minutes": 540 if slot == "上午" else 840,
+                "end_minutes": (540 if slot == "上午" else 840)
+                + attr.get("visit_duration_minutes", 60),
+                "visit_duration_minutes": attr.get("visit_duration_minutes", 60),
+                "reason": f"用户必去: {attr.get('name', '')}",
+                "poi_type": attr.get("type", "attraction"),
+                "area": attr.get("area", ""),
+                "lat": attr.get("lat", 0),
+                "lng": attr.get("lng", 0),
+            }
+            stops.insert(0, injected)
+            logger.info("Layer-3: force-injected must_visit '%s'", attr.get("name"))
+        return stops
+
+    @staticmethod
+    def _xhs_affinity_swap(
+        clusters: list,
+        cooccur: dict[tuple[str, str], int],
+        min_cooccur: int = 3,
+    ) -> list:
+        """Swap attractions between clusters to maximise XHS co-occurrence.
+
+        For each pair of clusters, check whether moving an attraction from
+        cluster A to cluster B (or vice-versa) increases the total number
+        of high-affinity pairs kept together.  Only performs moves that
+        strictly improve affinity (greedy, single pass).
+        """
+        high_pairs = {pair for pair, cnt in cooccur.items() if cnt >= min_cooccur}
+        if not high_pairs:
+            return clusters
+
+        def _names(cluster):
+            return {a.get("name", "") for a in cluster.attractions}
+
+        def _affinity(cluster):
+            ns = _names(cluster)
+            return sum(1 for a, b in high_pairs if a in ns and b in ns)
+
+        improved = True
+        max_iters = 3  # prevent infinite loops
+        iters = 0
+        while improved and iters < max_iters:
+            improved = False
+            iters += 1
+            for i in range(len(clusters)):
+                for j in range(i + 1, len(clusters)):
+                    ci, cj = clusters[i], clusters[j]
+                    before = _affinity(ci) + _affinity(cj)
+                    # Try moving each attraction from ci → cj
+                    best_gain = 0
+                    best_move = None  # (attr_idx, from_i, to_j)
+                    for ai, attr in enumerate(ci.attractions):
+                        aname = attr.get("name", "")
+                        # Simulate move
+                        ci.attractions.pop(ai)
+                        cj.attractions.append(attr)
+                        after = _affinity(ci) + _affinity(cj)
+                        gain = after - before
+                        # Revert
+                        cj.attractions.pop()
+                        ci.attractions.insert(ai, attr)
+                        if gain > best_gain:
+                            best_gain = gain
+                            best_move = (ai, i, j)
+
+                    if best_move and best_gain > 0:
+                        ai, fi, ti = best_move
+                        attr = clusters[fi].attractions.pop(ai)
+                        clusters[ti].attractions.append(attr)
+                        logger.info(
+                            "XHS affinity: moved '%s' day %d → day %d (gain +%d)",
+                            attr.get("name"), fi + 1, ti + 1, best_gain,
+                        )
+                        improved = True
+                    # Also try cj → ci
+                    best_gain = 0
+                    best_move = None
+                    for aj, attr in enumerate(cj.attractions):
+                        aname = attr.get("name", "")
+                        cj.attractions.pop(aj)
+                        ci.attractions.append(attr)
+                        after = _affinity(ci) + _affinity(cj)
+                        gain = after - before
+                        ci.attractions.pop()
+                        cj.attractions.insert(aj, attr)
+                        if gain > best_gain:
+                            best_gain = gain
+                            best_move = (aj, j, i)
+
+                    if best_move and best_gain > 0:
+                        aj, fi, ti = best_move
+                        attr = clusters[fi].attractions.pop(aj)
+                        clusters[ti].attractions.append(attr)
+                        logger.info(
+                            "XHS affinity: moved '%s' day %d → day %d (gain +%d)",
+                            attr.get("name"), fi + 1, ti + 1, best_gain,
+                        )
+                        improved = True
+        return clusters
+
     async def execute(self, state: TourState) -> dict:
         city = state.get("city", "")
         days = state.get("days", 3)
@@ -177,6 +311,7 @@ class SchedulerAgent(BaseAgent):
         restaurants = state.get("restaurants", [])
         weather = state.get("weather", [])
         city_guides = state.get("city_guides", [])
+        xhs_reference_routes = state.get("xhs_reference_routes") or []
         review_feedback = state.get("review_feedback") or {}
         intent = state.get("trip_intent") or {}
 
@@ -203,10 +338,19 @@ class SchedulerAgent(BaseAgent):
                         break
             logger.info("Enriched %d POIs with poi_knowledge metadata", len(pois))
 
-        # Step 1: Cluster POIs
+        # Full POI list for Layer-2 must_visit rescue
+        available_pois = state.get("available_pois", [])
+        # Nightlife POIs (may have been loaded by RestaurantAgent or PoiAgent)
+        nightlife = [p for p in available_pois if p.get("type") == "nightlife"]
+
+        # Step 1: Cluster POIs (Layer 2 must_visit rescue via all_available_pois)
         clusters = cluster_pois_for_days(
-            pois=pois, restaurants=restaurants, days=days,
+            scored_attractions=pois,
+            restaurants=restaurants,
+            num_days=days,
             intent=intent,
+            all_available_pois=available_pois,
+            nightlife=nightlife,
         )
 
         # Apply review corrections
@@ -215,15 +359,39 @@ class SchedulerAgent(BaseAgent):
         if flagged_names:
             clusters = self._remove_flagged_pois(clusters, flagged_names)
 
-        # Step 2: Route optimisation
+        # Step 1.5: XHS co-occurrence affinity adjustment
+        # If two POIs frequently appear together in real XHS itineraries,
+        # try to keep them on the same day by swapping across clusters.
+        xhs_routes = state.get("xhs_routes") or []
+        if xhs_routes:
+            try:
+                from tools.xhs_loader import extract_cooccurrence
+                cooccur = extract_cooccurrence(city)
+                if cooccur:
+                    clusters = self._xhs_affinity_swap(clusters, cooccur)
+                    logger.info("Applied XHS co-occurrence affinity to %d clusters", len(clusters))
+            except Exception as e:
+                logger.warning("XHS affinity swap failed: %s", e)
+
+        # Step 2: Route optimisation (C++ Beam Search with Python 2-opt fallback)
+        city_dir = state.get("city", "")
         hotel_lat = hotel.get("lat", 0) if hotel else 0
         hotel_lng = hotel.get("lng", 0) if hotel else 0
+        hotel_id = hotel.get("id", "") if hotel else ""
+
         for cluster in clusters:
             if cluster.attractions and hotel_lat and hotel_lng:
-                cluster.attractions = optimize_route(
-                    start_lat=hotel_lat, start_lng=hotel_lng,
+                cluster.attractions = await optimize_route_smart(
+                    city=city_dir,
                     stops=cluster.attractions,
-                    end_lat=hotel_lat, end_lng=hotel_lng,
+                    hotel_id=hotel_id,
+                    start_lat=hotel_lat,
+                    start_lng=hotel_lng,
+                    start_minutes=pace_cfg["start_time"],
+                    end_minutes=pace_cfg["end_time"],
+                    pace=pace,
+                    strategy=intent.get("strategy", "balanced"),
+                    use_cpp=USE_CPP_ROUTE_OPTIMIZER,
                 )
 
         # Build city guide context string (actually USE the RAG data)
@@ -232,6 +400,8 @@ class SchedulerAgent(BaseAgent):
             guide_snippets = city_guides[:5]  # top 5 snippets
             guide_context = "\n".join(guide_snippets)
             logger.info("Injecting %d city guide snippets into schedule", len(guide_snippets))
+        if xhs_reference_routes:
+            logger.info("Injecting %d XHS reference routes into schedule", len(xhs_reference_routes))
 
         # Step 3: Create schedule with time awareness
         daily_plans: list[dict] = []
@@ -303,6 +473,16 @@ class SchedulerAgent(BaseAgent):
                     "lng": rest.get("lng", 0),
                 })
 
+            # ── Layer 3: per-day must_visit post-injection ────────────────────
+            must_visit_names = intent.get("must_visit", [])
+            if must_visit_names:
+                mv_ids = set()
+                for mv in must_visit_names:
+                    for a in cluster.attractions:
+                        if mv in a.get("name", "") or mv == a.get("id"):
+                            mv_ids.add(a.get("id", ""))
+                stops = self._inject_missing_must_visit(stops, mv_ids, cluster.attractions)
+
             stops.sort(key=lambda x: x.get("start_minutes", 0))
 
             # Build day summary enriched with guide context
@@ -311,6 +491,11 @@ class SchedulerAgent(BaseAgent):
                 snippet = city_guides[day_idx % len(city_guides)] if city_guides else ""
                 if snippet:
                     summary_parts.append(f"💡 {snippet[:120]}")
+            if xhs_reference_routes:
+                ref = xhs_reference_routes[day_idx % len(xhs_reference_routes)]
+                ref_stops = " -> ".join(ref.get("stops", [])[:6])
+                if ref_stops:
+                    summary_parts.append(f"真实路线参考: {ref_stops}")
 
             daily_plans.append({
                 "day": cluster.day_num,
@@ -321,5 +506,97 @@ class SchedulerAgent(BaseAgent):
                 "is_rainy": is_rainy,
             })
 
+        # ── Layer 4: Global must_visit post-verification ────────────────────
+        # Traverse all daily_plans, check that every intent.must_visit keyword
+        # appears in at least one stop.  Inject any remaining gaps into the
+        # lightest day (migrated from agent/graph.py:503-544).
+        must_visit_coverage: list[dict] = []
+        must_visit_names = intent.get("must_visit", [])
+        sse_events: list[dict] = []
+
+        if must_visit_names:
+            all_planned_names: set[str] = set()
+            for dp in daily_plans:
+                for s in dp.get("stops", []):
+                    all_planned_names.add(s.get("poi_name", ""))
+
+            still_missing: list[str] = []
+            for mv in must_visit_names:
+                if not any(mv in name for name in all_planned_names):
+                    still_missing.append(mv)
+
+            if still_missing:
+                logger.warning("Layer-4 global verification: missing %s", still_missing)
+                for mv in still_missing:
+                    # Find POI in available_pois
+                    target = None
+                    for p in available_pois:
+                        if mv in p.get("name", "") or mv == p.get("id"):
+                            target = p
+                            break
+                    if not target:
+                        logger.error("Layer-4: cannot rescue '%s' — not in available_pois", mv)
+                        continue
+
+                    # Inject into lightest day
+                    lightest = min(daily_plans, key=lambda d: len(d.get("stops", [])))
+                    slot = "下午" if len(lightest.get("stops", [])) >= 3 else "上午"
+                    injected_stop = {
+                        "slot": slot,
+                        "poi_id": target.get("id", ""),
+                        "poi_name": target.get("name", ""),
+                        "start_minutes": 840 if slot == "下午" else 540,
+                        "end_minutes": (840 if slot == "下午" else 540)
+                        + target.get("visit_duration_minutes", 60),
+                        "visit_duration_minutes": target.get("visit_duration_minutes", 60),
+                        "reason": f"用户必去（全局补救）: {target.get('name', '')}",
+                        "poi_type": target.get("type", "attraction"),
+                        "area": target.get("area", ""),
+                        "lat": target.get("lat", 0),
+                        "lng": target.get("lng", 0),
+                    }
+                    lightest.setdefault("stops", []).append(injected_stop)
+                    logger.info(
+                        "Layer-4: rescued '%s' into day %d",
+                        target.get("name"), lightest.get("day"),
+                    )
+                    sse_events.append({
+                        "type": "must_visit_injected",
+                        "content": f"已强制安排行程: {mv}",
+                    })
+
+            # Build coverage report
+            final_planned: set[str] = set()
+            for dp in daily_plans:
+                for s in dp.get("stops", []):
+                    final_planned.add(s.get("poi_name", ""))
+            for mv in must_visit_names:
+                matched = ""
+                included = False
+                for name in final_planned:
+                    if mv in name:
+                        included = True
+                        matched = name
+                        break
+                must_visit_coverage.append({
+                    "name": mv, "included": included, "matched_poi": matched,
+                })
+
+            covered = sum(1 for c in must_visit_coverage if c["included"])
+            logger.info(
+                "Must-visit coverage: %d/%d", covered, len(must_visit_coverage),
+            )
+
+        # Emit day_planned SSE events
+        for dp in daily_plans:
+            sse_events.append({
+                "type": "day_planned",
+                "content": f"第 {dp.get('day', '?')} 天规划完成：{len(dp.get('stops', []))} 个行程",
+            })
+
         logger.info("Created %d day plans", len(daily_plans))
-        return {"daily_plans": daily_plans}
+        return {
+            "daily_plans": daily_plans,
+            "must_visit_coverage": must_visit_coverage,
+            "sse_events": sse_events,
+        }

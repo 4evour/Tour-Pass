@@ -1,69 +1,72 @@
 ﻿# CHANGELOG
 
-## 2026-06-13 - 管理后台 POI 数据管理
+> **版本规范**: Major.架构变更 | Minor.新功能 | Patch.bug修复/数据更新
+> 每次发版打对应 git tag（如 `git tag -a v2.1.0`）。
 
-### 变更内容
-- include/tourpass/graph.h + src/graph.cpp — PoiGraph 新增 indMutablePoi(id) 方法，返回可变 POI 指针
-- include/tourpass/models.h + src/models.cpp — 新增 poiToJson() 序列化函数，将 Poi 对象转为完整 JSON
-- include/tourpass/data_loader.h + src/data_loader.cpp — 新增 savePois(path, pois) 函数，将 POI 数据写回 JSON 文件并保留原始 JSON 中的额外字段（source, source_id, _angle 等）
-- include/tourpass/api.h — CityBundle 新增 poisPath 字段，记录城市 POI 数据文件路径
-- src/main.cpp — 加载城市数据时设置 undle->poisPath
-- src/api.cpp — 新增 4 个管理员 API 端点：
-  - GET /admin/pois — 分页列表，支持城市/类型/关键词筛选
-  - GET /admin/pois/:id — 单个 POI 详情
-  - PUT /admin/pois/:id — 更新 POI 所有字段并写回磁盘
-  - PUT /admin/pois/:id/image — 快捷设置主图
-- web/admin.html — 新增「🏔️ 景点管理」tab，包含 POI 列表、编辑弹窗、图片挑选器，以及配套 CSS 样式
-- web/admin.js — 新增 POI 管理逻辑：城市切换、分页、搜索筛选、全字段编辑表单（含标签输入）、3 张高德图片对比挑选
+## v2.0.0 — 多Agent系统上线 (2026-06-16)
 
-### 原因
-需要一个管理员页面来管理所有城市的景点 POI 数据，特别是从每张景点的 3 张高德爬取图片中挑选最适合展示的主图。
+> **git tag**: `v2.0.0`
+> **回退标记**: `v1.0-legacy`（单Agent版本）
+>
+> 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
+> 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
-### 影响范围
-- C++ 后端：PoiGraph、models、data_loader、api 四个模块均有改动，需重新编译
-- 前端：admin.html 和 admin.js 新增大量代码，不影响现有用户端功能
-- 数据安全：POI 修改后直接写回对应城市的 pois.json 文件，保留原始 JSON 中的额外字段
-## 2026-06-13 16:35 - 高德照片批量下载（多 Key 轮换）
+### 2026-06-15 22:19 — 收紧质量门禁和交付边界
 
-### 变更内容
-- 修改 scripts/download_amap_photos.js：支持多 API Key 轮换、多城市批量爬取、按 POI 类型优先级排序
-- 新增 API Key: 64ca7624c4f373ec3b123b2298b81019
+#### 变更内容
+- .github/workflows/ci.yml、package.json、web/editor/package.json、scripts/run_python_test.js — CI 显式开启 `TOURPASS_BUILD_TESTS=ON`，增加全城市数据校验、数据校验回归测试、Python 多 Agent 测试、React editor Vitest 和 editor build；补充对应 npm scripts 和跨平台 Python 测试 runner。
+- scripts/validate_data.js、tests/test_validate_data_all_cities.js — 新增 `--all-cities` 与 `--data-dir`，逐个校验根数据和城市目录中的 `pois.json/edges.json`；新增回归测试确认坏城市数据会让全量校验失败。
+- web/editor/src/core/commands/__tests__/*、web/editor-dist/index.html、web/editor-dist/assets/index-hlZKmOB9.js — 修正 command 测试 fixture 与实际 `setDays` store API 一致；刷新已跟踪的 editor build 产物入口。
+- src/api.cpp、api_multi_agent.py — C++ 和 Agent CORS 改为环境变量白名单；C++ `/images` 与 Agent `/data/{city}/images/...` 只允许图片扩展名并限制在数据图片目录内，不再公开整个 data 目录。
+- Dockerfile、.dockerignore — 运行镜像不再复制 `scripts/`；Docker build context 排除采集脚本、XHS 会话/路线中间数据和大图片目录。
 
-### 原因
-原脚本只支持单 Key + 单城市（广州），无法高效覆盖 20 个城市的 9154 个待爬 POI。多 Key 轮换可将日限额从 5000 提升到 10000。
+#### 影响范围
+- CI：PR/Push 会运行更多测试和构建，耗时增加但能提前发现测试空跑、Agent 回归、editor 编译和多城市数据问题。
+- 运行时安全：跨域访问必须通过 `TOURPASS_ALLOWED_ORIGINS` 或 `AGENT_ALLOWED_ORIGINS` 显式配置；非图片数据不再能通过图片静态路径访问。
+- Docker：生产镜像体积和敏感采集中间文件暴露面降低。
 
-### 影响范围
-- data/*/pois.json：各城市 POI 将被补充 image_url 和 images 字段
-- data/*/images/：新增照片文件
-- output/amap-detail-cache/：API 响应缓存
+### 2026-06-15 17:18 — 多Agent上线入口与 R2 图片准备
 
-## 2026-06-13 17:15 - 高德照片全量爬取完成
+#### 变更内容
+- Dockerfile、entrypoint.sh、.dockerignore — 默认使用 `AGENT_IMPL=multi` 启动 `api_multi_agent:app`，保留 `AGENT_IMPL=legacy` 回滚入口；镜像复制多 Agent 根文件、agents/tools 目录和 requirements，并排除 `data/*/images/`。
+- src/api.cpp、include/tourpass/models.h、src/models.cpp、src/search.cpp、web/admin.js、api_multi_agent.py — 新增/接入图片 URL 解析逻辑，`ASSET_BASE_URL` 或 `TOURPASS_ASSET_BASE_URL` 存在时将相对图片路径解析为 CDN/R2 URL，绝对 URL 原样返回，避免 `/https://...`。
+- src/api.cpp、api_multi_agent.py — C++ proxy 增加 `/agent/plan-multi`；修复参数名；`/agent/health` 和 `/agent/stats` 返回 RAG 与 XHS 加载统计。
+- tools/xhs_loader.py、tools/route.py、agents/retrieve_agent.py、agents/scheduler_agent.py、agents/state.py、graph.py — 修复中文城市名读取、edges 字段读取；将 XHS 路线转为 POI 频次、同日共现、参考路线摘要并注入多 Agent 规划上下文。
+- scripts/upload_r2_assets.js — 新增 R2 上传脚本，支持 `--dry-run`、`--city`、`--only-amap`。
+- scripts/multi_agent_regression.py — 新增 21 城 `/agent/plan-sync` 回归脚本。
 
-### 变更内容
+#### 影响范围
+- 部署：Render Docker 运行 C++ 后端 + Python 多 Agent 双进程，旧单 Agent 通过环境变量回滚。
+- 图片：生产环境配置 CDN base 后，行程、搜索、POI 浏览和管理页展示可直接使用 CDN 图片 URL。
+- 多 Agent：Retrieve/Poi/Scheduler 可利用 XHS 路线信号。
+
+### 2026-06-13 17:37 — 小红书旅游路线爬虫与提取工具
+
+#### 变更内容
+- scripts/crawl_xhs_routes.js — 新增 API 方式路线爬虫
+- scripts/crawl_xhs_routes_browser.js — 新增 Playwright 浏览器方式路线爬虫
+- scripts/extract_routes.py — 新增 Python 路线提取脚本
+- data/guangzhou/xhs_routes.json — 从已有 191 条广州笔记中提取出 14 条完整路线
+
+### 2026-06-13 17:15 — 高德照片全量爬取完成
+
+#### 变更内容
 - 20 个城市共 2354/8519 个 POI 成功获取照片（27.6% 成功率）
-- 耗时 14 分钟（并发 5，双 Key 轮换）
 - 各城市 data/{city}/pois.json 的 image_url 和 images 字段已更新
 - 照片存储在 data/{city}/images/{poi_id}/ 下
 
-### 原因
-补充 POI 视觉数据，提升前端展示和用户体验。
+### 2026-06-13 16:35 — 高德照片批量下载（多 Key 轮换）
 
-### 影响范围
-- 20 个城市 pois.json 已更新（约 28% 的 POI 获得照片）
-- 剩余 72% 的 POI 在高德 Detail API 中无照片数据
-## 2026-06-13 17:37 - 小红书旅游路线爬虫与提取工具
+#### 变更内容
+- 修改 scripts/download_amap_photos.js：支持多 API Key 轮换、多城市批量爬取
 
-### 变更内容
-- scripts/crawl_xhs_routes.js — 新增 API 方式路线爬虫，通过小红书搜索 API 搜索完整行程路线笔记，LLM 提取结构化路线数据，输出到 data/{city}/xhs_routes.json
-- scripts/crawl_xhs_routes_browser.js — 新增 Playwright 浏览器方式路线爬虫，自动处理 cookie/鉴权，搜索路线相关笔记并提取内容
-- scripts/extract_routes.py — 新增 Python 路线提取脚本，从已有 XHS 笔记数据中用 LLM 提取结构化行程路线，支持多城市批量处理
-- data/guangzhou/xhs_routes.json — 从已有 191 条广州笔记中提取出 14 条完整路线
+### 2026-06-13 — 管理后台 POI 数据管理
 
-### 原因
-当前打分机制限制了 agent 路线规划的合理性，需要真实的小红书行程路线数据作为大模型学习路线规划的训练样本。新工具聚焦于提取完整的多日行程路线（而非单景点 tips）。
-
-### 影响范围
-- 新增 scripts/ 下 3 个脚本，不影响现有功能
-- data/guangzhou/xhs_routes.json 为新数据文件
-- 现有 XHS cookie 已过期，API 方式爬虫需要刷新 cookie 才能使用
-- 浏览器方式爬虫可自动处理鉴权，但需要 Playwright 环境
+#### 变更内容
+- include/tourpass/graph.h + src/graph.cpp — PoiGraph 新增 findMutablePoi(id) 方法
+- include/tourpass/models.h + src/models.cpp — 新增 poiToJson() 序列化函数
+- include/tourpass/data_loader.h + src/data_loader.cpp — 新增 savePois() 写回 JSON
+- include/tourpass/api.h — CityBundle 新增 poisPath 字段
+- src/api.cpp — 新增 4 个管理员 API 端点（GET/PUT /admin/pois）
+- web/admin.html — 新增「景点管理」tab
+- web/admin.js — POI 管理逻辑：城市切换、分页、搜索筛选、编辑表单

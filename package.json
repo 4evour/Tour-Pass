@@ -16,6 +16,11 @@
     "quality:algorithm": "node scripts/algorithm_quality_check.js",
     "load:test": "node scripts/load_test.js",
     "validate:data": "node scripts/validate_data.js",
+    "validate:data:all": "node scripts/validate_data.js --all-cities",
+    "test:validate-data-all": "node tests/test_validate_data_all_cities.js",
+    "test:multi-agent": "node scripts/run_python_test.js tests/test_multi_agent.py -v",
+    "editor:test": "npm --prefix web/editor run test",
+    "editor:build": "npm --prefix web/editor run build",
     "test:amap-pipeline": "node tests/test_amap_pipeline.js",
     "test:import-real-pois": "node tests/test_import_real_pois.js",
     "verify:ui": "node scripts/verify_ui.js"

@@ -21,9 +21,9 @@ const createMockStore = () => {
     days: [{ day: 1, stops: [
       { id: 'stop-1', poi: createMockPoi('poi-1', '橘子洲头'), arrival: 540, departure: 600, travelMinutes: 0 }
     ], hotel: null, startPoint: { type: 'hotel' as const, poi: null } }] as DayPlan[],
-    updateDay: (dayIndex: number, updates: Partial<DayPlan>) => {
-      Object.assign(store.days[dayIndex], updates);
-    }
+    setDays: (days: DayPlan[]) => {
+      store.days = days;
+    },
   };
   return store;
 };

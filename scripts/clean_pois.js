@@ -105,12 +105,6 @@ function hasBlacklistedName(name) {
 function findPoiFiles() {
     const files = [];
 
-    // data/pois.json (changsha)
-    const rootPois = path.join(DATA_DIR, 'pois.json');
-    if (fs.existsSync(rootPois)) {
-        files.push({ city: 'changsha', filePath: rootPois });
-    }
-
     // data/<city>/pois.json
     const entries = fs.readdirSync(DATA_DIR, { withFileTypes: true });
     for (const entry of entries) {

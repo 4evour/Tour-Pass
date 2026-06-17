@@ -5,7 +5,7 @@ const AMAP_DETAIL_URL = "https://restapi.amap.com/v3/place/detail";
 
 function parseArgs(argv) {
   const args = {
-    pois: "data/pois.json",
+    pois: "data/changsha/pois.json",
     outDir: "output/amap-details",
     cacheDir: "output/amap-cache",
     limit: 0, // 0 = all POIs with source_id

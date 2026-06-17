@@ -1,0 +1,919 @@
+[
+  {
+    "source_note_id": "6a059c960000000235021816",
+    "source_url": "https://www.xiaohongshu.com/explore/6a059c960000000235021816",
+    "source_title": "✨杭州3天2晚不绕路玩法是🚗🏞",
+    "source_likes": "524",
+    "crawled_at": "2026-06-14T10:56:52.611Z",
+    "city": "hangzhou",
+    "city_name": "杭州",
+    "days": 3,
+    "travel_style": "轻松舒适、经典打卡",
+    "season": "未知",
+    "budget_hint": "中等",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "西湖",
+            "duration_hint": "",
+            "activity": "游览西湖",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "断桥残雪",
+            "duration_hint": "",
+            "activity": "游览断桥残雪",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "曲院风荷",
+            "duration_hint": "",
+            "activity": "游览曲院风荷",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "苏堤春晓",
+            "duration_hint": "",
+            "activity": "游览苏堤春晓",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "雷峰塔",
+            "duration_hint": "",
+            "activity": "游览雷峰塔",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "西溪湿地",
+            "duration_hint": "",
+            "activity": "游览西溪湿地",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "西溪湿地博物馆",
+            "duration_hint": "",
+            "activity": "游览西溪湿地博物馆",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "拱宸桥",
+            "duration_hint": "",
+            "activity": "游览拱宸桥",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "小河直街",
+            "duration_hint": "",
+            "activity": "游览小河直街",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "武林夜市",
+            "duration_hint": "",
+            "activity": "游览武林夜市",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "灵隐寺",
+            "duration_hint": "",
+            "activity": "游览灵隐寺",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "法喜寺",
+            "duration_hint": "",
+            "activity": "游览法喜寺",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "杭州博物馆",
+            "duration_hint": "",
+            "activity": "游览杭州博物馆",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "河坊街",
+            "duration_hint": "",
+            "activity": "游览河坊街",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "南宋御街",
+            "duration_hint": "",
+            "activity": "游览南宋御街",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "西湖经典路线→西溪湿地+运河街区→灵隐寺+市区文化街，三日覆盖杭州核心景点。",
+    "tags": [
+      "杭州旅游",
+      "杭州",
+      "旅游攻略",
+      "对我友好的旅行",
+      "大学生毕业旅行",
+      "旅游万粉扶持计划",
+      "P人友好旅行",
+      "上有天堂下有苏杭",
+      "旅游不踩坑",
+      "交换春天"
+    ]
+  },
+  {
+    "source_note_id": "687903d6000000001203dbb0",
+    "source_url": "https://www.xiaohongshu.com/explore/687903d6000000001203dbb0",
+    "source_title": "杭州三日游保姆级游玩攻略+避坑指南",
+    "source_likes": "17950",
+    "crawled_at": "2026-06-14T10:57:17.599Z",
+    "city": "hangzhou",
+    "city_name": "杭州",
+    "days": 3,
+    "travel_style": "懒人旅行，不绕路",
+    "season": "夏季（暑假）",
+    "budget_hint": "经济型，住宿人均150r，餐饮正常消费",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "西湖环线骑行（断桥残雪出发，沿白堤→孤山→苏堤）",
+            "duration_hint": "约2-3小时",
+            "activity": "骑行游览西湖",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "断桥残雪",
+            "duration_hint": "约30分钟",
+            "activity": "游览",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "曲院风荷",
+            "duration_hint": "约1小时",
+            "activity": "赏荷花",
+            "transport_to_next": "步行/公交"
+          },
+          {
+            "time_hint": "下午",
+            "name": "三潭印月",
+            "duration_hint": "约1.5小时",
+            "activity": "乘船游览",
+            "transport_to_next": "乘船"
+          },
+          {
+            "time_hint": "下午",
+            "name": "雷峰塔",
+            "duration_hint": "约1小时",
+            "activity": "参观",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "太子湾",
+            "duration_hint": "约1.5小时",
+            "activity": "散步发呆",
+            "transport_to_next": "无"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "灵隐寺",
+            "duration_hint": "约2小时",
+            "activity": "上香祈福",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "飞来峰",
+            "duration_hint": "约1.5小时",
+            "activity": "登山游览",
+            "transport_to_next": "公交"
+          },
+          {
+            "time_hint": "中午",
+            "name": "法喜寺",
+            "duration_hint": "约1小时",
+            "activity": "上香祈福",
+            "transport_to_next": "公交"
+          },
+          {
+            "time_hint": "下午",
+            "name": "杭州博物馆",
+            "duration_hint": "约2小时",
+            "activity": "参观",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "南宋御街",
+            "duration_hint": "约1小时",
+            "activity": "逛街",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "河坊街",
+            "duration_hint": "约1小时",
+            "activity": "逛街吃美食",
+            "transport_to_next": "无"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "中国湿地博物馆",
+            "duration_hint": "约1.5小时",
+            "activity": "参观",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "西溪湿地",
+            "duration_hint": "约2-3小时",
+            "activity": "游览",
+            "transport_to_next": "公交"
+          },
+          {
+            "time_hint": "中午",
+            "name": "杭州植物园",
+            "duration_hint": "约1.5小时",
+            "activity": "赏植物",
+            "transport_to_next": "公交"
+          },
+          {
+            "time_hint": "下午",
+            "name": "小河直街",
+            "duration_hint": "约1小时",
+            "activity": "citywalk拍照",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "拱宸桥",
+            "duration_hint": "约30分钟",
+            "activity": "游览",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "武林夜市",
+            "duration_hint": "约1小时",
+            "activity": "逛夜市",
+            "transport_to_next": "无"
+          }
+        ]
+      }
+    ],
+    "route_summary": "三日游杭州，第一天环西湖游览经典景点，第二天寺庙与历史文化街区，第三天湿地与文艺老街。",
+    "tags": [
+      "杭州旅游",
+      "杭州旅行",
+      "杭州旅游攻略",
+      "西湖",
+      "暑假旅行",
+      "寺庙旅行",
+      "懒人攻略"
+    ]
+  },
+  {
+    "source_note_id": "69ce78bf000000022300de95",
+    "source_url": "https://www.xiaohongshu.com/explore/69ce78bf000000022300de95",
+    "source_title": "",
+    "source_likes": "29",
+    "crawled_at": "2026-06-14T10:57:32.363Z",
+    "city": "hangzhou",
+    "city_name": "杭州",
+    "days": 3,
+    "travel_style": "春日逛吃游",
+    "season": "春季",
+    "budget_hint": "住宿选择多样，预算可根据区域灵活调整",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "西湖",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "曲院风荷",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "雷峰塔",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "太子湾",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "灵隐寺",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "法喜寺",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "浙江省博物馆",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "河坊街",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "西溪湿地",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "杭州植物园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "小河直街",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "武林夜市",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "三日杭州经典路线：Day1游览西湖核心景点（西湖、曲院风荷、雷峰塔、太子湾）；Day2体验佛教文化（灵隐寺、法喜寺）及博物馆与古街（浙江省博物馆、河坊街）；Day3探索西溪湿地、植物园，漫步小河直街，夜游武林夜市。",
+    "tags": [
+      "杭州旅游攻略",
+      "西湖",
+      "灵隐寺",
+      "西溪湿地",
+      "河坊街",
+      "太子湾",
+      "雷峰塔",
+      "杭州植物园",
+      "小河直街",
+      "武林夜市"
+    ]
+  },
+  {
+    "source_note_id": "68d2752f000000021201fb71",
+    "source_url": "https://www.xiaohongshu.com/explore/68d2752f000000021201fb71",
+    "source_title": "杭州三天两夜！！超详细攻略🌳附citywalk路线",
+    "source_likes": "330",
+    "crawled_at": "2026-06-14T10:57:59.757Z",
+    "city": "hangzhou",
+    "city_name": "杭州",
+    "days": 3,
+    "travel_style": "特种兵式城市打卡",
+    "season": "秋季",
+    "budget_hint": "无具体提示",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "浙江美术馆",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "柳浪闻莺东门",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "新横河桥",
+            "duration_hint": "",
+            "activity": "打卡绿野仙踪机位",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "芳华亭",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "钱王祠",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "集贤亭",
+            "duration_hint": "",
+            "activity": "看日落的好位置",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "晚上",
+            "name": "武林夜市",
+            "duration_hint": "",
+            "activity": "吃晚饭",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "灵隐寺",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "法喜寺",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "虎跑公园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "肖峰艺术馆",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "太子湾公园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "良渚古城遗址公园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "杭州国家版本馆",
+            "duration_hint": "",
+            "activity": "打卡肖战同款",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "良渚博物院",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "良渚文化艺术中心",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "单向空间",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "玉鸟集",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "三天行程覆盖杭州西湖核心区（浙江美术馆至武林夜市）、灵隐与虎跑景区、良渚文化区域，以打卡机位和热门景点为主。",
+    "tags": [
+      "杭州旅游",
+      "杭州三天两夜",
+      "杭州国庆旅游",
+      "citywalk",
+      "特种兵旅游"
+    ]
+  },
+  {
+    "source_note_id": "698c7359000000021d02d62d",
+    "source_url": "https://www.xiaohongshu.com/explore/698c7359000000021d02d62d",
+    "source_title": "06 女大📍杭州 / 四天三晚 超爽攻略",
+    "source_likes": "16",
+    "crawled_at": "2026-06-14T10:59:15.546Z",
+    "city": "hangzhou",
+    "city_name": "杭州",
+    "days": 3,
+    "travel_style": "佛系慢游，文艺休闲",
+    "season": "未知",
+    "budget_hint": "中等偏下，适合大学生",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午至下午",
+            "name": "西湖（断桥残雪→苏堤春晓→三潭印月）",
+            "duration_hint": "未提及",
+            "activity": "游览西湖经典景点，感受诗意江南",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "河坊街",
+            "duration_hint": "未提及",
+            "activity": "品尝葱包烩、定胜糕等小吃",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "南宋御街",
+            "duration_hint": "未提及",
+            "activity": "逛街，品尝知味观小笼包、吴山烤鸡",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "吴山广场",
+            "duration_hint": "未提及",
+            "activity": "休闲散步",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "武林夜市",
+            "duration_hint": "未提及",
+            "activity": "品尝网红舒芙蕾、老杭州片儿川、烤苕皮",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "灵隐寺",
+            "duration_hint": "未提及",
+            "activity": "参拜千年古刹，感受禅意",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "上午",
+            "name": "飞来峰",
+            "duration_hint": "未提及",
+            "activity": "登山观景，欣赏石刻",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "龙井村",
+            "duration_hint": "未提及",
+            "activity": "品尝龙井虾仁、茶香鸡、农家土菜",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "九溪烟树",
+            "duration_hint": "未提及",
+            "activity": "漫步溪边，品龙井新茶配杭帮小菜",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "钱塘江大桥",
+            "duration_hint": "未提及",
+            "activity": "欣赏钱塘江夜景",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "中国美术学院（象山校区）",
+            "duration_hint": "未提及",
+            "activity": "参观艺术校园，感受文艺氛围",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "宋城",
+            "duration_hint": "未提及",
+            "activity": "体验宋代主题公园，观看演出",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "杭州大剧院",
+            "duration_hint": "未提及",
+            "activity": "欣赏建筑外观",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "钱江新城灯光秀",
+            "duration_hint": "未提及",
+            "activity": "观赏城市灯光秀",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "四天三晚中的三天游玩：第一天西湖及周边老街夜市，第二天灵隐寺、龙井九溪及钱塘江，第三天美院、宋城及钱江新城灯光秀。住宿推荐地铁1号线龙翔桥站附近。",
+    "tags": [
+      "杭州旅游",
+      "大学生",
+      "西湖",
+      "灵隐寺",
+      "龙井村",
+      "九溪烟树",
+      "南宋御街",
+      "佛系旅游",
+      "江南烟雨"
+    ]
+  },
+  {
+    "source_note_id": "69b02a090000000216000dee",
+    "source_url": "https://www.xiaohongshu.com/explore/69b02a090000000216000dee",
+    "source_title": "广州✈️杭州｜4天3晚不挤人版旅行攻略",
+    "source_likes": "26",
+    "crawled_at": "2026-06-14T10:59:40.221Z",
+    "city": "hangzhou",
+    "city_name": "杭州",
+    "days": 4,
+    "travel_style": "慢行、小众、清净，避人潮深度游",
+    "season": "冬季",
+    "budget_hint": "中等预算（门票+交通+餐饮约800-1200元/人）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "下午4点后",
+            "name": "断桥残雪",
+            "duration_hint": "约30分钟",
+            "activity": "冬季下午西湖人少，欣赏断桥残雪景观，拍摄日落",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "孤山",
+            "duration_hint": "约1小时",
+            "activity": "漫步孤山，感受西湖宁静",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "平湖秋月",
+            "duration_hint": "约30分钟",
+            "activity": "赏湖景，拍摄冬日月色",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "曲院风荷",
+            "duration_hint": "约1小时",
+            "activity": "��摄冬季芦苇枯枝，国画感十足，建议穿浅色衣服",
+            "transport_to_next": "步行结束"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "午前（上午）",
+            "name": "云栖竹径",
+            "duration_hint": "约1.5小时",
+            "activity": "穿行竹海，感受幽深竹林",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "中午",
+            "name": "五云山真际寺",
+            "duration_hint": "约40分钟",
+            "activity": "探访古寺，欣赏山景",
+            "transport_to_next": "步行（山脊穿行）"
+          },
+          {
+            "time_hint": "下午",
+            "name": "南高峰",
+            "duration_hint": "约1.5小时",
+            "activity": "山脊徒步，俯瞰西湖与茶田，人少景美",
+            "transport_to_next": "步行下山至龙井村"
+          },
+          {
+            "time_hint": "傍晚前",
+            "name": "龙井村",
+            "duration_hint": "约1小时",
+            "activity": "漫步茶村，品尝龙井茶，休息调整",
+            "transport_to_next": "步行结束"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第��天",
+        "stops": [
+          {
+            "time_hint": "清晨（建议7:30前抵达）",
+            "name": "灵隐寺",
+            "duration_hint": "约1小时",
+            "activity": "晨谒古寺，求签祈福（报姓名+生辰+住址+具体愿望），穿素色衣服，勿拍佛像",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "永福寺",
+            "duration_hint": "约40分钟",
+            "activity": "永福寺参拜，感受林泉清幽",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "韬光寺",
+            "duration_hint": "约40分钟",
+            "activity": "韬光寺巡礼，禅意随行",
+            "transport_to_next": "步行上山"
+          },
+          {
+            "time_hint": "中午前",
+            "name": "财神庙（灵顺寺）",
+            "duration_hint": "约40分钟",
+            "activity": "步行上山诚意满满，求财许愿（据传灵验），俯瞰杭州全景",
+            "transport_to_next": "步行下山结束"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "九溪烟树",
+            "duration_hint": "约1小时",
+            "activity": "冬季溪面起雾，如山水画，红叶虽落仍具韵味",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "九溪十八涧",
+            "duration_hint": "约1.5小时",
+            "activity": "踏行结薄霜的石头路，故事感满满",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "中午",
+            "name": "龙井村",
+            "duration_hint": "约1小时",
+            "activity": "漫步冬日茶谷，休憩品茶，结束行程",
+            "transport_to_next": "无"
+          }
+        ]
+      }
+    ],
+    "route_summary": "四天三晚杭州小众不挤人路线：第一天下午西湖断桥残雪至曲院风荷，享受冬季黄昏水墨天光；第二天从云栖竹径经五云山真际寺、南高峰徒步至龙井村，体验本地人钟爱的山野秘境；第三天早起从灵隐6号门进入，依次游览灵隐寺、永福寺、韬光寺并步行至财神庙，祈福避人流；第四天漫步九溪烟树、九溪十八涧至龙井村，感受冬日茶谷静谧。",
+    "tags": [
+      "杭州旅游",
+      "冬季旅行",
+      "小���路线",
+      "西湖",
+      "灵隐寺",
+      "九溪",
+      "徒步",
+      "祈福",
+      "龙井村",
+      "南高峰"
+    ]
+  }
+]

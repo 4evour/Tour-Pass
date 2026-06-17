@@ -19,9 +19,9 @@ const createMockPoi = (id: string, name: string): Poi => ({
 const createMockStore = (initialStops: Stop[] = []) => {
   const store = {
     days: [{ day: 1, stops: initialStops, hotel: null, startPoint: { type: 'hotel' as const, poi: null } }] as DayPlan[],
-    updateDay: (dayIndex: number, updates: Partial<DayPlan>) => {
-      Object.assign(store.days[dayIndex], updates);
-    }
+    setDays: (days: DayPlan[]) => {
+      store.days = days;
+    },
   };
   return store;
 };

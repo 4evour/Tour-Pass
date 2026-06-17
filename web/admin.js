@@ -218,6 +218,13 @@ function escHtml(t) {
     .replace(/'/g, "&#39;");
 }
 
+function assetUrl(url) {
+  if (!url) return "";
+  const value = String(url);
+  if (/^(https?:|data:|\/)/i.test(value)) return value;
+  return "/" + value;
+}
+
 // Event delegation for dynamically rendered buttons (CSP-safe)
 document.addEventListener("click", (e) => {
   const promoteBtn = e.target.closest(".promote-btn");
@@ -302,7 +309,7 @@ function renderPoiList(pois) {
   }
   list.innerHTML = pois.map(poi => {
     const img = poi.image_url
-      ? `<img class="poi-thumb" src="/${escHtml(poi.image_url)}" alt="" loading="lazy" onerror="this.outerHTML='<div class=poi-thumb-placeholder>🏔</div>'">`
+      ? `<img class="poi-thumb" src="${escHtml(assetUrl(poi.image_url))}" alt="" loading="lazy" onerror="this.outerHTML='<div class=poi-thumb-placeholder>🏔</div>'">`
       : '<div class="poi-thumb-placeholder">🏔</div>';
     const typeLabel = { attraction: "景点", restaurant: "餐厅", hotel: "酒店", transit: "交通", nightlife: "夜间" }[poi.type] || poi.type;
     return `
@@ -433,7 +440,7 @@ async function openImagePicker(poiId, city) {
     imagePickerPoi = poi;
     selectedImageUrl = poi.image_url || "";
     const body = document.getElementById("imagePickerBody");
-    let html = `<div class="img-picker-current">当前主图：${poi.image_url ? `<img src="/${escHtml(poi.image_url)}" />` : '无'}</div>`;
+    let html = `<div class="img-picker-current">当前主图：${poi.image_url ? `<img src="${escHtml(assetUrl(poi.image_url))}" />` : '无'}</div>`;
     if (!poi.images || poi.images.length === 0) {
       html += '<div class="admin-error">该 POI 暂无候选图片</div>';
     } else {
@@ -442,7 +449,7 @@ async function openImagePicker(poiId, city) {
         const isSelected = img.url === selectedImageUrl;
         html += `
           <div class="img-picker-card ${isSelected ? 'selected' : ''}" data-url="${escHtml(img.url)}">
-            <img src="/${escHtml(img.url)}" alt="图片 ${i + 1}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22150%22><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23999%22>加载失败</text></svg>'">
+            <img src="${escHtml(assetUrl(img.url))}" alt="图片 ${i + 1}" loading="lazy" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22150%22><text x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23999%22>加载失败</text></svg>'">
             <div class="img-label">${escHtml(img.source || 'unknown')} #${i + 1}</div>
           </div>`;
       });

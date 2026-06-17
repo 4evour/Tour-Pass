@@ -93,7 +93,7 @@ async function main() {
   let totalAdded = 0;
 
   for (const city of CITIES) {
-    const f = city.dir === 'changsha' ? 'data/pois.json' : path.join('data', city.dir, 'pois.json');
+    const f = path.join('data', city.dir, 'pois.json');
     if (!fs.existsSync(f)) { console.log(`${city.name}: file not found, skip`); continue; }
 
     const existingPois = JSON.parse(fs.readFileSync(f, 'utf-8'));

@@ -1,14 +1,22 @@
-WARNING: 22 POIs are unreachable from the main graph component. This may indicate missing edges in data/dali/edges.json
-WARNING: 26 POIs are unreachable from the main graph component. This may indicate missing edges in data/lijiang/edges.json
-WARNING: 10 POIs are unreachable from the main graph component. This may indicate missing edges in data/chengdu/edges.json
-WARNING: 483 POIs are unreachable from the main graph component. This may indicate missing edges in data/chongqing/edges.json
-WARNING: 12 POIs are unreachable from the main graph component. This may indicate missing edges in data/hangzhou/edges.json
-WARNING: 2 POIs are unreachable from the main graph component. This may indicate missing edges in data/beijing/edges.json
-WARNING: 5 POIs are unreachable from the main graph component. This may indicate missing edges in data/shanghai/edges.json
-WARNING: 12 POIs are unreachable from the main graph component. This may indicate missing edges in data/qingdao/edges.json
-WARNING: 82 POIs are unreachable from the main graph component. This may indicate missing edges in data/guilin/edges.json
-WARNING: 2 POIs are unreachable from the main graph component. This may indicate missing edges in data/sanya/edges.json
-WARNING: 2 POIs are unreachable from the main graph component. This may indicate missing edges in data/kunming/edges.json
-LLM HTTP client init failed: 'https' scheme is not supported.
-WARNING: Building without OpenSSL. Password hashing and JWT signatures use insecure fallbacks.
-WARNING: Production deployments MUST enable TOURPASS_ENABLE_OPENSSL.
+WARNING: 310 POIs are unreachable from the main graph component. This may indicate missing edges in data/wuhan/edges.json
+WARNING: 150 POIs are unreachable from the main graph component. This may indicate missing edges in data/dali/edges.json
+WARNING: 112 POIs are unreachable from the main graph component. This may indicate missing edges in data/lijiang/edges.json
+WARNING: 311 POIs are unreachable from the main graph component. This may indicate missing edges in data/nanjing/edges.json
+WARNING: 268 POIs are unreachable from the main graph component. This may indicate missing edges in data/suzhou/edges.json
+WARNING: 93 POIs are unreachable from the main graph component. This may indicate missing edges in data/chengdu/edges.json
+WARNING: 370 POIs are unreachable from the main graph component. This may indicate missing edges in data/chongqing/edges.json
+WARNING: 375 POIs are unreachable from the main graph component. This may indicate missing edges in data/xian/edges.json
+WARNING: 353 POIs are unreachable from the main graph component. This may indicate missing edges in data/hangzhou/edges.json
+WARNING: 270 POIs are unreachable from the main graph component. This may indicate missing edges in data/beijing/edges.json
+WARNING: 419 POIs are unreachable from the main graph component. This may indicate missing edges in data/shanghai/edges.json
+WARNING: 233 POIs are unreachable from the main graph component. This may indicate missing edges in data/guangzhou/edges.json
+WARNING: 242 POIs are unreachable from the main graph component. This may indicate missing edges in data/shenzhen/edges.json
+WARNING: 425 POIs are unreachable from the main graph component. This may indicate missing edges in data/xiamen/edges.json
+WARNING: 351 POIs are unreachable from the main graph component. This may indicate missing edges in data/qingdao/edges.json
+WARNING: 389 POIs are unreachable from the main graph component. This may indicate missing edges in data/guilin/edges.json
+WARNING: 242 POIs are unreachable from the main graph component. This may indicate missing edges in data/sanya/edges.json
+WARNING: 273 POIs are unreachable from the main graph component. This may indicate missing edges in data/harbin/edges.json
+WARNING: 308 POIs are unreachable from the main graph component. This may indicate missing edges in data/kunming/edges.json
+WARNING: 148 POIs are unreachable from the main graph component. This may indicate missing edges in data/zhangjiajie/edges.json
+TOURPASS_JWT_SECRET environment variable is required
+Set TOURPASS_JWT_SECRET environment variable.

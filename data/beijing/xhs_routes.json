@@ -1,0 +1,3872 @@
+[
+  {
+    "source_note_id": "67a21cb8000000002901cda4",
+    "source_url": "https://www.xiaohongshu.com/explore/67a21cb8000000002901cda4?xsec_token=ABRrca8RdezZCKw-ZpJVKeRYx0D6COTdjGkfd_pAnc27A%3D&xsec_source=pc_search",
+    "source_title": "手机号登录",
+    "source_likes": "5",
+    "crawled_at": "2026-06-13T09:43:46.428Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 2,
+    "travel_style": "休闲",
+    "season": "秋季",
+    "budget_hint": "中等",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门广场",
+            "duration_hint": "1.5小时",
+            "activity": "看升旗仪式，拍摄人民英雄纪念碑、人民大会堂",
+            "transport_to_next": "地铁"
+          },
+          {
+            "time_hint": "上午",
+            "name": "故宫博物院",
+            "duration_hint": "3.5小时",
+            "activity": "游览午门、三大殿、东西六宫、御花园、神武门",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "景山公园",
+            "duration_hint": "1小时",
+            "activity": "登顶万春亭，俯瞰故宫全景",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "南锣鼓巷+什刹海",
+            "duration_hint": "3小时",
+            "activity": "逛胡同小店，什刹海划船或滑冰",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "颐和园",
+            "duration_hint": "3.5小时",
+            "activity": "游览东宫门、长廊、佛香阁、昆明湖游船、十七孔桥",
+            "transport_to_next": "地铁"
+          },
+          {
+            "time_hint": "下午",
+            "name": "圆明园",
+            "duration_hint": "2.5小时",
+            "activity": "参观遗址公园",
+            "transport_to_next": "地铁"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "奥林匹克公园",
+            "duration_hint": "1.5小时",
+            "activity": "欣赏银杏叶，打卡鸟巢、水立方夜景",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "第一天沿中轴线游览天安门、故宫、景山和胡同区，第二天转至皇家园林颐和园、圆明园并打卡奥运地标",
+    "tags": [
+      "北京旅游",
+      "故宫",
+      "颐和园",
+      "圆明园",
+      "南锣鼓巷",
+      "北京中轴线",
+      "奥林匹克公园"
+    ]
+  },
+  {
+    "source_note_id": "69aef2b4000000001a0370a2",
+    "source_url": "https://www.xiaohongshu.com/explore/69aef2b4000000001a0370a2?xsec_token=AB1IX7Yvs5G90YQReQKJzkidahEN0UueM2Y2Cyq1f7eK4%3D&xsec_source=pc_search",
+    "source_title": "手机号登录",
+    "source_likes": "0",
+    "crawled_at": "2026-06-13T09:44:04.556Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 2,
+    "travel_style": "休闲/情侣/朋友结伴",
+    "season": "全年",
+    "budget_hint": "中等",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门周边",
+            "duration_hint": "未提及",
+            "activity": "感受城市中轴线",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "故宫或景山（二选一）",
+            "duration_hint": "未提及",
+            "activity": "如果怕排队，选景山+北海，风景更轻松",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "什刹海、烟袋斜街",
+            "duration_hint": "未提及",
+            "activity": "慢慢逛",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南锣鼓巷附近",
+            "duration_hint": "未提及",
+            "activity": "吃饭、拍照",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "雍和宫或国子监街",
+            "duration_hint": "未提及",
+            "activity": "街区氛围有北京味",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "中午",
+            "name": "铜锅涮肉或京味小馆",
+            "duration_hint": "未提及",
+            "activity": "午餐",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "798、三里屯、亮马河",
+            "duration_hint": "未提及",
+            "activity": "现代区域，买伴手礼",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "返程",
+            "duration_hint": "未提及",
+            "activity": "结束旅程",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "北京2天1夜轻松休闲路线，结合古都文化（天安门、景山、什刹海）与现代文艺（798、三里屯），适合周末放松。",
+    "tags": [
+      "北京周末游",
+      "北京旅游攻略",
+      "2天1夜",
+      "citywalk",
+      "故宫",
+      "什刹海",
+      "南锣鼓巷",
+      "798",
+      "雍和宫",
+      "国子监"
+    ]
+  },
+  {
+    "source_note_id": "6940f1b1000000001f00b5de",
+    "source_url": "https://www.xiaohongshu.com/explore/6940f1b1000000001f00b5de?xsec_token=ABC7Y0TooVxkmAMDA7mlp7XM7P47MBLMBcZU7Wvh-7LIo%3D&xsec_source=pc_search",
+    "source_title": "手机号登录",
+    "source_likes": "42",
+    "crawled_at": "2026-06-13T09:45:14.061Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 2,
+    "travel_style": "亲子",
+    "season": "秋季",
+    "budget_hint": "中等",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "密云水库展览馆",
+            "duration_hint": "未提及",
+            "activity": "俯瞰密云水库及周边地理环境的景观模型，参观搬迁村落和历史照片",
+            "transport_to_next": "开车"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "中国航空工业历史博物馆",
+            "duration_hint": "未提及",
+            "activity": "室内外展区，观赏各种飞机模型，了解中国航空工业发展史",
+            "transport_to_next": "开车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "密云水库",
+            "duration_hint": "未提及",
+            "activity": "大门右转步行9分钟直接观看水库；可选导航至密云水库观景台登高观水库",
+            "transport_to_next": "开车"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "不老屯镇",
+            "duration_hint": "未提及",
+            "activity": "入住小镇民宿（配有麻将桌和KTV），附近有免费水库观景台",
+            "transport_to_next": "开车"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "国家天文台密云站（外观）",
+            "duration_hint": "未提及",
+            "activity": "《三体》原型，拍照有科幻效果，可自备设备观星",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "云峰山自然风景区（暂停开放）",
+            "duration_hint": "未提及",
+            "activity": "远眺密云水库，步行或坐摆渡车上山，有儿童滑梯等设施",
+            "transport_to_next": "开车"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "回程",
+            "duration_hint": "未提及",
+            "activity": "结束行程",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "以密云水库为核心，结合航空博物馆科普、不老屯镇民宿体验和国家天文台观星，适合亲子的两天一夜自然与科技之旅。",
+    "tags": [
+      "北京周边游",
+      "北京亲子游",
+      "不老屯",
+      "密云水库",
+      "航空博物馆",
+      "我的宝藏遛娃地",
+      "北京周末去哪儿",
+      "北京周末遛娃",
+      "北京遛娃"
+    ]
+  },
+  {
+    "source_note_id": "681231cc0000000023013523",
+    "source_url": "https://www.xiaohongshu.com/explore/681231cc0000000023013523?xsec_token=ABcP6E9IMZDhhj2XpMUtHilDqZbqqLxiRiPlTbvaRNSb4%3D&xsec_source=pc_search",
+    "source_title": "北京旅游攻略不走回头路。",
+    "source_likes": "511",
+    "crawled_at": "2026-06-13T09:39:53.392Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "休闲",
+    "season": "未提及",
+    "budget_hint": "中等",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门广场",
+            "duration_hint": "未提及",
+            "activity": "参观世界最大城市广场，观看升旗仪式，瞻仰毛主席纪念堂（均免费）",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "中午",
+            "name": "天安门广场附近",
+            "duration_hint": "未提及",
+            "activity": "品尝北京特色小吃，如炸酱面、豆汁焦圈等",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "故宫博物院",
+            "duration_hint": "未提及",
+            "activity": "从午门进入，沿中轴线参观太和殿、中和殿、保和殿等主要宫殿，门票旺季60元/淡季40元",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "景山公园",
+            "duration_hint": "未提及",
+            "activity": "从故宫神武门出对面即到，登顶俯瞰故宫全景和北京中轴线夜景，门票2元",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "前门大街和大栅栏",
+            "duration_hint": "未提及",
+            "activity": "品尝全聚德烤鸭等美食，感受老北京繁华",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天坛公园",
+            "duration_hint": "未提及",
+            "activity": "参观祈年殿、回音壁等，门票15元",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "中午",
+            "name": "天坛公园附近",
+            "duration_hint": "未提及",
+            "activity": "就餐，选择北京涮羊肉等美食",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "恭王府",
+            "duration_hint": "未提及",
+            "activity": "参观清代最大规模王府，府邸和花园，门票40元",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "什刹海",
+            "duration_hint": "未提及",
+            "activity": "湖边散步，欣赏湖光山色，可体验人力三轮车游览胡同",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "什刹海附近餐厅",
+            "duration_hint": "未提及",
+            "activity": "享用晚餐，品尝烤肉季烤肉等，饭后欣赏什刹海夜景",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "北京奥林匹克公园",
+            "duration_hint": "未提及",
+            "activity": "参观鸟巢、水立方外部拍照及内部参观（单独购票），免费",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "中午",
+            "name": "奥林匹克公园附近餐厅",
+            "duration_hint": "未提及",
+            "activity": "就餐，选择多样包括各国美食",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "八达岭长城",
+            "duration_hint": "未提及",
+            "activity": "徒步攀登或坐缆车，欣赏长城雄伟景色，门票旺季45元/淡季40元",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "从历史文化核心（天安门、故宫、景山）到皇家园林（天坛、恭王府、什刹海），再到现代奥运与长城，三天覆盖北京经典景点，路线顺畅不重复。",
+    "tags": [
+      "北京旅游",
+      "故宫",
+      "天安门",
+      "长城",
+      "恭王府",
+      "天坛",
+      "什刹海",
+      "鸟巢",
+      "水立方"
+    ]
+  },
+  {
+    "source_note_id": "6a2cd2a5000000000803f087",
+    "source_url": "https://www.xiaohongshu.com/explore/6a2cd2a5000000000803f087?xsec_token=ABMKxHKAuDk-c_L13Xhi7BevgAET_4ptMUHb9kujr7A6g%3D&xsec_source=pc_search",
+    "source_title": "北京第一次去，建议你照着这张图走",
+    "source_likes": "1",
+    "crawled_at": "2026-06-13T09:40:07.195Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "休闲",
+    "season": "全年",
+    "budget_hint": "未提及",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门",
+            "duration_hint": "1小时",
+            "activity": "参观天安门广场",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "故宫",
+            "duration_hint": "3小时",
+            "activity": "游览故宫博物院",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "景山",
+            "duration_hint": "1小时",
+            "activity": "登景山俯瞰故宫全景",
+            "transport_to_next": "步行或公交"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "王府井",
+            "duration_hint": "2小时",
+            "activity": "逛街、品尝小吃",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天坛",
+            "duration_hint": "2小时",
+            "activity": "参观祈年殿、回音壁",
+            "transport_to_next": "步行或公交"
+          },
+          {
+            "time_hint": "中午",
+            "name": "前门",
+            "duration_hint": "1小时",
+            "activity": "散步、吃小吃",
+            "transport_to_next": "地铁或打车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "颐和园 / 圆明园",
+            "duration_hint": "半天",
+            "activity": "选择颐和园或圆明园游览",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "八达岭长城",
+            "duration_hint": "半天",
+            "activity": "登长城",
+            "transport_to_next": "公交或旅游专线"
+          },
+          {
+            "time_hint": "下午至晚上",
+            "name": "十三陵 / 鸟巢水立方",
+            "duration_hint": "半天",
+            "activity": "选择十三陵或晚上参观鸟巢水立方",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "按照区域分天游览，第一天核心区（天安门、故宫、景山、王府井），第二天南城加西北（天坛、前门、颐和园/圆明园），第三天远郊加奥运（八达岭长城、十三陵或鸟巢水立方），适合第一次去北京的游客。",
+    "tags": [
+      "行程路线安排",
+      "北京旅游",
+      "第一次去北京",
+      "故宫",
+      "长城",
+      "天坛",
+      "颐和园"
+    ]
+  },
+  {
+    "source_note_id": "69faf670000000003601b5f4",
+    "source_url": "https://www.xiaohongshu.com/explore/69faf670000000003601b5f4?xsec_token=AB8Q6bEMa36iKCR7JoW76ZIZCnfa0vs1GRsC3wuFJr1rs%3D&xsec_source=pc_search",
+    "source_title": "北京三天两晚｜保姆级旅游攻略✨（含预算）",
+    "source_likes": "9",
+    "crawled_at": "2026-06-13T09:40:32.208Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "休闲",
+    "season": "春秋",
+    "budget_hint": "未提及",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门广场",
+            "duration_hint": "未提及",
+            "activity": "游览天安门广场",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "上午",
+            "name": "故宫博物院",
+            "duration_hint": "未提及",
+            "activity": "参观故宫",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "景山公园",
+            "duration_hint": "未提及",
+            "activity": "俯瞰故宫全景",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "什刹海",
+            "duration_hint": "未提及",
+            "activity": "漫步什刹海",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南锣鼓巷夜景",
+            "duration_hint": "未提及",
+            "activity": "逛南锣鼓巷夜市",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "颐和园",
+            "duration_hint": "未提及",
+            "activity": "游览皇家园林",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "圆明园",
+            "duration_hint": "未提及",
+            "activity": "参观圆明园遗址",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "慕田峪长城",
+            "duration_hint": "未提及",
+            "activity": "登长城",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "市区夜市",
+            "duration_hint": "未提及",
+            "activity": "逛市区夜市",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天坛公园",
+            "duration_hint": "未提及",
+            "activity": "游览天坛",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "中午",
+            "name": "雍和宫",
+            "duration_hint": "未提及",
+            "activity": "祈福参观",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "牛街美食打卡",
+            "duration_hint": "未提及",
+            "activity": "品尝牛街小吃",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "国贸CBD夜景",
+            "duration_hint": "未提及",
+            "activity": "欣赏CBD夜景",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "三天时间覆盖北京中轴线古迹、皇家园林、长城和现代CBD，顺路不绕路",
+    "tags": [
+      "旅游",
+      "旅游攻略",
+      "北京",
+      "故宫",
+      "长城"
+    ]
+  },
+  {
+    "source_note_id": "6a0597fe000000003501c739",
+    "source_url": "https://www.xiaohongshu.com/explore/6a0597fe000000003501c739?xsec_token=ABFg3q-SYjr-jfeTM9iM62Z3_SR5xRJ7jV9wzQim4W3ik%3D&xsec_source=pc_search",
+    "source_title": "手机号登录",
+    "source_likes": "918",
+    "crawled_at": "2026-06-13T09:43:01.964Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "未提及",
+    "season": "未提及",
+    "budget_hint": "未提及",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "天安门广场",
+            "duration_hint": "未提及",
+            "activity": "参观天安门广场",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "毛主席纪念堂",
+            "duration_hint": "未提及",
+            "activity": "参观毛主席纪念堂",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "人民大会堂",
+            "duration_hint": "未提及",
+            "activity": "参观人民大会堂",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "天安门城楼",
+            "duration_hint": "未提及",
+            "activity": "参观天安门城楼",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "故宫博物院",
+            "duration_hint": "未提及",
+            "activity": "参观故宫博物院",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "景山公园",
+            "duration_hint": "未提及",
+            "activity": "游览景山公园",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "天坛公园",
+            "duration_hint": "未提及",
+            "activity": "参观天坛公园",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "国家博物馆",
+            "duration_hint": "未提及",
+            "activity": "参观国家博物馆",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "前门大街",
+            "duration_hint": "未提及",
+            "activity": "逛前门大街",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "大栅栏",
+            "duration_hint": "未提及",
+            "activity": "游览大栅栏",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "杨梅竹斜街",
+            "duration_hint": "未提及",
+            "activity": "漫步杨梅竹斜街",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "什刹海",
+            "duration_hint": "未提及",
+            "activity": "游览什刹海",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "颐和园",
+            "duration_hint": "未提及",
+            "activity": "参观颐和园",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "圆明园",
+            "duration_hint": "未提及",
+            "activity": "参观圆明园",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提��",
+            "name": "清华大学",
+            "duration_hint": "未提及",
+            "activity": "参观清华大学",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "北京大学",
+            "duration_hint": "未提及",
+            "activity": "参观北京大学",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "鸟巢",
+            "duration_hint": "未提及",
+            "activity": "参观鸟巢",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "水立方",
+            "duration_hint": "未提及",
+            "activity": "参观水立方",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "经典北京三日游，从天安门、故宫到天坛、前门，再到颐和园、圆明园、高校及奥运场馆，覆盖北京标志性景点。",
+    "tags": [
+      "北京",
+      "三日游",
+      "攻略",
+      "经典路线"
+    ]
+  },
+  {
+    "source_note_id": "67b32cc7000000002902cf9d",
+    "source_url": "https://www.xiaohongshu.com/explore/67b32cc7000000002902cf9d",
+    "source_title": "04女大📍北京/三日游不走回头路攻略",
+    "source_likes": "18130",
+    "crawled_at": "2026-06-13T10:16:22.414Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "文化历史与人文时尚，经济实惠型",
+    "season": "春秋最佳",
+    "budget_hint": "人均约100元/晚住宿，餐饮丰俭由人，适合学生党",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门广场",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "故宫博物院",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "景山公园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "南锣鼓巷",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "���刹海",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "烟袋斜街",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "晚上",
+            "name": "鼓楼",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "雍和宫",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "国家博物院",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "人民大会堂",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "前门大街",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "大栅栏",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "天坛",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "颐和园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "圆明园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "北京大学",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "清华大学",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "鸟巢水立方",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "三日北京经典路线，涵盖故宫、天坛、颐和园等核心景点，搭配南锣鼓巷、什刹海等胡同风情，不走回头路，适合大学生及预算有限的游客。",
+    "tags": [
+      "北京旅游",
+      "北京三日游",
+      "不走回头路",
+      "大学生攻略",
+      "美食推荐",
+      "住宿推荐"
+    ]
+  },
+  {
+    "source_note_id": "68989adb000000002501f60f",
+    "source_url": "https://www.xiaohongshu.com/explore/68989adb000000002501f60f",
+    "source_title": "🚀北京3日游不绕路攻略！省钱省时巨高效！",
+    "source_likes": "125",
+    "crawled_at": "2026-06-13T10:17:04.614Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "高效暴走，经典与隐藏玩法结合",
+    "season": "不限",
+    "budget_hint": "中等预算（门票+美食约100-200元/天）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "清晨",
+            "name": "天安M广场",
+            "duration_hint": "约1-2小时",
+            "activity": "看升旗（建议去城楼西侧中山公园门口，人少近距离看仪仗队）",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "国家博物馆",
+            "duration_hint": "约2-3小时",
+            "activity": "直奔“古代中国”馆，看击鼓说唱俑和青铜面具",
+            "transport_to_next": "步行15分钟"
+          },
+          {
+            "time_hint": "下午",
+            "name": "故宫",
+            "duration_hint": "约3-4小时",
+            "activity": "游览故宫，日落前冲上景山公园看全景",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "景山公园",
+            "duration_hint": "约1小时",
+            "activity": "俯瞰紫禁城全景，看日落",
+            "transport_to_next": "步行或公交"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "王府井",
+            "duration_hint": "约1-2小时",
+            "activity": "吃小吃",
+            "transport_to_next": "无（结束当日行程）"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "颐和园",
+            "duration_hint": "约3-4小时",
+            "activity": "从西门进，避开人流，昆明湖看日落",
+            "transport_to_next": "地铁或公交"
+          },
+          {
+            "time_hint": "下午",
+            "name": "圆明园",
+            "duration_hint": "约2-3小时",
+            "activity": "西洋楼遗址，断壁残垣震撼",
+            "transport_to_next": "步行或地铁"
+          },
+          {
+            "time_hint": "下午",
+            "name": "清华北大",
+            "duration_hint": "约1-2小时",
+            "activity": "感受学霸氛围（免费）",
+            "transport_to_next": "地铁"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "三里屯",
+            "duration_hint": "约2-3小时",
+            "activity": "夜生活，潮人街拍，网红餐厅打卡",
+            "transport_to_next": "无（结束当日行程）"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "雍和宫",
+            "duration_hint": "约1-2小时",
+            "activity": "乾隆出生地，许愿超灵，买香灰琉璃手串",
+            "transport_to_next": "步行或公交"
+          },
+          {
+            "time_hint": "上午",
+            "name": "鼓楼",
+            "duration_hint": "约1小时",
+            "activity": "登鼓楼看老北京全景",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "恭王府",
+            "duration_hint": "约1-2小时",
+            "activity": "和珅豪宅，还珠格格同款场景",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "什刹海+烟袋斜街",
+            "duration_hint": "约2-3小时",
+            "activity": "坐三轮车逛胡同，听大爷讲老北京故事，吃胡同老店美食",
+            "transport_to_next": "无（结束当日行程）"
+          }
+        ]
+      }
+    ],
+    "route_summary": "三天高效不绕路路线：Day1中轴线经典（天安门-国博-故宫-景山-王府井），Day2皇家园林+学霸之旅（颐和园-圆明园-清华北大-三里屯），Day3胡同文化深度游（雍和宫-鼓楼-恭王府-什刹海），每天行程紧凑，适合想要高效打卡的游客。",
+    "tags": [
+      "北京旅游",
+      "北京3日游",
+      "高效攻略",
+      "不绕路",
+      "本地人推荐"
+    ]
+  },
+  {
+    "source_note_id": "69c3d3660000000023005211",
+    "source_url": "https://www.xiaohongshu.com/explore/69c3d3660000000023005211",
+    "source_title": "北京果然NB的地方都免费的！！！（附路线攻略）",
+    "source_likes": "219",
+    "crawled_at": "2026-06-13T10:17:30.319Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "经典游",
+    "season": "春季",
+    "budget_hint": "人均800元",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门广场",
+            "duration_hint": null,
+            "activity": "看升旗，感受祖国心脏",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "上午",
+            "name": "毛主席纪念堂",
+            "duration_hint": null,
+            "activity": "瞻仰伟人",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "下午",
+            "name": "故宫博物院",
+            "duration_hint": null,
+            "activity": "中轴线三大殿沉浸式体验皇家气派，可做格格妆造",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "下午",
+            "name": "景山公园",
+            "duration_hint": null,
+            "activity": "登顶万春亭，俯瞰故宫全景，日落拍照",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "下午",
+            "name": "北海公园",
+            "duration_hint": null,
+            "activity": "游览皇家园林",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "下午",
+            "name": "恭王府",
+            "duration_hint": null,
+            "activity": "参观清代王府",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "晚上",
+            "name": "什刹海",
+            "duration_hint": null,
+            "activity": "环湖散步看日落，酒吧街夜晚热闹",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "晚上",
+            "name": "烟袋斜街",
+            "duration_hint": null,
+            "activity": "逛胡同商业街",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南锣鼓巷",
+            "duration_hint": null,
+            "activity": "逛特色小店",
+            "transport_to_next": null
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "颐和园",
+            "duration_hint": null,
+            "activity": "游览皇家园林，昆明湖、长廊、佛香阁一步一景",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "上午",
+            "name": "圆明园",
+            "duration_hint": null,
+            "activity": "参观遗址公园",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "下午",
+            "name": "清华大学",
+            "duration_hint": null,
+            "activity": "参观校园",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "下午",
+            "name": "北京大学",
+            "duration_hint": null,
+            "activity": "参观校园",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "下午",
+            "name": "五道口",
+            "duration_hint": null,
+            "activity": "感受商圈氛围",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "晚上",
+            "name": "王府井",
+            "duration_hint": null,
+            "activity": "逛街购物",
+            "transport_to_next": null
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "八达岭长城",
+            "duration_hint": null,
+            "activity": "好汉坡打卡，壮阔风光",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "下午",
+            "name": "雍和宫",
+            "duration_hint": null,
+            "activity": "参观藏传佛教寺院",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "下午",
+            "name": "地坛公园",
+            "duration_hint": null,
+            "activity": "游览皇家祭地场所",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "下午",
+            "name": "国子监街",
+            "duration_hint": null,
+            "activity": "感受国学文化",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "晚上",
+            "name": "前门大街",
+            "duration_hint": null,
+            "activity": "逛街品尝小吃",
+            "transport_to_next": null
+          },
+          {
+            "time_hint": "晚上",
+            "name": "大栅栏",
+            "duration_hint": null,
+            "activity": "逛老字号商业街",
+            "transport_to_next": null
+          }
+        ]
+      }
+    ],
+    "route_summary": "三天两晚经典北京游，第一天中轴线核心景点（天安门-故宫-景山-北海-恭王府-什刹海-烟袋斜街-南锣鼓巷），第二天西郊及高校（颐和园-圆明园-清华-北大-五道口-王府井），第三天长城及东城（八达岭长城-雍和宫-地坛-国子监-前门-大栅栏）",
+    "tags": [
+      "北京旅游",
+      "北京攻略",
+      "北京三日游",
+      "天安门",
+      "故宫",
+      "八达岭长城",
+      "颐和园",
+      "恭王府",
+      "什刹海",
+      "南锣鼓巷",
+      "清华大学",
+      "雍和宫"
+    ]
+  },
+  {
+    "source_note_id": "6a2e5a5d0000000006031f22",
+    "source_url": "https://www.xiaohongshu.com/explore/6a2e5a5d0000000006031f22",
+    "source_title": "北京3日纯干货行程|精准到步行时长",
+    "source_likes": "2",
+    "crawled_at": "2026-06-14T10:25:39.055Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "经典文化+胡同慢逛+长城园林",
+    "season": "通用",
+    "budget_hint": "未提及",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门",
+            "duration_hint": "未提及",
+            "activity": "参观天安门广场",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "人民大会堂",
+            "duration_hint": "未提及",
+            "activity": "参观人民大会堂",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "故宫",
+            "duration_hint": "未提及",
+            "activity": "参观故宫博物院",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "景山公园",
+            "duration_hint": "未提及",
+            "activity": "登万春亭看故宫日落",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "国家博物馆",
+            "duration_hint": "未提及",
+            "activity": "沉浸式看国宝",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "上午",
+            "name": "军事博物馆",
+            "duration_hint": "未提及",
+            "activity": "参观军械",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "天坛公园",
+            "duration_hint": "未提及",
+            "activity": "打卡千年祈年殿",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南锣鼓巷",
+            "duration_hint": "未提及",
+            "activity": "感受老北京烟火气",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "八达岭长城",
+            "duration_hint": "未提及",
+            "activity": "早起登好汉坡",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "颐和���",
+            "duration_hint": "未提及",
+            "activity": "逛皇家园林",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "圆明园",
+            "duration_hint": "未提及",
+            "activity": "参观圆明园遗址",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "北京动物园",
+            "duration_hint": "未提及",
+            "activity": "打卡网红大熊猫萌兰",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "三天行程覆盖北京中轴线、博物馆、胡同、长城、皇家园林和动物园，不走回头路。",
+    "tags": [
+      "北京旅游",
+      "三日游",
+      "故宫",
+      "长城",
+      "胡同",
+      "干货",
+      "攻略"
+    ]
+  },
+  {
+    "source_note_id": "699ad847000000001d011191",
+    "source_url": "https://www.xiaohongshu.com/explore/699ad847000000001d011191",
+    "source_title": "北京三日游｜正确玩法攻略✨直接抄作业！",
+    "source_likes": "6",
+    "crawled_at": "2026-06-14T10:26:01.497Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "经典景点打卡",
+    "season": "",
+    "budget_hint": "",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "7:00",
+            "name": "天安门广场",
+            "duration_hint": "建议40分钟",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "8:30",
+            "name": "国家博物馆",
+            "duration_hint": "建议3小时",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "13:00",
+            "name": "故宫",
+            "duration_hint": "建议3小时",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "18:00",
+            "name": "鸟巢",
+            "duration_hint": "建议1小时",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "9:00",
+            "name": "居庸关长城",
+            "duration_hint": "建议3小时",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "13:30",
+            "name": "明十三陵",
+            "duration_hint": "建议2小时",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "17:00",
+            "name": "清华大学",
+            "duration_hint": "建议30分钟",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "18:00",
+            "name": "北京大学",
+            "duration_hint": "建议30分钟",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "7:30",
+            "name": "圆明园",
+            "duration_hint": "建议2小时",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "9:30",
+            "name": "颐和园",
+            "duration_hint": "建议3小时",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "14:00",
+            "name": "天坛公园",
+            "duration_hint": "建议2小时",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "18:00",
+            "name": "雍和宫",
+            "duration_hint": "建议2小时",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "第一天：天安门广场 → 国家博物馆 → 故宫 → 鸟巢；第二天：居庸关长城 → 明十三陵 → 清华大学 → 北京大学；第三天：圆明园 → 颐和园 → 天坛公园 → 雍和宫",
+    "tags": [
+      "北京旅游",
+      "北京三日游",
+      "北京攻略",
+      "故宫",
+      "颐和园",
+      "八达岭长城",
+      "旅游攻略",
+      "北京美食"
+    ]
+  },
+  {
+    "source_note_id": "69ca2116000000001b0009a0",
+    "source_url": "https://www.xiaohongshu.com/explore/69ca2116000000001b0009a0",
+    "source_title": "北京三日游攻略",
+    "source_likes": "2",
+    "crawled_at": "2026-06-14T10:26:29.587Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "历史文化与休闲结合",
+    "season": "全年适宜",
+    "budget_hint": "中等预算（主要景点门票+交通）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "圆明园",
+            "duration_hint": "约3小时",
+            "activity": "游览圆明园，参观大水法、西洋楼遗址，乘坐游船至南门",
+            "transport_to_next": "打车或地铁"
+          },
+          {
+            "time_hint": "下午",
+            "name": "北京大学",
+            "duration_hint": "约1.5小时",
+            "activity": "快速游览北大东侧门、博雅塔、未名湖、西门等",
+            "transport_to_next": "地铁4号线（北京大学东门上车至南锣鼓巷站，11站约32分钟）"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "南锣鼓巷、鼓楼、后海",
+            "duration_hint": "约2小时",
+            "activity": "逛南锣鼓巷（约1小时），步行至鼓楼拍照（约20分钟），后海用晚餐",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午9:00-11:00",
+            "name": "中国国家博物馆",
+            "duration_hint": "约2小时",
+            "activity": "重点参观B1层古代中国（孝端皇后凤冠、三星堆面具等）及北楼复兴之路（圆明园兽首）",
+            "transport_to_next": "步行约15分钟"
+          },
+          {
+            "time_hint": "上午11:00-12:00",
+            "name": "毛主席纪念堂",
+            "duration_hint": "约1小时",
+            "activity": "瞻仰毛主席遗容（需存包，免费），结束后至天安门广场",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "天安门广场",
+            "duration_hint": "约1小时（至17:26降旗）",
+            "activity": "观看降旗仪式，参观广场",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午（12:00前入场）",
+            "name": "故宫博物院",
+            "duration_hint": "约2-3小时",
+            "activity": "走中轴线经典路线：午门-太和殿-乾清宫-御花园-神武门",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "泡泡玛特城市公园",
+            "duration_hint": "约半天",
+            "activity": "观看表演（欢聚盛会、心愿之旅等），体验主题园区",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "第一天从圆明园开始，而后游览北京大学，傍晚逛南锣鼓巷、鼓楼和后海；第二天上午参观国家博物馆和毛主席纪念堂，下午前往天安门广场观看降旗；第三天上午游览故宫中线，下午前往泡泡玛特城市公园。",
+    "tags": [
+      "北京旅游",
+      "三日游",
+      "圆明园",
+      "故宫",
+      "中国国家博物馆",
+      "天安门",
+      "南锣鼓巷",
+      "北京大学",
+      "泡泡玛特"
+    ]
+  },
+  {
+    "source_note_id": "6a0156cf000000003703465e",
+    "source_url": "https://www.xiaohongshu.com/explore/6a0156cf000000003703465e",
+    "source_title": "北京三日游｜本人私藏路线·景点全攻略 🔥",
+    "source_likes": "2",
+    "crawled_at": "2026-06-14T10:27:51.582Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "经典+小众混搭",
+    "season": "春秋适宜",
+    "budget_hint": "丰俭由人，需提前预约门票，注意交通费用",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门广场",
+            "duration_hint": "未提供具体时长",
+            "activity": "感受升旗仪式（需预约）",
+            "transport_to_next": "步行至故宫"
+          },
+          {
+            "time_hint": "上午",
+            "name": "故宫博物院",
+            "duration_hint": "未提供具体时长",
+            "activity": "游览中轴线+西六宫",
+            "transport_to_next": "步行至景山公园（对面）"
+          },
+          {
+            "time_hint": "下午",
+            "name": "景山公园",
+            "duration_hint": "登顶约15分钟",
+            "activity": "登万春亭俯瞰紫禁城全景",
+            "transport_to_next": "步行或人力三轮车至什刹海"
+          },
+          {
+            "time_hint": "下午",
+            "name": "什刹海胡同",
+            "duration_hint": "未提供具体时长",
+            "activity": "坐人力三轮车逛胡同，推荐北锣鼓巷",
+            "transport_to_next": "步行或公交至簋街/前门大街"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "簋街或前门大街",
+            "duration_hint": "未提供具体时长",
+            "activity": "夜宵，推荐牛街小吃",
+            "transport_to_next": "自行安排"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "全天（上午至下午）",
+            "name": "八达岭长城或慕田峪长城",
+            "duration_hint": "未提供具体时长",
+            "activity": "游览长城，可选缆车/滑道",
+            "transport_to_next": "返回市区（公交或旅游专线）"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "鸟巢和水立方",
+            "duration_hint": "未提供具体时长",
+            "activity": "夜景拍照，灯光19:00后亮起",
+            "transport_to_next": "自行安排"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "颐和园",
+            "duration_hint": "5-6小时沉浸游",
+            "activity": "���荐路线：北宫门进→苏州街→佛香阁→长廊→十七孔桥（新建宫门出）",
+            "transport_to_next": "公交或地铁至圆明园/798"
+          },
+          {
+            "time_hint": "下午",
+            "name": "圆明园或798艺术区",
+            "duration_hint": "未提供具体时长",
+            "activity": "历史党选圆明园（西洋楼遗址），文艺党选798（拍照、看展）",
+            "transport_to_next": "公交或地铁至王府井/三里屯"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "王府井或三里屯",
+            "duration_hint": "未提供具体时长",
+            "activity": "推荐安定门内大街吃地道涮肉",
+            "transport_to_next": "自行安排"
+          }
+        ]
+      }
+    ],
+    "route_summary": "三天行程：第一天漫步皇城，感受天安门、故宫、景山和什刹海胡同；第二天游览长城（八达岭或慕田峪），晚上欣赏鸟巢水立方夜景；第三天深度游颐和园，下午选择圆明园或798艺术区，晚上前往王府井或三里屯。",
+    "tags": [
+      "北京旅游攻略",
+      "故宫打卡",
+      "长城拍照",
+      "周末去哪儿"
+    ]
+  },
+  {
+    "source_note_id": "6a2394f3000000001603c59a",
+    "source_url": "https://www.xiaohongshu.com/explore/6a2394f3000000001603c59a",
+    "source_title": "北京📍3天2晚不绕路Citywalk｜保姆级攻略",
+    "source_likes": "1270",
+    "crawled_at": "2026-06-14T10:28:15.852Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 3,
+    "travel_style": "城市漫步",
+    "season": "夏季",
+    "budget_hint": "",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "天安门广场",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "故宫博物院",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "景山公园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "南锣鼓巷",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "鼓楼",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "什刹海",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "天坛",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "人民大会堂",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "毛主席纪念堂",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "国家博物馆",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "前门大街",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "大栅栏",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "颐和园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "圆明园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "北京大学",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "清华大学",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "水立方",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "鸟巢",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "三天经典线路覆盖北京主要景点，包括天安门、故宫、天坛、颐和园等核心景区。",
+    "tags": [
+      "旅游攻略",
+      "北京",
+      "北京旅游",
+      "北京旅行",
+      "北京旅游攻略",
+      "北京打卡",
+      "北京美食",
+      "北京吃喝玩乐",
+      "故宫",
+      "暑假去哪儿"
+    ]
+  },
+  {
+    "source_note_id": "6a28fae0000000001503e8dc",
+    "source_url": "https://www.xiaohongshu.com/explore/6a28fae0000000001503e8dc?xsec_token=ABhTHCxqW9M8kAZtV7ra2QI7Go6KYwI4hj-L372jvl-ig%3D&xsec_source=pc_search",
+    "source_title": "手机号登录",
+    "source_likes": "220",
+    "crawled_at": "2026-06-13T09:41:22.966Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 4,
+    "travel_style": "未提及",
+    "season": "未提及",
+    "budget_hint": "未提及",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "天安门",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "故宫",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "景山公园",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "天坛",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "恭王府",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "南锣鼓巷",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "烟袋斜街",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "鼓楼",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "什刹海",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "后海",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "三里屯",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "香山",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "颐和园",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "圆明园",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "清华北大",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "鸟巢、水立方",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "八达岭长城",
+            "duration_hint": "未提及",
+            "activity": "未提及",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "经典北京四日游，从市区天安门、故宫开始，覆盖胡同区、皇家园林和郊区长城的精华路线。",
+    "tags": [
+      "北京旅游",
+      "故宫",
+      "长城",
+      "颐和园",
+      "天安门",
+      "胡同"
+    ]
+  },
+  {
+    "source_note_id": "69e8e8b1000000001e00dc24",
+    "source_url": "https://www.xiaohongshu.com/explore/69e8e8b1000000001e00dc24?xsec_token=ABZmB82WXtSiaF8rukqMt2_Qh3b37BQg3Xsg2wxLSyneY%3D&xsec_source=pc_search",
+    "source_title": "手机号登录",
+    "source_likes": "245",
+    "crawled_at": "2026-06-13T09:42:00.363Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 4,
+    "travel_style": "穷游",
+    "season": "未提及",
+    "budget_hint": "未提及",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "国博",
+            "duration_hint": "未提及",
+            "activity": "参观国家博物馆",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "人民大会堂",
+            "duration_hint": "未提及",
+            "activity": "参观人民大会堂",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "王府井",
+            "duration_hint": "未提及",
+            "activity": "逛王府井商业街",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "北大红楼",
+            "duration_hint": "未提及",
+            "activity": "参观北大红楼",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "南锣鼓巷",
+            "duration_hint": "未提及",
+            "activity": "逛南锣鼓巷胡同",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "什刹海",
+            "duration_hint": "未提及",
+            "activity": "游览什刹海",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "颐和园",
+            "duration_hint": "未提及",
+            "activity": "东门进西门出，游览颐和园",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "圆明园",
+            "duration_hint": "未提及",
+            "activity": "东门进，游览圆明园",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "清华/北大",
+            "duration_hint": "未提及",
+            "activity": "参观清华大学或北京大学",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "鸟巢/水立方",
+            "duration_hint": "未提及",
+            "activity": "参观鸟巢和水立方",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "八达岭长城",
+            "duration_hint": "未提及",
+            "activity": "游览八达岭长城（不看升旗）",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "下午",
+            "name": "天坛",
+            "duration_hint": "未提及",
+            "activity": "下午逛天坛公园",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "早上",
+            "name": "升旗",
+            "duration_hint": "未提及",
+            "activity": "观看天安门升旗仪式",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "故宫博物院",
+            "duration_hint": "未提及",
+            "activity": "参观故宫",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "景山公园",
+            "duration_hint": "未提及",
+            "activity": "游览景山公园",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "天坛公园",
+            "duration_hint": "未提及",
+            "activity": "游览天坛公园",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "北京经典景点四日游，覆盖市中心、西郊、长城及天安门区域，紧凑高效。",
+    "tags": [
+      "北京旅游攻略",
+      "北京旅游打卡地",
+      "极限特种兵旅游"
+    ]
+  },
+  {
+    "source_note_id": "69b38d41000000001a028e6e",
+    "source_url": "https://www.xiaohongshu.com/explore/69b38d41000000001a028e6e?xsec_token=ABMV-ZRp2i5zKTmGoyqsX-29v8iI6xMzOpBJ9nGZcT2Nk%3D&xsec_source=pc_search",
+    "source_title": "手机号登录",
+    "source_likes": "11",
+    "crawled_at": "2026-06-13T09:43:24.118Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 4,
+    "travel_style": "情侣",
+    "season": "未提及",
+    "budget_hint": "未提及",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "毛泽东纪念堂",
+            "duration_hint": "未提及",
+            "activity": "参观纪念堂",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "天安门广场",
+            "duration_hint": "未提及",
+            "activity": "游览广场",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "故宫",
+            "duration_hint": "未提及",
+            "activity": "参观故宫博物院",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "景山公园",
+            "duration_hint": "未提及",
+            "activity": "俯瞰故宫全景",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "恭王府",
+            "duration_hint": "未提及",
+            "activity": "参观清代王府",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "什刹海",
+            "duration_hint": "未提及",
+            "activity": "漫步什刹海",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "八达岭长城",
+            "duration_hint": "未提及",
+            "activity": "攀登长城",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "奥林匹克公园",
+            "duration_hint": "未提及",
+            "activity": "游览公园",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "鸟巢",
+            "duration_hint": "未提及",
+            "activity": "外观鸟巢",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "水立方",
+            "duration_hint": "未提及",
+            "activity": "外观水立方",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "国家博物馆",
+            "duration_hint": "未提及",
+            "activity": "参观国家博物馆",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "颐和园",
+            "duration_hint": "未提及",
+            "activity": "游览皇家园林",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "北大/清华外景",
+            "duration_hint": "未提及",
+            "activity": "参观名校外景",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "王府井步行街",
+            "duration_hint": "未提及",
+            "activity": "逛街购物",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "天坛公园",
+            "duration_hint": "未提及",
+            "activity": "游览天坛",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "祈年殿",
+            "duration_hint": "未提及",
+            "activity": "参观祈年殿",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "皇穹宇",
+            "duration_hint": "未提及",
+            "activity": "参观皇穹宇",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "圜丘",
+            "duration_hint": "未提及",
+            "activity": "参观圜丘坛",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "围绕北京经典景点，按区域分天游览，涵盖天安门、故宫、长城、颐和园、天坛等核心景点。",
+    "tags": [
+      "情侣自由行",
+      "游玩攻略",
+      "不到长城非好汉",
+      "南方人去北方旅游"
+    ]
+  },
+  {
+    "source_note_id": "6a0552ac000000003700dcae",
+    "source_url": "https://www.xiaohongshu.com/explore/6a0552ac000000003700dcae",
+    "source_title": "🌟北京Citywalk｜终于有人把北京说清楚啦！",
+    "source_likes": "3.1万",
+    "crawled_at": "2026-06-13T10:08:24.721Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 4,
+    "travel_style": "经典城市观光与户外游览",
+    "season": "春天",
+    "budget_hint": "中等预算，餐饮和门票为主要开销，住宿推荐地铁沿线",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门",
+            "duration_hint": "",
+            "activity": "参观天安门广场",
+            "transport_to_next": "步行至故宫午门"
+          },
+          {
+            "time_hint": "上午",
+            "name": "故宫",
+            "duration_hint": "",
+            "activity": "游览故宫博物院",
+            "transport_to_next": "步行至景山公园"
+          },
+          {
+            "time_hint": "下午",
+            "name": "景山公园",
+            "duration_hint": "",
+            "activity": "登景山俯瞰故宫全景",
+            "transport_to_next": "乘坐公交/地铁至天坛"
+          },
+          {
+            "time_hint": "下午",
+            "name": "天坛",
+            "duration_hint": "",
+            "activity": "参观天坛公园",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "恭王府",
+            "duration_hint": "",
+            "activity": "参观恭王府",
+            "transport_to_next": "步行至南锣鼓巷"
+          },
+          {
+            "time_hint": "上午",
+            "name": "南锣鼓巷",
+            "duration_hint": "",
+            "activity": "逛南锣鼓巷胡同",
+            "transport_to_next": "步行至烟袋斜街"
+          },
+          {
+            "time_hint": "下午",
+            "name": "烟袋斜街",
+            "duration_hint": "",
+            "activity": "游览烟袋斜街",
+            "transport_to_next": "步行至鼓楼"
+          },
+          {
+            "time_hint": "下午",
+            "name": "鼓楼",
+            "duration_hint": "",
+            "activity": "参观鼓楼",
+            "transport_to_next": "步行至什刹海"
+          },
+          {
+            "time_hint": "下午",
+            "name": "什刹海",
+            "duration_hint": "",
+            "activity": "沿什刹海散步",
+            "transport_to_next": "步行至后海"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "后海",
+            "duration_hint": "",
+            "activity": "后海休闲",
+            "transport_to_next": "乘坐公交/地铁至三里屯"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "三里屯",
+            "duration_hint": "",
+            "activity": "逛三里屯商圈",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "香山",
+            "duration_hint": "",
+            "activity": "登香山公园",
+            "transport_to_next": "乘坐公交/地铁至颐和园"
+          },
+          {
+            "time_hint": "下午",
+            "name": "颐和园",
+            "duration_hint": "",
+            "activity": "游览颐和园",
+            "transport_to_next": "乘坐公交/地铁至圆明园"
+          },
+          {
+            "time_hint": "下午",
+            "name": "圆明园",
+            "duration_hint": "",
+            "activity": "参观圆明园遗址",
+            "transport_to_next": "步行或公交至清华北大"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "清华北大",
+            "duration_hint": "",
+            "activity": "外观清华大学和北京大学",
+            "transport_to_next": "乘坐公交/地铁至鸟巢水立方"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "鸟巢、水立方",
+            "duration_hint": "",
+            "activity": "外观鸟巢和水立方",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "八达岭长城",
+            "duration_hint": "",
+            "activity": "游览八达岭长城",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "4天的北京经典行程，涵盖天安门、故宫、景山、天坛、恭王府、胡同区、后海、三里屯、香山、颐和园、圆明园、清华北大、鸟巢水立方以及八达岭长城，兼顾历史文化与城市休闲。",
+    "tags": [
+      "北京旅游攻略",
+      "北京打卡",
+      "北京美食",
+      "北京Citywalk",
+      "北京春天",
+      "经典景点",
+      "地铁出行",
+      "特种兵旅游"
+    ]
+  },
+  {
+    "source_note_id": "69aa43c2000000001a02cd92",
+    "source_url": "https://www.xiaohongshu.com/explore/69aa43c2000000001a02cd92",
+    "source_title": "女大北京4天3晚旅游攻略，总花费1000+",
+    "source_likes": "480",
+    "crawled_at": "2026-06-13T10:16:45.884Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 4,
+    "travel_style": "穷游/大学生旅游",
+    "season": "春节",
+    "budget_hint": "约1200-1300元（若不做妆造可控制在1000以内）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "下午",
+            "name": "天坛",
+            "duration_hint": "未明确",
+            "activity": "游览天坛",
+            "transport_to_next": "未知"
+          },
+          {
+            "time_hint": "下午",
+            "name": "什刹海",
+            "duration_hint": "未明确",
+            "activity": "游览什刹海",
+            "transport_to_next": "步行或公交"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "鼓楼",
+            "duration_hint": "未明确",
+            "activity": "鼓楼附近吃饭（排队半小时，人均70+）",
+            "transport_to_next": "返回酒店"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "国家博物馆",
+            "duration_hint": "步行约1.5万步，边走边休息",
+            "activity": "参观国家博物馆，重点看中国古代部分",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "天安门广场",
+            "duration_hint": "未明确",
+            "activity": "游览天安门广场",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "人民大会堂",
+            "duration_hint": "未明确",
+            "activity": "因开会不可预约，未进去，在外参观",
+            "transport_to_next": "返回酒店（外卖）"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "雍和宫",
+            "duration_hint": "未明确",
+            "activity": "游览雍和宫",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "地坛公园",
+            "duration_hint": "未明确",
+            "activity": "游览地坛公园",
+            "transport_to_next": "地铁或公交"
+          },
+          {
+            "time_hint": "下午1点半-5点半",
+            "name": "八达岭长城",
+            "duration_hint": "约4小时",
+            "activity": "从清河站乘高铁前往，爬长城",
+            "transport_to_next": "返回市区（公交/地铁）"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "早上7点-10点半",
+            "name": "妆造店",
+            "duration_hint": "3.5小时",
+            "activity": "做妆造，花费200+",
+            "transport_to_next": "步行或公交"
+          },
+          {
+            "time_hint": "10点半-15点",
+            "name": "故宫博物院",
+            "duration_hint": "约4.5小时",
+            "activity": "游览故宫（中午在故宫附近吃面，人均30）",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "15点-16点",
+            "name": "景山公园",
+            "duration_hint": "约10分钟登顶",
+            "activity": "爬景山公园，俯瞰故宫",
+            "transport_to_next": "步行"
+          }
+        ]
+      }
+    ],
+    "route_summary": "4天3晚北京穷游，从长沙出发，硬座17小时到北京，住宿朝阳区。第一天游览天坛、什刹海���鼓楼；第二天国家博物馆、天安门广场、人民大会堂；第三天雍和宫、地坛公园、八达岭长城；第四天故宫博物院、景山公园，最后乘动车回长沙。总花费约1200-1300元。",
+    "tags": [
+      "北京",
+      "北京旅游攻略",
+      "穷游",
+      "大学生旅游",
+      "超好玩"
+    ]
+  },
+  {
+    "source_note_id": "68d25c55000000001203d386",
+    "source_url": "https://www.xiaohongshu.com/explore/68d25c55000000001203d386",
+    "source_title": "北京4天3夜｜国庆保姆级旅游攻略❗️不绕路",
+    "source_likes": "29",
+    "crawled_at": "2026-06-13T10:19:14.896Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 4,
+    "travel_style": "经典路线/文化历史游",
+    "season": "秋季",
+    "budget_hint": "人均约1697元（经济型）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "天-安-门广场",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "故宫博物院",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "景山公园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "南锣鼓巷",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "八达岭长城",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "前门大街",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "天坛公园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "颐和园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "圆明园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "鸟-巢水立方",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "雍和宫",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "国-家博物馆",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "王-府井大街",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "4天3夜经典路线，涵盖天安门、故宫、长城、颐和园等主要景点。",
+    "tags": [
+      "北京旅游",
+      "北京旅游攻略",
+      "记录我的城市",
+      "故宫",
+      "南锣鼓巷",
+      "北京美食",
+      "人文景点分享",
+      "旅行",
+      "城市探寻计划",
+      "北京旅行",
+      "北京秋天",
+      "旅游编辑部",
+      "旅游万粉扶持计划",
+      "这次旅行local一下",
+      "来一次圣地巡礼"
+    ]
+  },
+  {
+    "source_note_id": "6a2cbea900000000080276af",
+    "source_url": "https://www.xiaohongshu.com/explore/6a2cbea900000000080276af",
+    "source_title": "北京四日游｜景点美食交通全攻略",
+    "source_likes": "5",
+    "crawled_at": "2026-06-13T10:19:36.820Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 4,
+    "travel_style": "经典人文历史",
+    "season": "四季皆宜",
+    "budget_hint": "门票合计约200-400元（大部分景点免费或低价）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "天安门",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "国家博物馆",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "故宫",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "大栅栏",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "颐和园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "圆明园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "清华大学",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "北京大学",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "八达岭长城",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "鸟巢",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "水立方",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "南锣鼓巷",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "",
+            "name": "雍和宫",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "恭王府",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "什刹海",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "",
+            "name": "天坛公园",
+            "duration_hint": "",
+            "activity": "",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "北京4日经典游：Day1天安门-国家博物馆-故宫-大栅栏；Day2颐和园-圆明园-清华大学-北京大学；Day3八达岭长城-鸟巢-水立方-南锣鼓巷；Day4雍和宫-恭王府-什刹海-天坛公园。",
+    "tags": [
+      "北京旅游",
+      "故宫",
+      "长城",
+      "颐和园",
+      "美食"
+    ]
+  },
+  {
+    "source_note_id": "6a143824000000000702189f",
+    "source_url": "https://www.xiaohongshu.com/explore/6a143824000000000702189f",
+    "source_title": "📍北京4日游这样排！不走回头路，高级感拉满✨",
+    "source_likes": "1855",
+    "crawled_at": "2026-06-14T10:28:30.988Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 4,
+    "travel_style": "经典文化+自然园林+长城古迹+休闲慢游",
+    "season": "春秋季",
+    "budget_hint": "门票总预算约300元",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天安门",
+            "duration_hint": "1小时",
+            "activity": "参观天安门广场",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "国家博物馆",
+            "duration_hint": "2小时",
+            "activity": "参观国家博物馆",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "故宫",
+            "duration_hint": "3-4小时",
+            "activity": "游览故宫",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "大栅栏",
+            "duration_hint": "1-2小时",
+            "activity": "逛大栅栏商业街",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "北大",
+            "duration_hint": "1-2小时",
+            "activity": "参观北京大学",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "清华",
+            "duration_hint": "1-2小时",
+            "activity": "参观清华大学",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "圆明园",
+            "duration_hint": "2-3小时",
+            "activity": "游览圆明园",
+            "transport_to_next": "地铁22分钟"
+          },
+          {
+            "time_hint": "下午",
+            "name": "颐和园",
+            "duration_hint": "3-4小时",
+            "activity": "游览颐和园",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "八达岭长城",
+            "duration_hint": "3-4小时",
+            "activity": "爬八达岭长城",
+            "transport_to_next": "打车18分钟"
+          },
+          {
+            "time_hint": "下午",
+            "name": "鸟巢",
+            "duration_hint": "1小时",
+            "activity": "参观鸟巢",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "水立方",
+            "duration_hint": "1小时",
+            "activity": "参观水立方",
+            "transport_to_next": "地铁/打车"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南锣鼓巷",
+            "duration_hint": "1-2小时",
+            "activity": "逛南锣鼓巷",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "鼓楼",
+            "duration_hint": "1小时",
+            "activity": "参观鼓楼",
+            "transport_to_next": "骑行/步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "什刹海",
+            "duration_hint": "1-2小时",
+            "activity": "逛什刹海",
+            "transport_to_next": "骑行/步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "天坛",
+            "duration_hint": "2-3小时",
+            "activity": "游览天坛",
+            "transport_to_next": "骑行/步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "恭王府",
+            "duration_hint": "1-2小时",
+            "activity": "参观恭王府",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "中轴线经典地标→高校园林→长城奥运→湖光古韵，顺路高效不重复",
+    "tags": [
+      "北京旅游攻略",
+      "北京四日游",
+      "不走回头路",
+      "高级感",
+      "小红书旅行"
+    ]
+  },
+  {
+    "source_note_id": "697773cb000000000d00bd7b",
+    "source_url": "https://www.xiaohongshu.com/explore/697773cb000000000d00bd7b",
+    "source_title": "人均2000｜四天三夜北京游千字攻略（碎碎念版",
+    "source_likes": "159",
+    "crawled_at": "2026-06-14T10:28:57.086Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 4,
+    "travel_style": "特种兵式",
+    "season": "未知",
+    "budget_hint": "人均2000",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "中午",
+            "name": "紫光园烤鸭",
+            "duration_hint": "",
+            "activity": "用餐",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "什刹海",
+            "duration_hint": "",
+            "activity": "游览",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "鼓楼",
+            "duration_hint": "",
+            "activity": "参观",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "南锣鼓巷",
+            "duration_hint": "",
+            "activity": "游览",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "老北京点心（茶汤里）",
+            "duration_hint": "",
+            "activity": "品尝",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "晚上",
+            "name": "酒馆清吧",
+            "duration_hint": "",
+            "activity": "休闲",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "早上",
+            "name": "庆丰包子（外卖）",
+            "duration_hint": "",
+            "activity": "早餐",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "故宫博物院",
+            "duration_hint": "",
+            "activity": "参观",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "珍宝馆",
+            "duration_hint": "",
+            "activity": "参观",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "晚上",
+            "name": "晚餐（米店）",
+            "duration_hint": "",
+            "activity": "用餐",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "圆明园",
+            "duration_hint": "",
+            "activity": "游览",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "颐和园",
+            "duration_hint": "",
+            "activity": "游览",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南门涮肉",
+            "duration_hint": "",
+            "activity": "用餐",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "毛主席纪念堂",
+            "duration_hint": "",
+            "activity": "瞻仰",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "上午",
+            "name": "国博",
+            "duration_hint": "",
+            "activity": "参观",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "中午",
+            "name": "天安门广场",
+            "duration_hint": "",
+            "activity": "游览",
+            "transport_to_next": ""
+          },
+          {
+            "time_hint": "下午",
+            "name": "大兴机场",
+            "duration_hint": "",
+            "activity": "离开",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "四天三夜北京游，涵盖故宫、圆明园、颐和园、天安门广场等核心景点，每天步行2-3万步，属于高强度特种兵行程。",
+    "tags": [
+      "特种兵旅游",
+      "北京",
+      "攻略",
+      "大学生"
+    ]
+  },
+  {
+    "source_note_id": "68d61bbd0000000013006c67",
+    "source_url": "https://www.xiaohongshu.com/explore/68d61bbd0000000013006c67?xsec_token=ABQ424O8y78a7upbsjE3xnuBLjpcDy9AAC3Yml4aj2cPI%3D&xsec_source=pc_search",
+    "source_title": "手机号登录",
+    "source_likes": "11004",
+    "crawled_at": "2026-06-13T09:41:40.437Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 5,
+    "travel_style": "休闲",
+    "season": "全年",
+    "budget_hint": "未提及",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "毛主席纪念堂",
+            "duration_hint": "未提及",
+            "activity": "参观纪念堂",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "天安门广场",
+            "duration_hint": "未提及",
+            "activity": "游览广场",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "故宫博物院",
+            "duration_hint": "未提及",
+            "activity": "参观故宫",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "景山公园",
+            "duration_hint": "未提及",
+            "activity": "登高俯瞰故宫全景",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "国家博物馆",
+            "duration_hint": "未提及",
+            "activity": "参观国家博物馆",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "天坛公园",
+            "duration_hint": "未提及",
+            "activity": "游览天坛",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "颐和园",
+            "duration_hint": "未提及",
+            "activity": "游览颐和园",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "圆明园",
+            "duration_hint": "未提及",
+            "activity": "游览圆明园遗址",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "清华大学",
+            "duration_hint": "未提及",
+            "activity": "参观清华校园",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "北京大学",
+            "duration_hint": "未提及",
+            "activity": "参观北大校园",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "八达岭长城",
+            "duration_hint": "未提及",
+            "activity": "攀登长城",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "鸟巢",
+            "duration_hint": "未提及",
+            "activity": "外观鸟巢",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "水立方",
+            "duration_hint": "未提及",
+            "activity": "外观水立方",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "label": "第五天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "雍和宫",
+            "duration_hint": "未提及",
+            "activity": "参观雍和宫",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "恭王府",
+            "duration_hint": "未提及",
+            "activity": "游览恭王府",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "什刹海",
+            "duration_hint": "未提及",
+            "activity": "漫步什刹海",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "南锣鼓巷",
+            "duration_hint": "未提及",
+            "activity": "逛南锣鼓巷",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "从北京中心经典景点（天安门、故宫）开始，逐步扩展到周边的国家博物馆、天坛、皇家园林（颐和园、圆明园）及高校，再前往长城和奥运场馆，最后以老城区胡同文化收尾，覆盖主要核心景点。",
+    "tags": [
+      "北京旅游",
+      "北京旅游攻略",
+      "天安门",
+      "故宫",
+      "国家博物馆",
+      "天坛",
+      "颐和园",
+      "圆明园",
+      "八达岭长城",
+      "雍和宫",
+      "恭王府",
+      "什刹海",
+      "南锣鼓巷"
+    ]
+  },
+  {
+    "source_note_id": "69df526a000000002103852c",
+    "source_url": "https://www.xiaohongshu.com/explore/69df526a000000002103852c?xsec_token=ABHyHKmPonhM69PuVLt5UNgfquAVSUTS-t7jED9b_pd9Y%3D&xsec_source=pc_search",
+    "source_title": "手机号登录",
+    "source_likes": "730",
+    "crawled_at": "2026-06-13T09:42:38.670Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 5,
+    "travel_style": "穷游",
+    "season": "春秋",
+    "budget_hint": "经济",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "清晨",
+            "name": "天安门广场",
+            "duration_hint": "约1小时",
+            "activity": "看升旗仪式（需提前预约，免费）",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "国家博物馆",
+            "duration_hint": "约2小时",
+            "activity": "参观展览（免费，需预约）",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "故宫博物院",
+            "duration_hint": "约3-4小时",
+            "activity": "游览故宫（旺季60元，需预约，午门进）",
+            "transport_to_next": "步行至景山公园"
+          },
+          {
+            "time_hint": "下午",
+            "name": "景山公园",
+            "duration_hint": "约1小时",
+            "activity": "俯瞰故宫全景（2元，无预约，推荐午后前往）",
+            "transport_to_next": "公交或地铁"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "前门大街+大栅栏",
+            "duration_hint": "约2小时",
+            "activity": "逛吃购物",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "天坛公园",
+            "duration_hint": "约2小时",
+            "activity": "游览祈年殿、圜丘、回音壁（联票28元，地铁5号线天坛东门站）",
+            "transport_to_next": "地铁5号线转10号线"
+          },
+          {
+            "time_hint": "中午",
+            "name": "三里屯",
+            "duration_hint": "约1.5小时",
+            "activity": "逛街、咖啡（地铁10号线团结湖站，太古里、潮牌）",
+            "transport_to_next": "地铁14号线将台站转公交"
+          },
+          {
+            "time_hint": "下午",
+            "name": "798艺术区",
+            "duration_hint": "约2-3小时",
+            "activity": "看画廊、文创、工业风拍照（免费）",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "八达岭长城",
+            "duration_hint": "半天",
+            "activity": "爬长城（40元，需预约，高铁至八达岭长城站20-30分钟/877路公交1.5小时）",
+            "transport_to_next": "高铁或877路原路返回市区"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南锣鼓巷/簋街/牛街/东四/五道口",
+            "duration_hint": "约2小时",
+            "activity": "晚餐（铜锅涮肉、炙子烤肉等）",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "雍和宫",
+            "duration_hint": "约1.5小时",
+            "activity": "北京最大藏传佛寺（25元，地铁2/5号线雍和宫站，入口免费领香）",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "国子监+孔庙",
+            "duration_hint": "约1小时",
+            "activity": "游览国子监和��庙（30元，雍和宫西侧）",
+            "transport_to_next": "步行至南锣鼓巷地铁站"
+          },
+          {
+            "time_hint": "中午",
+            "name": "南锣鼓巷",
+            "duration_hint": "约1.5小时",
+            "activity": "逛胡同、文创小店、小吃（免费，地铁6/8号线南锣鼓巷站）",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "什刹海",
+            "duration_hint": "约1小时",
+            "activity": "烟袋斜街、银锭桥、后海环湖（免费，南锣鼓巷北口向西）",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "恭王府",
+            "duration_hint": "约1.5小时",
+            "activity": "参观王府（40元，什刹海西南侧，“一座恭王府，半部清代史”）",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "label": "第五天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "颐和园",
+            "duration_hint": "约3小时",
+            "activity": "游览皇家园林（30元，联票60元，地铁4号线北宫门站，路线：北宫门→苏州街→万寿山→长廊→昆明湖→十七孔桥→东宫门出）",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "一条涵盖北京中轴线、长城、胡同与公园的经典5日游线路，兼顾历史文化和现代文艺，适合预算有限的旅行者。",
+    "tags": [
+      "北京旅游",
+      "故宫",
+      "天安门",
+      "长城",
+      "胡同",
+      "798",
+      "天坛",
+      "雍和宫",
+      "穷游",
+      "五一出行"
+    ]
+  },
+  {
+    "source_note_id": "6a12c7350000000038021021",
+    "source_url": "https://www.xiaohongshu.com/explore/6a12c7350000000038021021?xsec_token=ABc1IR_KdeKaRa6MGNoEFuXRhnRP1dxlQvwOb6TW11gCI%3D&xsec_source=pc_search",
+    "source_title": "手机号登录",
+    "source_likes": "41",
+    "crawled_at": "2026-06-13T09:44:21.619Z",
+    "city": "beijing",
+    "city_name": "北京",
+    "days": 6,
+    "travel_style": "休闲",
+    "season": "夏",
+    "budget_hint": "未提及",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "天坛公园",
+            "duration_hint": "未提及",
+            "activity": "打卡皇家祭天圣地",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "北京北站",
+            "duration_hint": "20分钟",
+            "activity": "乘坐高铁前往八达岭",
+            "transport_to_next": "高铁"
+          },
+          {
+            "time_hint": "上午",
+            "name": "八达岭长城",
+            "duration_hint": "未提及",
+            "activity": "游览长城",
+            "transport_to_next": "公交车到北土城地铁站"
+          },
+          {
+            "time_hint": "下午",
+            "name": "奥林匹克森林公园",
+            "duration_hint": "未提及",
+            "activity": "顺路逛逛",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "下午",
+            "name": "故宫",
+            "duration_hint": "未提及",
+            "activity": "午门进神武门出，可报官方讲解散团",
+            "transport_to_next": "步行（神武门出即到）"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "景山公园",
+            "duration_hint": "未提及",
+            "activity": "穿过地下人行道入园，登顶万春亭一览故宫全景",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "颐和园",
+            "duration_hint": "未提及",
+            "activity": "感受皇家园林",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 5,
+        "label": "第五天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "恭王府",
+            "duration_hint": "未提及",
+            "activity": "参观恭王府",
+            "transport_to_next": "自行车15分钟"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "景山公园",
+            "duration_hint": "未提及",
+            "activity": "从东门入园",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 6,
+        "label": "第六天",
+        "stops": [
+          {
+            "time_hint": "未提及",
+            "name": "国子监",
+            "duration_hint": "未提及",
+            "activity": "了解科举沿革",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "什刹海",
+            "duration_hint": "未提及",
+            "activity": "漫步老城街巷",
+            "transport_to_next": "未提及"
+          },
+          {
+            "time_hint": "未提及",
+            "name": "北海公园",
+            "duration_hint": "未提及",
+            "activity": "感受烟火与书香",
+            "transport_to_next": "未提及"
+          }
+        ]
+      }
+    ],
+    "route_summary": "以休闲漫游方式，从南到北依次游览天坛、八达岭长城、奥林匹克森林公园、故宫、景山、颐和园、��王府、国子监、什刹海和北海公园，涵盖北京核心皇家园林与古建。",
+    "tags": [
+      "北京",
+      "故宫",
+      "天坛公园",
+      "八达岭长城",
+      "颐和园",
+      "恭王府",
+      "国子监",
+      "什刹海",
+      "北海公园",
+      "景山公园",
+      "奥林匹克森林公园",
+      "松弛漫游"
+    ]
+  }
+]

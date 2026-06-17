@@ -43,7 +43,9 @@ class WeatherAgent(LLMAgent):
             ("human", "{context}"),
         ])
 
-    async def _generate_suggestions(self, city: str, weather_data: list[dict]) -> list[str]:
+    async def _generate_suggestions(
+        self, city: str, weather_data: list[dict], state=None,
+    ) -> list[str]:
         """Generate travel suggestions using LLM from *real* weather data."""
         try:
             lines = [f"城市: {city}\n天气预报:"]
@@ -52,7 +54,7 @@ class WeatherAgent(LLMAgent):
             lines.append("\n请为每天生成一句旅行建议（中文）。返回JSON数组，每项: {\"suggestion\": \"...\"}")
             context = "\n".join(lines)
 
-            content = await self.invoke_llm({"context": context})
+            content = await self.invoke_llm({"context": context}, state=state)
             # Strip markdown fences
             if "```json" in content:
                 content = content.split("```json", 1)[1].rsplit("```", 1)[0]
@@ -98,12 +100,25 @@ class WeatherAgent(LLMAgent):
 
         if real_weather:
             logger.info("Using real weather data for %s", city)
-            suggestions = await self._generate_suggestions(city, real_weather)
+            suggestions = await self._generate_suggestions(city, real_weather, state=state)
             for i, s in enumerate(suggestions):
                 if i < len(real_weather):
                     real_weather[i]["suggestion"] = s
-            return {"weather": real_weather}
+            return {
+                "weather": real_weather,
+                "sse_events": [{
+                    "type": "weather_loaded",
+                    "content": f"已获取 {city} 天气预报",
+                }],
+            }
 
         # Fallback: honest placeholder, NOT LLM hallucination
         logger.warning("Weather API unavailable for %s, returning placeholder", city)
-        return {"weather": self._make_placeholder(days)}
+        placeholder = self._make_placeholder(days)
+        return {
+            "weather": placeholder,
+            "sse_events": [{
+                "type": "weather_loaded",
+                "content": "天气数据暂不可用",
+            }],
+        }

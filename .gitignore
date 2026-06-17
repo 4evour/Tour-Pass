@@ -59,3 +59,12 @@ __pycache__/
 .env
 error.log
 output.log
+
+# Progress tracking files
+scripts/*progress*.json
+
+# Image directories (served from R2 CDN, not git)
+data/*/images/
+
+# Web data directory (duplicate of data/)
+web/data/

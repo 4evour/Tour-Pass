@@ -29,17 +29,46 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
       - name: Validate sample data
-        run: node scripts/validate_data.js
+        run: npm run validate:data
+
+      - name: Validate all city data
+        run: npm run validate:data:all
+
+      - name: Validate all-city data gate
+        run: npm run test:validate-data-all
+
+      - name: Install Python Agent dependencies
+        run: python -m pip install -r requirements-multi-agent.txt
+
+      - name: Multi-Agent tests
+        run: npm run test:multi-agent
 
       - name: Configure
-        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DTOURPASS_BUILD_TESTS=ON
 
       - name: Build
         run: cmake --build build --config Release
 
       - name: Test
         run: ctest --test-dir build --build-config Release --output-on-failure
+
+      - name: Install editor dependencies
+        run: npm ci
+        working-directory: web/editor
+
+      - name: Editor tests
+        run: npm run test
+        working-directory: web/editor
+
+      - name: Editor build
+        run: npm run build
+        working-directory: web/editor
 
       - name: API smoke
         if: runner.os == 'Windows'
@@ -69,6 +98,8 @@ jobs:
             --name tour-pass-ci \
             -p 8080:8080 \
             -e LLM_DISABLED=1 \
+            -e DEEPSEEK_API_KEY=ci-dummy-key \
+            -e AGENT_PORT=8090 \
             -e TOURPASS_JWT_SECRET=ci-smoke-test-secret-32chars! \
             tour-pass:ci
 

@@ -4,15 +4,32 @@ Enhanced with:
 - 2-opt local search improvement on nearest neighbor results
 - edges.json real travel time lookup
 - Multiple travel mode support
+- C++ Beam Search integration (migrated from agent/tools.py)
 """
 
 import json
 import logging
 import math
+import os
 from pathlib import Path
 from typing import Optional
 
+import httpx
+
 logger = logging.getLogger(__name__)
+
+# C++ backend URL, overridable via env var or agents.config
+_CPP_BACKEND_URL: str = os.environ.get("CPP_BACKEND_URL", "http://127.0.0.1:8080")
+
+# Reusable async HTTP client
+_http_client: httpx.AsyncClient | None = None
+
+
+async def _get_client() -> httpx.AsyncClient:
+    global _http_client
+    if _http_client is None or _http_client.is_closed:
+        _http_client = httpx.AsyncClient(timeout=30.0)
+    return _http_client
 
 
 def _haversine_km(lat1: float, lng1: float, lat2: float, lng2: float) -> float:
@@ -59,17 +76,42 @@ def estimate_travel_time(
 _edges_cache: dict[str, dict[str, dict]] = {}  # city -> {"from_id-to_id": edge_data}
 
 
+try:
+    from agents.constants import CITY_DIR_MAP
+except Exception:
+    CITY_DIR_MAP = {}
+
+
+def _normalize_city_dir(city: str) -> str:
+    city_key = (city or "").strip()
+    if not city_key:
+        return ""
+    return CITY_DIR_MAP.get(city_key, city_key.lower())
+
+
+def _edge_duration_minutes(edge: dict) -> int:
+    for field in ("transit_minutes", "taxi_minutes", "walk_minutes", "duration_minutes"):
+        value = edge.get(field)
+        if isinstance(value, (int, float)) and value > 0:
+            return int(value)
+    seconds = edge.get("duration_seconds")
+    if isinstance(seconds, (int, float)) and seconds > 0:
+        return max(int(seconds / 60), 1)
+    return 0
+
+
 def load_edges_cache(city: str, data_dir: str = "data") -> dict[str, dict]:
     """Load edges.json for a city into the cache.
 
     Returns the edge lookup dict for the city.
     """
-    if city in _edges_cache:
-        return _edges_cache[city]
+    city_key = _normalize_city_dir(city)
+    if city_key in _edges_cache:
+        return _edges_cache[city_key]
 
-    edges_path = Path(data_dir) / city / "edges.json"
+    edges_path = Path(data_dir) / city_key / "edges.json"
     if not edges_path.exists():
-        _edges_cache[city] = {}
+        _edges_cache[city_key] = {}
         return {}
 
     try:
@@ -78,18 +120,23 @@ def load_edges_cache(city: str, data_dir: str = "data") -> dict[str, dict]:
 
         lookup = {}
         for edge in edges_list:
-            src = edge.get("source", "")
-            dst = edge.get("target", "")
+            src = edge.get("from") or edge.get("source") or ""
+            dst = edge.get("to") or edge.get("target") or ""
             if src and dst:
-                key = f"{src}-{dst}"
-                lookup[key] = edge
+                normalized = dict(edge)
+                normalized["from"] = src
+                normalized["to"] = dst
+                normalized["duration_minutes"] = _edge_duration_minutes(edge)
+                normalized["distance_meters"] = edge.get("distance_meters", edge.get("distance_m", 0))
+                lookup[f"{src}-{dst}"] = normalized
+                lookup.setdefault(f"{dst}-{src}", normalized)
 
-        _edges_cache[city] = lookup
-        logger.info("Loaded %d edges for %s", len(lookup), city)
+        _edges_cache[city_key] = lookup
+        logger.info("Loaded %d edge directions for %s", len(lookup), city_key)
         return lookup
     except Exception as e:
         logger.warning("Failed to load edges for %s: %s", city, e)
-        _edges_cache[city] = {}
+        _edges_cache[city_key] = {}
         return {}
 
 
@@ -121,12 +168,10 @@ def get_real_travel_time(
 
     edge = edges.get(key)
     if edge:
-        # edges.json has duration_minutes or distance_m
         duration = edge.get("duration_minutes")
         if duration and duration > 0:
             return int(duration)
-        # Fallback: estimate from distance
-        distance_m = edge.get("distance_m")
+        distance_m = edge.get("distance_meters") or edge.get("distance_m")
         if distance_m and distance_m > 0:
             return max(int(distance_m / 1000 / 5 * 60), 5)  # walk speed
 
@@ -326,3 +371,175 @@ def calculate_total_travel_time(stops: list[dict], mode: str = "walk") -> int:
             total_time += time
 
     return total_time
+
+
+# ---------------------------------------------------------------------------
+# C++ Beam Search integration (migrated from agent/tools.py:225-272)
+# ---------------------------------------------------------------------------
+
+
+def _minutes_to_time(minutes: int) -> str:
+    """Convert minutes-from-midnight to HH:MM string."""
+    if minutes <= 0:
+        return ""
+    return f"{minutes // 60:02d}:{minutes % 60:02d}"
+
+
+async def optimize_route_cpp(
+    city: str,
+    poi_ids: list[str],
+    hotel_id: str = "",
+    start_minutes: int = 540,
+    end_minutes: int = 1260,
+    pace: str = "balanced",
+    strategy: str = "balanced",
+) -> dict:
+    """Call C++ Beam Search to optimise a day's route.
+
+    Migrated from ``agent/tools.py`` — delegates to the C++ backend's
+    ``/api/optimize-route`` endpoint (with ``/trip/plan`` as fallback).
+
+    Args:
+        city: City name (Chinese or English directory name).
+        poi_ids: Ordered list of POI IDs to include.
+        hotel_id: Optional hotel POI ID.
+        start_minutes: Day start time (minutes from midnight).
+        end_minutes: Day end time (minutes from midnight).
+        pace: Travel pace ("relaxed"|"balanced"|"intense").
+        strategy: Planning strategy.
+
+    Returns:
+        Backend JSON response dict, or empty dict on failure.
+    """
+    if not poi_ids:
+        return {}
+
+    client = await _get_client()
+
+    payload = {
+        "city": city,
+        "must_visit": poi_ids,
+        "days": 1,
+        "start_time": _minutes_to_time(start_minutes),
+        "end_time": _minutes_to_time(end_minutes),
+        "pace": pace,
+        "candidate_count": 1,
+        "strategy": strategy,
+    }
+    if hotel_id:
+        payload["hotel_location"] = hotel_id
+
+    # Primary endpoint
+    try:
+        resp = await client.post(
+            f"{_CPP_BACKEND_URL}/api/optimize-route",
+            json=payload,
+            timeout=15.0,
+        )
+        resp.raise_for_status()
+        logger.info("C++ Beam Search succeeded for %s (%d POIs)", city, len(poi_ids))
+        return resp.json()
+    except Exception as exc:
+        logger.warning(
+            "optimize_route via /api/optimize-route failed: %s; trying /trip/plan", exc,
+        )
+
+    # Fallback endpoint
+    try:
+        resp = await client.post(
+            f"{_CPP_BACKEND_URL}/trip/plan",
+            json=payload,
+            timeout=15.0,
+        )
+        resp.raise_for_status()
+        return resp.json()
+    except Exception as exc2:
+        logger.error("optimize_route fallback /trip/plan also failed: %s", exc2)
+        return {}
+
+
+async def optimize_route_smart(
+    city: str,
+    stops: list[dict],
+    hotel_id: str = "",
+    start_lat: float = 0,
+    start_lng: float = 0,
+    start_minutes: int = 540,
+    end_minutes: int = 1260,
+    pace: str = "balanced",
+    strategy: str = "balanced",
+    use_cpp: bool = True,
+) -> list[dict]:
+    """Hybrid route optimiser: prefer C++ Beam Search, fallback to Python 2-opt.
+
+    This is the single entry point SchedulerAgent should call.
+
+    Args:
+        city: City directory name.
+        stops: List of stop dicts with lat/lng and id.
+        hotel_id: Optional hotel POI ID.
+        start_lat, start_lng: Hotel / start coordinates (used by Python fallback).
+        start_minutes, end_minutes: Day time window.
+        pace: Travel pace.
+        strategy: Planning strategy.
+        use_cpp: Whether to try the C++ backend first.
+
+    Returns:
+        Reordered list of stop dicts.
+    """
+    if len(stops) <= 1:
+        return stops
+
+    # ── Try C++ Beam Search ───────────────────────────────────────────────────
+    if use_cpp:
+        poi_ids = [s.get("poi_id") or s.get("id", "") for s in stops]
+        poi_ids = [pid for pid in poi_ids if pid]
+
+        if poi_ids:
+            result = await optimize_route_cpp(
+                city=city,
+                poi_ids=poi_ids,
+                hotel_id=hotel_id,
+                start_minutes=start_minutes,
+                end_minutes=end_minutes,
+                pace=pace,
+                strategy=strategy,
+            )
+
+            if result and "days" in result:
+                # Map C++ response order back to stops
+                optimized = result["days"][0] if result["days"] else {}
+                cpp_order = [
+                    s.get("poiId", "") for s in optimized.get("stops", [])
+                ]
+                if cpp_order:
+                    stop_lookup = {
+                        (s.get("poi_id") or s.get("id", "")): s for s in stops
+                    }
+                    reordered = []
+                    for pid in cpp_order:
+                        if pid in stop_lookup:
+                            s = stop_lookup[pid]
+                            # Update travel time from C++ data
+                            reordered.append(s)
+                    # Append any stops not covered by the C++ response
+                    seen = set(cpp_order)
+                    for s in stops:
+                        pid = s.get("poi_id") or s.get("id", "")
+                        if pid not in seen:
+                            reordered.append(s)
+                    logger.info(
+                        "C++ route applied: %d stops reordered", len(reordered),
+                    )
+                    return reordered
+
+    # ── Fallback: Python nearest-neighbor + 2-opt ─────────────────────────────
+    logger.info("Using Python 2-opt fallback for %s (%d stops)", city, len(stops))
+    return optimize_route(
+        start_lat=start_lat,
+        start_lng=start_lng,
+        stops=stops,
+        end_lat=start_lat,
+        end_lng=start_lng,
+        use_2opt=True,
+    )

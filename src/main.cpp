@@ -60,16 +60,8 @@ int main() {
         };
 
         for (const auto& entry : cityList) {
-            std::string poisPath, edgesPath;
-
-            // Root data files serve as changsha (legacy)
-            if (entry.dir == "changsha") {
-                poisPath = "data/pois.json";
-                edgesPath = "data/edges.json";
-            } else {
-                poisPath = "data/" + entry.dir + "/pois.json";
-                edgesPath = "data/" + entry.dir + "/edges.json";
-            }
+            std::string poisPath = "data/" + entry.dir + "/pois.json";
+            std::string edgesPath = "data/" + entry.dir + "/edges.json";
 
             if (!std::filesystem::exists(poisPath) || !std::filesystem::exists(edgesPath)) {
                 continue;

@@ -74,7 +74,7 @@ let totalChanged = 0;
 const stats = { 0: 0, 1: 0, 2: 0, 3: 0 };
 
 for (const city of CITIES) {
-  const f = city === 'changsha' ? 'data/pois.json' : path.join('data', city, 'pois.json');
+  const f = path.join('data', city, 'pois.json');
   if (!fs.existsSync(f)) continue;
 
   const pois = JSON.parse(fs.readFileSync(f, 'utf-8'));

@@ -5,9 +5,9 @@ import type { Poi, Stop, DayPlan } from '../../../types';
 const createMockStore = () => {
   const store = {
     days: [{ day: 1, stops: [] as Stop[], hotel: null, startPoint: { type: 'hotel' as const, poi: null } }] as DayPlan[],
-    updateDay: (dayIndex: number, updates: Partial<DayPlan>) => {
-      Object.assign(store.days[dayIndex], updates);
-    }
+    setDays: (days: DayPlan[]) => {
+      store.days = days;
+    },
   };
   return store;
 };

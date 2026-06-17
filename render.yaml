@@ -42,3 +42,7 @@ services:
         value: "8090"
       - key: AGENT_BASE_URL
         value: http://127.0.0.1:8090
+      - key: AGENT_IMPL
+        value: multi
+      - key: TOURPASS_ASSET_BASE_URL
+        sync: false

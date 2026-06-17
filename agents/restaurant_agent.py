@@ -192,4 +192,10 @@ class RestaurantAgent(BaseAgent):
 
         logger.info("Selected %d restaurant candidates for %s (from %d total)",
                      len(result), city, len(restaurants))
-        return {"restaurants": result}
+        return {
+            "restaurants": result,
+            "sse_events": [{
+                "type": "restaurants_found",
+                "content": f"找到 {len(result)} 家餐厅",
+            }],
+        }

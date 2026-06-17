@@ -35,7 +35,6 @@ function parseLocation(location) {
 function resolvePoisPath(cityDir) {
   const cityPath = path.join("data", cityDir, "pois.json");
   if (fs.existsSync(cityPath)) return cityPath;
-  if (cityDir === "changsha") { const rp = path.join("data", "pois.json"); if (fs.existsSync(rp)) return rp; }
   return null;
 }
 

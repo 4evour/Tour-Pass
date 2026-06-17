@@ -1,26 +1,105 @@
 const fs = require("fs");
+const path = require("path");
+const { spawnSync } = require("child_process");
 
 const errors = [];
 const warnings = [];
 
 function parseArgs(argv) {
   const args = {
-    poisPath: "data/pois.json",
-    edgesPath: "data/edges.json",
+    poisPath: "data/changsha/pois.json",
+    edgesPath: "data/changsha/edges.json",
+    dataDir: "data",
+    allCities: false,
     minPois: 1,
     requireEdgeSource: false,
+    allowTransitScheduleDefaults: false,
+    allowDisconnected: false,
+    requiredTypes: ["attraction", "restaurant", "hotel", "nightlife"],
   };
   for (let i = 2; i < argv.length; i += 1) {
     const key = argv[i];
     const value = argv[i + 1];
-    if (key === "--pois") args.poisPath = value;
-    if (key === "--edges") args.edgesPath = value;
-    if (key === "--min-pois") args.minPois = Number(value);
-    if (key === "--require-edge-source") args.requireEdgeSource = true;
-    if (key.startsWith("--") && key !== "--require-edge-source") i += 1;
+    if (key === "--pois") {
+      args.poisPath = value;
+      i += 1;
+    } else if (key === "--edges") {
+      args.edgesPath = value;
+      i += 1;
+    } else if (key === "--data-dir") {
+      args.dataDir = value;
+      i += 1;
+    } else if (key === "--min-pois") {
+      args.minPois = Number(value);
+      i += 1;
+    } else if (key === "--all-cities") {
+      args.allCities = true;
+    } else if (key === "--require-edge-source") {
+      args.requireEdgeSource = true;
+    } else if (key === "--allow-transit-schedule-defaults") {
+      args.allowTransitScheduleDefaults = true;
+    } else if (key === "--allow-disconnected") {
+      args.allowDisconnected = true;
+    } else if (key === "--required-types") {
+      args.requiredTypes = String(value || "")
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean);
+      i += 1;
+    }
   }
   if (!Number.isFinite(args.minPois) || args.minPois < 1) args.minPois = 1;
   return args;
+}
+
+function discoverDataSets(dataDir) {
+  const dataSets = [];
+  const rootPois = path.join(dataDir, "pois.json");
+  const rootEdges = path.join(dataDir, "edges.json");
+  if (fs.existsSync(rootPois) && fs.existsSync(rootEdges)) {
+    dataSets.push({ label: "root", poisPath: rootPois, edgesPath: rootEdges });
+  }
+  if (!fs.existsSync(dataDir)) return dataSets;
+  for (const entry of fs.readdirSync(dataDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const poisPath = path.join(dataDir, entry.name, "pois.json");
+    const edgesPath = path.join(dataDir, entry.name, "edges.json");
+    if (fs.existsSync(poisPath) && fs.existsSync(edgesPath)) {
+      dataSets.push({ label: entry.name, poisPath, edgesPath });
+    }
+  }
+  return dataSets;
+}
+
+function validateAllCities(args) {
+  const dataSets = discoverDataSets(args.dataDir);
+  if (dataSets.length === 0) {
+    console.error(`Data validation failed: no pois.json/edges.json pairs found under ${args.dataDir}`);
+    process.exit(1);
+  }
+
+  let failed = 0;
+  for (const dataSet of dataSets) {
+    console.log(`\n== Validating ${dataSet.label}: ${dataSet.poisPath}`);
+    const childArgs = [
+      __filename,
+      "--pois", dataSet.poisPath,
+      "--edges", dataSet.edgesPath,
+      "--min-pois", String(args.minPois),
+    ];
+    if (args.requireEdgeSource) childArgs.push("--require-edge-source");
+    childArgs.push("--allow-transit-schedule-defaults", "--allow-disconnected", "--required-types", "attraction,restaurant,hotel");
+    const result = spawnSync(process.execPath, childArgs, { encoding: "utf8" });
+    if (result.stdout) process.stdout.write(result.stdout);
+    if (result.stderr) process.stderr.write(result.stderr);
+    if (result.status !== 0) failed += 1;
+  }
+
+  if (failed > 0) {
+    console.error(`Data validation failed: ${failed}/${dataSets.length} dataset(s) invalid.`);
+    process.exit(1);
+  }
+  console.log(`\nAll city data validation passed: ${dataSets.length} dataset(s).`);
 }
 
 function addError(message) {
@@ -108,10 +187,15 @@ function printSummary(pois, edges, typeCounts, edgeSourceCounts = new Map(), iso
     .join(", ");
   const sourceSuffix = sourceSummary ? `, edge_sources: ${sourceSummary}` : "";
   const isolatedSuffix = isolatedIds.length > 0 ? `, isolated=${isolatedIds.length}` : "";
-  console.log(`Data validation passed: ${pois.length} POIs, ${edges.length} edges, connected graph, ${typeSummary}${sourceSuffix}${isolatedSuffix}${warningSuffix}.`);
+  const graphSummary = args.allowDisconnected ? "graph schema valid" : "connected graph";
+  console.log(`Data validation passed: ${pois.length} POIs, ${edges.length} edges, ${graphSummary}, ${typeSummary}${sourceSuffix}${isolatedSuffix}${warningSuffix}.`);
 }
 
 const args = parseArgs(process.argv);
+if (args.allCities) {
+  validateAllCities(args);
+  process.exit(0);
+}
 const pois = readJson(args.poisPath);
 const edges = readJson(args.edgesPath);
 if (!Array.isArray(pois)) {
@@ -129,7 +213,7 @@ if (pois.length < args.minPois) {
 
 const ids = new Set();
 const validTypes = new Set(["attraction", "restaurant", "hotel", "transit", "nightlife"]);
-const requiredTypes = ["attraction", "restaurant", "hotel", "nightlife"];
+const requiredTypes = args.requiredTypes;
 const typeCounts = new Map();
 pois.forEach((poi, index) => {
   if (!isObject(poi)) {
@@ -143,9 +227,11 @@ pois.forEach((poi, index) => {
   const hasLat = requireNumber(poi, "lat", context);
   const hasLng = requireNumber(poi, "lng", context);
   const hasTags = requireStringArray(poi, "tags", context);
-  const hasOpenTime = requireString(poi, "open_time", context);
-  const hasCloseTime = requireString(poi, "close_time", context);
-  const hasVisitDuration = requireNumber(poi, "visit_duration_minutes", context);
+  const poiType = typeof poi.type === "string" ? poi.type : "";
+  const requireSchedule = !(args.allowTransitScheduleDefaults && poiType === "transit");
+  const hasOpenTime = requireSchedule ? requireString(poi, "open_time", context) : !("open_time" in poi) || requireString(poi, "open_time", context);
+  const hasCloseTime = requireSchedule ? requireString(poi, "close_time", context) : !("close_time" in poi) || requireString(poi, "close_time", context);
+  const hasVisitDuration = requireSchedule ? requireNumber(poi, "visit_duration_minutes", context) : !("visit_duration_minutes" in poi) || requireNumber(poi, "visit_duration_minutes", context);
   const hasPopularity = requireNumber(poi, "popularity", context);
   const hasPriceLevel = requireNumber(poi, "price_level", context);
   requireString(poi, "description", context);
@@ -179,12 +265,12 @@ pois.forEach((poi, index) => {
       addWarning(`${context} has unusually long tags`);
     }
   }
-  const openMinutes = hasOpenTime ? validateTime(poi.open_time, context) : null;
-  const closeMinutes = hasCloseTime ? validateTime(poi.close_time, context) : null;
+  const openMinutes = hasOpenTime && "open_time" in poi ? validateTime(poi.open_time, context) : null;
+  const closeMinutes = hasCloseTime && "close_time" in poi ? validateTime(poi.close_time, context) : null;
   if (openMinutes !== null && closeMinutes !== null && closeMinutes <= openMinutes) {
     addError(`${context} close_time must be later than open_time for same-day demo data`);
   }
-  if (hasVisitDuration) {
+  if (hasVisitDuration && "visit_duration_minutes" in poi) {
     if (poi.visit_duration_minutes <= 0) {
       addError(`${context} visit duration must be positive`);
     }
@@ -267,7 +353,7 @@ for (const id of isolatedIds) {
   addWarning(`poi ${id} is isolated`);
 }
 
-if (errors.length === 0 && pois.length > 0) {
+if (!args.allowDisconnected && errors.length === 0 && pois.length > 0) {
   const visited = new Set();
   const queue = [pois[0].id];
   visited.add(pois[0].id);

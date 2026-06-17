@@ -73,6 +73,20 @@ class PoiAgent(BaseAgent):
         if not all_pois:
             return {"pois": [], "errors": [f"PoiAgent: no POI data found for {city}"]}
 
+        # ── Inject XHS frequency into each POI for scoring boost ────────────
+        xhs_popular_pois = state.get("xhs_popular_pois") or {}
+        if xhs_popular_pois:
+            from tools.xhs_loader import match_poi_name
+            for poi in all_pois:
+                freq = match_poi_name(poi.get("name", ""), xhs_popular_pois)
+                if freq > 0:
+                    poi["xhs_frequency"] = freq
+            logger.info(
+                "PoiAgent: injected XHS frequency for %d/%d POIs",
+                sum(1 for p in all_pois if p.get("xhs_frequency")),
+                len(all_pois),
+            )
+
         # Algorithmic scoring + ranking
         top_k = days * 5
         scored_pois = rank_pois(pois=all_pois, intent=intent, top_k=top_k)
@@ -94,4 +108,11 @@ class PoiAgent(BaseAgent):
 
         enriched = enriched[: days * 3]
         logger.info("Selected %d POIs for %s", len(enriched), city)
-        return {"pois": enriched}
+        return {
+            "pois": enriched,
+            "available_pois": all_pois,  # Store full list for must_visit rescue
+            "sse_events": [{
+                "type": "data_loaded",
+                "content": f"找到 {len(enriched)} 个景点",
+            }],
+        }

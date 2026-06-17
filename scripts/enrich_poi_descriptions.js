@@ -158,13 +158,8 @@ async function main() {
   const args = parseArgs(process.argv);
   const cityDir = args.city;
 
-  // Changsha is special: data/pois.json (not data/changsha/pois.json)
-  const poisPath = cityDir === "changsha"
-    ? path.join(args.dataDir, "pois.json")
-    : path.join(args.dataDir, cityDir, "pois.json");
-  const guidebookPath = cityDir === "changsha"
-    ? path.join(args.dataDir, "changsha", "guidebook.json") // but guidebook IS in changsha subdir
-    : path.join(args.dataDir, cityDir, "guidebook.json");
+  const poisPath = path.join(args.dataDir, cityDir, "pois.json");
+  const guidebookPath = path.join(args.dataDir, cityDir, "guidebook.json");
 
   const pois = readJson(poisPath);
   if (!pois) {

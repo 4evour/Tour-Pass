@@ -70,7 +70,7 @@ function callLLM(prompt) {
 }
 
 function loadCityData(cityDir) {
-  const poisPath = cityDir === 'changsha' ? 'data/pois.json' : path.join('data', cityDir, 'pois.json');
+  const poisPath = path.join('data', cityDir, 'pois.json');
   const guidePath = path.join('data', cityDir, 'guidebook.json');
   
   let pois = [];

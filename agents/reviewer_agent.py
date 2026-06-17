@@ -164,7 +164,7 @@ class ReviewerAgent(LLMAgent):
 
         llm_result = {}
         try:
-            content = await self.invoke_llm({"context": "\n".join(lines)})
+            content = await self.invoke_llm({"context": "\n".join(lines)}, state=state)
             if "```json" in content:
                 content = content.split("```json", 1)[1].rsplit("```", 1)[0]
             elif "```" in content:
@@ -192,4 +192,12 @@ class ReviewerAgent(LLMAgent):
         logger.info("Review cycle %d: passed=%s, severity=%s, issues=%d",
                      new_cycle, passed, severity, len(all_issues))
 
-        return {"review_result": review, "review_feedback": review, "review_cycle": new_cycle}
+        return {
+            "review_result": review,
+            "review_feedback": review,
+            "review_cycle": new_cycle,
+            "sse_events": [{
+                "type": "review_complete",
+                "content": f"审核完成: {'通过' if passed else '需修改'}（{severity}）",
+            }],
+        }

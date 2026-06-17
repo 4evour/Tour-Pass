@@ -1,6 +1,7 @@
 #include "tourpass/models.h"
 
 #include <algorithm>
+#include <cstdlib>
 #include <iomanip>
 #include <sstream>
 #include <stdexcept>
@@ -31,6 +32,22 @@ std::vector<std::string> optionalStringArray(const nlohmann::json& input, const 
         result.push_back(item.get<std::string>());
     }
     return result;
+}
+
+bool startsWith(const std::string& value, const std::string& prefix) {
+    return value.rfind(prefix, 0) == 0;
+}
+
+std::string configuredAssetBaseUrl() {
+    const char* assetBase = std::getenv("ASSET_BASE_URL");
+    if (!assetBase || std::string(assetBase).empty()) {
+        assetBase = std::getenv("TOURPASS_ASSET_BASE_URL");
+    }
+    std::string base = assetBase ? std::string(assetBase) : "";
+    while (!base.empty() && base.back() == '/') {
+        base.pop_back();
+    }
+    return base;
 }
 
 }  // namespace
@@ -80,6 +97,34 @@ std::string formatMinutes(int minutes) {
 
 bool containsText(const std::vector<std::string>& values, const std::string& value) {
     return std::find(values.begin(), values.end(), value) != values.end();
+}
+
+std::string resolveAssetUrl(const std::string& url) {
+    if (url.empty()
+        || startsWith(url, "http://")
+        || startsWith(url, "https://")
+        || startsWith(url, "data:")) {
+        return url;
+    }
+
+    const std::string base = configuredAssetBaseUrl();
+    if (base.empty()) {
+        return url;
+    }
+
+    if (!url.empty() && url.front() == '/') {
+        return base + url;
+    }
+    return base + "/" + url;
+}
+
+nlohmann::json poiImageToJson(const PoiImage& image, bool resolveUrl) {
+    nlohmann::json imgObj = {
+        {"url", resolveUrl ? resolveAssetUrl(image.url) : image.url},
+        {"source", image.source}
+    };
+    if (!image.noteUrl.empty()) imgObj["note_url"] = image.noteUrl;
+    return imgObj;
 }
 
 nlohmann::json scoreComponentToJson(const ScoreComponent& component) {
@@ -148,7 +193,7 @@ nlohmann::json stopToJson(const Stop& stop) {
         {"score", stop.score},
         {"score_breakdown", breakdown},
         {"reason", stop.reason},
-        {"image_url", stop.imageUrl},
+        {"image_url", resolveAssetUrl(stop.imageUrl)},
         {"guide_text", stop.guideText}
     };
 }
@@ -256,9 +301,7 @@ nlohmann::json routeResultToJson(const RouteResult& route) {
 nlohmann::json poiToJson(const Poi& poi) {
     nlohmann::json imgs = nlohmann::json::array();
     for (const auto& img : poi.images) {
-        nlohmann::json imgObj = {{"url", img.url}, {"source", img.source}};
-        if (!img.noteUrl.empty()) imgObj["note_url"] = img.noteUrl;
-        imgs.push_back(imgObj);
+        imgs.push_back(poiImageToJson(img));
     }
     return {
         {"id", poi.id},

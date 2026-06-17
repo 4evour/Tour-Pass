@@ -89,4 +89,51 @@ class RetrieveAgent(BaseAgent):
                 unique.append(g)
 
         logger.info("RetrieveAgent: retrieved %d guide snippets for %s", len(unique), city)
-        return {"city_guides": unique}
+
+        # ── Load XHS route data for downstream agents ────────────────────────
+        xhs_routes: list[dict] = []
+        xhs_popular_pois: dict[str, int] = {}
+        xhs_reference_routes: list[dict] = []
+        try:
+            from tools.xhs_loader import load_routes, extract_popular_pois, select_reference_routes
+            days = intent.get("days", 3)
+            xhs_routes = load_routes(city)
+            xhs_popular_pois = extract_popular_pois(city, days=days)
+            xhs_reference_routes = select_reference_routes(
+                city=city,
+                days=days,
+                interests=interests,
+                must_visit=must_visit,
+                top_k=5,
+            )
+            if xhs_routes:
+                logger.info(
+                    "RetrieveAgent: loaded %d XHS routes, %d popular POIs, %d references for %s",
+                    len(xhs_routes), len(xhs_popular_pois), len(xhs_reference_routes), city,
+                )
+        except Exception as e:
+            logger.warning("RetrieveAgent: XHS data load failed: %s", e)
+
+        for ref in xhs_reference_routes:
+            stops = " -> ".join(ref.get("stops", [])[:8])
+            summary = ref.get("route_summary") or stops
+            if summary:
+                unique.append(f"[真实路线参考] {summary}；常见顺序：{stops}")
+
+        sse_events = [{
+            "type": "guides_retrieved",
+            "content": f"找到 {len(unique)} 条攻略信息",
+        }]
+        if xhs_routes:
+            sse_events.append({
+                "type": "xhs_loaded",
+                "content": f"参考了 {len(xhs_routes)} 条真实旅行者路线",
+            })
+
+        return {
+            "city_guides": unique,
+            "xhs_routes": xhs_routes,
+            "xhs_popular_pois": xhs_popular_pois,
+            "xhs_reference_routes": xhs_reference_routes,
+            "sse_events": sse_events,
+        }

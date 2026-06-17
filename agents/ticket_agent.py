@@ -79,4 +79,10 @@ class TicketAgent(BaseAgent):
             })
 
         logger.info("Got ticket info for %d attractions", len(tickets))
-        return {"tickets": tickets}
+        return {
+            "tickets": tickets,
+            "sse_events": [{
+                "type": "tickets_loaded",
+                "content": f"已生成 {len(tickets)} 张门票信息",
+            }],
+        }

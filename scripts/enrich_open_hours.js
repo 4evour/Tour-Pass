@@ -49,7 +49,7 @@ function parseTimeRange(str) {
 }
 
 async function enrichCity(cityName) {
-  const f = cityName === 'changsha' ? 'data/pois.json' : path.join('data', cityName, 'pois.json');
+  const f = path.join('data', cityName, 'pois.json');
   if (!fs.existsSync(f)) return { processed: 0, enriched: 0 };
 
   const pois = JSON.parse(fs.readFileSync(f, 'utf-8'));

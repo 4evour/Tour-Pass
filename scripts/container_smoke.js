@@ -49,11 +49,36 @@ async function getJson(url, token = "") {
   return response.json();
 }
 
+async function waitForAgentHealth(baseUrl) {
+  let lastError = "";
+  for (let i = 0; i < 30; i += 1) {
+    try {
+      const response = await fetch(`${baseUrl}/agent/health`);
+      if (response.ok) {
+        return { ok: true, data: await response.json() };
+      }
+      lastError = `HTTP ${response.status}`;
+    } catch (error) {
+      lastError = error.message;
+    }
+    await sleep(1000);
+  }
+  return { ok: false, error: lastError };
+}
+
 async function main() {
   const baseUrl = process.argv[2] || process.env.TOURPASS_BASE_URL || "http://127.0.0.1:8080";
   const health = await waitForHealth(baseUrl);
   if (health.status !== "ok") {
     throw new Error(`unexpected health response: ${JSON.stringify(health)}`);
+  }
+
+  // Agent health check (non-fatal in CI where LLM may not be available)
+  const agentHealth = await waitForAgentHealth(baseUrl);
+  if (agentHealth.ok) {
+    console.log(`Agent health: ${agentHealth.data.agent || "unknown"} v${agentHealth.data.version || "?"}`);
+  } else {
+    console.warn(`Agent health check failed (non-fatal): ${agentHealth.error}`);
   }
 
   const auth = await postJson(`${baseUrl}/auth/register`, {

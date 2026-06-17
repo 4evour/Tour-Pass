@@ -1,0 +1,784 @@
+[
+  {
+    "source_note_id": "695211e0000000002202dbe9",
+    "source_url": "https://www.xiaohongshu.com/explore/695211e0000000002202dbe9",
+    "source_title": "昆明。。。特种兵逛吃拍攻略（建议收藏",
+    "source_likes": "2825",
+    "crawled_at": "2026-06-14T11:05:33.576Z",
+    "city": "kunming",
+    "city_name": "昆明",
+    "days": 1,
+    "travel_style": "特种兵式citywalk",
+    "season": "未明确提及",
+    "budget_hint": "未明确提及",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "未明确提及",
+            "name": "翠湖",
+            "duration_hint": "未明确提及",
+            "activity": "打卡拍照",
+            "transport_to_next": "步行或公交至老街"
+          },
+          {
+            "time_hint": "未明确提及",
+            "name": "老街",
+            "duration_hint": "未明确提及",
+            "activity": "打卡拍照",
+            "transport_to_next": "步行或公交至缇香傣"
+          },
+          {
+            "time_hint": "未明确提及",
+            "name": "缇香傣",
+            "duration_hint": "未明确提及",
+            "activity": "用餐",
+            "transport_to_next": "步行或公交至文林街"
+          },
+          {
+            "time_hint": "未明确提及",
+            "name": "文林街",
+            "duration_hint": "未明确提及",
+            "activity": "打卡拍照",
+            "transport_to_next": "��行或公交至禾野"
+          },
+          {
+            "time_hint": "未明确提及",
+            "name": "禾野",
+            "duration_hint": "未明确提及",
+            "activity": "打卡拍照",
+            "transport_to_next": "步行或公交至福保小三亚"
+          },
+          {
+            "time_hint": "未明确提及",
+            "name": "福保小三亚",
+            "duration_hint": "未明确提及",
+            "activity": "打卡拍照",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "从翠湖出发，依次游览老街、缇香傣（用餐）、文林街、禾野，最后到达福保小三亚，是一条昆明市区内的特种兵式citywalk打卡路线。",
+    "tags": [
+      "昆明旅游攻略",
+      "昆明一日游",
+      "昆明美食",
+      "昆明美食本地人推荐",
+      "昆明美食必吃榜推荐",
+      "昆明南强街美食",
+      "缇香傣",
+      "宝藏小店",
+      "昆明海鸥攻略"
+    ]
+  },
+  {
+    "source_note_id": "69cf7f4a000000002200c646",
+    "source_url": "https://www.xiaohongshu.com/explore/69cf7f4a000000002200c646",
+    "source_title": "",
+    "source_likes": "49",
+    "crawled_at": "2026-06-14T11:06:03.635Z",
+    "city": "kunming",
+    "city_name": "昆明",
+    "days": 2,
+    "travel_style": "城市漫游、休闲",
+    "season": "冬季（11月-次年3月）",
+    "budget_hint": "中等",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "翠湖公园",
+            "duration_hint": "约2小时",
+            "activity": "看红嘴鸥、喂海鸥",
+            "transport_to_next": "步行或打车"
+          },
+          {
+            "time_hint": "中午",
+            "name": "桥香园",
+            "duration_hint": "约1小时",
+            "activity": "吃正宗过桥米线",
+            "transport_to_next": "未提及"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "滇池海埂大坝",
+            "duration_hint": "约2小时",
+            "activity": "看西山睡美人、吹风",
+            "transport_to_next": "步行或打车"
+          },
+          {
+            "time_hint": "中午",
+            "name": "附近（滇池鱼）",
+            "duration_hint": "约1小时",
+            "activity": "吃滇池鱼",
+            "transport_to_next": "步行或打车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "云南陆军讲武堂",
+            "duration_hint": "约1.5小时",
+            "activity": "参观百年军校旧址，拍照",
+            "transport_to_next": "步行或打车"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "南强街巷",
+            "duration_hint": "约2小时",
+            "activity": "逛夜市、吃小吃（炸洋芋、烤乳扇等）",
+            "transport_to_next": "步行或打车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "云南民族村",
+            "duration_hint": "约2小时",
+            "activity": "体验民族风情，穿民族服饰拍照",
+            "transport_to_next": "步行或打车"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "滇池边（夜景）",
+            "duration_hint": "约1小时",
+            "activity": "看夜景、散步",
+            "transport_to_next": "无"
+          }
+        ]
+      }
+    ],
+    "route_summary": "第一天上午在翠湖公园喂海鸥，中午到桥香园品尝过桥米线；第二天上午前往滇池海埂大坝看西山睡美人，中午吃滇池鱼，下午先参观云南陆军讲武堂，傍晚逛南强街巷夜市，再体验云南民族村，最后在滇池边欣赏夜景。",
+    "tags": [
+      "昆明旅游",
+      "两天两夜攻略",
+      "翠湖公园",
+      "滇池海埂大坝",
+      "云南陆军讲武堂",
+      "南强街巷",
+      "云南民族村",
+      "昆明美食",
+      "冬日喂海鸥",
+      "城市漫游"
+    ]
+  },
+  {
+    "source_note_id": "69a2b2e5000000001d024bbb",
+    "source_url": "https://www.xiaohongshu.com/explore/69a2b2e5000000001d024bbb",
+    "source_title": "昆明｜3天2晚旅游攻略（✅非特种兵版）",
+    "source_likes": "775",
+    "crawled_at": "2026-06-14T11:05:07.191Z",
+    "city": "kunming",
+    "city_name": "昆明",
+    "days": 3,
+    "travel_style": "佛系休闲",
+    "season": "秋冬季",
+    "budget_hint": "性价比高，餐饮和购物价格适中",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "云南省博物馆",
+            "duration_hint": "2.5小时（含讲解）",
+            "activity": "参观博物馆，购买银披肩流苏冰箱贴等文创",
+            "transport_to_next": "打车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "文林街",
+            "duration_hint": "1-2小时",
+            "activity": "逛文林街，喝上山喝茶，步行至翠湖公园",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "翠湖公园周边",
+            "duration_hint": "1-2小时",
+            "activity": "散步，晚餐吃菌彩火锅（提前线上拿号）",
+            "transport_to_next": "打车回酒店"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "庾园",
+            "duration_hint": "1-2小时",
+            "activity": "赏枯荷，打卡《庆余年》同款景",
+            "transport_to_next": "前往海洪湿地公园"
+          },
+          {
+            "time_hint": "下午",
+            "name": "海洪湿地公园",
+            "duration_hint": "2-3小时",
+            "activity": "看红水杉、海鸥，建议日落时间前往",
+            "transport_to_next": "前往抚仙湖"
+          },
+          {
+            "time_hint": "下午至傍晚",
+            "name": "抚仙湖",
+            "duration_hint": "2-3小时（仅明星鱼洞）",
+            "activity": "在明星鱼洞感受静谧湖景，深度玩可安排2-3天",
+            "transport_to_next": "打车返回市区"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南强夜市",
+            "duration_hint": "1-2小时",
+            "activity": "逛手作摊和小吃，买冰箱贴，晚餐：从水炉普洱生态菜馆（提前拿号，推荐冰稀饭）",
+            "transport_to_next": "步行回酒店"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "大观篆新市场",
+            "duration_hint": "1-2小时",
+            "activity": "购买水果（牛奶释迦果、草莓）、云腿破酥包等小吃",
+            "transport_to_next": "打车（约50分钟）"
+          },
+          {
+            "time_hint": "中午",
+            "name": "磊楼",
+            "duration_hint": "1小时",
+            "activity": "拍照，天气不好建议不去",
+            "transport_to_next": "打车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "文化巷",
+            "duration_hint": "1-2小时",
+            "activity": "逛小店买手信，途经大象书店，晚餐：吕二定餐厅（推荐曲靖酸芒果炒牛肉）",
+            "transport_to_next": "打车回酒店取行李去机场"
+          }
+        ]
+      }
+    ],
+    "route_summary": "3天2晚昆明佛系游：第一天逛云南省博物馆、文林街、翠湖公园周边；第二天探索庾园、海洪湿地公园、抚仙湖明星鱼洞和南强夜市；第三天逛大观篆新市场、磊楼、文化巷后返程。",
+    "tags": [
+      "昆明旅行攻略",
+      "昆明美食推荐",
+      "昆明吃喝玩乐",
+      "昆明旅游",
+      "佛系旅游",
+      "秋冬旅行"
+    ]
+  },
+  {
+    "source_note_id": "69e76ae40000000023024c3e",
+    "source_url": "https://www.xiaohongshu.com/explore/69e76ae40000000023024c3e",
+    "source_title": "昆明citywalk路线🚶‍♀️3天2夜超全攻略",
+    "source_likes": "1646",
+    "crawled_at": "2026-06-14T11:05:22.048Z",
+    "city": "kunming",
+    "city_name": "昆明",
+    "days": 3,
+    "travel_style": "citywalk",
+    "season": "四季皆宜",
+    "budget_hint": "中等消费（餐饮和门票需根据实际选择）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "翠湖公园",
+            "duration_hint": "1-2小时",
+            "activity": "游览公园",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "云南陆军讲武堂旧址",
+            "duration_hint": "1小时",
+            "activity": "参观旧址",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "中午",
+            "name": "昆明老街",
+            "duration_hint": "1-2小时",
+            "activity": "逛街、品尝美食",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "景星街花鸟市场",
+            "duration_hint": "1小时",
+            "activity": "逛花鸟市场",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "金马碧鸡坊",
+            "duration_hint": "0.5小时",
+            "activity": "拍照打卡",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南强街巷夜市",
+            "duration_hint": "1-2小时",
+            "activity": "逛夜市、吃小吃",
+            "transport_to_next": "无"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "海埂大坝",
+            "duration_hint": "1-2小时",
+            "activity": "观滇池、喂海鸥（季节）",
+            "transport_to_next": "乘车"
+          },
+          {
+            "time_hint": "上午",
+            "name": "云南省博物馆",
+            "duration_hint": "2小时",
+            "activity": "参观博物馆",
+            "transport_to_next": "步行或短途乘车"
+          },
+          {
+            "time_hint": "中午",
+            "name": "官渡古镇",
+            "duration_hint": "1-2小时",
+            "activity": "游览古镇、用餐",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "非遗保护中心官渡分馆",
+            "duration_hint": "1小时",
+            "activity": "参观非遗展示",
+            "transport_to_next": "乘车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "斗南花市",
+            "duration_hint": "1-2小时",
+            "activity": "逛鲜花市场",
+            "transport_to_next": "乘车"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "洛龙公园",
+            "duration_hint": "1小时",
+            "activity": "散步、欣赏日落",
+            "transport_to_next": "无"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "黑龙潭公园",
+            "duration_hint": "1-2小时",
+            "activity": "游览公园",
+            "transport_to_next": "乘车"
+          },
+          {
+            "time_hint": "上午",
+            "name": "昆明植物园",
+            "duration_hint": "1-2小时",
+            "activity": "参观植物园",
+            "transport_to_next": "乘车"
+          },
+          {
+            "time_hint": "中午",
+            "name": "蓝花楹主题公园",
+            "duration_hint": "1小时",
+            "activity": "赏花（蓝花楹花期）",
+            "transport_to_next": "乘车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "昙华寺公园",
+            "duration_hint": "1-2小时",
+            "activity": "游览公园",
+            "transport_to_next": "乘车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "瀑布公园",
+            "duration_hint": "1小时",
+            "activity": "观瀑布",
+            "transport_to_next": "乘车"
+          },
+          {
+            "time_hint": "傍晚",
+            "name": "七彩云南第壹城商圈",
+            "duration_hint": "1-2小时",
+            "activity": "逛街、购物、晚餐",
+            "transport_to_next": "无"
+          }
+        ]
+      }
+    ],
+    "route_summary": "3天昆明citywalk路线，不走回头路：第一天老城区文化景点和夜市；第二天滇池、博物馆、古镇、花市；第三天公园和商圈。",
+    "tags": [
+      "昆明菌子火锅推荐",
+      "昆明citywalk",
+      "昆明3天2夜",
+      "昆明攻略",
+      "昆明旅行",
+      "昆明打卡",
+      "昆明老街",
+      "昆明美食",
+      "昆明拍照",
+      "云南旅游"
+    ]
+  },
+  {
+    "source_note_id": "69e2eda10000000022003581",
+    "source_url": "https://www.xiaohongshu.com/explore/69e2eda10000000022003581",
+    "source_title": "昆明攻略 | 3天2夜玩转春城！",
+    "source_likes": "1",
+    "crawled_at": "2026-06-14T11:06:30.855Z",
+    "city": "kunming",
+    "city_name": "昆明",
+    "days": 3,
+    "travel_style": "自由行深度游",
+    "season": "冬季（红嘴鸥季）",
+    "budget_hint": "门票+交通+食宿约500-800元/人（不含购物）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午9:00-12:00",
+            "name": "滇池海埂大坝",
+            "duration_hint": "3小时",
+            "activity": "观红嘴鸥、拍照，可喂面包",
+            "transport_to_next": "公交或打车至西山"
+          },
+          {
+            "time_hint": "下午13:30-18:00",
+            "name": "西山龙门",
+            "duration_hint": "4.5小时",
+            "activity": "索道往返、俯瞰滇池、赏夕阳",
+            "transport_to_next": "无"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "早上7:30-16:00",
+            "name": "石林风景区",
+            "duration_hint": "8.5小时",
+            "activity": "游览大石林、小石林阿诗玛，可请导游",
+            "transport_to_next": "返回市区（大巴或旅游团接送）"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午8:00-11:00",
+            "name": "翠湖公园",
+            "duration_hint": "3小时",
+            "activity": "赏荷花垂柳、观海鸥，周边可逛云南大学、讲武堂",
+            "transport_to_next": "需自行安排至斗南花市"
+          },
+          {
+            "time_hint": "下午14:00-18:00",
+            "name": "斗南花市",
+            "duration_hint": "4小时",
+            "activity": "逛亚洲最大鲜花市场，买鲜花、体验夜市拍卖",
+            "transport_to_next": "无"
+          }
+        ]
+      }
+    ],
+    "route_summary": "滇池西山→石林→翠湖斗南，经典昆明3日游，含自然风光、地质奇观和城市风情。",
+    "tags": [
+      "昆明旅游攻略",
+      "穷游攻略",
+      "红嘴鸥",
+      "石林",
+      "斗南花市"
+    ]
+  },
+  {
+    "source_note_id": "69c4f4690000000022025757",
+    "source_url": "https://www.xiaohongshu.com/explore/69c4f4690000000022025757",
+    "source_title": "🌊大理+昆明4天3夜｜人均1280保姆级攻略",
+    "source_likes": "367",
+    "crawled_at": "2026-06-14T11:06:47.608Z",
+    "city": "kunming",
+    "city_name": "昆明",
+    "days": 4,
+    "travel_style": "穷游自由行",
+    "season": "冬季（11-3月）",
+    "budget_hint": "人均约1280元（不含往返大交通）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "抵达昆明",
+            "duration_hint": "半天",
+            "activity": "坐地铁到市区酒店放行李（选翠湖/南屏街附近）",
+            "transport_to_next": "地铁"
+          },
+          {
+            "time_hint": "下午",
+            "name": "滇池海埂大坝",
+            "duration_hint": "2-3小时",
+            "activity": "喂红嘴鸥（11-3月限定），看西山睡美人全景",
+            "transport_to_next": "地铁/打车"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "南强街巷",
+            "duration_hint": "1-2小时",
+            "activity": "吃小吃：烤乳扇、豆花米线、汽锅鸡",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "昆明→大理（高铁）",
+            "duration_hint": "1.5小时",
+            "activity": "坐高铁到大理，打车到古城附近民宿",
+            "transport_to_next": "高铁+打车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "大理古城",
+            "duration_hint": "3-4小时",
+            "activity": "打卡五华楼、洋人街，在人民路找家咖啡馆晒太阳",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "古城夜市",
+            "duration_hint": "1-2小时",
+            "activity": "吃手抓饭、烤乳扇，听街头民谣",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "全天",
+            "name": "环洱海（电动车/拼车）",
+            "duration_hint": "全天",
+            "activity": "路线：古城 → 才村码头 → 喜洲古镇 → 双廊古镇 → 挖色镇 → 下关；喜洲稻田拍照、双廊看洱海日落、挖色看小普陀",
+            "transport_to_next": ""
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "崇圣寺三塔",
+            "duration_hint": "1-2小时",
+            "activity": "打卡大理地标（或民宿躺平）",
+            "transport_to_next": "高铁"
+          },
+          {
+            "time_hint": "下午",
+            "name": "大理→昆明（高铁）",
+            "duration_hint": "1.5小时",
+            "activity": "坐高铁返回昆明，根据航班/车次时间逛翠湖公园",
+            "transport_to_next": ""
+          }
+        ]
+      }
+    ],
+    "route_summary": "昆明落地→滇池→南强街巷，高铁至大理→古城→人民路夜市，环洱海一日游（才村/喜洲/双廊/挖色），最后崇圣寺三塔→翠湖公园返程。",
+    "tags": [
+      "昆明旅游",
+      "大理旅游",
+      "穷游攻略",
+      "环洱海",
+      "喂海鸥",
+      "美食夜市"
+    ]
+  },
+  {
+    "source_note_id": "69a97c85000000001a0336d2",
+    "source_url": "https://www.xiaohongshu.com/explore/69a97c85000000001a0336d2",
+    "source_title": "昆明四天三晚攻略拿去抄",
+    "source_likes": "73",
+    "crawled_at": "2026-06-14T11:07:16.074Z",
+    "city": "kunming",
+    "city_name": "昆明",
+    "days": 4,
+    "travel_style": "休闲自然与人文结合",
+    "season": "2月冬季",
+    "budget_hint": "中等（含打车、门票、餐饮）",
+    "itinerary": [
+      {
+        "day": 1,
+        "label": "第一天",
+        "stops": [
+          {
+            "time_hint": "18:30",
+            "name": "昆明高铁站",
+            "duration_hint": "约一个半小时",
+            "activity": "抵达后乘坐地铁前往酒店",
+            "transport_to_next": "地铁"
+          }
+        ]
+      },
+      {
+        "day": 2,
+        "label": "第二天",
+        "stops": [
+          {
+            "time_hint": "上午9:30后",
+            "name": "海埂大坝",
+            "duration_hint": "1-2小时",
+            "activity": "喂海鸥、拍照",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "上午",
+            "name": "西山公园",
+            "duration_hint": "未明确，建议乘电瓶车到龙门石窟",
+            "activity": "坐缆车俯瞰滇池，游览龙门石窟",
+            "transport_to_next": "缆车"
+          },
+          {
+            "time_hint": "下午",
+            "name": "海埂湿地��园",
+            "duration_hint": "20-30分钟",
+            "activity": "喂海鸥",
+            "transport_to_next": "打车（约半小时）"
+          },
+          {
+            "time_hint": "下午",
+            "name": "大观公园",
+            "duration_hint": "2-3小时",
+            "activity": "闲逛",
+            "transport_to_next": "打车或步行（附近老街）"
+          },
+          {
+            "time_hint": "晚上",
+            "name": "昆明老街",
+            "duration_hint": "未明确（等位+就餐）",
+            "activity": "吃菌子火锅",
+            "transport_to_next": "步行回酒店"
+          }
+        ]
+      },
+      {
+        "day": 3,
+        "label": "第三天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "云南省博物馆",
+            "duration_hint": "2-3小时",
+            "activity": "参观展览，了解云南历史",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "官渡古镇",
+            "duration_hint": "未明确（午餐+逛建筑）",
+            "activity": "午餐，逛古建筑",
+            "transport_to_next": "打车（约40分钟）"
+          },
+          {
+            "time_hint": "下午至傍晚",
+            "name": "捞鱼河湿地公园",
+            "duration_hint": "未明确（划艇1小时等）",
+            "activity": "观赏水杉，划艇（80元/小时）",
+            "transport_to_next": "打车（约40分钟至夜市）"
+          },
+          {
+            "time_hint": "晚上约九点",
+            "name": "南强夜市",
+            "duration_hint": "未明确（晚餐）",
+            "activity": "吃傣味烧烤",
+            "transport_to_next": "步行回酒店"
+          }
+        ]
+      },
+      {
+        "day": 4,
+        "label": "第四天",
+        "stops": [
+          {
+            "time_hint": "上午",
+            "name": "翠湖公园",
+            "duration_hint": "未明确（喝咖啡晒太阳）",
+            "activity": "散步，喝咖啡，晒太阳",
+            "transport_to_next": "打车"
+          },
+          {
+            "time_hint": "上午/中午",
+            "name": "斗南花市",
+            "duration_hint": "未明确（买花）",
+            "activity": "逛花市，买盆栽",
+            "transport_to_next": "步行"
+          },
+          {
+            "time_hint": "下午",
+            "name": "斗南湿地公园",
+            "duration_hint": "未明确",
+            "activity": "喂海鸥",
+            "transport_to_next": "打车或地铁至机场"
+          }
+        ]
+      }
+    ],
+    "route_summary": "昆明四天三晚行程，首日晚间抵达入住五华区；第二天集中游览滇池周边（海埂大坝、西山、湿地公园、大观公园）和昆明老街；第三天深入文化（省博、官渡古镇）和自然（捞鱼河湿地、南强夜市）；第四天上午翠湖公园，下午斗南花市及湿地，最后机场返程。",
+    "tags": [
+      "昆明旅游",
+      "云南",
+      "海鸥",
+      "滇池",
+      "湿地公园",
+      "美食",
+      "休闲游"
+    ]
+  }
+]
