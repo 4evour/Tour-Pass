@@ -28,6 +28,22 @@
 - CI 数据校验：`validate:data` 不再因为真实城市数据缺少 nightlife 或 transit 时间字段失败；`validate:data:all` 和全城市数据门禁规则保持一致。
 - Agent 运行时：`/agent/health` 可更早返回；首个 AI 规划请求会承担 LLM/Graph 懒加载耗时。
 
+## 2026-06-17 21:56 - 修复 Multi-Agent CI 测试缺失文件
+
+### 变更内容 — 改了什么文件，具体改了什么
+- tests/test_multi_agent.py — 将 `test:multi-agent` 使用的 Python 回归测试文件纳入版本控制。
+- requirements-multi-agent.txt — 补充 `fastapi`、`httpx`、`python-dotenv`、`redis`，使 CI 测试依赖与 Agent/Docker 运行依赖保持一致。
+- CHANGELOG.md — 记录二次 CI 失败原因和修复方式。
+
+### 原因 — 为什么要改
+- GitHub Actions 新 run `27693832302` 已通过 `Validate sample data`，但在 `Multi-Agent tests` 步骤失败。
+- 失败原因是干净 checkout 中没有 `tests/test_multi_agent.py`，而 `package.json` 的 `test:multi-agent` 正在执行该路径；本地能通过是因为该文件只存在于未跟踪工作区。
+- 测试会导入 `api_multi_agent.py`，因此 CI 也需要安装 API 导入依赖，否则补上测试文件后会继续因缺依赖失败。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- CI 多 Agent 测试：干净 GitHub runner 可找到并执行测试文件。
+- Python Agent 依赖：`requirements-multi-agent.txt` 可覆盖测试和运行时导入所需的轻量 API 依赖。
+
 ### 2026-06-15 22:19 — 收紧质量门禁和交付边界
 
 #### 变更内容
