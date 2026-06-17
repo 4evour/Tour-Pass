@@ -539,15 +539,28 @@ async def plan_itinerary_sync(req: PlanRequest):
         return PlanResponse(success=False, error=str(e))
 
 
+@app.get("/agent/ping")
+async def ping():
+    """Minimal health check — no imports, no dependencies."""
+    return {"ok": True, "ts": __import__("time").time()}
+
+
 @app.get("/agent/health")
 async def health():
-    return {
+    result = {
         "status": "ok",
         "version": _VERSION,
         "agent": "multi-agent",
-        "rag": rag_module.get_index_stats(),
-        "xhs": _xhs_route_stats(),
     }
+    try:
+        result["rag"] = rag_module.get_index_stats()
+    except Exception as e:
+        result["rag_error"] = str(e)
+    try:
+        result["xhs"] = _xhs_route_stats()
+    except Exception as e:
+        result["xhs_error"] = str(e)
+    return result
 
 
 # ---------------------------------------------------------------------------

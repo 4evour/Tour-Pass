@@ -34,7 +34,7 @@ python3 -m uvicorn "${AGENT_APP}" \
     --host 127.0.0.1 \
     --port "${AGENT_PORT:-8090}" \
     --workers 1 \
-    --log-level info &
+    --log-level info 2>&1 &
 AGENT_PID=$!
 
 echo "Both services started. C++ PID=$CPP_PID Agent PID=$AGENT_PID"
@@ -48,7 +48,7 @@ echo "Both services started. C++ PID=$CPP_PID Agent PID=$AGENT_PID"
             python3 -m uvicorn "${AGENT_APP}" \
                 --host 127.0.0.1 \
                 --port "${AGENT_PORT:-8090}" \
-                --workers 1 --log-level info &
+                --workers 1 --log-level info 2>&1 &
             AGENT_PID=$!
             echo "Agent restarted. New PID=$AGENT_PID"
         fi
