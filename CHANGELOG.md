@@ -58,6 +58,21 @@
 - CI Windows API smoke：路线检查与样例候选请求城市保持一致，不受服务默认城市变化影响。
 - 运行时接口：只影响测试脚本，不改变 `/route/shortest` 接口行为。
 
+## 2026-06-17 22:09 - 修复 API smoke 路线样本来源
+
+### 变更内容 — 改了什么文件，具体改了什么
+- scripts/api_smoke.ps1 — 路线 smoke 改为从 `data/guangzhou/edges.json` 取样，并显式传 `city=广州`。
+- CHANGELOG.md — 记录第三层 Windows API smoke 失败原因和修复方式。
+
+### 原因 — 为什么要改
+- GitHub Actions run `27694712668` 仍在 Windows `API smoke` 的 `/route/shortest` 检查失败。
+- 失败原因是 `data/changsha/edges.json` 当前为空；服务按城市目录加载“长沙”，而 smoke 之前从根 `data/edges.json` 读取旧长沙边，导致路线样本和服务实际加载的城市图不一致。
+- 广州是当前默认数据校验目标，且 `data/guangzhou/edges.json` 有有效边数据，用它做 smoke 样本更贴近当前 CI 数据入口。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- CI Windows API smoke：路线检查使用真实已加载且有边的城市图。
+- 运行时接口：只影响测试脚本，不改变服务行为。
+
 ### 2026-06-15 22:19 — 收紧质量门禁和交付边界
 
 #### 变更内容

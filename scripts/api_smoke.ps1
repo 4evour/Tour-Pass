@@ -73,7 +73,6 @@ try {
     $authHeaders = @{ Authorization = "Bearer $($auth.token)" }
 
     $candidateBody = Get-Content -Raw -Encoding UTF8 "docs/sample_candidate_request.json"
-    $candidateRequest = $candidateBody | ConvertFrom-Json
     $planResponse = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/trip/plan" -Method Post -ContentType "application/json; charset=utf-8" -Headers $authHeaders -Body $candidateBody -UseBasicParsing
     $plan = $planResponse.Content | ConvertFrom-Json
     if ($null -eq $plan.candidates -or $plan.candidates.Count -lt 2) {
@@ -83,14 +82,15 @@ try {
         throw "Candidate plan summary is empty."
     }
 
-    $sampleEdge = (Get-Content -Raw -Encoding UTF8 "data/edges.json" | ConvertFrom-Json)[0]
+    $routeCity = "广州"
+    $sampleEdge = (Get-Content -Raw -Encoding UTF8 "data/guangzhou/edges.json" | ConvertFrom-Json)[0]
     if ([string]::IsNullOrWhiteSpace($sampleEdge.from) -or [string]::IsNullOrWhiteSpace($sampleEdge.to)) {
         throw "Route smoke setup failed: data/edges.json does not contain a usable sample edge."
     }
     $routeFrom = [System.Uri]::EscapeDataString($sampleEdge.from)
     $routeTo = [System.Uri]::EscapeDataString($sampleEdge.to)
-    $routeCity = [System.Uri]::EscapeDataString($candidateRequest.city)
-    $routeUrl = "http://127.0.0.1:$Port/route/shortest?city=$routeCity&from=$routeFrom&to=$routeTo&algorithm=astar"
+    $routeCityParam = [System.Uri]::EscapeDataString($routeCity)
+    $routeUrl = "http://127.0.0.1:$Port/route/shortest?city=$routeCityParam&from=$routeFrom&to=$routeTo&algorithm=astar"
     $routeResponse = Invoke-WebRequest -Uri $routeUrl -Method Get -Headers $authHeaders -UseBasicParsing
     $route = $routeResponse.Content | ConvertFrom-Json
     if ($route.travel_minutes -le 0 -or $route.algorithm -ne "astar") {
