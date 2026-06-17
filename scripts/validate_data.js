@@ -7,8 +7,8 @@ const warnings = [];
 
 function parseArgs(argv) {
   const args = {
-    poisPath: "data/changsha/pois.json",
-    edgesPath: "data/changsha/edges.json",
+    poisPath: "data/guangzhou/pois.json",
+    edgesPath: "data/guangzhou/edges.json",
     dataDir: "data",
     allCities: false,
     minPois: 1,

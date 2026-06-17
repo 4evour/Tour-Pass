@@ -64,6 +64,6 @@ USER tourpass
 EXPOSE 8080
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-    CMD curl -fsS http://localhost:8080/health && curl -fsS http://localhost:${AGENT_PORT:-8090}/agent/health || exit 1
+    CMD curl -fsS http://localhost:8080/health || exit 1
 
 CMD ["/app/entrypoint.sh"]

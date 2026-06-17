@@ -314,13 +314,16 @@ def make_sse_event(event_type: str, data: dict) -> str:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("TourPass Multi-Agent service starting...")
-    # Pre-initialise singletons
+    # Pre-initialise singletons (non-fatal on failure)
     try:
         rag_module.init_rag("data")
     except Exception as e:
         logger.warning("RAG init failed at startup: %s", e)
-    _get_llm()
-    _get_graph()
+    try:
+        _get_llm()
+        _get_graph()
+    except Exception as e:
+        logger.error("LLM/Graph init failed: %s — Agent will start without LLM", e)
     yield
     logger.info("TourPass Multi-Agent service shutting down...")
 
