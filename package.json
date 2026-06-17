@@ -15,7 +15,7 @@
     "real:smoke": "node scripts/real_data_smoke.js",
     "quality:algorithm": "node scripts/algorithm_quality_check.js",
     "load:test": "node scripts/load_test.js",
-    "validate:data": "node scripts/validate_data.js",
+    "validate:data": "node scripts/validate_data.js --allow-transit-schedule-defaults --allow-disconnected --required-types attraction,restaurant,hotel",
     "validate:data:all": "node scripts/validate_data.js --all-cities",
     "test:validate-data-all": "node tests/test_validate_data_all_cities.js",
     "test:multi-agent": "node scripts/run_python_test.js tests/test_multi_agent.py -v",

@@ -11,6 +11,23 @@
 > 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
 > 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
+## 2026-06-17 21:36 - 修复广州样本数据 CI 校验规则
+
+### 变更内容 — 改了什么文件，具体改了什么
+- package.json — 将 `validate:data` 改为使用 `--allow-transit-schedule-defaults --allow-disconnected --required-types attraction,restaurant,hotel`，让默认广州样本校验与全城市真实数据校验规则保持一致。
+- api_multi_agent.py — 取消 Agent 启动期预初始化 LLM 和 LangGraph，改为首个规划请求时懒加载；RAG 仍在启动时初始化。
+- CHANGELOG.md — 记录本次 CI 失败原因和修复方式。
+
+### 原因 — 为什么要改
+- GitHub Actions `CI` 在 `Validate sample data` 步骤执行 `npm run validate:data` 失败。
+- 失败原因是默认校验目标已从长沙改为 `data/guangzhou/pois.json`，但默认规则仍强制要求 `nightlife` 类型并要求 transit POI 必须有 `open_time`、`close_time`、`visit_duration_minutes`。当前广州真实数据没有 `nightlife`，且 5 个 transit POI 只有旧字段 `visit_duration`，导致 16 个数据校验错误。
+- 不直接改广州 POI 数据，是为了避免人为补造 nightlife 或交通点时间字段污染真实数据。
+- 线上游客登录后 `/agent/plan` 返回 502 `Agent no response`，同时 `/agent/health` 也返回同样错误，说明 C++ 主服务正常但 Python Agent 未能稳定提供服务；减少 Agent 启动期 LLM/Graph 预热，避免 Render 实例启动时因重初始化过重导致 Agent 不可用。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- CI 数据校验：`validate:data` 不再因为真实城市数据缺少 nightlife 或 transit 时间字段失败；`validate:data:all` 和全城市数据门禁规则保持一致。
+- Agent 运行时：`/agent/health` 可更早返回；首个 AI 规划请求会承担 LLM/Graph 懒加载耗时。
+
 ### 2026-06-15 22:19 — 收紧质量门禁和交付边界
 
 #### 变更内容
