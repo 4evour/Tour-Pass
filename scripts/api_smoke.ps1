@@ -73,6 +73,7 @@ try {
     $authHeaders = @{ Authorization = "Bearer $($auth.token)" }
 
     $candidateBody = Get-Content -Raw -Encoding UTF8 "docs/sample_candidate_request.json"
+    $candidateRequest = $candidateBody | ConvertFrom-Json
     $planResponse = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/trip/plan" -Method Post -ContentType "application/json; charset=utf-8" -Headers $authHeaders -Body $candidateBody -UseBasicParsing
     $plan = $planResponse.Content | ConvertFrom-Json
     if ($null -eq $plan.candidates -or $plan.candidates.Count -lt 2) {
@@ -88,7 +89,8 @@ try {
     }
     $routeFrom = [System.Uri]::EscapeDataString($sampleEdge.from)
     $routeTo = [System.Uri]::EscapeDataString($sampleEdge.to)
-    $routeUrl = "http://127.0.0.1:$Port/route/shortest?from=$routeFrom&to=$routeTo&algorithm=astar"
+    $routeCity = [System.Uri]::EscapeDataString($candidateRequest.city)
+    $routeUrl = "http://127.0.0.1:$Port/route/shortest?city=$routeCity&from=$routeFrom&to=$routeTo&algorithm=astar"
     $routeResponse = Invoke-WebRequest -Uri $routeUrl -Method Get -Headers $authHeaders -UseBasicParsing
     $route = $routeResponse.Content | ConvertFrom-Json
     if ($route.travel_minutes -le 0 -or $route.algorithm -ne "astar") {

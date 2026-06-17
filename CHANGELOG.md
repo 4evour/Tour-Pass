@@ -44,6 +44,20 @@
 - CI 多 Agent 测试：干净 GitHub runner 可找到并执行测试文件。
 - Python Agent 依赖：`requirements-multi-agent.txt` 可覆盖测试和运行时导入所需的轻量 API 依赖。
 
+## 2026-06-17 22:02 - 修复 Windows API smoke 城市参数
+
+### 变更内容 — 改了什么文件，具体改了什么
+- scripts/api_smoke.ps1 — 路线 smoke 使用 `docs/sample_candidate_request.json` 中的城市作为 `/route/shortest` 的 `city` 参数。
+- CHANGELOG.md — 记录 Windows API smoke 失败原因和修复方式。
+
+### 原因 — 为什么要改
+- GitHub Actions run `27694240231` 中 Ubuntu 已全部通过，Windows 在最后的 `API smoke` 步骤失败。
+- 失败原因是 smoke 从根 `data/edges.json` 读取长沙边 `amap_f3d362be -> amap_b011c2`，但请求 `/route/shortest` 时没有显式传 `city`，服务会使用当前默认城市，导致用非长沙图查询长沙 POI 并返回 `NOT_FOUND`。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- CI Windows API smoke：路线检查与样例候选请求城市保持一致，不受服务默认城市变化影响。
+- 运行时接口：只影响测试脚本，不改变 `/route/shortest` 接口行为。
+
 ### 2026-06-15 22:19 — 收紧质量门禁和交付边界
 
 #### 变更内容
