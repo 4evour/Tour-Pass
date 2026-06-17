@@ -73,13 +73,13 @@ async function main() {
     throw new Error(`unexpected health response: ${JSON.stringify(health)}`);
   }
 
-  // Agent health check (non-fatal in CI where LLM may not be available)
+  // Agent health must be available even when LLM calls are disabled. The
+  // planning endpoints depend on the C++ reverse proxy reaching this service.
   const agentHealth = await waitForAgentHealth(baseUrl);
-  if (agentHealth.ok) {
-    console.log(`Agent health: ${agentHealth.data.agent || "unknown"} v${agentHealth.data.version || "?"}`);
-  } else {
-    console.warn(`Agent health check failed (non-fatal): ${agentHealth.error}`);
+  if (!agentHealth.ok) {
+    throw new Error(`Agent health check failed: ${agentHealth.error}`);
   }
+  console.log(`Agent health: ${agentHealth.data.agent || "unknown"} v${agentHealth.data.version || "?"}`);
 
   const auth = await postJson(`${baseUrl}/auth/register`, {
     username: "container_smoke_user",

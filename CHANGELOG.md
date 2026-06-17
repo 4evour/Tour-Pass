@@ -73,6 +73,23 @@
 - CI Windows API smoke：路线检查使用真实已加载且有边的城市图。
 - 运行时接口：只影响测试脚本，不改变服务行为。
 
+## 2026-06-17 22:26 - 修复 Agent 健康检查启动阻塞
+
+### 变更内容 — 改了什么文件，具体改了什么
+- api_multi_agent.py — Agent 启动期不再全量执行 `rag_module.init_rag("data")`，RAG 与 LLM/Graph 一样改为首个检索/规划请求懒加载。
+- scripts/container_smoke.js — 将 `/agent/health` 从非致命警告改为 Docker smoke 的硬性门禁。
+- CHANGELOG.md — 记录线上 `/agent/health` 502 与 CI Docker smoke 漏检的原因和修复方式。
+
+### 原因 — 为什么要改
+- 最新 CI 虽然通过，但 Docker smoke 日志显示 `/agent/health` 实际返回 502，只是脚本把它标记为 non-fatal；线上 `https://tour-pass.onrender.com/agent/health` 和游客规划 `/agent/plan` 同样返回 502。
+- 失败原因是 FastAPI lifespan 仍在启动期同步全量加载 RAG，读取 21 个城市的攻略和 POI 知识后才会响应健康检查；Render/Docker 中 C++ 反代在 Agent 未完成启动前只能返回 `Agent no response`。
+- Agent 健康检查不应依赖 RAG 已完成索引，RAG 可由 `RetrieveAgent` 在首个规划请求中懒加载。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- Agent 启动：`/agent/health` 可先返回，避免主服务健康但 Agent 反代一直 502。
+- CI Docker smoke：后续若 Agent health 不可用，CI 会失败而不是放过问题。
+- 首个 AI 规划请求：会承担 RAG 懒加载耗时。
+
 ### 2026-06-15 22:19 — 收紧质量门禁和交付边界
 
 #### 变更内容

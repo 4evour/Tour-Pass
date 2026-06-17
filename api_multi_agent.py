@@ -314,13 +314,11 @@ def make_sse_event(event_type: str, data: dict) -> str:
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("TourPass Multi-Agent service starting...")
-    # Keep startup lightweight on Render free tier. LLM/graph are initialised
-    # lazily on the first planning request so health checks can come up first.
-    try:
-        rag_module.init_rag("data")
-    except Exception as e:
-        logger.warning("RAG init failed at startup: %s", e)
+    # Keep startup lightweight on Render free tier. LLM, graph, and RAG are
+    # initialised lazily on the first planning request so health checks can
+    # come up first.
     logger.info("LLM/Graph will be initialised lazily on first planning request")
+    logger.info("RAG will be initialised lazily on first retrieval request")
     yield
     logger.info("TourPass Multi-Agent service shutting down...")
 
