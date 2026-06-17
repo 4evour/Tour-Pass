@@ -990,6 +990,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
 #endif
         };
 
+        server.Get("/agent/ping", agentProxyHandler);
         server.Get("/agent/health", agentProxyHandler);
         server.Get("/agent/stats", agentProxyHandler);
         server.Get("/agent/hot", agentProxyHandler);
