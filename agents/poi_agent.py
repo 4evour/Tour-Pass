@@ -30,6 +30,13 @@ class PoiAgent(BaseAgent):
     def description(self) -> str:
         return "Search and recommend Points of Interest with intelligent scoring"
 
+    @staticmethod
+    def _is_low_value_business_venue(poi: dict, must_visit: list[str]) -> bool:
+        name = poi.get("name", "")
+        if any(mv and (mv in name or mv == poi.get("id", "")) for mv in must_visit):
+            return False
+        return any(term in name for term in ("会议中心", "会展中心"))
+
     def _load_pois(self, city: str) -> list[dict]:
         """Load attraction-type POIs from local JSON."""
         city_dir = resolve_city_dir(self.data_dir, city)
@@ -72,6 +79,10 @@ class PoiAgent(BaseAgent):
         all_pois = self._load_pois(city)
         if not all_pois:
             return {"pois": [], "errors": [f"PoiAgent: no POI data found for {city}"]}
+        all_pois = [
+            poi for poi in all_pois
+            if not self._is_low_value_business_venue(poi, must_visit)
+        ]
 
         # ── Inject XHS frequency into each POI for scoring boost ────────────
         xhs_popular_pois = state.get("xhs_popular_pois") or {}
@@ -93,6 +104,7 @@ class PoiAgent(BaseAgent):
 
         # Ensure must_visit POIs are included
         enriched: list[dict] = []
+        enriched_keys: set[str] = set()
         for mv in must_visit:
             candidates = [p for p in scored_pois if mv in p.get("name", "")]
             if candidates:
@@ -101,10 +113,13 @@ class PoiAgent(BaseAgent):
                 best["is_must_visit"] = True
                 best["recommend_reason"] = f"Must visit: {mv}"
                 enriched.append(best)
+                enriched_keys.add(best.get("id") or best.get("name", ""))
 
         for poi in scored_pois:
-            if poi not in enriched:
+            key = poi.get("id") or poi.get("name", "")
+            if key not in enriched_keys:
                 enriched.append(poi)
+                enriched_keys.add(key)
 
         enriched = enriched[: days * 3]
         logger.info("Selected %d POIs for %s", len(enriched), city)

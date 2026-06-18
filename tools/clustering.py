@@ -317,11 +317,18 @@ def cluster_pois_for_days(
     # ── Assign regular attractions ───────────────────────────────────────────
     pace = intent.get("pace", "balanced")
     max_per_day = {"relaxed": 4, "balanced": 6, "intense": 8}.get(pace, 6)
+    target_min_per_day = min(max_per_day, max(1, len(scored_attractions) // num_days))
 
     for attr in regular:
         for cluster in clusters:
             if cluster.attractions:
                 cluster.center_lat, cluster.center_lng = _area_center(cluster.attractions)
+
+        underfilled = [c for c in clusters if len(c.attractions) < target_min_per_day]
+        if underfilled:
+            min_cluster = min(underfilled, key=lambda c: len(c.attractions))
+            min_cluster.attractions.append(attr)
+            continue
 
         closest_idx = _find_closest_cluster(attr, clusters)
         if len(clusters[closest_idx].attractions) < max_per_day:

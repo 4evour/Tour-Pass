@@ -340,6 +340,36 @@ class TestClusteringEngine(unittest.TestCase):
 
         self.assertEqual(shamian_names, ["沙面岛"])
 
+    def test_regular_attractions_fill_underused_days_before_overloading_day(self):
+        """Regular POIs should keep a 3-day trip reasonably filled."""
+        attractions = [
+            {
+                "id": "must_a", "name": "必去A", "type": "attraction",
+                "lat": 39.91, "lng": 116.40, "area": "A区",
+                "popularity": 4.8, "tags": ["历史文化"],
+                "visit_duration_minutes": 90,
+            },
+            {
+                "id": "must_b", "name": "必去B", "type": "attraction",
+                "lat": 40.65, "lng": 117.20, "area": "B区",
+                "popularity": 4.8, "tags": ["历史文化"],
+                "visit_duration_minutes": 90,
+            },
+        ]
+        for i in range(7):
+            attractions.append({
+                "id": f"regular_{i}", "name": f"普通景点{i}", "type": "attraction",
+                "lat": 39.90 + i * 0.001, "lng": 116.39 + i * 0.001,
+                "area": "A区", "popularity": 4.5,
+                "tags": ["历史文化"], "visit_duration_minutes": 90,
+            })
+
+        intent = {"pace": "balanced", "must_visit": ["必去A", "必去B"]}
+        clusters = self.cluster_pois_for_days(attractions, [], num_days=3, intent=intent)
+        counts = [len(c.attractions) for c in clusters]
+
+        self.assertGreaterEqual(min(counts), 3)
+
     def test_empty_attractions(self):
         clusters = self.cluster_pois_for_days([], [], num_days=3, intent={"pace": "balanced", "must_visit": []})
         self.assertEqual(len(clusters), 3)
@@ -739,6 +769,52 @@ class TestBaseAgentCircuitBreaker(unittest.TestCase):
         mock_llm = MagicMock()
         weather = WeatherAgent(mock_llm)
         self.assertEqual(weather.max_retries, 1)  # non-critical = 1 retry
+
+
+class TestPoiAgent(unittest.TestCase):
+    """Test PoiAgent deterministic POI selection."""
+
+    def _run_async(self, coro):
+        loop = asyncio.new_event_loop()
+        try:
+            return loop.run_until_complete(coro)
+        finally:
+            loop.close()
+
+    def test_must_visit_enrichment_does_not_duplicate_existing_poi(self):
+        from agents.poi_agent import PoiAgent
+
+        intent = {
+            "city": "北京", "days": 3, "pace": "balanced",
+            "must_visit": ["故宫", "长城"], "interests": [],
+            "avoid": [], "strategy": "balanced",
+        }
+        result = self._run_async(PoiAgent(data_dir="data").execute({
+            "trip_intent": intent,
+            "city": "北京",
+            "days": 3,
+        }))
+        names = [p.get("name", "") for p in result.get("pois", [])]
+
+        self.assertEqual(names.count("故宫博物院"), 1)
+        self.assertEqual(names.count("司马台长城旅游区"), 1)
+
+    def test_generic_beijing_trip_excludes_business_meeting_centers(self):
+        from agents.poi_agent import PoiAgent
+
+        intent = {
+            "city": "北京", "days": 3, "pace": "balanced",
+            "must_visit": ["故宫", "长城"], "interests": [],
+            "avoid": [], "strategy": "balanced",
+        }
+        result = self._run_async(PoiAgent(data_dir="data").execute({
+            "trip_intent": intent,
+            "city": "北京",
+            "days": 3,
+        }))
+        names = [p.get("name", "") for p in result.get("pois", [])]
+
+        self.assertFalse(any("会议中心" in name for name in names))
 
 
 class TestLLMAgentCallCounter(unittest.TestCase):
