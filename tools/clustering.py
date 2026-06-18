@@ -9,10 +9,18 @@ Merged from:
 
 import math
 import logging
+import re
 from dataclasses import dataclass, field
 from collections import defaultdict
 
 logger = logging.getLogger(__name__)
+
+_SCENIC_SUFFIXES = (
+    "风景名胜区", "国家森林公园", "森林公园", "湿地公园",
+    "旅游度假区", "旅游区", "游客中心", "观景平台",
+    "风景区", "景区", "公园", "广场", "岛",
+)
+_SAME_SCENIC_DISTANCE_KM = 0.35
 
 
 @dataclass
@@ -49,6 +57,79 @@ def _area_center(pois: list[dict]) -> tuple[float, float]:
         return 0.0, 0.0
     
     return sum(lats) / len(lats), sum(lngs) / len(lngs)
+
+
+def _canonical_scenic_name(name: str) -> str:
+    """Return a stable key for parent scenic areas and near-duplicate POIs."""
+    raw = (name or "").strip()
+    if not raw:
+        return ""
+
+    base = re.split(r"[-—(（]", raw, 1)[0].strip()
+    base = re.sub(r"\s+", "", base)
+
+    changed = True
+    while changed:
+        changed = False
+        for suffix in _SCENIC_SUFFIXES:
+            if len(base) > len(suffix) + 1 and base.endswith(suffix):
+                base = base[:-len(suffix)]
+                changed = True
+                break
+
+    return base or raw
+
+
+def _same_scenic_place(left: dict, right: dict) -> bool:
+    left_id = left.get("id", "")
+    right_id = right.get("id", "")
+    if left_id and right_id and left_id == right_id:
+        return True
+
+    left_key = _canonical_scenic_name(left.get("name", ""))
+    right_key = _canonical_scenic_name(right.get("name", ""))
+    if not left_key or left_key != right_key:
+        return False
+
+    left_lat, left_lng = left.get("lat", 0), left.get("lng", 0)
+    right_lat, right_lng = right.get("lat", 0), right.get("lng", 0)
+    if left_lat and left_lng and right_lat and right_lng:
+        return _haversine_km(left_lat, left_lng, right_lat, right_lng) <= _SAME_SCENIC_DISTANCE_KM
+
+    return left.get("name", "") == right.get("name", "")
+
+
+def _dedupe_attractions_by_place(attractions: list[dict], must_visit: list[str]) -> list[dict]:
+    """Keep one attraction per physical scenic place, preserving first useful slot."""
+    deduped: list[dict] = []
+
+    def rank(poi: dict) -> tuple[int, int, float, float, int]:
+        name = poi.get("name", "")
+        exact = any(mv and name == mv for mv in must_visit)
+        contains = any(mv and mv in name for mv in must_visit)
+        return (
+            1 if exact else 0,
+            1 if poi.get("is_must_visit") or contains else 0,
+            float(poi.get("_score", 0) or 0),
+            float(poi.get("popularity", 0) or 0),
+            -len(name),
+        )
+
+    for attr in attractions:
+        duplicate_idx = None
+        for idx, existing in enumerate(deduped):
+            if _same_scenic_place(attr, existing):
+                duplicate_idx = idx
+                break
+
+        if duplicate_idx is None:
+            deduped.append(attr)
+            continue
+
+        if rank(attr) > rank(deduped[duplicate_idx]):
+            deduped[duplicate_idx] = attr
+
+    return deduped
 
 
 def _find_closest_cluster(
@@ -158,6 +239,7 @@ def cluster_pois_for_days(
         return [DayCluster(day_num=i + 1, theme="自由活动") for i in range(num_days)]
 
     must_visit_names = intent.get("must_visit", [])
+    scored_attractions = _dedupe_attractions_by_place(scored_attractions, must_visit_names)
 
     # ── Separate must_visit and regular attractions ──────────────────────────
     must_pois = [a for a in scored_attractions if _is_must_visit(a, must_visit_names)]
@@ -199,6 +281,12 @@ def cluster_pois_for_days(
                 )
             else:
                 logger.warning("must_visit '%s' not found in any available POI", mv)
+
+        must_pois = _dedupe_attractions_by_place(must_pois, must_visit_names)
+        regular = [
+            attr for attr in regular
+            if not any(_same_scenic_place(attr, must_poi) for must_poi in must_pois)
+        ]
 
     # ── Initialise clusters ──────────────────────────────────────────────────
     clusters = [DayCluster(day_num=i + 1, theme="") for i in range(num_days)]

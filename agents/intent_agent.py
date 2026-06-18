@@ -28,6 +28,7 @@ _DAYS_RE = re.compile(r"(\d+)\s*[天日]")
 
 _MUST_VISIT_RES = [
     re.compile(r"(?:一定|必须|必)要去(.+?)(?:[，。]|$)"),
+    re.compile(r"(?:必须|务必)去(.+?)(?:[，。]|$)"),
     re.compile(r"想去(.+?)(?:[，。]|$)"),
     re.compile(r"必去(.+?)(?:[，。]|$)"),
 ]

@@ -308,6 +308,38 @@ class TestClusteringEngine(unittest.TestCase):
             all_names.extend(a["name"] for a in c.attractions)
         self.assertIn("隐藏必去", all_names)
 
+    def test_overlapping_must_visit_keywords_do_not_duplicate_place(self):
+        """Overlapping must_visit terms should not schedule the same place twice."""
+        shamian = {
+            "id": "amap_ca3a003e", "name": "沙面岛", "type": "attraction",
+            "lat": 23.106802, "lng": 113.244707, "area": "荔湾区",
+            "popularity": 4.8, "tags": ["城市游览", "沙面"],
+            "visit_duration_minutes": 90, "is_must_visit": True,
+        }
+        attractions = [
+            {**shamian, "recommend_reason": "Must visit: 沙面"},
+            {**shamian, "recommend_reason": "Must visit: 沙面岛"},
+            {
+                "id": "amap_58ab625a", "name": "沙面公园", "type": "attraction",
+                "lat": 23.105666, "lng": 113.244807, "area": "荔湾区",
+                "popularity": 4.7, "tags": ["公园", "沙面"],
+                "visit_duration_minutes": 90,
+            },
+            {
+                "id": "amap_1ab4b7d9", "name": "广州人民艺术中心", "type": "attraction",
+                "lat": 23.142913, "lng": 113.280627, "area": "越秀区",
+                "popularity": 4.7, "tags": ["文化"],
+                "visit_duration_minutes": 90,
+            },
+        ]
+        intent = {"pace": "balanced", "must_visit": ["沙面", "沙面岛"]}
+
+        clusters = self.cluster_pois_for_days(attractions, [], num_days=3, intent=intent)
+        all_attractions = [a for c in clusters for a in c.attractions]
+        shamian_names = [a["name"] for a in all_attractions if "沙面" in a["name"]]
+
+        self.assertEqual(shamian_names, ["沙面岛"])
+
     def test_empty_attractions(self):
         clusters = self.cluster_pois_for_days([], [], num_days=3, intent={"pace": "balanced", "must_visit": []})
         self.assertEqual(len(clusters), 3)
@@ -589,6 +621,10 @@ class TestIntentAgentRegex(unittest.TestCase):
         result = self.IntentAgent._extract_must_visit("一定要去故宫和长城")
         self.assertIn("故宫", result)
         self.assertIn("长城", result)
+
+    def test_extract_must_visit_with_bixuqu(self):
+        result = self.IntentAgent._extract_must_visit("广州3天，必须去沙面，喜欢城市探索和美食")
+        self.assertEqual(result, ["沙面"])
 
     def test_extract_interests(self):
         result = self.IntentAgent._extract_interests("我喜欢美食和历史文化")
