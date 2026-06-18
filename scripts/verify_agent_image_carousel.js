@@ -189,6 +189,31 @@ async function main() {
       throw new Error("Expected images array to render when image_url is missing");
     }
 
+    const duplicateText = "\u6B27\u5F0F\u5EFA\u7B51\u7FA4\u4E0E\u767E\u5E74\u53E4\u6811\u4EA4\u7EC7\u7684\u65F6\u5149\u96A7\u9053\u3002\u5EFA\u8BAE\u508D\u665A\u53BB\uFF0C\u5149\u5F71\u900F\u8FC7\u6995\u6811\u53F6\u6D12\u5728\u77F3\u677F\u8DEF\u4E0A\u6700\u51FA\u7247\u3002";
+    await page.evaluate((duplicateText) => {
+      renderAgentResult({
+        city: "\u5E7F\u5DDE",
+        days: [{
+          day: 1,
+          stops: [{
+            poi_name: "\u6C99\u9762\u516C\u56ED",
+            poi_type: "attraction",
+            area: "\u8354\u6E7E\u533A",
+            start_time: "09:00",
+            end_time: "10:30",
+            reason: duplicateText,
+            guide_text: "\u6C99\u9762\u516C\u56ED\u85CF\u5728\u5E7F\u5DDE\u8354\u6E7E\u7684\u6B27\u5F0F\u5EFA\u7B51\u7FA4\u91CC\uFF0C\u6EE1\u773C\u767E\u5E74\u53E4\u6811\u548C\u6D0B\u697C\u3002",
+            recommendation: duplicateText,
+          }],
+        }],
+      });
+    }, duplicateText);
+
+    const duplicateVisibleCount = await page.locator(`text=${duplicateText}`).count();
+    if (duplicateVisibleCount !== 1) {
+      throw new Error(`Expected duplicate recommendation text to render once, got ${duplicateVisibleCount}`);
+    }
+
     if (errors.length > 0) {
       throw new Error(`Browser console errors: ${errors.join(" | ")}`);
     }

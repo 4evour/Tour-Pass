@@ -2022,6 +2022,10 @@ function getStopImageUrls(stop) {
   return urls;
 }
 
+function normalizeStopText(value) {
+  return (value || "").trim().replace(/\s+/g, " ");
+}
+
 function renderStopCard(stop) {
   var card = document.createElement("div");
   card.className = "agent-stop";
@@ -2101,13 +2105,14 @@ function renderStopCard(stop) {
     areaEl.textContent = '\u{1F4CD} ' + stop.area + (timeStr && !hasImg ? ' \u00B7 ' + timeStr : '');
     body.appendChild(areaEl);
   }
-  if (stop.reason) {
+  var reason = normalizeStopText(stop.reason);
+  if (reason) {
     var reasonEl = document.createElement("div");
     reasonEl.className = "agent-stop-reason";
-    reasonEl.textContent = stop.reason;
+    reasonEl.textContent = reason;
     body.appendChild(reasonEl);
   }
-  var guide = (stop.guide_text || "").trim();
+  var guide = normalizeStopText(stop.guide_text);
   if (guide) {
     var guideDiv = document.createElement("div");
     guideDiv.className = "agent-stop-guide";
@@ -2136,10 +2141,11 @@ function renderStopCard(stop) {
     }
     body.appendChild(guideDiv);
   }
-  if (stop.recommendation) {
+  var recommendation = normalizeStopText(stop.recommendation);
+  if (recommendation && recommendation !== reason && recommendation !== guide) {
     var tipEl = document.createElement("div");
     tipEl.className = "agent-stop-tip";
-    tipEl.innerHTML = '\u{1F4A1} ' + escapeHtml(stop.recommendation);
+    tipEl.innerHTML = '\u{1F4A1} ' + escapeHtml(recommendation);
     body.appendChild(tipEl);
   }
   card.appendChild(body);
