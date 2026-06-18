@@ -109,6 +109,19 @@ async function main() {
     await page.goto(`http://127.0.0.1:${PORT}/`, { waitUntil: "networkidle" });
     await page.waitForSelector("#mainApp:not([hidden])", { timeout: 10000 });
 
+    const manualPlannerLinkCount = await page.locator('a[href="/editor"]').count();
+    if (manualPlannerLinkCount !== 0) {
+      throw new Error(`Expected manual planner entry to be removed, got ${manualPlannerLinkCount}`);
+    }
+    const manualPreferenceCount = await page.locator("#formSection, #planForm").count();
+    if (manualPreferenceCount !== 0) {
+      throw new Error(`Expected manual preference form to be removed, got ${manualPreferenceCount}`);
+    }
+    const agentButtonCount = await page.locator("#chatButton").count();
+    if (agentButtonCount !== 1) {
+      throw new Error(`Expected AI agent planner entry to remain available, got ${agentButtonCount}`);
+    }
+
     const first = svgDataUrl("#146b5d");
     const second = svgDataUrl("#c25b1e");
     const third = svgDataUrl("#2563eb");

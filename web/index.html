@@ -112,94 +112,12 @@
             <span class="agent-keyword" data-kw="历史">📜 历史</span>
           </div>
           <div class="chat-hero-subhint">Ctrl+Enter 发送 · 点击标签添加关键词 · 或选择快捷模板</div>
-          <div class="chat-hero-actions">
-            <a href="/editor" class="secondary-action" style="margin-top:8px;display:inline-block;">✏️ 手动规划行程</a>
-          </div>
           <div id="chatOutput" class="chat-hero-output" hidden></div>
           <div id="agentProgress" class="agent-progress" hidden>
             <div class="agent-progress-spinner"></div>
             <div class="agent-progress-steps" id="progressSteps"></div>
           </div>
         </section>
-
-        <!-- Simplified form (collapsible) -->
-        <details class="form-collapsible" id="formSection">
-          <summary>📋 手动设置偏好</summary>
-          <form id="planForm" class="compact-form" aria-label="行程偏好">
-            <div class="form-grid">
-              <div class="field-row">
-                <label for="city">城市</label>
-                <div class="city-cards" id="cityCards">
-                  <button type="button" class="city-card" data-city="长沙">🏙️ 长沙</button>
-                  <button type="button" class="city-card" data-city="武汉">🌉 武汉</button>
-                  <button type="button" class="city-card" data-city="大理">🏔️ 大理</button>
-                  <button type="button" class="city-card" data-city="丽江">🏘️ 丽江</button>
-                  <button type="button" class="city-card" data-city="南京">🏛️ 南京</button>
-                  <button type="button" class="city-card" data-city="苏州">🏡 苏州</button>
-                  <button type="button" class="city-card" data-city="北京">🏯 北京</button>
-                  <button type="button" class="city-card" data-city="成都">🐼 成都</button>
-                  <button type="button" class="city-card" data-city="重庆">🔥 重庆</button>
-                  <button type="button" class="city-card" data-city="杭州">🌊 杭州</button>
-                  <button type="button" class="city-card" data-city="西安">🏛️ 西安</button>
-                  <button type="button" class="city-card" data-city="上海">🌃 上海</button>
-                  <button type="button" class="city-card" data-city="广州">🥘 广州</button>
-                  <button type="button" class="city-card" data-city="深圳">🏙️ 深圳</button>
-                  <button type="button" class="city-card" data-city="厦门">🏖️ 厦门</button>
-                  <button type="button" class="city-card" data-city="青岛">🍺 青岛</button>
-                  <button type="button" class="city-card" data-city="桂林">🏞️ 桂林</button>
-                  <button type="button" class="city-card" data-city="三亚">🌊 三亚</button>
-                  <button type="button" class="city-card" data-city="哈尔滨">❄️ 哈尔滨</button>
-                  <button type="button" class="city-card" data-city="昆明">🌸 昆明</button>
-                  <button type="button" class="city-card" data-city="张家界">🏔️ 张家界</button>
-                </div>
-                <input id="city" name="city" value="" hidden />
-              </div>
-              <div class="field-row">
-                <label for="days">天数</label>
-                <input id="days" name="days" type="number" min="1" max="7" value="2" />
-              </div>
-              <div class="field-row">
-                <label>兴趣</label>
-                <div class="interest-tags" id="interestTags">
-                  <button type="button" class="tag active" data-val="历史文化">🏛 历史文化</button>
-                  <button type="button" class="tag active" data-val="美食">🍜 美食</button>
-                  <button type="button" class="tag" data-val="夜景">🌙 夜景</button>
-                  <button type="button" class="tag" data-val="自然风光">🌿 自然风光</button>
-                  <button type="button" class="tag" data-val="购物">🛍 购物</button>
-                  <button type="button" class="tag" data-val="亲子">👨‍👩‍👧 亲子</button>
-                </div>
-                <input id="interests" name="interests" value="历史文化, 美食" hidden />
-              </div>
-              <div class="field-row">
-                <label for="hotelLocation">酒店</label>
-                <div class="hotel-picker-wrap">
-                  <input id="hotelLocation" name="hotelLocation" value="" placeholder="点击选择酒店..." readonly />
-                  <div id="hotelDropdown" class="hotel-dropdown" hidden>
-                    <input id="hotelSearch" class="hotel-search" placeholder="搜索酒店..." />
-                    <div id="hotelList" class="hotel-list"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="field-row">
-                <label for="pace">节奏</label>
-                <select id="pace" name="pace">
-                  <option>轻松</option>
-                  <option selected>标准</option>
-                  <option>紧凑</option>
-                </select>
-              </div>
-            </div>
-            <!-- Hidden fields with defaults -->
-            <input id="candidateCount" name="candidateCount" value="5" hidden />
-            <input id="startTime" name="startTime" value="09:30" hidden />
-            <input id="endTime" name="endTime" value="21:30" hidden />
-            <input id="mustVisit" name="mustVisit" value="" hidden />
-            <div class="action-row">
-              <button class="primary-action" type="submit">生成行程</button>
-            </div>
-          </form>
-          <div id="formGuidebook" class="form-guidebook"></div>
-        </details>
 
         <!-- 3 tabs -->
         <section class="stage-nav" aria-label="结果导航" id="agentStageNav" hidden>

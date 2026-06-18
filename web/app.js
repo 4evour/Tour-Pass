@@ -1852,7 +1852,7 @@ async function explainPlan() {
   }
 }
 
-$("planForm").addEventListener("submit", generatePlan);
+$("planForm")?.addEventListener("submit", generatePlan);
 $("routeButton").addEventListener("click", queryRoute);
 $("alternativeButton").addEventListener("click", queryAlternatives);
 $("searchButton").addEventListener("click", querySearch);
@@ -2409,14 +2409,14 @@ document.querySelectorAll(".city-card").forEach((card) => {
   card.addEventListener("click", () => {
     document.querySelectorAll(".city-card").forEach(c => c.classList.remove("active"));
     card.classList.add("active");
-    $("city").value = card.dataset.city;
+    if ($("city")) $("city").value = card.dataset.city;
     // Load guidebook for selected city
     loadGuidebook(card.dataset.city);
     // Reload hotels for new city
     allHotels = [];
     loadHotels();
     // Clear hotel when city changes; user picks from hotel list
-    $("hotelLocation").value = "";
+    if ($("hotelLocation")) $("hotelLocation").value = "";
   });
 });
 // Initialize default city from backend and load guidebook
@@ -2425,13 +2425,13 @@ document.querySelectorAll(".city-card").forEach((card) => {
     const data = await fetch('/cities').then(r => r.json());
     const defaultCity = data.default || (data.cities && data.cities[0]?.name) || '';
     if (defaultCity) {
-      $("city").value = defaultCity;
+      if ($("city")) $("city").value = defaultCity;
       const card = document.querySelector(`.city-card[data-city="${defaultCity}"]`);
       if (card) {
         document.querySelectorAll(".city-card").forEach(c => c.classList.remove("active"));
         card.classList.add("active");
       }
-      loadHotels();
+      if ($("hotelList")) loadHotels();
     }
   } catch {}
   setTimeout(() => loadGuidebook($("city")?.value || ""), 500);
@@ -2442,7 +2442,7 @@ document.querySelectorAll(".interest-tags .tag").forEach((tag) => {
   tag.addEventListener("click", () => {
     tag.classList.toggle("active");
     const active = [...document.querySelectorAll(".interest-tags .tag.active")].map(t => t.dataset.val);
-    $("interests").value = active.join(", ");
+    if ($("interests")) $("interests").value = active.join(", ");
   });
 });
 
@@ -2457,6 +2457,7 @@ async function loadHotels() {
   } catch (e) { console.warn("loadHotels failed:", e); }
 }
 function renderHotelList(hotels) {
+  if (!$("hotelList")) return;
   $("hotelList").innerHTML = hotels.map(h => `
     <div class="hotel-item" data-id="${h.id}" data-name="${escapeHtml(h.name)}">
       <strong>${escapeHtml(h.name)}</strong>
@@ -2465,12 +2466,12 @@ function renderHotelList(hotels) {
   `).join("") || '<div class="hotel-item"><span>暂无酒店数据</span></div>';
   document.querySelectorAll(".hotel-item").forEach(item => {
     item.addEventListener("click", () => {
-      $("hotelLocation").value = item.dataset.name;
-      $("hotelDropdown").hidden = true;
+      if ($("hotelLocation")) $("hotelLocation").value = item.dataset.name;
+      if ($("hotelDropdown")) $("hotelDropdown").hidden = true;
     });
   });
 }
-$("hotelLocation").addEventListener("click", async () => {
+$("hotelLocation")?.addEventListener("click", async () => {
   $("hotelDropdown").hidden = !$("hotelDropdown").hidden;
   if (!$("hotelDropdown").hidden && allHotels.length === 0) await loadHotels();
 });
@@ -2479,7 +2480,7 @@ $("hotelSearch")?.addEventListener("input", (e) => {
   renderHotelList(allHotels.filter(h => h.name.toLowerCase().includes(q) || (h.area || "").toLowerCase().includes(q)));
 });
 document.addEventListener("click", (e) => {
-  if (!e.target.closest(".hotel-picker-wrap")) $("hotelDropdown").hidden = true;
+  if (!e.target.closest(".hotel-picker-wrap") && $("hotelDropdown")) $("hotelDropdown").hidden = true;
 });
 
 // Save / Share trip
@@ -2629,13 +2630,6 @@ function renderHotRecommendations() {
     card.addEventListener("click", () => {
       const tpl = TEMPLATES[parseInt(card.dataset.index)];
       if (!tpl) return;
-      // Auto-fill form
-      $("city").value = tpl.city;
-      $("days").value = tpl.days;
-      // Update city cards
-      document.querySelectorAll(".city-card").forEach(c => {
-        c.classList.toggle("active", c.dataset.city === tpl.city);
-      });
       // Set chat input and trigger
       $("chatInput").value = tpl.msg;
       chatPlan();
