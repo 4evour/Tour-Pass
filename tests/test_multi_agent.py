@@ -11,6 +11,7 @@ import json
 import math
 import os
 import sys
+import tempfile
 import time
 import unittest
 from pathlib import Path
@@ -516,6 +517,51 @@ class TestRAGModule(unittest.TestCase):
         doc_tokens = self._tokenize("今天天气很好")
         score = self._bm25_score(query_tokens, doc_tokens)
         self.assertEqual(score, 0)
+
+    def test_init_city_rag_indexes_only_requested_city(self):
+        import tools.rag as rag_mod
+
+        old_state = (
+            rag_mod._corpus,
+            rag_mod._idf,
+            rag_mod._indexed_cities,
+            rag_mod._poi_knowledge,
+            rag_mod._ready,
+            rag_mod._skip,
+        )
+        try:
+            rag_mod._corpus = []
+            rag_mod._idf = {}
+            rag_mod._indexed_cities = set()
+            rag_mod._poi_knowledge = {}
+            rag_mod._ready = False
+            rag_mod._skip = False
+
+            with tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                for city in ("beijing", "shanghai"):
+                    city_dir = root / city
+                    city_dir.mkdir()
+                    (city_dir / "city_guide.json").write_text(
+                        json.dumps({"transport_tips": [f"{city}地铁方便"]}, ensure_ascii=False),
+                        encoding="utf-8",
+                    )
+
+                loaded = rag_mod.init_city_rag(str(root), "北京")
+
+            self.assertTrue(loaded)
+            self.assertTrue(rag_mod.is_city_indexed("北京"))
+            self.assertFalse(rag_mod.is_city_indexed("上海"))
+            self.assertEqual(rag_mod._indexed_cities, {"beijing"})
+        finally:
+            (
+                rag_mod._corpus,
+                rag_mod._idf,
+                rag_mod._indexed_cities,
+                rag_mod._poi_knowledge,
+                rag_mod._ready,
+                rag_mod._skip,
+            ) = old_state
 
 
 # ══════════════════════════════════════════════════════════════════════════════

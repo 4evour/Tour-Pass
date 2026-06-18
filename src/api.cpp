@@ -18,14 +18,6 @@
 #ifdef _WIN32
 #include <winhttp.h>
 #endif
-#ifndef _WIN32
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <errno.h>
-#endif
 #include "tourpass/auth.h"
 #include "tourpass/data_loader.h"
 
@@ -330,6 +322,14 @@ std::string queryString(const httplib::Request& req) {
     if (pos == std::string::npos) return "";
     return req.target.substr(pos + 1);
 }
+
+#ifndef _WIN32
+std::string upstreamPathWithQuery(const httplib::Request& req) {
+    const std::string qs = queryString(req);
+    if (qs.empty()) return req.path;
+    return req.path + "?" + qs;
+}
+#endif
 
 bool isAllowedImageRequestPath(const std::string& path) {
     if (path.empty() || path.front() == '/' || path.find("..") != std::string::npos || path.find('\\') != std::string::npos) {
@@ -832,161 +832,50 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             res.set_header("Cache-Control", "no-cache, no-store");
             res.set_header("X-Accel-Buffering", "no");
 #else
-            // Linux/POSIX: streaming proxy via raw socket
-            int sockfd = socket(AF_INET, SOCK_STREAM, 0);
-            if (sockfd < 0) {
-                res.status = 502;
-                res.set_content("{\"error\":\"Agent proxy socket failed\"}", "application/json");
-                return;
+            httplib::Client client("127.0.0.1", agentPort);
+            client.set_connection_timeout(5);
+            client.set_read_timeout(180);
+            client.set_write_timeout(30);
+
+            httplib::Headers headers;
+            if (req.has_header("Accept")) {
+                headers.emplace("Accept", req.get_header_value("Accept"));
+            }
+            if (req.has_header("Authorization")) {
+                headers.emplace("Authorization", req.get_header_value("Authorization"));
+            }
+            if (req.has_header("X-Request-Id")) {
+                headers.emplace("X-Request-Id", req.get_header_value("X-Request-Id"));
             }
 
-            struct sockaddr_in addr{};
-            addr.sin_family = AF_INET;
-            addr.sin_port = htons(agentPort);
-            inet_pton(AF_INET, "127.0.0.1", &addr.sin_addr);
+            const std::string upstreamPath = upstreamPathWithQuery(req);
+            const std::string contentType = req.has_header("Content-Type")
+                ? req.get_header_value("Content-Type")
+                : "application/json";
 
-            // Connect with timeout
-            int flags = fcntl(sockfd, F_GETFL, 0);
-            fcntl(sockfd, F_SETFL, flags | O_NONBLOCK);
-            connect(sockfd, (struct sockaddr*)&addr, sizeof(addr));
-            fd_set wfds; FD_ZERO(&wfds); FD_SET(sockfd, &wfds);
-            struct timeval tv; tv.tv_sec = 5; tv.tv_usec = 0;
-            if (select(sockfd + 1, nullptr, &wfds, nullptr, &tv) <= 0) {
-                close(sockfd);
-                res.status = 502;
-                res.set_content("{\"error\":\"Agent service connect timeout\"}", "application/json");
-                return;
-            }
-            fcntl(sockfd, F_SETFL, flags);
-
-            // Build and send HTTP request
-            std::string reqStr = req.method + " " + req.path + " HTTP/1.1\r\n";
-            reqStr += "Host: 127.0.0.1:" + std::to_string(agentPort) + "\r\n";
-            reqStr += "Content-Type: application/json\r\n";
-            if (!req.body.empty()) {
-                reqStr += "Content-Length: " + std::to_string(req.body.size()) + "\r\n";
-            }
-            reqStr += "Connection: close\r\n\r\n";
-            reqStr += req.body;
-            send(sockfd, reqStr.data(), reqStr.size(), 0);
-
-            // Helper: read one line from socket
-            auto readLine = [&](std::string& line) -> bool {
-                line.clear();
-                char c;
-                while (true) {
-                    fd_set rfds; FD_ZERO(&rfds); FD_SET(sockfd, &rfds);
-                    struct timeval rtv; rtv.tv_sec = 30; rtv.tv_usec = 0;
-                    if (select(sockfd + 1, &rfds, nullptr, nullptr, &rtv) <= 0) return false;
-                    if (recv(sockfd, &c, 1, 0) <= 0) return false;
-                    if (c == '\n') break;
-                    if (c != '\r') line += c;
-                }
-                return true;
-            };
-
-            // Read status line
-            std::string statusLine;
-            if (!readLine(statusLine)) {
-                close(sockfd);
-                res.status = 502;
-                res.set_content("{\"error\":\"Agent no response\"}", "application/json");
-                return;
-            }
-
-            auto sp1 = statusLine.find(' ');
-            if (sp1 != std::string::npos) {
-                auto sp2 = statusLine.find(' ', sp1 + 1);
-                if (sp2 != std::string::npos)
-                    res.status = std::atoi(statusLine.substr(sp1 + 1, sp2 - sp1 - 1).c_str());
-                else
-                    res.status = std::atoi(statusLine.substr(sp1 + 1).c_str());
-            }
-
-            // Read headers
-            std::string contentType = "application/json";
-            bool chunked = false;
-            std::string line;
-            while (readLine(line) && !line.empty()) {
-                auto colon = line.find(':');
-                if (colon != std::string::npos) {
-                    std::string key = line.substr(0, colon);
-                    std::string val = line.substr(colon + 1);
-                    while (!val.empty() && val[0] == ' ') val.erase(0, 1);
-                    for (auto& ch : key) ch = std::tolower(ch);
-                    if (key == "content-type") contentType = val;
-                    if (key == "transfer-encoding" && val.find("chunked") != std::string::npos)
-                        chunked = true;
-                }
-            }
-
-            bool isSSE = (contentType.find("event-stream") != std::string::npos);
-
-            // State for streaming proxy (RAII closes socket)
-            struct ProxyState {
-                int fd;
-                std::string rawBuf;
-                std::string decoded;
-                bool finished;
-                bool isChunked;
-                ProxyState(int f, bool c) : fd(f), finished(false), isChunked(c) {}
-                ~ProxyState() { if (fd >= 0) close(fd); }
-
-                void readUpstream() {
-                    char buf[4096];
-                    fd_set rfds; FD_ZERO(&rfds); FD_SET(fd, &rfds);
-                    struct timeval rtv; rtv.tv_sec = 60; rtv.tv_usec = 0;
-                    if (select(fd + 1, &rfds, nullptr, nullptr, &rtv) <= 0) { finished = true; return; }
-                    ssize_t n = recv(fd, buf, sizeof(buf), 0);
-                    if (n <= 0) { finished = true; return; }
-                    rawBuf.append(buf, n);
-                }
-
-                void decodeChunked() {
-                    size_t pos = 0;
-                    while (pos + 2 <= rawBuf.size()) {
-                        auto nl = rawBuf.find("\r\n", pos);
-                        if (nl == std::string::npos) break;
-                        int chunkSize = std::strtol(rawBuf.substr(pos, nl - pos).c_str(), nullptr, 16);
-                        if (chunkSize <= 0) { finished = true; rawBuf.clear(); return; }
-                        size_t dataStart = nl + 2;
-                        size_t dataEnd = dataStart + chunkSize;
-                        if (dataEnd + 2 > rawBuf.size()) break;
-                        decoded.append(rawBuf.data() + dataStart, chunkSize);
-                        pos = dataEnd + 2;
-                    }
-                    rawBuf.erase(0, pos);
-                }
-
-                bool fillBuffer() {
-                    if (finished) return !decoded.empty();
-                    readUpstream();
-                    if (isChunked) decodeChunked();
-                    else { decoded.swap(rawBuf); }
-                    return !decoded.empty() || !finished;
-                }
-            };
-
-            auto state = std::make_shared<ProxyState>(sockfd, chunked);
-            sockfd = -1; // ownership transferred to state
-
-            if (isSSE) {
-                res.set_chunked_content_provider(contentType,
-                    [state](size_t /*offset*/, httplib::DataSink& sink) -> bool {
-                        if (state->finished && state->decoded.empty()) return false;
-                        state->fillBuffer();
-                        if (state->decoded.empty()) { sink.done(); return false; }
-                        std::string toSend;
-                        toSend.swap(state->decoded);
-                        return sink.write(toSend.data(), toSend.size());
-                    },
-                    [](bool /*success*/) {}
-                );
+            httplib::Result upstream;
+            if (req.method == "POST") {
+                upstream = client.Post(upstreamPath, headers, req.body, contentType);
             } else {
-                // Non-SSE: buffer entire response body
-                do { /* read all */ } while (state->fillBuffer() && !state->decoded.empty());
-                res.set_content(state->decoded, contentType);
+                upstream = client.Get(upstreamPath, headers);
             }
+
+            if (!upstream) {
+                res.status = 502;
+                setJson(res, errorJson(
+                    "AGENT_PROXY_ERROR",
+                    "Agent service unavailable",
+                    {{"reason", httplib::to_string(upstream.error())}}
+                ), 502);
+                return;
+            }
+
+            res.status = upstream->status;
+            std::string upstreamCT = upstream->get_header_value("Content-Type");
+            if (upstreamCT.empty()) upstreamCT = "application/json";
+            res.set_content(upstream->body, upstreamCT);
+            res.set_header("Cache-Control", "no-cache, no-store");
+            res.set_header("X-Accel-Buffering", "no");
 #endif
         };
 

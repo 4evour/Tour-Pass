@@ -33,10 +33,11 @@ class RetrieveAgent(BaseAgent):
         if not city:
             return {"city_guides": []}
 
-        # Ensure RAG is initialised
-        if not rag.is_rag_ready():
+        # Ensure only the requested city is indexed. Loading all cities at once
+        # can exceed Render free-tier memory during the first planning request.
+        if not rag.is_city_indexed(city):
             try:
-                rag.init_rag("data")
+                rag.init_city_rag("data", city)
             except Exception as e:
                 logger.warning("RAG init failed: %s", e)
                 return {"city_guides": []}

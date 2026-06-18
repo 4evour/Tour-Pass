@@ -112,6 +112,11 @@ def is_rag_ready() -> bool:
     return _ready and not _skip
 
 
+def is_city_indexed(city: str) -> bool:
+    """Check if a city's RAG data has been indexed."""
+    return _normalize_city(city) in _indexed_cities
+
+
 def mark_rag_ready():
     """Mark RAG as ready."""
     global _ready
@@ -502,6 +507,70 @@ def init_rag(data_dir: str = "data") -> int:
         len(_corpus),
     )
     return cities_loaded
+
+
+def init_city_rag(data_dir: str = "data", city: str = "") -> bool:
+    """Initialize RAG data for a single city.
+
+    This keeps Render free-tier planning requests from loading all city guide
+    data into memory just to answer one city itinerary.
+    """
+    global _ready
+    norm_city = _normalize_city(city)
+    if not norm_city:
+        return False
+    if norm_city in _indexed_cities:
+        _ready = True
+        return True
+
+    entry = Path(data_dir) / norm_city
+    if not entry.is_dir():
+        logger.warning("RAG city directory not found: %s", entry)
+        return False
+
+    city_loaded = False
+
+    guide_path = entry / "city_guide.json"
+    if guide_path.exists():
+        try:
+            ingest_city_guide(norm_city, str(guide_path))
+            city_loaded = True
+        except Exception as e:
+            logger.warning("Failed to ingest guide for %s: %s", norm_city, e)
+
+    guidebook_path = entry / "guidebook.json"
+    if guidebook_path.exists():
+        try:
+            ingest_guidebook(norm_city, str(guidebook_path))
+            city_loaded = True
+        except Exception as e:
+            logger.warning("Failed to ingest guidebook for %s: %s", norm_city, e)
+
+    knowledge_path = entry / "poi_knowledge.json"
+    if knowledge_path.exists():
+        try:
+            ingest_poi_knowledge(norm_city, str(knowledge_path))
+            city_loaded = True
+        except Exception as e:
+            logger.warning("Failed to ingest poi_knowledge for %s: %s", norm_city, e)
+
+    tips_path = entry / "city_tips.json"
+    if tips_path.exists():
+        try:
+            ingest_city_tips(norm_city, str(tips_path))
+            city_loaded = True
+        except Exception as e:
+            logger.warning("Failed to ingest XHS tips for %s: %s", norm_city, e)
+
+    if city_loaded:
+        _build_idf()
+        _ready = True
+        logger.info(
+            "RAG city ready: %s, %d total chunks indexed",
+            norm_city,
+            len(_corpus),
+        )
+    return city_loaded
 
 
 def get_index_stats() -> dict:

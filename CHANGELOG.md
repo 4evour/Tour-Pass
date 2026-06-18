@@ -11,6 +11,27 @@
 > 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
 > 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
+## 2026-06-18 12:20 - 修复 Render Agent 反代 502
+
+### 变更内容 — 改了什么文件，具体改了什么
+- src/api.cpp — Linux/Render 的 `/agent/*` 反代从手写 raw socket 读取改为复用项目已有 `httplib::Client`，并补齐 query string 转发；Agent 不可达时返回结构化 `AGENT_PROXY_ERROR` 和底层错误原因。
+- tools/rag.py — 新增单城市 RAG 初始化能力，避免首个规划请求一次加载 21 个城市的攻略/知识数据。
+- agents/retrieve_agent.py — RetrieveAgent 改为只按当前请求城市懒加载 RAG。
+- tests/test_multi_agent.py — 增加城市级 RAG 初始化回归测试，确认请求北京不会顺带索引上海。
+- CHANGELOG.md — 记录本次 502 根因调查和修复范围。
+
+### 原因 — 为什么要改
+- 最新 GitHub Actions Docker smoke 和线上 `https://tour-pass.onrender.com/agent/health` 都返回 502，响应体为 `{"error":"Agent no response"}`。
+- CI 容器日志显示 FastAPI Agent 已经完成 startup 并监听 `127.0.0.1:8090`，但 Python 侧没有收到 `/agent/health` 请求；失败点集中在 C++ Linux raw socket 反代实现，而不是 Agent 健康检查自身。
+- Render 免费实例 521MB 内存限制可能仍会影响首个规划请求的 graph/RAG 懒加载，但 `/agent/health` 不触发这些重资源加载，当前可复现 502 需要先修反代可达性。
+- 首个 `/agent/plan` 仍可能在免费实例中受内存限制影响，原 RetrieveAgent 会在请求期全量 `init_rag("data")`，需要改成城市级懒加载降低峰值内存。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- Render/Docker Linux 环境：`/agent/ping`、`/agent/health`、`/agent/plan`、`/agent/plan-sync`、`/agent/plan-multi`、`/agent/chat` 等 C++ 到 Python Agent 的代理路径。
+- Windows 本地 API smoke：不改 WinHTTP 反代分支。
+- 前端 AI 多 Agent 规划：恢复 C++ 服务对 Python Agent 的可达性；SSE 响应经 `httplib::Client` 缓冲返回，后续如需优化实时流式可单独处理。
+- 首个规划请求：RAG 只加载当前城市，减少 Render 免费实例上的内存峰值；跨城市请求会按城市逐步追加索引。
+
 ## 2026-06-17 21:36 - 修复广州样本数据 CI 校验规则
 
 ### 变更内容 — 改了什么文件，具体改了什么
