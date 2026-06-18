@@ -712,7 +712,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         // For SSE (text/event-stream) responses, uses chunked content provider
         // to stream data from upstream without buffering.
         // For non-SSE responses, buffers the entire response.
-        auto agentProxyHandler = [&](const httplib::Request& req, httplib::Response& res) {
+        auto agentProxyHandler = [agentPort](const httplib::Request& req, httplib::Response& res) {
 #ifdef _WIN32
             HINTERNET hSession = WinHttpOpen(L"TourPass-Agent/1.0",
                 WINHTTP_ACCESS_TYPE_DEFAULT_PROXY,

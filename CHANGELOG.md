@@ -19,6 +19,7 @@
 - agents/retrieve_agent.py — RetrieveAgent 改为只按当前请求城市懒加载 RAG。
 - tests/test_multi_agent.py — 增加城市级 RAG 初始化回归测试，确认请求北京不会顺带索引上海。
 - scripts/container_smoke.js — Agent health 失败时输出响应体片段，避免 CI 只显示 `HTTP 502` 而丢失代理错误细节。
+- src/api.cpp — 修复 Agent 代理 handler 对 `agentPort` 的悬空引用，确保 Linux/Render 运行时实际连接 `AGENT_PORT` 指定端口。
 - CHANGELOG.md — 记录本次 502 根因调查和修复范围。
 
 ### 原因 — 为什么要改
@@ -33,6 +34,7 @@
 - 前端 AI 多 Agent 规划：恢复 C++ 服务对 Python Agent 的可达性；SSE 响应经 `httplib::Client` 缓冲返回，后续如需优化实时流式可单独处理。
 - 首个规划请求：RAG 只加载当前城市，减少 Render 免费实例上的内存峰值；跨城市请求会按城市逐步追加索引。
 - CI Docker smoke：后续 Agent 502 会显示响应体和 C++ 代理错误日志，便于区分连接失败、读取失败和 Agent 业务失败。
+- Docker/Render Agent 代理：端口捕获改为按值保存，避免 handler 注册后局部端口变量失效导致连接 `port=0`。
 
 ## 2026-06-17 21:36 - 修复广州样本数据 CI 校验规则
 
