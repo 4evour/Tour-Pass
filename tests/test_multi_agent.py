@@ -626,6 +626,18 @@ class TestIntentAgentRegex(unittest.TestCase):
         result = self.IntentAgent._extract_must_visit("广州3天，必须去沙面，喜欢城市探索和美食")
         self.assertEqual(result, ["沙面"])
 
+    def test_extract_must_visit_with_yaoqu(self):
+        result = self.IntentAgent._extract_must_visit("去北京玩三天，要去故宫和长城")
+        self.assertEqual(result, ["故宫", "长城"])
+
+    def test_extract_must_visit_with_yaoqu_without_punctuation(self):
+        result = self.IntentAgent._extract_must_visit("去北京玩3天要去故宫和长城")
+        self.assertEqual(result, ["故宫", "长城"])
+
+    def test_extract_must_visit_with_yaoqu_does_not_match_buyaoqu(self):
+        result = self.IntentAgent._extract_must_visit("不要去故宫，要去长城")
+        self.assertEqual(result, ["长城"])
+
     def test_extract_interests(self):
         result = self.IntentAgent._extract_interests("我喜欢美食和历史文化")
         self.assertIn("food", result)
