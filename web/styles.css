@@ -2935,6 +2935,8 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   overflow: hidden;
   transition: max-height 0.3s;
   position: relative;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .agent-stop-guide-text.expanded {
   max-height: 2000px;

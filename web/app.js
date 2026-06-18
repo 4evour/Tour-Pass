@@ -2026,6 +2026,30 @@ function normalizeStopText(value) {
   return (value || "").trim().replace(/\s+/g, " ");
 }
 
+function enableGuideToggleIfNeeded(guideText, guideDiv, guideId) {
+  requestAnimationFrame(function() {
+    if (!guideText.isConnected || guideDiv.querySelector(".agent-stop-guide-toggle")) return;
+    if (guideText.scrollHeight <= guideText.clientHeight + 1) return;
+
+    var toggleBtn = document.createElement("button");
+    toggleBtn.type = "button";
+    toggleBtn.className = "agent-stop-guide-toggle";
+    toggleBtn.textContent = '\u5C55\u5F00\u653B\u7565';
+    toggleBtn.setAttribute("data-guide-id", guideId);
+    toggleBtn.onclick = function() {
+      var el = document.getElementById(this.getAttribute("data-guide-id"));
+      if (el.classList.contains("expanded")) {
+        el.classList.remove("expanded");
+        this.textContent = '\u5C55\u5F00\u653B\u7565';
+      } else {
+        el.classList.add("expanded");
+        this.textContent = '\u6536\u8D77';
+      }
+    };
+    guideDiv.appendChild(toggleBtn);
+  });
+}
+
 function renderStopCard(stop) {
   var card = document.createElement("div");
   card.className = "agent-stop";
@@ -2147,24 +2171,8 @@ function renderStopCard(stop) {
     guideText.id = guideId;
     guideText.textContent = guide;
     guideDiv.appendChild(guideText);
-    if (guide.length > 120) {
-      var toggleBtn = document.createElement("button");
-      toggleBtn.className = "agent-stop-guide-toggle";
-      toggleBtn.textContent = '\u5C55\u5F00\u653B\u7565';
-      toggleBtn.setAttribute("data-guide-id", guideId);
-      toggleBtn.onclick = function() {
-        var el = document.getElementById(this.getAttribute("data-guide-id"));
-        if (el.classList.contains("expanded")) {
-          el.classList.remove("expanded");
-          this.textContent = '\u5C55\u5F00\u653B\u7565';
-        } else {
-          el.classList.add("expanded");
-          this.textContent = '\u6536\u8D77';
-        }
-      };
-      guideDiv.appendChild(toggleBtn);
-    }
     body.appendChild(guideDiv);
+    enableGuideToggleIfNeeded(guideText, guideDiv, guideId);
   }
   var recommendation = normalizeStopText(stop.recommendation);
   if (recommendation && recommendation !== reason && recommendation !== guide) {

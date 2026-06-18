@@ -249,6 +249,37 @@ async function main() {
       throw new Error(`Expected duplicate recommendation text to render once, got ${duplicateVisibleCount}`);
     }
 
+    await page.setViewportSize({ width: 390, height: 820 });
+    const wrappingGuideText = "\u7075\u9690\u5BFA\u85CF\u5728\u897F\u6E56\u897F\u9762\u7684\u5C71\u6797\u91CC\uFF0C\u9999\u706B\u65FA\u3001\u53E4\u6728\u53C2\u5929\uFF0C\u98DE\u6765\u5CF0\u77F3\u523B\u548C\u4E91\u6797\u7985\u5BFA\u533E\u989D\u90FD\u503C\u5F97\u770B\u3002\u5EFA\u8BAE\u4E00\u65E9\u53BB\u907F\u5F00\u4EBA\u6F6E\uFF0C\u987A\u8DEF\u722C\u5317\u9AD8\u5CF0\uFF0C\u611F\u53D7\u6668\u949F\u66AE\u9F13\u7684\u7985\u610F\u3002";
+    if (wrappingGuideText.length > 120) {
+      throw new Error("Guide layout fixture must stay below the old length-based toggle threshold");
+    }
+    await page.evaluate((wrappingGuideText) => {
+      renderAgentResult({
+        city: "\u676D\u5DDE",
+        days: [{
+          day: 1,
+          stops: [{
+            poi_name: "\u7075\u9690\u5BFA",
+            poi_type: "attraction",
+            area: "\u897F\u6E56\u533A",
+            start_time: "09:00",
+            end_time: "10:30",
+            guide_text: wrappingGuideText,
+          }],
+        }],
+      });
+    }, wrappingGuideText);
+
+    const guideTextBox = await page.locator(".agent-stop-guide-text").first().evaluate((el) => ({
+      clientHeight: el.clientHeight,
+      scrollHeight: el.scrollHeight,
+    }));
+    const guideToggleCount = await page.locator(".agent-stop-guide-toggle").count();
+    if (guideTextBox.scrollHeight > guideTextBox.clientHeight + 1 && guideToggleCount === 0) {
+      throw new Error("Expected wrapped guide text to either fit its box or show an expand control");
+    }
+
     if (errors.length > 0) {
       throw new Error(`Browser console errors: ${errors.join(" | ")}`);
     }
