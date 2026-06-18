@@ -13,6 +13,7 @@ from tools.route import (
     load_edges_cache,
 )
 from tools import rag
+from tools import hotel_price_api
 
 __all__ = [
     # Scoring
@@ -38,4 +39,5 @@ __all__ = [
 
     # RAG
     "rag",
+    "hotel_price_api",
 ]

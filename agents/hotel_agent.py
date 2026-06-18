@@ -14,6 +14,7 @@ from langchain_core.language_models import BaseChatModel
 from agents.base import LLMAgent
 from agents.constants import resolve_city_dir, haversine_km, compute_center, load_pois_by_type
 from agents.state import TourState
+from tools import hotel_price_api
 
 logger = logging.getLogger(__name__)
 
@@ -153,6 +154,14 @@ class HotelAgent(LLMAgent):
         hotels = load_pois_by_type(self.data_dir, city, "hotel")
         if not hotels:
             return {"selected_hotel": None, "errors": [f"HotelAgent: no hotel data for {city}"]}
+
+        price_result = await hotel_price_api.fetch_hotel_prices(city, hotels[:30])
+        if price_result.get("prices"):
+            hotels = hotel_price_api.merge_price_quotes(hotels, price_result["prices"])
+            sse_events.append({
+                "type": "hotel_prices_loaded",
+                "content": f"已加载{price_result.get('provider', 'external')}酒店价格",
+            })
 
         # Pre-sort by location score (for candidate selection before LLM)
         poi_center = compute_center(pois)

@@ -5,7 +5,12 @@ from typing import Optional
 
 logger = logging.getLogger(__name__)
 
-QWEATHER_KEY = os.getenv("QWEATHER_KEY", "")
+QWEATHER_KEY = (
+    os.getenv("QWEATHER_KEY")
+    or os.getenv("QWEATHER_API_KEY")
+    or os.getenv("HEFENG_WEATHER_KEY")
+    or ""
+)
 QWEATHER_GEO_URL = "https://geoapi.qweather.com/v2/city/lookup"
 QWEATHER_WEATHER_URL = "https://devapi.qweather.com/v7/weather/3d"
 
@@ -27,6 +32,20 @@ _CITY_LOCATION_MAP = {
 def is_available() -> bool:
     """Check if weather API is configured."""
     return bool(QWEATHER_KEY)
+
+
+def get_config_status() -> dict:
+    """Return non-secret weather provider configuration status."""
+    return {
+        "provider": "qweather",
+        "available": is_available(),
+        "key_env": (
+            "QWEATHER_KEY" if os.getenv("QWEATHER_KEY")
+            else "QWEATHER_API_KEY" if os.getenv("QWEATHER_API_KEY")
+            else "HEFENG_WEATHER_KEY" if os.getenv("HEFENG_WEATHER_KEY")
+            else ""
+        ),
+    }
 
 
 def _get_location_id(city: str) -> Optional[str]:

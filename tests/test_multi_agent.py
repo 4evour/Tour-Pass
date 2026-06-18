@@ -771,6 +771,75 @@ class TestBaseAgentCircuitBreaker(unittest.TestCase):
         self.assertEqual(weather.max_retries, 1)  # non-critical = 1 retry
 
 
+class TestWeatherAndHotelIntegrations(unittest.TestCase):
+    """Test third-party travel data integration boundaries."""
+
+    def test_weather_key_accepts_hefeng_aliases(self):
+        import importlib
+        import tools.weather_api as weather_api
+
+        old_env = {
+            "QWEATHER_KEY": os.environ.get("QWEATHER_KEY"),
+            "QWEATHER_API_KEY": os.environ.get("QWEATHER_API_KEY"),
+            "HEFENG_WEATHER_KEY": os.environ.get("HEFENG_WEATHER_KEY"),
+        }
+        try:
+            for key in old_env:
+                os.environ.pop(key, None)
+            os.environ["HEFENG_WEATHER_KEY"] = "hf-test-key"
+            weather_api = importlib.reload(weather_api)
+            self.assertTrue(weather_api.is_available())
+            self.assertEqual(weather_api.get_config_status()["provider"], "qweather")
+        finally:
+            for key, value in old_env.items():
+                if value is None:
+                    os.environ.pop(key, None)
+                else:
+                    os.environ[key] = value
+            importlib.reload(weather_api)
+
+    def test_hotel_price_provider_unavailable_without_endpoint(self):
+        from tools import hotel_price_api
+
+        status = hotel_price_api.get_config_status(env={})
+        self.assertFalse(status["available"])
+        self.assertEqual(status["provider"], "unconfigured")
+
+        result = self._run_async(hotel_price_api.fetch_hotel_prices("北京", [{"name": "测试酒店"}], env={}))
+        self.assertEqual(result["status"], "unavailable")
+        self.assertEqual(result["prices"], [])
+
+    def test_merge_price_quotes_into_hotels(self):
+        from tools.hotel_price_api import merge_price_quotes
+
+        hotels = [{"id": "h1", "name": "测试酒店", "price_range": "未知"}]
+        prices = [{"hotel_name": "测试酒店", "price_per_night": 588, "currency": "CNY", "provider": "demo"}]
+
+        merged = merge_price_quotes(hotels, prices)
+
+        self.assertEqual(merged[0]["price_per_night"], 588)
+        self.assertEqual(merged[0]["price_provider"], "demo")
+        self.assertEqual(merged[0]["price_range"], "约588元/晚")
+
+    def test_merge_price_quotes_skips_malformed_price(self):
+        from tools.hotel_price_api import merge_price_quotes
+
+        hotels = [{"id": "h1", "name": "测试酒店", "price_range": "未知"}]
+        prices = [{"hotel_id": "h1", "price_per_night": "not-a-number", "provider": "demo"}]
+
+        merged = merge_price_quotes(hotels, prices)
+
+        self.assertNotIn("price_per_night", merged[0])
+        self.assertEqual(merged[0]["price_range"], "未知")
+
+    def _run_async(self, coro):
+        loop = asyncio.new_event_loop()
+        try:
+            return loop.run_until_complete(coro)
+        finally:
+            loop.close()
+
+
 class TestPoiAgent(unittest.TestCase):
     """Test PoiAgent deterministic POI selection."""
 
