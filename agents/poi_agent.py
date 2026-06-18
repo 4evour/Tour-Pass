@@ -31,11 +31,31 @@ class PoiAgent(BaseAgent):
         return "Search and recommend Points of Interest with intelligent scoring"
 
     @staticmethod
-    def _is_low_value_business_venue(poi: dict, must_visit: list[str]) -> bool:
+    def _is_low_value_poi(poi: dict, intent: dict) -> bool:
         name = poi.get("name", "")
+        must_visit = intent.get("must_visit", [])
         if any(mv and (mv in name or mv == poi.get("id", "")) for mv in must_visit):
             return False
-        return any(term in name for term in ("会议中心", "会展中心"))
+
+        tags = set(poi.get("tags", []))
+        text = " ".join([
+            name,
+            poi.get("description", "") or "",
+            " ".join(tags),
+        ])
+        interests = set(intent.get("interests", []))
+        shopping_requested = bool(interests & {"shopping", "购物"})
+
+        shopping_tags = {"购物", "商圈", "商场", "购物中心", "免税品店"}
+        if not shopping_requested and tags & shopping_tags:
+            return True
+
+        low_value_terms = (
+            "会议中心", "会展中心", "商务中心", "写字楼", "办公楼",
+            "培训机构", "培训中心", "学校", "高等院校", "职业技术学校",
+            "专修学院", "校区", "产业园", "科技园", "创新中心", "人才交流中心",
+        )
+        return any(term in text for term in low_value_terms)
 
     def _load_pois(self, city: str) -> list[dict]:
         """Load attraction-type POIs from local JSON."""
@@ -81,7 +101,7 @@ class PoiAgent(BaseAgent):
             return {"pois": [], "errors": [f"PoiAgent: no POI data found for {city}"]}
         all_pois = [
             poi for poi in all_pois
-            if not self._is_low_value_business_venue(poi, must_visit)
+            if not self._is_low_value_poi(poi, intent)
         ]
 
         # ── Inject XHS frequency into each POI for scoring boost ────────────

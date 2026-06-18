@@ -885,6 +885,49 @@ class TestPoiAgent(unittest.TestCase):
 
         self.assertFalse(any("会议中心" in name for name in names))
 
+    def test_generic_trip_filters_misclassified_commercial_pois(self):
+        from agents.poi_agent import PoiAgent
+
+        intent = {
+            "city": "广州", "days": 3, "pace": "balanced",
+            "must_visit": [], "interests": [],
+            "avoid": [], "strategy": "balanced",
+        }
+        agent = PoiAgent(data_dir="data")
+        noisy = [
+            {"name": "天环Parc Central", "type": "attraction", "tags": ["购物", "购物中心"]},
+            {"name": "广州侨光财经专修学院(北校区)", "type": "attraction", "tags": ["学校", "高等院校"]},
+            {"name": "卓悦中心", "type": "attraction", "tags": ["商务写字楼", "购物中心"]},
+        ]
+
+        filtered = [p for p in noisy if not agent._is_low_value_poi(p, intent)]
+
+        self.assertEqual(filtered, [])
+
+    def test_shopping_interest_keeps_shopping_landmarks(self):
+        from agents.poi_agent import PoiAgent
+
+        intent = {
+            "city": "上海", "days": 2, "pace": "balanced",
+            "must_visit": [], "interests": ["shopping"],
+            "avoid": [], "strategy": "balanced",
+        }
+        poi = {"name": "上海ifc商场", "type": "attraction", "tags": ["购物", "购物中心"]}
+
+        self.assertFalse(PoiAgent(data_dir="data")._is_low_value_poi(poi, intent))
+
+    def test_must_visit_keeps_explicit_low_value_name(self):
+        from agents.poi_agent import PoiAgent
+
+        intent = {
+            "city": "广州", "days": 2, "pace": "balanced",
+            "must_visit": ["天环Parc Central"], "interests": [],
+            "avoid": [], "strategy": "balanced",
+        }
+        poi = {"id": "mall_001", "name": "天环Parc Central", "type": "attraction", "tags": ["购物中心"]}
+
+        self.assertFalse(PoiAgent(data_dir="data")._is_low_value_poi(poi, intent))
+
 
 class TestLLMAgentCallCounter(unittest.TestCase):
     """Test that invoke_llm properly increments the call counter."""
