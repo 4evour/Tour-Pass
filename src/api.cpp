@@ -301,6 +301,35 @@ std::string allowedCorsOrigin(const httplib::Request& req) {
     return std::find(origins.begin(), origins.end(), origin) != origins.end() ? origin : "";
 }
 
+bool isSafeCspSource(const std::string& source) {
+    if (source.empty()) return false;
+    for (unsigned char c : source) {
+        if (std::isalnum(c) || c == ':' || c == '/' || c == '.' || c == '-' || c == '_') continue;
+        return false;
+    }
+    return true;
+}
+
+std::string configuredAssetOrigin() {
+    const char* env = std::getenv("ASSET_BASE_URL");
+    if (!env || !*env) env = std::getenv("TOURPASS_ASSET_BASE_URL");
+    if (!env || !*env) return "";
+
+    std::string base = trimCopy(env);
+    while (!base.empty() && base.back() == '/') {
+        base.pop_back();
+    }
+
+    const bool isHttp = base.rfind("http://", 0) == 0;
+    const bool isHttps = base.rfind("https://", 0) == 0;
+    if (!isHttp && !isHttps) return "";
+
+    const size_t schemeEnd = base.find("://");
+    const size_t originEnd = base.find_first_of("/?#", schemeEnd + 3);
+    std::string origin = originEnd == std::string::npos ? base : base.substr(0, originEnd);
+    return isSafeCspSource(origin) ? origin : "";
+}
+
 void setCommonHeaders(const httplib::Request& req, httplib::Response& res, const std::string& requestId) {
     res.set_header("X-Request-Id", requestId);
     std::string origin = allowedCorsOrigin(req);
@@ -594,7 +623,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
         res.set_header("X-Response-Time-Ms", std::to_string(elapsed.count()));
         // Set default CSP if the route handler didn't set a custom one
         if (!res.has_header("Content-Security-Policy")) {
-            res.set_header("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:; connect-src 'self' https://api.open-meteo.com https://*.tile.openstreetmap.org https://*.is.autonavi.com");
+            res.set_header("Content-Security-Policy", contentSecurityPolicy());
         }
         // Force no-cache for editor SPA to prevent stale HTML
         if (req.path.find("/editor") == 0) {
@@ -666,6 +695,18 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
 }
 
 }  // namespace
+
+std::string contentSecurityPolicy(const std::string& scriptSrc, const std::string& connectSrc) {
+    std::string imageSources = "'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:";
+    const std::string assetOrigin = configuredAssetOrigin();
+    if (!assetOrigin.empty()) {
+        imageSources += " " + assetOrigin;
+    }
+
+    return "default-src 'self'; script-src " + scriptSrc
+        + "; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src " + imageSources
+        + "; connect-src " + connectSrc;
+}
 
 int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> cities, const std::string& defaultCity,
               LlmClient& llm, const std::string& host, int port, const RuntimeConfig& config, DataStore* store) {
@@ -2115,7 +2156,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         }
         // Override CSP for this response to allow the nonce'd inline script
         res.set_header("Content-Security-Policy",
-            "default-src 'self'; script-src 'self' 'nonce-" + nonce + "'; style-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.jsdelivr.net; img-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com https://webapi.amap.com data:; connect-src 'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com");
+            contentSecurityPolicy("'self' 'nonce-" + nonce + "'", "'self' https://*.tile.openstreetmap.org https://*.is.autonavi.com"));
         res.set_content(html, "text/html; charset=utf-8");
     });
 

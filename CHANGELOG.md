@@ -11,6 +11,21 @@
 > 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
 > 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
+## 2026-06-18 13:39 - 修复 R2 景点图片被 CSP 拦截
+
+### 变更内容 — 改了什么文件，具体改了什么
+- src/api.cpp — 将默认 CSP 生成集中到 `contentSecurityPolicy`，并从 `ASSET_BASE_URL`/`TOURPASS_ASSET_BASE_URL` 提取图片源 origin 加入 `img-src`。
+- include/tourpass/api.h — 暴露 CSP 生成 helper，供回归测试直接校验。
+- tests/test_main.cpp — 增加 R2 图床 origin 必须出现在 `img-src` 的回归测试。
+- CHANGELOG.md — 记录本次图片显示修复。
+
+### 原因 — 为什么要改
+- 线上 Agent 返回的景点 `image_url` 是 R2 URL，图片本身可访问，但页面响应头 `Content-Security-Policy` 的 `img-src` 没允许 R2 域名，浏览器拦截加载后前端只能显示占位图标。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 首页和分享页的图片加载安全策略：允许当前配置的 R2/资产域名显示景点、酒店等图片。
+- 不改变图片 URL 生成逻辑，也不放宽脚本或接口连接策略。
+
 ## 2026-06-18 12:20 - 修复 Render Agent 反代 502
 
 ### 变更内容 — 改了什么文件，具体改了什么

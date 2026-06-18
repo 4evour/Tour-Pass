@@ -8,6 +8,7 @@
 #include <thread>
 
 #include "httplib.h"
+#include "tourpass/api.h"
 #include "tourpass/data_loader.h"
 #include "tourpass/llm.h"
 #include "tourpass/planner.h"
@@ -831,6 +832,19 @@ void testLlmRemoteErrorsFallBackToTemplate() {
     expectTrue(explanation.find("长沙") != std::string::npos, "remote client errors fall back to template");
 }
 
+void testCspAllowsConfiguredAssetImageOrigin() {
+    setEnvVar("ASSET_BASE_URL", "");
+    setEnvVar("TOURPASS_ASSET_BASE_URL", "https://pub-example.r2.dev/images");
+
+    const std::string csp = tourpass::contentSecurityPolicy();
+
+    expectTrue(csp.find("img-src") != std::string::npos, "csp contains img-src directive");
+    expectTrue(csp.find("https://pub-example.r2.dev") != std::string::npos, "csp allows configured asset origin for images");
+    expectTrue(csp.find("https://pub-example.r2.dev/images") == std::string::npos, "csp strips asset path down to origin");
+
+    setEnvVar("TOURPASS_ASSET_BASE_URL", "");
+}
+
 }  // namespace
 
 int main() {
@@ -867,6 +881,7 @@ int main() {
         testLlmLocalConfigIsNotOverriddenByStaleEnvKey();
         testLlmUsesBuiltInHttpClient();
         testLlmRemoteErrorsFallBackToTemplate();
+        testCspAllowsConfiguredAssetImageOrigin();
         std::cout << "All " << testsRun << " tests passed." << std::endl;
         return 0;
     } catch (const std::exception& ex) {

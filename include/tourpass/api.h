@@ -28,5 +28,8 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
               LlmClient& llm, const std::string& host, int port, const RuntimeConfig& config, DataStore* store);
 
 nlohmann::json errorJson(const std::string& code, const std::string& message, const nlohmann::json& details = nlohmann::json::object());
+std::string contentSecurityPolicy(
+    const std::string& scriptSrc = "'self'",
+    const std::string& connectSrc = "'self' https://api.open-meteo.com https://*.tile.openstreetmap.org https://*.is.autonavi.com");
 
 }  // namespace tourpass
