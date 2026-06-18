@@ -38,6 +38,18 @@ _AVOID_RES = [
     re.compile(r"(?:不去|别去|不想去|避免|不要|别安排|不想|跳过)(.+?)(?:[，。]|$)"),
 ]
 
+_PLACE_CONNECTOR_RE = re.compile(r"[、/；;]|以及|还有|跟|与")
+_HE_SUFFIX_CHARS = set("园院寺山湖海塔城街巷宫门台馆岛湾镇村峰洞桥路店坊祠庙阁楼")
+
+_RELAXED_PACE_KEYWORDS = (
+    "休闲", "轻松", "放松", "少走路", "不赶", "别太赶",
+    "慢节奏", "松弛", "悠闲", "半日",
+)
+_INTENSE_PACE_KEYWORDS = (
+    "紧凑", "特种兵", "高强度", "多安排", "多玩", "从早到晚",
+    "上午下午晚上", "排满", "满一点", "赶一点", "打卡多",
+)
+
 _INTEREST_MAP: dict[str, str] = {
     "美食": "food", "吃": "food", "火锅": "food", "串串": "food",
     "小吃": "food", "夜市": "food", "烧烤": "food", "早茶": "food",
@@ -145,12 +157,47 @@ class IntentAgent(LLMAgent):
         return int(m.group(1)) if m else 3
 
     @staticmethod
+    def _split_place_list(raw: str) -> list[str]:
+        """Split place names while preserving names like 颐和园 and 和平公园."""
+        places: list[str] = []
+        for piece in _PLACE_CONNECTOR_RE.split(raw):
+            piece = piece.strip()
+            if not piece:
+                continue
+
+            start = 0
+            for idx, ch in enumerate(piece):
+                if ch != "和":
+                    continue
+                prev_len = idx - start
+                next_ch = piece[idx + 1] if idx + 1 < len(piece) else ""
+                if prev_len >= 2 and next_ch and next_ch not in _HE_SUFFIX_CHARS:
+                    part = piece[start:idx].strip()
+                    if part:
+                        places.append(part)
+                    start = idx + 1
+
+            tail = piece[start:].strip()
+            if tail:
+                places.append(tail)
+
+        return places
+
+    @staticmethod
     def _extract_must_visit(text: str) -> list[str]:
         for pat in _MUST_VISIT_RES:
             m = pat.search(text)
             if m:
-                return [p.strip() for p in re.split(r"[和、]", m.group(1)) if p.strip()]
+                return IntentAgent._split_place_list(m.group(1))
         return []
+
+    @staticmethod
+    def _extract_pace(text: str) -> str:
+        if any(kw in text for kw in _RELAXED_PACE_KEYWORDS):
+            return "relaxed"
+        if any(kw in text for kw in _INTENSE_PACE_KEYWORDS):
+            return "intense"
+        return "balanced"
 
     @staticmethod
     def _extract_avoid(text: str) -> list[str]:
@@ -246,6 +293,7 @@ class IntentAgent(LLMAgent):
         travelers = self._extract_travelers(user_message)
         budget = self._extract_budget(user_message)
         avoid = self._extract_avoid(user_message)
+        pace = self._extract_pace(user_message)
 
         # --- Hotel / strategy regex ---
         hotel_area = self._extract_hotel_area(user_message)
@@ -277,6 +325,8 @@ class IntentAgent(LLMAgent):
                     avoid = data.get("avoid", [])
                 if days == 3:
                     days = data.get("days", 3)
+                if pace == "balanced":
+                    pace = data.get("pace", "balanced")
                 # Fill hotel/strategy gaps from LLM
                 if not hotel_area:
                     hotel_area = data.get("hotel_area", "")
@@ -295,6 +345,7 @@ class IntentAgent(LLMAgent):
         intent = TripIntent(
             city=city,
             days=days,
+            pace=pace,
             must_visit=must_visit,
             interests=interests,
             travelers=travelers,

@@ -21,6 +21,12 @@ _SCENIC_SUFFIXES = (
     "风景区", "景区", "公园", "广场", "岛",
 )
 _SAME_SCENIC_DISTANCE_KM = 0.35
+_NEW_AREA_SEED_DISTANCE_KM = 12.0
+_MAX_CLUSTER_APPEND_DISTANCE_KM = {
+    "relaxed": 18.0,
+    "balanced": 25.0,
+    "intense": 35.0,
+}
 
 
 @dataclass
@@ -158,6 +164,45 @@ def _find_closest_cluster(
     return closest_idx
 
 
+def _find_best_underfilled_cluster(poi: dict, clusters: list[DayCluster]) -> DayCluster:
+    """Choose the closest underfilled cluster; seed empty days only when needed."""
+    empty_clusters = [c for c in clusters if not c.attractions]
+    with_centers = []
+    for cluster in clusters:
+        if not cluster.center_lat or not cluster.center_lng:
+            cluster.center_lat, cluster.center_lng = _area_center(cluster.attractions)
+        if cluster.center_lat and cluster.center_lng:
+            with_centers.append(cluster)
+
+    if with_centers:
+        poi_lat = poi.get("lat", 0)
+        poi_lng = poi.get("lng", 0)
+        if poi_lat and poi_lng:
+            closest = min(
+                with_centers,
+                key=lambda c: _haversine_km(poi_lat, poi_lng, c.center_lat, c.center_lng),
+            )
+            closest_dist = _haversine_km(
+                poi_lat, poi_lng,
+                closest.center_lat, closest.center_lng,
+            )
+            if empty_clusters and closest_dist > _NEW_AREA_SEED_DISTANCE_KM:
+                return min(empty_clusters, key=lambda c: c.day_num)
+            return closest
+
+    return min(clusters, key=lambda c: len(c.attractions))
+
+
+def _distance_to_cluster(poi: dict, cluster: DayCluster) -> float:
+    if not cluster.center_lat or not cluster.center_lng:
+        cluster.center_lat, cluster.center_lng = _area_center(cluster.attractions)
+    poi_lat = poi.get("lat", 0)
+    poi_lng = poi.get("lng", 0)
+    if not poi_lat or not poi_lng or not cluster.center_lat or not cluster.center_lng:
+        return 0.0
+    return _haversine_km(poi_lat, poi_lng, cluster.center_lat, cluster.center_lng)
+
+
 def _infer_theme(pois: list[dict], intent: dict | None = None) -> str:
     """Infer a theme for a cluster of POIs.
 
@@ -203,6 +248,35 @@ def _is_must_visit(poi: dict, must_visit: list[str]) -> bool:
         if mv in name or mv == pid:
             return True
     return False
+
+
+def _target_restaurant_count(intent: dict) -> int:
+    pace = intent.get("pace", "balanced")
+    interests = set(intent.get("interests", []))
+    food_focused = bool(interests & {"food", "culinary", "美食"}) or intent.get("strategy") == "culinary"
+    if pace == "relaxed" and not food_focused:
+        return 1
+    return 2
+
+
+def _restaurant_identity(rest: dict) -> str:
+    return rest.get("id") or rest.get("name", "")
+
+
+def _score_restaurant_for_cluster(cluster: DayCluster, rest: dict) -> tuple[float, float]:
+    agent_score = float(rest.get("_score", 0) or 0)
+    rest_lat = rest.get("lat", 0)
+    rest_lng = rest.get("lng", 0)
+    if not cluster.center_lat or not cluster.center_lng or not rest_lat or not rest_lng:
+        return agent_score - 1000, float("inf")
+
+    dist = _haversine_km(
+        cluster.center_lat, cluster.center_lng,
+        rest_lat, rest_lng,
+    )
+    distance_penalty = dist * (10 if dist < 5.0 else 4)
+    far_penalty = 0 if dist < 5.0 else 25
+    return agent_score - distance_penalty - far_penalty, dist
 
 
 def cluster_pois_for_days(
@@ -317,64 +391,91 @@ def cluster_pois_for_days(
     # ── Assign regular attractions ───────────────────────────────────────────
     pace = intent.get("pace", "balanced")
     max_per_day = {"relaxed": 4, "balanced": 6, "intense": 8}.get(pace, 6)
+    max_append_distance = _MAX_CLUSTER_APPEND_DISTANCE_KM.get(pace, 25.0)
     target_min_per_day = min(max_per_day, max(1, len(scored_attractions) // num_days))
+    skipped_far_keys: set[str] = set()
 
     for attr in regular:
+        attr_key = attr.get("id") or attr.get("name", "")
         for cluster in clusters:
             if cluster.attractions:
                 cluster.center_lat, cluster.center_lng = _area_center(cluster.attractions)
 
         underfilled = [c for c in clusters if len(c.attractions) < target_min_per_day]
         if underfilled:
-            min_cluster = min(underfilled, key=lambda c: len(c.attractions))
-            min_cluster.attractions.append(attr)
+            best_cluster = _find_best_underfilled_cluster(attr, underfilled)
+            if best_cluster.attractions and _distance_to_cluster(attr, best_cluster) > max_append_distance:
+                logger.info(
+                    "Skipped far POI '%s' for day %d (distance > %.1fkm)",
+                    attr.get("name", ""), best_cluster.day_num, max_append_distance,
+                )
+                if attr_key:
+                    skipped_far_keys.add(attr_key)
+                continue
+            best_cluster.attractions.append(attr)
             continue
 
         closest_idx = _find_closest_cluster(attr, clusters)
-        if len(clusters[closest_idx].attractions) < max_per_day:
+        if (
+            len(clusters[closest_idx].attractions) < max_per_day
+            and _distance_to_cluster(attr, clusters[closest_idx]) <= max_append_distance
+        ):
             clusters[closest_idx].attractions.append(attr)
         else:
             min_cluster = min(clusters, key=lambda c: len(c.attractions))
-            min_cluster.attractions.append(attr)
+            if min_cluster.attractions and _distance_to_cluster(attr, min_cluster) > max_append_distance:
+                logger.info(
+                    "Skipped far POI '%s' for fallback day %d (distance > %.1fkm)",
+                    attr.get("name", ""), min_cluster.day_num, max_append_distance,
+                )
+                if attr_key:
+                    skipped_far_keys.add(attr_key)
+                continue
+            if len(min_cluster.attractions) < max_per_day:
+                min_cluster.attractions.append(attr)
     
     # Assign restaurants to clusters with cross-day deduplication
+    target_restaurants = _target_restaurant_count(intent)
     assigned_restaurant_ids: set[str] = set()
 
     for cluster in clusters:
         if not cluster.center_lat or not cluster.center_lng:
             cluster.center_lat, cluster.center_lng = _area_center(cluster.attractions)
 
-        # Find closest restaurants not yet assigned to other days
-        cluster_restaurants = []
+        close_restaurants = []
+        fallback_restaurants = []
         for rest in restaurants:
-            rest_id = rest.get("id", rest.get("name", ""))
+            rest_id = _restaurant_identity(rest)
             if rest_id in assigned_restaurant_ids:
                 continue  # Skip already-assigned restaurant
 
-            rest_lat = rest.get("lat", 0)
-            rest_lng = rest.get("lng", 0)
-            if not rest_lat or not rest_lng:
-                continue
+            combined, dist = _score_restaurant_for_cluster(cluster, rest)
+            target = close_restaurants if dist < 5.0 else fallback_restaurants
+            target.append((combined, dist, rest))
 
-            dist = _haversine_km(
-                cluster.center_lat, cluster.center_lng,
-                rest_lat, rest_lng,
-            )
+        close_restaurants.sort(key=lambda x: x[0], reverse=True)
+        fallback_restaurants.sort(key=lambda x: x[0], reverse=True)
+        selected = close_restaurants[:target_restaurants]
+        if len(selected) < target_restaurants:
+            selected.extend(fallback_restaurants[:target_restaurants - len(selected)])
 
-            if dist < 5.0:  # Within 5km
-                # Bonus for score from RestaurantAgent
-                agent_score = rest.get("_score", 0)
-                # Combine: lower distance = better, higher score = better
-                combined = agent_score - dist * 10
-                cluster_restaurants.append((combined, dist, rest))
+        if len(selected) < target_restaurants:
+            reusable = []
+            selected_ids = {_restaurant_identity(r) for _, _, r in selected}
+            for rest in restaurants:
+                rest_id = _restaurant_identity(rest)
+                if rest_id in selected_ids:
+                    continue
+                combined, dist = _score_restaurant_for_cluster(cluster, rest)
+                reusable.append((combined - 50, dist, rest))
+            reusable.sort(key=lambda x: x[0], reverse=True)
+            selected.extend(reusable[:target_restaurants - len(selected)])
 
-        # Sort by combined score (best first), take top 3
-        cluster_restaurants.sort(key=lambda x: x[0], reverse=True)
-        cluster.restaurants = [r for _, _, r in cluster_restaurants[:3]]
+        cluster.restaurants = [r for _, _, r in selected]
 
         # Track assigned restaurant IDs to prevent cross-day duplicates
         for r in cluster.restaurants:
-            rid = r.get("id", r.get("name", ""))
+            rid = _restaurant_identity(r)
             if rid:
                 assigned_restaurant_ids.add(rid)
     
@@ -395,6 +496,9 @@ def cluster_pois_for_days(
             cluster.theme = "自由活动日"
             # Try to assign some unassigned attractions
             for attr in regular:
+                attr_key = attr.get("id") or attr.get("name", "")
+                if attr_key in skipped_far_keys:
+                    continue
                 if not any(attr in c.attractions for c in clusters):
                     cluster.attractions.append(attr)
                     break

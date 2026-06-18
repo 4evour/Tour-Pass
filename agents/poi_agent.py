@@ -92,6 +92,7 @@ class PoiAgent(BaseAgent):
         city = intent.get("city", state.get("city", ""))
         days = intent.get("days", 3)
         must_visit = intent.get("must_visit", [])
+        pace = intent.get("pace", "balanced")
 
         if not city:
             return {"pois": [], "errors": ["PoiAgent: no city specified"]}
@@ -119,7 +120,17 @@ class PoiAgent(BaseAgent):
             )
 
         # Algorithmic scoring + ranking
-        top_k = days * 5
+        pace_candidate_multiplier = {
+            "relaxed": 4,
+            "balanced": 5,
+            "intense": 8,
+        }.get(pace, 5)
+        pace_limit_multiplier = {
+            "relaxed": 2,
+            "balanced": 3,
+            "intense": 6,
+        }.get(pace, 3)
+        top_k = days * pace_candidate_multiplier
         scored_pois = rank_pois(pois=all_pois, intent=intent, top_k=top_k)
 
         # Ensure must_visit POIs are included
@@ -141,7 +152,7 @@ class PoiAgent(BaseAgent):
                 enriched.append(poi)
                 enriched_keys.add(key)
 
-        enriched = enriched[: days * 3]
+        enriched = enriched[: days * pace_limit_multiplier]
         logger.info("Selected %d POIs for %s", len(enriched), city)
         return {
             "pois": enriched,

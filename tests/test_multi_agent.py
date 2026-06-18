@@ -100,6 +100,44 @@ class TestTourState(unittest.TestCase):
         self.assertEqual(self.replace_str("old", ""), "old")  # empty right → keep left
 
 
+class TestIntentAgentParsing(unittest.TestCase):
+    """Test deterministic intent parsing fast-path."""
+
+    def _run_async(self, coro):
+        loop = asyncio.new_event_loop()
+        try:
+            return loop.run_until_complete(coro)
+        finally:
+            loop.close()
+
+    def test_regex_keeps_yiheyuan_and_parses_intense_pace(self):
+        from agents.intent_agent import IntentAgent
+
+        state = {
+            "user_message": "去北京玩3天，行程紧凑，要去故宫和颐和园，美食优先",
+            "trip_intent": None,
+        }
+
+        result = self._run_async(IntentAgent(MagicMock()).execute(state))
+        intent = result["trip_intent"]
+
+        self.assertEqual(intent["pace"], "intense")
+        self.assertEqual(intent["must_visit"], ["故宫", "颐和园"])
+        self.assertIn("food", intent["interests"])
+
+    def test_regex_parses_relaxed_pace(self):
+        from agents.intent_agent import IntentAgent
+
+        state = {
+            "user_message": "去三亚玩2天，休闲放松少赶路，想看海",
+            "trip_intent": None,
+        }
+
+        result = self._run_async(IntentAgent(MagicMock()).execute(state))
+
+        self.assertEqual(result["trip_intent"]["pace"], "relaxed")
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # 2. Scoring Engine Tests
 # ══════════════════════════════════════════════════════════════════════════════
@@ -356,11 +394,13 @@ class TestClusteringEngine(unittest.TestCase):
                 "visit_duration_minutes": 90,
             },
         ]
-        for i in range(7):
+        for i in range(8):
+            near_b = i >= 4
             attractions.append({
                 "id": f"regular_{i}", "name": f"普通景点{i}", "type": "attraction",
-                "lat": 39.90 + i * 0.001, "lng": 116.39 + i * 0.001,
-                "area": "A区", "popularity": 4.5,
+                "lat": (40.65 if near_b else 39.90) + i * 0.001,
+                "lng": (117.20 if near_b else 116.39) + i * 0.001,
+                "area": "B区" if near_b else "A区", "popularity": 4.5,
                 "tags": ["历史文化"], "visit_duration_minutes": 90,
             })
 
@@ -368,7 +408,143 @@ class TestClusteringEngine(unittest.TestCase):
         clusters = self.cluster_pois_for_days(attractions, [], num_days=3, intent=intent)
         counts = [len(c.attractions) for c in clusters]
 
-        self.assertGreaterEqual(min(counts), 3)
+        self.assertGreaterEqual(min(counts), 2)
+
+    def test_underfilled_days_still_prefer_nearest_cluster(self):
+        """Balancing day counts should not move a far POI away from its area."""
+        attractions = [
+            {
+                "id": "must_a", "name": "必去A", "type": "attraction",
+                "lat": 30.0, "lng": 120.0, "area": "A区",
+                "popularity": 4.8, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "must_b", "name": "必去B", "type": "attraction",
+                "lat": 31.0, "lng": 121.0, "area": "B区",
+                "popularity": 4.8, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "near_b", "name": "B区近邻", "type": "attraction",
+                "lat": 31.001, "lng": 121.001, "area": "B区",
+                "popularity": 4.6, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "near_a", "name": "A区近邻", "type": "attraction",
+                "lat": 30.001, "lng": 120.001, "area": "A区",
+                "popularity": 4.5, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+        ]
+        intent = {"pace": "balanced", "must_visit": ["必去A", "必去B"]}
+
+        clusters = self.cluster_pois_for_days(attractions, [], num_days=2, intent=intent)
+        cluster_with_b = next(c for c in clusters if any(a["name"] == "必去B" for a in c.attractions))
+        names_with_b = {a["name"] for a in cluster_with_b.attractions}
+
+        self.assertIn("B区近邻", names_with_b)
+
+    def test_far_regular_poi_seeds_empty_day(self):
+        """A far POI should open an empty day instead of bloating another area."""
+        attractions = [
+            {
+                "id": "must_a", "name": "必去A", "type": "attraction",
+                "lat": 30.0, "lng": 120.0, "area": "A区",
+                "popularity": 4.8, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "must_b", "name": "必去B", "type": "attraction",
+                "lat": 31.0, "lng": 121.0, "area": "B区",
+                "popularity": 4.8, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "far_c", "name": "C区远点", "type": "attraction",
+                "lat": 33.0, "lng": 123.0, "area": "C区",
+                "popularity": 4.6, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "near_c", "name": "C区近邻", "type": "attraction",
+                "lat": 33.001, "lng": 123.001, "area": "C区",
+                "popularity": 4.5, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "near_a", "name": "A区近邻", "type": "attraction",
+                "lat": 30.001, "lng": 120.001, "area": "A区",
+                "popularity": 4.5, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "near_b", "name": "B区近邻", "type": "attraction",
+                "lat": 31.001, "lng": 121.001, "area": "B区",
+                "popularity": 4.5, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+        ]
+        intent = {"pace": "balanced", "must_visit": ["必去A", "必去B"]}
+
+        clusters = self.cluster_pois_for_days(attractions, [], num_days=3, intent=intent)
+        cluster_with_c = next(c for c in clusters if any(a["name"] == "C区远点" for a in c.attractions))
+        names_with_c = {a["name"] for a in cluster_with_c.attractions}
+
+        self.assertNotIn("必去A", names_with_c)
+        self.assertNotIn("必去B", names_with_c)
+        self.assertIn("C区近邻", names_with_c)
+
+    def test_far_regular_poi_is_not_forced_into_unrelated_day(self):
+        """Non-required far POIs should be skipped when they break day coherence."""
+        attractions = [
+            {
+                "id": "must_a", "name": "必去A", "type": "attraction",
+                "lat": 30.0, "lng": 120.0, "area": "A区",
+                "popularity": 4.8, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "must_b", "name": "必去B", "type": "attraction",
+                "lat": 31.0, "lng": 121.0, "area": "B区",
+                "popularity": 4.8, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "near_a", "name": "A区近邻", "type": "attraction",
+                "lat": 30.001, "lng": 120.001, "area": "A区",
+                "popularity": 4.5, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "near_b", "name": "B区近邻", "type": "attraction",
+                "lat": 31.001, "lng": 121.001, "area": "B区",
+                "popularity": 4.5, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "far_c", "name": "远郊C", "type": "attraction",
+                "lat": 35.0, "lng": 125.0, "area": "C区",
+                "popularity": 4.9, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+            {
+                "id": "far_d", "name": "远郊D", "type": "attraction",
+                "lat": 35.1, "lng": 125.1, "area": "D区",
+                "popularity": 4.9, "tags": ["文化"], "visit_duration_minutes": 90,
+            },
+        ]
+        intent = {"pace": "balanced", "must_visit": ["必去A", "必去B"]}
+
+        clusters = self.cluster_pois_for_days(attractions, [], num_days=2, intent=intent)
+        planned_names = {a["name"] for c in clusters for a in c.attractions}
+
+        self.assertNotIn("远郊C", planned_names)
+        self.assertNotIn("远郊D", planned_names)
+
+    def test_restaurant_assignment_falls_back_to_nearest_candidates(self):
+        """Each day should still get meals when no restaurant is within 5km."""
+        attractions = self._make_attractions(9)
+        restaurants = [
+            {
+                "id": f"r_{i}", "name": f"远处餐厅{i}", "type": "restaurant",
+                "lat": 31.0 + i * 0.01, "lng": 121.0 + i * 0.01,
+                "area": "餐饮区", "popularity": 4.8, "_score": 80 - i,
+                "tags": ["美食"], "visit_duration_minutes": 60,
+            }
+            for i in range(6)
+        ]
+        intent = {"pace": "balanced", "must_visit": [], "interests": ["food"]}
+
+        clusters = self.cluster_pois_for_days(attractions, restaurants, num_days=3, intent=intent)
+
+        self.assertTrue(all(len(c.restaurants) >= 2 for c in clusters))
 
     def test_empty_attractions(self):
         clusters = self.cluster_pois_for_days([], [], num_days=3, intent={"pace": "balanced", "must_visit": []})
@@ -386,6 +562,152 @@ class TestClusteringEngine(unittest.TestCase):
         self.assertTrue(self._is_must_visit(poi, ["故宫"]))
         self.assertTrue(self._is_must_visit(poi, ["p001"]))
         self.assertFalse(self._is_must_visit(poi, ["天坛"]))
+
+
+class TestSchedulerAgent(unittest.TestCase):
+    """Test schedule assembly rules."""
+
+    def _run_async(self, coro):
+        loop = asyncio.new_event_loop()
+        try:
+            return loop.run_until_complete(coro)
+        finally:
+            loop.close()
+
+    def test_intense_day_has_meals_and_evening_attraction(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        attractions = [
+            {
+                "id": f"a_{i}", "name": f"紧凑景点{i}", "type": "attraction",
+                "lat": 30.0 + i * 0.001, "lng": 120.0 + i * 0.001,
+                "area": "核心区", "popularity": 4.8, "tags": ["文化"],
+                "visit_duration_minutes": 60,
+            }
+            for i in range(4)
+        ]
+        restaurants = [
+            {
+                "id": f"r_{i}", "name": f"餐厅{i}", "type": "restaurant",
+                "lat": 30.0 + i * 0.001, "lng": 120.0 + i * 0.001,
+                "area": "核心区", "popularity": 4.7, "_score": 90 - i,
+                "tags": ["美食"],
+            }
+            for i in range(2)
+        ]
+        state = {
+            "city": "测试城",
+            "days": 1,
+            "pois": attractions,
+            "restaurants": restaurants,
+            "hotels": [],
+            "weather": [],
+            "city_guides": [],
+            "trip_intent": {
+                "city": "测试城", "days": 1, "pace": "intense",
+                "must_visit": [], "interests": ["food"], "strategy": "balanced",
+            },
+            "available_pois": attractions,
+            "review_feedback": None,
+        }
+
+        result = self._run_async(SchedulerAgent().execute(state))
+        stops = result["daily_plans"][0]["stops"]
+        restaurant_slots = {
+            s["slot"] for s in stops
+            if s.get("poi_type") == "restaurant"
+        }
+        attraction_slots = {
+            s["slot"] for s in stops
+            if s.get("poi_type") == "attraction"
+        }
+
+        self.assertIn("lunch", restaurant_slots)
+        self.assertIn("dinner", restaurant_slots)
+        self.assertIn("morning", attraction_slots)
+        self.assertIn("afternoon", attraction_slots)
+        self.assertIn("evening", attraction_slots)
+
+    def test_xhs_affinity_does_not_move_must_visit_between_days(self):
+        from agents.scheduler_agent import SchedulerAgent
+        from tools.clustering import DayCluster
+
+        clusters = [
+            DayCluster(
+                day_num=1,
+                theme="A",
+                attractions=[{"id": "a", "name": "必去A", "lat": 30.0, "lng": 120.0}],
+            ),
+            DayCluster(
+                day_num=2,
+                theme="B",
+                attractions=[{"id": "b", "name": "必去B", "lat": 31.0, "lng": 121.0}],
+            ),
+        ]
+
+        result = SchedulerAgent._xhs_affinity_swap(
+            clusters,
+            {("必去A", "必去B"): 5},
+            must_visit_names=["必去A", "必去B"],
+        )
+
+        self.assertEqual([a["name"] for a in result[0].attractions], ["必去A"])
+        self.assertEqual([a["name"] for a in result[1].attractions], ["必去B"])
+
+    def test_xhs_affinity_does_not_move_far_poi(self):
+        from agents.scheduler_agent import SchedulerAgent
+        from tools.clustering import DayCluster
+
+        clusters = [
+            DayCluster(
+                day_num=1,
+                theme="A",
+                attractions=[{"id": "a", "name": "中心A", "lat": 30.0, "lng": 120.0}],
+            ),
+            DayCluster(
+                day_num=2,
+                theme="B",
+                attractions=[{"id": "b", "name": "远处B", "lat": 31.0, "lng": 121.0}],
+            ),
+        ]
+
+        result = SchedulerAgent._xhs_affinity_swap(
+            clusters,
+            {("中心A", "远处B"): 5},
+            max_move_distance_km=20,
+        )
+
+        self.assertEqual([a["name"] for a in result[0].attractions], ["中心A"])
+        self.assertEqual([a["name"] for a in result[1].attractions], ["远处B"])
+
+    def test_xhs_affinity_keeps_intense_day_dense_enough(self):
+        from agents.scheduler_agent import SchedulerAgent
+        from tools.clustering import DayCluster
+
+        clusters = [
+            DayCluster(
+                day_num=1,
+                theme="A",
+                attractions=[
+                    {"id": f"a{i}", "name": f"A{i}", "lat": 30.0, "lng": 120.0 + i * 0.001}
+                    for i in range(4)
+                ],
+            ),
+            DayCluster(
+                day_num=2,
+                theme="B",
+                attractions=[{"id": "b", "name": "B", "lat": 30.0, "lng": 120.01}],
+            ),
+        ]
+
+        result = SchedulerAgent._xhs_affinity_swap(
+            clusters,
+            {("A3", "B"): 5},
+            min_source_attractions=4,
+            max_move_distance_km=20,
+        )
+
+        self.assertEqual(len(result[0].attractions), 4)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -927,6 +1249,22 @@ class TestPoiAgent(unittest.TestCase):
         poi = {"id": "mall_001", "name": "天环Parc Central", "type": "attraction", "tags": ["购物中心"]}
 
         self.assertFalse(PoiAgent(data_dir="data")._is_low_value_poi(poi, intent))
+
+    def test_intense_pace_returns_more_pois_for_evening_slots(self):
+        from agents.poi_agent import PoiAgent
+
+        intent = {
+            "city": "北京", "days": 3, "pace": "intense",
+            "must_visit": [], "interests": [], "avoid": [], "strategy": "balanced",
+        }
+
+        result = self._run_async(PoiAgent(data_dir="data").execute({
+            "trip_intent": intent,
+            "city": "北京",
+            "days": 3,
+        }))
+
+        self.assertGreaterEqual(len(result.get("pois", [])), 12)
 
 
 class TestLLMAgentCallCounter(unittest.TestCase):

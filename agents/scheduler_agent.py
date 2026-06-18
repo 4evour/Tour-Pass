@@ -22,6 +22,7 @@ import logging
 from agents.base import BaseAgent
 from agents.state import TourState
 from agents.config import USE_CPP_ROUTE_OPTIMIZER
+from agents.constants import haversine_km
 from tools import rag
 from tools.clustering import cluster_pois_for_days, _is_must_visit
 from tools.route import optimize_route_smart, calculate_total_travel_time
@@ -30,9 +31,9 @@ logger = logging.getLogger(__name__)
 
 # Pace configuration
 PACE_CONFIG = {
-    "relaxed":  {"max_stops": 4, "gap_minutes": 45, "start_time": 540, "end_time": 1080},
-    "balanced": {"max_stops": 6, "gap_minutes": 30, "start_time": 540, "end_time": 1140},
-    "intense":  {"max_stops": 8, "gap_minutes": 15, "start_time": 480, "end_time": 1200},
+    "relaxed":  {"max_stops": 2, "gap_minutes": 60, "start_time": 600, "end_time": 1020},
+    "balanced": {"max_stops": 3, "gap_minutes": 30, "start_time": 540, "end_time": 1140},
+    "intense":  {"max_stops": 4, "gap_minutes": 15, "start_time": 480, "end_time": 1260},
 }
 
 # Meal time windows
@@ -114,6 +115,51 @@ class SchedulerAgent(BaseAgent):
             if not _conflicts(attempt, attempt + dur) and attempt + dur <= w_end:
                 return {"start": attempt, "end": attempt + dur}
         return None  # No non-conflicting slot
+
+    @staticmethod
+    def _meal_types_for_pace(pace: str, intent: dict) -> list[str]:
+        interests = set(intent.get("interests", []))
+        food_focused = bool(interests & {"food", "culinary", "美食"}) or intent.get("strategy") == "culinary"
+        if pace == "relaxed" and not food_focused:
+            return ["lunch"]
+        return ["lunch", "dinner"]
+
+    @staticmethod
+    def _avoid_reserved_meals(start: int, duration: int, meal_types: list[str]) -> int:
+        """Move attraction starts out of reserved meal slots."""
+        adjusted = start
+        changed = True
+        while changed:
+            changed = False
+            for meal_type in meal_types:
+                window = MEAL_WINDOWS.get(meal_type)
+                if not window:
+                    continue
+                reserved_start = window["default_start"]
+                reserved_end = reserved_start + window["duration"]
+                if adjusted < reserved_end and adjusted + duration > reserved_start:
+                    adjusted = reserved_end
+                    changed = True
+        return adjusted
+
+    @staticmethod
+    def _anchored_start_for_pace(pace: str, attr_idx: int, current_time: int) -> int:
+        if pace != "intense":
+            return current_time
+        anchors = [480, 600, 840, 1170]
+        if attr_idx < len(anchors):
+            return max(current_time, anchors[attr_idx])
+        return current_time
+
+    @staticmethod
+    def _slot_for_time(start_minutes: int) -> str:
+        if start_minutes < 660:
+            return "morning"
+        if start_minutes < 780:
+            return "lunch"
+        if start_minutes < 1080:
+            return "afternoon"
+        return "evening"
 
     @staticmethod
     def _insert_missing_must_visits(clusters: list, missing: list[str], all_pois: list) -> list:
@@ -221,6 +267,9 @@ class SchedulerAgent(BaseAgent):
     def _xhs_affinity_swap(
         clusters: list,
         cooccur: dict[tuple[str, str], int],
+        must_visit_names: list[str] | None = None,
+        max_move_distance_km: float = 25.0,
+        min_source_attractions: int = 1,
         min_cooccur: int = 3,
     ) -> list:
         """Swap attractions between clusters to maximise XHS co-occurrence.
@@ -230,6 +279,7 @@ class SchedulerAgent(BaseAgent):
         of high-affinity pairs kept together.  Only performs moves that
         strictly improve affinity (greedy, single pass).
         """
+        must_visit_names = must_visit_names or []
         high_pairs = {pair for pair, cnt in cooccur.items() if cnt >= min_cooccur}
         if not high_pairs:
             return clusters
@@ -240,6 +290,23 @@ class SchedulerAgent(BaseAgent):
         def _affinity(cluster):
             ns = _names(cluster)
             return sum(1 for a, b in high_pairs if a in ns and b in ns)
+
+        def _center(attractions: list[dict]) -> tuple[float, float]:
+            lats = [a.get("lat", 0) for a in attractions if a.get("lat")]
+            lngs = [a.get("lng", 0) for a in attractions if a.get("lng")]
+            if not lats or not lngs:
+                return 0.0, 0.0
+            return sum(lats) / len(lats), sum(lngs) / len(lngs)
+
+        def _fits_target_area(attr: dict, target_cluster) -> bool:
+            if not max_move_distance_km or not target_cluster.attractions:
+                return True
+            attr_lat = attr.get("lat", 0)
+            attr_lng = attr.get("lng", 0)
+            center_lat, center_lng = _center(target_cluster.attractions)
+            if not attr_lat or not attr_lng or not center_lat or not center_lng:
+                return True
+            return haversine_km(attr_lat, attr_lng, center_lat, center_lng) <= max_move_distance_km
 
         improved = True
         max_iters = 3  # prevent infinite loops
@@ -254,19 +321,23 @@ class SchedulerAgent(BaseAgent):
                     # Try moving each attraction from ci → cj
                     best_gain = 0
                     best_move = None  # (attr_idx, from_i, to_j)
-                    for ai, attr in enumerate(ci.attractions):
-                        aname = attr.get("name", "")
-                        # Simulate move
-                        ci.attractions.pop(ai)
-                        cj.attractions.append(attr)
-                        after = _affinity(ci) + _affinity(cj)
-                        gain = after - before
-                        # Revert
-                        cj.attractions.pop()
-                        ci.attractions.insert(ai, attr)
-                        if gain > best_gain:
-                            best_gain = gain
-                            best_move = (ai, i, j)
+                    if len(ci.attractions) > min_source_attractions:
+                        for ai, attr in enumerate(ci.attractions):
+                            if _is_must_visit(attr, must_visit_names):
+                                continue
+                            if not _fits_target_area(attr, cj):
+                                continue
+                            # Simulate move
+                            ci.attractions.pop(ai)
+                            cj.attractions.append(attr)
+                            after = _affinity(ci) + _affinity(cj)
+                            gain = after - before
+                            # Revert
+                            cj.attractions.pop()
+                            ci.attractions.insert(ai, attr)
+                            if gain > best_gain:
+                                best_gain = gain
+                                best_move = (ai, i, j)
 
                     if best_move and best_gain > 0:
                         ai, fi, ti = best_move
@@ -280,17 +351,21 @@ class SchedulerAgent(BaseAgent):
                     # Also try cj → ci
                     best_gain = 0
                     best_move = None
-                    for aj, attr in enumerate(cj.attractions):
-                        aname = attr.get("name", "")
-                        cj.attractions.pop(aj)
-                        ci.attractions.append(attr)
-                        after = _affinity(ci) + _affinity(cj)
-                        gain = after - before
-                        ci.attractions.pop()
-                        cj.attractions.insert(aj, attr)
-                        if gain > best_gain:
-                            best_gain = gain
-                            best_move = (aj, j, i)
+                    if len(cj.attractions) > min_source_attractions:
+                        for aj, attr in enumerate(cj.attractions):
+                            if _is_must_visit(attr, must_visit_names):
+                                continue
+                            if not _fits_target_area(attr, ci):
+                                continue
+                            cj.attractions.pop(aj)
+                            ci.attractions.append(attr)
+                            after = _affinity(ci) + _affinity(cj)
+                            gain = after - before
+                            ci.attractions.pop()
+                            cj.attractions.insert(aj, attr)
+                            if gain > best_gain:
+                                best_gain = gain
+                                best_move = (aj, j, i)
 
                     if best_move and best_gain > 0:
                         aj, fi, ti = best_move
@@ -368,7 +443,13 @@ class SchedulerAgent(BaseAgent):
                 from tools.xhs_loader import extract_cooccurrence
                 cooccur = extract_cooccurrence(city)
                 if cooccur:
-                    clusters = self._xhs_affinity_swap(clusters, cooccur)
+                    clusters = self._xhs_affinity_swap(
+                        clusters,
+                        cooccur,
+                        must_visit_names=intent.get("must_visit", []),
+                        max_move_distance_km=12.0,
+                        min_source_attractions={"relaxed": 2, "balanced": 3, "intense": 4}.get(pace, 3),
+                    )
                     logger.info("Applied XHS co-occurrence affinity to %d clusters", len(clusters))
             except Exception as e:
                 logger.warning("XHS affinity swap failed: %s", e)
@@ -419,23 +500,24 @@ class SchedulerAgent(BaseAgent):
             end_of_day = pace_cfg["end_time"]
 
             stops: list[dict] = []
+            meal_types = self._meal_types_for_pace(pace, intent)
 
             # Schedule attractions
-            for attr in cluster.attractions[:max_stops]:
+            for attr_idx, attr in enumerate(cluster.attractions[:max_stops]):
                 if current_time >= end_of_day:
                     break
-                adj_start, adj_dur = self._check_opening_time(attr, current_time)
+                preferred_start = self._anchored_start_for_pace(pace, attr_idx, current_time)
+                preferred_start = self._avoid_reserved_meals(
+                    preferred_start,
+                    attr.get("visit_duration_minutes", 60),
+                    meal_types,
+                )
+                adj_start, adj_dur = self._check_opening_time(attr, preferred_start)
+                adj_start = self._avoid_reserved_meals(adj_start, adj_dur, meal_types)
                 if adj_start >= end_of_day:
                     continue
 
-                if adj_start < 660:
-                    slot = "morning"
-                elif adj_start < 780:
-                    slot = "lunch"
-                elif adj_start < 1080:
-                    slot = "afternoon"
-                else:
-                    slot = "evening"
+                slot = self._slot_for_time(adj_start)
 
                 stops.append({
                     "slot": slot,
@@ -453,9 +535,21 @@ class SchedulerAgent(BaseAgent):
                 current_time = adj_start + adj_dur + gap
 
             # Schedule restaurants
-            for rest in cluster.restaurants[:2]:
-                has_lunch = any(s.get("slot") == "lunch" for s in stops)
-                meal_type = "dinner" if has_lunch else "lunch"
+            meal_candidates = [
+                r for r in cluster.restaurants
+                if r.get("type", "restaurant") == "restaurant"
+            ] or cluster.restaurants
+            used_restaurant_ids: set[str] = set()
+            for meal_type in meal_types:
+                rest = None
+                for candidate in meal_candidates:
+                    rid = candidate.get("id") or candidate.get("name", "")
+                    if rid not in used_restaurant_ids:
+                        rest = candidate
+                        used_restaurant_ids.add(rid)
+                        break
+                if rest is None:
+                    continue
                 meal_slot = self._find_meal_slot(stops, meal_type)
                 if meal_slot is None:
                     continue
