@@ -18,6 +18,7 @@
 - tools/rag.py — 新增单城市 RAG 初始化能力，避免首个规划请求一次加载 21 个城市的攻略/知识数据。
 - agents/retrieve_agent.py — RetrieveAgent 改为只按当前请求城市懒加载 RAG。
 - tests/test_multi_agent.py — 增加城市级 RAG 初始化回归测试，确认请求北京不会顺带索引上海。
+- scripts/container_smoke.js — Agent health 失败时输出响应体片段，避免 CI 只显示 `HTTP 502` 而丢失代理错误细节。
 - CHANGELOG.md — 记录本次 502 根因调查和修复范围。
 
 ### 原因 — 为什么要改
@@ -31,6 +32,7 @@
 - Windows 本地 API smoke：不改 WinHTTP 反代分支。
 - 前端 AI 多 Agent 规划：恢复 C++ 服务对 Python Agent 的可达性；SSE 响应经 `httplib::Client` 缓冲返回，后续如需优化实时流式可单独处理。
 - 首个规划请求：RAG 只加载当前城市，减少 Render 免费实例上的内存峰值；跨城市请求会按城市逐步追加索引。
+- CI Docker smoke：后续 Agent 502 会显示响应体和 C++ 代理错误日志，便于区分连接失败、读取失败和 Agent 业务失败。
 
 ## 2026-06-17 21:36 - 修复广州样本数据 CI 校验规则
 

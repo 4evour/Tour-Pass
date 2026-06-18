@@ -57,7 +57,7 @@ async function waitForAgentHealth(baseUrl) {
       if (response.ok) {
         return { ok: true, data: await response.json() };
       }
-      lastError = `HTTP ${response.status}`;
+      lastError = `HTTP ${response.status}: ${(await response.text()).slice(0, 240)}`;
     } catch (error) {
       lastError = error.message;
     }

@@ -861,6 +861,10 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             }
 
             if (!upstream) {
+                std::cerr << "AGENT_PROXY_ERROR path=" << upstreamPath
+                          << " port=" << agentPort
+                          << " reason=" << httplib::to_string(upstream.error())
+                          << std::endl;
                 res.status = 502;
                 setJson(res, errorJson(
                     "AGENT_PROXY_ERROR",
