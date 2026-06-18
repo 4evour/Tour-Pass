@@ -2005,13 +2005,31 @@ function renderAgentResult(itinerary) {
   container.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+function getStopImageUrls(stop) {
+  var urls = [];
+  function addUrl(url) {
+    if (!url || typeof url !== "string") return;
+    var clean = url.trim();
+    if (clean && urls.indexOf(clean) === -1) urls.push(clean);
+  }
+  addUrl(stop.image_url);
+  if (Array.isArray(stop.images)) {
+    for (var i = 0; i < stop.images.length; i++) {
+      var item = stop.images[i];
+      addUrl(typeof item === "string" ? item : item && item.url);
+    }
+  }
+  return urls;
+}
+
 function renderStopCard(stop) {
   var card = document.createElement("div");
   card.className = "agent-stop";
   var poiType = stop.poi_type || "attraction";
   var typeLabels = { attraction: "\u{1F3DB}\uFE0F \u666F\u70B9", restaurant: "\u{1F35C} \u9910\u5385", hotel: "\u{1F3E8} \u9152\u5E97", nightlife: "\u{1F319} \u591C\u751F\u6D3B" };
   var typeLabel = typeLabels[poiType] || "\u{1F4CD} \u666F\u70B9";
-  var hasImg = stop.image_url && stop.image_url.length > 0;
+  var imageUrls = getStopImageUrls(stop);
+  var hasImg = imageUrls.length > 0;
   var timeStr = (stop.start_time || "") + (stop.end_time ? " - " + stop.end_time : "");
 
   if (hasImg) {
@@ -2019,17 +2037,44 @@ function renderStopCard(stop) {
     imgWrap.className = "agent-stop-img-wrap";
     var img = document.createElement("img");
     img.className = "agent-stop-img";
-    img.src = stop.image_url;
+    img.src = imageUrls[0];
     img.alt = stop.poi_name || "";
     img.loading = "lazy";
     img.onerror = function() {
       this.classList.add("error");
+      if (this.parentNode.querySelector(".agent-stop-noimg")) return;
       var ph = document.createElement("div");
       ph.className = "agent-stop-noimg";
       ph.textContent = poiType === "restaurant" ? "\u{1F35C}" : "\u{1F3DB}\uFE0F";
       this.parentNode.appendChild(ph);
     };
     imgWrap.appendChild(img);
+    if (imageUrls.length > 1) {
+      var currentImageIndex = 0;
+      var showImage = function(nextIndex) {
+        currentImageIndex = (nextIndex + imageUrls.length) % imageUrls.length;
+        img.classList.remove("error");
+        var ph = imgWrap.querySelector(".agent-stop-noimg");
+        if (ph) ph.remove();
+        img.src = imageUrls[currentImageIndex];
+      };
+      var addCarouselButton = function(direction, className, label, text) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "agent-stop-carousel-btn " + className;
+        btn.setAttribute("aria-label", label);
+        btn.title = label;
+        btn.textContent = text;
+        btn.addEventListener("click", function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          showImage(currentImageIndex + direction);
+        });
+        imgWrap.appendChild(btn);
+      };
+      addCarouselButton(-1, "prev", "\u4E0A\u4E00\u5F20\u56FE\u7247", "\u2039");
+      addCarouselButton(1, "next", "\u4E0B\u4E00\u5F20\u56FE\u7247", "\u203A");
+    }
     if (timeStr) {
       var tb = document.createElement("div");
       tb.className = "agent-stop-time-badge";

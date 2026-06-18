@@ -2831,6 +2831,39 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .agent-stop-img.error {
   display: none;
 }
+.agent-stop-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,0.58);
+  border-radius: 50%;
+  background: rgba(0,0,0,0.42);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+  transition: background 0.16s, transform 0.16s;
+}
+.agent-stop-carousel-btn:hover {
+  background: rgba(0,0,0,0.62);
+  transform: translateY(-50%) scale(1.04);
+}
+.agent-stop-carousel-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+.agent-stop-carousel-btn.prev {
+  left: 10px;
+}
+.agent-stop-carousel-btn.next {
+  right: 10px;
+}
 
 /* Time badge on image */
 .agent-stop-time-badge {
