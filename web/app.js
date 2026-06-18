@@ -2062,6 +2062,31 @@ function renderStopCard(stop) {
         if (ph) ph.remove();
         img.src = imageUrls[currentImageIndex];
       };
+      var swipeState = { active: false, startX: 0, startY: 0, pointerId: null };
+      imgWrap.addEventListener("pointerdown", function(e) {
+        if (e.target.closest(".agent-stop-carousel-btn")) return;
+        swipeState = { active: true, startX: e.clientX, startY: e.clientY, pointerId: e.pointerId };
+        imgWrap.classList.add("is-swiping");
+        if (imgWrap.setPointerCapture) imgWrap.setPointerCapture(e.pointerId);
+      });
+      imgWrap.addEventListener("pointerup", function(e) {
+        if (!swipeState.active || swipeState.pointerId !== e.pointerId) return;
+        var dx = e.clientX - swipeState.startX;
+        var dy = e.clientY - swipeState.startY;
+        var threshold = Math.min(80, Math.max(45, imgWrap.clientWidth * 0.18));
+        if (Math.abs(dx) >= threshold && Math.abs(dx) > Math.abs(dy) * 1.4) {
+          showImage(currentImageIndex + (dx < 0 ? 1 : -1));
+        }
+        imgWrap.classList.remove("is-swiping");
+        if (imgWrap.releasePointerCapture) imgWrap.releasePointerCapture(e.pointerId);
+        swipeState = { active: false, startX: 0, startY: 0, pointerId: null };
+      });
+      imgWrap.addEventListener("pointercancel", function(e) {
+        if (swipeState.pointerId === e.pointerId) {
+          imgWrap.classList.remove("is-swiping");
+          swipeState = { active: false, startX: 0, startY: 0, pointerId: null };
+        }
+      });
       var addCarouselButton = function(direction, className, label, text) {
         var btn = document.createElement("button");
         btn.type = "button";

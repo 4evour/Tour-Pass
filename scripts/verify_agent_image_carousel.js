@@ -162,6 +162,28 @@ async function main() {
       throw new Error("Expected repeated next clicks to reach the third image");
     }
 
+    const imageBox = await img.boundingBox();
+    if (!imageBox) {
+      throw new Error("Expected carousel image to have a visible bounding box");
+    }
+    await page.mouse.move(imageBox.x + imageBox.width * 0.25, imageBox.y + imageBox.height * 0.5);
+    await page.mouse.down();
+    await page.mouse.move(imageBox.x + imageBox.width * 0.80, imageBox.y + imageBox.height * 0.5, { steps: 6 });
+    await page.mouse.up();
+    const swipedPrevSrc = await img.getAttribute("src");
+    if (!swipedPrevSrc.includes(encodeURIComponent("#c25b1e"))) {
+      throw new Error("Expected right swipe on the image to switch to the previous image");
+    }
+
+    await page.mouse.move(imageBox.x + imageBox.width * 0.80, imageBox.y + imageBox.height * 0.5);
+    await page.mouse.down();
+    await page.mouse.move(imageBox.x + imageBox.width * 0.25, imageBox.y + imageBox.height * 0.5, { steps: 6 });
+    await page.mouse.up();
+    const swipedNextSrc = await img.getAttribute("src");
+    if (!swipedNextSrc.includes(encodeURIComponent("#2563eb"))) {
+      throw new Error("Expected left swipe on the image to switch to the next image");
+    }
+
     const imagesOnlyFirst = svgDataUrl("#9333ea");
     const imagesOnlySecond = svgDataUrl("#dc2626");
     await page.evaluate(({ imagesOnlyFirst, imagesOnlySecond }) => {

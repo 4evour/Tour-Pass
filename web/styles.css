@@ -2820,6 +2820,12 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   padding-top: 56%; /* 16:9 */
   overflow: hidden;
   background: var(--soft);
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+}
+.agent-stop-img-wrap.is-swiping {
+  cursor: grabbing;
 }
 .agent-stop-img {
   position: absolute;
@@ -2827,6 +2833,8 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 .agent-stop-img.error {
   display: none;
