@@ -41,6 +41,11 @@ _STRATEGY_TAGS = {
     "balanced": set(),
 }
 
+_CLASSIC_HOTSPOT_TAGS = {
+    "地标", "国家级景点", "风景名胜", "博物馆", "历史文化", "世界遗产",
+    "古建筑", "纪念馆", "公园广场", "寺庙道观", "美术馆", "科技馆",
+}
+
 # ── 14-group expanded interest → tag mappings for fuzzy matching ───────────────
 # Migrated from agent/scorer.py; provides 3-level scoring (35/25/15).
 _INTEREST_TAGS = {
@@ -121,6 +126,50 @@ def _tag_richness(tags: list[str]) -> float:
     generic = {"城市游览", "景点", "室内", "户外", "休闲"}
     meaningful = [t for t in tags if t not in generic and len(t) >= 2]
     return min(len(meaningful), 5) * 2.0
+
+
+def classify_poi_tier(poi: dict, intent: dict) -> str:
+    """Classify whether a POI is eligible for the main itinerary.
+
+    This is an admission gate, separate from ranking score:
+    - core_hotspot: classic/high-popularity POI
+    - route_supported: lower-popularity POI backed by real route evidence
+    - fallback_only: replacement/backup only
+    """
+    must_visit = intent.get("must_visit", [])
+    if _is_must_visit(poi, must_visit):
+        return "core_hotspot"
+
+    if poi.get("type", "attraction") != "attraction":
+        return "fallback_only"
+    if not poi.get("lat") or not poi.get("lng") or not poi.get("area"):
+        return "fallback_only"
+
+    tags = set(poi.get("tags", []))
+    popularity = float(poi.get("popularity", 0) or 0)
+    xhs_freq = int(poi.get("xhs_frequency", 0) or 0)
+
+    if popularity >= 4.7 or tags & _CLASSIC_HOTSPOT_TAGS or xhs_freq >= 3:
+        return "core_hotspot"
+    if xhs_freq >= 1:
+        return "route_supported"
+    return "fallback_only"
+
+
+def build_poi_evidence_sources(poi: dict) -> list[str]:
+    """Return compact evidence source labels for frontend/reviewer use."""
+    sources: list[str] = []
+    popularity = float(poi.get("popularity", 0) or 0)
+    tags = set(poi.get("tags", []))
+    if popularity >= 4.7:
+        sources.append("amap_popularity")
+    if tags & _CLASSIC_HOTSPOT_TAGS:
+        sources.append("classic_tag")
+    if int(poi.get("xhs_frequency", 0) or 0) > 0:
+        sources.append("xhs_route")
+    if poi.get("image_url") or poi.get("images"):
+        sources.append("image")
+    return sources
 
 
 # ── Main scoring function ────────────────────────────────────────────────────────

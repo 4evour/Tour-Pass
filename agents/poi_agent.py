@@ -11,7 +11,7 @@ from pathlib import Path
 from agents.base import BaseAgent
 from agents.constants import resolve_city_dir, CITY_DIR_MAP
 from agents.state import TourState
-from tools.scoring import rank_pois
+from tools.scoring import build_poi_evidence_sources, classify_poi_tier, rank_pois
 
 logger = logging.getLogger(__name__)
 
@@ -119,6 +119,11 @@ class PoiAgent(BaseAgent):
                 len(all_pois),
             )
 
+        for poi in all_pois:
+            poi["poi_tier"] = classify_poi_tier(poi, intent)
+            poi["evidence_sources"] = build_poi_evidence_sources(poi)
+            poi["image_missing"] = not bool(poi.get("image_url") or poi.get("images"))
+
         # Algorithmic scoring + ranking
         pace_candidate_multiplier = {
             "relaxed": 4,
@@ -147,6 +152,8 @@ class PoiAgent(BaseAgent):
                 enriched_keys.add(best.get("id") or best.get("name", ""))
 
         for poi in scored_pois:
+            if poi.get("poi_tier") == "fallback_only":
+                continue
             key = poi.get("id") or poi.get("name", "")
             if key not in enriched_keys:
                 enriched.append(poi)

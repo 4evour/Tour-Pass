@@ -11,6 +11,22 @@
 > 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
 > 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
+## 2026-06-20 00:32 - 增加 POI 主行程分层准入
+
+### 变更内容 — 改了什么文件，具体改了什么
+- tools/scoring.py — 新增 `classify_poi_tier` 和 `build_poi_evidence_sources`，将 POI 分为 `core_hotspot`、`route_supported`、`fallback_only`。
+- agents/poi_agent.py — 为候选 POI 写入 `poi_tier`、`evidence_sources`、`image_missing`，并阻止 `fallback_only` 进入主行程候选。
+- tests/test_multi_agent.py — 新增 POI 分层和 `PoiAgent` 主候选过滤回归测试。
+- CHANGELOG.md — 记录本次 POI 分层准入变更。
+
+### 原因 — 为什么要改
+- 防止无热门证据、无真实路线证据的小众 POI 因普通评分加分进入主行程，提升多 Agent 行程真实性和稳定性。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 多 Agent POI 候选生成：主行程候选更严格。
+- 调度器仍可通过 `available_pois` 访问 fallback 候选，用于必去兜底或后续替换。
+- 前端和 reviewer 后续可消费 `poi_tier`、`evidence_sources`、`image_missing` 做解释和质量检查。
+
 ## 2026-06-20 00:25 - 设计多 Agent 行程质量闭环
 
 ### 变更内容 — 改了什么文件，具体改了什么

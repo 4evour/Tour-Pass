@@ -146,7 +146,7 @@ class TestScoringEngine(unittest.TestCase):
     """Test tools/scoring.py — the 15+ dimension scoring engine."""
 
     def setUp(self):
-        from tools.scoring import score_poi, _is_must_visit, _fuzzy_interest_match, _tag_richness, _extract_scenic_group, _deduplicate_scenic_groups, _diversify_by_area, rank_pois, ScoredPoi
+        from tools.scoring import score_poi, _is_must_visit, _fuzzy_interest_match, _tag_richness, _extract_scenic_group, _deduplicate_scenic_groups, _diversify_by_area, rank_pois, ScoredPoi, classify_poi_tier
         self.score_poi = score_poi
         self._is_must_visit = _is_must_visit
         self._fuzzy_interest_match = _fuzzy_interest_match
@@ -156,6 +156,7 @@ class TestScoringEngine(unittest.TestCase):
         self._diversify_by_area = _diversify_by_area
         self.rank_pois = rank_pois
         self.ScoredPoi = ScoredPoi
+        self.classify_poi_tier = classify_poi_tier
 
     def _make_poi(self, **kwargs):
         defaults = {
@@ -282,6 +283,15 @@ class TestScoringEngine(unittest.TestCase):
         result = self.rank_pois(pois, {"must_visit": ["必去景点"], "interests": [], "avoid": []}, top_k=10)
         names = [p["name"] for p in result]
         self.assertIn("必去景点", names)
+
+    def test_classify_poi_tier_uses_hotspot_and_route_evidence(self):
+        classic = self._make_poi(popularity=4.8, tags=["城市游览", "风景名胜"])
+        route_supported = self._make_poi(popularity=4.2, tags=["街区"], xhs_frequency=1)
+        weak = self._make_poi(popularity=4.2, tags=["街区"], description="")
+
+        self.assertEqual(self.classify_poi_tier(classic, {}), "core_hotspot")
+        self.assertEqual(self.classify_poi_tier(route_supported, {}), "route_supported")
+        self.assertEqual(self.classify_poi_tier(weak, {}), "fallback_only")
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1265,6 +1275,52 @@ class TestPoiAgent(unittest.TestCase):
         }))
 
         self.assertGreaterEqual(len(result.get("pois", [])), 12)
+
+    def test_fallback_only_pois_stay_out_of_main_candidates(self):
+        from agents.poi_agent import PoiAgent
+
+        with tempfile.TemporaryDirectory() as tmp:
+            city_dir = Path(tmp) / "qualitycity"
+            city_dir.mkdir()
+            pois = [
+                {
+                    "id": "core_1", "name": "核心景点", "type": "attraction",
+                    "lat": 30.0, "lng": 120.0, "area": "核心区",
+                    "popularity": 4.8, "tags": ["风景名胜"],
+                    "description": "经典景点", "price_level": 1,
+                },
+                {
+                    "id": "route_1", "name": "路线景点", "type": "attraction",
+                    "lat": 30.01, "lng": 120.01, "area": "核心区",
+                    "popularity": 4.2, "tags": ["街区"], "xhs_frequency": 1,
+                    "description": "真实路线提及", "price_level": 1,
+                },
+                {
+                    "id": "weak_1", "name": "弱证据景点", "type": "attraction",
+                    "lat": 30.02, "lng": 120.02, "area": "核心区",
+                    "popularity": 4.1, "tags": ["街区"],
+                    "description": "", "price_level": 1,
+                },
+            ]
+            (city_dir / "pois.json").write_text(json.dumps(pois, ensure_ascii=False), encoding="utf-8")
+
+            result = self._run_async(PoiAgent(data_dir=tmp).execute({
+                "trip_intent": {
+                    "city": "qualitycity", "days": 1, "pace": "balanced",
+                    "must_visit": [], "interests": [], "avoid": [],
+                    "strategy": "balanced",
+                },
+                "city": "qualitycity",
+                "days": 1,
+            }))
+
+        main_names = [p.get("name") for p in result.get("pois", [])]
+        available_by_name = {p.get("name"): p for p in result.get("available_pois", [])}
+
+        self.assertIn("核心景点", main_names)
+        self.assertIn("路线景点", main_names)
+        self.assertNotIn("弱证据景点", main_names)
+        self.assertEqual(available_by_name["弱证据景点"]["poi_tier"], "fallback_only")
 
 
 class TestLLMAgentCallCounter(unittest.TestCase):
