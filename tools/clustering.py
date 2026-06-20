@@ -251,12 +251,9 @@ def _is_must_visit(poi: dict, must_visit: list[str]) -> bool:
 
 
 def _target_restaurant_count(intent: dict) -> int:
-    pace = intent.get("pace", "balanced")
     interests = set(intent.get("interests", []))
     food_focused = bool(interests & {"food", "culinary", "美食"}) or intent.get("strategy") == "culinary"
-    if pace == "relaxed" and not food_focused:
-        return 1
-    return 2
+    return 2 if food_focused else 1
 
 
 def _restaurant_identity(rest: dict) -> str:

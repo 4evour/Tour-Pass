@@ -929,6 +929,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         server.Get("/agent/stats", agentProxyHandler);
         server.Get("/agent/hot", agentProxyHandler);
         server.Post("/agent/plan", agentProxyHandler);
+        server.Post("/agent/plan-structured", agentProxyHandler);
         server.Post("/agent/plan-sync", agentProxyHandler);
         server.Post("/agent/plan-multi", agentProxyHandler);
         server.Post("/agent/chat", agentProxyHandler);

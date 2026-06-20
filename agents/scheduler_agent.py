@@ -261,7 +261,7 @@ class SchedulerAgent(BaseAgent):
     def _meal_types_for_pace(pace: str, intent: dict) -> list[str]:
         interests = set(intent.get("interests", []))
         food_focused = bool(interests & {"food", "culinary", "美食"}) or intent.get("strategy") == "culinary"
-        if pace == "relaxed" and not food_focused:
+        if not food_focused:
             return ["lunch"]
         return ["lunch", "dinner"]
 

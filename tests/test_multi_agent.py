@@ -556,6 +556,24 @@ class TestClusteringEngine(unittest.TestCase):
 
         self.assertTrue(all(len(c.restaurants) >= 2 for c in clusters))
 
+    def test_generic_balanced_trip_assigns_one_restaurant_per_day(self):
+        """Generic sightseeing trips should not be dominated by restaurants."""
+        attractions = self._make_attractions(6)
+        restaurants = [
+            {
+                "id": f"r_{i}", "name": f"餐厅{i}", "type": "restaurant",
+                "lat": 30.0 + i * 0.001, "lng": 120.0 + i * 0.001,
+                "area": "核心区", "popularity": 4.8, "_score": 90 - i,
+                "tags": ["美食"], "visit_duration_minutes": 60,
+            }
+            for i in range(4)
+        ]
+        intent = {"pace": "balanced", "must_visit": [], "interests": [], "strategy": "balanced"}
+
+        clusters = self.cluster_pois_for_days(attractions, restaurants, num_days=2, intent=intent)
+
+        self.assertTrue(all(len(c.restaurants) == 1 for c in clusters))
+
     def test_empty_attractions(self):
         clusters = self.cluster_pois_for_days([], [], num_days=3, intent={"pace": "balanced", "must_visit": []})
         self.assertEqual(len(clusters), 3)
@@ -644,6 +662,51 @@ class TestSchedulerAgent(unittest.TestCase):
             len(stops) - 1,
         )
         self.assertIn("route_source", stops[1])
+
+    def test_generic_balanced_day_schedules_lunch_only(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        attractions = [
+            {
+                "id": f"a_{i}", "name": f"景点{i}", "type": "attraction",
+                "lat": 30.0 + i * 0.001, "lng": 120.0 + i * 0.001,
+                "area": "核心区", "popularity": 4.8, "tags": ["文化"],
+                "visit_duration_minutes": 60,
+            }
+            for i in range(3)
+        ]
+        restaurants = [
+            {
+                "id": f"r_{i}", "name": f"餐厅{i}", "type": "restaurant",
+                "lat": 30.0 + i * 0.001, "lng": 120.0 + i * 0.001,
+                "area": "核心区", "popularity": 4.7, "_score": 90 - i,
+                "tags": ["美食"],
+            }
+            for i in range(2)
+        ]
+        state = {
+            "city": "测试城",
+            "days": 1,
+            "pois": attractions,
+            "restaurants": restaurants,
+            "hotels": [],
+            "weather": [],
+            "city_guides": [],
+            "trip_intent": {
+                "city": "测试城", "days": 1, "pace": "balanced",
+                "must_visit": [], "interests": [], "strategy": "balanced",
+            },
+            "available_pois": attractions,
+            "review_feedback": None,
+        }
+
+        result = self._run_async(SchedulerAgent().execute(state))
+        restaurant_slots = [
+            s["slot"] for s in result["daily_plans"][0]["stops"]
+            if s.get("poi_type") == "restaurant"
+        ]
+
+        self.assertEqual(restaurant_slots, ["lunch"])
 
     def test_evening_named_attraction_starts_in_evening(self):
         from agents.scheduler_agent import SchedulerAgent

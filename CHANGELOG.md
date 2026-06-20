@@ -11,6 +11,24 @@
 > 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
 > 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
+## 2026-06-20 19:22 - 修复结构化表单代理 404 并减少默认餐厅数量
+
+### 变更内容 — 改了什么文件，具体改了什么
+- src/api.cpp — C++ 反代层新增 `POST /agent/plan-structured` 转发到 Python Agent，避免结构化表单提交在外层服务返回 404。
+- scripts/verify_agent_proxy_routes.js — 新增静态回归验证，检查 C++ 代理层必须注册结构化表单规划路由。
+- tools/clustering.py — 普通非美食优先行程每天默认只分配 1 个餐厅；只有美食/culinary 明确偏好时才分配 2 个餐厅。
+- agents/scheduler_agent.py — 普通非美食优先行程默认只安排午餐；只有美食/culinary 明确偏好时才安排午餐和晚餐。
+- tests/test_multi_agent.py — 增加普通 balanced 行程只分配/排程 1 个餐厅的回归测试，同时保留美食优先仍安排午餐和晚餐的覆盖。
+- CHANGELOG.md — 记录本次结构化表单和餐厅数量修复。
+
+### 原因 — 为什么要改
+- Python Agent 已有 `/agent/plan-structured`，但线上入口通过 C++ 服务反代；C++ 代理未注册该路径时，结构化表单提交会在外层直接返回 404。
+- 旧的 balanced 默认策略会每天安排午餐和晚餐两个餐厅，使普通观光行程被餐厅占比过高，弱化景点主线。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响线上结构化表单提交路径、C++ 到 Python Agent 的代理路由、多 Agent 聚类餐厅分配和 Scheduler 餐厅时间安排。
+- 不改变 Python Agent `/agent/plan-structured` 业务接口、前端表单字段、餐厅候选质量过滤和美食优先行程的双餐安排。
+
 ## 2026-06-20 14:20 - 过滤误分类为景点的伴手礼小店
 
 ### 变更内容 — 改了什么文件，具体改了什么
