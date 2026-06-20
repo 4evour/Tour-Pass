@@ -182,6 +182,105 @@ def get_real_travel_time(
     return 30  # default
 
 
+def _stop_poi_id(stop: dict) -> str:
+    return str(
+        stop.get("poi_id")
+        or stop.get("id")
+        or stop.get("source_id")
+        or stop.get("amap_id")
+        or ""
+    )
+
+
+def _edge_route_source(edge: dict) -> str:
+    provider = str(edge.get("provider") or edge.get("source") or "").lower()
+    if provider == "amap":
+        return "amap_cached"
+    return "geo_estimated"
+
+
+def _edge_distance_meters(edge: dict) -> int:
+    distance = edge.get("distance_meters", edge.get("distance_m", 0))
+    if isinstance(distance, (int, float)) and distance > 0:
+        return int(distance)
+    return 0
+
+
+def calculate_route_segments(
+    stops: list[dict],
+    city: str = "",
+    mode: str = "walk",
+    data_dir: str = "data",
+) -> list[dict]:
+    """Calculate route segments and annotate each stop with previous travel info."""
+    if not stops:
+        return []
+
+    stops[0]["travel_minutes_from_previous"] = 0
+    stops[0]["route_source"] = ""
+    stops[0]["distance_meters_from_previous"] = 0
+
+    segments: list[dict] = []
+    edges = load_edges_cache(city, data_dir) if city else {}
+
+    for i in range(len(stops) - 1):
+        from_stop = stops[i]
+        to_stop = stops[i + 1]
+        from_id = _stop_poi_id(from_stop)
+        to_id = _stop_poi_id(to_stop)
+        edge = edges.get(f"{from_id}-{to_id}") if from_id and to_id else None
+
+        distance_meters = 0
+        route_source = "geo_estimated"
+        travel_minutes = 30
+
+        if edge:
+            duration = edge.get("duration_minutes") or _edge_duration_minutes(edge)
+            if duration and duration > 0:
+                travel_minutes = int(duration)
+            distance_meters = _edge_distance_meters(edge)
+            route_source = _edge_route_source(edge)
+        elif (
+            from_stop.get("lat")
+            and from_stop.get("lng")
+            and to_stop.get("lat")
+            and to_stop.get("lng")
+        ):
+            distance_km = _haversine_km(
+                from_stop["lat"],
+                from_stop["lng"],
+                to_stop["lat"],
+                to_stop["lng"],
+            )
+            distance_meters = int(distance_km * 1000)
+            travel_minutes = estimate_travel_time(
+                from_stop["lat"],
+                from_stop["lng"],
+                to_stop["lat"],
+                to_stop["lng"],
+                mode,
+            )
+
+        segment = {
+            "from_poi_id": from_id,
+            "to_poi_id": to_id,
+            "from_name": from_stop.get("poi_name") or from_stop.get("name", ""),
+            "to_name": to_stop.get("poi_name") or to_stop.get("name", ""),
+            "travel_minutes": travel_minutes,
+            "route_source": route_source,
+            "distance_meters": distance_meters,
+            "transport_hint": "transit" if route_source == "amap_cached" else mode,
+        }
+        segments.append(segment)
+
+        to_stop["travel_minutes_from_previous"] = travel_minutes
+        to_stop["route_source"] = route_source
+        to_stop["distance_meters_from_previous"] = distance_meters
+        to_stop["transport_hint"] = segment["transport_hint"]
+
+    return segments
+
+
 # ---------------------------------------------------------------------------
 # 2-opt route improvement
 # ---------------------------------------------------------------------------
@@ -337,40 +436,27 @@ def optimize_route(
     return ordered
 
 
-def calculate_total_travel_time(stops: list[dict], mode: str = "walk") -> int:
+def calculate_total_travel_time(
+    stops: list[dict],
+    mode: str = "walk",
+    city: str = "",
+    data_dir: str = "data",
+) -> int:
     """Calculate total travel time for a route.
 
     Args:
         stops: Ordered list of stops with lat/lng.
         mode: Travel mode.
+        city: Optional city directory name for cached route edges.
+        data_dir: Data directory path.
 
     Returns:
         Total travel time in minutes.
     """
-    if len(stops) <= 1:
-        return 0
-
-    total_time = 0
-    for i in range(len(stops) - 1):
-        from_stop = stops[i]
-        to_stop = stops[i + 1]
-
-        if (
-            from_stop.get("lat")
-            and from_stop.get("lng")
-            and to_stop.get("lat")
-            and to_stop.get("lng")
-        ):
-            time = estimate_travel_time(
-                from_stop["lat"],
-                from_stop["lng"],
-                to_stop["lat"],
-                to_stop["lng"],
-                mode,
-            )
-            total_time += time
-
-    return total_time
+    return sum(
+        segment["travel_minutes"]
+        for segment in calculate_route_segments(stops, city=city, mode=mode, data_dir=data_dir)
+    )
 
 
 # ---------------------------------------------------------------------------

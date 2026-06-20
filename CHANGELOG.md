@@ -11,6 +11,93 @@
 > 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
 > 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
+## 2026-06-20 13:22 - 增加结构化规划和多轮行程会话
+
+### 变更内容 — 改了什么文件，具体改了什么
+- api_multi_agent.py — 新增结构化规划请求模型和 `/agent/plan-structured` SSE 接口；增加 session 存储、会话续接、`/agent/chat-session` 和 `/agent/modify` 行程局部修改能力；规划结果写入 session，便于后续对话修改。
+- graph.py — 新增 `create_initial_state_from_intent`，允许结构化表单绕过 IntentAgent 解析；数据采集改为先跑 PoiAgent，再并行酒店/天气/餐厅，避免酒店与餐厅读取空 POI 状态。
+- web/index.html — 增加“自然语言/结构化表单”切换和城市、天数、人群、侧重点、节奏、预算、必去、酒店预算、特殊要求等表单输入。
+- web/app.js — 前端发送 `session_id`，新增结构化表单提交、多轮对话面板和行程局部修改调用。
+- web/styles.css — 增加结构化表单、多轮对话面板和相关交互样式。
+- web/editor/src/components/AgentChat.tsx — React 编辑器聊天组件支持 session_id、上下文历史和修改动作回写。
+- web/editor-dist/ — 重新构建 React 编辑器静态产物，匹配 AgentChat 会话改动。
+- CHANGELOG.md — 记录本次结构化规划和多轮会话变更。
+
+### 原因 — 为什么要改
+- 用户提到之前已有结构化表单输入，需要让多 Agent 生成逻辑直接消费明确的城市、天数、节奏、偏好和必去信息，减少自然语言解析误差；同时生成后需要能继续对话修改行程，而不是每次全量重跑。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 多 Agent API 新增结构化入口和会话状态，前端可在自然语言和表单规划间切换。
+- 多轮对话可基于当前行程进行局部修改，后续可继续扩展为更完整的增量重排。
+- 数据采集顺序改变：POI 成为酒店/餐厅/天气等下游 agent 的稳定输入。
+
+## 2026-06-20 13:22 - 增强和风天气接入与天气感知排程
+
+### 变更内容 — 改了什么文件，具体改了什么
+- agent/.env.example — 增加 `QWEATHER_KEY` 和 `QWEATHER_API_HOST` 示例配置。
+- agents/config.py — 统一读取和风天气 key、API host、天气预报、生活指数和灾害预警接口地址。
+- tools/weather_api.py — 天气接口扩展为三类数据：每日天气、旅游/穿衣/紫外线等生活指数、灾害预警；补充安全数值转换和 21 城 location 映射。
+- agents/weather_agent.py — 并发获取天气、生活指数和灾害预警；LLM 只基于真实数据生成建议，失败时使用规则兜底建议。
+- agents/scheduler_agent.py — 根据降雨、紫外线、日出日落、恶劣天气和预警调整排程偏好、开始/结束时间和天气 SSE 提示。
+- api_multi_agent.py — 转换前端行程时透出每日天气、天气严重程度、天气提醒和 `weather_available`。
+- render.yaml — 为 Render 部署预留 `QWEATHER_KEY` secret 和 `QWEATHER_API_HOST` 默认值。
+- CHANGELOG.md — 记录本次天气接入和天气感知排程变更。
+
+### 原因 — 为什么要改
+- 用户要求天气模块真实接入；原天气能力只覆盖基础预报，缺少生活指数、预警、日出日落和对排程的可解释影响。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- WeatherAgent、SchedulerAgent、API 行程格式和前端可展示天气字段。
+- Render 部署环境需要配置 `QWEATHER_KEY` 后才会启用真实和风天气。
+- 没有配置和风天气 key 时仍返回明确占位数据，不让 LLM 编造天气。
+- 高紫外线、雨天或恶劣天气会影响室内/室外 POI 排序和当天时间边界。
+
+## 2026-06-20 00:47 - 增加 Reviewer 行程质量失败码
+
+### 变更内容 — 改了什么文件，具体改了什么
+- agents/reviewer_agent.py — hard-check 增加 `unsupported_poi`、`area_scattered`、`weak_last_day`、`meal_attraction_imbalance`、`excessive_commute_estimated`、`excessive_commute_confirmed` 等确定性失败码。
+- tests/test_multi_agent.py — 新增 Reviewer 低质量 POI、跨区、长估算通勤、最后一天过空和餐厅景点失衡回归测试。
+- CHANGELOG.md — 记录本次 Reviewer 失败码变更。
+
+### 原因 — 为什么要改
+- 多 Agent 回路需要稳定、可测试的质量信号，不能只依赖 LLM 审核文本；用户反馈的“小众 POI、跨区通勤、最后一天只有餐厅、景点餐厅不均衡”需要被 reviewer 明确识别。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- ReviewerAgent 会在 `review_result.issues` 中输出更细粒度的质量问题。
+- Scheduler 后续可继续消费这些失败码做自动补救。
+- 不改变 LLM reviewer 提示格式和 API 响应结构。
+
+## 2026-06-20 00:39 - 优化路线图高德导航展示
+
+### 变更内容 — 改了什么文件，具体改了什么
+- web/app.js — 新增高德导航 URL、路线 URL、通勤来源标签辅助函数；地图 popup、overview 小卡和详情卡支持点击高德导航；地图路线按 `amap_cached` 实线、估算段虚线展示；高德导航按钮复用统一 URL 生成逻辑。
+- web/styles.css — 增加地图 popup 地址/导航、通勤来源 chip、详情卡高德链接样式。
+- CHANGELOG.md — 记录本次路线图导航展示变更。
+
+### 原因 — 为什么要改
+- 用户要求导出的旅游路线图中对应景点地址可点击并能跳转高德导航，同时前端需要解释景点之间的通勤时间是否来自真实高德路径。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 行程 overview、详情页、地图 popup、打印导出和分享页中的 POI 导航链接。
+- 地图路线视觉展示会区分真实缓存路径和估算路径。
+- 不改变后端行程生成逻辑和 POI 数据。
+
+## 2026-06-20 00:36 - 增加每日通勤分段来源
+
+### 变更内容 — 改了什么文件，具体改了什么
+- tools/route.py — 新增 `calculate_route_segments`，优先读取 `edges.json` 缓存路径，输出相邻 POI 的通勤分钟、路径来源、距离和交通提示，并写回后一站的通勤字段；`calculate_total_travel_time` 改为复用分段结果。
+- agents/scheduler_agent.py — 每日最终 stops 排序后统一生成 `route_segments`、`total_travel_minutes` 和 `route_quality`，确保必去补救插入后的路线字段仍然准确。
+- tests/test_multi_agent.py — 新增真实缓存路径优先和 Scheduler 日程路线字段回归断言。
+- CHANGELOG.md — 记录本次通勤分段来源变更。
+
+### 原因 — 为什么要改
+- 用户要求行程展示景点之间的通勤时间，并明确区分是否参考高德真实路径；原逻辑只返回总通勤分钟，且未把真实/估算来源暴露给前端和 reviewer。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 多 Agent Scheduler 输出新增路线分段和路线质量统计。
+- 前端可直接消费 `route_segments`、`route_source`、`distance_meters_from_previous` 展示真实/估算通勤。
+- 旧调用仍可使用 `calculate_total_travel_time`，但结果会复用新的分段计算。
+
 ## 2026-06-20 00:32 - 增加 POI 主行程分层准入
 
 ### 变更内容 — 改了什么文件，具体改了什么

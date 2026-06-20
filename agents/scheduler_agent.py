@@ -25,7 +25,7 @@ from agents.config import USE_CPP_ROUTE_OPTIMIZER
 from agents.constants import haversine_km
 from tools import rag
 from tools.clustering import cluster_pois_for_days, _is_must_visit
-from tools.route import optimize_route_smart, calculate_total_travel_time
+from tools.route import optimize_route_smart, calculate_route_segments
 
 logger = logging.getLogger(__name__)
 
@@ -55,6 +55,11 @@ _WEEKDAY_MAP = {
 }
 
 
+# Weather severity thresholds
+_WEATHER_RAIN_KEYWORDS = ("雨", "rain", "Rain", "雪", "snow", "Snow", "雹")
+_WEATHER_EXTREME_KEYWORDS = ("暴雨", "大暴雨", "特大暴雨", "台风", "暴风", "龙卷风", "冰雹")
+
+
 class SchedulerAgent(BaseAgent):
     """Create optimised day-by-day itinerary."""
 
@@ -66,23 +71,156 @@ class SchedulerAgent(BaseAgent):
     def description(self) -> str:
         return "Create optimised day-by-day itinerary with clustering"
 
-    # -- helpers -------------------------------------------------------------
+    # -- Weather awareness helpers ------------------------------------------
+
+    @staticmethod
+    def _get_weather_severity(weather: list, day_idx: int) -> str:
+        """Return weather severity: 'good', 'moderate', 'bad', or 'extreme'.
+
+        Factors considered:
+        - Condition keywords (rain, storm, typhoon)
+        - Precipitation amount (>10mm = bad)
+        - Visibility (<5km = bad)
+        - Wind scale (>=5 = bad)
+        - Travel index level (>=4 = bad)
+        - Active severe weather warnings
+        """
+        if not weather or day_idx >= len(weather):
+            return "good"
+        w = weather[day_idx]
+
+        # Check extreme condition keywords first
+        condition = w.get("condition", "")
+        if any(kw in condition for kw in _WEATHER_EXTREME_KEYWORDS):
+            return "extreme"
+
+        # Check for severe weather warnings
+        for alert in w.get("warnings", []):
+            alert_text = alert.get("text", "") + alert.get("title", "")
+            if any(kw in alert_text for kw in ("暴雨", "台风", "暴风", "红色预警")):
+                return "extreme"
+
+        # Composite score
+        score = 0
+
+        # Condition-based
+        if any(kw in condition for kw in _WEATHER_RAIN_KEYWORDS):
+            score += 2
+
+        # Precipitation
+        precip = w.get("precip", 0)
+        if precip > 25:
+            score += 3
+        elif precip > 10:
+            score += 2
+        elif precip > 5:
+            score += 1
+
+        # Visibility
+        vis = w.get("vis", 25)
+        if vis < 2:
+            score += 2
+        elif vis < 5:
+            score += 1
+
+        # Wind scale
+        try:
+            wind_scale_str = str(w.get("wind_scale", ""))
+            # wind_scale can be "1-2" or "3" — take the max
+            wind_parts = wind_scale_str.replace("-", ",").split(",")
+            max_wind = max(int(p.strip()) for p in wind_parts if p.strip().isdigit())
+            if max_wind >= 6:
+                score += 3
+            elif max_wind >= 5:
+                score += 2
+            elif max_wind >= 4:
+                score += 1
+        except (ValueError, TypeError):
+            pass
+
+        # Travel index
+        travel_idx = w.get("travel_index")
+        if travel_idx:
+            try:
+                level = int(travel_idx.get("level", "1"))
+                if level >= 5:
+                    score += 3
+                elif level >= 4:
+                    score += 2
+                elif level >= 3:
+                    score += 1
+            except (ValueError, TypeError):
+                pass
+
+        if score >= 5:
+            return "extreme"
+        if score >= 3:
+            return "bad"
+        if score >= 1:
+            return "moderate"
+        return "good"
 
     @staticmethod
     def _is_rainy(weather: list, day_idx: int) -> bool:
+        """Legacy compatibility — delegates to severity check."""
+        severity = SchedulerAgent._get_weather_severity(weather, day_idx)
+        if severity in ("bad", "extreme"):
+            return True
+        # Also check condition keywords for moderate rain
         if not weather or day_idx >= len(weather):
             return False
         condition = weather[day_idx].get("condition", "")
-        return any(rain in condition for rain in ("雨", "rain", "Rain"))
+        return any(rain in condition for rain in _WEATHER_RAIN_KEYWORDS)
 
     @staticmethod
-    def _prioritize_by_weather(attractions: list, is_rainy: bool) -> list:
-        if not is_rainy:
+    def _prioritize_by_weather(attractions: list, is_rainy: bool, uv_index: int = 0) -> list:
+        """Reorder attractions based on weather: indoor first for bad weather.
+
+        Also considers high UV index — indoor/shaded attractions preferred.
+        """
+        if not is_rainy and uv_index < 4:
             return attractions
         indoor = [a for a in attractions if set(a.get("tags", [])) & INDOOR_TAGS]
         outdoor = [a for a in attractions if not (set(a.get("tags", [])) & INDOOR_TAGS)]
-        logger.info("Rainy day: %d indoor, %d outdoor POIs", len(indoor), len(outdoor))
+        reason = "Rainy/high-UV day"
+        if is_rainy and uv_index >= 4:
+            reason = "Rainy + high UV"
+        elif uv_index >= 4:
+            reason = "High UV"
+        logger.info("%s: %d indoor, %d outdoor POIs", reason, len(indoor), len(outdoor))
         return indoor + outdoor
+
+    @staticmethod
+    def _parse_time_to_minutes(time_str: str) -> int:
+        """Parse 'HH:MM' time string to minutes since midnight. Returns 0 on failure."""
+        try:
+            parts = time_str.split(":")
+            if len(parts) == 2:
+                return int(parts[0]) * 60 + int(parts[1])
+        except (ValueError, AttributeError):
+            pass
+        return 0
+
+    @staticmethod
+    def _adjust_start_by_sunrise(pace_start: int, sunrise: str) -> int:
+        """Adjust pace start time based on sunrise. Don't start before sunrise + 30min."""
+        sunrise_min = SchedulerAgent._parse_time_to_minutes(sunrise)
+        if sunrise_min <= 0:
+            return pace_start
+        # Earliest reasonable start: sunrise + 30 minutes
+        earliest = sunrise_min + 30
+        # But don't go later than pace allows
+        return max(pace_start, min(earliest, pace_start + 60))
+
+    @staticmethod
+    def _adjust_end_by_sunset(pace_end: int, sunset: str) -> int:
+        """Adjust pace end time based on sunset. End outdoor activities by sunset."""
+        sunset_min = SchedulerAgent._parse_time_to_minutes(sunset)
+        if sunset_min <= 0:
+            return pace_end
+        # End 30 min before sunset for safety
+        latest = sunset_min - 30
+        return min(pace_end, latest) if latest > 600 else pace_end
 
     @staticmethod
     def _check_opening_time(attr: dict, arrival: int) -> tuple[int, int]:
@@ -177,6 +315,46 @@ class SchedulerAgent(BaseAgent):
             if poi.get("name", "") not in existing:
                 min_cluster.attractions.insert(0, poi)
                 logger.info("Inserted missing must_visit '%s' into day %d", poi.get("name"), min_cluster.day_num)
+        return clusters
+
+    @staticmethod
+    def _apply_move_suggestions(clusters: list, move_suggestions: list[dict]) -> list:
+        """Apply Reviewer's move suggestions: relocate POIs between days."""
+        for sug in move_suggestions:
+            poi_name = sug.get("poi_name", "")
+            to_day = int(sug.get("to_day", 0))
+            source_cluster = None
+            poi_to_move = None
+
+            # Find and remove from source
+            for cluster in clusters:
+                for attr in cluster.attractions:
+                    if attr.get("name", "") == poi_name:
+                        source_cluster = cluster
+                        poi_to_move = attr
+                        break
+                if poi_to_move:
+                    break
+
+            if not poi_to_move:
+                continue
+
+            # Find target cluster
+            target_cluster = None
+            for cluster in clusters:
+                if cluster.day_num == to_day:
+                    target_cluster = cluster
+                    break
+
+            if not target_cluster or target_cluster is source_cluster:
+                continue
+
+            source_cluster.attractions.remove(poi_to_move)
+            target_cluster.attractions.append(poi_to_move)
+            logger.info(
+                "Applied move: '%s' day %d → day %d (reviewer suggestion)",
+                poi_name, source_cluster.day_num, target_cluster.day_num,
+            )
         return clusters
 
     @staticmethod
@@ -401,6 +579,24 @@ class SchedulerAgent(BaseAgent):
             if i.get("severity") in ("high", "critical") and i.get("poi_name")
         ]
 
+        # Parse structured suggestions from Reviewer (feedback loop)
+        reviewer_suggestions = review_feedback.get("suggestions", [])
+        move_suggestions: list[dict] = []   # {"poi_name": ..., "from_day": ..., "to_day": ...}
+        replace_areas: list[dict] = []     # {"poi_name": ..., "day": ..., "suggested_area": ...}
+        indoor_days: set[int] = set()      # Days that need more indoor POIs
+        for sug in reviewer_suggestions:
+            if not isinstance(sug, dict):
+                continue
+            sug_type = sug.get("type", "")
+            if sug_type == "move" and sug.get("poi_name") and sug.get("to_day"):
+                move_suggestions.append(sug)
+                logger.info("Reviewer suggestion: move '%s' to day %d", sug["poi_name"], sug["to_day"])
+            elif sug_type == "replace" and sug.get("poi_name"):
+                replace_areas.append(sug)
+                flagged_names.append(sug["poi_name"])
+            elif sug_type == "add_indoor" and sug.get("day"):
+                indoor_days.add(int(sug["day"]))
+
         # Enrich POIs with closed_days from poi_knowledge
         poi_knowledge = rag.get_poi_knowledge(city)
         if poi_knowledge:
@@ -433,6 +629,19 @@ class SchedulerAgent(BaseAgent):
             clusters = self._insert_missing_must_visits(clusters, missing_must_visit, pois)
         if flagged_names:
             clusters = self._remove_flagged_pois(clusters, flagged_names)
+
+        # Apply reviewer's structured move suggestions
+        if move_suggestions:
+            clusters = self._apply_move_suggestions(clusters, move_suggestions)
+
+        # Apply indoor preference for rainy-day suggestions
+        if indoor_days:
+            for cluster in clusters:
+                if cluster.day_num in indoor_days:
+                    cluster.attractions = self._prioritize_by_weather(
+                        cluster.attractions, is_rainy=True
+                    )
+                    logger.info("Applied indoor preference for day %d", cluster.day_num)
 
         # Step 1.5: XHS co-occurrence affinity adjustment
         # If two POIs frequently appear together in real XHS itineraries,
@@ -487,9 +696,16 @@ class SchedulerAgent(BaseAgent):
         # Step 3: Create schedule with time awareness
         daily_plans: list[dict] = []
         for day_idx, cluster in enumerate(clusters):
+            severity = self._get_weather_severity(weather, day_idx)
             is_rainy = self._is_rainy(weather, day_idx)
-            if is_rainy:
-                cluster.attractions = self._prioritize_by_weather(cluster.attractions, True)
+            day_uv_index = 0
+            if weather and day_idx < len(weather):
+                day_uv_index = weather[day_idx].get("uv_index", 0)
+
+            if is_rainy or day_uv_index >= 4:
+                cluster.attractions = self._prioritize_by_weather(
+                    cluster.attractions, is_rainy, uv_index=day_uv_index,
+                )
 
             # Filter closed POIs for this day
             cluster.attractions = self._filter_closed_pois(cluster.attractions, day_idx)
@@ -498,6 +714,15 @@ class SchedulerAgent(BaseAgent):
             current_time = pace_cfg["start_time"]
             gap = pace_cfg["gap_minutes"]
             end_of_day = pace_cfg["end_time"]
+
+            # Adjust start/end times based on sunrise/sunset
+            if weather and day_idx < len(weather):
+                sunrise = weather[day_idx].get("sunrise", "")
+                sunset = weather[day_idx].get("sunset", "")
+                if sunrise:
+                    current_time = self._adjust_start_by_sunrise(current_time, sunrise)
+                if sunset and severity != "extreme":
+                    end_of_day = self._adjust_end_by_sunset(end_of_day, sunset)
 
             stops: list[dict] = []
             meal_types = self._meal_types_for_pace(pace, intent)
@@ -591,13 +816,32 @@ class SchedulerAgent(BaseAgent):
                 if ref_stops:
                     summary_parts.append(f"真实路线参考: {ref_stops}")
 
+            # Build weather alert info for this day
+            weather_alert = None
+            if severity in ("bad", "extreme") and weather and day_idx < len(weather):
+                day_weather = weather[day_idx]
+                alert_texts = []
+                for w in day_weather.get("warnings", []):
+                    alert_texts.append(w.get("title", ""))
+                weather_alert = {
+                    "severity": severity,
+                    "condition": day_weather.get("condition", ""),
+                    "warnings": alert_texts,
+                    "suggestion": day_weather.get("suggestion", ""),
+                }
+
             daily_plans.append({
                 "day": cluster.day_num,
                 "theme": cluster.theme,
                 "stops": stops,
                 "summary": "\n".join(summary_parts),
-                "total_travel_minutes": calculate_total_travel_time(stops),
+                "route_segments": [],
+                "total_travel_minutes": 0,
+                "route_quality": {"amap_segments": 0, "estimated_segments": 0},
                 "is_rainy": is_rainy,
+                "weather_severity": severity,
+                "uv_index": day_uv_index,
+                "weather_alert": weather_alert,
             })
 
         # ── Layer 4: Global must_visit post-verification ────────────────────
@@ -681,12 +925,44 @@ class SchedulerAgent(BaseAgent):
                 "Must-visit coverage: %d/%d", covered, len(must_visit_coverage),
             )
 
+        for dp in daily_plans:
+            stops = dp.get("stops", [])
+            stops.sort(key=lambda x: x.get("start_minutes", 0))
+            route_segments = calculate_route_segments(stops, city=city_dir)
+            estimated_segments = sum(
+                1 for segment in route_segments
+                if segment.get("route_source") != "amap_cached"
+            )
+            dp["route_segments"] = route_segments
+            dp["total_travel_minutes"] = sum(
+                segment.get("travel_minutes", 0) for segment in route_segments
+            )
+            dp["route_quality"] = {
+                "amap_segments": len(route_segments) - estimated_segments,
+                "estimated_segments": estimated_segments,
+            }
+
         # Emit day_planned SSE events
         for dp in daily_plans:
             sse_events.append({
                 "type": "day_planned",
                 "content": f"第 {dp.get('day', '?')} 天规划完成：{len(dp.get('stops', []))} 个行程",
             })
+            # Emit weather alert SSE events
+            if dp.get("weather_alert"):
+                alert = dp["weather_alert"]
+                severity_label = "极端天气" if alert.get("severity") == "extreme" else "恶劣天气"
+                sse_events.append({
+                    "type": "weather_alert",
+                    "content": f"第 {dp.get('day', '?')} 天{severity_label}预警：{alert.get('condition', '')}",
+                    "severity": alert.get("severity", ""),
+                    "warnings": alert.get("warnings", []),
+                })
+            if dp.get("uv_index", 0) >= 4:
+                sse_events.append({
+                    "type": "uv_warning",
+                    "content": f"第 {dp.get('day', '?')} 天紫外线较强，注意防晒",
+                })
 
         logger.info("Created %d day plans", len(daily_plans))
         return {

@@ -28,6 +28,10 @@ services:
         sync: false
       - key: TOURPASS_AMAP_API_KEY
         sync: false
+      - key: QWEATHER_KEY
+        sync: false
+      - key: QWEATHER_API_HOST
+        value: devapi.qweather.com
       - key: TOURPASS_MAX_BODY_BYTES
         value: "262144"
       - key: TOURPASS_DISTANCE_CACHE_MODE

@@ -48,21 +48,43 @@ def _build_parallel_data_gather(
     weather_agent: WeatherAgent,
     restaurant_agent: RestaurantAgent,
 ):
-    """Build a single node function that runs 4 agents concurrently via asyncio.gather.
+    """Build a two-phase data-gather node.
 
-    Returns merged state updates from all agents. Critical agent failures
-    (PoiAgent) propagate; non-critical failures are collected as errors.
+    Phase 1: Run PoiAgent first (critical, fast, deterministic).
+    Phase 2: Run Hotel, Weather, Restaurant agents in parallel, with
+    PoiAgent results (pois, available_pois) injected into the state they
+    see — this fixes the data race where HotelAgent was reading empty pois.
+
+    Returns merged state updates. Critical agent failures propagate;
+    non-critical failures are collected as errors.
     """
 
     async def node_data_gather(state: TourState) -> dict:
-        """Execute POI, Hotel, Weather, and Restaurant agents in parallel."""
-        logger.info("[DataGather] Starting parallel execution of 4 agents...")
+        """Execute data-gathering agents in two phases."""
+        logger.info("[DataGather] Phase 1: running PoiAgent first...")
 
+        # ── Phase 1: POI (critical, must succeed) ────────────────────────
+        try:
+            poi_result = await poi_agent(state)
+        except Exception as e:
+            logger.critical("[DataGather] CRITICAL PoiAgent failed — aborting")
+            raise
+
+        if isinstance(poi_result, dict):
+            # Inject POI results into a mutable state copy for Phase 2
+            enriched_state = dict(state)
+            for key, value in poi_result.items():
+                if key not in ("errors", "sse_events"):
+                    enriched_state[key] = value
+        else:
+            enriched_state = state
+
+        # ── Phase 2: Hotel + Weather + Restaurant in parallel ───────────
+        logger.info("[DataGather] Phase 2: running Hotel/Weather/Restaurant in parallel...")
         results = await asyncio.gather(
-            poi_agent(state),
-            hotel_agent(state),
-            weather_agent(state),
-            restaurant_agent(state),
+            hotel_agent(enriched_state),
+            weather_agent(enriched_state),
+            restaurant_agent(enriched_state),
             return_exceptions=True,
         )
 
@@ -71,16 +93,19 @@ def _build_parallel_data_gather(
         errors: list[str] = []
         sse_events: list[dict] = []
 
-        agent_names = ["PoiAgent", "HotelAgent", "WeatherAgent", "RestaurantAgent"]
-        critical_agents = {"PoiAgent"}  # Must propagate failure
+        # First, merge POI result
+        if isinstance(poi_result, dict):
+            for key, value in poi_result.items():
+                if key == "errors":
+                    errors.extend(value)
+                elif key == "sse_events":
+                    sse_events.extend(value)
+                else:
+                    merged[key] = value
 
+        agent_names = ["HotelAgent", "WeatherAgent", "RestaurantAgent"]
         for name, result in zip(agent_names, results):
             if isinstance(result, Exception):
-                # Critical agents must propagate failure
-                if name in critical_agents:
-                    logger.critical("[DataGather] CRITICAL %s failed — aborting", name)
-                    raise result
-
                 error_msg = f"{name}: {result}"
                 logger.error("[DataGather] %s failed: %s", name, result)
                 errors.append(error_msg)
@@ -89,7 +114,6 @@ def _build_parallel_data_gather(
                     "content": f"⚠ {name} 执行失败，部分功能可能受限",
                 })
             elif isinstance(result, dict):
-                # Merge dict results, collecting errors and sse_events separately
                 for key, value in result.items():
                     if key == "errors":
                         errors.extend(value)
@@ -245,3 +269,41 @@ def create_initial_state(user_message: str) -> dict:
         "xhs_popular_pois": {},
         "xhs_reference_routes": [],
     }
+
+
+def create_initial_state_from_intent(intent_dict: dict) -> dict:
+    """Create initial state from pre-parsed structured intent.
+
+    When the frontend sends a structured request (form-based), we skip
+    the IntentAgent's regex/LLM parsing entirely by pre-populating
+    ``trip_intent``. IntentAgent will see it and return {} immediately.
+    """
+    state = create_initial_state(
+        user_message=_build_message_from_intent(intent_dict)
+    )
+    state["trip_intent"] = intent_dict
+    state["city"] = intent_dict.get("city", "")
+    state["days"] = intent_dict.get("days", 3)
+    return state
+
+
+def _build_message_from_intent(intent: dict) -> str:
+    """Build a human-readable message from structured intent for logging."""
+    parts = [f"去{intent.get('city', '')}玩{intent.get('days', 3)}天"]
+    pace_map = {"relaxed": "轻松", "balanced": "适中", "intense": "紧凑"}
+    if intent.get("pace") and intent["pace"] != "balanced":
+        parts.append(f"节奏{pace_map.get(intent['pace'], '')}")
+    strategy_map = {"culture": "文化深度", "culinary": "美食探索", "nature": "自然风光"}
+    if intent.get("strategy") and intent["strategy"] != "balanced":
+        parts.append(strategy_map.get(intent["strategy"], ""))
+    if intent.get("must_visit"):
+        parts.append(f"必去{'、'.join(intent['must_visit'][:5])}")
+    if intent.get("travelers") and intent["travelers"] != "solo":
+        travelers_map = {"couple": "情侣", "family": "家庭", "friends": "朋友", "elderly": "带长辈"}
+        parts.append(travelers_map.get(intent["travelers"], intent["travelers"]))
+    if intent.get("budget"):
+        budget_map = {"budget": "经济", "mid-range": "中等", "luxury": "高端"}
+        parts.append(f"预算{budget_map.get(intent['budget'], '')}")
+    if intent.get("special_requests"):
+        parts.append(intent["special_requests"])
+    return "，".join(parts)

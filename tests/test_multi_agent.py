@@ -637,6 +637,13 @@ class TestSchedulerAgent(unittest.TestCase):
         self.assertIn("morning", attraction_slots)
         self.assertIn("afternoon", attraction_slots)
         self.assertIn("evening", attraction_slots)
+        self.assertIn("route_segments", result["daily_plans"][0])
+        self.assertGreater(result["daily_plans"][0]["total_travel_minutes"], 0)
+        self.assertEqual(
+            len(result["daily_plans"][0]["route_segments"]),
+            len(stops) - 1,
+        )
+        self.assertIn("route_source", stops[1])
 
     def test_xhs_affinity_does_not_move_must_visit_between_days(self):
         from agents.scheduler_agent import SchedulerAgent
@@ -731,13 +738,15 @@ class TestRouteOptimization(unittest.TestCase):
         from tools.route import (
             _haversine_km, estimate_travel_time, optimize_route,
             optimize_route_2opt, calculate_total_travel_time,
-            _minutes_to_time, load_edges_cache, get_real_travel_time,
+            calculate_route_segments, _minutes_to_time, load_edges_cache,
+            get_real_travel_time,
         )
         self._haversine_km = _haversine_km
         self.estimate_travel_time = estimate_travel_time
         self.optimize_route = optimize_route
         self.optimize_route_2opt = optimize_route_2opt
         self.calculate_total_travel_time = calculate_total_travel_time
+        self.calculate_route_segments = calculate_route_segments
         self._minutes_to_time = _minutes_to_time
         self.load_edges_cache = load_edges_cache
         self.get_real_travel_time = get_real_travel_time
@@ -784,6 +793,44 @@ class TestRouteOptimization(unittest.TestCase):
         ]
         total = self.calculate_total_travel_time(stops)
         self.assertGreater(total, 0)
+
+    def test_calculate_route_segments_prefers_cached_edges(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "routequalitycity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([
+                    {
+                        "from": "a",
+                        "to": "b",
+                        "transit_minutes": 12,
+                        "distance_meters": 1600,
+                        "source": "amap",
+                        "provider": "amap",
+                    }
+                ], f)
+
+            stops = [
+                {"poi_id": "a", "poi_name": "A", "lat": 30.0, "lng": 120.0},
+                {"poi_id": "b", "poi_name": "B", "lat": 30.01, "lng": 120.01},
+                {"poi_id": "c", "poi_name": "C", "lat": 30.02, "lng": 120.02},
+            ]
+
+            segments = self.calculate_route_segments(
+                stops,
+                city="routequalitycity",
+                data_dir=tmpdir,
+            )
+
+        self.assertEqual(len(segments), 2)
+        self.assertEqual(segments[0]["travel_minutes"], 12)
+        self.assertEqual(segments[0]["route_source"], "amap_cached")
+        self.assertEqual(segments[0]["distance_meters"], 1600)
+        self.assertEqual(segments[1]["route_source"], "geo_estimated")
+        self.assertGreater(segments[1]["travel_minutes"], 0)
+        self.assertEqual(stops[1]["travel_minutes_from_previous"], 12)
+        self.assertEqual(stops[1]["route_source"], "amap_cached")
+        self.assertEqual(stops[2]["route_source"], "geo_estimated")
 
     def test_minutes_to_time(self):
         self.assertEqual(self._minutes_to_time(540), "09:00")
@@ -1037,6 +1084,68 @@ class TestIntentAgentRegex(unittest.TestCase):
         self.assertEqual(self.IntentAgent._extract_strategy("想体验当地文化"), "culture")
         self.assertEqual(self.IntentAgent._extract_strategy("主要想吃美食"), "culinary")
         self.assertEqual(self.IntentAgent._extract_strategy("普通旅行"), "balanced")
+
+
+class TestReviewerAgent(unittest.TestCase):
+    """Test deterministic itinerary quality checks."""
+
+    def test_hard_check_flags_low_quality_route_and_day_balance(self):
+        from agents.reviewer_agent import ReviewerAgent
+
+        reviewer = ReviewerAgent(MagicMock())
+        daily_plans = [
+            {
+                "day": 1,
+                "stops": [
+                    {
+                        "poi_name": "弱证据景点",
+                        "poi_type": "attraction",
+                        "poi_tier": "fallback_only",
+                        "area": "A",
+                        "lat": 30.0,
+                        "lng": 120.0,
+                    },
+                    {
+                        "poi_name": "远景点",
+                        "poi_type": "attraction",
+                        "poi_tier": "core_hotspot",
+                        "area": "B",
+                        "lat": 30.5,
+                        "lng": 120.5,
+                        "travel_minutes_from_previous": 70,
+                        "route_source": "geo_estimated",
+                    },
+                    {
+                        "poi_name": "餐厅",
+                        "poi_type": "restaurant",
+                        "area": "C",
+                        "lat": 30.6,
+                        "lng": 120.6,
+                    },
+                ],
+            },
+            {
+                "day": 2,
+                "stops": [
+                    {
+                        "poi_name": "午餐",
+                        "poi_type": "restaurant",
+                        "area": "A",
+                        "lat": 30.1,
+                        "lng": 120.1,
+                    },
+                ],
+            },
+        ]
+
+        issues = reviewer._hard_check(daily_plans, [], [])
+        issue_types = {issue["type"] for issue in issues}
+
+        self.assertIn("unsupported_poi", issue_types)
+        self.assertIn("area_scattered", issue_types)
+        self.assertIn("excessive_commute_estimated", issue_types)
+        self.assertIn("weak_last_day", issue_types)
+        self.assertIn("meal_attraction_imbalance", issue_types)
 
 
 # ══════════════════════════════════════════════════════════════════════════════

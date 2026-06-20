@@ -34,6 +34,19 @@ CACHE_TTL_SECONDS: int = int(os.environ.get("CACHE_TTL_SECONDS", "86400"))  # 24
 # ── Amap (supplementary data) ───────────────────────────────────────────────────
 AMAP_API_KEY: str = os.environ.get("AMAP_API_KEY", "")
 
+# ── QWeather (和风天气) ───────────────────────────────────────────────────────
+QWEATHER_KEY: str = (
+    os.environ.get("QWEATHER_KEY")
+    or os.environ.get("QWEATHER_API_KEY")
+    or os.environ.get("HEFENG_WEATHER_KEY")
+    or ""
+)
+QWEATHER_API_HOST: str = os.environ.get("QWEATHER_API_HOST", "devapi.qweather.com")
+QWEATHER_GEO_URL: str = f"https://{QWEATHER_API_HOST}/v2/city/lookup"
+QWEATHER_WEATHER_URL: str = f"https://{QWEATHER_API_HOST}/v7/weather/3d"
+QWEATHER_INDICES_URL: str = f"https://{QWEATHER_API_HOST}/v7/indices/3d"
+QWEATHER_WARNING_URL: str = f"https://{QWEATHER_API_HOST}/v7/warning/now"
+
 # ── Agent behaviour ─────────────────────────────────────────────────────────────
 MAX_LLM_CALLS_PER_REQUEST: int = int(os.environ.get("MAX_LLM_CALLS", "10"))
 LLM_TEMPERATURE: float = float(os.environ.get("LLM_TEMPERATURE", "0.3"))
