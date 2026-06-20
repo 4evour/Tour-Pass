@@ -5,6 +5,9 @@ const path = require("path");
 
 const ROOT = path.join(__dirname, "..", "web");
 const PORT = 19081;
+const CSP_HEADERS = {
+  "Content-Security-Policy": "script-src 'self'; style-src 'self' 'unsafe-inline'",
+};
 
 function existingChromiumExecutable() {
   const candidates = [
@@ -33,28 +36,46 @@ function startServer() {
   const server = http.createServer((req, res) => {
     const url = new URL(req.url, `http://127.0.0.1:${PORT}`);
     if (url.pathname === "/auth/me") {
-      res.writeHead(200, { "Content-Type": "application/json" });
+      res.writeHead(200, { "Content-Type": "application/json", ...CSP_HEADERS });
       res.end(JSON.stringify({ username: "test", role: "guest", query_remaining: 10 }));
       return;
     }
     if (url.pathname === "/health" || url.pathname === "/agent/health") {
-      res.writeHead(200, { "Content-Type": "application/json" });
+      res.writeHead(200, { "Content-Type": "application/json", ...CSP_HEADERS });
       res.end(JSON.stringify({ status: "ok" }));
       return;
     }
     if (url.pathname === "/cities") {
-      res.writeHead(200, { "Content-Type": "application/json" });
+      res.writeHead(200, { "Content-Type": "application/json", ...CSP_HEADERS });
       res.end(JSON.stringify({ default: "\u5E7F\u5DDE", cities: [{ name: "\u5E7F\u5DDE" }] }));
       return;
     }
     if (url.pathname === "/poi/search") {
-      res.writeHead(200, { "Content-Type": "application/json" });
+      res.writeHead(200, { "Content-Type": "application/json", ...CSP_HEADERS });
       res.end(JSON.stringify({ data: [] }));
       return;
     }
     if (url.pathname.startsWith("/city/")) {
-      res.writeHead(200, { "Content-Type": "application/json" });
+      res.writeHead(200, { "Content-Type": "application/json", ...CSP_HEADERS });
       res.end(JSON.stringify({ city: "\u5E7F\u5DDE", sections: {} }));
+      return;
+    }
+    if (url.pathname === "/agent/plan-structured") {
+      const itinerary = {
+        city: "\u5E7F\u5DDE",
+        days: [{
+          day: 1,
+          stops: [{
+            poi_name: "\u7ED3\u6784\u5316\u666F\u70B9",
+            poi_type: "attraction",
+            area: "\u6D4B\u8BD5\u533A",
+            start_time: "09:00",
+            end_time: "10:00",
+          }],
+        }],
+      };
+      res.writeHead(200, { "Content-Type": "text/event-stream", ...CSP_HEADERS });
+      res.end(`event: itinerary\ndata: ${JSON.stringify({ type: "itinerary", itinerary, session_id: "form-test" })}\n\nevent: done\ndata: {}\n\n`);
       return;
     }
 
@@ -71,7 +92,7 @@ function startServer() {
         res.end("Not found");
         return;
       }
-      res.writeHead(200, { "Content-Type": contentType(filePath) });
+      res.writeHead(200, { "Content-Type": contentType(filePath), ...CSP_HEADERS });
       res.end(data);
     });
   });
@@ -121,6 +142,20 @@ async function main() {
     if (agentButtonCount !== 1) {
       throw new Error(`Expected AI agent planner entry to remain available, got ${agentButtonCount}`);
     }
+
+    await page.click("#modeFormBtn");
+    const formVisible = await page.locator("#planModeForm").isVisible();
+    if (!formVisible) {
+      throw new Error("Expected structured form to become visible under CSP");
+    }
+    await page.selectOption("#formCity", "\u5E7F\u5DDE");
+    await page.click("#formSubmitBtn");
+    await page.waitForSelector(".agent-stop-name", { timeout: 10000 });
+    const structuredStopName = await page.locator(".agent-stop-name").first().textContent();
+    if (!structuredStopName || !structuredStopName.includes("\u7ED3\u6784\u5316\u666F\u70B9")) {
+      throw new Error(`Expected structured form submission to render an itinerary, got ${structuredStopName}`);
+    }
+    await page.click("#modeTextBtn");
 
     const first = svgDataUrl("#146b5d");
     const second = svgDataUrl("#c25b1e");
@@ -195,6 +230,80 @@ async function main() {
     const swipedNextSrc = await img.getAttribute("src");
     if (!swipedNextSrc.includes(encodeURIComponent("#2563eb"))) {
       throw new Error("Expected left swipe on the image to switch to the next image");
+    }
+
+    const brokenImage = "data:image/png;base64,AAAA";
+    const fallbackFirst = svgDataUrl("#0f766e");
+    const fallbackSecond = svgDataUrl("#b45309");
+    await page.evaluate(({ brokenImage, fallbackFirst, fallbackSecond }) => {
+      renderAgentResult({
+        city: "\u5E7F\u5DDE",
+        days: [{
+          day: 1,
+          stops: [{
+            poi_name: "\u9996\u56FE\u5931\u6548\u666F\u70B9",
+            poi_type: "attraction",
+            area: "\u6D4B\u8BD5\u533A",
+            start_time: "10:00",
+            end_time: "11:00",
+            image_url: brokenImage,
+            images: [
+              brokenImage,
+              fallbackFirst,
+              fallbackSecond,
+            ],
+          }],
+        }],
+      });
+    }, { brokenImage, fallbackFirst, fallbackSecond });
+
+    await page.waitForFunction((expected) => {
+      const img = document.querySelector(".agent-stop-img");
+      return img && img.getAttribute("src") && img.getAttribute("src").includes(expected);
+    }, encodeURIComponent("#0f766e"), { timeout: 10000 });
+    const fallbackPlaceholderCount = await page.locator(".agent-stop-noimg").count();
+    if (fallbackPlaceholderCount !== 0) {
+      throw new Error("Expected broken first carousel image to fall back without showing a placeholder");
+    }
+    await page.locator(".agent-stop-carousel-btn.next").click();
+    const fallbackNextSrc = await page.locator(".agent-stop-img").first().getAttribute("src");
+    if (!fallbackNextSrc.includes(encodeURIComponent("#b45309"))) {
+      throw new Error("Expected next button to continue from the fallback image");
+    }
+
+    await page.evaluate(({ first, second }) => {
+      renderAgentResult({
+        city: "\u5E7F\u5DDE",
+        days: [{
+          day: 1,
+          stops: [
+            {
+              poi_name: "\u666F\u70B9 A",
+              poi_type: "attraction",
+              area: "\u6D4B\u8BD5\u533A",
+              start_time: "09:00",
+              end_time: "10:00",
+              image_url: first,
+            },
+            {
+              poi_name: "\u666F\u70B9 B",
+              poi_type: "attraction",
+              area: "\u6D4B\u8BD5\u533A",
+              start_time: "10:30",
+              end_time: "11:30",
+              image_url: second,
+              travel_minutes_from_previous: 18,
+              distance_meters_from_previous: 2400,
+              route_source: "amap_cached",
+            },
+          ],
+        }],
+      });
+    }, { first, second });
+
+    const transportText = await page.locator(".agent-stop-transport").first().textContent();
+    if (!transportText || !transportText.includes("18 \u5206\u949F") || !transportText.includes("2.4 km") || !transportText.includes("\u9AD8\u5FB7")) {
+      throw new Error(`Expected agent stop transport text with time, distance, and source; got ${transportText}`);
     }
 
     const imagesOnlyFirst = svgDataUrl("#9333ea");

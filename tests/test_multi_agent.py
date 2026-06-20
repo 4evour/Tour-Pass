@@ -1513,6 +1513,63 @@ class TestAPIModule(unittest.TestCase):
         self.assertIn("variant_name", result)
         self.assertIn("must_visit_coverage", result)
 
+    def test_convert_to_frontend_format_preserves_route_metrics(self):
+        from api_multi_agent import convert_to_frontend_format
+        state = {
+            "trip_intent": {"city": "测试城", "days": 1, "must_visit": [], "strategy": "balanced"},
+            "daily_plans": [{
+                "day": 1,
+                "stops": [
+                    {
+                        "poi_id": "poi_a",
+                        "poi_name": "景点A",
+                        "poi_type": "attraction",
+                        "start_minutes": 540,
+                        "end_minutes": 600,
+                        "travel_minutes_from_previous": 0,
+                        "distance_meters_from_previous": 0,
+                        "route_source": "",
+                    },
+                    {
+                        "poi_id": "poi_b",
+                        "poi_name": "景点B",
+                        "poi_type": "attraction",
+                        "start_minutes": 630,
+                        "end_minutes": 690,
+                        "travel_minutes_from_previous": 18,
+                        "distance_meters_from_previous": 2400,
+                        "route_source": "amap_cached",
+                        "transport_hint": "transit",
+                    },
+                ],
+                "summary": "测试路线",
+                "route_segments": [{
+                    "from_poi_id": "poi_a",
+                    "to_poi_id": "poi_b",
+                    "travel_minutes": 18,
+                    "distance_meters": 2400,
+                    "route_source": "amap_cached",
+                }],
+                "total_travel_minutes": 18,
+                "route_quality": {"amap_segments": 1, "estimated_segments": 0},
+            }],
+            "selected_hotel": None,
+            "summary": "测试总结",
+            "city_guides": [],
+            "must_visit_coverage": [],
+        }
+
+        result = convert_to_frontend_format(state)
+        day = result["days"][0]
+        second_stop = day["stops"][1]
+
+        self.assertEqual(day["total_travel_minutes"], 18)
+        self.assertEqual(day["route_segments"][0]["distance_meters"], 2400)
+        self.assertEqual(day["route_quality"]["amap_segments"], 1)
+        self.assertEqual(second_stop["travel_minutes_from_previous"], 18)
+        self.assertEqual(second_stop["distance_meters_from_previous"], 2400)
+        self.assertEqual(second_stop["route_source"], "amap_cached")
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 11. Config Module Tests

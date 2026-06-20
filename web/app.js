@@ -814,6 +814,13 @@ function routeSourceClass(source) {
   return source === "amap_cached" ? "route-real" : "route-estimated";
 }
 
+function formatDistanceMeters(meters) {
+  var value = Number(meters || 0);
+  if (!Number.isFinite(value) || value <= 0) return "";
+  if (value < 1000) return Math.round(value) + " m";
+  return (value / 1000).toFixed(value < 10000 ? 1 : 0) + " km";
+}
+
 function stopAddressText(stop) {
   return stop.address || stop.addr || stop.district || stop.area || "";
 }
@@ -1910,16 +1917,32 @@ $("explainButton").addEventListener("click", explainPlan);
 $("explainToolButton").addEventListener("click", explainPlan);
 
 function showLoading() {
-  $("loadingOverlay").hidden = false;
-  $("chatOutput").hidden = true;
+  var loadingOverlay = $("loadingOverlay");
+  var chatOutput = $("chatOutput");
+  if (loadingOverlay) loadingOverlay.hidden = false;
+  if (chatOutput) chatOutput.hidden = true;
   const steps = ["loadStep1", "loadStep2", "loadStep3"];
-  steps.forEach(id => { $(id).className = "loading-step"; });
+  steps.forEach(id => {
+    var step = $(id);
+    if (step) step.className = "loading-step";
+  });
   // Progress through steps
-  setTimeout(() => { $(steps[0]).className = "loading-step done"; $(steps[1]).className = "loading-step active"; }, 2000);
-  setTimeout(() => { $(steps[1]).className = "loading-step done"; $(steps[2]).className = "loading-step active"; }, 5000);
+  setTimeout(() => {
+    var first = $(steps[0]);
+    var second = $(steps[1]);
+    if (first) first.className = "loading-step done";
+    if (second) second.className = "loading-step active";
+  }, 2000);
+  setTimeout(() => {
+    var second = $(steps[1]);
+    var third = $(steps[2]);
+    if (second) second.className = "loading-step done";
+    if (third) third.className = "loading-step active";
+  }, 5000);
 }
 function hideLoading() {
-  $("loadingOverlay").hidden = true;
+  var loadingOverlay = $("loadingOverlay");
+  if (loadingOverlay) loadingOverlay.hidden = true;
 }
 
 async function chatPlan() {
@@ -2112,33 +2135,67 @@ function renderStopCard(stop) {
   var imageUrls = getStopImageUrls(stop);
   var hasImg = imageUrls.length > 0;
   var timeStr = (stop.start_time || "") + (stop.end_time ? " - " + stop.end_time : "");
+  var travelMinutes = Number(stop.travel_minutes_from_previous || 0);
+  var travelDistance = formatDistanceMeters(stop.distance_meters_from_previous);
 
   if (hasImg) {
     var imgWrap = document.createElement("div");
     imgWrap.className = "agent-stop-img-wrap";
     var img = document.createElement("img");
     img.className = "agent-stop-img";
-    img.src = imageUrls[0];
     img.alt = stop.poi_name || "";
     img.loading = "lazy";
-    img.onerror = function() {
-      this.classList.add("error");
-      if (this.parentNode.querySelector(".agent-stop-noimg")) return;
+    var currentImageIndex = 0;
+    var failedImageIndexes = {};
+    var lastImageDirection = 1;
+    var removeImagePlaceholder = function() {
+      var ph = imgWrap.querySelector(".agent-stop-noimg");
+      if (ph) ph.remove();
+    };
+    var showImagePlaceholder = function() {
+      if (imgWrap.querySelector(".agent-stop-noimg")) return;
       var ph = document.createElement("div");
       ph.className = "agent-stop-noimg";
       ph.textContent = poiType === "restaurant" ? "\u{1F35C}" : "\u{1F3DB}\uFE0F";
-      this.parentNode.appendChild(ph);
+      imgWrap.appendChild(ph);
+    };
+    var showImage = function(nextIndex, direction) {
+      var step = direction || 1;
+      var nextValidIndex = -1;
+      for (var attempt = 0; attempt < imageUrls.length; attempt++) {
+        var candidateIndex = (nextIndex + attempt * step + imageUrls.length) % imageUrls.length;
+        if (!failedImageIndexes[candidateIndex]) {
+          nextValidIndex = candidateIndex;
+          break;
+        }
+      }
+      if (nextValidIndex === -1) {
+        img.classList.add("error");
+        showImagePlaceholder();
+        return;
+      }
+      currentImageIndex = nextValidIndex;
+      lastImageDirection = step;
+      img.classList.remove("error");
+      removeImagePlaceholder();
+      img.src = imageUrls[currentImageIndex];
+    };
+    img.onload = function() {
+      this.classList.remove("error");
+      removeImagePlaceholder();
+    };
+    img.onerror = function() {
+      failedImageIndexes[currentImageIndex] = true;
+      if (imageUrls.length > 1 && Object.keys(failedImageIndexes).length < imageUrls.length) {
+        showImage(currentImageIndex + lastImageDirection, lastImageDirection);
+        return;
+      }
+      this.classList.add("error");
+      showImagePlaceholder();
     };
     imgWrap.appendChild(img);
+    showImage(0, 1);
     if (imageUrls.length > 1) {
-      var currentImageIndex = 0;
-      var showImage = function(nextIndex) {
-        currentImageIndex = (nextIndex + imageUrls.length) % imageUrls.length;
-        img.classList.remove("error");
-        var ph = imgWrap.querySelector(".agent-stop-noimg");
-        if (ph) ph.remove();
-        img.src = imageUrls[currentImageIndex];
-      };
       var swipeState = { active: false, startX: 0, startY: 0, pointerId: null };
       imgWrap.addEventListener("pointerdown", function(e) {
         if (e.target.closest(".agent-stop-carousel-btn")) return;
@@ -2152,7 +2209,7 @@ function renderStopCard(stop) {
         var dy = e.clientY - swipeState.startY;
         var threshold = Math.min(80, Math.max(45, imgWrap.clientWidth * 0.18));
         if (Math.abs(dx) >= threshold && Math.abs(dx) > Math.abs(dy) * 1.4) {
-          showImage(currentImageIndex + (dx < 0 ? 1 : -1));
+          showImage(currentImageIndex + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
         }
         imgWrap.classList.remove("is-swiping");
         if (imgWrap.releasePointerCapture) imgWrap.releasePointerCapture(e.pointerId);
@@ -2174,7 +2231,7 @@ function renderStopCard(stop) {
         btn.addEventListener("click", function(e) {
           e.preventDefault();
           e.stopPropagation();
-          showImage(currentImageIndex + direction);
+          showImage(currentImageIndex + direction, direction);
         });
         imgWrap.appendChild(btn);
       };
@@ -2196,6 +2253,12 @@ function renderStopCard(stop) {
 
   var body = document.createElement("div");
   body.className = "agent-stop-body";
+  if (travelMinutes > 0) {
+    var transportEl = document.createElement("div");
+    transportEl.className = "agent-stop-transport " + routeSourceClass(stop.route_source);
+    transportEl.textContent = transportIcon(travelMinutes) + " 从上一站通勤 " + travelMinutes + " 分钟" + (travelDistance ? " · " + travelDistance : "") + " · " + routeSourceLabel(stop.route_source);
+    body.appendChild(transportEl);
+  }
   var nameEl = document.createElement("h4");
   nameEl.className = "agent-stop-name";
   nameEl.textContent = (hasImg ? "" : typeLabel + " ") + (stop.poi_name || "");
@@ -2300,6 +2363,12 @@ function submitStructuredPlan() {
   var btn = $("formSubmitBtn");
   btn.disabled = true;
   btn.querySelector("span").textContent = "⏳ 规划中...";
+  var chatOutput = $("chatOutput");
+  if (chatOutput) chatOutput.hidden = true;
+  var agentRes = $("agentResult");
+  if (agentRes) { agentRes.hidden = true; agentRes.innerHTML = ""; }
+  var planOut = $("planOutput");
+  if (planOut) { planOut.hidden = true; }
   showLoading();
 
   fetch("/agent/plan-structured", {
@@ -2350,6 +2419,14 @@ function submitStructuredPlan() {
     toast("生成失败: " + err.message, "error");
   });
 }
+
+$("modeTextBtn")?.addEventListener("click", function() {
+  switchPlanMode("text");
+});
+$("modeFormBtn")?.addEventListener("click", function() {
+  switchPlanMode("form");
+});
+$("formSubmitBtn")?.addEventListener("click", submitStructuredPlan);
 
 // ---- Multi-turn chat panel ----
 function showMultiTurnPanel() {

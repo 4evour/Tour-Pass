@@ -284,12 +284,17 @@ def convert_to_frontend_format(state: dict) -> dict:
             slot = stop.get("slot", "")
             enriched = _enrich_stop({
                 "slot": slot_map.get(slot, slot),
+                "poi_id": stop.get("poi_id", ""),
                 "poi_name": stop.get("poi_name", ""),
                 "poi_type": stop.get("poi_type", "attraction"),
                 "area": stop.get("area", ""),
                 "start_minutes": stop.get("start_minutes", 0),
                 "end_minutes": stop.get("end_minutes", 0),
                 "reason": stop.get("reason", ""),
+                "travel_minutes_from_previous": stop.get("travel_minutes_from_previous", 0),
+                "distance_meters_from_previous": stop.get("distance_meters_from_previous", 0),
+                "route_source": stop.get("route_source", ""),
+                "transport_hint": stop.get("transport_hint", ""),
             }, city_pois)
             stops.append(enriched)
 
@@ -316,6 +321,9 @@ def convert_to_frontend_format(state: dict) -> dict:
             "day": day.get("day", 0),
             "stops": stops,
             "summary": day.get("summary", ""),
+            "route_segments": day.get("route_segments", []),
+            "total_travel_minutes": day.get("total_travel_minutes", 0),
+            "route_quality": day.get("route_quality", {}),
             "is_rainy": day.get("is_rainy", False),
             "weather_severity": day.get("weather_severity", "good"),
             "weather": day_weather,

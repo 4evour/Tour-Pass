@@ -11,6 +11,52 @@
 > 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
 > 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
+## 2026-06-20 14:08 - 修复结构化表单点击被 CSP 拦截
+
+### 变更内容 — 改了什么文件，具体改了什么
+- web/index.html — 移除结构化表单切换按钮和提交按钮上的 inline `onclick`。
+- web/app.js — 使用 `addEventListener` 绑定自然语言/结构化表单切换和结构化提交按钮；提交前清理旧结果并显示规划状态；加载遮罩和旧结果节点缺失时跳过对应 DOM 操作，避免提交被空节点异常中断。
+- scripts/verify_agent_image_carousel.js — 本地验证服务增加与线上一致的 `script-src 'self'` CSP，并加入结构化表单切换、提交和结果渲染断言。
+- CHANGELOG.md — 记录本次结构化表单修复。
+
+### 原因 — 为什么要改
+- 线上 CSP 禁止 inline event handler，浏览器拦截 `onclick="switchPlanMode('form')"` ，导致点击“结构化表单”没有反应。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响首页 AI 规划入口的自然语言/结构化表单切换与结构化表单提交。
+- 不改变 Agent 规划接口、表单字段、排程逻辑和自然语言规划按钮。
+
+## 2026-06-20 14:00 - 显示 Agent 站点间通勤时间和距离
+
+### 变更内容 — 改了什么文件，具体改了什么
+- api_multi_agent.py — `convert_to_frontend_format` 保留每个站点的 `travel_minutes_from_previous`、`distance_meters_from_previous`、`route_source`、`transport_hint`，并保留每日 `route_segments`、`total_travel_minutes`、`route_quality`。
+- web/app.js — Agent 行程卡片从第二站开始显示“从上一站通勤 X 分钟 · Y km · 数据来源”。
+- web/styles.css — 增加 Agent 通勤信息条样式，复用真实路线/估算路线配色。
+- scripts/verify_agent_image_carousel.js — 增加 Agent 卡片通勤时间、距离和来源的浏览器渲染断言。
+- tests/test_multi_agent.py — 增加转换层保留通勤字段的回归测试。
+- CHANGELOG.md — 记录本次通勤信息显示修复。
+
+### 原因 — 为什么要改
+- Scheduler 已计算站点间通勤数据，但转换给前端时丢掉了相关字段；Agent 结果页也没有渲染通勤条，导致两个景点之间的通勤时间和距离不可见。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响多 Agent 结果页的站点卡片和 itinerary JSON 字段。
+- 不改变路线计算、排程算法、POI 数据和普通规划卡片逻辑。
+
+## 2026-06-20 13:54 - 修复 Agent 景点图片轮播失败图兜底
+
+### 变更内容 — 改了什么文件，具体改了什么
+- web/app.js — Agent 行程卡片图片轮播记录加载失败的图片索引；当前图片加载失败时自动尝试下一张可用图片，全部失败时才显示占位图。
+- scripts/verify_agent_image_carousel.js — 增加首图 404 时自动切到下一张可用图、继续点击下一张仍能切换的回归验证。
+- CHANGELOG.md — 记录本次轮播修复。
+
+### 原因 — 为什么要改
+- 线上景点图片区域可能遇到某张图片加载失败，旧逻辑只显示占位图，不会自动跳过坏图；用户点击左右按钮时如果切到的图片同样不可用，视觉上像轮播无法切换。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响多 Agent 结果页的景点/餐厅图片轮播展示。
+- 不改变 Agent 行程生成、图片数据结构、POI 数据和普通规划卡片。
+
 ## 2026-06-20 13:30 - 修复天气 key alias CI 失败
 
 ### 变更内容 — 改了什么文件，具体改了什么

@@ -2964,6 +2964,29 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .agent-stop-body {
   padding: 12px 14px;
 }
+.agent-stop-transport {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 0 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--muted);
+  background: var(--soft);
+}
+.agent-stop-transport.route-real {
+  color: #0f766e;
+  border-color: #99f6e4;
+  background: #f0fdfa;
+}
+.agent-stop-transport.route-estimated {
+  color: #7c2d12;
+  border-color: #fed7aa;
+  background: #fff7ed;
+}
 .agent-stop-name {
   font-size: 16px;
   font-weight: 600;
