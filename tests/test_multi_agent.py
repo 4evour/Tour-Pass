@@ -1484,6 +1484,42 @@ class TestPoiAgent(unittest.TestCase):
 
         self.assertFalse(PoiAgent(data_dir="data")._is_low_value_poi(poi, intent))
 
+    def test_generic_trip_filters_misclassified_gift_shops(self):
+        from agents.poi_agent import PoiAgent
+
+        intent = {
+            "city": "重庆", "days": 3, "pace": "balanced",
+            "must_visit": [], "interests": [],
+            "avoid": [], "strategy": "balanced",
+        }
+        poi = {
+            "id": "amap_a60245d4",
+            "name": "哈哈Home(重庆解放碑步行街洪崖洞店)",
+            "type": "attraction",
+            "tags": ["城市游览", "街区", "购物", "城市漫步", "购物服务", "购物相关场所"],
+            "description": "店里摆满重庆特色文创和趣味伴手礼，能淘到冰箱贴、方言T恤和辣味零食。",
+        }
+
+        self.assertTrue(PoiAgent(data_dir="data")._is_low_value_poi(poi, intent))
+
+    def test_shopping_interest_still_filters_individual_gift_shops(self):
+        from agents.poi_agent import PoiAgent
+
+        intent = {
+            "city": "重庆", "days": 3, "pace": "balanced",
+            "must_visit": [], "interests": ["shopping"],
+            "avoid": [], "strategy": "balanced",
+        }
+        poi = {
+            "id": "amap_a60245d4",
+            "name": "哈哈Home(重庆解放碑步行街洪崖洞店)",
+            "type": "attraction",
+            "tags": ["城市游览", "街区", "购物", "城市漫步", "购物服务", "购物相关场所"],
+            "description": "店里摆满重庆特色文创和趣味伴手礼，能淘到冰箱贴、方言T恤和辣味零食。",
+        }
+
+        self.assertTrue(PoiAgent(data_dir="data")._is_low_value_poi(poi, intent))
+
     def test_must_visit_keeps_explicit_low_value_name(self):
         from agents.poi_agent import PoiAgent
 

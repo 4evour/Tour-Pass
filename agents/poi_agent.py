@@ -46,6 +46,13 @@ class PoiAgent(BaseAgent):
         interests = set(intent.get("interests", []))
         shopping_requested = bool(interests & {"shopping", "购物"})
 
+        retail_shop_terms = (
+            "伴手礼", "纪念品", "文创", "冰箱贴", "礼品", "小店",
+            "专卖店", "专营店", "土特产", "礼品饰品店",
+        )
+        if any(term in text for term in retail_shop_terms):
+            return True
+
         shopping_tags = {"购物", "商圈", "商场", "购物中心", "免税品店"}
         if not shopping_requested and tags & shopping_tags:
             return True
