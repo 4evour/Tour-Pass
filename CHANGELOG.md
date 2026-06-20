@@ -11,6 +11,19 @@
 > 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
 > 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
+## 2026-06-20 13:30 - 修复天气 key alias CI 失败
+
+### 变更内容 — 改了什么文件，具体改了什么
+- tools/weather_api.py — 和风天气 key 与 API host 改为运行时读取当前环境变量，再回退到 `agents.config` 默认值；天气、生活指数和预警请求改为通过当前 host 动态生成 URL。
+- CHANGELOG.md — 记录本次 CI 修复。
+
+### 原因 — 为什么要改
+- 最新 GitHub Actions 在 `test_weather_key_accepts_hefeng_aliases` 失败。根因是 CI 先导入 `api_multi_agent` 并缓存 `agents.config.QWEATHER_KEY`，后续测试只 reload `tools.weather_api` 时无法读到新设置的 `HEFENG_WEATHER_KEY`。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 修复测试环境和运行时动态配置天气 key/host 的一致性。
+- 不改变 API 响应结构，不新增依赖。
+
 ## 2026-06-20 13:22 - 增加结构化规划和多轮行程会话
 
 ### 变更内容 — 改了什么文件，具体改了什么

@@ -5,19 +5,16 @@ Provides three data-fetching functions:
 - fetch_weather_indices: travel/UV/clothing/sports/cold-risk indices
 - fetch_weather_warnings: active severe weather alerts
 
-All configuration is imported from agents.config for consistency.
+Configuration defaults come from agents.config, but key/host values are
+resolved at call time so tests and reloads can update environment aliases.
 """
 import logging
+import os
 from typing import Optional
 
 import httpx
 
-from agents.config import (
-    QWEATHER_KEY,
-    QWEATHER_WEATHER_URL,
-    QWEATHER_INDICES_URL,
-    QWEATHER_WARNING_URL,
-)
+from agents import config as agent_config
 
 logger = logging.getLogger(__name__)
 
@@ -59,7 +56,7 @@ _INDICES_TYPE_MAP = {
 
 def is_available() -> bool:
     """Check if weather API is configured."""
-    return bool(QWEATHER_KEY)
+    return bool(_qweather_key())
 
 
 def get_config_status() -> dict:
@@ -67,13 +64,37 @@ def get_config_status() -> dict:
     return {
         "provider": "qweather",
         "available": is_available(),
-        "key_configured": bool(QWEATHER_KEY),
+        "key_configured": bool(_qweather_key()),
     }
 
 
 def _get_location_id(city: str) -> Optional[str]:
     """Get QWeather location ID for a city."""
     return _CITY_LOCATION_MAP.get(city)
+
+
+def _qweather_key() -> str:
+    """Resolve QWeather key from current env, then config defaults."""
+    return (
+        os.environ.get("QWEATHER_KEY")
+        or os.environ.get("QWEATHER_API_KEY")
+        or os.environ.get("HEFENG_WEATHER_KEY")
+        or getattr(agent_config, "QWEATHER_KEY", "")
+        or ""
+    )
+
+
+def _qweather_host() -> str:
+    """Resolve QWeather API host from current env, then config defaults."""
+    return (
+        os.environ.get("QWEATHER_API_HOST")
+        or getattr(agent_config, "QWEATHER_API_HOST", "")
+        or "devapi.qweather.com"
+    )
+
+
+def _qweather_url(path: str) -> str:
+    return f"https://{_qweather_host()}{path}"
 
 
 def _safe_int(value, default: int = 0) -> int:
@@ -109,6 +130,7 @@ async def fetch_weather(city: str, days: int = 3) -> list[dict]:
         logger.info("QWeather API key not configured, skipping real weather")
         return []
 
+    api_key = _qweather_key()
     location_id = _get_location_id(city)
     if not location_id:
         logger.warning("No QWeather location ID for city: %s", city)
@@ -117,8 +139,8 @@ async def fetch_weather(city: str, days: int = 3) -> list[dict]:
     try:
         async with httpx.AsyncClient(timeout=10) as client:
             resp = await client.get(
-                QWEATHER_WEATHER_URL,
-                params={"location": location_id, "key": QWEATHER_KEY},
+                _qweather_url("/v7/weather/3d"),
+                params={"location": location_id, "key": api_key},
             )
             data = resp.json()
 
@@ -178,6 +200,7 @@ async def fetch_weather_indices(city: str, days: int = 3) -> dict[str, dict[str,
     if not is_available():
         return {}
 
+    api_key = _qweather_key()
     location_id = _get_location_id(city)
     if not location_id:
         return {}
@@ -186,10 +209,10 @@ async def fetch_weather_indices(city: str, days: int = 3) -> dict[str, dict[str,
         days_param = "3d" if days >= 3 else "1d"
         async with httpx.AsyncClient(timeout=10) as client:
             resp = await client.get(
-                QWEATHER_INDICES_URL.replace("/3d", f"/{days_param}"),
+                _qweather_url(f"/v7/indices/{days_param}"),
                 params={
                     "location": location_id,
-                    "key": QWEATHER_KEY,
+                    "key": api_key,
                     "type": _TRAVEL_INDICES_TYPES,
                 },
             )
@@ -239,6 +262,7 @@ async def fetch_weather_warnings(city: str) -> list[dict]:
     if not is_available():
         return []
 
+    api_key = _qweather_key()
     location_id = _get_location_id(city)
     if not location_id:
         return []
@@ -246,8 +270,8 @@ async def fetch_weather_warnings(city: str) -> list[dict]:
     try:
         async with httpx.AsyncClient(timeout=10) as client:
             resp = await client.get(
-                QWEATHER_WARNING_URL,
-                params={"location": location_id, "key": QWEATHER_KEY},
+                _qweather_url("/v7/warning/now"),
+                params={"location": location_id, "key": api_key},
             )
             data = resp.json()
 
