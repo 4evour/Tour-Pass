@@ -42,6 +42,9 @@ MEAL_WINDOWS = {
     "dinner": {"start": 1020, "end": 1140, "default_start": 1080, "duration": 75},
 }
 
+EVENING_POI_KEYWORDS = ("夜市", "夜景", "夜游", "夜生活", "酒吧")
+EVENING_POI_START = 1080
+
 # Indoor tags for weather-aware scheduling
 INDOOR_TAGS = {
     "博物馆", "室内", "展览", "美术馆", "科技馆", "水族馆",
@@ -290,6 +293,51 @@ class SchedulerAgent(BaseAgent):
         return current_time
 
     @staticmethod
+    def _is_evening_poi(poi: dict) -> bool:
+        if poi.get("type") == "nightlife":
+            return True
+        text = " ".join([
+            str(poi.get("name", "")),
+            " ".join(str(tag) for tag in poi.get("tags", [])),
+            str(poi.get("description", "")),
+            str(poi.get("recommendation", "")),
+        ])
+        return any(keyword in text for keyword in EVENING_POI_KEYWORDS)
+
+    @staticmethod
+    def _preferred_evening_start(poi: dict) -> int:
+        duration = poi.get("visit_duration_minutes", 60) or 60
+        open_t = poi.get("open_minutes", 0) or SchedulerAgent._parse_time_to_minutes(
+            poi.get("open_time", "")
+        )
+        close_t = poi.get("close_minutes", 0) or SchedulerAgent._parse_time_to_minutes(
+            poi.get("close_time", "")
+        )
+        if close_t and open_t and close_t <= open_t:
+            close_t += 1440
+
+        start = max(EVENING_POI_START, open_t or 0)
+        if close_t and close_t < start + duration and close_t >= 1020:
+            start = max(open_t or 0, close_t - duration)
+        return start
+
+    @staticmethod
+    def _preferred_start_for_poi(poi: dict, preferred_start: int) -> int:
+        if SchedulerAgent._is_evening_poi(poi):
+            return max(preferred_start, SchedulerAgent._preferred_evening_start(poi))
+        return preferred_start
+
+    @staticmethod
+    def _attractions_for_schedule(attractions: list[dict], max_stops: int) -> list[dict]:
+        if max_stops <= 0:
+            return []
+        evening = [a for a in attractions if SchedulerAgent._is_evening_poi(a)]
+        daytime = [a for a in attractions if not SchedulerAgent._is_evening_poi(a)]
+        if evening and daytime:
+            return daytime[:max_stops - 1] + evening[:1]
+        return attractions[:max_stops]
+
+    @staticmethod
     def _slot_for_time(start_minutes: int) -> str:
         if start_minutes < 660:
             return "morning"
@@ -422,14 +470,18 @@ class SchedulerAgent(BaseAgent):
             aid = attr.get("id", "")
             if aid not in missing_ids:
                 continue
-            slot = "上午" if not any(s.get("slot") == "上午" for s in stops) else "下午"
+            if SchedulerAgent._is_evening_poi(attr):
+                slot = "晚上"
+                start_minutes = SchedulerAgent._preferred_evening_start(attr)
+            else:
+                slot = "上午" if not any(s.get("slot") == "上午" for s in stops) else "下午"
+                start_minutes = 540 if slot == "上午" else 840
             injected = {
                 "slot": slot,
                 "poi_id": aid,
                 "poi_name": attr.get("name", ""),
-                "start_minutes": 540 if slot == "上午" else 840,
-                "end_minutes": (540 if slot == "上午" else 840)
-                + attr.get("visit_duration_minutes", 60),
+                "start_minutes": start_minutes,
+                "end_minutes": start_minutes + attr.get("visit_duration_minutes", 60),
                 "visit_duration_minutes": attr.get("visit_duration_minutes", 60),
                 "reason": f"用户必去: {attr.get('name', '')}",
                 "poi_type": attr.get("type", "attraction"),
@@ -728,17 +780,21 @@ class SchedulerAgent(BaseAgent):
             meal_types = self._meal_types_for_pace(pace, intent)
 
             # Schedule attractions
-            for attr_idx, attr in enumerate(cluster.attractions[:max_stops]):
+            for attr_idx, attr in enumerate(self._attractions_for_schedule(cluster.attractions, max_stops)):
                 if current_time >= end_of_day:
                     break
+                is_evening_poi = self._is_evening_poi(attr)
                 preferred_start = self._anchored_start_for_pace(pace, attr_idx, current_time)
-                preferred_start = self._avoid_reserved_meals(
-                    preferred_start,
-                    attr.get("visit_duration_minutes", 60),
-                    meal_types,
-                )
+                if not is_evening_poi:
+                    preferred_start = self._avoid_reserved_meals(
+                        preferred_start,
+                        attr.get("visit_duration_minutes", 60),
+                        meal_types,
+                    )
+                preferred_start = self._preferred_start_for_poi(attr, preferred_start)
                 adj_start, adj_dur = self._check_opening_time(attr, preferred_start)
-                adj_start = self._avoid_reserved_meals(adj_start, adj_dur, meal_types)
+                if not is_evening_poi:
+                    adj_start = self._avoid_reserved_meals(adj_start, adj_dur, meal_types)
                 if adj_start >= end_of_day:
                     continue
 
@@ -878,14 +934,18 @@ class SchedulerAgent(BaseAgent):
 
                     # Inject into lightest day
                     lightest = min(daily_plans, key=lambda d: len(d.get("stops", [])))
-                    slot = "下午" if len(lightest.get("stops", [])) >= 3 else "上午"
+                    if self._is_evening_poi(target):
+                        slot = "晚上"
+                        start_minutes = self._preferred_evening_start(target)
+                    else:
+                        slot = "下午" if len(lightest.get("stops", [])) >= 3 else "上午"
+                        start_minutes = 840 if slot == "下午" else 540
                     injected_stop = {
                         "slot": slot,
                         "poi_id": target.get("id", ""),
                         "poi_name": target.get("name", ""),
-                        "start_minutes": 840 if slot == "下午" else 540,
-                        "end_minutes": (840 if slot == "下午" else 540)
-                        + target.get("visit_duration_minutes", 60),
+                        "start_minutes": start_minutes,
+                        "end_minutes": start_minutes + target.get("visit_duration_minutes", 60),
                         "visit_duration_minutes": target.get("visit_duration_minutes", 60),
                         "reason": f"用户必去（全局补救）: {target.get('name', '')}",
                         "poi_type": target.get("type", "attraction"),

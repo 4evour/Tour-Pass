@@ -645,6 +645,133 @@ class TestSchedulerAgent(unittest.TestCase):
         )
         self.assertIn("route_source", stops[1])
 
+    def test_evening_named_attraction_starts_in_evening(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        night_market = {
+            "id": "hongyadong_night_market",
+            "name": "洪崖洞夜市街区",
+            "type": "attraction",
+            "lat": 29.562,
+            "lng": 106.579,
+            "area": "渝中区",
+            "tags": ["城市游览", "街区", "购物"],
+            "open_minutes": 630,
+            "close_minutes": 1230,
+            "visit_duration_minutes": 90,
+        }
+        state = {
+            "city": "重庆",
+            "days": 1,
+            "pois": [night_market],
+            "restaurants": [],
+            "hotels": [],
+            "weather": [],
+            "city_guides": [],
+            "trip_intent": {
+                "city": "重庆", "days": 1, "pace": "balanced",
+                "must_visit": [], "interests": [], "strategy": "balanced",
+            },
+            "available_pois": [night_market],
+            "review_feedback": None,
+        }
+
+        result = self._run_async(SchedulerAgent().execute(state))
+        stop = result["daily_plans"][0]["stops"][0]
+
+        self.assertEqual(stop["poi_name"], "洪崖洞夜市街区")
+        self.assertGreaterEqual(stop["start_minutes"], 1080)
+        self.assertEqual(stop["slot"], "evening")
+
+    def test_must_visit_injection_keeps_evening_poi_at_night(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        night_market = {
+            "id": "hongyadong_night_market",
+            "name": "洪崖洞夜市街区",
+            "type": "attraction",
+            "lat": 29.562,
+            "lng": 106.579,
+            "area": "渝中区",
+            "tags": ["城市游览", "街区", "购物"],
+            "open_minutes": 630,
+            "close_minutes": 1230,
+            "visit_duration_minutes": 90,
+        }
+
+        stops = SchedulerAgent._inject_missing_must_visit(
+            stops=[],
+            must_visit_ids={"hongyadong_night_market"},
+            cluster_attractions=[night_market],
+        )
+
+        self.assertEqual(stops[0]["poi_name"], "洪崖洞夜市街区")
+        self.assertGreaterEqual(stops[0]["start_minutes"], 1080)
+        self.assertEqual(stops[0]["slot"], "晚上")
+
+    def test_evening_attraction_does_not_drop_daytime_attractions(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        attractions = [
+            {
+                "id": "night_market",
+                "name": "洪崖洞夜市街区",
+                "type": "attraction",
+                "lat": 29.562,
+                "lng": 106.579,
+                "area": "渝中区",
+                "tags": ["夜市", "街区"],
+                "open_minutes": 630,
+                "close_minutes": 1230,
+                "visit_duration_minutes": 60,
+            },
+            {
+                "id": "day_a",
+                "name": "白天景点A",
+                "type": "attraction",
+                "lat": 29.563,
+                "lng": 106.580,
+                "area": "渝中区",
+                "tags": ["文化"],
+                "visit_duration_minutes": 60,
+            },
+            {
+                "id": "day_b",
+                "name": "白天景点B",
+                "type": "attraction",
+                "lat": 29.564,
+                "lng": 106.581,
+                "area": "渝中区",
+                "tags": ["城市游览"],
+                "visit_duration_minutes": 60,
+            },
+        ]
+        state = {
+            "city": "重庆",
+            "days": 1,
+            "pois": attractions,
+            "restaurants": [],
+            "hotels": [],
+            "weather": [],
+            "city_guides": [],
+            "trip_intent": {
+                "city": "重庆", "days": 1, "pace": "balanced",
+                "must_visit": [], "interests": [], "strategy": "balanced",
+            },
+            "available_pois": attractions,
+            "review_feedback": None,
+        }
+
+        result = self._run_async(SchedulerAgent().execute(state))
+        attraction_names = [
+            s["poi_name"] for s in result["daily_plans"][0]["stops"]
+            if s.get("poi_type") == "attraction"
+        ]
+
+        self.assertIn("白天景点A", attraction_names)
+        self.assertIn("白天景点B", attraction_names)
+        self.assertEqual(attraction_names[-1], "洪崖洞夜市街区")
+
     def test_xhs_affinity_does_not_move_must_visit_between_days(self):
         from agents.scheduler_agent import SchedulerAgent
         from tools.clustering import DayCluster
