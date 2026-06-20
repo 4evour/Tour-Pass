@@ -81,13 +81,120 @@
 
         <!-- Chat hero: primary entry -->
         <section class="chat-hero" id="chatHero">
-          <div class="chat-hero-inner">
-            <textarea id="chatInput" class="chat-hero-input" rows="2"
-              placeholder="描述你的旅行计划，例如：去广州玩3天，要去广州塔和沙面，每晚酒店预算500以内，美食优先，节奏轻松"></textarea>
-            <button id="chatButton" class="chat-hero-btn" type="button">
-              <span id="chatBtnText">🤖 AI 多Agent规划</span>
-              <span id="chatBtnLoading" hidden>⏳ 规划中...</span>
-            </button>
+          <!-- Mode toggle -->
+          <div class="plan-mode-toggle">
+            <button type="button" class="mode-btn active" id="modeTextBtn" onclick="switchPlanMode('text')">💬 自然语言</button>
+            <button type="button" class="mode-btn" id="modeFormBtn" onclick="switchPlanMode('form')">📋 结构化表单</button>
+          </div>
+
+          <!-- Free text mode (default) -->
+          <div id="planModeText">
+            <div class="chat-hero-inner">
+              <textarea id="chatInput" class="chat-hero-input" rows="2"
+                placeholder="描述你的旅行计划，例如：去广州玩3天，要去广州塔和沙面，每晚酒店预算500以内，美食优先，节奏轻松"></textarea>
+              <button id="chatButton" class="chat-hero-btn" type="button">
+                <span id="chatBtnText">🤖 AI 多Agent规划</span>
+                <span id="chatBtnLoading" hidden>⏳ 规划中...</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Structured form mode -->
+          <div id="planModeForm" class="plan-structured-form" hidden>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="formCity">📍 目的地城市 *</label>
+                <select id="formCity">
+                  <option value="">选择城市</option>
+                  <option value="北京">北京</option><option value="上海">上海</option>
+                  <option value="广州">广州</option><option value="深圳">深圳</option>
+                  <option value="成都">成都</option><option value="重庆">重庆</option>
+                  <option value="杭州">杭州</option><option value="西安">西安</option>
+                  <option value="武汉">武汉</option><option value="长沙">长沙</option>
+                  <option value="南京">南京</option><option value="厦门">厦门</option>
+                  <option value="昆明">昆明</option><option value="大理">大理</option>
+                  <option value="丽江">丽江</option><option value="三亚">三亚</option>
+                  <option value="桂林">桂林</option><option value="青岛">青岛</option>
+                  <option value="哈尔滨">哈尔滨</option><option value="苏州">苏州</option>
+                  <option value="张家界">张家界</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="formDays">📆 游玩天数</label>
+                <select id="formDays">
+                  <option value="2">2天</option>
+                  <option value="3" selected>3天</option>
+                  <option value="4">4天</option>
+                  <option value="5">5天</option>
+                  <option value="6">6天</option>
+                  <option value="7">7天</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="formTravelers">👥 出行人群</label>
+                <select id="formTravelers">
+                  <option value="solo">一个人</option>
+                  <option value="couple">情侣</option>
+                  <option value="family">家庭亲子</option>
+                  <option value="friends">朋友</option>
+                  <option value="elderly">带长辈</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label>🎯 旅游侧重点</label>
+                <div class="form-radio-group">
+                  <label class="radio-chip"><input type="radio" name="formStrategy" value="balanced" checked> 均衡</label>
+                  <label class="radio-chip"><input type="radio" name="formStrategy" value="culture"> 🏛 文化</label>
+                  <label class="radio-chip"><input type="radio" name="formStrategy" value="culinary"> 🍜 美食</label>
+                  <label class="radio-chip"><input type="radio" name="formStrategy" value="nature"> 🌿 自然</label>
+                </div>
+              </div>
+              <div class="form-field">
+                <label>⏱ 节奏</label>
+                <div class="form-radio-group">
+                  <label class="radio-chip"><input type="radio" name="formPace" value="relaxed"> 轻松</label>
+                  <label class="radio-chip"><input type="radio" name="formPace" value="balanced" checked> 适中</label>
+                  <label class="radio-chip"><input type="radio" name="formPace" value="intense"> 紧凑</label>
+                </div>
+              </div>
+              <div class="form-field">
+                <label>💰 预算</label>
+                <div class="form-radio-group">
+                  <label class="radio-chip"><input type="radio" name="formBudget" value=""> 不限</label>
+                  <label class="radio-chip"><input type="radio" name="formBudget" value="budget"> 经济</label>
+                  <label class="radio-chip"><input type="radio" name="formBudget" value="mid-range" checked> 中等</label>
+                  <label class="radio-chip"><input type="radio" name="formBudget" value="luxury"> 高端</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field form-field-wide">
+                <label for="formMustVisit">⭐ 必去景点（用逗号分隔）</label>
+                <input id="formMustVisit" type="text" placeholder="例：广州塔，沙面，陈家祠" />
+              </div>
+              <div class="form-field">
+                <label for="formHotelBudgetMin">🏨 酒店每晚预算</label>
+                <div class="form-range-inputs">
+                  <input id="formHotelBudgetMin" type="number" placeholder="最低" min="0" step="50" />
+                  <span>-</span>
+                  <input id="formHotelBudgetMax" type="number" placeholder="最高" min="0" step="50" />
+                  <span>元</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field form-field-wide">
+                <label for="formSpecialRequests">📝 特殊要求（选填）</label>
+                <input id="formSpecialRequests" type="text" placeholder="例：想住天河区，第三天下午想购物，不去购物中心" />
+              </div>
+              <div class="form-field">
+                <button id="formSubmitBtn" class="chat-hero-btn" type="button" onclick="submitStructuredPlan()">
+                  <span>🤖 开始智能规划</span>
+                </button>
+              </div>
+            </div>
           </div>
           <div class="chat-hero-hints">
             <button type="button" class="chat-hint" data-prompt="去广州玩3天，要去广州塔和沙面，每晚酒店预算500以内，美食优先，也想安排适合拍照的景点">🏖 广州美食打卡</button>

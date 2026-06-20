@@ -28,13 +28,16 @@ export default function AgentChat({ city, onItineraryGenerated }: Props) {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: '你好！我是 Tour Pass AI 旅行规划师。告诉我你想去哪里玩，比如"带父母去长沙3天，想去岳麓山和橘子洲"，我来帮你规划行程。',
+      content: '你好！我是 Tour Pass AI 旅行规划师。告诉我你想去哪里玩，比如“带父母去长沙3天，想去岳麓山和橘子洲”，我来帮你规划行程。',
     },
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [currentEvents, setCurrentEvents] = useState<AgentEvent[]>([]);
   const [currentItinerary, setCurrentItinerary] = useState<Record<string, unknown> | null>(null);
+  const [sessionId, setSessionId] = useState<string | null>(
+    sessionStorage.getItem('tp_session_id')
+  );
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -53,7 +56,7 @@ export default function AgentChat({ city, onItineraryGenerated }: Props) {
       const res = await fetch('/agent/plan', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ message, session_id: sessionId }),
       });
 
       if (!res.ok) {
@@ -86,9 +89,14 @@ export default function AgentChat({ city, onItineraryGenerated }: Props) {
               events.push(data);
               setCurrentEvents([...events]);
 
+              // Capture session_id for multi-turn
+              if (data.session_id) {
+                setSessionId(data.session_id as string);
+                sessionStorage.setItem('tp_session_id', data.session_id as string);
+              }
               // Backend sends type: "itinerary" for the final result
               if (data.type === 'itinerary' || data.type === 'itinerary_complete' || data.type === 'cache_hit') {
-                finalItinerary = data.itinerary || null;
+                finalItinerary = (data as any).itinerary || null;
                 setCurrentItinerary(finalItinerary);
               }
             } catch {
@@ -144,15 +152,29 @@ export default function AgentChat({ city, onItineraryGenerated }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           message,
+          session_id: sessionId,
           itinerary: currentItinerary,
-          history: messages.slice(-5).map(m => ({ role: m.role, content: m.content })),
+          history: messages.slice(-10).map(m => ({ role: m.role, content: m.content })),
         }),
       });
       const data = await res.json();
+
+      // Update session_id if returned
+      if (data.session_id && !sessionId) {
+        setSessionId(data.session_id);
+        sessionStorage.setItem('tp_session_id', data.session_id);
+      }
+
+      const reply = data.reply || '抱歉，我无法理解。';
       setMessages(prev => [
         ...prev,
-        { role: 'assistant', content: data.reply || '抱歉，我无法理解。' },
+        { role: 'assistant', content: reply },
       ]);
+
+      // If the chat returned a modification action, apply it
+      if (data.action && sessionId) {
+        await applyModification(data.action, message);
+      }
     } catch {
       setMessages(prev => [
         ...prev,
@@ -160,6 +182,39 @@ export default function AgentChat({ city, onItineraryGenerated }: Props) {
       ]);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const applyModification = async (action: Record<string, unknown>, message: string) => {
+    if (!sessionId) return;
+    try {
+      const res = await fetch('/agent/modify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          session_id: sessionId,
+          action: action.action,
+          day: action.day,
+          poi_id: action.poi_id,
+          new_poi_name: action.new_poi_name,
+          new_start_minutes: action.new_start_minutes,
+          new_pace: action.new_pace,
+          message,
+        }),
+      });
+      const data = await res.json();
+      if (data.status === 'ok' && data.itinerary) {
+        setCurrentItinerary(data.itinerary);
+        setMessages(prev => [
+          ...prev,
+          { role: 'assistant', content: '✅ 行程已更新！' },
+        ]);
+        if (onItineraryGenerated) {
+          onItineraryGenerated(data.itinerary);
+        }
+      }
+    } catch (err) {
+      console.error('Modification failed:', err);
     }
   };
 

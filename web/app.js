@@ -8,6 +8,9 @@ const state = {
   tripSaved: false,
   savedTripId: null,
   planAbortController: null,
+  sessionId: sessionStorage.getItem("tp_session_id") || null,
+  chatHistory: [],  // Multi-turn chat messages
+  currentItinerary: null,  // Current itinerary for modifications
 };
 
 let planMap = null;
@@ -138,10 +141,14 @@ function renderOverviewMap(candidate) {
       // Minimal popup: name + time only. Details in card sidebar.
       const marker = L.marker(coord, { icon: markerIcon, draggable: true });
       const popupImg = stop.image_url ? '<img src="' + stop.image_url + '" class="map-popup-img" loading="lazy" onerror="this.style.display=\'none\'">' : '';
+      const navUrl = amapNavigationUrl(stop);
+      const address = stopAddressText(stop);
       marker.bindPopup(
         '<div class="map-popup">' + popupImg +
           '<div class="map-popup-name">' + escapeHtml(stop.poi_name) + '</div>' +
           '<div class="map-popup-time">' + typeIcon(stop.poi_type) + ' ' + escapeHtml(stop.start_time) + '-' + escapeHtml(stop.end_time) + '</div>' +
+          (address ? '<div class="map-popup-address">' + escapeHtml(address) + '</div>' : '') +
+          (navUrl ? '<a class="map-popup-nav" href="' + escapeHtml(navUrl) + '" target="_blank" rel="noopener">高德导航</a>' : '') +
         '</div>'
       );
       marker._tourpass = { poiId: stop.poi_id, dayIndex: dayIndex, stopIndex: dayStopIndex - 1 };
@@ -149,13 +156,21 @@ function renderOverviewMap(candidate) {
       if (stop.poi_id) mapMarkerByPoiId[stop.poi_id] = marker;
     }
 
-    markerGroup.addTo(planMap);
+      markerGroup.addTo(planMap);
     let polyline = null;
     if (dayCoords.length > 1) {
-      polyline = L.polyline(dayCoords, {
-        color, weight: 3, opacity: 0.7,
-        dashArray: dayIndex > 0 ? "6 4" : null,
-      }).addTo(planMap);
+      polyline = L.layerGroup();
+      const routeSegments = day.route_segments || [];
+      for (let i = 0; i < dayCoords.length - 1; i++) {
+        const segment = routeSegments[i] || {};
+        L.polyline([dayCoords[i], dayCoords[i + 1]], {
+          color,
+          weight: segment.route_source === "amap_cached" ? 4 : 3,
+          opacity: segment.route_source === "amap_cached" ? 0.85 : 0.65,
+          dashArray: segment.route_source === "amap_cached" ? null : "6 5",
+        }).addTo(polyline);
+      }
+      polyline.addTo(planMap);
     }
 
     mapDayLayers.push({ markers: markerGroup, polyline, color, dayIndex });
@@ -789,6 +804,34 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+function routeSourceLabel(source) {
+  return source === "amap_cached" ? "高德" : "估算";
+}
+
+function routeSourceClass(source) {
+  return source === "amap_cached" ? "route-real" : "route-estimated";
+}
+
+function stopAddressText(stop) {
+  return stop.address || stop.addr || stop.district || stop.area || "";
+}
+
+function amapNavigationUrl(stop, mode = "car") {
+  if (!stop?.lat || !stop?.lng) return "";
+  const dest = `${stop.lng},${stop.lat}`;
+  const name = encodeURIComponent(stop.poi_name || stop.name || "目的地");
+  return `https://uri.amap.com/navigation?to=${dest},${name}&mode=${mode}&coordinate=gaode&callnative=1`;
+}
+
+function amapRouteUrl(fromStop, toStop, mode = "car") {
+  if (!fromStop?.lat || !fromStop?.lng || !toStop?.lat || !toStop?.lng) return "";
+  const from = `${fromStop.lng},${fromStop.lat}`;
+  const to = `${toStop.lng},${toStop.lat}`;
+  const fromName = encodeURIComponent(fromStop.poi_name || fromStop.name || "起点");
+  const toName = encodeURIComponent(toStop.poi_name || toStop.name || "终点");
+  return `https://uri.amap.com/route/plan/?from=${from},${fromName}&to=${to},${toName}&mode=${mode}&coordinate=gaode&callnative=1`;
 }
 
 function csv(value) {
@@ -1485,14 +1528,18 @@ function renderOverview(candidate) {
               <span class="stop-name" style="color:#059669;font-weight:600;">🏨 ​</span>
             </div>
 
-            ${stops.map((stop, j) => `
+            ${stops.map((stop, j) => {
+              const navUrl = amapNavigationUrl(stop);
+              return `
               <div class="day-card-stop" data-poi-id="${stop.poi_id || ""}" data-day-idx="${day.day - 1}" data-stop-idx="${j}">
                 <span class="stop-icon">${typeIcon(stop.poi_type)}</span>
                 <span class="stop-time">${stop.start_time || ""}</span>
                 <span class="stop-name">${escapeHtml(stop.poi_name)}</span>
-                ${j > 0 && stop.travel_minutes_from_previous ? `<span class="stop-transport">${transportIcon(stop.travel_minutes_from_previous)} ${stop.travel_minutes_from_previous}min</span>` : ""}
+                ${j > 0 && stop.travel_minutes_from_previous ? `<span class="stop-transport ${routeSourceClass(stop.route_source)}">${transportIcon(stop.travel_minutes_from_previous)} ${stop.travel_minutes_from_previous}min · ${routeSourceLabel(stop.route_source)}</span>` : ""}
+                ${navUrl ? `<a class="stop-mini-nav" href="${escapeHtml(navUrl)}" target="_blank" rel="noopener" title="打开高德导航">导航</a>` : ""}
               </div>
-            `).join("")}
+            `;
+            }).join("")}
           </div>
           <div class="day-cost-track">
             <input type="number" class="cost-input" placeholder="记录实际花费 ¥" value="${actual || ""}" data-day="${day.day}" />
@@ -1684,10 +1731,12 @@ function renderStop(stop) {
   const shortGuide = guideText.length > 120 ? guideText.substring(0, 120) : guideText;
   const needToggle = guideText.length > 120;
   const uid = "g_" + (stop.poi_id || Math.random().toString(36).slice(2, 8));
+  const navUrl = amapNavigationUrl(stop);
+  const address = stopAddressText(stop);
   return `
     <article class="stop-card type-${stop.poi_type || "attraction"} ${hasRisk ? "stop-risk" : ""} ${isMeal ? "stop-meal" : ""}" draggable="true" data-poi-id="${stop.poi_id || ""}">
       ${hasImg ? `<img class="stop-hero-img" src="${stop.image_url}" alt="${escapeHtml(stop.poi_name)}" loading="lazy" onerror="this.classList.add('error');var _p=document.createElement('div');_p.className='agent-stop-noimg';_p.textContent='\uD83C\uDFDB\uFE0F';this.parentNode.insertBefore(_p,this.nextSibling)">` : ""}
-      ${travel > 0 ? `<div class="stop-transport-bar">${transportIcon(travel)} ${travel} 分钟</div>` : ""}
+      ${travel > 0 ? `<div class="stop-transport-bar ${routeSourceClass(stop.route_source)}">${transportIcon(travel)} ${travel} 分钟 · ${routeSourceLabel(stop.route_source)}</div>` : ""}
       <div class="stop-main">
         <span class="stop-type-icon">${typeIcon(stop.poi_type)}</span>
         <div class="stop-info">
@@ -1697,6 +1746,7 @@ function renderStop(stop) {
             <span class="stop-time-badge">${escapeHtml(stop.start_time)}-${escapeHtml(stop.end_time)}</span>
           </div>
           <div class="stop-meta">${escapeHtml(stop.area)}${hasRisk ? ` · ⚠️ ${escapeHtml(timeWindowLabel(stop.time_window_status))}` : ""}</div>
+          ${navUrl ? `<a class="stop-nav-link" href="${escapeHtml(navUrl)}" target="_blank" rel="noopener">高德导航${address ? ` · ${escapeHtml(address)}` : ""}</a>` : ""}
           ${isMeal ? `<div class="stop-area-hint">📍 建议在 <strong>${escapeHtml(stop.area)}</strong> 一带用餐</div>` : ""}
           <div class="stop-reason">${escapeHtml(stop.reason) || ""}</div>
           ${stop.recommendation ? `<div class="stop-tip">💡 ${escapeHtml(stop.recommendation)}</div>` : ""}
@@ -1894,7 +1944,7 @@ async function chatPlan() {
     var response = await fetch("/agent/plan", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: message }),
+      body: JSON.stringify({ message: message, session_id: state.sessionId }),
     });
     if (!response.ok) throw new Error("HTTP " + response.status);
 
@@ -1913,7 +1963,9 @@ async function chatPlan() {
         if (line.startsWith("data: ")) {
           try {
             var evt = JSON.parse(line.slice(6));
-            if (evt.type === "itinerary") { itinerary = evt.itinerary; }
+            // Capture session_id from any event that carries it
+            if (evt.session_id) { state.sessionId = evt.session_id; sessionStorage.setItem("tp_session_id", evt.session_id); }
+            if (evt.type === "itinerary") { itinerary = evt.itinerary; state.currentItinerary = itinerary; }
             else if (evt.type === "error") { throw new Error(evt.content || "Planning failed"); }
             else if (evt.type !== "done" && stepsEl) {
               stepsEl.innerHTML += '<span class="agent-progress-step done">' + escapeHtml(evt.content || evt.type) + "</span>";
@@ -1925,8 +1977,9 @@ async function chatPlan() {
     if (prog) prog.hidden = true;
     if (itinerary) {
       renderAgentResult(itinerary);
-      $("chatOutput").innerHTML = '<p style="color:var(--accent-dark);font-size:13px;">&#10003; 行程已生成，请查看详情</p>';
+      $("chatOutput").innerHTML = '<p style="color:var(--accent-dark);font-size:13px;">&#10003; 行程已生成，可以在下方对话中继续修改</p>';
       $("chatOutput").hidden = false;
+      showMultiTurnPanel();
     } else { throw new Error("未能生成行程"); }
   } catch (error) {
     if (prog) prog.hidden = true;
@@ -2192,6 +2245,226 @@ document.querySelectorAll(".chat-hint").forEach(function(btn) {
     chatPlan();
   });
 });
+
+// ---- Plan mode toggle ----
+function switchPlanMode(mode) {
+  var textPanel = $("planModeText");
+  var formPanel = $("planModeForm");
+  var textBtn = $("modeTextBtn");
+  var formBtn = $("modeFormBtn");
+  if (mode === "form") {
+    textPanel.hidden = true;
+    formPanel.hidden = false;
+    textBtn.classList.remove("active");
+    formBtn.classList.add("active");
+  } else {
+    textPanel.hidden = false;
+    formPanel.hidden = true;
+    textBtn.classList.add("active");
+    formBtn.classList.remove("active");
+  }
+}
+
+// ---- Structured form submission ----
+function submitStructuredPlan() {
+  var city = $("formCity").value;
+  if (!city) { toast("请选择目的地城市", "warning"); return; }
+
+  var strategy = document.querySelector('input[name="formStrategy"]:checked')?.value || "balanced";
+  var pace = document.querySelector('input[name="formPace"]:checked')?.value || "balanced";
+  var budget = document.querySelector('input[name="formBudget"]:checked')?.value || null;
+  var mustVisitRaw = $("formMustVisit").value.trim();
+  var mustVisit = mustVisitRaw ? mustVisitRaw.split(/[,\uff0c]/).map(function(s) { return s.trim(); }).filter(Boolean) : [];
+  var interests = [];
+  if (strategy === "culinary") interests.push("food");
+  if (strategy === "culture") interests.push("culture");
+  if (strategy === "nature") interests.push("nature");
+
+  var payload = {
+    city: city,
+    days: parseInt($("formDays").value) || 3,
+    pace: pace,
+    strategy: strategy,
+    budget: budget,
+    travelers: $("formTravelers").value,
+    interests: interests,
+    must_visit: mustVisit,
+    avoid: [],
+    hotel_budget_min: parseInt($("formHotelBudgetMin").value) || 0,
+    hotel_budget_max: parseInt($("formHotelBudgetMax").value) || 0,
+    hotel_area: "",
+    special_requests: $("formSpecialRequests").value.trim() || null,
+    session_id: state.sessionId,
+  };
+
+  var btn = $("formSubmitBtn");
+  btn.disabled = true;
+  btn.querySelector("span").textContent = "⏳ 规划中...";
+  showLoading();
+
+  fetch("/agent/plan-structured", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  }).then(function(res) {
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    var reader = res.body.getReader();
+    var decoder = new TextDecoder();
+    var buffer = "";
+    var itinerary = null;
+
+    function processChunk(result) {
+      if (result.done) {
+        hideLoading();
+        btn.disabled = false;
+        btn.querySelector("span").textContent = "🤖 开始智能规划";
+        if (itinerary) {
+          renderAgentResult(itinerary);
+          showMultiTurnPanel();
+          toast("✅ 行程已生成！", "success");
+        }
+        return;
+      }
+      buffer += decoder.decode(result.value, { stream: true });
+      var lines = buffer.split("\n");
+      buffer = lines.pop() || "";
+      for (var i = 0; i < lines.length; i++) {
+        if (lines[i].indexOf("data: ") === 0) {
+          try {
+            var data = JSON.parse(lines[i].slice(6));
+            if (data.session_id) { state.sessionId = data.session_id; sessionStorage.setItem("tp_session_id", data.session_id); }
+            if (data.type === "itinerary" && data.itinerary) {
+              itinerary = data.itinerary;
+              state.currentItinerary = itinerary;
+            }
+          } catch (e) { /* skip */ }
+        }
+      }
+      return reader.read().then(processChunk);
+    }
+    return reader.read().then(processChunk);
+  }).catch(function(err) {
+    hideLoading();
+    btn.disabled = false;
+    btn.querySelector("span").textContent = "🤖 开始智能规划";
+    toast("生成失败: " + err.message, "error");
+  });
+}
+
+// ---- Multi-turn chat panel ----
+function showMultiTurnPanel() {
+  var existing = $("multiTurnPanel");
+  if (existing) { existing.hidden = false; return; }
+
+  var agentResult = $("agentResult");
+  if (!agentResult) return;
+
+  var panel = document.createElement("div");
+  panel.id = "multiTurnPanel";
+  panel.className = "multi-turn-panel";
+  panel.innerHTML =
+    '<div class="multi-turn-header">' +
+      '<span>💬 继续对话修改行程</span>' +
+      '<span style="font-size:11px;color:var(--muted)">基于当前行程进行调整</span>' +
+    '</div>' +
+    '<div class="multi-turn-messages" id="multiTurnMessages"></div>' +
+    '<div class="multi-turn-input">' +
+      '<input id="multiTurnInput" placeholder="例：把第一天的博物馆换成公园、第二天下午太赶了..." />' +
+      '<button id="multiTurnSendBtn" type="button">发送</button>' +
+    '</div>';
+  agentResult.parentNode.insertBefore(panel, agentResult.nextSibling);
+
+  $("multiTurnSendBtn").addEventListener("click", sendMultiTurnMessage);
+  $("multiTurnInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") sendMultiTurnMessage();
+  });
+}
+
+function addChatBubble(role, text) {
+  var container = $("multiTurnMessages");
+  if (!container) return;
+  var bubble = document.createElement("div");
+  bubble.className = "chat-bubble " + role;
+  bubble.innerHTML = '<div class="bubble">' + escapeHtml(text) + '</div>';
+  container.appendChild(bubble);
+  container.scrollTop = container.scrollHeight;
+}
+
+function sendMultiTurnMessage() {
+  var input = $("multiTurnInput");
+  var msg = input.value.trim();
+  if (!msg) return;
+  input.value = "";
+  addChatBubble("user", msg);
+
+  var sendBtn = $("multiTurnSendBtn");
+  sendBtn.disabled = true;
+  sendBtn.textContent = "...";
+
+  // First try to chat with session context
+  fetch("/agent/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message: msg,
+      session_id: state.sessionId,
+      itinerary: state.currentItinerary,
+      history: state.chatHistory.slice(-10),
+    }),
+  }).then(function(res) { return res.json(); })
+  .then(function(data) {
+    var reply = data.reply || "抱歉，无法理解。";
+    addChatBubble("assistant", reply);
+    state.chatHistory.push({ role: "user", content: msg });
+    state.chatHistory.push({ role: "assistant", content: reply });
+
+    // If the chat returned a modification action, apply it
+    if (data.action && state.sessionId) {
+      applyModification(data.action, msg);
+    }
+    sendBtn.disabled = false;
+    sendBtn.textContent = "发送";
+  }).catch(function(err) {
+    addChatBubble("assistant", "网络错误：" + err.message);
+    sendBtn.disabled = false;
+    sendBtn.textContent = "发送";
+  });
+}
+
+function applyModification(action, message) {
+  if (!state.sessionId) return;
+  var payload = {
+    session_id: state.sessionId,
+    action: action.action || "replace_poi",
+    day: action.day,
+    poi_id: action.poi_id,
+    new_poi_name: action.new_poi_name,
+    new_start_minutes: action.new_start_minutes,
+    new_end_minutes: action.new_end_minutes,
+    new_pace: action.new_pace,
+    message: message,
+  };
+
+  addChatBubble("assistant", "⏳ 正在修改行程...");
+
+  fetch("/agent/modify", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  }).then(function(res) { return res.json(); })
+  .then(function(data) {
+    if (data.status === "ok" && data.itinerary) {
+      state.currentItinerary = data.itinerary;
+      renderAgentResult(data.itinerary);
+      addChatBubble("assistant", "✅ 行程已更新！");
+      toast("行程已修改", "success");
+    } else {
+      addChatBubble("assistant", "修改失败：" + (data.detail || "未知错误"));
+    }
+  }).catch(function(err) {
+    addChatBubble("assistant", "修改失败：" + err.message);
+  });
+}
 document.querySelectorAll(".agent-keyword").forEach(function(tag) {
   tag.addEventListener("click", function() {
     var input = $("chatInput");
@@ -2715,20 +2988,15 @@ function exportToAmap() {
   const links = [];
   for (let i = 0; i < stops.length; i++) {
     const s = stops[i];
-    const dest = `${s.lng},${s.lat}`;
-    const name = encodeURIComponent(s.poi_name || "目的地");
+    const navUrl = amapNavigationUrl(s);
     if (i === 0) {
       // First stop: navigate from current location
-      links.push({ name: s.poi_name, url: `https://uri.amap.com/navigation?to=${dest},${name}&mode=car&coordinate=gaode` });
+      links.push({ name: s.poi_name, url: navUrl });
     }
     // If there's a next stop, add route link
     if (i < stops.length - 1) {
       const next = stops[i + 1];
-      const from = `${s.lng},${s.lat}`;
-      const to = `${next.lng},${next.lat}`;
-      const fromName = encodeURIComponent(s.poi_name || "起点");
-      const toName = encodeURIComponent(next.poi_name || "终点");
-      links.push({ name: `${s.poi_name} → ${next.poi_name}`, url: `https://uri.amap.com/route/plan/?from=${from},${fromName}&to=${to},${toName}&mode=car&coordinate=gaode` });
+      links.push({ name: `${s.poi_name} → ${next.poi_name}`, url: amapRouteUrl(s, next) });
     }
   }
 
