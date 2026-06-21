@@ -62,20 +62,65 @@
       </div>
     </div>
 
+    <!-- Mobile menu button -->
+    <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" hidden>☰</button>
+
+    <!-- Sidebar Navigation -->
+    <nav id="sidebar" class="sidebar" hidden>
+      <div class="sidebar-brand">
+        <div class="sidebar-logo">🟢</div>
+        <span class="sidebar-brand-text">Tour Pass</span>
+      </div>
+
+      <div class="sidebar-nav">
+        <a href="#/plan" class="sidebar-item active" data-route="plan">
+          <span class="sidebar-icon">🤖</span>
+          <span class="sidebar-label">AI 规划</span>
+        </a>
+        <a href="#/trips" class="sidebar-item" data-route="trips">
+          <span class="sidebar-icon">📋</span>
+          <span class="sidebar-label">我的行程</span>
+        </a>
+        <a href="#/editor" class="sidebar-item" data-route="editor">
+          <span class="sidebar-icon">✏️</span>
+          <span class="sidebar-label">行程编辑器</span>
+        </a>
+        <a href="#/xhs" class="sidebar-item" data-route="xhs">
+          <span class="sidebar-icon">📕</span>
+          <span class="sidebar-label">小红书解析</span>
+          <span class="sidebar-badge">即将上线</span>
+        </a>
+      </div>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-nav">
+        <a href="#/profile" class="sidebar-item" data-route="profile">
+          <span class="sidebar-icon">👤</span>
+          <span class="sidebar-label">个人中心</span>
+        </a>
+        <a href="#/contact" class="sidebar-item" data-route="contact">
+          <span class="sidebar-icon">📧</span>
+          <span class="sidebar-label">联系我们</span>
+        </a>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="sidebarUser">
+          <span class="sidebar-user-name" id="sidebarUserName"></span>
+        </div>
+        <button id="sidebarThemeToggle" class="sidebar-theme-toggle" type="button" title="切换暗色模式">🌙</button>
+        <button id="sidebarLogoutBtn" class="sidebar-logout" type="button">退出登录</button>
+      </div>
+    </nav>
+
     <main class="app-shell" id="mainApp" hidden>
       <section class="workspace" aria-labelledby="app-title">
         <header class="topbar">
-          <div>
-            <h1 id="app-title">Tour Pass <small>AI 旅行规划</small></h1>
-            <span id="serviceStatus" class="service-status"></span>
-          </div>
+          <h1 id="pageTitle" class="page-title">AI 智能规划</h1>
           <div class="topbar-right">
-            <button id="themeToggle" class="theme-toggle" type="button" title="切换暗色模式">🌙</button>
             <span class="query-counter" id="queryCounter" title="今日剩余查询次数"></span>
-            <span class="user-badge" id="userBadge"></span>
-            <a href="#/profile" class="secondary-action small" style="text-decoration:none;">个人中心</a>
-            <a href="/admin.html" id="adminLink" class="secondary-action small" hidden style="text-decoration:none;">管理</a>
-            <button class="secondary-action small" id="logoutBtn" type="button">退出</button>
+            <span id="serviceStatus" class="service-status"></span>
           </div>
         </header>
 
