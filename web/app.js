@@ -91,6 +91,11 @@ function applyRoute() {
     loadEditorPanel();
   }
 
+  // Special: trips panel loads trip list
+  if (route === "trips") {
+    loadTripsPanel();
+  }
+
   // Close mobile sidebar
   const sidebar = document.getElementById("sidebar");
   if (sidebar) sidebar.classList.remove("open");
@@ -2850,6 +2855,93 @@ $("modeFormBtn")?.addEventListener("click", function() {
 });
 $("formSubmitBtn")?.addEventListener("click", submitStructuredPlan);
 initFormInteractions();
+
+// ---- My Trips page ----
+async function loadTripsPanel() {
+  const tripList = $("tripsList");
+  if (!tripList) return;
+  const token = localStorage.getItem("tp_token");
+  if (!token) {
+    tripList.innerHTML = '<div class="empty-state-box"><div class="emoji">🔒</div><p>请先登录查看行程</p></div>';
+    return;
+  }
+  try {
+    const trips = await api("/trips/list");
+    const tripData = trips.data || [];
+    if (tripData.length === 0) {
+      tripList.innerHTML = '<div class="empty-state-box"><div class="emoji">🗺️</div><p>还没有行程，去 AI 规划创建一个吧！</p></div>';
+      return;
+    }
+    const cityEmojis = {"长沙":"🏙","武汉":"🌉","大理":"🏔","丽江":"🏘","南京":"🏛","苏州":"🏡","北京":"🏯","成都":"🐼","重庆":"🔥","杭州":"🌊","西安":"🏛","上海":"🌃","广州":"🌺","深圳":"💎","厦门":"🏖","青岛":"🍺"};
+    tripList.innerHTML = tripData.map(t => {
+      const title = t.title || "未命名行程";
+      const city = title.split("·")[0] || "";
+      const emoji = cityEmojis[city] || "✈️";
+      const date = (t.created_at || "").replace("T", " ").slice(0, 16);
+      return `<div class="trip-item trips-list-item" data-trip-id="${t.id}" data-share-id="${t.share_id || ''}">
+        <div class="trip-emoji">${emoji}</div>
+        <div class="trip-info">
+          <div class="trip-title">${escapeHtml(title)}</div>
+          <div class="trip-date">🕐 ${date}</div>
+        </div>
+        <div class="trip-actions">
+          <button class="trip-btn trips-load-btn" data-trip-id="${t.id}">📂 查看</button>
+          <button class="trip-btn trips-edit-btn" data-trip-id="${t.id}">✏️ 编辑</button>
+          <button class="trip-btn trips-delete-btn" data-trip-id="${t.id}">🗑️</button>
+        </div>
+      </div>`;
+    }).join("");
+
+    // Event delegation
+    tripList.onclick = async (e) => {
+      const loadBtn = e.target.closest(".trips-load-btn");
+      const editBtn = e.target.closest(".trips-edit-btn");
+      const deleteBtn = e.target.closest(".trips-delete-btn");
+
+      if (loadBtn) {
+        const tripId = loadBtn.dataset.tripId;
+        try {
+          const data = await api(`/trips/${tripId}`);
+          const trip = data.response_json ? (typeof data.response_json === "string" ? JSON.parse(data.response_json) : data.response_json) : data;
+          if (trip && trip.days) {
+            state.candidates = [trip];
+            state.selectedIndex = 0;
+            state.lastPayload = { city: trip.city || data.request_json?.city || "" };
+            state.tripSaved = true;
+            state.savedTripId = tripId;
+            saveTripState();
+            renderPlan();
+            setStage("overview");
+            navigateTo("plan");
+            toast("✅ 行程已加载", "success");
+          }
+        } catch (err) {
+          toast("加载失败: " + err.message, "error");
+        }
+        return;
+      }
+
+      if (editBtn) {
+        navigateTo(`editor?tripId=${editBtn.dataset.tripId}`);
+        return;
+      }
+
+      if (deleteBtn) {
+        if (!confirm("确定删除这个行程？")) return;
+        try {
+          await api(`/trips/${deleteBtn.dataset.tripId}`, { method: "DELETE" });
+          toast("已删除", "success");
+          loadTripsPanel(); // Refresh
+        } catch (err) {
+          toast("删除失败: " + err.message, "error");
+        }
+        return;
+      }
+    };
+  } catch (e) {
+    tripList.innerHTML = `<div class="empty-state-box"><p>加载失败: ${e.message}</p></div>`;
+  }
+}
 
 // ---- Multi-turn chat panel ----
 function showMultiTurnPanel() {
