@@ -1,44 +1,69 @@
 :root {
   color-scheme: light;
-  --bg: #f5f7f6;
+  /* 翡翠旅途 - Emerald Journey */
+  --emerald-50: #ecfdf5;
+  --emerald-100: #d1fae5;
+  --emerald-400: #34d399;
+  --emerald-500: #10b981;
+  --emerald-600: #059669;
+  --emerald-700: #047857;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  /* 语义色映射 */
+  --bg: #f8fffe;
   --surface: #ffffff;
-  --ink: #17211f;
-  --muted: #65706d;
-  --line: #dce3df;
-  --accent: #146b5d;
-  --accent-dark: #0c4d43;
-  --warn: #9a5b12;
-  --soft: #e9f1ef;
+  --ink: #0f172a;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --accent: #059669;
+  --accent-dark: #047857;
+  --warn: #f59e0b;
+  --soft: #ecfdf5;
   --blue-soft: #eaf1f8;
+  /* 导航栏 */
+  --sidebar-bg: #ffffff;
+  --sidebar-active: #ecfdf5;
+  --sidebar-active-border: #059669;
+  --sidebar-width: 240px;
+  /* 通用 */
+  --radius: 8px;
+  --radius-sm: 4px;
+  --radius-lg: 12px;
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg: #0f1413;
-  --surface: #1a1f1e;
-  --ink: #e0e6e4;
-  --muted: #8a9590;
-  --line: #2a3130;
-  --accent: #2dd4a8;
-  --accent-dark: #22b892;
-  --warn: #e0973a;
-  --soft: #1e2725;
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --ink: #f1f5f9;
+  --muted: #94a3b8;
+  --line: #334155;
+  --accent: #34d399;
+  --accent-dark: #10b981;
+  --warn: #fbbf24;
+  --soft: #1e293b;
   --blue-soft: #1a2330;
+  --sidebar-bg: #1e293b;
+  --sidebar-active: #064e3b;
+  --sidebar-active-border: #34d399;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     color-scheme: dark;
-    --bg: #0f1413;
-    --surface: #1a1f1e;
-    --ink: #e0e6e4;
-    --muted: #8a9590;
-    --line: #2a3130;
-    --accent: #2dd4a8;
-    --accent-dark: #22b892;
-    --warn: #e0973a;
-    --soft: #1e2725;
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --ink: #f1f5f9;
+    --muted: #94a3b8;
+    --line: #334155;
+    --accent: #34d399;
+    --accent-dark: #10b981;
+    --warn: #fbbf24;
+    --soft: #1e293b;
     --blue-soft: #1a2330;
+    --sidebar-bg: #1e293b;
+    --sidebar-active: #064e3b;
+    --sidebar-active-border: #34d399;
   }
 }
 
@@ -3055,6 +3080,60 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   background: #fef9f0;
   border-radius: 8px;
   border-left: 3px solid var(--warn);
+}
+.agent-stop-replacements {
+  margin-top: 8px;
+}
+.agent-stop-replace-toggle {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--accent-dark);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.agent-stop-replace-toggle:hover {
+  background: var(--soft);
+  border-color: var(--accent);
+}
+.agent-stop-replacement-list {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 8px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  background: var(--soft);
+}
+.agent-stop-replacement-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  background: var(--surface);
+  border-radius: 7px;
+  padding: 7px 9px;
+  font-size: 13px;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+}
+.agent-stop-replacement-item:hover {
+  background: #eef7f4;
+}
+.agent-stop-replacement-name {
+  min-width: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.agent-stop-replacement-meta {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 12px;
 }
 
 /* Keyword tags */
