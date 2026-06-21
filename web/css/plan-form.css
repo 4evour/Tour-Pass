@@ -1,0 +1,381 @@
+/* AI Plan Structured Form - Emerald Journey */
+
+.plan-form {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 0 24px;
+}
+
+.plan-form-section {
+  margin-bottom: 20px;
+}
+
+.plan-form-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* City Card Grid */
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.city-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: var(--surface);
+  text-align: center;
+}
+
+.city-card:hover {
+  border-color: var(--emerald-400);
+  background: var(--emerald-50);
+}
+
+.city-card.selected {
+  border-color: var(--accent);
+  background: var(--emerald-50);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.city-card-emoji {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.city-card-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.city-card-tag {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Day Buttons */
+.day-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.day-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.day-btn:hover {
+  border-color: var(--emerald-400);
+}
+
+.day-btn.selected {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+/* Chip Group */
+.chip-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chip:hover {
+  border-color: var(--emerald-400);
+  background: var(--emerald-50);
+}
+
+.chip.selected {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+.chip-emoji {
+  font-size: 14px;
+}
+
+/* Pace Slider (3-position) */
+.pace-selector {
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.pace-option {
+  flex: 1;
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-right: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.pace-option:last-child {
+  border-right: none;
+}
+
+.pace-option:hover {
+  background: var(--emerald-50);
+}
+
+.pace-option.selected {
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+}
+
+.pace-option-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pace-option-desc {
+  display: block;
+  font-size: 10px;
+  opacity: 0.7;
+  margin-top: 2px;
+}
+
+/* Hotel Budget Range */
+.range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.range-inputs input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 14px;
+  color: var(--ink);
+}
+
+.range-inputs input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--emerald-100);
+}
+
+.range-inputs span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Tag Input */
+.tag-input-container {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 8px;
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  position: relative;
+}
+
+.tag-input-container:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--emerald-100);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: var(--emerald-100);
+  color: var(--accent-dark);
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tag-remove {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.6;
+}
+
+.tag-remove:hover {
+  opacity: 1;
+}
+
+.tag-input-field {
+  border: none;
+  outline: none;
+  flex: 1;
+  min-width: 120px;
+  font-size: 14px;
+  color: var(--ink);
+  background: transparent;
+}
+
+.tag-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 50;
+  display: none;
+}
+
+.tag-suggestions.visible {
+  display: block;
+}
+
+.tag-suggestion {
+  padding: 8px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.tag-suggestion:hover {
+  background: var(--emerald-50);
+}
+
+/* Special Requests */
+.special-requests {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 14px;
+  color: var(--ink);
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.special-requests:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--emerald-100);
+}
+
+/* Submit Button */
+.plan-submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--emerald-600), var(--emerald-500));
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.plan-submit-btn:hover {
+  background: linear-gradient(135deg, var(--emerald-700), var(--emerald-600));
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.plan-submit-btn:active {
+  transform: translateY(0);
+}
+
+.plan-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.plan-submit-btn .btn-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Form validation */
+.form-error {
+  color: #dc2626;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.city-grid .form-error {
+  grid-column: 1 / -1;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .city-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .city-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .day-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 14px;
+  }
+}

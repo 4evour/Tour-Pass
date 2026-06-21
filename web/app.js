@@ -2545,41 +2545,244 @@ function switchPlanMode(mode) {
   }
 }
 
+// ---- Load cities into form grid ----
+const CITY_EMOJIS = {
+  "北京": "🏛️", "上海": "🌆", "广州": "🌺", "深圳": "🏙️", "成都": "🐼", "重庆": "🏔️",
+  "杭州": "🌸", "西安": "🏛️", "武汉": "🌊", "长沙": "🌶️", "南京": "🏯", "厦门": "🌊",
+  "昆明": "🌸", "大理": "🏔️", "丽江": "🏔️", "三亚": "🌊", "桂林": "🏞️", "青岛": "🌊",
+  "哈尔滨": "❄️", "苏州": "🏯", "张家界": "🏞️",
+};
+const CITY_TAGS = {
+  "北京": "文化古都", "上海": "摩登都市", "广州": "美食天堂", "深圳": "科技之城", "成都": "美食天堂",
+  "重庆": "山城夜景", "杭州": "人间天堂", "西安": "历史古都", "武汉": "江湖之城", "长沙": "美食之都",
+  "南京": "六朝古都", "厦门": "海滨文艺", "昆明": "春城花海", "大理": "风花雪月", "丽江": "古城风情",
+  "三亚": "热带海滨", "桂林": "山水甲天下", "青岛": "海滨啤酒", "哈尔滨": "冰雪世界", "苏州": "园林水乡",
+  "张家界": "奇峰异石",
+};
+
+async function loadFormCities() {
+  const grid = $("formCityGrid");
+  if (!grid) return;
+  try {
+    const data = await fetch("/cities").then(r => r.json());
+    const cities = data.cities || [];
+    const list = cities.length > 0 ? cities.map(c => c.name || c) : Object.keys(CITY_EMOJIS);
+    grid.innerHTML = list.map(name => {
+      const emoji = CITY_EMOJIS[name] || "📍";
+      const tag = CITY_TAGS[name] || "探索发现";
+      return `<div class="city-card" data-city="${name}">
+        <div class="city-card-emoji">${emoji}</div>
+        <div class="city-card-name">${name}</div>
+        <div class="city-card-tag">${tag}</div>
+      </div>`;
+    }).join("");
+  } catch (e) {
+    // Fallback cities
+    grid.innerHTML = Object.keys(CITY_EMOJIS).map(name => {
+      const emoji = CITY_EMOJIS[name];
+      const tag = CITY_TAGS[name] || "探索发现";
+      return `<div class="city-card" data-city="${name}">
+        <div class="city-card-emoji">${emoji}</div>
+        <div class="city-card-name">${name}</div>
+        <div class="city-card-tag">${tag}</div>
+      </div>`;
+    }).join("");
+  }
+}
+
+// ---- Structured form interactions ----
+function initFormInteractions() {
+  // City card selection
+  document.addEventListener("click", function(e) {
+    const card = e.target.closest(".city-card");
+    if (!card) return;
+    const grid = card.closest(".city-grid");
+    if (!grid) return;
+    grid.querySelectorAll(".city-card").forEach(c => c.classList.remove("selected"));
+    card.classList.add("selected");
+    const cityInput = $("formCity");
+    if (cityInput) cityInput.value = card.dataset.city;
+    const errEl = $("formCityError");
+    if (errEl) errEl.hidden = true;
+  });
+
+  // Day button selection
+  document.addEventListener("click", function(e) {
+    const btn = e.target.closest(".day-btn");
+    if (!btn) return;
+    const group = btn.closest(".day-buttons");
+    if (!group) return;
+    group.querySelectorAll(".day-btn").forEach(b => b.classList.remove("selected"));
+    btn.classList.add("selected");
+    const hidden = $("formDays");
+    if (hidden) hidden.value = btn.dataset.value;
+  });
+
+  // Chip group selection (single select)
+  document.addEventListener("click", function(e) {
+    const chip = e.target.closest(".chip");
+    if (!chip) return;
+    const group = chip.closest(".chip-group");
+    if (!group) return;
+    group.querySelectorAll(".chip").forEach(c => c.classList.remove("selected"));
+    chip.classList.add("selected");
+    // Update corresponding hidden input
+    const groupId = group.id;
+    const hiddenId = groupId.replace("Group", "");
+    const hidden = $(hiddenId);
+    if (hidden) hidden.value = chip.dataset.value;
+  });
+
+  // Pace selector
+  document.addEventListener("click", function(e) {
+    const opt = e.target.closest(".pace-option");
+    if (!opt) return;
+    const group = opt.closest(".pace-selector");
+    if (!group) return;
+    group.querySelectorAll(".pace-option").forEach(o => o.classList.remove("selected"));
+    opt.classList.add("selected");
+    const hidden = $("formPace");
+    if (hidden) hidden.value = opt.dataset.value;
+  });
+
+  // Tag input for must-visit
+  const tagInput = $("formMustVisitInput");
+  const tagContainer = $("formMustVisitContainer");
+  const tagHidden = $("formMustVisit");
+  const tagSuggestions = $("formMustVisitSuggestions");
+  const tags = [];
+
+  function updateTagHidden() {
+    if (tagHidden) tagHidden.value = tags.join(",");
+  }
+
+  function renderTags() {
+    if (!tagContainer) return;
+    tagContainer.querySelectorAll(".tag").forEach(t => t.remove());
+    tags.forEach(function(tag, i) {
+      const el = document.createElement("span");
+      el.className = "tag";
+      el.innerHTML = tag + ' <span class="tag-remove" data-index="' + i + '">×</span>';
+      tagContainer.insertBefore(el, tagInput);
+    });
+  }
+
+  if (tagInput) {
+    tagInput.addEventListener("keydown", function(e) {
+      if (e.key === "Enter" && tagInput.value.trim()) {
+        e.preventDefault();
+        tags.push(tagInput.value.trim());
+        tagInput.value = "";
+        renderTags();
+        updateTagHidden();
+        if (tagSuggestions) tagSuggestions.classList.remove("visible");
+      }
+      if (e.key === "Backspace" && !tagInput.value && tags.length > 0) {
+        tags.pop();
+        renderTags();
+        updateTagHidden();
+      }
+    });
+
+    // Autocomplete
+    let searchTimeout;
+    tagInput.addEventListener("input", function() {
+      clearTimeout(searchTimeout);
+      const q = tagInput.value.trim();
+      if (q.length < 1) {
+        if (tagSuggestions) tagSuggestions.classList.remove("visible");
+        return;
+      }
+      searchTimeout = setTimeout(async function() {
+        const city = $("formCity").value;
+        if (!city) return;
+        try {
+          const data = await fetch(`/poi/search?city=${encodeURIComponent(city)}&q=${encodeURIComponent(q)}&limit=8`).then(r => r.json());
+          const pois = data.data || [];
+          if (!tagSuggestions || pois.length === 0) {
+            if (tagSuggestions) tagSuggestions.classList.remove("visible");
+            return;
+          }
+          tagSuggestions.innerHTML = pois.map(p => `<div class="tag-suggestion" data-name="${p.name}">${p.name}</div>`).join("");
+          tagSuggestions.classList.add("visible");
+        } catch(e) { /* skip */ }
+      }, 300);
+    });
+
+    // Click suggestion
+    if (tagSuggestions) {
+      tagSuggestions.addEventListener("click", function(e) {
+        const item = e.target.closest(".tag-suggestion");
+        if (!item) return;
+        tags.push(item.dataset.name);
+        tagInput.value = "";
+        tagSuggestions.classList.remove("visible");
+        renderTags();
+        updateTagHidden();
+      });
+    }
+
+    // Remove tag
+    if (tagContainer) {
+      tagContainer.addEventListener("click", function(e) {
+        if (e.target.classList.contains("tag-remove")) {
+          const idx = parseInt(e.target.dataset.index);
+          tags.splice(idx, 1);
+          renderTags();
+          updateTagHidden();
+        }
+      });
+    }
+  }
+
+  // Load cities
+  loadFormCities();
+}
+
 // ---- Structured form submission ----
 function submitStructuredPlan() {
   var city = $("formCity").value;
-  if (!city) { toast("请选择目的地城市", "warning"); return; }
+  if (!city) {
+    toast("请选择目的地城市", "warning");
+    var errEl = $("formCityError");
+    if (errEl) errEl.hidden = false;
+    return;
+  }
 
-  var strategy = document.querySelector('input[name="formStrategy"]:checked')?.value || "balanced";
-  var pace = document.querySelector('input[name="formPace"]:checked')?.value || "balanced";
-  var budget = document.querySelector('input[name="formBudget"]:checked')?.value || null;
-  var mustVisitRaw = $("formMustVisit").value.trim();
+  var strategy = $("formStrategy")?.value || "balanced";
+  var pace = $("formPace")?.value || "balanced";
+  var budget = $("formBudget")?.value || null;
+  var mustVisitRaw = $("formMustVisit")?.value || "";
   var mustVisit = mustVisitRaw ? mustVisitRaw.split(/[,\uff0c]/).map(function(s) { return s.trim(); }).filter(Boolean) : [];
   var interests = [];
   if (strategy === "culinary") interests.push("food");
   if (strategy === "culture") interests.push("culture");
   if (strategy === "nature") interests.push("nature");
+  if (strategy === "photo") interests.push("photo");
 
   var payload = {
     city: city,
-    days: parseInt($("formDays").value) || 3,
+    days: parseInt($("formDays")?.value) || 3,
     pace: pace,
     strategy: strategy,
     budget: budget,
-    travelers: $("formTravelers").value,
+    travelers: $("formTravelers")?.value || "solo",
     interests: interests,
     must_visit: mustVisit,
     avoid: [],
-    hotel_budget_min: parseInt($("formHotelBudgetMin").value) || 0,
-    hotel_budget_max: parseInt($("formHotelBudgetMax").value) || 0,
+    hotel_budget_min: parseInt($("formHotelBudgetMin")?.value) || 0,
+    hotel_budget_max: parseInt($("formHotelBudgetMax")?.value) || 0,
     hotel_area: "",
-    special_requests: $("formSpecialRequests").value.trim() || null,
+    special_requests: $("formSpecialRequests")?.value?.trim() || null,
     session_id: state.sessionId,
   };
 
   var btn = $("formSubmitBtn");
+  var submitText = $("formSubmitText");
+  var submitLoading = $("formSubmitLoading");
   btn.disabled = true;
-  btn.querySelector("span").textContent = "⏳ 规划中...";
+  if (submitText) submitText.hidden = true;
+  if (submitLoading) submitLoading.hidden = false;
   var chatOutput = $("chatOutput");
   if (chatOutput) chatOutput.hidden = true;
   var agentRes = $("agentResult");
@@ -2603,7 +2806,8 @@ function submitStructuredPlan() {
       if (result.done) {
         hideLoading();
         btn.disabled = false;
-        btn.querySelector("span").textContent = "🤖 开始智能规划";
+        if (submitText) submitText.hidden = false;
+        if (submitLoading) submitLoading.hidden = true;
         if (itinerary) {
           renderAgentResult(itinerary);
           showMultiTurnPanel();
@@ -2632,7 +2836,8 @@ function submitStructuredPlan() {
   }).catch(function(err) {
     hideLoading();
     btn.disabled = false;
-    btn.querySelector("span").textContent = "🤖 开始智能规划";
+    if (submitText) submitText.hidden = false;
+    if (submitLoading) submitLoading.hidden = true;
     toast("生成失败: " + err.message, "error");
   });
 }
@@ -2644,6 +2849,7 @@ $("modeFormBtn")?.addEventListener("click", function() {
   switchPlanMode("form");
 });
 $("formSubmitBtn")?.addEventListener("click", submitStructuredPlan);
+initFormInteractions();
 
 // ---- Multi-turn chat panel ----
 function showMultiTurnPanel() {

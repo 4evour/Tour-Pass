@@ -7,6 +7,7 @@
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/css/sidebar.css" />
+    <link rel="stylesheet" href="/css/plan-form.css" />
     <link rel="stylesheet" href="/vendor/leaflet.css" />
   </head>
   <body style="visibility:hidden">
@@ -152,99 +153,123 @@
 
           <!-- Structured form mode -->
           <div id="planModeForm" class="plan-structured-form" hidden>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="formCity">📍 目的地城市 *</label>
-                <select id="formCity">
-                  <option value="">选择城市</option>
-                  <option value="北京">北京</option><option value="上海">上海</option>
-                  <option value="广州">广州</option><option value="深圳">深圳</option>
-                  <option value="成都">成都</option><option value="重庆">重庆</option>
-                  <option value="杭州">杭州</option><option value="西安">西安</option>
-                  <option value="武汉">武汉</option><option value="长沙">长沙</option>
-                  <option value="南京">南京</option><option value="厦门">厦门</option>
-                  <option value="昆明">昆明</option><option value="大理">大理</option>
-                  <option value="丽江">丽江</option><option value="三亚">三亚</option>
-                  <option value="桂林">桂林</option><option value="青岛">青岛</option>
-                  <option value="哈尔滨">哈尔滨</option><option value="苏州">苏州</option>
-                  <option value="张家界">张家界</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label for="formDays">📆 游玩天数</label>
-                <select id="formDays">
-                  <option value="2">2天</option>
-                  <option value="3" selected>3天</option>
-                  <option value="4">4天</option>
-                  <option value="5">5天</option>
-                  <option value="6">6天</option>
-                  <option value="7">7天</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label for="formTravelers">👥 出行人群</label>
-                <select id="formTravelers">
-                  <option value="solo">一个人</option>
-                  <option value="couple">情侣</option>
-                  <option value="family">家庭亲子</option>
-                  <option value="friends">朋友</option>
-                  <option value="elderly">带长辈</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label>🎯 旅游侧重点</label>
-                <div class="form-radio-group">
-                  <label class="radio-chip"><input type="radio" name="formStrategy" value="balanced" checked> 均衡</label>
-                  <label class="radio-chip"><input type="radio" name="formStrategy" value="culture"> 🏛 文化</label>
-                  <label class="radio-chip"><input type="radio" name="formStrategy" value="culinary"> 🍜 美食</label>
-                  <label class="radio-chip"><input type="radio" name="formStrategy" value="nature"> 🌿 自然</label>
+            <div class="plan-form">
+
+              <!-- City Selection -->
+              <div class="plan-form-section">
+                <div class="plan-form-section-title">📍 选择目的地 <span style="color:var(--muted);font-weight:400;font-size:12px;">（必选）</span></div>
+                <div class="city-grid" id="formCityGrid">
+                  <!-- Cities loaded dynamically from /cities API -->
                 </div>
+                <div id="formCityError" class="form-error" hidden>请选择一个目的地城市</div>
+                <input type="hidden" id="formCity" value="" />
               </div>
-              <div class="form-field">
-                <label>⏱ 节奏</label>
-                <div class="form-radio-group">
-                  <label class="radio-chip"><input type="radio" name="formPace" value="relaxed"> 轻松</label>
-                  <label class="radio-chip"><input type="radio" name="formPace" value="balanced" checked> 适中</label>
-                  <label class="radio-chip"><input type="radio" name="formPace" value="intense"> 紧凑</label>
+
+              <!-- Days -->
+              <div class="plan-form-section">
+                <div class="plan-form-section-title">📆 游玩天数</div>
+                <div class="day-buttons" id="formDaysGroup">
+                  <button type="button" class="day-btn" data-value="2">2</button>
+                  <button type="button" class="day-btn selected" data-value="3">3</button>
+                  <button type="button" class="day-btn" data-value="4">4</button>
+                  <button type="button" class="day-btn" data-value="5">5</button>
+                  <button type="button" class="day-btn" data-value="6">6</button>
+                  <button type="button" class="day-btn" data-value="7">7</button>
                 </div>
+                <input type="hidden" id="formDays" value="3" />
               </div>
-              <div class="form-field">
-                <label>💰 预算</label>
-                <div class="form-radio-group">
-                  <label class="radio-chip"><input type="radio" name="formBudget" value=""> 不限</label>
-                  <label class="radio-chip"><input type="radio" name="formBudget" value="budget"> 经济</label>
-                  <label class="radio-chip"><input type="radio" name="formBudget" value="mid-range" checked> 中等</label>
-                  <label class="radio-chip"><input type="radio" name="formBudget" value="luxury"> 高端</label>
+
+              <!-- Travelers -->
+              <div class="plan-form-section">
+                <div class="plan-form-section-title">👥 出行人群</div>
+                <div class="chip-group" id="formTravelersGroup">
+                  <button type="button" class="chip selected" data-value="solo"><span class="chip-emoji">🧑</span> 一个人</button>
+                  <button type="button" class="chip" data-value="couple"><span class="chip-emoji">💑</span> 情侣</button>
+                  <button type="button" class="chip" data-value="family"><span class="chip-emoji">👨‍👩‍👧</span> 家庭亲子</button>
+                  <button type="button" class="chip" data-value="friends"><span class="chip-emoji">👫</span> 朋友</button>
+                  <button type="button" class="chip" data-value="elderly"><span class="chip-emoji">👴</span> 带长辈</button>
                 </div>
+                <input type="hidden" id="formTravelers" value="solo" />
               </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field form-field-wide">
-                <label for="formMustVisit">⭐ 必去景点（用逗号分隔）</label>
-                <input id="formMustVisit" type="text" placeholder="例：广州塔，沙面，陈家祠" />
+
+              <!-- Strategy -->
+              <div class="plan-form-section">
+                <div class="plan-form-section-title">🎯 旅游侧重</div>
+                <div class="chip-group" id="formStrategyGroup">
+                  <button type="button" class="chip selected" data-value="balanced"><span class="chip-emoji">⚖️</span> 均衡</button>
+                  <button type="button" class="chip" data-value="culture"><span class="chip-emoji">🏛️</span> 文化</button>
+                  <button type="button" class="chip" data-value="culinary"><span class="chip-emoji">🍜</span> 美食</button>
+                  <button type="button" class="chip" data-value="nature"><span class="chip-emoji">🌿</span> 自然</button>
+                  <button type="button" class="chip" data-value="photo"><span class="chip-emoji">📸</span> 拍照</button>
+                </div>
+                <input type="hidden" id="formStrategy" value="balanced" />
               </div>
-              <div class="form-field">
-                <label for="formHotelBudgetMin">🏨 酒店每晚预算</label>
-                <div class="form-range-inputs">
+
+              <!-- Pace -->
+              <div class="plan-form-section">
+                <div class="plan-form-section-title">⏱️ 节奏</div>
+                <div class="pace-selector" id="formPaceGroup">
+                  <div class="pace-option" data-value="relaxed">
+                    <span class="pace-option-label">轻松</span>
+                    <span class="pace-option-desc">每天 2-3 个景点</span>
+                  </div>
+                  <div class="pace-option selected" data-value="balanced">
+                    <span class="pace-option-label">适中</span>
+                    <span class="pace-option-desc">每天 3-4 个景点</span>
+                  </div>
+                  <div class="pace-option" data-value="intense">
+                    <span class="pace-option-label">紧凑</span>
+                    <span class="pace-option-desc">每天 4-5 个景点</span>
+                  </div>
+                </div>
+                <input type="hidden" id="formPace" value="balanced" />
+              </div>
+
+              <!-- Budget -->
+              <div class="plan-form-section">
+                <div class="plan-form-section-title">💰 预算</div>
+                <div class="chip-group" id="formBudgetGroup">
+                  <button type="button" class="chip" data-value="">不限</button>
+                  <button type="button" class="chip" data-value="budget"><span class="chip-emoji">💰</span> 经济</button>
+                  <button type="button" class="chip selected" data-value="mid-range"><span class="chip-emoji">💰💰</span> 中等</button>
+                  <button type="button" class="chip" data-value="luxury"><span class="chip-emoji">💰💰💰</span> 高端</button>
+                </div>
+                <input type="hidden" id="formBudget" value="mid-range" />
+              </div>
+
+              <!-- Hotel Budget -->
+              <div class="plan-form-section">
+                <div class="plan-form-section-title">🏨 酒店每晚预算 <span style="color:var(--muted);font-weight:400;font-size:12px;">（选填，留空不限）</span></div>
+                <div class="range-inputs">
                   <input id="formHotelBudgetMin" type="number" placeholder="最低" min="0" step="50" />
-                  <span>-</span>
+                  <span>—</span>
                   <input id="formHotelBudgetMax" type="number" placeholder="最高" min="0" step="50" />
-                  <span>元</span>
+                  <span>元/晚</span>
                 </div>
               </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field form-field-wide">
-                <label for="formSpecialRequests">📝 特殊要求（选填）</label>
-                <input id="formSpecialRequests" type="text" placeholder="例：想住天河区，第三天下午想购物，不去购物中心" />
+
+              <!-- Must Visit -->
+              <div class="plan-form-section">
+                <div class="plan-form-section-title">⭐ 必去景点 <span style="color:var(--muted);font-weight:400;font-size:12px;">（选填）</span></div>
+                <div class="tag-input-container" id="formMustVisitContainer">
+                  <input type="text" class="tag-input-field" id="formMustVisitInput" placeholder="输入景点名，按 Enter 添加" autocomplete="off" />
+                  <div class="tag-suggestions" id="formMustVisitSuggestions"></div>
+                </div>
+                <input type="hidden" id="formMustVisit" value="" />
               </div>
-              <div class="form-field">
-                <button id="formSubmitBtn" class="chat-hero-btn" type="button">
-                  <span>🤖 开始智能规划</span>
-                </button>
+
+              <!-- Special Requests -->
+              <div class="plan-form-section">
+                <div class="plan-form-section-title">📝 特殊要求 <span style="color:var(--muted);font-weight:400;font-size:12px;">（选填）</span></div>
+                <textarea class="special-requests" id="formSpecialRequests" rows="3" placeholder="例：想住天河区，第三天下午想购物，不去购物中心"></textarea>
               </div>
+
+              <!-- Submit -->
+              <button id="formSubmitBtn" class="plan-submit-btn" type="button">
+                <span id="formSubmitText">🤖 开始 AI 智能规划</span>
+                <span id="formSubmitLoading" class="btn-loading" hidden>⏳ 规划中...</span>
+              </button>
+
             </div>
           </div>
           <div class="chat-hero-hints">
