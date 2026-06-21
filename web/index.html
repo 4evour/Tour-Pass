@@ -125,6 +125,11 @@
           </div>
         </header>
 
+        <!-- ===== ROUTE PANELS ===== -->
+
+        <!-- Panel: AI Plan (default) -->
+        <div data-panel="planPanel">
+
         <!-- Chat hero: primary entry -->
         <section class="chat-hero" id="chatHero">
           <!-- Mode toggle -->
@@ -370,102 +375,129 @@
           </section>
         </aside>
       </section>
-    </main>
 
-    <!-- Profile view (hidden by default, shown via hash routing) -->
-    <section id="profileView" class="profile-view" hidden>
-      <div class="profile-view-header">
-        <h2>👤 个人中心</h2>
-        <button id="profileBackBtn" class="secondary-action small" type="button">← 返回行程</button>
-      </div>
+        </div><!-- /planPanel -->
 
-      <div id="profileViewError" class="empty-state-box" hidden>
-        <div class="emoji">🔒</div>
-        <p><strong>请先登录</strong></p>
-        <p><a href="#" id="profileViewLoginLink">返回首页登录</a></p>
-      </div>
-
-      <div id="profileViewContent" hidden>
-        <div id="pvGuestBanner" class="guest-banner" hidden>
-          <span class="emoji">🚶</span>
-          <div class="text">
-            <strong>你当前是游客身份</strong>
-            <span>游客数据仅保留 7 天，注册账号可长期保存</span>
-          </div>
-          <a href="/?show=register" class="primary-action small">去注册</a>
-        </div>
-
-        <div class="profile-card">
-          <h2>📋 账户信息</h2>
-          <div class="info-grid">
-            <div class="info-row"><span class="label">用户名</span><span id="pvUsername"></span></div>
-            <div class="info-row"><span class="label">邮箱</span><span id="pvEmail"></span></div>
-            <div class="info-row"><span class="label">角色</span><span id="pvRole"></span></div>
-            <div class="info-row"><span class="label">注册时间</span><span id="pvCreated"></span></div>
-          </div>
-        </div>
-
-        <div class="profile-card">
-          <h2>📊 今日使用情况</h2>
-          <div class="usage-section">
-            <div class="usage-circle">
-              <svg width="64" height="64" viewBox="0 0 64 64">
-                <circle cx="32" cy="32" r="28" fill="none" stroke="#eee" stroke-width="6"/>
-                <circle id="pvUsageRing" cx="32" cy="32" r="28" fill="none" stroke="var(--accent)" stroke-width="6"
-                  stroke-dasharray="176" stroke-dashoffset="176" stroke-linecap="round"/>
-              </svg>
-              <div class="label" id="pvUsageNum">0</div>
+        <!-- Panel: My Trips -->
+        <div data-panel="tripsPanel" hidden>
+          <div class="trips-page">
+            <div class="trips-header">
+              <h2>📋 我的行程</h2>
             </div>
-            <div class="usage-detail" id="pvUsageDetail"></div>
+            <div id="tripsList" class="trips-list">
+              <div class="empty-state-box">
+                <div class="emoji">🗺️</div>
+                <p>还没有行程，去 AI 规划创建一个吧！</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="profile-card" id="pvChangePwdCard">
-          <h2>🔒 修改密码</h2>
-          <div class="change-pwd-form">
-            <input id="pvOldPwd" type="password" placeholder="当前密码" />
-            <input id="pvNewPwd" type="password" placeholder="新密码（至少6位）" />
-            <input id="pvConfirmPwd" type="password" placeholder="确认新密码" />
-            <div id="pvPwdMsg" hidden></div>
-            <button id="pvChangePwdBtn" class="btn-primary" type="button">修改密码</button>
+        <!-- Panel: Editor -->
+        <div data-panel="editorPanel" hidden>
+          <iframe id="editorIframe" class="editor-iframe" src="about:blank"></iframe>
+        </div>
+
+        <!-- Panel: XHS (placeholder) -->
+        <div data-panel="xhsPanel" hidden>
+          <div class="placeholder-page">
+            <div class="placeholder-icon">📕</div>
+            <h2>小红书解析</h2>
+            <p>功能开发中，敬请期待</p>
           </div>
         </div>
 
-        <div class="profile-card">
-          <h2>🧳 我的行程</h2>
-          <div id="pvShareMsg" class="msg-ok" hidden style="margin-bottom:10px;"></div>
-          <div id="pvTripList"></div>
+        <!-- Panel: Profile -->
+        <div data-panel="profilePanel" hidden>
+          <div id="profileViewInner" class="profile-view">
+            <div class="profile-view-header">
+              <h2>👤 个人中心</h2>
+            </div>
+            <div id="profileViewError" class="empty-state-box" hidden>
+              <div class="emoji">🔒</div>
+              <p><strong>请先登录</strong></p>
+            </div>
+            <div id="profileViewContent" hidden>
+              <div id="pvGuestBanner" class="guest-banner" hidden>
+                <span class="emoji">🚶</span>
+                <div class="text">
+                  <strong>你当前是游客身份</strong>
+                  <span>游客数据仅保留 7 天，注册账号可长期保存</span>
+                </div>
+              </div>
+              <div class="profile-card">
+                <h2>📋 账户信息</h2>
+                <div class="info-grid">
+                  <div class="info-row"><span class="label">用户名</span><span id="pvUsername"></span></div>
+                  <div class="info-row"><span class="label">邮箱</span><span id="pvEmail"></span></div>
+                  <div class="info-row"><span class="label">角色</span><span id="pvRole"></span></div>
+                  <div class="info-row"><span class="label">注册时间</span><span id="pvCreated"></span></div>
+                </div>
+              </div>
+              <div class="profile-card">
+                <h2>📊 今日使用情况</h2>
+                <div class="usage-section">
+                  <div class="usage-circle">
+                    <svg width="64" height="64" viewBox="0 0 64 64">
+                      <circle cx="32" cy="32" r="28" fill="none" stroke="#eee" stroke-width="6"/>
+                      <circle id="pvUsageRing" cx="32" cy="32" r="28" fill="none" stroke="var(--accent)" stroke-width="6"
+                        stroke-dasharray="176" stroke-dashoffset="176" stroke-linecap="round"/>
+                    </svg>
+                    <div class="label" id="pvUsageNum">0</div>
+                  </div>
+                  <div class="usage-detail" id="pvUsageDetail"></div>
+                </div>
+              </div>
+              <div class="profile-card" id="pvChangePwdCard">
+                <h2>🔒 修改密码</h2>
+                <div class="change-pwd-form">
+                  <input id="pvOldPwd" type="password" placeholder="当前密码" />
+                  <input id="pvNewPwd" type="password" placeholder="新密码（至少6位）" />
+                  <input id="pvConfirmPwd" type="password" placeholder="确认新密码" />
+                  <div id="pvPwdMsg" hidden></div>
+                  <button id="pvChangePwdBtn" class="btn-primary" type="button">修改密码</button>
+                </div>
+              </div>
+              <div class="profile-card">
+                <h2>🧳 我的行程</h2>
+                <div id="pvShareMsg" class="msg-ok" hidden style="margin-bottom:10px;"></div>
+                <div id="pvTripList"></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Feedback button -->
-    <div id="feedbackBtn" class="feedback-fab" title="反馈问题">💬</div>
-    <div id="feedbackModal" class="feedback-modal" hidden>
-      <div class="feedback-content">
-        <h3>反馈问题</h3>
-        <div class="auth-field">
-          <select id="fbCategory">
-            <option value="bug">Bug</option>
-            <option value="feature">功能建议</option>
-            <option value="experience">体验问题</option>
-            <option value="other">其他</option>
-          </select>
+        <!-- Panel: Contact -->
+        <div data-panel="contactPanel" hidden>
+          <div class="contact-page">
+            <h2>📧 联系我们</h2>
+            <p class="contact-desc">发送功能建议、商务合作或技术反馈</p>
+            <div class="contact-form">
+              <div class="form-field">
+                <label>分类</label>
+                <select id="contactCategory">
+                  <option value="feature">功能建议</option>
+                  <option value="bug">Bug 反馈</option>
+                  <option value="business">商务合作</option>
+                  <option value="other">其他</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label>内容</label>
+                <textarea id="contactContent" rows="5" placeholder="描述你的想法或问题（10-500字）"></textarea>
+              </div>
+              <div class="form-field">
+                <label>联系方式（选填）</label>
+                <input id="contactInfo" type="text" placeholder="邮箱或其他联系方式" />
+              </div>
+              <div id="contactError" class="auth-error" hidden></div>
+              <div id="contactSuccess" class="auth-success" hidden>感谢反馈！我们会尽快处理。</div>
+              <button id="contactSubmitBtn" class="chat-hero-btn" type="button">提交反馈</button>
+            </div>
+          </div>
         </div>
-        <div class="auth-field">
-          <textarea id="fbContent" placeholder="描述你遇到的问题或建议（10-500字）" rows="4"></textarea>
-        </div>
-        <div class="auth-field">
-          <input id="fbContact" placeholder="联系方式（选填）" />
-        </div>
-        <div id="fbError" class="auth-error" hidden></div>
-        <div id="fbSuccess" class="auth-success" hidden>感谢反馈！我们会尽快处理。</div>
-        <div class="feedback-actions">
-          <button id="fbSubmit" class="auth-btn primary" type="button">提交</button>
-          <button id="fbClose" class="auth-btn" type="button">关闭</button>
-        </div>
-      </div>
-    </div>
+
+    </main>
 
     <!-- Easter egg -->
     <footer class="app-footer">

@@ -48,6 +48,68 @@ function restoreTripState() {
   } catch (e) { return false; }
 }
 
+// ---- Hash Router ----
+const ROUTES = {
+  plan:    { title: "AI 智能规划",   panel: "planPanel" },
+  trips:   { title: "我的行程",     panel: "tripsPanel" },
+  editor:  { title: "行程编辑器",   panel: "editorPanel" },
+  xhs:     { title: "小红书解析",   panel: "xhsPanel" },
+  profile: { title: "个人中心",     panel: "profilePanel" },
+  contact: { title: "联系我们",     panel: "contactPanel" },
+};
+
+function getRoute() {
+  const hash = location.hash.replace("#/", "") || "plan";
+  return ROUTES[hash] ? hash : "plan";
+}
+
+function navigateTo(route) {
+  location.hash = `#/${route}`;
+}
+
+function applyRoute() {
+  const route = getRoute();
+  const config = ROUTES[route];
+  if (!config) return;
+
+  // Update sidebar active state
+  document.querySelectorAll(".sidebar-item").forEach(el => {
+    el.classList.toggle("active", el.dataset.route === route);
+  });
+
+  // Update page title
+  const titleEl = document.getElementById("pageTitle");
+  if (titleEl) titleEl.textContent = config.title;
+
+  // Show/hide panels
+  document.querySelectorAll("[data-panel]").forEach(el => {
+    el.hidden = el.dataset.panel !== config.panel;
+  });
+
+  // Special: editor panel loads iframe
+  if (route === "editor") {
+    loadEditorPanel();
+  }
+
+  // Close mobile sidebar
+  const sidebar = document.getElementById("sidebar");
+  if (sidebar) sidebar.classList.remove("open");
+}
+
+function loadEditorPanel() {
+  const iframe = document.getElementById("editorIframe");
+  if (!iframe) return;
+  const hashParts = location.hash.split("?");
+  const tripId = new URLSearchParams(hashParts[1] || "").get("tripId");
+  const src = tripId ? `/editor/index.html?tripId=${tripId}` : "/editor/index.html";
+  const fullSrc = new URL(src, location.origin).href;
+  if (iframe.src !== fullSrc) {
+    iframe.src = src;
+  }
+}
+
+window.addEventListener("hashchange", applyRoute);
+
 // ---- Toast notifications ----
 function toast(message, type = "info", actionHtml = "") {
   let container = document.getElementById("toastContainer");
@@ -922,6 +984,12 @@ function showApp() {
   }
   $("authOverlay").hidden = true;
   $("mainApp").hidden = false;
+  // Show sidebar and initialize routing
+  const sidebar = $("sidebar");
+  if (sidebar) sidebar.hidden = false;
+  const sidebarUserName = $("sidebarUserName");
+  if (sidebarUserName) sidebarUserName.textContent = state.user?.username || "";
+  applyRoute();
   $("userBadge").textContent = state.user?.username || "";
   updateQueryCounter(state.user?.query_remaining);
   // Show admin link for admin users
@@ -2073,7 +2141,7 @@ function renderAgentResult(itinerary) {
     }
     var stops = day.stops || [];
     for (var s = 0; s < stops.length; s++) {
-      dayDiv.appendChild(renderStopCard(stops[s]));
+      dayDiv.appendChild(renderStopCard(stops[s], day, itinerary));
     }
     timeline.appendChild(dayDiv);
   }
@@ -2126,7 +2194,155 @@ function enableGuideToggleIfNeeded(guideText, guideDiv, guideId) {
   });
 }
 
-function renderStopCard(stop) {
+function replacementCandidateName(candidate) {
+  return candidate.poi_name || candidate.name || "";
+}
+
+function replacementCandidateId(candidate) {
+  return candidate.poi_id || candidate.id || replacementCandidateName(candidate);
+}
+
+function replacementCandidateType(candidate) {
+  return candidate.poi_type || candidate.type || "attraction";
+}
+
+function getReplacementCandidates(stop, day) {
+  var pool = Array.isArray(day && day.replacement_pool) ? day.replacement_pool : [];
+  if (!pool.length) return [];
+  var stopType = stop.poi_type || "attraction";
+  var currentId = stop.poi_id || stop.id || "";
+  var sameType = pool.filter(function(candidate) {
+    return replacementCandidateType(candidate) === stopType && replacementCandidateId(candidate) !== currentId;
+  });
+  var sameArea = sameType.filter(function(candidate) {
+    return !stop.area || !candidate.area || candidate.area === stop.area;
+  });
+  return sameArea.length ? sameArea : sameType;
+}
+
+function stopToReplacementCandidate(stop) {
+  return {
+    poi_id: stop.poi_id || "",
+    poi_name: stop.poi_name || "",
+    poi_type: stop.poi_type || "attraction",
+    area: stop.area || "",
+    reason: "当前站点，可切回",
+    image_url: stop.image_url || "",
+    images: stop.images || [],
+    guide_text: stop.guide_text || "",
+    recommendation: stop.recommendation || "",
+  };
+}
+
+function buildReplacementStop(oldStop, candidate) {
+  return Object.assign({}, oldStop, {
+    poi_id: replacementCandidateId(candidate),
+    poi_name: replacementCandidateName(candidate),
+    poi_type: replacementCandidateType(candidate),
+    area: candidate.area || oldStop.area || "",
+    reason: normalizeStopText(candidate.reason) || normalizeStopText(candidate.recommendation) || oldStop.reason || "",
+    image_url: candidate.image_url || "",
+    images: candidate.images || [],
+    guide_text: candidate.guide_text || "",
+    recommendation: candidate.recommendation || "",
+    travel_minutes_from_previous: 0,
+    distance_meters_from_previous: 0,
+    route_source: "",
+  });
+}
+
+function applyLocalAgentReplacement(day, oldStop, candidate, itinerary) {
+  var stops = day.stops || [];
+  var index = stops.indexOf(oldStop);
+  if (index < 0) return;
+  var previousStop = stopToReplacementCandidate(oldStop);
+  stops[index] = buildReplacementStop(oldStop, candidate);
+  day.replacement_pool = (day.replacement_pool || []).map(function(item) {
+    return item === candidate ? previousStop : item;
+  });
+  state.currentItinerary = itinerary;
+  renderAgentResult(itinerary);
+  toast("已替换为 " + replacementCandidateName(candidate), "success");
+}
+
+async function applyAgentReplacement(day, oldStop, candidate, itinerary) {
+  if (!state.sessionId) {
+    applyLocalAgentReplacement(day, oldStop, candidate, itinerary);
+    return;
+  }
+
+  try {
+    var data = await api("/agent/modify", {
+      method: "POST",
+      body: JSON.stringify({
+        session_id: state.sessionId,
+        action: "replace_poi",
+        day: day.day,
+        poi_id: oldStop.poi_id || oldStop.poi_name || "",
+        new_poi_id: replacementCandidateId(candidate),
+        new_poi_name: replacementCandidateName(candidate),
+        message: "替换景点为 " + replacementCandidateName(candidate),
+      }),
+    });
+    if (data.status === "ok" && data.itinerary) {
+      state.currentItinerary = data.itinerary;
+      if (data.session_id) {
+        state.sessionId = data.session_id;
+        sessionStorage.setItem("tp_session_id", data.session_id);
+      }
+      renderAgentResult(data.itinerary);
+      toast("已替换为 " + replacementCandidateName(candidate), "success");
+      return;
+    }
+    throw new Error(data.detail || "替换失败");
+  } catch (err) {
+    toast("替换失败：" + err.message, "error");
+  }
+}
+
+function appendReplacementControls(body, stop, day, itinerary) {
+  var candidates = getReplacementCandidates(stop, day);
+  if (!candidates.length) return;
+
+  var wrap = document.createElement("div");
+  wrap.className = "agent-stop-replacements";
+
+  var toggle = document.createElement("button");
+  toggle.type = "button";
+  toggle.className = "agent-stop-replace-toggle";
+  toggle.textContent = "替换";
+  toggle.setAttribute("aria-expanded", "false");
+  wrap.appendChild(toggle);
+
+  var list = document.createElement("div");
+  list.className = "agent-stop-replacement-list";
+  list.hidden = true;
+  for (var i = 0; i < candidates.length; i++) {
+    var candidate = candidates[i];
+    var item = document.createElement("button");
+    item.type = "button";
+    item.className = "agent-stop-replacement-item";
+    item.innerHTML =
+      '<span class="agent-stop-replacement-name">' + escapeHtml(replacementCandidateName(candidate)) + '</span>' +
+      '<span class="agent-stop-replacement-meta">' + escapeHtml(candidate.area || stop.area || "") + '</span>';
+    item.addEventListener("click", function(selected) {
+      return async function() {
+        this.disabled = true;
+        await applyAgentReplacement(day, stop, selected, itinerary);
+        this.disabled = false;
+      };
+    }(candidate));
+    list.appendChild(item);
+  }
+  toggle.addEventListener("click", function() {
+    list.hidden = !list.hidden;
+    toggle.setAttribute("aria-expanded", String(!list.hidden));
+  });
+  wrap.appendChild(list);
+  body.appendChild(wrap);
+}
+
+function renderStopCard(stop, day, itinerary) {
   var card = document.createElement("div");
   card.className = "agent-stop";
   var poiType = stop.poi_type || "attraction";
@@ -2297,6 +2513,7 @@ function renderStopCard(stop) {
     tipEl.innerHTML = '\u{1F4A1} ' + escapeHtml(recommendation);
     body.appendChild(tipEl);
   }
+  appendReplacementControls(body, stop, day || {}, itinerary || state.currentItinerary);
   card.appendChild(body);
   return card;
 }
@@ -3010,10 +3227,19 @@ function toggleTheme() {
   updateThemeIcon();
 }
 function updateThemeIcon() {
+  const isDark = document.documentElement.dataset.theme === "dark";
+  const icon = isDark ? "☀️" : "🌙";
   const btn = $("themeToggle");
-  if (btn) btn.textContent = document.documentElement.dataset.theme === "dark" ? "☀️" : "🌙";
+  if (btn) btn.textContent = icon;
+  const sidebarBtn = $("sidebarThemeToggle");
+  if (sidebarBtn) sidebarBtn.textContent = icon;
 }
 $("themeToggle")?.addEventListener("click", toggleTheme);
+$("sidebarThemeToggle")?.addEventListener("click", toggleTheme);
+$("sidebarLogoutBtn")?.addEventListener("click", logout);
+$("mobileMenuBtn")?.addEventListener("click", () => {
+  $("sidebar")?.classList.toggle("open");
+});
 initTheme();
 
 // Event delegation for dynamically rendered buttons
