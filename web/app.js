@@ -38,27 +38,42 @@ async function syncSavedTrip(itinerary) {
 
 function saveTripState() {
   try {
-    sessionStorage.setItem("tp_candidates", JSON.stringify(state.candidates));
-    sessionStorage.setItem("tp_selectedIndex", String(state.selectedIndex));
-    sessionStorage.setItem("tp_lastPayload", JSON.stringify(state.lastPayload));
-    sessionStorage.setItem("tp_activeStage", state.activeStage);
-    sessionStorage.setItem("tp_tripSaved", String(state.tripSaved));
-    sessionStorage.setItem("tp_savedTripId", String(state.savedTripId || ""));
+    const ts = Date.now();
+    localStorage.setItem("tp_candidates", JSON.stringify(state.candidates));
+    localStorage.setItem("tp_selectedIndex", String(state.selectedIndex));
+    localStorage.setItem("tp_lastPayload", JSON.stringify(state.lastPayload));
+    localStorage.setItem("tp_activeStage", state.activeStage);
+    localStorage.setItem("tp_tripSaved", String(state.tripSaved));
+    localStorage.setItem("tp_savedTripId", String(state.savedTripId || ""));
+    localStorage.setItem("tp_trip_ts", String(ts));
   } catch (e) { /* quota exceeded or private browsing */ }
 }
 
 function restoreTripState() {
   try {
-    const candidates = sessionStorage.getItem("tp_candidates");
+    const TRIP_TTL = 7 * 24 * 3600 * 1000; // 7 days
+    const ts = parseInt(localStorage.getItem("tp_trip_ts") || "0", 10);
+    if (ts && Date.now() - ts > TRIP_TTL) {
+      // Expired — clear trip state
+      localStorage.removeItem("tp_candidates");
+      localStorage.removeItem("tp_selectedIndex");
+      localStorage.removeItem("tp_lastPayload");
+      localStorage.removeItem("tp_activeStage");
+      localStorage.removeItem("tp_tripSaved");
+      localStorage.removeItem("tp_savedTripId");
+      localStorage.removeItem("tp_trip_ts");
+      return false;
+    }
+    const candidates = localStorage.getItem("tp_candidates");
     if (!candidates) return false;
     const parsed = JSON.parse(candidates);
     if (!Array.isArray(parsed) || parsed.length === 0) return false;
     state.candidates = parsed;
-    state.selectedIndex = parseInt(sessionStorage.getItem("tp_selectedIndex") || "0", 10);
-    state.lastPayload = JSON.parse(sessionStorage.getItem("tp_lastPayload") || "null");
-    state.activeStage = sessionStorage.getItem("tp_activeStage") || "overview";
-    state.tripSaved = sessionStorage.getItem("tp_tripSaved") === "true";
-    const savedId = sessionStorage.getItem("tp_savedTripId");
+    state.selectedIndex = parseInt(localStorage.getItem("tp_selectedIndex") || "0", 10);
+    state.lastPayload = JSON.parse(localStorage.getItem("tp_lastPayload") || "null");
+    state.activeStage = localStorage.getItem("tp_activeStage") || "overview";
+    state.tripSaved = localStorage.getItem("tp_tripSaved") === "true";
+    const savedId = localStorage.getItem("tp_savedTripId");
     state.savedTripId = savedId && savedId !== "null" ? savedId : null;
     return true;
   } catch (e) { return false; }
@@ -1032,7 +1047,7 @@ function showApp() {
     guestBanner.hidden = true;
   }
   loadHealth();
-  // Restore trip state from sessionStorage if available
+  // Restore trip state from localStorage if available
   if (restoreTripState() && state.candidates.length > 0) {
     renderPlan();
     setStage(state.activeStage);
