@@ -54,6 +54,7 @@ public:
 
     // Saved trips
     virtual int64_t saveTrip(int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) = 0;
+    virtual bool updateTrip(int64_t tripId, int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) = 0;
     virtual nlohmann::json listTrips(int64_t userId) = 0;
     virtual std::optional<nlohmann::json> getTrip(int64_t tripId, int64_t userId) = 0;
     virtual std::string generateShareId(int64_t tripId) = 0;

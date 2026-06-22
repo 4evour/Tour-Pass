@@ -10,6 +10,7 @@ import asyncio
 import json
 import math
 import os
+import subprocess
 import sys
 import tempfile
 import time
@@ -539,12 +540,12 @@ class TestClusteringEngine(unittest.TestCase):
         self.assertNotIn("远郊D", planned_names)
 
     def test_restaurant_assignment_falls_back_to_nearest_candidates(self):
-        """Each day should still get meals when no restaurant is within 5km."""
+        """Each day should still get meals when restaurants are near but outside 5km."""
         attractions = self._make_attractions(9)
         restaurants = [
             {
                 "id": f"r_{i}", "name": f"远处餐厅{i}", "type": "restaurant",
-                "lat": 31.0 + i * 0.01, "lng": 121.0 + i * 0.01,
+                "lat": 30.055 + i * 0.002, "lng": 120.0 + i * 0.002,
                 "area": "餐饮区", "popularity": 4.8, "_score": 80 - i,
                 "tags": ["美食"], "visit_duration_minutes": 60,
             }
@@ -555,6 +556,21 @@ class TestClusteringEngine(unittest.TestCase):
         clusters = self.cluster_pois_for_days(attractions, restaurants, num_days=3, intent=intent)
 
         self.assertTrue(all(len(c.restaurants) >= 2 for c in clusters))
+
+    def test_far_restaurants_are_not_forced_into_unrelated_day(self):
+        """Very far restaurants should not be used just to fill a meal slot."""
+        attractions = self._make_attractions(3)
+        restaurants = [{
+            "id": "far_restaurant", "name": "跨区远餐厅", "type": "restaurant",
+            "lat": 30.30, "lng": 120.30,
+            "area": "远区", "popularity": 4.9, "_score": 100,
+            "tags": ["美食"], "visit_duration_minutes": 60,
+        }]
+        intent = {"pace": "balanced", "must_visit": [], "interests": [], "strategy": "balanced"}
+
+        clusters = self.cluster_pois_for_days(attractions, restaurants, num_days=1, intent=intent)
+
+        self.assertEqual(clusters[0].restaurants, [])
 
     def test_generic_balanced_trip_assigns_one_restaurant_per_day(self):
         """Generic sightseeing trips should not be dominated by restaurants."""
@@ -601,6 +617,423 @@ class TestSchedulerAgent(unittest.TestCase):
             return loop.run_until_complete(coro)
         finally:
             loop.close()
+
+    def test_filter_infeasible_optional_stop_moves_to_replacement_pool(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "feasiblecity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([
+                    {
+                        "from": "near",
+                        "to": "far",
+                        "taxi_minutes": 72,
+                        "distance_meters": 32000,
+                        "source": "amap",
+                        "provider": "amap",
+                    }
+                ], f)
+
+            stops = [
+                {
+                    "poi_id": "near", "poi_name": "近景点", "poi_type": "attraction",
+                    "lat": 30.0, "lng": 120.0,
+                },
+                {
+                    "poi_id": "far", "poi_name": "远景点", "poi_type": "attraction",
+                    "lat": 30.3, "lng": 120.3,
+                },
+            ]
+
+            kept, replacement_pool = SchedulerAgent._filter_infeasible_optional_stops(
+                stops,
+                city="feasiblecity",
+                data_dir=tmpdir,
+                pace="balanced",
+                must_visit_names=[],
+            )
+
+        self.assertEqual([s["poi_name"] for s in kept], ["近景点"])
+        self.assertEqual(len(replacement_pool), 1)
+        self.assertEqual(replacement_pool[0]["poi_name"], "远景点")
+        self.assertEqual(replacement_pool[0]["reason"], "commute_too_far")
+        self.assertEqual(replacement_pool[0]["route_metric"]["minutes"], 72)
+        self.assertEqual(replacement_pool[0]["route_metric"]["confidence"], "real")
+
+    def test_filter_infeasible_must_visit_keeps_far_stop(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "mustvisitcity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([
+                    {
+                        "from": "near",
+                        "to": "must",
+                        "taxi_minutes": 72,
+                        "distance_meters": 32000,
+                        "source": "amap",
+                        "provider": "amap",
+                    }
+                ], f)
+
+            stops = [
+                {"poi_id": "near", "poi_name": "近景点", "lat": 30.0, "lng": 120.0},
+                {"poi_id": "must", "poi_name": "必去远景点", "lat": 30.3, "lng": 120.3},
+            ]
+
+            kept, replacement_pool = SchedulerAgent._filter_infeasible_optional_stops(
+                stops,
+                city="mustvisitcity",
+                data_dir=tmpdir,
+                pace="balanced",
+                must_visit_names=["必去远景点"],
+            )
+
+        self.assertEqual([s["poi_name"] for s in kept], ["近景点", "必去远景点"])
+        self.assertEqual(replacement_pool, [])
+
+    def test_filter_missing_real_route_optional_stop_moves_to_replacement_pool(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "missingroutecity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([], f)
+
+            stops = [
+                {
+                    "poi_id": "near", "poi_name": "近景点", "poi_type": "attraction",
+                    "lat": 30.0, "lng": 120.0,
+                },
+                {
+                    "poi_id": "unknown", "poi_name": "缺真实边景点", "poi_type": "attraction",
+                    "lat": 30.001, "lng": 120.001,
+                },
+            ]
+
+            kept, replacement_pool = SchedulerAgent._filter_infeasible_optional_stops(
+                stops,
+                city="missingroutecity",
+                data_dir=tmpdir,
+                pace="balanced",
+                must_visit_names=[],
+            )
+
+        self.assertEqual([s["poi_name"] for s in kept], ["近景点"])
+        self.assertEqual(len(replacement_pool), 1)
+        self.assertEqual(replacement_pool[0]["poi_name"], "缺真实边景点")
+        self.assertEqual(replacement_pool[0]["reason"], "route_not_precomputed")
+        self.assertEqual(replacement_pool[0]["route_metric"]["confidence"], "estimated")
+
+    def test_filter_missing_real_route_keeps_must_visit_by_removing_previous_optional(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "mustroutecity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([], f)
+
+            stops = [
+                {
+                    "poi_id": "optional", "poi_name": "普通景点", "poi_type": "attraction",
+                    "lat": 30.0, "lng": 120.0,
+                },
+                {
+                    "poi_id": "must", "poi_name": "洪崖洞夜市街区", "poi_type": "attraction",
+                    "lat": 30.001, "lng": 120.001,
+                },
+            ]
+
+            kept, replacement_pool = SchedulerAgent._filter_infeasible_optional_stops(
+                stops,
+                city="mustroutecity",
+                data_dir=tmpdir,
+                pace="balanced",
+                must_visit_names=["洪崖洞"],
+            )
+
+        self.assertEqual([s["poi_name"] for s in kept], ["洪崖洞夜市街区"])
+        self.assertEqual(len(replacement_pool), 1)
+        self.assertEqual(replacement_pool[0]["poi_name"], "普通景点")
+        self.assertEqual(replacement_pool[0]["reason"], "route_not_precomputed")
+
+    def test_filter_hotel_commute_moves_far_optional_first_stop_to_replacement_pool(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "hotelroutecity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([
+                    {
+                        "from": "hotel",
+                        "to": "far",
+                        "taxi_minutes": 95,
+                        "distance_meters": 76000,
+                        "source": "amap",
+                        "provider": "amap",
+                    },
+                    {
+                        "from": "far",
+                        "to": "hotel",
+                        "taxi_minutes": 95,
+                        "distance_meters": 76000,
+                        "source": "amap",
+                        "provider": "amap",
+                    },
+                ], f)
+
+            hotel = {"id": "hotel", "name": "核心酒店", "lat": 30.0, "lng": 120.0}
+            stops = [{
+                "poi_id": "far", "poi_name": "远郊景点", "poi_type": "attraction",
+                "lat": 30.5, "lng": 120.5,
+            }]
+
+            kept, replacement_pool = SchedulerAgent._filter_infeasible_hotel_commute(
+                stops,
+                hotel,
+                city="hotelroutecity",
+                data_dir=tmpdir,
+                pace="balanced",
+                must_visit_names=[],
+                require_real_routes=True,
+            )
+
+        self.assertEqual(kept, [])
+        self.assertEqual(len(replacement_pool), 1)
+        self.assertEqual(replacement_pool[0]["poi_name"], "远郊景点")
+        self.assertEqual(replacement_pool[0]["reason"], "hotel_commute_too_far")
+
+    def test_filter_hotel_commute_keeps_near_stop_without_precomputed_hotel_edge(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "hotelmissingedgecity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([], f)
+
+            hotel = {"id": "hotel", "name": "核心酒店", "lat": 30.0, "lng": 120.0}
+            stops = [{
+                "poi_id": "near", "poi_name": "近景点", "poi_type": "attraction",
+                "lat": 30.001, "lng": 120.001,
+            }]
+
+            kept, replacement_pool = SchedulerAgent._filter_infeasible_hotel_commute(
+                stops,
+                hotel,
+                city="hotelmissingedgecity",
+                data_dir=tmpdir,
+                pace="balanced",
+                must_visit_names=[],
+                require_real_routes=True,
+            )
+
+        self.assertEqual([s["poi_name"] for s in kept], ["近景点"])
+        self.assertEqual(replacement_pool, [])
+
+    def test_fill_empty_day_from_hotel_seeds_nearby_candidate(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "emptydaycity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([], f)
+
+            hotel = {"id": "hotel", "name": "核心酒店", "lat": 30.0, "lng": 120.0}
+            candidates = [
+                {
+                    "id": "far", "name": "远郊景点", "type": "attraction",
+                    "lat": 31.0, "lng": 121.0, "area": "远区",
+                    "popularity": 5.0, "visit_duration_minutes": 60,
+                },
+                {
+                    "id": "near", "name": "附近景点", "type": "attraction",
+                    "lat": 30.001, "lng": 120.001, "area": "核心区",
+                    "popularity": 4.0, "visit_duration_minutes": 60,
+                },
+            ]
+
+            filled = SchedulerAgent._fill_empty_day_from_hotel(
+                [],
+                candidates,
+                hotel,
+                city="emptydaycity",
+                data_dir=tmpdir,
+                pace="balanced",
+                start_of_day=540,
+                used_poi_ids=set(),
+            )
+
+        self.assertEqual([s["poi_name"] for s in filled], ["附近景点"])
+
+    def test_execute_moves_far_optional_stop_to_replacement_pool(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "feasiblecity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([
+                    {
+                        "from": "near",
+                        "to": "far",
+                        "taxi_minutes": 72,
+                        "distance_meters": 32000,
+                        "source": "amap",
+                        "provider": "amap",
+                    }
+                ], f)
+
+            attractions = [
+                {
+                    "id": "near", "name": "近景点", "type": "attraction",
+                    "lat": 30.0, "lng": 120.0, "area": "核心区",
+                    "popularity": 4.8, "visit_duration_minutes": 60,
+                },
+                {
+                    "id": "far", "name": "远景点", "type": "attraction",
+                    "lat": 30.001, "lng": 120.001, "area": "核心区",
+                    "popularity": 4.7, "visit_duration_minutes": 60,
+                },
+            ]
+            state = {
+                "city": "feasiblecity",
+                "data_dir": tmpdir,
+                "days": 1,
+                "pois": attractions,
+                "restaurants": [],
+                "hotels": [],
+                "weather": [],
+                "city_guides": [],
+                "trip_intent": {
+                    "city": "feasiblecity", "days": 1, "pace": "balanced",
+                    "must_visit": [], "interests": [], "strategy": "balanced",
+                },
+                "available_pois": attractions,
+                "review_feedback": None,
+            }
+
+            result = self._run_async(SchedulerAgent().execute(state))
+
+        day = result["daily_plans"][0]
+        self.assertEqual([s["poi_name"] for s in day["stops"]], ["近景点"])
+        self.assertEqual(day["replacement_pool"][0]["poi_name"], "远景点")
+        self.assertEqual(day["replacement_pool"][0]["route_metric"]["minutes"], 72)
+
+    def test_execute_fills_removed_missing_route_stop_with_connected_candidate(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "fillcity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([
+                    {
+                        "from": "near",
+                        "to": "alt",
+                        "taxi_minutes": 8,
+                        "distance_meters": 1800,
+                        "source": "amap",
+                        "provider": "amap",
+                    }
+                ], f)
+
+            selected = [
+                {
+                    "id": "near", "name": "近景点", "type": "attraction",
+                    "lat": 30.0, "lng": 120.0, "area": "核心区",
+                    "popularity": 4.8, "visit_duration_minutes": 60,
+                },
+                {
+                    "id": "missing", "name": "缺边景点", "type": "attraction",
+                    "lat": 30.001, "lng": 120.001, "area": "核心区",
+                    "popularity": 4.7, "visit_duration_minutes": 60,
+                },
+            ]
+            connected_candidate = {
+                "id": "alt", "name": "可连接景点", "type": "attraction",
+                "lat": 30.002, "lng": 120.002, "area": "核心区",
+                "popularity": 4.6, "visit_duration_minutes": 60,
+            }
+            state = {
+                "city": "fillcity",
+                "days": 1,
+                "pois": selected,
+                "available_pois": selected + [connected_candidate],
+                "restaurants": [],
+                "hotels": [],
+                "selected_hotel": None,
+                "weather": [],
+                "trip_intent": {"pace": "balanced", "must_visit": []},
+                "data_dir": tmpdir,
+            }
+
+            result = self._run_async(SchedulerAgent().execute(state))
+
+        day = result["daily_plans"][0]
+        self.assertEqual([s["poi_name"] for s in day["stops"]], ["近景点", "可连接景点"])
+        self.assertEqual(day["replacement_pool"][0]["poi_name"], "缺边景点")
+        self.assertEqual(day["route_quality"], {"amap_segments": 1, "estimated_segments": 0})
+
+    def test_fill_connected_optional_stops_can_insert_before_evening_anchor(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "eveningfillcity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([
+                    {
+                        "from": "day",
+                        "to": "night",
+                        "taxi_minutes": 10,
+                        "distance_meters": 1600,
+                        "source": "amap",
+                        "provider": "amap",
+                    }
+                ], f)
+
+            stops = [{
+                "poi_id": "night",
+                "poi_name": "核心夜市",
+                "poi_type": "attraction",
+                "start_minutes": 1080,
+                "end_minutes": 1170,
+                "lat": 30.0,
+                "lng": 120.0,
+            }]
+            candidates = [
+                {
+                    "id": "day",
+                    "name": "白天景点",
+                    "type": "attraction",
+                    "lat": 30.001,
+                    "lng": 120.001,
+                    "area": "核心区",
+                    "popularity": 4.8,
+                    "visit_duration_minutes": 60,
+                    "description": "白天可逛，傍晚也能看夜景。",
+                }
+            ]
+
+            filled = SchedulerAgent._fill_connected_optional_stops(
+                stops,
+                candidates,
+                city="eveningfillcity",
+                data_dir=tmpdir,
+                max_stops=3,
+                start_of_day=540,
+            )
+
+        self.assertEqual([s["poi_name"] for s in filled], ["白天景点", "核心夜市"])
 
     def test_intense_day_has_meals_and_evening_attraction(self):
         from agents.scheduler_agent import SchedulerAgent
@@ -707,6 +1140,101 @@ class TestSchedulerAgent(unittest.TestCase):
         ]
 
         self.assertEqual(restaurant_slots, ["lunch"])
+
+    def test_night_market_restaurant_is_not_scheduled_for_lunch_only_trip(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        state = {
+            "city": "qingdao",
+            "days": 1,
+            "pois": [{
+                "id": "attr_1", "name": "白天景点", "type": "attraction",
+                "area": "城阳区", "lat": 36.30, "lng": 120.41,
+                "open_minutes": 480, "close_minutes": 1260,
+                "visit_duration_minutes": 90, "tags": ["景点"],
+            }],
+            "restaurants": [{
+                "id": "night_market_1",
+                "name": "吕家庄夜市",
+                "type": "restaurant",
+                "area": "城阳区",
+                "lat": 36.305154,
+                "lng": 120.416242,
+                "tags": ["美食", "小吃", "街区"],
+                "description": "夜市烟火气聚集地，适合晚上边走边吃。",
+                "_score": 100,
+            }],
+            "hotels": [],
+            "weather": [],
+            "city_guides": [],
+            "available_pois": [],
+            "trip_intent": {
+                "city": "青岛", "days": 1, "pace": "balanced",
+                "must_visit": [], "interests": [], "strategy": "balanced",
+            },
+            "review_feedback": None,
+        }
+
+        result = self._run_async(SchedulerAgent().execute(state))
+        stops = result["daily_plans"][0]["stops"]
+
+        self.assertFalse(
+            any(s["poi_name"] == "吕家庄夜市" and s["slot"] == "lunch" for s in stops),
+            stops,
+        )
+
+    def test_night_market_restaurant_uses_dinner_slot_when_food_focused(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        state = {
+            "city": "qingdao",
+            "days": 1,
+            "pois": [{
+                "id": "attr_1", "name": "白天景点", "type": "attraction",
+                "area": "城阳区", "lat": 36.30, "lng": 120.41,
+                "open_minutes": 480, "close_minutes": 1260,
+                "visit_duration_minutes": 90, "tags": ["景点"],
+            }],
+            "restaurants": [
+                {
+                    "id": "night_market_1",
+                    "name": "吕家庄夜市",
+                    "type": "restaurant",
+                    "area": "城阳区",
+                    "lat": 36.305154,
+                    "lng": 120.416242,
+                    "tags": ["美食", "小吃", "街区"],
+                    "description": "夜市烟火气聚集地，适合晚上边走边吃。",
+                    "_score": 100,
+                },
+                {
+                    "id": "lunch_1",
+                    "name": "午餐餐厅",
+                    "type": "restaurant",
+                    "area": "城阳区",
+                    "lat": 36.306,
+                    "lng": 120.417,
+                    "tags": ["美食", "中餐厅"],
+                    "description": "适合午餐。",
+                    "_score": 90,
+                },
+            ],
+            "hotels": [],
+            "weather": [],
+            "city_guides": [],
+            "available_pois": [],
+            "trip_intent": {
+                "city": "青岛", "days": 1, "pace": "balanced",
+                "must_visit": [], "interests": ["food"], "strategy": "balanced",
+            },
+            "review_feedback": None,
+        }
+
+        result = self._run_async(SchedulerAgent().execute(state))
+        by_name = {s["poi_name"]: s for s in result["daily_plans"][0]["stops"]}
+
+        self.assertEqual(by_name["午餐餐厅"]["slot"], "lunch")
+        self.assertEqual(by_name["吕家庄夜市"]["slot"], "dinner")
 
     def test_evening_named_attraction_starts_in_evening(self):
         from agents.scheduler_agent import SchedulerAgent
@@ -917,6 +1445,128 @@ class TestSchedulerAgent(unittest.TestCase):
         self.assertEqual(len(result[0].attractions), 4)
 
 
+class TestRestaurantAgent(unittest.TestCase):
+    """Test restaurant candidate selection."""
+
+    def _run_async(self, coro):
+        loop = asyncio.new_event_loop()
+        try:
+            return loop.run_until_complete(coro)
+        finally:
+            loop.close()
+
+    def test_returns_area_representative_beyond_global_top_candidates(self):
+        from agents.restaurant_agent import RestaurantAgent
+
+        with tempfile.TemporaryDirectory() as tmp:
+            city_dir = Path(tmp) / "testcity"
+            city_dir.mkdir()
+            pois = [
+                {
+                    "id": f"core_{i}",
+                    "name": f"核心区高分餐厅{i}",
+                    "type": "restaurant",
+                    "area": "核心区",
+                    "lat": 30.0,
+                    "lng": 120.0 + i * 0.001,
+                    "popularity": 4.8,
+                    "price_level": 1,
+                    "tags": ["美食", "中餐厅"],
+                    "description": "高分热门餐厅，适合作为全城评分候选。",
+                }
+                for i in range(8)
+            ]
+            pois.append({
+                "id": "remote_area",
+                "name": "远区本地餐厅",
+                "type": "restaurant",
+                "area": "远区",
+                "lat": 31.0,
+                "lng": 121.0,
+                "popularity": 4.5,
+                "price_level": 1,
+                "tags": ["美食", "中餐厅"],
+                "description": "远区本地餐厅，评分略低但能服务远区行程。",
+            })
+            (city_dir / "pois.json").write_text(
+                json.dumps(pois, ensure_ascii=False),
+                encoding="utf-8",
+            )
+
+            result = self._run_async(RestaurantAgent(data_dir=tmp).execute({
+                "city": "testcity",
+                "trip_intent": {"city": "testcity", "days": 1, "interests": []},
+            }))
+
+        names = {r["name"] for r in result["restaurants"]}
+        self.assertIn("远区本地餐厅", names)
+
+
+class TestHotelAgent(unittest.TestCase):
+    """Test hotel candidate selection."""
+
+    def _run_async(self, coro):
+        loop = asyncio.new_event_loop()
+        try:
+            return loop.run_until_complete(coro)
+        finally:
+            loop.close()
+
+    def test_hotel_area_matches_name_and_tags_when_area_is_administrative(self):
+        from agents.hotel_agent import HotelAgent
+
+        with tempfile.TemporaryDirectory() as tmp:
+            city_dir = Path(tmp) / "testcity"
+            city_dir.mkdir()
+            pois = [
+                {
+                    "id": "remote",
+                    "name": "远区高分酒店",
+                    "type": "hotel",
+                    "area": "远区",
+                    "lat": 31.0,
+                    "lng": 121.0,
+                    "popularity": 5.0,
+                    "brand_category": "中端",
+                    "price_range": "300-500元",
+                    "tags": ["住宿", "酒店", "远区"],
+                    "description": "远区高分酒店。",
+                },
+                {
+                    "id": "jiefangbei",
+                    "name": "全季酒店(重庆解放碑步行街店)",
+                    "type": "hotel",
+                    "area": "渝中区",
+                    "lat": 29.56,
+                    "lng": 106.58,
+                    "popularity": 4.5,
+                    "brand_category": "中端",
+                    "price_range": "300-500元",
+                    "tags": ["住宿", "酒店", "解放碑片区"],
+                    "description": "位于解放碑商圈。",
+                },
+            ]
+            (city_dir / "pois.json").write_text(
+                json.dumps(pois, ensure_ascii=False),
+                encoding="utf-8",
+            )
+
+            agent = HotelAgent(MagicMock(), data_dir=tmp)
+            agent.invoke_llm = AsyncMock(return_value='{"hotel_id":"unknown","reason":"fallback"}')
+            with patch("agents.hotel_agent.hotel_price_api.fetch_hotel_prices", new=AsyncMock(return_value={"prices": []})):
+                result = self._run_async(agent.execute({
+                    "city": "testcity",
+                    "pois": [],
+                    "trip_intent": {
+                        "city": "testcity",
+                        "hotel_area": "解放碑",
+                        "budget": "mid-range",
+                    },
+                }))
+
+        self.assertEqual(result["selected_hotel"]["id"], "jiefangbei")
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # 4. Route Optimization Tests
 # ══════════════════════════════════════════════════════════════════════════════
@@ -929,7 +1579,7 @@ class TestRouteOptimization(unittest.TestCase):
             _haversine_km, estimate_travel_time, optimize_route,
             optimize_route_2opt, calculate_total_travel_time,
             calculate_route_segments, _minutes_to_time, load_edges_cache,
-            get_real_travel_time,
+            get_real_travel_time, get_route_metric,
         )
         self._haversine_km = _haversine_km
         self.estimate_travel_time = estimate_travel_time
@@ -940,6 +1590,7 @@ class TestRouteOptimization(unittest.TestCase):
         self._minutes_to_time = _minutes_to_time
         self.load_edges_cache = load_edges_cache
         self.get_real_travel_time = get_real_travel_time
+        self.get_route_metric = get_route_metric
 
     def test_haversine(self):
         # Beijing to Shanghai ≈ 1068 km
@@ -1021,6 +1672,86 @@ class TestRouteOptimization(unittest.TestCase):
         self.assertEqual(stops[1]["travel_minutes_from_previous"], 12)
         self.assertEqual(stops[1]["route_source"], "amap_cached")
         self.assertEqual(stops[2]["route_source"], "geo_estimated")
+
+    def test_calculate_route_segments_defaults_to_taxi_minutes(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "taximetriccity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([
+                    {
+                        "from": "a",
+                        "to": "b",
+                        "taxi_minutes": 9,
+                        "transit_minutes": 17,
+                        "walk_minutes": 40,
+                        "distance_meters": 5200,
+                        "source": "amap",
+                        "provider": "amap",
+                    }
+                ], f)
+
+            stops = [
+                {"poi_id": "a", "poi_name": "A", "lat": 30.0, "lng": 120.0},
+                {"poi_id": "b", "poi_name": "B", "lat": 30.01, "lng": 120.01},
+            ]
+
+            segments = self.calculate_route_segments(
+                stops,
+                city="taximetriccity",
+                data_dir=tmpdir,
+            )
+
+        self.assertEqual(segments[0]["travel_minutes"], 9)
+        self.assertEqual(segments[0]["transport_hint"], "taxi")
+        self.assertEqual(stops[1]["travel_minutes_from_previous"], 9)
+
+    def test_get_route_metric_prefers_real_taxi_edge(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            city_dir = Path(tmpdir) / "metriccity"
+            city_dir.mkdir(parents=True)
+            with open(city_dir / "edges.json", "w", encoding="utf-8") as f:
+                json.dump([
+                    {
+                        "from": "a",
+                        "to": "b",
+                        "taxi_minutes": 9,
+                        "transit_minutes": 17,
+                        "walk_minutes": 40,
+                        "distance_meters": 5200,
+                        "source": "amap",
+                        "provider": "amap",
+                    }
+                ], f)
+
+            metric = self.get_route_metric(
+                {"poi_id": "a", "lat": 30.0, "lng": 120.0},
+                {"poi_id": "b", "lat": 30.01, "lng": 120.01},
+                city="metriccity",
+                data_dir=tmpdir,
+                mode="drive",
+            )
+
+        self.assertEqual(metric["minutes"], 9)
+        self.assertEqual(metric["distance_meters"], 5200)
+        self.assertEqual(metric["source"], "amap_cached")
+        self.assertEqual(metric["confidence"], "real")
+        self.assertEqual(metric["transport_hint"], "taxi")
+
+    def test_get_route_metric_marks_missing_edge_as_estimated(self):
+        metric = self.get_route_metric(
+            {"poi_id": "a", "lat": 30.0, "lng": 120.0},
+            {"poi_id": "b", "lat": 30.02, "lng": 120.02},
+            city="missingmetriccity",
+            data_dir="missing-data-dir",
+            mode="drive",
+        )
+
+        self.assertGreater(metric["minutes"], 0)
+        self.assertGreater(metric["distance_meters"], 0)
+        self.assertEqual(metric["source"], "geo_estimated")
+        self.assertEqual(metric["confidence"], "estimated")
+        self.assertEqual(metric["transport_hint"], "drive")
 
     def test_minutes_to_time(self):
         self.assertEqual(self._minutes_to_time(540), "09:00")
@@ -1279,6 +2010,73 @@ class TestIntentAgentRegex(unittest.TestCase):
 class TestReviewerAgent(unittest.TestCase):
     """Test deterministic itinerary quality checks."""
 
+    def test_hard_check_flags_evening_poi_scheduled_too_early(self):
+        from agents.reviewer_agent import ReviewerAgent
+
+        reviewer = ReviewerAgent(MagicMock())
+        daily_plans = [{
+            "day": 1,
+            "stops": [
+                {
+                    "poi_name": "吕家庄夜市",
+                    "poi_type": "attraction",
+                    "start_minutes": 9 * 60,
+                    "end_minutes": 10 * 60 + 30,
+                    "slot": "morning",
+                },
+                {
+                    "poi_name": "台东夜市",
+                    "poi_type": "attraction",
+                    "start_minutes": 18 * 60,
+                    "end_minutes": 19 * 60 + 30,
+                    "slot": "evening",
+                },
+            ],
+        }]
+
+        issues = reviewer._hard_check(daily_plans, [], [])
+
+        early_evening_issues = [
+            issue for issue in issues
+            if issue["type"] == "evening_poi_too_early"
+        ]
+        self.assertEqual(len(early_evening_issues), 1)
+        self.assertEqual(early_evening_issues[0]["severity"], "high")
+        self.assertEqual(early_evening_issues[0]["poi_name"], "吕家庄夜市")
+
+    def test_hard_check_flags_excessive_day_commute_budget(self):
+        from agents.reviewer_agent import ReviewerAgent
+
+        reviewer = ReviewerAgent(MagicMock())
+        daily_plans = [
+            {
+                "day": 1,
+                "total_travel_minutes": 160,
+                "stops": [
+                    {"poi_name": "景点A", "poi_type": "attraction"},
+                    {"poi_name": "景点B", "poi_type": "attraction"},
+                ],
+            },
+            {
+                "day": 2,
+                "total_travel_minutes": 90,
+                "stops": [
+                    {"poi_name": "景点C", "poi_type": "attraction"},
+                    {"poi_name": "景点D", "poi_type": "attraction"},
+                ],
+            },
+        ]
+
+        issues = reviewer._hard_check(daily_plans, [], [])
+
+        excessive_day_issues = [
+            issue for issue in issues
+            if issue["type"] == "excessive_day_commute"
+        ]
+        self.assertEqual(len(excessive_day_issues), 1)
+        self.assertEqual(excessive_day_issues[0]["severity"], "high")
+        self.assertEqual(excessive_day_issues[0]["day"], 1)
+
     def test_hard_check_flags_low_quality_route_and_day_balance(self):
         from agents.reviewer_agent import ReviewerAgent
 
@@ -1358,6 +2156,25 @@ class TestGraphConstruction(unittest.TestCase):
         self.assertEqual(state["available_pois"], [])
         self.assertEqual(state["must_visit_coverage"], [])
         self.assertEqual(state["summary"], "")
+        self.assertEqual(state["data_dir"], "data")
+
+    def test_create_initial_state_accepts_custom_data_dir(self):
+        from graph import create_initial_state, create_initial_state_from_intent
+
+        state = create_initial_state("去青岛3天", data_dir="output/data-routes-staging")
+        self.assertEqual(state["data_dir"], "output/data-routes-staging")
+
+        structured = create_initial_state_from_intent(
+            {"city": "青岛", "days": 3},
+            data_dir="output/data-routes-staging",
+        )
+        self.assertEqual(structured["data_dir"], "output/data-routes-staging")
+        self.assertEqual(structured["city"], "青岛")
+
+    def test_tour_state_declares_data_dir(self):
+        from agents.state import TourState
+
+        self.assertIn("data_dir", TourState.__annotations__)
 
     def test_graph_compiles(self):
         """Verify the graph can be built without errors."""
@@ -1583,6 +2400,54 @@ class TestPoiAgent(unittest.TestCase):
 
         self.assertTrue(PoiAgent(data_dir="data")._is_low_value_poi(poi, intent))
 
+    def test_generic_trip_filters_hongyadong_retail_and_food_streets(self):
+        from agents.poi_agent import PoiAgent
+
+        intent = {
+            "city": "重庆", "days": 3, "pace": "balanced",
+            "must_visit": [], "interests": [], "avoid": [], "strategy": "balanced",
+        }
+        pois = [
+            {
+                "name": "段吉祥核雕(洪崖洞商业街店)",
+                "type": "attraction",
+                "tags": ["城市游览", "街区", "购物", "购物服务", "特色商业街"],
+                "description": "洪崖洞旁的手作小店。",
+            },
+            {
+                "name": "洪崖洞特色特产店(嘉陵江滨江路店)",
+                "type": "attraction",
+                "tags": ["购物", "购物服务"],
+                "description": "售卖重庆伴手礼和土特产。",
+            },
+            {
+                "name": "洪崖洞异国美食街",
+                "type": "attraction",
+                "tags": ["城市游览", "街区", "购物", "特色商业街"],
+                "description": "汇集日韩料理、东南亚小吃和西式简餐。",
+            },
+        ]
+
+        agent = PoiAgent(data_dir="data")
+
+        self.assertTrue(all(agent._is_low_value_poi(poi, intent) for poi in pois))
+
+    def test_fuzzy_must_visit_does_not_keep_hongyadong_shops(self):
+        from agents.poi_agent import PoiAgent
+
+        intent = {
+            "city": "重庆", "days": 3, "pace": "balanced",
+            "must_visit": ["洪崖洞"], "interests": [], "avoid": [], "strategy": "balanced",
+        }
+        poi = {
+            "name": "洪崖洞特色特产店(嘉陵江滨江路店)",
+            "type": "attraction",
+            "tags": ["购物", "购物服务"],
+            "description": "售卖重庆伴手礼和土特产。",
+        }
+
+        self.assertTrue(PoiAgent(data_dir="data")._is_low_value_poi(poi, intent))
+
     def test_must_visit_keeps_explicit_low_value_name(self):
         from agents.poi_agent import PoiAgent
 
@@ -1696,6 +2561,9 @@ class TestLLMAgentCallCounter(unittest.TestCase):
 class TestAPIModule(unittest.TestCase):
     """Test that api_multi_agent.py imports and models work."""
 
+    def _run_async(self, coro):
+        return asyncio.run(coro)
+
     def test_import(self):
         import api_multi_agent
         self.assertTrue(hasattr(api_multi_agent, "app"))
@@ -1715,6 +2583,42 @@ class TestAPIModule(unittest.TestCase):
         from api_multi_agent import MultiPlanRequest
         req = MultiPlanRequest(message="去成都3天", strategies=["balanced", "culture"])
         self.assertEqual(len(req.strategies), 2)
+
+    def test_run_single_plan_passes_configured_data_dir(self):
+        import api_multi_agent
+
+        captured = {}
+
+        def fake_create_initial_state(message, data_dir="data"):
+            captured["message"] = message
+            captured["data_dir"] = data_dir
+            return {"user_message": message, "data_dir": data_dir}
+
+        async def fake_astream(state, config, stream_mode):
+            yield {"final": True, "state": state}
+
+        fake_graph = MagicMock()
+        fake_graph.astream = fake_astream
+
+        with (
+            patch.object(api_multi_agent, "_data_dir", Path("output/data-routes-staging")),
+            patch.object(api_multi_agent, "_get_graph", return_value=fake_graph),
+            patch.object(
+                api_multi_agent,
+                "create_initial_state",
+                side_effect=fake_create_initial_state,
+            ),
+        ):
+            result = self._run_async(
+                api_multi_agent._run_single_plan("去青岛3天", strategy_override="culture")
+            )
+
+        self.assertTrue(result["final"])
+        self.assertIn("文化深度游", captured["message"])
+        self.assertEqual(
+            os.path.normpath(captured["data_dir"]),
+            os.path.normpath("output/data-routes-staging"),
+        )
 
     def test_make_sse_event(self):
         from api_multi_agent import make_sse_event
@@ -1795,6 +2699,97 @@ class TestAPIModule(unittest.TestCase):
         self.assertEqual(second_stop["travel_minutes_from_previous"], 18)
         self.assertEqual(second_stop["distance_meters_from_previous"], 2400)
         self.assertEqual(second_stop["route_source"], "amap_cached")
+
+    def test_convert_to_frontend_format_preserves_replacement_pool(self):
+        from api_multi_agent import convert_to_frontend_format
+
+        state = {
+            "trip_intent": {"city": "测试城", "days": 1, "must_visit": [], "strategy": "balanced"},
+            "daily_plans": [{
+                "day": 1,
+                "stops": [],
+                "summary": "测试",
+                "replacement_pool": [{
+                    "poi_id": "far",
+                    "poi_name": "远景点",
+                    "reason": "commute_too_far",
+                    "route_metric": {"minutes": 72, "distance_meters": 32000, "confidence": "real"},
+                }],
+            }],
+            "selected_hotel": None,
+            "summary": "测试总结",
+        }
+
+        result = convert_to_frontend_format(state)
+
+        self.assertEqual(result["days"][0]["replacement_pool"][0]["poi_name"], "远景点")
+        self.assertEqual(result["days"][0]["replacement_pool"][0]["route_metric"]["minutes"], 72)
+
+    def test_replace_poi_refreshes_route_metrics(self):
+        from api_multi_agent import _apply_replace_poi, _refresh_route_metrics_for_day
+
+        with tempfile.TemporaryDirectory() as tmp:
+            city_dir = Path(tmp) / "metriccity"
+            city_dir.mkdir(parents=True)
+            edges = [
+                {
+                    "from": "poi_a",
+                    "to": "poi_c",
+                    "taxi_minutes": 12,
+                    "distance_meters": 1800,
+                    "provider": "amap",
+                    "source": "amap",
+                },
+            ]
+            (city_dir / "edges.json").write_text(json.dumps(edges), encoding="utf-8")
+
+            daily_plans = [{
+                "day": 1,
+                "stops": [
+                    {
+                        "poi_id": "poi_a",
+                        "poi_name": "景点A",
+                        "poi_type": "attraction",
+                        "lat": 30.0,
+                        "lng": 120.0,
+                    },
+                    {
+                        "poi_id": "poi_b",
+                        "poi_name": "景点B",
+                        "poi_type": "attraction",
+                        "lat": 31.0,
+                        "lng": 121.0,
+                        "travel_minutes_from_previous": 99,
+                        "distance_meters_from_previous": 99000,
+                        "route_source": "geo_estimated",
+                    },
+                ],
+                "route_segments": [],
+                "total_travel_minutes": 99,
+                "route_quality": {},
+            }]
+            city_pois = {
+                "景点C": {
+                    "id": "poi_c",
+                    "name": "景点C",
+                    "lat": 30.01,
+                    "lng": 120.01,
+                    "area": "测试区",
+                    "visit_duration_minutes": 60,
+                }
+            }
+
+            _apply_replace_poi(daily_plans, 1, "poi_b", "景点C", city_pois)
+            _refresh_route_metrics_for_day(daily_plans, 1, city="metriccity", data_dir=tmp)
+
+        day = daily_plans[0]
+        replaced = day["stops"][1]
+        self.assertEqual(replaced["poi_id"], "poi_c")
+        self.assertEqual(replaced["travel_minutes_from_previous"], 12)
+        self.assertEqual(replaced["distance_meters_from_previous"], 1800)
+        self.assertEqual(replaced["route_source"], "amap_cached")
+        self.assertEqual(day["total_travel_minutes"], 12)
+        self.assertEqual(day["route_quality"]["amap_segments"], 1)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1935,6 +2930,140 @@ class TestAsyncIntegration(unittest.TestCase):
         state = {"trip_intent": {}, "city": "长沙", "days": 3}
         with self.assertRaises(RuntimeError):
             self._run_async(gather_fn(state))
+
+
+class TestItineraryQualitySmokeScript(unittest.TestCase):
+    """Test deterministic itinerary quality smoke checks."""
+
+    def test_smoke_script_select_hotel_honors_business_area(self):
+        from scripts.smoke_itinerary_quality import select_hotel
+
+        pois = [
+            {
+                "id": "remote",
+                "name": "远区高分酒店",
+                "type": "hotel",
+                "area": "远区",
+                "popularity": 5.0,
+                "tags": ["酒店", "远区"],
+            },
+            {
+                "id": "core",
+                "name": "重庆解放碑国贸中心亚朵酒店",
+                "type": "hotel",
+                "area": "渝中区",
+                "popularity": 4.5,
+                "tags": ["酒店", "解放碑片区"],
+            },
+        ]
+
+        hotel = select_hotel(pois, hotel_area="解放碑")
+
+        self.assertEqual(hotel["id"], "core")
+
+    def test_smoke_script_reports_pass_for_staging_like_city(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            data_dir = Path(tmpdir)
+            city_dir = data_dir / "smokecity"
+            city_dir.mkdir(parents=True)
+            pois = [
+                {
+                    "id": "a",
+                    "name": "核心景点A",
+                    "type": "attraction",
+                    "area": "核心区",
+                    "lat": 30.0,
+                    "lng": 120.0,
+                    "popularity": 4.8,
+                    "tags": ["景点"],
+                    "description": "热门城市景点",
+                },
+                {
+                    "id": "b",
+                    "name": "核心景点B",
+                    "type": "attraction",
+                    "area": "核心区",
+                    "lat": 30.01,
+                    "lng": 120.01,
+                    "popularity": 4.7,
+                    "tags": ["历史文化"],
+                    "description": "热门历史景点",
+                },
+                {
+                    "id": "c",
+                    "name": "核心景点C",
+                    "type": "attraction",
+                    "area": "核心区",
+                    "lat": 30.02,
+                    "lng": 120.02,
+                    "popularity": 4.6,
+                    "tags": ["公园"],
+                    "description": "热门公园景点",
+                },
+                {
+                    "id": "r",
+                    "name": "本地餐厅",
+                    "type": "restaurant",
+                    "area": "核心区",
+                    "lat": 30.015,
+                    "lng": 120.015,
+                    "popularity": 4.6,
+                    "tags": ["美食"],
+                    "description": "本地餐厅",
+                },
+                {
+                    "id": "h",
+                    "name": "核心酒店",
+                    "type": "hotel",
+                    "area": "核心区",
+                    "lat": 30.005,
+                    "lng": 120.005,
+                    "popularity": 4.5,
+                    "tags": ["酒店"],
+                    "description": "核心区酒店",
+                },
+            ]
+            edges = []
+            for src, dst in [("a", "b"), ("b", "r"), ("r", "c"), ("a", "r"), ("b", "c")]:
+                edges.append({
+                    "from": src,
+                    "to": dst,
+                    "distance_meters": 1000,
+                    "taxi_minutes": 6,
+                    "transit_minutes": 10,
+                    "walk_minutes": 15,
+                    "source": "amap",
+                    "provider": "amap",
+                })
+            (city_dir / "pois.json").write_text(json.dumps(pois, ensure_ascii=False), encoding="utf-8")
+            (city_dir / "edges.json").write_text(json.dumps(edges, ensure_ascii=False), encoding="utf-8")
+
+            report_path = data_dir / "smoke.json"
+            result = subprocess.run(
+                [
+                    sys.executable,
+                    "scripts/smoke_itinerary_quality.py",
+                    "--data-dir",
+                    str(data_dir),
+                    "--city",
+                    "smokecity",
+                    "--days",
+                    "1",
+                    "--out",
+                    str(report_path),
+                ],
+                cwd=_project_root,
+                text=True,
+                capture_output=True,
+                timeout=60,
+            )
+
+            self.assertEqual(result.returncode, 0, result.stderr or result.stdout)
+            report = json.loads(report_path.read_text(encoding="utf-8"))
+            self.assertFalse(report["failed"])
+            self.assertEqual(report["cities"][0]["city"], "smokecity")
+            self.assertEqual(report["cities"][0]["high_or_critical_issues"], 0)
+            self.assertEqual(report["cities"][0]["estimated_segments"], 0)
 
 
 # ══════════════════════════════════════════════════════════════════════════════

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-if (process.argv.includes("--help") || process.argv.includes("-h")) {
+function usage() {
   console.log(`Usage: node scripts/build_commute_edges.js --pois <path> [options]
 
 Build commute edges between POIs using AMap routing APIs.
@@ -18,7 +18,6 @@ Options:
   --mode <mode>           Routing mode: driving, walking, or mixed (default: mixed)
   --batch-size <n>        Batch size for distance API (1-100, default: 100)
   --help, -h              Show this help message`);
-  process.exit(0);
 }
 
 function sanitizeAmapResponse(json) {
@@ -293,6 +292,19 @@ async function fetchAmapDrivingDistanceBatch({ pairs, apiKey, cacheDir, batchSiz
     for (let i = 0; i < group.length; i += batchSize) {
       const batch = group.slice(i, i + batchSize);
       const destination = batch[0].to;
+      const cacheFile = path.join(cacheDir, `distance-${destination.id}-${i}.json`);
+
+      if (fs.existsSync(cacheFile)) {
+        const cached = JSON.parse(fs.readFileSync(cacheFile, "utf8"));
+        const results = parseAmapDistanceResults(cached);
+        results.forEach((result, index) => {
+          if (!result) return;
+          const pair = batch[index];
+          if (pair) metricsByPair.set(pairKey(pair.from, pair.to), result);
+        });
+        continue;
+      }
+
       const params = new URLSearchParams({
         key: apiKey,
         origins: batch.map((pair) => `${pair.from.lng},${pair.from.lat}`).join("|"),
@@ -304,7 +316,7 @@ async function fetchAmapDrivingDistanceBatch({ pairs, apiKey, cacheDir, batchSiz
       const json = await fetchWithRetry(`${AMAP_DISTANCE_URL}?${params.toString()}`);
       if (!json) continue;
       fs.mkdirSync(cacheDir, { recursive: true });
-      fs.writeFileSync(path.join(cacheDir, `distance-${destination.id}-${i}.json`), `${JSON.stringify(sanitizeAmapResponse(json), null, 2)}\n`, "utf8");
+      fs.writeFileSync(cacheFile, `${JSON.stringify(sanitizeAmapResponse(json), null, 2)}\n`, "utf8");
       const results = parseAmapDistanceResults(json);
       results.forEach((result, index) => {
         if (!result) return;
@@ -403,9 +415,29 @@ async function buildEdges(pois, options) {
     if (canUseAmap) {
       if (options.mode === "walking" || options.mode === "mixed") {
         walkMetrics = batchedWalkingMetrics || null;
+        if (!walkMetrics && options.mockDir) {
+          walkMetrics = await fetchAmapRouteMetrics({
+            from: pair.from,
+            to: pair.to,
+            mode: "walk",
+            apiKey,
+            mockDir: options.mockDir,
+            cacheDir: options.cacheDir,
+          });
+        }
       }
       if (options.mode === "driving" || options.mode === "mixed") {
         taxiMetrics = batchedDrivingMetrics || null;
+        if (!taxiMetrics && options.mockDir) {
+          taxiMetrics = await fetchAmapRouteMetrics({
+            from: pair.from,
+            to: pair.to,
+            mode: "drive",
+            apiKey,
+            mockDir: options.mockDir,
+            cacheDir: options.cacheDir,
+          });
+        }
       }
     }
     const source = walkMetrics || taxiMetrics ? "amap" : "geo_estimated";
@@ -469,6 +501,10 @@ function writeOutputs(options, edges) {
 }
 
 async function main() {
+  if (process.argv.includes("--help") || process.argv.includes("-h")) {
+    usage();
+    return;
+  }
   const args = parseArgs(process.argv);
   const pois = readJson(args.pois);
   if (!Array.isArray(pois)) throw new Error("--pois must point to a JSON array");

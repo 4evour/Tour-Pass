@@ -186,9 +186,30 @@ class RestaurantAgent(BaseAgent):
 
             candidates.append(r_copy)
 
-        # Return top candidates for clustering to assign per-day
-        max_candidates = days * 5
-        result = candidates[:max_candidates]
+        # Return top candidates plus one representative per area so clustering
+        # can choose nearby meals for area-focused days.
+        base_limit = max(days * 5, 5)
+        result = []
+        selected_ids: set[str] = set()
+
+        def add_candidate(candidate: dict) -> None:
+            candidate_id = candidate.get("id") or candidate.get("name", "")
+            if candidate_id and candidate_id in selected_ids:
+                return
+            result.append(candidate)
+            if candidate_id:
+                selected_ids.add(candidate_id)
+
+        for candidate in candidates[:base_limit]:
+            add_candidate(candidate)
+
+        represented_areas = {c.get("area", "") for c in result if c.get("area")}
+        for candidate in candidates:
+            area = candidate.get("area", "")
+            if not area or area in represented_areas:
+                continue
+            add_candidate(candidate)
+            represented_areas.add(area)
 
         logger.info("Selected %d restaurant candidates for %s (from %d total)",
                      len(result), city, len(restaurants))

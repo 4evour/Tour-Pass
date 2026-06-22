@@ -4,6 +4,7 @@ Pure deterministic agent — no LLM required.
 Uses algorithmic scoring from ``tools.scoring`` and local JSON data.
 """
 
+import copy
 import json
 import logging
 from pathlib import Path
@@ -34,7 +35,8 @@ class PoiAgent(BaseAgent):
     def _is_low_value_poi(poi: dict, intent: dict) -> bool:
         name = poi.get("name", "")
         must_visit = intent.get("must_visit", [])
-        if any(mv and (mv in name or mv == poi.get("id", "")) for mv in must_visit):
+        exact_must_visit = any(mv and (mv == name or mv == poi.get("id", "")) for mv in must_visit)
+        if exact_must_visit:
             return False
 
         tags = set(poi.get("tags", []))
@@ -62,7 +64,29 @@ class PoiAgent(BaseAgent):
             "培训机构", "培训中心", "学校", "高等院校", "职业技术学校",
             "专修学院", "校区", "产业园", "科技园", "创新中心", "人才交流中心",
         )
-        return any(term in text for term in low_value_terms)
+        if any(term in text for term in low_value_terms):
+            return True
+
+        return False
+
+    @staticmethod
+    def _normalize_time_fields(pois: list[dict]) -> None:
+        """Parse open_time/close_time strings into open_minutes/close_minutes integers."""
+        def _parse(t):
+            if not t or not isinstance(t, str):
+                return None
+            try:
+                h, m = t.split(":")[:2]
+                v = int(h) * 60 + int(m)
+                return v if 0 <= v < 1440 else None
+            except (ValueError, IndexError):
+                return None
+
+        for poi in pois:
+            if poi.get("open_minutes") is None:
+                poi["open_minutes"] = _parse(poi.get("open_time"))
+            if poi.get("close_minutes") is None:
+                poi["close_minutes"] = _parse(poi.get("close_time"))
 
     def _load_pois(self, city: str) -> list[dict]:
         """Load attraction-type POIs from local JSON."""
@@ -89,6 +113,7 @@ class PoiAgent(BaseAgent):
                     seen_bases.add(name)
 
             logger.info("Loaded %d attractions for %s (deduped from %d)", len(deduped), city, len(attractions))
+            self._normalize_time_fields(deduped)
             return deduped
         except Exception as e:
             logger.error("Failed to load POIs: %s", e)
@@ -104,7 +129,7 @@ class PoiAgent(BaseAgent):
         if not city:
             return {"pois": [], "errors": ["PoiAgent: no city specified"]}
 
-        all_pois = self._load_pois(city)
+        all_pois = copy.deepcopy(self._load_pois(city))
         if not all_pois:
             return {"pois": [], "errors": [f"PoiAgent: no POI data found for {city}"]}
         all_pois = [

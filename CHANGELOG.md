@@ -11,6 +11,267 @@
 > 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
 > 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
+## 2026-06-22 14:31 - 提升 21 城真实高德路线边到生产数据
+
+### 变更内容 — 改了什么文件，具体改了什么
+- data/*/edges.json — 将 `output/data-routes-staging` 中已审计通过的 21 城路线边复制到生产 `data/`，覆盖原先低 AMap 覆盖率的生产边文件。
+- docs/itinerary_quality_completion_plan.md、docs/real_route_planning_plan.md — 更新状态，记录生产 `data/{city}/edges.json` 已替换为 staging 验证后的 100% AMap 覆盖路线边，并记录默认 `data/` 口径的 Qingdao/Chongqing deterministic smoke 与 live API smoke 已通过。
+- CHANGELOG.md — 记录本次生产数据提升。
+
+### 原因 — 为什么要改
+- Docker/Render 部署只复制 `data/`，不会复制 `.gitignore` 和 `.dockerignore` 中排除的 `output/`；如果不提升生产数据，线上仍会读取旧的低覆盖率 `data/{city}/edges.json`。
+- 本地 staging 路线审计、确定性 Qingdao/Chongqing 行程 smoke、Qingdao/Chongqing live API staging smoke 和浏览器回归均已通过，可以进入生产数据文件。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响线上和本地默认数据根 `data/` 下的路线时间、距离、来源和调度可行性判断。
+- 不改变 POI、图片、酒店、餐厅数据；不改变 API 字段结构。
+- 部署后无需额外设置 `TOUR_PASS_DATA_DIR` 即可使用新的真实高德边。
+
+## 2026-06-22 14:15 - 修复酒店区域匹配和酒店往返通勤门禁
+
+### 变更内容 — 改了什么文件，具体改了什么
+- agents/hotel_agent.py — 酒店区域过滤从只匹配 `area` 扩展为匹配酒店 `area/name/address/description/recommendation/tags`，使“解放碑”等商圈偏好能命中名称或标签中包含该商圈的酒店。
+- agents/scheduler_agent.py — 新增酒店到首站、末站回酒店的通勤可行性过滤；真实边存在时优先使用真实时间，缺少酒店腿真实边时用估算距离兜底，超过节奏通勤阈值的可选首末站会进入 `replacement_pool`，必去点仍保留。
+- agents/scheduler_agent.py — 当远距首末站过滤后某一天变为空白时，会从酒店附近可行候选中补入一个景点作为种子，再继续使用真实边补充相邻景点。
+- scripts/smoke_itinerary_quality.py — 确定性 smoke 的酒店选择支持 `hotel_area`，重庆默认 smoke 场景使用“解放碑”作为酒店区域，避免测试脚本绕过 HotelAgent 商圈逻辑选到远区酒店。
+- tests/test_multi_agent.py — 增加酒店商圈匹配回归测试，酒店到首站/回酒店远距可选点进入替换池的调度回归测试，空白天从酒店附近补点的回归测试，以及 smoke 脚本酒店区域选择回归测试。
+- docs/itinerary_quality_completion_plan.md、docs/real_route_planning_plan.md — 更新当前验证状态，记录 Qingdao/Chongqing deterministic staging smoke、新的 Qingdao/Chongqing live API staging smoke、酒店区域/酒店往返通勤门禁和空白天补点状态。
+
+### 原因 — 为什么要改
+- 重庆 live API staging smoke 发现用户填写“解放碑”后仍选到秀山火车站酒店，根因是酒店数据的 `area` 多为行政区，商圈只存在于名称、标签或描述中。
+- 同一 smoke 发现奉节县白帝城可作为单点行程绕过景点间路线检查，根因是系统只计算同一天景点之间的边，没有检查酒店出发和返程通勤。
+- 首轮酒店通勤门禁修复后，重庆 live API staging smoke 进一步发现远距点被移除后会留下空白天，需要围绕酒店附近重新补入可行景点，避免行程过空。
+- 确定性 itinerary smoke 使用自己的酒店选择逻辑，原本按全城热度选酒店，会绕过商圈偏好并复现远区酒店问题。
+- 计划文档中的 smoke 结果和未完成项已经落后于当前验证状态，需要同步真实证据，避免后续按旧状态推进。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响 HotelAgent 的候选酒店过滤，用户填写商圈/片区时会更优先选择对应商圈酒店；未填写区域时行为不变。
+- 影响 Scheduler 在有选定酒店时的首末站保留规则，减少跨区远点单点行程进入主行程；酒店腿缺真实边但估算距离很近的点仍可保留。
+- 影响 Scheduler 的补点策略：空白天会优先从酒店附近候选恢复基本景点密度，后续相邻补点仍受真实路线边和通勤阈值约束。
+- 影响 `quality:itinerary-smoke` 的重庆默认验证输入，使其更接近结构化表单里填写酒店区域后的真实规划路径。
+- 影响项目计划文档的状态描述，不改变运行时代码行为。
+- 不改变 API 响应字段结构，仍通过既有 `replacement_pool` 暴露被移除的可替换 POI。
+
+## 2026-06-21 23:20 - 允许 API 使用 staging 路线数据
+
+### 变更内容 — 改了什么文件，具体改了什么
+- graph.py — `create_initial_state` 和 `create_initial_state_from_intent` 支持传入自定义 `data_dir`，默认仍为 `data`。
+- api_multi_agent.py — API 读取 `TOUR_PASS_DATA_DIR` 或 `DATA_DIR` 环境变量作为路线/POI 数据根，并在普通流式规划、同步规划、结构化规划和多候选规划入口都传入初始 graph state。
+- agents/state.py — 在 LangGraph 共享 `TourState` schema 中声明 `data_dir`，避免 graph 执行时丢弃自定义数据根。
+- agents/poi_agent.py — 模糊必去词只保护非低质量 POI；用户写“洪崖洞”时，不再保留名称同含洪崖洞的特产店、礼品店、商业店铺等误分类景点，精确点名的 POI 仍保留。
+- agents/scheduler_agent.py — 补点逻辑支持在晚间锚点前插入有真实高德边且时间可容纳的白天景点；补点候选即使描述含“夜景”，也可按白天时间插入，避免夜市/夜景单独占满整天。
+- web/app.js — 旧版 `logoutBtn` 不存在时不再直接调用 `addEventListener`；反馈组件不存在时跳过 `initFeedback`；旧版 `serviceStatus` 和 `userBadge` 节点不存在时跳过对应写入，避免页面初始化在旧 DOM 绑定阶段中断。
+- scripts/verify_agent_image_carousel.js — 结构化表单验证从旧 `<select id="formCity">` 操作改为点击当前城市卡片 UI；替换列表验证同步写入 `sessionStorage` 中的 session id，并等待 `/agent/modify` 响应，匹配真实会话恢复逻辑。
+- tests/test_multi_agent.py — 增加 graph 初始状态自定义 `data_dir` 的回归测试，验证 `TourState` schema 声明 `data_dir`，验证多候选规划入口会把配置的数据根传入初始 state；覆盖晚间锚点前可补入真实边白天景点，以及模糊必去不保护低质量洪崖洞店铺。
+- docs/itinerary_quality_completion_plan.md、docs/real_route_planning_plan.md — 记录 API 本地 smoke 可通过 `TOUR_PASS_DATA_DIR=output/data-routes-staging` 使用 staging 高德路线数据，并区分 API health smoke、mock 浏览器回归和后续完整 itinerary-generation smoke。
+
+### 原因 — 为什么要改
+- staging 路线数据已经达到 100% AMap 覆盖，但 API 初始 state 仍可能保留默认 `data`，导致调度器不能稳定读取 staging 路线边进行可行性判断。
+- live API staging smoke 发现 `data_dir` 未声明在 `TourState` 中会被 LangGraph 丢弃，Scheduler 实际回退到默认 `data`，因此仍可能输出 `geo_estimated` 段。
+- 重庆 live API staging smoke 发现洪崖洞夜间锚点可能独占一天，暴露“景点不够充分”的质量缺口。
+- 重庆 live API staging smoke 发现“洪崖洞”作为 must_visit 会误保留洪崖洞特产店、核雕店、美食街等商业 POI。
+- 需要先用 staging 数据验证 API/browser 效果，再决定是否替换生产 `data/{city}/edges.json`。
+- 浏览器 smoke 发现首页早期初始化会因为缺失旧 `logoutBtn`、反馈组件、`serviceStatus` 和 `userBadge` 节点抛错，导致 `#mainApp` 一直隐藏，结构化表单和轮播验证无法进入。
+- 前端验证脚本仍按旧结构化城市 select 操作，无法覆盖当前真实表单 UI。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响多 Agent API 的普通规划、结构化规划、同步规划和多候选规划入口；未设置环境变量时仍使用生产 `data`。
+- 影响 Web 首页初始化稳定性；现有 `sidebarLogoutBtn` 退出逻辑不变。
+- 不直接修改生产路线数据，不改变前端 API 响应结构。
+
+## 2026-06-21 15:25 - 修复路线缓存隔离和高德批量缓存复用
+
+### 变更内容 — 改了什么文件，具体改了什么
+- tools/route.py — 将 `edges.json` 缓存 key 从单独城市名改为 `data_dir + city`，避免不同临时数据目录或不同数据根下的同名城市复用旧路线边。
+- scripts/build_commute_edges.js — driving distance 批量请求在调用高德前先读取已有 `distance-{destination}-{offset}.json` 缓存，避免重跑城市刷新时重复请求同一批路线。
+- scripts/promote_route_edges.js — 新增批量 staging promotion 工具，支持从 `data/` 和 `output/amap-{city}-routes-v2` 合并全城路线边，写入指定 staging 数据目录，支持 dry-run 和 aggregate manifest。
+- scripts/audit_route_quality.js — 新增路线质量审计命令，按城市统计 AMap 覆盖、估算边数量、最长边列表，并支持 `--min-amap-ratio` 与 `--max-long-edge-minutes` 失败门槛。
+- scripts/smoke_itinerary_quality.py — 新增确定性行程质量烟测命令，不调用 LLM，串起 PoiAgent、RestaurantAgent、SchedulerAgent 和 Reviewer hard checks，用 staging 路线数据验证真实行程是否仍含 estimated 段或高严重度问题。
+- scripts/build_commute_edges.js — 修复模块被 `require` 时会抢先处理 `--help` 并退出的问题，避免 `fetch_real_route_pairs.js --help` 显示错误脚本说明。
+- agents/scheduler_agent.py — 显式 `data_dir` 规划状态下，将缺少预计算真实路线边的相邻站点视为不可行；可选站点自动移入 `replacement_pool`，必去点会优先通过移除前一个可选点避免 estimated 段，并从 `available_pois` 里补入有真实高德边且不过通勤门槛的候选景点。
+- graph.py — 初始 graph state 增加 `data_dir: "data"`，让线上结构化规划和普通规划的 Scheduler 能使用同一路线数据根。
+- package.json — 新增 `real:promote-routes`、`real:audit-routes` 和 `quality:itinerary-smoke` 脚本入口。
+- tests/test_multi_agent.py — 新增 Scheduler 回归测试，覆盖缺真实边的可选点进入替换池、必去点通过移除前置可选点避免 estimated 段、删除缺边点后可补入真实边候选，以及 smoke 脚本可在 staging-like fixture 上通过；新增 graph 初始状态携带 `data_dir` 的断言。
+- tests/test_amap_pipeline.js — 新增离线回归测试，验证 driving distance 缓存存在时不会触发网络请求；新增批量 staging promotion 测试，验证 dry-run 不写边文件、正式运行会复制 POI 并写入合并后的 AMap 边；新增默认城市发现会忽略 `chromadb` 等非城市目录的测试；新增路线质量审计测试和 `fetch_real_route_pairs.js --help` 回归测试。
+- docs/itinerary_quality_completion_plan.md、docs/real_route_planning_plan.md — 更新多城市 routes-v2 刷新和 staging promotion 状态：21 个支持城市均已生成 driving 高德边，合计 49,417 条刷新边；staging 合并后 49,450 条边，其中替换 17,287 条、插入 32,130 条；定向补采大理 1 条剩余 estimated 边后，staging 21 城 AMap 覆盖达到 100%，生产 `data/` 未覆盖。
+- docs/itinerary_quality_completion_plan.md、docs/real_route_planning_plan.md — 记录确定性 Qingdao/Chongqing staging 行程烟测结果：两城均为 0 estimated 段、0 高严重度阻塞问题；同时保留生产数据尚未覆盖、部署 URL 尚未验证的待办。
+- output/amap-changsha-routes-v2、output/amap-dali-routes-v2、output/amap-kunming-routes-v2、output/amap-lijiang-routes-v2、output/amap-sanya-routes-v2、output/amap-zhangjiajie-routes-v2 — 补齐剩余城市真实 driving 边刷新输出，不覆盖生产 `data/`。
+- output/route_promotion_dry_run_manifest.json、output/route_promotion_manifest.json、output/data-routes-staging — 生成 21 城路线边 dry-run 和 staging 合并结果，不改变生产 `data/`。
+- output/dali_route_pair_patch_pairs.json、output/dali_route_pair_patch_edges.json、output/dali_route_pair_patch_manifest.json、output/dali_route_pair_patch_merge_manifest.json — 定向补采并合并大理 `小河淌水温泉水世界乐园 -> 文华公园` driving 高德边，替换 staging 中最后 1 条 `geo_estimated` 边。
+- output/route_quality_audit_staging.json — 生成 staging 路线质量审计报告，21 城最低 AMap 覆盖 100%，staging `output/data-routes-staging` 不再包含 estimated 路线边。
+- output/itinerary_quality_smoke_staging.json — 生成 Qingdao/Chongqing staging 行程烟测报告，Qingdao 7 个站点、4 条 AMap 段、0 条 estimated 段、3 个替换候选；Chongqing 5 个站点、2 条 AMap 段、0 条 estimated 段、5 个替换候选。
+
+### 原因 — 为什么要改
+- 完整 Python 回归测试中，前一个测试加载了 `metriccity` 的 5 分钟路线边，后一个测试使用另一个临时 `data_dir` 下同名城市的 9 分钟高德边时仍读到旧缓存，导致真实路线判断不稳定。
+- 多城市真实边刷新过程中出现 QPS 限流；脚本原本只给 walking batch 做缓存读取，driving batch 重跑会重复打高德，拖慢补采并增加限流概率。
+- 用户要求继续昨天未完成任务；多城市真实路线数据是后续判断行程是否可行的基础。
+- 刷新数据进入生产前需要可审计的 staging 合并和质量门槛，不能直接覆盖 `data/`。
+- Qingdao/Chongqing staging 烟测显示仅补齐路线边还不够；调度器必须把“没有真实高德边”当作不可行条件，否则仍会在规划时使用 estimated 路段。
+- 大理 staging 审计仍有 1 条 estimated 边，会阻碍生产 promotion 前的 100% 真实路线覆盖门槛。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响 `load_edges_cache`、`get_route_metric`、`calculate_route_segments` 和所有依赖 `edges.json` 的路线时间读取。
+- 影响 `build_commute_edges.js` 的 driving route refresh 重跑行为；不改变路线边文件格式，只减少重复网络请求。
+- 影响 Scheduler 在显式路线数据根下的站点保留规则：缺真实边的可选站点会从 active stops 移到 replacement pool；同一天可用的真实边候选会被补入 active stops。
+- 影响 graph 初始状态，新增 `data_dir` 字段用于让调度器读取正确路线数据根。
+- 新增和更新的 `output/` 刷新产物与 staging 数据仍为离线准备数据，不会直接改变线上规划，直到后续显式替换生产 `data/`。
+
+## 2026-06-21 00:50 - 接入夜间审核门禁和前端替换列表
+
+### 变更内容 — 改了什么文件，具体改了什么
+- agents/reviewer_agent.py — 新增夜间 POI 识别规则，夜市、夜景、夜游、夜生活、酒吧类 POI 如果被排到 18:00 前，会产生 `evening_poi_too_early` 高严重度问题；新增全天通勤预算门禁，超过 150 分钟会产生 `excessive_day_commute` 高严重度问题。
+- api_multi_agent.py — `/agent/modify` 在替换、删除、重排和改时间后重新计算当天 `route_segments`、`total_travel_minutes` 和 `route_quality`，并保留 `data_dir` 以便会话修改继续使用同一数据目录。
+- tests/test_multi_agent.py — 新增 Reviewer 回归测试，覆盖早上安排夜市会被拦截、晚上安排夜市不会误报，以及全天通勤 160 分钟会被标记、90 分钟不会误报；新增 API 回归测试，验证替换景点后会按真实边刷新通勤指标。
+- web/app.js — Agent 行程卡片接入 `replacement_pool`，每个可替换站点显示替换按钮和候选列表；存在 session 时点击候选会调用 `/agent/modify` 并渲染服务端返回的重算路线，没有 session 时才本地预览。
+- web/styles.css — 新增 Agent 替换按钮和候选列表样式。
+- scripts/verify_agent_image_carousel.js — 新增浏览器验证，覆盖替换池候选渲染、点击替换后服务端返回高德通勤、图片轮播、结构化表单和通勤展示。
+- docs/itinerary_quality_completion_plan.md、docs/real_route_planning_plan.md — 同步记录 Reviewer 夜间门禁、前端替换列表、南京、武汉、桂林和厦门真实边完成状态。
+
+### 原因 — 为什么要改
+- 用户反馈夜市仍会排到早上，并要求前端接入可替换景点列表。
+- 后端已经生成 day-level `replacement_pool`，但页面没有暴露，用户无法看到被自动移除的可替换 POI。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响多 Agent Reviewer 的确定性审核结果。
+- 影响静态前端 Agent 行程卡片展示和替换景点交互；替换后会使用服务端重算后的通勤时间、距离和来源。
+- 新增前端浏览器验证覆盖替换列表，不改变生产路线数据。
+- 多城市真实边继续产出：南京 2257 条、武汉 2315 条、桂林 2857 条、厦门 2711 条，四城 AMap 覆盖均为 100%；并发期间出现 QPS 等待，后续爬取应控制请求密度。
+
+## 2026-06-21 00:27 - 增加路线边合并脚本并继续多城市爬取
+
+### 变更内容 — 改了什么文件，具体改了什么
+- scripts/merge_route_edges.js — 新增路线边合并脚本，支持将刷新后的 AMap 边合并到现有 edges 副本，优先用 `provider=amap` 替换 `geo_estimated`，并输出 manifest。
+- package.json — 新增 `real:merge-edges` 脚本入口。
+- tests/test_amap_pipeline.js — 增加 merge route edges 回归测试，验证同一 pair 的估算边会被 AMap 边替换，并记录 replaced/inserted/edge_count。
+- docs/itinerary_quality_completion_plan.md — 更新真实边爬取进度，记录上海、广州、杭州、西安已完成试爬，并记录大 batch 不稳定时使用 `--batch-size 25` 重试。
+- docs/real_route_planning_plan.md — 更新 route edge merge workflow 和多城市爬取任务状态。
+- output/amap-shanghai-routes-v2、output/amap-guangzhou-routes-v2、output/amap-hangzhou-routes-v2、output/amap-xian-routes-v2 — 运行产物：继续试爬四城真实 driving 边，不覆盖生产数据。
+
+### 原因 — 为什么要改
+- 刷新后的真实高德边需要安全合并/提升为可用数据源，不能手工覆盖生产 `data/*/edges.json`。
+- 用户要求在爬取数据时同步更新项目，因此继续推进多城市真实边试爬。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响真实路线数据工具链和 AMap pipeline 测试；不改变当前生产数据、不部署。
+- 上海试爬产物：536 POI、2730 条 driving 边、AMap 覆盖 100%。
+- 广州试爬产物：492 POI、2512 条 driving 边、AMap 覆盖 100%。
+- 杭州试爬产物：478 POI、2425 条 driving 边、AMap 覆盖 100%。
+- 西安试爬产物：494 POI、2567 条 driving 边、AMap 覆盖 100%。
+
+## 2026-06-21 00:08 - 新增完整行程质量完成计划
+
+### 变更内容 — 改了什么文件，具体改了什么
+- docs/itinerary_quality_completion_plan.md — 新增完整行程质量完成计划，将此前反馈的图片轮播、结构化表单、真实路线、夜市时间、餐厅比例、低质量 POI、替换列表、多城市真实边和上线验证纳入同一目标。
+- docs/real_route_planning_plan.md — 更新已完成/部分完成状态，避免继续把已经落地的 route metric、replacement_pool 和部分多城市爬取标记为未开始。
+- CHANGELOG.md — 记录本次计划文档更新。
+
+### 原因 — 为什么要改
+- 用户明确指出不止景点之间路径会影响生成质量，要求阅读之前反馈并制定完整可行方案，持续完成。
+- 原路线计划文档覆盖面过窄，需要新增上层质量计划作为持续推进依据。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 仅影响项目文档和后续执行计划，不改变运行时代码或数据。
+
+## 2026-06-20 23:59 - 接入可选景点替换池与继续多城市真实边试爬
+
+### 变更内容 — 改了什么文件，具体改了什么
+- agents/scheduler_agent.py — 新增真实路线可行性过滤：可选 stop 超过按节奏配置的真实打车/估算通勤阈值时，会从当天 stops 移入 `replacement_pool`；用户必去 stop 即使很远也会保留。
+- agents/scheduler_agent.py — `execute` 接入 `replacement_pool`，并支持从 state 读取 `data_dir`，方便后续使用刷新后的真实高德边数据。
+- api_multi_agent.py — `convert_to_frontend_format` 透传每天的 `replacement_pool`，为前端景点切换列表提供数据入口。
+- tests/test_multi_agent.py — 增加 Scheduler 可选远点移入替换池、必去远点保留、完整 execute 输出替换池、API 透传替换池的回归测试。
+- output/amap-chengdu-routes-v2、output/amap-beijing-routes-v2 — 运行产物：使用 `neighbors=8` 和 `mode=driving` 继续试爬成都、北京真实高德边，不覆盖生产 `data/*/edges.json`。
+
+### 原因 — 为什么要改
+- 用户确认超限可选景点应自动移除，但要保存在景点切换列表里供用户替换。
+- 真实路线时间不能只展示在前端，需要进入 Scheduler 的可行性判断。
+- 用户允许爬取数据时同步更新项目，因此继续用多城市真实高德边验证近邻 8 稀疏图方案。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响 SchedulerAgent 的日程生成输出、API 前端格式转换和后续前端可替换景点列表数据。
+- 不改变当前生产 `data/chengdu/edges.json`、`data/beijing/edges.json`，不自动部署。
+- 成都试爬产物：444 POI、2298 条 driving 边、AMap 覆盖 100%。
+- 北京试爬产物：428 POI、2179 条 driving 边、AMap 覆盖 100%。
+
+## 2026-06-20 23:44 - 接入默认打车路线指标并试爬双城真实边
+
+### 变更内容 — 改了什么文件，具体改了什么
+- tools/route.py — 新增 `get_route_metric`，统一返回单段路线的分钟数、距离、来源、置信度和交通提示；真实高德边按默认打车优先读取 `taxi_minutes`。
+- tools/route.py — `calculate_route_segments` 改为复用 `get_route_metric`，默认模式从步行估算切换为打车/驾车，避免前端继续展示公交或步行优先时间。
+- tools/__init__.py — 导出 `get_route_metric`，供后续 Scheduler/Reviewer 接入路线可行性门禁。
+- tests/test_multi_agent.py — 增加路线指标回归测试，覆盖真实高德打车边优先、缺边时标记 estimated、route segment 默认使用打车时间。
+- output/amap-qingdao-routes-v2、output/amap-chongqing-routes-v2 — 运行产物：使用 `neighbors=8` 和 `mode=driving` 试爬青岛、重庆真实高德边，不覆盖生产 `data/*/edges.json`。
+
+### 原因 — 为什么要改
+- 用户确认默认交通方式按打车判断；现有 route segment 展示会优先使用 `transit_minutes`，与产品策略不一致。
+- 后续 Scheduler/Reviewer 需要统一路线指标，不能各自读取不同字段或继续依赖地理估算。
+- 用户同意先爬取真实数据看覆盖率，因此先用青岛、重庆验证近邻 8 稀疏边方案的实际命中情况。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响路线工具函数和前端展示所依赖的 `route_segments` 时间来源；后续计划会继续把该指标接入调度和审核。
+- 不改变当前生产 `data/qingdao/edges.json`、`data/chongqing/edges.json`，不自动部署。
+- 青岛试爬产物：473 POI、2467 条 driving 边、AMap 覆盖 100%。
+- 重庆试爬产物：483 POI、2535 条 driving 边、AMap 覆盖 100%。
+
+## 2026-06-20 23:32 - 确认替换列表与多城市爬取策略
+
+### 变更内容 — 改了什么文件，具体改了什么
+- docs/real_route_planning_plan.md — 确认前端需要接入景点替换列表，超限移除的可选 POI 仍进入替换池供用户切换。
+- docs/real_route_planning_plan.md — 确认多城市真实高德边默认使用近邻数 8，小城市或 API 额度受限时可降到 6。
+- docs/real_route_planning_plan.md — 将多城市上线门槛改为先爬取并输出每城 manifest，再按真实覆盖率决定是否补充 targeted route-pair patch。
+- docs/real_route_planning_plan.md — 补充当前本地城市边覆盖基线：多数城市 AMap 边覆盖约 3%-8%，重庆、成都、北京等相对更高但仍需刷新。
+
+### 原因 — 为什么要改
+- 用户确认替换列表需要接前端，并接受近邻数建议。
+- 用户指出全面爬取后如果仍然覆盖率不高，需要先看实际爬取结果再决定补救策略。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 仅影响真实路线规划文档，不改变当前运行逻辑、数据文件或部署行为。
+
+## 2026-06-20 23:14 - 增加规划关键路线真实时间抓取工具
+
+### 变更内容 — 改了什么文件，具体改了什么
+- scripts/fetch_real_route_pairs.js — 新增显式 POI pair 的高德真实路线抓取工具，支持 driving/walking/mixed、mock 测试、缓存、manifest、`--require-all` 门禁，并输出可合并到 `edges.json` 的真实边补丁。
+- scripts/build_commute_edges.js — 修复 mock 模式下没有读取单 pair 路线 fixture 的问题，使现有 AMap pipeline 测试可以真实验证路线 fixture 命中。
+- tests/test_amap_pipeline.js — 增加显式 route pair 抓取的离线回归测试，验证 driving/walking 分钟、`source=amap` 和 `route_confidence=real`。
+- package.json — 新增 `real:route-pairs` 脚本入口。
+- output/qingdao-critical-route-pairs.json、output/qingdao-critical-route-edges.json — 运行产物：对青岛三条问题路线进行 live 高德试抓，不覆盖生产数据。
+
+### 原因 — 为什么要改
+- 当前规划阶段缺少真实路线时间闭环，导致无缓存边使用步行估算，无法可靠判断当天路线是否可行。需要先能低成本抓取“酒店、候选景点、相邻 stop、餐厅插入”这些规划关键 pair 的真实 ETA。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响真实路线数据采集工具链和 AMap pipeline 测试；不改变线上规划运行逻辑、不覆盖现有 `data/*/edges.json`。
+- 为后续把真实路线时间接入 Scheduler/Reviewer 的硬门禁提供数据输入。
+
+## 2026-06-20 19:47 - 限制跨区远餐厅进入当天行程
+
+### 变更内容 — 改了什么文件，具体改了什么
+- agents/restaurant_agent.py — 餐厅候选不再只返回全城评分前 `days * 5`，会在全城高分候选之外补充每个区域的代表餐厅，避免胶州等远区本地餐厅被市区高分餐厅挤出候选池。
+- tools/clustering.py — 餐厅和 nightlife 分配增加按节奏区分的距离上限，balanced 默认 12km；超过上限的远餐厅不再为了填补用餐槽被强行放入当天。
+- tests/test_multi_agent.py — 增加区域代表餐厅候选回归测试，以及跨区远餐厅不能硬塞进当天的聚类回归测试；调整“5km 外 fallback”测试为合理距离内 fallback。
+- CHANGELOG.md — 记录本次跨区远餐厅修复。
+
+### 原因 — 为什么要改
+- 青岛行程中胶州当天会把城阳区“吕家庄夜市”和胶州市“李家河夜市”拼到一起，导致 32km 被估算为 386 分钟通勤。根因是餐厅候选池只看全城评分，胶州本地餐厅排名靠后未进入候选；聚类 fallback 又没有距离上限。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响 RestaurantAgent 的候选覆盖范围、Clustering 的餐厅/夜生活分配距离约束，以及多 Agent 行程中的餐厅就近选择。
+- 不改变原始 POI 数据、景点打分、用户必去景点保留逻辑和前端通勤展示格式。
+
+## 2026-06-20 19:41 - 修复夜市餐厅进入午餐时段
+
+### 变更内容 — 改了什么文件，具体改了什么
+- agents/scheduler_agent.py — 新增餐厅与用餐时段匹配逻辑，`_meal_period=dinner` 或名称/标签/描述命中夜市、夜景、夜生活等晚间特征的餐厅不再匹配午餐；美食优先且存在晚餐槽时仍可安排到晚餐。
+- tests/test_multi_agent.py — 新增回归测试，覆盖普通行程不把“吕家庄夜市”安排到午餐，以及美食优先行程把普通餐厅放午餐、夜市放晚餐。
+- CHANGELOG.md — 记录本次夜市餐厅排程修复。
+
+### 原因 — 为什么要改
+- “吕家庄夜市”在数据中属于 `restaurant`，不是 `nightlife`；旧的夜市晚间逻辑只覆盖景点排序，餐厅插入午餐时没有检查晚间属性，导致夜市仍可能出现在早上/午餐时段。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响 SchedulerAgent 的餐厅排程选择，尤其是夜市、夜生活、夜景类餐饮 POI 的午餐/晚餐分配。
+- 不改变原始 POI 数据、RestaurantAgent 候选评分、景点排序和普通餐厅午餐安排。
+
 ## 2026-06-20 19:27 - 清理误提交的 Python 缓存文件
 
 ### 变更内容 — 改了什么文件，具体改了什么
@@ -634,3 +895,47 @@
 - src/api.cpp — 新增 4 个管理员 API 端点（GET/PUT /admin/pois）
 - web/admin.html — 新增「景点管理」tab
 - web/admin.js — POI 管理逻辑：城市切换、分页、搜索筛选、编辑表单
+## 2026-06-20 23:20 - 记录真实路线规划优化计划
+
+### 变更内容
+- 新增 `docs/real_route_planning_plan.md`，记录此前用户反馈的长通勤、夜市早排、餐厅过多、低质量 POI 等问题，以及真实路线抓取结果、架构决策、分阶段实施任务、验收标准和真实效果测试方法。
+- 在计划书中明确下一步实现顺序：先建立统一路线指标，再接入 Scheduler/Reviewer 的可行性门禁，最后做 POI 覆盖与生产验证。
+
+### 原因
+- 用户要求继续下一步，并要求记录之前规划、列出完整计划书，同时对后续问题进行核实。
+- 真实路线数据只能解决“时间是否真实”，还需要规划层硬约束判断“是否应该安排”，因此需要先形成可审核计划。
+
+### 影响范围
+- 仅影响项目文档，不改变当前调度、路线计算、前端展示或部署行为。
+## 2026-06-20 23:27 - 补充真实路线规划决策
+
+### 变更内容
+- 更新 `docs/real_route_planning_plan.md`，记录用户确认的策略：默认打车、超限可选 POI 自动移除并进入替换池、远距离必去景点单独成日、生产只使用预计算高德边、优化方案面向多数城市。
+- 在计划书中补充当前真实高德边算法说明：现有脚本使用近邻稀疏图加连通桥接边，不需要对每两个景点建立全量高德边。
+- 新增多城市稀疏边构建、替换池、远距离必去景点单独成日等后续任务与真实效果测试方法。
+
+### 原因
+- 用户确认了关键产品策略，并询问是否需要全量两两建立高德边。
+- 需要把已确认决策写入项目文档，避免后续实现时重新假设。
+
+### 影响范围
+- 仅影响真实路线规划文档，不改变当前运行逻辑、数据文件或部署行为。
+
+## 2026-06-21 18:21 - 新增小红书帖子可视化模块
+
+### 变更内容
+- 新建 	ools/xhs_parser.py — SSR 抓取小红书公开帖子内容（URL 解析 + __INITIAL_STATE__ 提取 + meta 降级）
+- 修改 pi_multi_agent.py — 新增 3 个 FastAPI 端点：POST /api/xhs/parse、POST /api/xhs/analyze、GET /api/xhs/proxy
+- 修改 web/index.html — 替换 xhsPanel 占位符为完整的小红书解析界面（输入视图 + 结果视图 + Lightbox + 景点 CRUD Modal）
+- 修改 web/styles.css — 新增 ~480 行 XHS 模块样式（输入卡片、Hero、画廊、类型统计、时间线、响应式布局、动画）
+- 修改 web/app.js — 新增 ~260 行 XHS 前端逻辑（解析流水线、结果渲染、Day 切换、景点 CRUD、图片 Lightbox、保存/导出）
+
+### 原因
+参考 4evour/Tour-AI 和 4evour/TripStar 两个项目的实现，为 Tour Pass 新增小红书帖子解析+可视化功能。采用零依赖方案（无需 Cookie/Puppeteer/签名引擎），公开帖子通过 SSR 抓取获取内容，LLM 提纯结构化行程数据。
+
+### 影响范围
+- 	ools/xhs_parser.py — 新模块，无副作用
+- pi_multi_agent.py — 新增 3 个端点，不影响现有 API
+- web/index.html — 仅替换 xhsPanel 区域，不影响其他面板
+- web/styles.css — 仅追加样式，不影响现有样式
+- web/app.js — 仅追加 XHS 函数，不影响现有路由/逻辑

@@ -161,8 +161,12 @@ void SQLiteStore::initializeSchema() {
          "request_json TEXT NOT NULL,"
          "response_json TEXT NOT NULL,"
          "share_id TEXT UNIQUE,"
-         "created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))"
+         "created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now')),"
+         "updated_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'))"
          ");");
+    // Add updated_at column if missing (existing DBs)
+    try { exec("ALTER TABLE saved_trips ADD COLUMN updated_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ','now'));"); }
+    catch (...) { /* column already exists */ }
 
     exec("CREATE TABLE IF NOT EXISTS feedback ("
          "id INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -565,6 +569,27 @@ int64_t SQLiteStore::saveTrip(int64_t userId, const std::string& title, const st
     }
     recordWrite(false);
     return 0;
+}
+
+bool SQLiteStore::updateTrip(int64_t tripId, int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string sql = "UPDATE saved_trips SET response_json=?, "
+                      "request_json=COALESCE(NULLIF(?, ''), request_json), "
+                      "title=COALESCE(NULLIF(?, ''), title), "
+                      "updated_at=strftime('%Y-%m-%dT%H:%M:%fZ','now') "
+                      "WHERE id=? AND user_id=?;";
+    Statement stmt(db_, sql);
+    bindText(stmt.get(), 1, responseJson);
+    bindText(stmt.get(), 2, requestJson);
+    bindText(stmt.get(), 3, title);
+    sqlite3_bind_int64(stmt.get(), 4, tripId);
+    sqlite3_bind_int64(stmt.get(), 5, userId);
+    if (sqlite3_step(stmt.get()) == SQLITE_DONE) {
+        recordWrite(true);
+        return sqlite3_changes(db_) == 1;
+    }
+    recordWrite(false);
+    return false;
 }
 
 nlohmann::json SQLiteStore::listTrips(int64_t userId) {

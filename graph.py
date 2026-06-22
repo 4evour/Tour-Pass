@@ -19,6 +19,7 @@ import logging
 from langchain_core.language_models import BaseChatModel
 from langgraph.constants import START, END
 from langgraph.graph import StateGraph
+from langgraph.checkpoint.memory import MemorySaver
 
 from agents.state import TourState
 from agents.intent_agent import IntentAgent
@@ -126,6 +127,7 @@ def _build_parallel_data_gather(
 
         if errors:
             merged["errors"] = errors
+            merged["cumulative_error_count"] = len(errors)
         if sse_events:
             merged["sse_events"] = sse_events
 
@@ -197,15 +199,15 @@ def build_tour_graph(
     def route_review(state: TourState) -> str:
         review = state.get("review_result")
         cycle = state.get("review_cycle", 0)
-        errors = state.get("errors", [])
+        cum_errors = state.get("cumulative_error_count", 0)
 
         # Too many accumulated non-critical errors — force pass to prevent
         # infinite revision loops on a degraded state.
-        if len(errors) >= _MAX_TOLERABLE_ERRORS:
+        if cum_errors >= _MAX_TOLERABLE_ERRORS:
             logger.warning(
                 "Too many errors (%d >= %d), forcing pass to avoid "
-                "infinite revision: %s",
-                len(errors), _MAX_TOLERABLE_ERRORS, errors[:3],
+                "infinite revision",
+                cum_errors, _MAX_TOLERABLE_ERRORS,
             )
             return "node_ticket"
 
@@ -234,17 +236,18 @@ def build_tour_graph(
     builder.add_edge("node_ticket", "node_summary")
     builder.add_edge("node_summary", END)
 
-    graph = builder.compile()
-    logger.info("Tour planning graph built successfully (parallel data gather enabled)")
+    graph = builder.compile(checkpointer=MemorySaver())
+    logger.info("Tour planning graph built successfully (parallel data gather + MemorySaver checkpointer)")
     return graph
 
 
-def create_initial_state(user_message: str) -> dict:
+def create_initial_state(user_message: str, data_dir: str = "data") -> dict:
     """Create initial state from user message."""
     return {
         "user_message": user_message,
         "trip_intent": None,
         "city": "",
+        "data_dir": data_dir,
         "days": 3,
         "pois": [],
         "hotels": [],
@@ -258,6 +261,7 @@ def create_initial_state(user_message: str) -> dict:
         "review_cycle": 0,
         "tickets": [],
         "errors": [],
+        "cumulative_error_count": 0,
         # Extended fields (migrated from single-agent pipeline)
         "available_pois": [],
         "llm_call_count": 0,
@@ -271,7 +275,7 @@ def create_initial_state(user_message: str) -> dict:
     }
 
 
-def create_initial_state_from_intent(intent_dict: dict) -> dict:
+def create_initial_state_from_intent(intent_dict: dict, data_dir: str = "data") -> dict:
     """Create initial state from pre-parsed structured intent.
 
     When the frontend sends a structured request (form-based), we skip
@@ -279,7 +283,8 @@ def create_initial_state_from_intent(intent_dict: dict) -> dict:
     ``trip_intent``. IntentAgent will see it and return {} immediately.
     """
     state = create_initial_state(
-        user_message=_build_message_from_intent(intent_dict)
+        user_message=_build_message_from_intent(intent_dict),
+        data_dir=data_dir,
     )
     state["trip_intent"] = intent_dict
     state["city"] = intent_dict.get("city", "")

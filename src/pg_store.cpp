@@ -300,6 +300,16 @@ void PostgresStore::initializeSchema() {
         }
         exec("INSERT INTO schema_migrations(version) VALUES (5) ON CONFLICT DO NOTHING;");
     }
+    // Schema v6: add updated_at to saved_trips
+    if (queryScalar("SELECT 1 FROM schema_migrations WHERE version = 6;").empty()) {
+        try { exec("ALTER TABLE saved_trips ADD COLUMN updated_at TIMESTAMPTZ DEFAULT NOW();"); }
+        catch (const std::exception& e) {
+            std::string msg = e.what();
+            if (msg.find("already exists") == std::string::npos &&
+                msg.find("duplicate column") == std::string::npos) throw;
+        }
+        exec("INSERT INTO schema_migrations(version) VALUES (6) ON CONFLICT DO NOTHING;");
+    }
 }
 
 // ---- Recording ----
@@ -520,6 +530,24 @@ int64_t PostgresStore::saveTrip(int64_t userId, const std::string& title, const 
     int64_t id = std::stoll(PQgetvalue(res, 0, 0));
     PQclear(res);
     return id;
+}
+
+bool PostgresStore::updateTrip(int64_t tripId, int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string sql = "UPDATE saved_trips SET response_json=$1, "
+                      "request_json=COALESCE(NULLIF($2,''), request_json), "
+                      "title=COALESCE(NULLIF($3,''), title), "
+                      "updated_at=NOW() "
+                      "WHERE id=$4 AND user_id=$5;";
+    PGresult* res = queryP(sql, {responseJson, requestJson, title,
+                                  std::to_string(tripId), std::to_string(userId)});
+    bool ok = PQresultStatus(res) == PGRES_COMMAND_OK;
+    if (ok) {
+        const char* tuples = PQcmdTuples(res);
+        ok = std::string(tuples) == "1";
+    }
+    PQclear(res);
+    return ok;
 }
 
 nlohmann::json PostgresStore::listTrips(int64_t userId) {

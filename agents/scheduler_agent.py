@@ -18,14 +18,15 @@ Features:
 """
 
 import logging
+from pathlib import Path
 
 from agents.base import BaseAgent
 from agents.state import TourState
 from agents.config import USE_CPP_ROUTE_OPTIMIZER
-from agents.constants import haversine_km
+from agents.constants import haversine_km, CITY_DIR_MAP
 from tools import rag
 from tools.clustering import cluster_pois_for_days, _is_must_visit
-from tools.route import optimize_route_smart, calculate_route_segments
+from tools.route import optimize_route_smart, calculate_route_segments, get_route_metric
 
 logger = logging.getLogger(__name__)
 
@@ -44,6 +45,23 @@ MEAL_WINDOWS = {
 
 EVENING_POI_KEYWORDS = ("夜市", "夜景", "夜游", "夜生活", "酒吧")
 EVENING_POI_START = 1080
+COMMUTE_LIMITS = {
+    "relaxed": {
+        "real_reject_minutes": 50,
+        "estimated_reject_minutes": 35,
+        "estimated_reject_distance_meters": 15000,
+    },
+    "balanced": {
+        "real_reject_minutes": 60,
+        "estimated_reject_minutes": 45,
+        "estimated_reject_distance_meters": 20000,
+    },
+    "intense": {
+        "real_reject_minutes": 75,
+        "estimated_reject_minutes": 55,
+        "estimated_reject_distance_meters": 30000,
+    },
+}
 
 # Indoor tags for weather-aware scheduling
 INDOOR_TAGS = {
@@ -229,8 +247,8 @@ class SchedulerAgent(BaseAgent):
     def _check_opening_time(attr: dict, arrival: int) -> tuple[int, int]:
         """Return (adjusted_start, adjusted_duration)."""
         duration = attr.get("visit_duration_minutes", 60)
-        open_t = attr.get("open_minutes", 480)
-        close_t = attr.get("close_minutes", 1080)
+        open_t = attr.get("open_minutes") or 480
+        close_t = attr.get("close_minutes") or 1080
         if arrival < open_t:
             arrival = open_t
         end = min(arrival + duration, close_t)
@@ -264,6 +282,16 @@ class SchedulerAgent(BaseAgent):
         if not food_focused:
             return ["lunch"]
         return ["lunch", "dinner"]
+
+    @staticmethod
+    def _restaurant_matches_meal(rest: dict, meal_type: str) -> bool:
+        meal_period = rest.get("_meal_period", "") or ""
+        evening_restaurant = meal_period == "dinner" or SchedulerAgent._is_evening_poi(rest)
+        if meal_type == "lunch":
+            return not evening_restaurant
+        if meal_type == "dinner":
+            return evening_restaurant or meal_period in ("", "any")
+        return True
 
     @staticmethod
     def _avoid_reserved_meals(start: int, duration: int, meal_types: list[str]) -> int:
@@ -494,6 +522,384 @@ class SchedulerAgent(BaseAgent):
         return stops
 
     @staticmethod
+    def _is_stop_must_visit(stop: dict, must_visit_names: list[str]) -> bool:
+        name = stop.get("poi_name") or stop.get("name", "")
+        poi_id = stop.get("poi_id") or stop.get("id", "")
+        return any(mv and (mv in name or mv == poi_id) for mv in must_visit_names)
+
+    @staticmethod
+    def _is_route_metric_over_limit(metric: dict, pace: str) -> bool:
+        limits = COMMUTE_LIMITS.get(pace, COMMUTE_LIMITS["balanced"])
+        minutes = metric.get("minutes", 0)
+        distance = metric.get("distance_meters", 0)
+        if metric.get("confidence") == "real":
+            return minutes > limits["real_reject_minutes"]
+        return (
+            minutes > limits["estimated_reject_minutes"]
+            or distance > limits["estimated_reject_distance_meters"]
+        )
+
+    @staticmethod
+    def _replacement_entry(stop: dict, metric: dict, reason: str = "commute_too_far") -> dict:
+        return {
+            "poi_id": stop.get("poi_id") or stop.get("id", ""),
+            "poi_name": stop.get("poi_name") or stop.get("name", ""),
+            "poi_type": stop.get("poi_type") or stop.get("type", "attraction"),
+            "area": stop.get("area", ""),
+            "reason": reason,
+            "route_metric": metric,
+        }
+
+    @staticmethod
+    def _is_missing_real_route(metric: dict) -> bool:
+        return metric.get("confidence") != "real"
+
+    @staticmethod
+    def _has_route_edge_file(city: str, data_dir: str = "data") -> bool:
+        city_key = CITY_DIR_MAP.get(city, (city or "").lower())
+        return bool(city_key) and (Path(data_dir) / city_key / "edges.json").exists()
+
+    @staticmethod
+    def _filter_infeasible_optional_stops(
+        stops: list[dict],
+        city: str,
+        data_dir: str = "data",
+        pace: str = "balanced",
+        must_visit_names: list[str] | None = None,
+        require_real_routes: bool | None = None,
+    ) -> tuple[list[dict], list[dict]]:
+        if len(stops) <= 1:
+            return stops, []
+
+        must_visit_names = must_visit_names or []
+        if require_real_routes is None:
+            require_real_routes = SchedulerAgent._has_route_edge_file(city, data_dir)
+        kept = [stops[0]]
+        replacement_pool: list[dict] = []
+        for stop in stops[1:]:
+            previous = kept[-1]
+            metric = get_route_metric(previous, stop, city=city, data_dir=data_dir, mode="drive")
+            missing_real_route = (
+                require_real_routes and SchedulerAgent._is_missing_real_route(metric)
+            )
+            if missing_real_route and not SchedulerAgent._is_stop_must_visit(stop, must_visit_names):
+                replacement_pool.append(
+                    SchedulerAgent._replacement_entry(stop, metric, reason="route_not_precomputed")
+                )
+                logger.info(
+                    "Removed optional stop '%s' due to missing real route from previous stop",
+                    stop.get("poi_name", ""),
+                )
+                continue
+
+            if missing_real_route and SchedulerAgent._is_stop_must_visit(stop, must_visit_names):
+                while kept and not SchedulerAgent._is_stop_must_visit(kept[-1], must_visit_names):
+                    removed = kept.pop()
+                    replacement_pool.append(
+                        SchedulerAgent._replacement_entry(
+                            removed,
+                            metric,
+                            reason="route_not_precomputed",
+                        )
+                    )
+                    if not kept:
+                        break
+                    metric = get_route_metric(kept[-1], stop, city=city, data_dir=data_dir, mode="drive")
+                    missing_real_route = SchedulerAgent._is_missing_real_route(metric)
+                    if not missing_real_route:
+                        break
+                kept.append(stop)
+                continue
+
+            if (
+                SchedulerAgent._is_route_metric_over_limit(metric, pace)
+                and not SchedulerAgent._is_stop_must_visit(stop, must_visit_names)
+            ):
+                replacement_pool.append(SchedulerAgent._replacement_entry(stop, metric))
+                logger.info(
+                    "Removed optional stop '%s' due to commute: %s min, %s m (%s)",
+                    stop.get("poi_name", ""),
+                    metric.get("minutes"),
+                    metric.get("distance_meters"),
+                    metric.get("confidence"),
+                )
+                continue
+            kept.append(stop)
+        return kept, replacement_pool
+
+    @staticmethod
+    def _hotel_as_stop(hotel: dict) -> dict:
+        return {
+            "poi_id": hotel.get("poi_id") or hotel.get("id", ""),
+            "poi_name": hotel.get("poi_name") or hotel.get("name", "酒店"),
+            "lat": hotel.get("lat", 0),
+            "lng": hotel.get("lng", 0),
+        }
+
+    @staticmethod
+    def _hotel_commute_rejection(metric: dict, pace: str, require_real_routes: bool) -> str:
+        if SchedulerAgent._is_route_metric_over_limit(metric, pace):
+            return "hotel_commute_too_far"
+        return ""
+
+    @staticmethod
+    def _filter_infeasible_hotel_commute(
+        stops: list[dict],
+        hotel: dict | None,
+        city: str,
+        data_dir: str = "data",
+        pace: str = "balanced",
+        must_visit_names: list[str] | None = None,
+        require_real_routes: bool | None = None,
+    ) -> tuple[list[dict], list[dict]]:
+        if not stops or not hotel or not hotel.get("lat") or not hotel.get("lng"):
+            return stops, []
+
+        must_visit_names = must_visit_names or []
+        if require_real_routes is None:
+            require_real_routes = SchedulerAgent._has_route_edge_file(city, data_dir)
+
+        hotel_stop = SchedulerAgent._hotel_as_stop(hotel)
+        kept = list(stops)
+        replacement_pool: list[dict] = []
+
+        changed = True
+        while changed and kept:
+            changed = False
+
+            first = kept[0]
+            first_metric = get_route_metric(hotel_stop, first, city=city, data_dir=data_dir, mode="drive")
+            first_reason = SchedulerAgent._hotel_commute_rejection(
+                first_metric, pace, require_real_routes
+            )
+            if first_reason and not SchedulerAgent._is_stop_must_visit(first, must_visit_names):
+                removed = kept.pop(0)
+                replacement_pool.append(
+                    SchedulerAgent._replacement_entry(removed, first_metric, reason=first_reason)
+                )
+                logger.info(
+                    "Removed optional first stop '%s' due to hotel commute: %s",
+                    removed.get("poi_name", ""),
+                    first_reason,
+                )
+                changed = True
+                continue
+
+            last = kept[-1]
+            last_metric = get_route_metric(last, hotel_stop, city=city, data_dir=data_dir, mode="drive")
+            last_reason = SchedulerAgent._hotel_commute_rejection(
+                last_metric, pace, require_real_routes
+            )
+            if last_reason and not SchedulerAgent._is_stop_must_visit(last, must_visit_names):
+                removed = kept.pop()
+                replacement_pool.append(
+                    SchedulerAgent._replacement_entry(removed, last_metric, reason=last_reason)
+                )
+                logger.info(
+                    "Removed optional last stop '%s' due to hotel commute: %s",
+                    removed.get("poi_name", ""),
+                    last_reason,
+                )
+                changed = True
+
+        return kept, replacement_pool
+
+    @staticmethod
+    def _fill_empty_day_from_hotel(
+        stops: list[dict],
+        candidates: list[dict],
+        hotel: dict | None,
+        city: str,
+        data_dir: str = "data",
+        pace: str = "balanced",
+        start_of_day: int = 540,
+        used_poi_ids: set[str] | None = None,
+    ) -> list[dict]:
+        if stops or not hotel or not hotel.get("lat") or not hotel.get("lng"):
+            return stops
+
+        used = set(used_poi_ids or set())
+        hotel_stop = SchedulerAgent._hotel_as_stop(hotel)
+        scored: list[tuple[int, float, dict, dict]] = []
+        for candidate in candidates:
+            candidate_id = candidate.get("id") or candidate.get("name", "")
+            if not candidate_id or candidate_id in used:
+                continue
+            if candidate.get("type") not in ("attraction", "nightlife"):
+                continue
+
+            candidate_stop = SchedulerAgent._build_stop_from_poi(candidate, start_of_day)
+            outbound = get_route_metric(
+                hotel_stop, candidate_stop, city=city, data_dir=data_dir, mode="drive"
+            )
+            inbound = get_route_metric(
+                candidate_stop, hotel_stop, city=city, data_dir=data_dir, mode="drive"
+            )
+            if SchedulerAgent._hotel_commute_rejection(outbound, pace, False):
+                continue
+            if SchedulerAgent._hotel_commute_rejection(inbound, pace, False):
+                continue
+
+            scored.append((
+                outbound.get("minutes", 0) + inbound.get("minutes", 0),
+                -float(candidate.get("popularity", 0) or candidate.get("_score", 0) or 0),
+                candidate,
+                candidate_stop,
+            ))
+
+        if not scored:
+            return stops
+
+        _, _, _, chosen_stop = sorted(scored, key=lambda row: (row[0], row[1]))[0]
+        return [chosen_stop]
+
+    @staticmethod
+    def _stop_id(stop: dict) -> str:
+        return stop.get("poi_id") or stop.get("id") or stop.get("name", "")
+
+    @staticmethod
+    def _build_stop_from_poi(
+        poi: dict,
+        start_minutes: int,
+        honor_preferred_time: bool = True,
+    ) -> dict:
+        preferred_start = (
+            SchedulerAgent._preferred_start_for_poi(poi, start_minutes)
+            if honor_preferred_time else start_minutes
+        )
+        adj_start, adj_dur = SchedulerAgent._check_opening_time(poi, preferred_start)
+        return {
+            "slot": SchedulerAgent._slot_for_time(adj_start),
+            "poi_id": poi.get("id", ""),
+            "poi_name": poi.get("name", ""),
+            "start_minutes": adj_start,
+            "end_minutes": adj_start + adj_dur,
+            "visit_duration_minutes": adj_dur,
+            "reason": poi.get("recommend_reason", poi.get("recommendation", "")),
+            "poi_type": poi.get("type", "attraction"),
+            "area": poi.get("area", ""),
+            "lat": poi.get("lat", 0),
+            "lng": poi.get("lng", 0),
+        }
+
+    @staticmethod
+    def _fill_connected_optional_stops(
+        stops: list[dict],
+        candidates: list[dict],
+        city: str,
+        data_dir: str = "data",
+        pace: str = "balanced",
+        max_stops: int = 3,
+        gap_minutes: int = 30,
+        start_of_day: int = 540,
+        end_of_day: int = 1140,
+        used_poi_ids: set[str] | None = None,
+    ) -> list[dict]:
+        if len(stops) >= max_stops:
+            return stops
+
+        used = set(used_poi_ids or set())
+        used.update(SchedulerAgent._stop_id(stop) for stop in stops)
+        filled = list(stops)
+
+        while filled and len(filled) < max_stops:
+            anchor = filled[-1]
+            anchor_start = anchor.get("start_minutes", 0)
+            if anchor_start <= start_of_day + 120:
+                break
+            previous = filled[-2] if len(filled) >= 2 else None
+            earliest_start = (
+                previous.get("end_minutes", previous.get("start_minutes", start_of_day)) + gap_minutes
+                if previous else start_of_day
+            )
+            latest_end = anchor_start - gap_minutes
+            if earliest_start >= latest_end:
+                break
+
+            scored: list[tuple[int, float, dict, dict]] = []
+            for candidate in candidates:
+                candidate_id = candidate.get("id") or candidate.get("name", "")
+                if not candidate_id or candidate_id in used:
+                    continue
+                if candidate.get("type") not in ("attraction", "nightlife"):
+                    continue
+                candidate_stop = SchedulerAgent._build_stop_from_poi(
+                    candidate, earliest_start, honor_preferred_time=False
+                )
+                if candidate_stop["end_minutes"] > latest_end:
+                    continue
+
+                total_minutes = 0
+                if previous:
+                    previous_metric = get_route_metric(
+                        previous, candidate_stop, city=city, data_dir=data_dir, mode="drive"
+                    )
+                    if SchedulerAgent._is_missing_real_route(previous_metric):
+                        continue
+                    if SchedulerAgent._is_route_metric_over_limit(previous_metric, pace):
+                        continue
+                    total_minutes += previous_metric.get("minutes", 0)
+
+                anchor_metric = get_route_metric(
+                    candidate_stop, anchor, city=city, data_dir=data_dir, mode="drive"
+                )
+                if SchedulerAgent._is_missing_real_route(anchor_metric):
+                    continue
+                if SchedulerAgent._is_route_metric_over_limit(anchor_metric, pace):
+                    continue
+                total_minutes += anchor_metric.get("minutes", 0)
+
+                scored.append((
+                    total_minutes,
+                    -float(candidate.get("popularity", 0) or candidate.get("_score", 0) or 0),
+                    candidate,
+                    candidate_stop,
+                ))
+
+            if not scored:
+                break
+
+            _, _, chosen, chosen_stop = sorted(scored, key=lambda row: (row[0], row[1]))[0]
+            filled.insert(len(filled) - 1, chosen_stop)
+            used.add(chosen.get("id") or chosen.get("name", ""))
+
+        while filled and len(filled) < max_stops:
+            previous = filled[-1]
+            scored: list[tuple[int, float, dict, dict]] = []
+            for candidate in candidates:
+                candidate_id = candidate.get("id") or candidate.get("name", "")
+                if not candidate_id or candidate_id in used:
+                    continue
+                if candidate.get("type") not in ("attraction", "nightlife"):
+                    continue
+                next_start = previous.get("end_minutes", previous.get("start_minutes", 0)) + gap_minutes
+                if next_start >= end_of_day:
+                    continue
+                candidate_stop = SchedulerAgent._build_stop_from_poi(candidate, next_start)
+                if candidate_stop["start_minutes"] >= end_of_day:
+                    continue
+                metric = get_route_metric(previous, candidate_stop, city=city, data_dir=data_dir, mode="drive")
+                if SchedulerAgent._is_missing_real_route(metric):
+                    continue
+                if SchedulerAgent._is_route_metric_over_limit(metric, pace):
+                    continue
+                scored.append((
+                    metric.get("minutes", 0),
+                    -float(candidate.get("popularity", 0) or candidate.get("_score", 0) or 0),
+                    candidate,
+                    candidate_stop,
+                ))
+
+            if not scored:
+                break
+
+            _, _, chosen, chosen_stop = sorted(scored, key=lambda row: (row[0], row[1]))[0]
+            filled.append(chosen_stop)
+            used.add(chosen.get("id") or chosen.get("name", ""))
+
+        return filled
+
+    @staticmethod
     def _xhs_affinity_swap(
         clusters: list,
         cooccur: dict[tuple[str, str], int],
@@ -619,6 +1025,8 @@ class SchedulerAgent(BaseAgent):
         xhs_reference_routes = state.get("xhs_reference_routes") or []
         review_feedback = state.get("review_feedback") or {}
         intent = state.get("trip_intent") or {}
+        state_has_data_dir = "data_dir" in state
+        data_dir = state.get("data_dir", "data")
 
         pace = intent.get("pace", "balanced")
         pace_cfg = PACE_CONFIG.get(pace, PACE_CONFIG["balanced"])
@@ -747,6 +1155,7 @@ class SchedulerAgent(BaseAgent):
 
         # Step 3: Create schedule with time awareness
         daily_plans: list[dict] = []
+        used_poi_ids: set[str] = set()
         for day_idx, cluster in enumerate(clusters):
             severity = self._get_weather_severity(weather, day_idx)
             is_rainy = self._is_rainy(weather, day_idx)
@@ -824,6 +1233,8 @@ class SchedulerAgent(BaseAgent):
             for meal_type in meal_types:
                 rest = None
                 for candidate in meal_candidates:
+                    if not self._restaurant_matches_meal(candidate, meal_type):
+                        continue
                     rid = candidate.get("id") or candidate.get("name", "")
                     if rid not in used_restaurant_ids:
                         rest = candidate
@@ -859,6 +1270,65 @@ class SchedulerAgent(BaseAgent):
                 stops = self._inject_missing_must_visit(stops, mv_ids, cluster.attractions)
 
             stops.sort(key=lambda x: x.get("start_minutes", 0))
+            stops, replacement_pool = self._filter_infeasible_optional_stops(
+                stops,
+                city=city_dir,
+                data_dir=data_dir,
+                pace=pace,
+                must_visit_names=intent.get("must_visit", []),
+                require_real_routes=(
+                    state_has_data_dir and self._has_route_edge_file(city_dir, data_dir)
+                ),
+            )
+            hotel_kept, hotel_replacements = self._filter_infeasible_hotel_commute(
+                stops,
+                hotel,
+                city=city_dir,
+                data_dir=data_dir,
+                pace=pace,
+                must_visit_names=intent.get("must_visit", []),
+                require_real_routes=(
+                    state_has_data_dir and self._has_route_edge_file(city_dir, data_dir)
+                ),
+            )
+            stops = hotel_kept
+            replacement_pool.extend(hotel_replacements)
+            stops = self._fill_empty_day_from_hotel(
+                stops,
+                available_pois,
+                hotel,
+                city=city_dir,
+                data_dir=data_dir,
+                pace=pace,
+                start_of_day=pace_cfg["start_time"],
+                used_poi_ids=used_poi_ids,
+            )
+            stops = self._fill_connected_optional_stops(
+                stops,
+                available_pois,
+                city=city_dir,
+                data_dir=data_dir,
+                pace=pace,
+                max_stops=max_stops,
+                gap_minutes=gap,
+                start_of_day=pace_cfg["start_time"],
+                end_of_day=end_of_day,
+                used_poi_ids=used_poi_ids,
+            )
+            hotel_kept, hotel_replacements = self._filter_infeasible_hotel_commute(
+                stops,
+                hotel,
+                city=city_dir,
+                data_dir=data_dir,
+                pace=pace,
+                must_visit_names=intent.get("must_visit", []),
+                require_real_routes=(
+                    state_has_data_dir and self._has_route_edge_file(city_dir, data_dir)
+                ),
+            )
+            stops = hotel_kept
+            replacement_pool.extend(hotel_replacements)
+            used_poi_ids.update(self._stop_id(stop) for stop in stops)
 
             # Build day summary enriched with guide context
             summary_parts = [f"Day {cluster.day_num}: {cluster.theme}"]
@@ -894,6 +1364,7 @@ class SchedulerAgent(BaseAgent):
                 "route_segments": [],
                 "total_travel_minutes": 0,
                 "route_quality": {"amap_segments": 0, "estimated_segments": 0},
+                "replacement_pool": replacement_pool,
                 "is_rainy": is_rainy,
                 "weather_severity": severity,
                 "uv_index": day_uv_index,
@@ -988,7 +1459,7 @@ class SchedulerAgent(BaseAgent):
         for dp in daily_plans:
             stops = dp.get("stops", [])
             stops.sort(key=lambda x: x.get("start_minutes", 0))
-            route_segments = calculate_route_segments(stops, city=city_dir)
+            route_segments = calculate_route_segments(stops, city=city_dir, data_dir=data_dir)
             estimated_segments = sum(
                 1 for segment in route_segments
                 if segment.get("route_source") != "amap_cached"

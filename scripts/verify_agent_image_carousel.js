@@ -78,6 +78,53 @@ function startServer() {
       res.end(`event: itinerary\ndata: ${JSON.stringify({ type: "itinerary", itinerary, session_id: "form-test" })}\n\nevent: done\ndata: {}\n\n`);
       return;
     }
+    if (url.pathname === "/agent/modify" && req.method === "POST") {
+      let body = "";
+      req.on("data", (chunk) => { body += chunk; });
+      req.on("end", () => {
+        const payload = JSON.parse(body || "{}");
+        const itinerary = {
+          city: "\u5E7F\u5DDE",
+          days: [{
+            day: payload.day || 1,
+            replacement_pool: [],
+            total_travel_minutes: 12,
+            route_quality: { amap_segments: 1, estimated_segments: 0 },
+            route_segments: [{
+              from_poi_id: "stop_1",
+              to_poi_id: "alt_1",
+              travel_minutes: 12,
+              distance_meters: 1800,
+              route_source: "amap_cached",
+            }],
+            stops: [
+              {
+                poi_id: "stop_1",
+                poi_name: "\u539F\u666F\u70B9",
+                poi_type: "attraction",
+                area: "\u53E6\u4E00\u533A",
+                start_time: "09:00",
+                end_time: "10:00",
+              },
+              {
+                poi_id: "alt_1",
+                poi_name: payload.new_poi_name || "\u66FF\u6362\u666F\u70B9",
+                poi_type: "attraction",
+                area: "\u6D4B\u8BD5\u533A",
+                start_time: "10:30",
+                end_time: "11:30",
+                travel_minutes_from_previous: 12,
+                distance_meters_from_previous: 1800,
+                route_source: "amap_cached",
+              },
+            ],
+          }],
+        };
+        res.writeHead(200, { "Content-Type": "application/json", ...CSP_HEADERS });
+        res.end(JSON.stringify({ status: "ok", itinerary, session_id: payload.session_id || "replace-test" }));
+      });
+      return;
+    }
 
     const pathname = url.pathname === "/" ? "/index.html" : url.pathname;
     const filePath = path.normalize(path.join(ROOT, pathname));
@@ -148,7 +195,8 @@ async function main() {
     if (!formVisible) {
       throw new Error("Expected structured form to become visible under CSP");
     }
-    await page.selectOption("#formCity", "\u5E7F\u5DDE");
+    await page.waitForSelector('.city-card[data-city="\u5E7F\u5DDE"]', { timeout: 10000 });
+    await page.click('.city-card[data-city="\u5E7F\u5DDE"]');
     await page.click("#formSubmitBtn");
     await page.waitForSelector(".agent-stop-name", { timeout: 10000 });
     const structuredStopName = await page.locator(".agent-stop-name").first().textContent();
@@ -304,6 +352,72 @@ async function main() {
     const transportText = await page.locator(".agent-stop-transport").first().textContent();
     if (!transportText || !transportText.includes("18 \u5206\u949F") || !transportText.includes("2.4 km") || !transportText.includes("\u9AD8\u5FB7")) {
       throw new Error(`Expected agent stop transport text with time, distance, and source; got ${transportText}`);
+    }
+
+    await page.evaluate(({ first, second }) => {
+      const replacementItinerary = {
+        city: "\u5E7F\u5DDE",
+        days: [{
+          day: 1,
+          replacement_pool: [{
+            poi_id: "alt_1",
+            poi_name: "\u66FF\u6362\u666F\u70B9",
+            poi_type: "attraction",
+            area: "\u6D4B\u8BD5\u533A",
+            reason: "\u539F\u884C\u7A0B\u8DDD\u79BB\u8FC7\u8FDC\uFF0C\u653E\u5165\u66FF\u6362\u6C60",
+            image_url: second,
+          }],
+          stops: [{
+            poi_id: "stop_1",
+            poi_name: "\u539F\u666F\u70B9",
+            poi_type: "attraction",
+            area: "\u53E6\u4E00\u533A",
+            start_time: "09:00",
+            end_time: "10:00",
+            image_url: first,
+          }, {
+            poi_id: "stop_2",
+            poi_name: "\u53EF\u66FF\u6362\u666F\u70B9",
+            poi_type: "attraction",
+            area: "\u6D4B\u8BD5\u533A",
+            start_time: "10:30",
+            end_time: "11:30",
+            image_url: first,
+            travel_minutes_from_previous: 20,
+            distance_meters_from_previous: 2500,
+            route_source: "geo_estimated",
+          }],
+        }],
+      };
+      state.sessionId = "replace-test";
+      sessionStorage.setItem("tp_session_id", "replace-test");
+      state.currentItinerary = replacementItinerary;
+      renderAgentResult(replacementItinerary);
+    }, { first, second });
+
+    await page.locator(".agent-stop").nth(1).locator(".agent-stop-replace-toggle").click();
+    const replacementText = await page.locator(".agent-stop").nth(1).locator(".agent-stop-replacement-item").first().textContent();
+    if (!replacementText || !replacementText.includes("\u66FF\u6362\u666F\u70B9")) {
+      throw new Error(`Expected replacement pool item to render, got ${replacementText}`);
+    }
+    await page.evaluate(() => {
+      state.sessionId = "replace-test";
+      sessionStorage.setItem("tp_session_id", "replace-test");
+    });
+    const modifyResponse = page.waitForResponse((response) => response.url().includes("/agent/modify"), { timeout: 10000 });
+    await page.locator(".agent-stop").nth(1).locator(".agent-stop-replacement-item").first().click();
+    await modifyResponse;
+    await page.waitForFunction(() => {
+      const names = [...document.querySelectorAll(".agent-stop-name")].map((el) => el.textContent || "");
+      return names.some((name) => name.includes("\u66FF\u6362\u666F\u70B9"));
+    }, null, { timeout: 10000 });
+    const replacedStopName = await page.locator(".agent-stop-name").nth(1).textContent();
+    if (!replacedStopName || !replacedStopName.includes("\u66FF\u6362\u666F\u70B9")) {
+      throw new Error(`Expected stop to switch to replacement candidate, got ${replacedStopName}`);
+    }
+    const replacementTransportText = await page.locator(".agent-stop-transport").first().textContent();
+    if (!replacementTransportText || !replacementTransportText.includes("12 \u5206\u949F") || !replacementTransportText.includes("1.8 km") || !replacementTransportText.includes("\u9AD8\u5FB7")) {
+      throw new Error(`Expected server replacement to refresh route metrics, got ${replacementTransportText}`);
     }
 
     const imagesOnlyFirst = svgDataUrl("#9333ea");

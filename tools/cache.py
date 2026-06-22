@@ -19,10 +19,17 @@ _memory_cache: dict[str, tuple[float, dict]] = {}
 _memory_max = 500
 
 
-def _cache_key(city: str, days: int, pace: str, strategy: str, must_visit: list[str]) -> str:
-    """Generate cache key from trip parameters."""
-    must_sorted = sorted(must_visit)
-    raw = f"{city}:{days}:{pace}:{strategy}:{'|'.join(must_sorted)}"
+def _cache_key(city: str, days: int, pace: str, strategy: str, must_visit: list[str], **extra) -> str:
+    """Generate cache key from trip parameters (all planning dimensions)."""
+    must_sorted = sorted([m for m in (must_visit or []) if m])
+    budget = (extra.get("budget") or "").strip()
+    travelers = (extra.get("travelers") or "").strip()
+    interests = "|".join(sorted(extra.get("interests") or []))
+    avoid = "|".join(sorted(extra.get("avoid") or []))
+    hotel_area = (extra.get("hotel_area") or "").strip()
+    hotel_budget = f"{extra.get('hotel_budget_min', 0)}-{extra.get('hotel_budget_max', 0)}"
+    special = (extra.get("special_requests") or "").strip().lower()
+    raw = f"{city}:{days}:{pace}:{strategy}:{budget}:{travelers}:{interests}:{avoid}:{hotel_area}:{hotel_budget}:{special}:{'|'.join(must_sorted)}"
     return hashlib.md5(raw.encode()).hexdigest()
 
 
@@ -72,9 +79,10 @@ def _get_redis():
 
 def get_cached_itinerary(
     city: str, days: int, pace: str, strategy: str, must_visit: list[str],
+    **extra,
 ) -> Optional[dict]:
     """Get cached itinerary. Returns None if not found."""
-    key = _cache_key(city, days, pace, strategy, must_visit)
+    key = _cache_key(city, days, pace, strategy, must_visit, **extra)
 
     # Try memory first
     result = _memory_get(key)
@@ -98,10 +106,10 @@ def get_cached_itinerary(
 
 def set_cached_itinerary(
     city: str, days: int, pace: str, strategy: str, must_visit: list[str],
-    itinerary: dict,
+    itinerary: dict, **extra,
 ):
     """Store itinerary in cache."""
-    key = _cache_key(city, days, pace, strategy, must_visit)
+    key = _cache_key(city, days, pace, strategy, must_visit, **extra)
 
     _memory_set(key, itinerary)
 

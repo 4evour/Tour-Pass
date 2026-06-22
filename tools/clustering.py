@@ -27,6 +27,11 @@ _MAX_CLUSTER_APPEND_DISTANCE_KM = {
     "balanced": 25.0,
     "intense": 35.0,
 }
+_MAX_RESTAURANT_DISTANCE_KM = {
+    "relaxed": 8.0,
+    "balanced": 12.0,
+    "intense": 18.0,
+}
 
 
 @dataclass
@@ -389,6 +394,7 @@ def cluster_pois_for_days(
     pace = intent.get("pace", "balanced")
     max_per_day = {"relaxed": 4, "balanced": 6, "intense": 8}.get(pace, 6)
     max_append_distance = _MAX_CLUSTER_APPEND_DISTANCE_KM.get(pace, 25.0)
+    max_restaurant_distance = _MAX_RESTAURANT_DISTANCE_KM.get(pace, 12.0)
     target_min_per_day = min(max_per_day, max(1, len(scored_attractions) // num_days))
     skipped_far_keys: set[str] = set()
 
@@ -447,6 +453,12 @@ def cluster_pois_for_days(
                 continue  # Skip already-assigned restaurant
 
             combined, dist = _score_restaurant_for_cluster(cluster, rest)
+            if dist > max_restaurant_distance:
+                logger.info(
+                    "Skipped far restaurant '%s' for day %d (distance %.1fkm > %.1fkm)",
+                    rest.get("name", ""), cluster.day_num, dist, max_restaurant_distance,
+                )
+                continue
             target = close_restaurants if dist < 5.0 else fallback_restaurants
             target.append((combined, dist, rest))
 
@@ -464,6 +476,8 @@ def cluster_pois_for_days(
                 if rest_id in selected_ids:
                     continue
                 combined, dist = _score_restaurant_for_cluster(cluster, rest)
+                if dist > max_restaurant_distance:
+                    continue
                 reusable.append((combined - 50, dist, rest))
             reusable.sort(key=lambda x: x[0], reverse=True)
             selected.extend(reusable[:target_restaurants - len(selected)])
@@ -481,7 +495,9 @@ def cluster_pois_for_days(
     for cluster in clusters:
         if nightlife:
             nl = nightlife[(cluster.day_num - 1) % len(nightlife)]
-            cluster.restaurants.append(nl)
+            _, dist = _score_restaurant_for_cluster(cluster, nl)
+            if dist <= max_restaurant_distance:
+                cluster.restaurants.append(nl)
 
     # ── Infer themes (with area-aware labels) ────────────────────────────────
     for cluster in clusters:

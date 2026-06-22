@@ -277,6 +277,24 @@ class IntentAgent(LLMAgent):
             content = content.split("```", 1)[1].rsplit("```", 1)[0]
         return json.loads(content.strip())
 
+    async def _llm_extract_must_visit(self, user_message: str, city: str, state: Optional[TourState] = None) -> list[str]:
+        """Lightweight LLM call to extract must_visit places only."""
+        prompt = (
+            f"\u4ece\u4ee5\u4e0b\u6d88\u606f\u4e2d\u63d0\u53d6\u7528\u6237\u60f3\u53bb\u7684\u666f\u70b9\u540d\u79f0\uff08\u4e0d\u5305\u542b\u57ce\u5e02\u540d\uff09\u3002"
+            f"\u57ce\u5e02\u662f{city}\u3002\u53ea\u8fd4\u56deJSON\u6570\u7ec4\uff0c\u5982 [\"\u666f\u70b9A\", \"\u666f\u70b9B\"]\u3002"
+            f"\u5982\u679c\u6ca1\u6709\u660e\u786e\u666f\u70b9\uff0c\u8fd4\u56de []\u3002\n"
+            f"\u6d88\u606f\uff1a{user_message}"
+        )
+        content = await self.invoke_llm({"user_message": prompt}, state=state)
+        if "```json" in content:
+            content = content.split("```json", 1)[1].rsplit("```", 1)[0]
+        elif "```" in content:
+            content = content.split("```", 1)[1].rsplit("```", 1)[0]
+        result = json.loads(content.strip())
+        if isinstance(result, list):
+            return [s for s in result if isinstance(s, str) and s.strip()]
+        return []
+
     # -- main ----------------------------------------------------------------
 
     async def execute(self, state: TourState) -> dict:
@@ -337,6 +355,16 @@ class IntentAgent(LLMAgent):
                     strategy = data.get("strategy", "balanced")
             except Exception as e:
                 logger.error("LLM parsing failed: %s", e)
+
+        # --- LLM must_visit supplement when city found but must_visit empty ---
+        if city and not must_visit:
+            has_compound = any(sep in user_message for sep in ("\u3001", "\u548c", "\u8fd8\u6709", "\u4ee5\u53ca"))
+            has_visit_kw = any(kw in user_message for kw in ("\u53bb", "\u73a9", "\u901b", "\u6253\u5361"))
+            if has_compound and has_visit_kw:
+                try:
+                    must_visit = await self._llm_extract_must_visit(user_message, city, state=state)
+                except Exception as e:
+                    logger.warning("LLM must_visit supplement failed: %s", e)
 
         if not city:
             # Explicit error instead of silent default

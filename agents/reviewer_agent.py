@@ -15,6 +15,10 @@ from agents.state import TourState
 
 logger = logging.getLogger(__name__)
 
+EVENING_POI_KEYWORDS = ("夜市", "夜景", "夜游", "夜生活", "酒吧")
+EVENING_START_MINUTES = 18 * 60
+DAY_COMMUTE_WARN_MINUTES = 150
+
 REVIEWER_SYSTEM = """You are an itinerary reviewer. Check the itinerary and provide feedback.
 
 Output JSON with: passed (boolean), issues (array), suggestions (array),
@@ -44,6 +48,20 @@ def _safe_get_stops(day) -> list:
         if isinstance(stops, list):
             return stops
     return []
+
+
+def _is_evening_stop(stop: dict) -> bool:
+    if stop.get("poi_type") == "nightlife" or stop.get("type") == "nightlife":
+        return True
+
+    tags = stop.get("tags", [])
+    if isinstance(tags, list):
+        tag_text = " ".join(str(tag) for tag in tags)
+    else:
+        tag_text = str(tags or "")
+    text = " ".join(str(stop.get(key, "") or "") for key in ("poi_name", "name", "description"))
+    text = f"{text} {tag_text}"
+    return any(keyword in text for keyword in EVENING_POI_KEYWORDS)
 
 
 class ReviewerAgent(LLMAgent):
@@ -98,12 +116,26 @@ class ReviewerAgent(LLMAgent):
                 s for s in stops
                 if isinstance(s, dict) and s.get("poi_type") == "restaurant"
             ]
+            total_travel_minutes = day.get("total_travel_minutes", 0)
+            if not isinstance(total_travel_minutes, (int, float)) or total_travel_minutes <= 0:
+                total_travel_minutes = sum(
+                    s.get("travel_minutes_from_previous", 0)
+                    for s in stops
+                    if isinstance(s, dict) and isinstance(s.get("travel_minutes_from_previous", 0), (int, float))
+                )
 
             # Too many stops
             if len(stops) > 6:
                 issues.append({
                     "type": "too_many_stops", "severity": "high",
                     "detail": f"Day {day_num}: {len(stops)} stops (max 6).",
+                })
+
+            if total_travel_minutes > DAY_COMMUTE_WARN_MINUTES:
+                issues.append({
+                    "type": "excessive_day_commute", "severity": "high",
+                    "day": day_num,
+                    "detail": f"Day {day_num}: total commute is {int(total_travel_minutes)} minutes.",
                 })
 
             # Empty day
@@ -146,6 +178,20 @@ class ReviewerAgent(LLMAgent):
                     continue
                 name = stop.get("poi_name", "")
                 is_must_visit = any(mv and mv in name for mv in must_visit)
+                start_minutes = stop.get("start_minutes", 0)
+                if (
+                    isinstance(start_minutes, (int, float))
+                    and start_minutes
+                    and start_minutes < EVENING_START_MINUTES
+                    and _is_evening_stop(stop)
+                ):
+                    issues.append({
+                        "type": "evening_poi_too_early", "severity": "high",
+                        "day": day_num,
+                        "poi_name": name,
+                        "detail": f"Day {day_num}: {name} is evening-oriented but starts before 18:00.",
+                    })
+
                 if (
                     stop.get("poi_type", "attraction") == "attraction"
                     and stop.get("poi_tier") == "fallback_only"

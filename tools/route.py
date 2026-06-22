@@ -73,7 +73,7 @@ def estimate_travel_time(
 # edges.json real travel time cache
 # ---------------------------------------------------------------------------
 
-_edges_cache: dict[str, dict[str, dict]] = {}  # city -> {"from_id-to_id": edge_data}
+_edges_cache: dict[str, dict[str, dict]] = {}  # data_dir/city -> {"from_id-to_id": edge_data}
 
 
 try:
@@ -100,18 +100,38 @@ def _edge_duration_minutes(edge: dict) -> int:
     return 0
 
 
+def _edge_minutes_for_mode(edge: dict, mode: str = "drive") -> int:
+    normalized_mode = (mode or "drive").lower()
+    if normalized_mode in ("drive", "driving", "taxi"):
+        fields = ("taxi_minutes", "duration_minutes", "transit_minutes", "walk_minutes")
+    elif normalized_mode in ("walk", "walking"):
+        fields = ("walk_minutes", "duration_minutes", "taxi_minutes", "transit_minutes")
+    else:
+        fields = ("transit_minutes", "taxi_minutes", "duration_minutes", "walk_minutes")
+
+    for field in fields:
+        value = edge.get(field)
+        if isinstance(value, (int, float)) and value > 0:
+            return int(value)
+    seconds = edge.get("duration_seconds")
+    if isinstance(seconds, (int, float)) and seconds > 0:
+        return max(int(seconds / 60), 1)
+    return 0
+
+
 def load_edges_cache(city: str, data_dir: str = "data") -> dict[str, dict]:
     """Load edges.json for a city into the cache.
 
     Returns the edge lookup dict for the city.
     """
     city_key = _normalize_city_dir(city)
-    if city_key in _edges_cache:
-        return _edges_cache[city_key]
+    cache_key = f"{Path(data_dir).resolve()}::{city_key}"
+    if cache_key in _edges_cache:
+        return _edges_cache[cache_key]
 
     edges_path = Path(data_dir) / city_key / "edges.json"
     if not edges_path.exists():
-        _edges_cache[city_key] = {}
+        _edges_cache[cache_key] = {}
         return {}
 
     try:
@@ -131,12 +151,12 @@ def load_edges_cache(city: str, data_dir: str = "data") -> dict[str, dict]:
                 lookup[f"{src}-{dst}"] = normalized
                 lookup.setdefault(f"{dst}-{src}", normalized)
 
-        _edges_cache[city_key] = lookup
+        _edges_cache[cache_key] = lookup
         logger.info("Loaded %d edge directions for %s", len(lookup), city_key)
         return lookup
     except Exception as e:
         logger.warning("Failed to load edges for %s: %s", city, e)
-        _edges_cache[city_key] = {}
+        _edges_cache[cache_key] = {}
         return {}
 
 
@@ -206,10 +226,67 @@ def _edge_distance_meters(edge: dict) -> int:
     return 0
 
 
+def get_route_metric(
+    from_stop: dict,
+    to_stop: dict,
+    city: str = "",
+    data_dir: str = "data",
+    mode: str = "drive",
+) -> dict:
+    """Return route minutes, distance, source, and confidence for one POI pair."""
+    from_id = _stop_poi_id(from_stop)
+    to_id = _stop_poi_id(to_stop)
+    edges = load_edges_cache(city, data_dir) if city else {}
+    edge = edges.get(f"{from_id}-{to_id}") if from_id and to_id else None
+
+    if edge:
+        minutes = _edge_minutes_for_mode(edge, mode)
+        distance_meters = _edge_distance_meters(edge)
+        if minutes > 0:
+            return {
+                "minutes": minutes,
+                "distance_meters": distance_meters,
+                "source": _edge_route_source(edge),
+                "confidence": "real" if _edge_route_source(edge) == "amap_cached" else "estimated",
+                "transport_hint": "taxi" if (mode or "").lower() in ("drive", "driving", "taxi") else mode,
+            }
+
+    distance_meters = 0
+    minutes = 30
+    if (
+        from_stop.get("lat")
+        and from_stop.get("lng")
+        and to_stop.get("lat")
+        and to_stop.get("lng")
+    ):
+        distance_km = _haversine_km(
+            from_stop["lat"],
+            from_stop["lng"],
+            to_stop["lat"],
+            to_stop["lng"],
+        )
+        distance_meters = int(distance_km * 1000)
+        minutes = estimate_travel_time(
+            from_stop["lat"],
+            from_stop["lng"],
+            to_stop["lat"],
+            to_stop["lng"],
+            mode,
+        )
+
+    return {
+        "minutes": minutes,
+        "distance_meters": distance_meters,
+        "source": "geo_estimated",
+        "confidence": "estimated",
+        "transport_hint": mode,
+    }
+
+
 def calculate_route_segments(
     stops: list[dict],
     city: str = "",
-    mode: str = "walk",
+    mode: str = "drive",
     data_dir: str = "data",
 ) -> list[dict]:
     """Calculate route segments and annotate each stop with previous travel info."""
@@ -221,61 +298,28 @@ def calculate_route_segments(
     stops[0]["distance_meters_from_previous"] = 0
 
     segments: list[dict] = []
-    edges = load_edges_cache(city, data_dir) if city else {}
-
     for i in range(len(stops) - 1):
         from_stop = stops[i]
         to_stop = stops[i + 1]
         from_id = _stop_poi_id(from_stop)
         to_id = _stop_poi_id(to_stop)
-        edge = edges.get(f"{from_id}-{to_id}") if from_id and to_id else None
-
-        distance_meters = 0
-        route_source = "geo_estimated"
-        travel_minutes = 30
-
-        if edge:
-            duration = edge.get("duration_minutes") or _edge_duration_minutes(edge)
-            if duration and duration > 0:
-                travel_minutes = int(duration)
-            distance_meters = _edge_distance_meters(edge)
-            route_source = _edge_route_source(edge)
-        elif (
-            from_stop.get("lat")
-            and from_stop.get("lng")
-            and to_stop.get("lat")
-            and to_stop.get("lng")
-        ):
-            distance_km = _haversine_km(
-                from_stop["lat"],
-                from_stop["lng"],
-                to_stop["lat"],
-                to_stop["lng"],
-            )
-            distance_meters = int(distance_km * 1000)
-            travel_minutes = estimate_travel_time(
-                from_stop["lat"],
-                from_stop["lng"],
-                to_stop["lat"],
-                to_stop["lng"],
-                mode,
-            )
+        metric = get_route_metric(from_stop, to_stop, city=city, data_dir=data_dir, mode=mode)
 
         segment = {
             "from_poi_id": from_id,
             "to_poi_id": to_id,
             "from_name": from_stop.get("poi_name") or from_stop.get("name", ""),
             "to_name": to_stop.get("poi_name") or to_stop.get("name", ""),
-            "travel_minutes": travel_minutes,
-            "route_source": route_source,
-            "distance_meters": distance_meters,
-            "transport_hint": "transit" if route_source == "amap_cached" else mode,
+            "travel_minutes": metric["minutes"],
+            "route_source": metric["source"],
+            "distance_meters": metric["distance_meters"],
+            "transport_hint": metric["transport_hint"],
         }
         segments.append(segment)
 
-        to_stop["travel_minutes_from_previous"] = travel_minutes
-        to_stop["route_source"] = route_source
-        to_stop["distance_meters_from_previous"] = distance_meters
+        to_stop["travel_minutes_from_previous"] = metric["minutes"]
+        to_stop["route_source"] = metric["source"]
+        to_stop["distance_meters_from_previous"] = metric["distance_meters"]
         to_stop["transport_hint"] = segment["transport_hint"]
 
     return segments

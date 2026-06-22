@@ -98,6 +98,7 @@ class BaseAgent(ABC):
         logger.warning("[%s] Non-critical agent failed — degrading gracefully", self.name)
         return {
             "errors": [error_msg],
+            "cumulative_error_count": 1,
             "sse_events": [{
                 "type": "warning",
                 "content": f"⚠ {self.name} 执行失败，部分功能可能受限",

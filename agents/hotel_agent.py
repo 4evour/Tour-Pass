@@ -77,6 +77,22 @@ def _hotel_category_for_budget(budget: str | None) -> list[str]:
     return ["中端"]
 
 
+def _hotel_matches_area(hotel: dict, hotel_area: str) -> bool:
+    """Return whether a hotel matches an administrative area or business district."""
+    if not hotel_area:
+        return True
+    tags = hotel.get("tags") or []
+    text = " ".join([
+        str(hotel.get("area", "")),
+        str(hotel.get("name", "")),
+        str(hotel.get("address", "")),
+        str(hotel.get("description", "")),
+        str(hotel.get("recommendation", "")),
+        " ".join(str(t) for t in tags),
+    ])
+    return hotel_area in text
+
+
 # ── Location scoring (retained from original HotelAgent) ───────────────────────
 
 def score_hotel_location(hotel: dict, poi_center: tuple[float, float], budget: str | None) -> float:
@@ -175,7 +191,7 @@ class HotelAgent(LLMAgent):
         # ── Layer 1: Area filter ──────────────────────────────────────────────
         hotel_area = intent.get("hotel_area", "")
         if hotel_area:
-            area_hotels = [h for h in candidates if hotel_area in h.get("area", "")]
+            area_hotels = [h for h in candidates if _hotel_matches_area(h, hotel_area)]
             if area_hotels:
                 candidates = area_hotels
                 logger.info("Area filter: %d hotels in '%s'", len(candidates), hotel_area)

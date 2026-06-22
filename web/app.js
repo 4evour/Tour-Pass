@@ -20,6 +20,22 @@ let mapMarkerByPoiId = {}; // poiId -> L.Marker for card-marker interaction
 let searchResultMarkers = null; // L.LayerGroup for search result markers
 
 // ---- Session state persistence (temporary, will be replaced by Hash routing in Phase 4) ----
+
+// Sync modified itinerary back to saved trip in DB
+async function syncSavedTrip(itinerary) {
+  if (!state.tripSaved || !state.savedTripId) return;
+  try {
+    await api("/trips/" + state.savedTripId, {
+      method: "PUT",
+      body: JSON.stringify({
+        response: itinerary || state.currentItinerary,
+        request: state.lastPayload || {},
+      }),
+    });
+    toast("\u5df2\u540c\u6b65\u4fdd\u5b58\u7684\u884c\u7a0b", "info");
+  } catch (e) { console.warn("\u56de\u5199\u4fdd\u5b58\u884c\u7a0b\u5931\u8d25:", e); }
+}
+
 function saveTripState() {
   try {
     sessionStorage.setItem("tp_candidates", JSON.stringify(state.candidates));
@@ -995,7 +1011,8 @@ function showApp() {
   const sidebarUserName = $("sidebarUserName");
   if (sidebarUserName) sidebarUserName.textContent = state.user?.username || "";
   applyRoute();
-  $("userBadge").textContent = state.user?.username || "";
+  const userBadge = $("userBadge");
+  if (userBadge) userBadge.textContent = state.user?.username || "";
   updateQueryCounter(state.user?.query_remaining);
   // Show admin link for admin users
   const adminLink = $("adminLink");
@@ -1101,6 +1118,7 @@ async function checkAuth() {
 // ---- Feedback ----
 
 function initFeedback() {
+  if (!$("feedbackBtn") || !$("feedbackModal")) return;
   $("feedbackBtn").addEventListener("click", () => {
     $("feedbackModal").hidden = false;
     $("fbSuccess").hidden = true;
@@ -1219,14 +1237,16 @@ function showFireworks() {
 }
 
 async function loadHealth() {
+  const serviceStatus = $("serviceStatus");
+  if (!serviceStatus) return;
   try {
     const health = await api("/health");
-    $("serviceStatus").textContent = `已连接 · ${health.poi_count} POI · ${health.llm_configured ? "LLM 已配置" : "模板兜底"}`;
-    $("serviceStatus").classList.add("ok");
+    serviceStatus.textContent = `已连接 · ${health.poi_count} POI · ${health.llm_configured ? "LLM 已配置" : "模板兜底"}`;
+    serviceStatus.classList.add("ok");
   } catch (e) {
     console.warn("loadHealth:", e.message);
-    $("serviceStatus").textContent = "服务未连接";
-    $("serviceStatus").classList.remove("ok");
+    serviceStatus.textContent = "服务未连接";
+    serviceStatus.classList.remove("ok");
   }
 }
 
@@ -2297,6 +2317,7 @@ async function applyAgentReplacement(day, oldStop, candidate, itinerary) {
       }
       renderAgentResult(data.itinerary);
       toast("已替换为 " + replacementCandidateName(candidate), "success");
+      syncSavedTrip(data.itinerary);
       return;
     }
     throw new Error(data.detail || "替换失败");
@@ -3050,6 +3071,7 @@ function applyModification(action, message) {
       renderAgentResult(data.itinerary);
       addChatBubble("assistant", "✅ 行程已更新！");
       toast("行程已修改", "success");
+      syncSavedTrip(data.itinerary);
     } else {
       addChatBubble("assistant", "修改失败：" + (data.detail || "未知错误"));
     }
@@ -3883,7 +3905,7 @@ $("authShowLogin").addEventListener("click", (e) => { e.preventDefault(); $("aut
 $("guestBtn")?.addEventListener("click", doGuestLogin);
 $("sendCodeBtn")?.addEventListener("click", sendCode);
 $("authEmailRegisterBtn")?.addEventListener("click", doEmailRegister);
-$("logoutBtn").addEventListener("click", logout);
+$("logoutBtn")?.addEventListener("click", logout);
 
 initFeedback();
 initEasterEgg();
@@ -4099,3 +4121,229 @@ document.getElementById("pvChangePwdBtn")?.addEventListener("click", async () =>
 });
 
 // Tools tab queries are triggered by user clicking the buttons, not on page load
+// ═══════════════════════════════════════════════════════════════════════════
+// XHS (小红书) Post Visualization Module
+// ═══════════════════════════════════════════════════════════════════════════
+const XHS_TYPES = {
+  "观光": { icon: "👁️", bg: "#eff6ff", color: "#2563eb" },
+  "美食": { icon: "🍜", bg: "#fff7ed", color: "#ea580c" },
+  "购物": { icon: "🛍️", bg: "#fdf2f8", color: "#db2777" },
+  "文化": { icon: "🏛️", bg: "#faf5ff", color: "#9333ea" },
+  "自然": { icon: "🌿", bg: "#f0fdf4", color: "#16a34a" },
+  "休闲": { icon: "☕", bg: "#fffbeb", color: "#d97706" },
+  "住宿": { icon: "🏨", bg: "#eef2ff", color: "#4f46e5" },
+  "交通": { icon: "🚗", bg: "#f8fafc", color: "#64748b" },
+};
+var xhsData = null, xhsCurrentDay = 0, xhsEditingIndex = -1;
+var xhsLbImages = [], xhsLbIdx = 0;
+
+function xhsImg(url) { return url ? "/api/xhs/proxy?url=" + encodeURIComponent(url) : ""; }
+
+function xhsSetStep(n) {
+  document.querySelectorAll("#xhsSteps .xhs-step").forEach(function(el, i) {
+    el.classList.remove("active", "done");
+    if (i < n) el.classList.add("done");
+    if (i === n) el.classList.add("active");
+  });
+}
+
+function xhsShowError(msg) {
+  var el = document.getElementById("xhsError");
+  if (el) { el.textContent = msg; el.hidden = false; }
+}
+function xhsHideError() {
+  var el = document.getElementById("xhsError");
+  if (el) el.hidden = true;
+}
+
+async function xhsParseLink() {
+  var input = document.getElementById("xhsLinkInput");
+  if (!input || !input.value.trim()) { xhsShowError("请粘贴小红书链接"); return; }
+  var btn = document.getElementById("xhsParseBtn");
+  btn.disabled = true; btn.classList.add("loading"); btn.textContent = "正在解析...";
+  xhsHideError(); xhsSetStep(0);
+  try {
+    xhsSetStep(1);
+    var parseRes = await fetch("/api/xhs/parse", {
+      method: "POST", headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({ link: input.value.trim() })
+    });
+    var parseData = await parseRes.json();
+    if (!parseRes.ok || parseData.error) throw new Error(parseData.detail || parseData.error || "解析失败");
+
+    xhsSetStep(2);
+    var analyzeRes = await fetch("/api/xhs/analyze", {
+      method: "POST", headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        title: parseData.title, body: parseData.body,
+        images: parseData.images || [], noteId: parseData.noteId || "",
+        userId: (state.user && state.user.id) || ""
+      })
+    });
+    var analyzeData = await analyzeRes.json();
+    if (!analyzeRes.ok || analyzeData.error) throw new Error(analyzeData.detail || analyzeData.error || "分析失败");
+
+    xhsData = Object.assign({}, analyzeData, { _body: parseData.body, _images: parseData.images || [] });
+    xhsRenderResult(xhsData);
+  } catch (e) { xhsShowError(e.message); xhsSetStep(0); }
+  finally { btn.disabled = false; btn.classList.remove("loading"); btn.textContent = "✨ 开始解析"; }
+}
+
+function xhsRenderResult(d) {
+  document.getElementById("xhsInputView").hidden = true;
+  document.getElementById("xhsResultView").hidden = false;
+  var heroSrc = d.images && d.images.length ? d.images[0] : "";
+  var heroEl = document.getElementById("xhsHeroImg");
+  if (heroSrc) { heroEl.src = xhsImg(heroSrc); heroEl.style.display = ""; }
+  else { heroEl.style.display = "none"; }
+  document.getElementById("xBadgeCity").textContent = "📍 " + (d.city || "未知");
+  document.getElementById("xBadgeDays").textContent = "📅 " + (d.data ? d.data.length : 0) + "天";
+  var total = d.data ? d.data.reduce(function(s,day){return s+(day.places?day.places.length:0);},0) : 0;
+  document.getElementById("xBadgePlaces").textContent = "👣 " + total + "个景点";
+  document.getElementById("xhsTitle").textContent = d.source_title || d.city || "行程解析";
+  document.getElementById("xhsSummary").textContent = d.summary || "";
+  xhsRenderGallery(d._images || []);
+  xhsRenderTypeStats(d.data || []);
+  document.getElementById("xhsOriginalBody").textContent = d._body || "";
+  var tabs = document.getElementById("xhsDayTabs"); tabs.innerHTML = "";
+  (d.data || []).forEach(function(day, i) {
+    var btn = document.createElement("button");
+    btn.className = "xhs-day-tab" + (i === 0 ? " active" : "");
+    btn.innerHTML = "<strong>Day " + (day.day || (i+1)) + "</strong><span class='xhs-day-tab-sub'>" + (day.places?day.places.length:0) + "个景点</span>";
+    btn.onclick = function() { xhsSwitchDay(i); };
+    tabs.appendChild(btn);
+  });
+  xhsCurrentDay = 0; xhsRenderDay(0);
+}
+
+function xhsRenderGallery(images) {
+  var el = document.getElementById("xhsGallery"); el.innerHTML = "";
+  if (!images || !images.length) return;
+  images.slice(0,6).forEach(function(url,i) {
+    var div = document.createElement("div"); div.className = "xhs-gallery-item";
+    var img = document.createElement("img"); img.src = xhsImg(url); img.alt = "";
+    img.onerror = function() { this.style.display = "none"; };
+    div.appendChild(img); div.onclick = function() { xhsOpenLb(i); }; el.appendChild(div);
+  });
+  if (images.length > 6) {
+    var more = document.createElement("div"); more.className = "xhs-gallery-more";
+    more.textContent = "+" + (images.length - 6); more.onclick = function() { xhsOpenLb(6); }; el.appendChild(more);
+  }
+  xhsLbImages = images;
+}
+
+function xhsRenderTypeStats(days) {
+  var counts = {};
+  (days||[]).forEach(function(d){(d.places||[]).forEach(function(p){var t=p.type||"观光";counts[t]=(counts[t]||0)+1;});});
+  var el = document.getElementById("xhsTypeStats"); el.innerHTML = "";
+  Object.entries(counts).sort(function(a,b){return b[1]-a[1];}).slice(0,4).forEach(function(pair) {
+    var type = pair[0], count = pair[1];
+    var cfg = XHS_TYPES[type] || {icon:"📍",bg:"#f5f5f5",color:"#666"};
+    var card = document.createElement("div"); card.className = "xhs-type-stat-card";
+    card.innerHTML = '<div class="xhs-type-stat-icon" style="background:'+cfg.bg+';color:'+cfg.color+'">'+cfg.icon+'</div><div class="xhs-type-stat-info"><div class="xhs-type-stat-count">'+count+'</div><div class="xhs-type-stat-label">'+type+'</div></div>';
+    el.appendChild(card);
+  });
+}
+
+function xhsSwitchDay(idx) {
+  xhsCurrentDay = idx;
+  document.querySelectorAll("#xhsDayTabs .xhs-day-tab").forEach(function(el,i){el.classList.toggle("active",i===idx);});
+  xhsRenderDay(idx);
+}
+
+function xhsRenderDay(idx) {
+  var day = xhsData.data[idx]; if (!day) return;
+  var overview = document.getElementById("xhsDayOverview");
+  var dur = (day.places||[]).map(function(p){return p.duration||"";}).filter(Boolean).join(" + ");
+  overview.innerHTML = "<strong>Day " + (day.day||(idx+1)) + "</strong> — " + (day.places?day.places.length:0) + "个景点" + (dur ? " · " + dur : "");
+  var tl = document.getElementById("xhsTimeline"); tl.innerHTML = "";
+  (day.places||[]).forEach(function(p,i) {
+    var cfg = XHS_TYPES[p.type] || {icon:"📍",bg:"#f5f5f5",color:"#666"};
+    var card = document.createElement("div"); card.className = "xhs-place";
+    card.innerHTML = '<div class="xhs-place-num">'+(i+1)+'</div>' +
+      '<div class="xhs-place-actions"><button class="xhs-place-action" title="编辑" onclick="xhsOpenModal('+i+')">✏️</button><button class="xhs-place-action danger" title="删除" onclick="xhsDeletePlace('+idx+','+i+')">🗑️</button></div>' +
+      '<div class="xhs-place-header"><h3 class="xhs-place-name">'+(p.name||"未命名")+'</h3><span class="xhs-place-type xhs-type-'+(p.type||"观光")+'">'+cfg.icon+' '+(p.type||"观光")+'</span></div>' +
+      (p.description?'<p class="xhs-place-desc">'+p.description+'</p>':'') +
+      '<div class="xhs-place-meta">'+(p.duration?'<span>⏱️ '+p.duration+'</span>':'')+'</div>' +
+      (p.tips?'<div class="xhs-place-tip">💡 '+p.tips+'</div>':'');
+    tl.appendChild(card);
+  });
+}
+
+function xhsOpenLb(idx) { xhsLbIdx=idx; document.getElementById("xhsLightbox").hidden=false; xhsUpdateLb(); }
+function xhsCloseLb() { document.getElementById("xhsLightbox").hidden=true; }
+function xhsLbNav(dir) { xhsLbIdx=(xhsLbIdx+dir+xhsLbImages.length)%xhsLbImages.length; xhsUpdateLb(); }
+function xhsUpdateLb() {
+  document.getElementById("xhsLbImg").src = xhsImg(xhsLbImages[xhsLbIdx]);
+  document.getElementById("xhsLbCounter").textContent = (xhsLbIdx+1)+" / "+xhsLbImages.length;
+}
+function xhsToggleOriginal() { var b=document.getElementById("xhsOriginalBody"); b.hidden=!b.hidden; }
+
+function xhsOpenModal(editIdx) {
+  xhsEditingIndex = editIdx;
+  var typesEl = document.getElementById("xhsPlaceTypes"); typesEl.innerHTML = "";
+  Object.entries(XHS_TYPES).forEach(function(pair) {
+    var name=pair[0], cfg=pair[1];
+    var btn = document.createElement("button"); btn.type="button"; btn.className="xhs-type-pick";
+    btn.textContent = cfg.icon+" "+name; btn.dataset.type = name;
+    btn.onclick = function() { typesEl.querySelectorAll(".xhs-type-pick").forEach(function(b){b.classList.remove("selected");}); btn.classList.add("selected"); };
+    typesEl.appendChild(btn);
+  });
+  if (editIdx >= 0) {
+    var p = xhsData.data[xhsCurrentDay].places[editIdx];
+    document.getElementById("xhsModalTitle").textContent = "编辑景点";
+    document.getElementById("xhsPlaceName").value = p.name||"";
+    document.getElementById("xhsPlaceDesc").value = p.description||"";
+    document.getElementById("xhsPlaceDuration").value = p.duration||"";
+    document.getElementById("xhsPlaceTips").value = p.tips||"";
+    document.getElementById("xhsModalSubmit").textContent = "保存";
+    typesEl.querySelectorAll(".xhs-type-pick").forEach(function(b){if(b.dataset.type===(p.type||"观光"))b.classList.add("selected");});
+  } else {
+    document.getElementById("xhsModalTitle").textContent = "添加景点";
+    document.getElementById("xhsPlaceName").value="";document.getElementById("xhsPlaceDesc").value="";
+    document.getElementById("xhsPlaceDuration").value="";document.getElementById("xhsPlaceTips").value="";
+    document.getElementById("xhsModalSubmit").textContent = "添加";
+    var first = typesEl.querySelector(".xhs-type-pick"); if(first)first.classList.add("selected");
+  }
+  document.getElementById("xhsPlaceModal").hidden = false;
+}
+function xhsCloseModal() { document.getElementById("xhsPlaceModal").hidden=true; }
+
+function xhsSubmitPlace() {
+  var name = document.getElementById("xhsPlaceName").value.trim(); if(!name) return;
+  var sel = document.getElementById("xhsPlaceTypes").querySelector(".xhs-type-pick.selected");
+  var place = {name:name,type:sel?sel.dataset.type:"观光",description:document.getElementById("xhsPlaceDesc").value.trim(),
+    duration:document.getElementById("xhsPlaceDuration").value.trim(),tips:document.getElementById("xhsPlaceTips").value.trim()||null};
+  var day = xhsData.data[xhsCurrentDay];
+  if (xhsEditingIndex >= 0) { day.places[xhsEditingIndex] = Object.assign({}, day.places[xhsEditingIndex], place); }
+  else { if(!day.places)day.places=[]; day.places.push(place); }
+  xhsCloseModal(); xhsRenderDay(xhsCurrentDay); xhsRenderResult(xhsData);
+}
+
+function xhsDeletePlace(dayIdx,placeIdx) {
+  if(!xhsData||!xhsData.data[dayIdx]) return;
+  xhsData.data[dayIdx].places.splice(placeIdx,1);
+  xhsRenderDay(dayIdx); xhsRenderResult(xhsData);
+}
+
+function xhsBackToInput() {
+  document.getElementById("xhsResultView").hidden=true;
+  document.getElementById("xhsInputView").hidden=false; xhsSetStep(0);
+}
+
+function xhsSaveAsTrip() {
+  if(!xhsData) return;
+  try { var trips=JSON.parse(localStorage.getItem("tp_xhs_trips")||"[]");
+    trips.push(Object.assign({},xhsData,{savedAt:Date.now()}));
+    localStorage.setItem("tp_xhs_trips",JSON.stringify(trips));
+    toast("行程已保存！","success");
+  } catch(e) { toast("保存失败: "+e.message,"error"); }
+}
+
+function xhsExportToEditor() {
+  if(!xhsData) return;
+  var tripId = xhsData.id || ("xhs_"+Date.now());
+  try { sessionStorage.setItem("tp_xhs_export_"+tripId, JSON.stringify(xhsData));
+    navigateTo("editor?tripId="+tripId+"&source=xhs");
+  } catch(e) { toast("导出失败: "+e.message,"error"); }
+}

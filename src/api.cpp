@@ -2074,6 +2074,26 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         }
     });
 
+    server.Put(R"(/trips/(\d+))", [&](const httplib::Request& req, httplib::Response& res) {
+        auto [userId, role] = getAuthUser(req);
+        if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
+        int64_t tripId = 0;
+        try { tripId = std::stoll(req.matches[1]); } catch (...) {}
+        if (tripId <= 0) { setJson(res, errorJson("INVALID_REQUEST", "无效的行程ID"), 400); return; }
+        try {
+            auto body = nlohmann::json::parse(req.body);
+            std::string title = body.value("title", "");
+            std::string reqJson = body.contains("request") ? body["request"].dump() : "";
+            std::string respJson = body.contains("response") ? body["response"].dump() : "";
+            if (!context.store->updateTrip(tripId, userId, title, reqJson, respJson)) {
+                setJson(res, errorJson("NOT_FOUND", "行程不存在或无权修改"), 404); return;
+            }
+            setJson(res, {{"status", "updated"}, {"id", tripId}});
+        } catch (const std::exception& ex) {
+            setJson(res, errorJson("INTERNAL_ERROR", "更新失败", {{"reason", ex.what()}}), 500);
+        }
+    });
+
     server.Get("/trips/list", [&](const httplib::Request& req, httplib::Response& res) {
         auto [userId, role] = getAuthUser(req);
         if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }

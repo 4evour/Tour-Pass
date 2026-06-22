@@ -10,6 +10,7 @@ from tools.route import (
     estimate_travel_time,
     calculate_total_travel_time,
     get_real_travel_time,
+    get_route_metric,
     load_edges_cache,
 )
 from tools import rag
@@ -35,6 +36,7 @@ __all__ = [
     "estimate_travel_time",
     "calculate_total_travel_time",
     "get_real_travel_time",
+    "get_route_metric",
     "load_edges_cache",
 
     # RAG

@@ -14,6 +14,7 @@ import hashlib
 import json
 import logging
 import os
+import re
 import uuid
 import time
 from contextlib import asynccontextmanager
@@ -23,6 +24,8 @@ from typing import Optional, Literal
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import Response as FastAPIResponse
+import httpx
 from pydantic import BaseModel, Field
 
 # Load .env file
@@ -43,6 +46,7 @@ from tools.cache import (
     get_cache_stats,
 )
 from tools import rag as rag_module
+from tools.route import calculate_route_segments
 
 logging.basicConfig(
     level=logging.INFO,
@@ -59,47 +63,23 @@ _VERSION = "2.0.0"
 _llm = None
 _graph = None
 _poi_cache: dict[str, dict[str, dict]] = {}
-_data_dir = Path("data")
+_data_dir = Path(os.environ.get("TOUR_PASS_DATA_DIR") or os.environ.get("DATA_DIR") or "data")
 
 # ── Session store for multi-turn chat ──────────────────────────────────────
-# Maps session_id → {"history": [...], "itinerary": {...}, "state": {...}, "ts": float}
-# Sessions auto-expire after 30 minutes of inactivity.
-_chat_sessions: dict[str, dict] = {}
-_SESSION_TTL_SECONDS = 1800  # 30 minutes
+# Uses Redis when available, falls back to in-memory with asyncio.Lock
+from tools.session_store import get_session_store
 
 
-def _get_or_create_session(session_id: str) -> dict:
+async def _get_or_create_session(session_id: str) -> dict:
     """Get existing chat session or create a new one."""
-    if session_id and session_id in _chat_sessions:
-        session = _chat_sessions[session_id]
-        if time.time() - session.get("ts", 0) < _SESSION_TTL_SECONDS:
-            session["ts"] = time.time()
-            return session
-    # Create new session
-    new_id = session_id or uuid.uuid4().hex[:12]
-    session = {
-        "session_id": new_id,
-        "history": [],       # [{"role": "user"|"assistant", "content": "..."}]
-        "itinerary": None,   # Last generated itinerary (frontend format)
-        "state": None,       # Last full graph state (for incremental modify)
-        "intent": None,      # Parsed trip intent dict
-        "ts": time.time(),
-    }
-    _chat_sessions[new_id] = session
-    return session
+    store = get_session_store()
+    return await store.get_or_create(session_id)
 
 
-def _cleanup_expired_sessions():
+async def _cleanup_expired_sessions():
     """Remove sessions older than TTL."""
-    now = time.time()
-    expired = [
-        sid for sid, s in _chat_sessions.items()
-        if now - s.get("ts", 0) >= _SESSION_TTL_SECONDS
-    ]
-    for sid in expired:
-        del _chat_sessions[sid]
-    if expired:
-        logger.info("Cleaned up %d expired chat sessions", len(expired))
+    store = get_session_store()
+    await store.cleanup()
 
 
 def _get_llm():
@@ -124,7 +104,7 @@ def _get_graph():
     """Get or compile the shared graph (compiled once, reused)."""
     global _graph
     if _graph is None:
-        _graph = build_tour_graph(_get_llm(), data_dir="data")
+        _graph = build_tour_graph(_get_llm(), data_dir=str(_data_dir))
         logger.info("Graph compiled and cached")
     return _graph
 
@@ -324,6 +304,7 @@ def convert_to_frontend_format(state: dict) -> dict:
             "route_segments": day.get("route_segments", []),
             "total_travel_minutes": day.get("total_travel_minutes", 0),
             "route_quality": day.get("route_quality", {}),
+            "replacement_pool": day.get("replacement_pool", []),
             "is_rainy": day.get("is_rainy", False),
             "weather_severity": day.get("weather_severity", "good"),
             "weather": day_weather,
@@ -455,27 +436,28 @@ async def get_data_image(city: str, asset_path: str):
     return FileResponse(file_path)
 
 
-def _make_thread_id(message: str) -> str:
-    """Derive a per-request thread ID from the message content.
+def _make_thread_id(message: str = "") -> str:
+    """Generate a per-request unique thread ID.
 
-    This avoids the old bug where all users shared 'default' thread,
-    causing state pollution across requests.
+    With MemorySaver checkpointer enabled, each request needs a unique
+    thread_id to ensure state isolation. Using uuid instead of message
+    hash prevents different users sending the same message from sharing state.
     """
-    return hashlib.sha256(message.encode()).hexdigest()[:16]
+    return uuid.uuid4().hex[:16]
 
 
 @app.post("/agent/plan")
 async def plan_itinerary(req: PlanRequest):
     """Generate a travel itinerary via Multi-Agent pipeline. Returns SSE stream."""
 
-    _cleanup_expired_sessions()
+    await _cleanup_expired_sessions()
     session_id = req.session_id or uuid.uuid4().hex[:12]
 
     async def event_stream():
         try:
-            session = _get_or_create_session(session_id)
+            session = await _get_or_create_session(session_id)
             graph = _get_graph()
-            initial_state = create_initial_state(req.message)
+            initial_state = create_initial_state(req.message, data_dir=str(_data_dir))
             thread_id = _make_thread_id(req.message)
             config = {"configurable": {"thread_id": thread_id}, "recursion_limit": 50}
 
@@ -563,6 +545,14 @@ async def plan_itinerary(req: PlanRequest):
                         strategy=intent.get("strategy", "balanced"),
                         must_visit=intent.get("must_visit", []),
                         itinerary=itinerary,
+                        budget=intent.get("budget", ""),
+                        travelers=intent.get("travelers", ""),
+                        interests=intent.get("interests", []),
+                        avoid=intent.get("avoid", []),
+                        hotel_area=intent.get("hotel_area", ""),
+                        hotel_budget_min=intent.get("hotel_budget_min", 0),
+                        hotel_budget_max=intent.get("hotel_budget_max", 0),
+                        special_requests=intent.get("special_requests", ""),
                     )
 
                 yield make_sse_event("itinerary", {
@@ -621,6 +611,14 @@ async def plan_itinerary_sync(req: PlanRequest):
                 pace=_intent.get("pace", "balanced"),
                 strategy=_intent.get("strategy", "balanced"),
                 must_visit=_intent.get("must_visit", []),
+                budget=_intent.get("budget", ""),
+                travelers=_intent.get("travelers", ""),
+                interests=_intent.get("interests", []),
+                avoid=_intent.get("avoid", []),
+                hotel_area=_intent.get("hotel_area", ""),
+                hotel_budget_min=_intent.get("hotel_budget_min", 0),
+                hotel_budget_max=_intent.get("hotel_budget_max", 0),
+                special_requests=_intent.get("special_requests", ""),
             )
             if _cached:
                 return PlanResponse(success=True, itinerary=_cached)
@@ -629,7 +627,7 @@ async def plan_itinerary_sync(req: PlanRequest):
 
     try:
         graph = _get_graph()
-        initial_state = create_initial_state(req.message)
+        initial_state = create_initial_state(req.message, data_dir=str(_data_dir))
         thread_id = _make_thread_id(req.message)
         config = {"configurable": {"thread_id": thread_id}, "recursion_limit": 50}
 
@@ -682,7 +680,7 @@ async def plan_structured(req: StructuredPlanRequest):
     ~1-2 seconds of latency.
     """
     # Periodic session cleanup
-    _cleanup_expired_sessions()
+    await _cleanup_expired_sessions()
 
     intent_dict = req.model_dump(exclude={"session_id"})
     session_id = req.session_id or uuid.uuid4().hex[:12]
@@ -690,11 +688,11 @@ async def plan_structured(req: StructuredPlanRequest):
     async def event_stream():
         try:
             # Store session
-            session = _get_or_create_session(session_id)
+            session = await _get_or_create_session(session_id)
             session["intent"] = intent_dict
 
             graph = _get_graph()
-            initial_state = create_initial_state_from_intent(intent_dict)
+            initial_state = create_initial_state_from_intent(intent_dict, data_dir=str(_data_dir))
             thread_id = _make_thread_id(json.dumps(intent_dict, sort_keys=True))
             config = {"configurable": {"thread_id": thread_id}, "recursion_limit": 50}
 
@@ -726,6 +724,14 @@ async def plan_structured(req: StructuredPlanRequest):
                     city=req.city, days=req.days, pace=req.pace,
                     strategy=req.strategy, must_visit=req.must_visit,
                     itinerary=itinerary,
+                    budget=getattr(req, 'budget', ''),
+                    travelers=getattr(req, 'travelers', ''),
+                    interests=getattr(req, 'interests', []),
+                    avoid=getattr(req, 'avoid', []),
+                    hotel_area=getattr(req, 'hotel_area', ''),
+                    hotel_budget_min=getattr(req, 'hotel_budget_min', 0),
+                    hotel_budget_max=getattr(req, 'hotel_budget_max', 0),
+                    special_requests=getattr(req, 'special_requests', ''),
                 )
                 # Add to history
                 session["history"].append({
@@ -767,7 +773,10 @@ def _serialize_state(state: dict) -> dict:
     keep_keys = {
         "trip_intent", "city", "days", "daily_plans", "selected_hotel",
         "pois", "hotels", "restaurants", "weather", "available_pois",
-        "must_visit_coverage", "summary",
+        "must_visit_coverage", "summary", "data_dir",
+        # Scheduler + reviewer dependencies
+        "xhs_routes", "xhs_popular_pois", "xhs_reference_routes",
+        "city_guides", "review_feedback", "tickets",
     }
     return {k: v for k, v in state.items() if k in keep_keys}
 
@@ -813,8 +822,8 @@ async def chat_with_session(req: SessionChatRequest):
     - Last itinerary (for modification reference)
     - Last graph state (for incremental re-planning)
     """
-    _cleanup_expired_sessions()
-    session = _get_or_create_session(req.session_id or "")
+    await _cleanup_expired_sessions()
+    session = await _get_or_create_session(req.session_id or "")
     session_id = session["session_id"]
 
     # Build context from session
@@ -899,21 +908,27 @@ async def modify_itinerary(req: ModifyRequest):
 
     state = dict(session["state"])
     daily_plans = state.get("daily_plans", [])
-    city = state.get("city", "")
+    intent = state.get("trip_intent") or {}
+    city = state.get("city", "") or (intent.get("city", "") if isinstance(intent, dict) else "")
+    data_dir = state.get("data_dir", "data")
     city_pois = _load_city_pois(city)
 
     try:
         if req.action == "replace_poi" and req.day is not None and req.poi_id and req.new_poi_name:
             _apply_replace_poi(daily_plans, req.day, req.poi_id, req.new_poi_name, city_pois)
+            _refresh_route_metrics_for_day(daily_plans, req.day, city=city, data_dir=data_dir)
 
         elif req.action == "remove_poi" and req.day is not None and req.poi_id:
             _apply_remove_poi(daily_plans, req.day, req.poi_id)
+            _refresh_route_metrics_for_day(daily_plans, req.day, city=city, data_dir=data_dir)
 
         elif req.action == "reorder" and req.day is not None and req.new_order:
             _apply_reorder(daily_plans, req.day, req.new_order)
+            _refresh_route_metrics_for_day(daily_plans, req.day, city=city, data_dir=data_dir)
 
         elif req.action == "change_time" and req.day is not None and req.poi_id:
             _apply_change_time(daily_plans, req.day, req.poi_id, req.new_start_minutes, req.new_end_minutes)
+            _refresh_route_metrics_for_day(daily_plans, req.day, city=city, data_dir=data_dir)
 
         elif req.action == "change_pace" and req.new_pace:
             # Pace change requires re-scheduling; fall back to partial re-run
@@ -970,6 +985,28 @@ def _apply_replace_poi(daily_plans, day, old_poi_id, new_poi_name, city_pois):
             stop["reason"] = new_poi.get("recommendation", "用户替换")
             return
     raise HTTPException(status_code=404, detail=f"POI {old_poi_id} not found in day {day}")
+
+
+def _refresh_route_metrics_for_day(daily_plans, day, city="", data_dir="data"):
+    day_plan = next((d for d in daily_plans if d.get("day") == day), None)
+    if not day_plan:
+        raise HTTPException(status_code=400, detail=f"Day {day} not found")
+
+    stops = day_plan.get("stops", [])
+    route_segments = calculate_route_segments(stops, city=city, data_dir=data_dir)
+    estimated_segments = sum(
+        1 for segment in route_segments
+        if segment.get("route_source") != "amap_cached"
+    )
+    day_plan["route_segments"] = route_segments
+    day_plan["total_travel_minutes"] = sum(
+        segment.get("travel_minutes", 0) for segment in route_segments
+    )
+    day_plan["route_quality"] = {
+        "amap_segments": len(route_segments) - estimated_segments,
+        "estimated_segments": estimated_segments,
+    }
+    return day_plan
 
 
 def _apply_remove_poi(daily_plans, day, poi_id):
@@ -1135,7 +1172,7 @@ async def _run_single_plan(message: str, strategy_override: str = "") -> Optiona
         hint = strategy_hints[strategy_override]
         if hint and hint not in message:
             enriched_message = f"{message}，{hint}"
-    initial_state = create_initial_state(enriched_message)
+    initial_state = create_initial_state(enriched_message, data_dir=str(_data_dir))
     thread_id = _make_thread_id(f"{enriched_message}:{strategy_override}")
     config = {"configurable": {"thread_id": thread_id}, "recursion_limit": 50}
 
@@ -1409,6 +1446,143 @@ async def ingest_guides(city: str = ""):
 
     return {"status": "ok", "results": results}
 
+
+
+# ── XHS (小红书) post parsing endpoints ─────────────────────────────────────
+
+_XHS_ANALYZE_PROMPT = """你是旅游行程解析助手。从小红书笔记中提取旅游行程信息。
+返回严格JSON，不要markdown包裹，不要多余解释文字。
+JSON格式:
+{"city":"城市名","summary":"30字以内总结","data":[{"day":1,"places":[{"name":"景点名称","description":"25字以内介绍","type":"观光|美食|购物|文化|自然|休闲|住宿|交通","duration":"如2小时","tips":"15字以内贴士或null"}]}]}
+规则：
+1. 只提取实际提到的地点，不编造
+2. 如果没有明确分天，按每天3-6个景点合理分配
+3. 提取预约提醒（"需预约"、"抢票"等关键词）放到tips里
+4. type从给定8个中选最匹配的
+5. 如果正文内容很少，根据常识补充合理的景点信息
+6. 严格只返回JSON"""
+
+
+class XhsParseRequest(BaseModel):
+    link: str = Field(..., description="小红书分享链接或包含链接的文本")
+
+
+class XhsAnalyzeRequest(BaseModel):
+    title: str = ""
+    body: str = ""
+    images: list = Field(default_factory=list)
+    noteId: str = ""
+    userId: str = ""
+
+
+@app.post("/api/xhs/parse")
+async def xhs_parse(req: XhsParseRequest):
+    """Parse a Xiaohongshu link and extract raw note content."""
+    try:
+        from tools.xhs_parser import extract_xhs_note
+        result = extract_xhs_note(req.link)
+        return {"status": "ok", **result}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        logger.error("XHS parse failed: %s", e, exc_info=True)
+        raise HTTPException(status_code=500, detail=f"解析失败: {e}")
+
+
+@app.post("/api/xhs/analyze")
+async def xhs_analyze(req: XhsAnalyzeRequest):
+    """Use LLM to extract structured itinerary from XHS note content."""
+    try:
+        llm = _get_llm()
+        from langchain_core.messages import HumanMessage, SystemMessage
+
+        user_content = f"标题: {req.title}\n正文: {req.body}"
+        messages = [
+            SystemMessage(content=_XHS_ANALYZE_PROMPT),
+            HumanMessage(content=user_content),
+        ]
+
+        resp = await llm.ainvoke(messages)
+        raw = resp.content.strip()
+
+        # Remove markdown code fences if present
+        raw = re.sub(r"```(?:json)?\s*", "", raw).strip()
+        raw = raw.rstrip("`").strip()
+
+        # Extract JSON object
+        first_brace = raw.find("{")
+        last_brace = raw.rfind("}")
+        if first_brace == -1 or last_brace == -1:
+            raise ValueError("LLM did not return valid JSON")
+        json_str = raw[first_brace : last_brace + 1]
+
+        # Clean common LLM JSON issues
+        json_str = re.sub(r",\s*([}\]])", r"\1", json_str)
+
+        parsed = json.loads(json_str)
+
+        if not parsed.get("city") or not isinstance(parsed.get("data"), list):
+            raise ValueError("LLM response missing required fields (city/data)")
+
+        note_id = req.noteId or uuid.uuid4().hex[:12]
+        result = {
+            "id": note_id,
+            "city": parsed["city"],
+            "summary": parsed.get("summary", ""),
+            "data": parsed["data"],
+            "images": req.images,
+            "source_title": req.title,
+        }
+
+        # Persist to user's xhs_notes
+        uid = req.userId or "guest"
+        notes_dir = _data_dir / uid
+        notes_dir.mkdir(parents=True, exist_ok=True)
+        notes_file = notes_dir / "xhs_notes.json"
+        notes = []
+        if notes_file.exists():
+            try:
+                with open(notes_file, "r", encoding="utf-8") as f:
+                    notes = json.load(f)
+            except Exception:
+                notes = []
+        notes.append(result)
+        with open(notes_file, "w", encoding="utf-8") as f:
+            json.dump(notes, f, ensure_ascii=False, indent=2)
+
+        return {"status": "ok", **result}
+
+    except json.JSONDecodeError as e:
+        logger.error("XHS analyze JSON parse error: %s", e)
+        raise HTTPException(status_code=500, detail=f"AI返回格式异常: {e}")
+    except Exception as e:
+        logger.error("XHS analyze failed: %s", e, exc_info=True)
+        raise HTTPException(status_code=500, detail=f"分析失败: {e}")
+
+
+@app.get("/api/xhs/proxy")
+async def xhs_proxy(url: str):
+    """Proxy XHS images to bypass Referer hotlink protection."""
+    if not url or not url.startswith("http"):
+        raise HTTPException(status_code=400, detail="Invalid URL")
+    try:
+        async with httpx.AsyncClient(timeout=15, follow_redirects=True) as client:
+            resp = await client.get(
+                url,
+                headers={
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                    "Referer": "https://www.xiaohongshu.com/",
+                },
+            )
+            resp.raise_for_status()
+            content_type = resp.headers.get("content-type", "image/jpeg")
+            return FastAPIResponse(
+                content=resp.content,
+                media_type=content_type,
+                headers={"Cache-Control": "public, max-age=86400"},
+            )
+    except Exception as e:
+        raise HTTPException(status_code=502, detail=f"Image proxy failed: {e}")
 
 if __name__ == "__main__":
     import uvicorn

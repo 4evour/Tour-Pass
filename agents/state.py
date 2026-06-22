@@ -105,6 +105,11 @@ def replace_int(left: int, right: int) -> int:
     return right if right else left
 
 
+def accumulate_int(left: int, right: int) -> int:
+    """Accumulate int values (used for cumulative_error_count)."""
+    return left + (right or 0)
+
+
 def replace_str(left: str, right: str) -> str:
     """Replace left string with right (used for summary)."""
     return right if right else left
@@ -165,8 +170,12 @@ class TourState(TypedDict):
     must_visit_coverage: list[dict]
     # LLM-generated itinerary summary (produced by SummaryAgent)
     summary: Annotated[str, replace_str]
+    # Cumulative non-critical error counter — only increases, never resets
+    cumulative_error_count: Annotated[int, accumulate_int]
     # Fine-grained SSE events appended by each agent during execution
     sse_events: Annotated[list[dict], reduce_list]
+    # Data root used by agents for POIs, route edges, and generated image files
+    data_dir: str
 
     # ── XHS (小红书) route data fields ────────────────────────────────────
     # Raw XHS route data loaded from data/{city}/xhs_routes.json

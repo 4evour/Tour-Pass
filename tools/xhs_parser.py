@@ -1,0 +1,194 @@
+"""Xiaohongshu (小红书) Post Parser.
+
+Extracts post content from public XHS note URLs via SSR scraping.
+No cookie, no Puppeteer, no signing engine required.
+"""
+
+import json
+import logging
+import re
+from typing import Optional
+
+import httpx
+
+logger = logging.getLogger(__name__)
+
+_XHS_URL_PATTERNS = [
+    re.compile(r"(https?://www\.xiaohongshu\.com/explore/[A-Za-z0-9]+)"),
+    re.compile(r"(https?://www\.xiaohongshu\.com/note/[A-Za-z0-9]+)"),
+    re.compile(r"(https?://www\.xiaohongshu\.com/discovery/item/[A-Za-z0-9]+)"),
+    re.compile(r"(https?://xhslink\.com/[A-Za-z0-9]+)"),
+    re.compile(r"(xhslink\.com/[A-Za-z0-9]+)"),
+]
+
+_NOTE_ID_PATTERNS = [
+    re.compile(r"/(?:explore|note|discovery/item)/([A-Za-z0-9]{12,24})"),
+]
+
+_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/120.0.0.0 Safari/537.36"
+    ),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+}
+
+
+def extract_xhs_url(text: str) -> Optional[str]:
+    """Extract the first XHS URL from arbitrary user input text."""
+    text = text.strip()
+    for pat in _XHS_URL_PATTERNS:
+        m = pat.search(text)
+        if m:
+            url = m.group(1).rstrip(",，。！ ")
+            if url.startswith("xhslink.com"):
+                url = "https://" + url
+            return url
+    return None
+
+
+def extract_note_id(url: str) -> Optional[str]:
+    """Extract the note ID from a resolved XHS URL."""
+    for pat in _NOTE_ID_PATTERNS:
+        m = pat.search(url)
+        if m:
+            return m.group(1)
+    return None
+
+
+def resolve_short_url(url: str) -> str:
+    """Follow redirects on short xhslink.com URLs to get the real URL."""
+    if "xhslink.com" not in url:
+        return url
+    try:
+        with httpx.Client(follow_redirects=True, timeout=10) as client:
+            resp = client.head(url, headers=_HEADERS)
+            return str(resp.url)
+    except Exception as e:
+        logger.warning("Failed to resolve short URL %s: %s", url, e)
+        return url
+
+
+def fetch_note_ssr(note_id: str) -> dict:
+    """Fetch note content from XHS SSR page.
+
+    Public notes embed their data in ``window.__INITIAL_STATE__``
+    inside the HTML, so no cookie or auth is needed.
+    """
+    url = f"https://www.xiaohongshu.com/explore/{note_id}"
+    try:
+        with httpx.Client(timeout=15, follow_redirects=True) as client:
+            resp = client.get(url, headers=_HEADERS)
+            resp.raise_for_status()
+            html = resp.text
+    except Exception as e:
+        logger.error("SSR fetch failed for %s: %s", note_id, e)
+        raise ValueError(f"无法访问小红书帖子: {e}")
+
+    # --- Try __INITIAL_STATE__ first ---
+    state_match = re.search(
+        r"window\.__INITIAL_STATE__\s*=\s*({.*?})\s*</script>",
+        html,
+        re.DOTALL,
+    )
+    if state_match:
+        try:
+            raw = state_match.group(1).replace("undefined", "null")
+            state = json.loads(raw)
+            note_map = (
+                state.get("note", {})
+                .get("noteDetailMap", {})
+            )
+            note_data = None
+            for key, val in note_map.items():
+                note_data = val.get("note")
+                if note_data:
+                    break
+
+            if note_data:
+                title = note_data.get("title", "") or note_data.get("displayTitle", "")
+                body = note_data.get("desc", "")
+                note_type = note_data.get("type", "normal")
+
+                images = []
+                image_list = note_data.get("imageList", [])
+                for img in image_list:
+                    img_url = (
+                        img.get("urlDefault", "")
+                        or img.get("urlPre", "")
+                        or img.get("url", "")
+                    )
+                    if img_url:
+                        images.append(img_url)
+
+                if title or body:
+                    return {
+                        "title": title,
+                        "body": body,
+                        "images": images,
+                        "noteId": note_id,
+                        "type": note_type,
+                    }
+        except (json.JSONDecodeError, KeyError, TypeError) as e:
+            logger.warning("__INITIAL_STATE__ parse failed: %s", e)
+
+    # --- Fallback: meta tags ---
+    title = ""
+    body = ""
+    og_title = re.search(
+        r'<meta\s+property="og:title"\s+content="([^"]*)"',
+        html,
+    )
+    og_desc = re.search(
+        r'<meta\s+property="og:description"\s+content="([^"]*)"',
+        html,
+    )
+    if og_title:
+        title = og_title.group(1)
+    if og_desc:
+        body = og_desc.group(1)
+
+    # Also try the <title> tag
+    if not title:
+        title_match = re.search(r"<title>([^<]+)</title>", html)
+        if title_match:
+            title = title_match.group(1).replace(" - 小红书", "").strip()
+
+    if not title and not body:
+        raise ValueError("帖子不存在或已被删除，无法提取内容")
+
+    return {
+        "title": title,
+        "body": body,
+        "images": [],
+        "noteId": note_id,
+        "type": "normal",
+    }
+
+
+def extract_xhs_note(link: str) -> dict:
+    """Main entry: parse user input and extract XHS note content.
+
+    Parameters
+    ----------
+    link : str
+        Can be a full URL, short URL, or arbitrary text containing a link.
+
+    Returns
+    -------
+    dict
+        ``{ title, body, images, noteId, type }``
+    """
+    url = extract_xhs_url(link)
+    if not url:
+        raise ValueError("未找到有效的小红书链接，请检查输入内容")
+
+    url = resolve_short_url(url)
+
+    note_id = extract_note_id(url)
+    if not note_id:
+        raise ValueError(f"无法从链接中提取笔记 ID: {url}")
+
+    return fetch_note_ssr(note_id)
