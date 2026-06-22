@@ -11,6 +11,7 @@ from pathlib import Path
 
 from agents.base import BaseAgent
 from agents.constants import resolve_city_dir, CITY_DIR_MAP
+from tools.matching import match_must_visit
 from agents.state import TourState
 from tools.scoring import build_poi_evidence_sources, classify_poi_tier, rank_pois
 
@@ -174,7 +175,7 @@ class PoiAgent(BaseAgent):
         enriched: list[dict] = []
         enriched_keys: set[str] = set()
         for mv in must_visit:
-            candidates = [p for p in scored_pois if mv in p.get("name", "")]
+            candidates = match_must_visit(mv, scored_pois)
             if candidates:
                 best = min(candidates, key=lambda p: (p.get("name", "") != mv, len(p.get("name", ""))))
                 best = best.copy()

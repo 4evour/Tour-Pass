@@ -13,6 +13,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 from agents.base import LLMAgent
 from agents.state import TourState
+from tools.matching import is_must_visit_covered
 
 logger = logging.getLogger(__name__)
 
@@ -107,7 +108,7 @@ class SummaryAgent(LLMAgent):
                 included = False
                 matched = ""
                 for name in all_planned_names:
-                    if mv in name:
+                    if is_must_visit_covered(mv, {name}):
                         included = True
                         matched = name
                         break

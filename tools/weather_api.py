@@ -97,16 +97,16 @@ def _qweather_url(path: str) -> str:
     return f"https://{_qweather_host()}{path}"
 
 
-def _safe_int(value, default: int = 0) -> int:
-    """Safely convert a value to int."""
+def _safe_int(value, default=None):
+    """Safely convert a value to int. Returns default on failure."""
     try:
         return int(value)
     except (TypeError, ValueError):
         return default
 
 
-def _safe_float(value, default: float = 0.0) -> float:
-    """Safely convert a value to float."""
+def _safe_float(value, default=None):
+    """Safely convert a value to float. Returns default on failure."""
     try:
         return float(value)
     except (TypeError, ValueError):
@@ -137,11 +137,14 @@ async def fetch_weather(city: str, days: int = 3) -> list[dict]:
         return []
 
     try:
-        async with httpx.AsyncClient(timeout=10) as client:
+        async with httpx.AsyncClient(timeout=15) as client:
+            # Use 7d endpoint when days > 3
+            endpoint = "/v7/weather/7d" if days > 3 else "/v7/weather/3d"
             resp = await client.get(
-                _qweather_url("/v7/weather/3d"),
+                _qweather_url(endpoint),
                 params={"location": location_id, "key": api_key},
             )
+            resp.raise_for_status()
             data = resp.json()
 
             if data.get("code") != "200":
@@ -153,12 +156,12 @@ async def fetch_weather(city: str, days: int = 3) -> list[dict]:
                 forecasts.append({
                     # Core fields (backward compatible)
                     "date": daily.get("fxDate", ""),
-                    "temperature_high": _safe_int(daily.get("tempMax"), 25),
-                    "temperature_low": _safe_int(daily.get("tempMin"), 15),
-                    "condition": daily.get("textDay", "多云"),
+                    "temperature_high": _safe_int(daily.get("tempMax"), None),
+                    "temperature_low": _safe_int(daily.get("tempMin"), None),
+                    "condition": daily.get("textDay", ""),
                     "condition_night": daily.get("textNight", ""),
-                    "humidity": _safe_int(daily.get("humidity"), 50),
-                    "wind_speed": _safe_int(daily.get("windSpeedDay"), 10),
+                    "humidity": _safe_int(daily.get("humidity"), None),
+                    "wind_speed": _safe_int(daily.get("windSpeedDay"), None),
                     # NEW: Extended fields
                     "wind_dir": daily.get("windDirDay", ""),
                     "wind_scale": daily.get("windScaleDay", ""),
@@ -166,8 +169,8 @@ async def fetch_weather(city: str, days: int = 3) -> list[dict]:
                     "sunset": daily.get("sunset", ""),
                     "uv_index": _safe_int(daily.get("uvIndex"), 0),
                     "precip": _safe_float(daily.get("precip"), 0.0),
-                    "vis": _safe_int(daily.get("vis"), 25),
-                    "pressure": _safe_int(daily.get("pressure"), 1013),
+                    "vis": _safe_int(daily.get("vis"), None),
+                    "pressure": _safe_int(daily.get("pressure"), None),
                     "cloud": _safe_int(daily.get("cloud"), 0),
                     # Filled by WeatherAgent
                     "suggestion": "",

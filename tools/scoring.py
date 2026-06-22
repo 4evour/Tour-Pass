@@ -15,6 +15,8 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Optional
 
+from tools.matching import is_must_visit_covered
+
 
 @dataclass
 class ScoreComponent:
@@ -73,7 +75,7 @@ def _is_must_visit(poi: dict, must_visit: list[str]) -> bool:
     name = poi.get("name", "")
     pid = poi.get("id", "")
     for mv in must_visit:
-        if mv in name or mv == pid:
+        if is_must_visit_covered(mv, {name}, {pid} if pid else None):
             return True
     return False
 
@@ -267,7 +269,7 @@ def score_poi(
     # ── Must-visit bonus ─────────────────────────────────────────────────────
     must_visit = intent.get("must_visit", [])
     for mv in must_visit:
-        if mv in name or mv == pid:
+        if is_must_visit_covered(mv, {name}, {pid} if pid else None):
             breakdown.append(ScoreComponent("必去加权", 120.0, f"命中必去「{mv}」"))
             break
 

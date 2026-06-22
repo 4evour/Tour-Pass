@@ -93,15 +93,27 @@ def compute_center(points: list[dict]) -> tuple[float, float]:
 from pathlib import Path  # noqa: E402
 
 
+import logging as _logging
+_logger = _logging.getLogger(__name__)
+
+
 def resolve_city_dir(data_dir: Path, city: str) -> Path:
-    """Return the data directory path for a given city name."""
+    """Return the data directory path for a given city name.
+
+    Returns the path even if it doesn't exist — callers should check .exists().
+    Logs a warning for unsupported cities.
+    """
     # Try Chinese name directly
     candidate = data_dir / city
     if candidate.exists():
         return candidate
     # Map Chinese -> English
     eng = CITY_DIR_MAP.get(city, city.lower())
-    return data_dir / eng
+    result = data_dir / eng
+    if not result.exists():
+        supported = ", ".join(sorted(CITY_DIR_MAP.keys())[:15])
+        _logger.warning("City data not found for '%s' (tried %s). Supported: %s...", city, result, supported)
+    return result
 
 
 def load_pois_by_type(data_dir: Path, city: str, poi_type: str) -> list[dict]:

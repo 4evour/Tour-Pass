@@ -1326,11 +1326,11 @@ async def chat_with_agent(req: ChatRequest):
     """
     from langchain_core.messages import HumanMessage, SystemMessage, AIMessage
 
-    _cleanup_expired_sessions()
+    await _cleanup_expired_sessions()
 
     # Resolve session
     if req.session_id:
-        session = _get_or_create_session(req.session_id)
+        session = await _get_or_create_session(req.session_id)
         session_id = session["session_id"]
         # Prefer server-side itinerary over client-sent
         current_itinerary = session.get("itinerary") or req.itinerary

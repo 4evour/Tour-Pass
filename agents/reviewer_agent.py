@@ -86,14 +86,16 @@ class ReviewerAgent(LLMAgent):
 
     @staticmethod
     def _check_must_visit(daily_plans: list, must_visit: list) -> list:
+        from tools.matching import is_must_visit_covered
         planned = set()
         for day in daily_plans:
             for stop in _safe_get_stops(day):
                 if isinstance(stop, dict):
                     planned.add(stop.get("poi_name", ""))
-        return [mv for mv in must_visit if not any(mv in name for name in planned)]
+        return [mv for mv in must_visit if not is_must_visit_covered(mv, planned)]
 
     def _hard_check(self, daily_plans: list, must_visit: list, missing: list) -> list:
+        from tools.matching import is_must_visit_covered
         issues = []
 
         if missing:
@@ -177,7 +179,7 @@ class ReviewerAgent(LLMAgent):
                 if not isinstance(stop, dict):
                     continue
                 name = stop.get("poi_name", "")
-                is_must_visit = any(mv and mv in name for mv in must_visit)
+                is_must_visit = any(mv and is_must_visit_covered(mv, {name}) for mv in must_visit)
                 start_minutes = stop.get("start_minutes", 0)
                 if (
                     isinstance(start_minutes, (int, float))
@@ -326,7 +328,43 @@ class ReviewerAgent(LLMAgent):
 
         raw_issues = llm_result.get("issues", []) if isinstance(llm_result.get("issues"), list) else []
         llm_issues = [i for i in raw_issues if isinstance(i, dict)]
-        all_issues = hard_issues + llm_issues
+
+        # Cross-validate LLM issues against planned POIs to filter hallucinations
+        planned_poi_names = set()
+        for day in daily_plans:
+            for stop in (day.get("stops") or day.get("activities") or []):
+                name = stop.get("poi_name") or stop.get("name") or ""
+                if name:
+                    planned_poi_names.add(name)
+
+        validated_llm_issues = []
+        for issue in llm_issues:
+            poi_name = issue.get("poi_name", "")
+            # Discard issues referencing non-existent POIs
+            if poi_name and poi_name not in planned_poi_names:
+                logger.info("Discarded LLM issue referencing non-existent POI: %s", poi_name)
+                continue
+            # For commute-related issues, verify travel_minutes exceeds threshold
+            if issue.get("type") in ("excessive_commute_confirmed", "excessive_commute_estimated"):
+                threshold = 90  # minutes
+                # Check if any stop actually has excessive travel time
+                found_excessive = False
+                for day in daily_plans:
+                    for stop in (day.get("stops") or day.get("activities") or []):
+                        if stop.get("travel_minutes_from_previous", 0) > threshold:
+                            found_excessive = True
+                            break
+                    if found_excessive:
+                        break
+                if not found_excessive:
+                    logger.info("Discarded LLM commute issue — no stop exceeds %d min threshold", threshold)
+                    continue
+            # Downgrade LLM severity: LLM "high" becomes "medium" unless hard_check confirms
+            if issue.get("severity") == "high":
+                issue["severity"] = "medium"
+            validated_llm_issues.append(issue)
+
+        all_issues = hard_issues + validated_llm_issues
 
         has_critical = any(i.get("severity") == "critical" for i in all_issues)
         has_high = any(i.get("severity") == "high" for i in all_issues)

@@ -193,6 +193,12 @@ class TestScoringEngine(unittest.TestCase):
         self.assertEqual(len(mv), 1)
         self.assertEqual(mv[0].score, 120.0)
 
+    def test_must_visit_bonus_rejects_overlong_short_keyword_match(self):
+        poi = self._make_poi(name="洪崖洞特色特产店(嘉陵江滨江路店)")
+        result = self.score_poi(poi, {"interests": [], "must_visit": ["洪崖洞"], "avoid": []})
+        mv = [c for c in result.breakdown if c.label == "必去加权"]
+        self.assertEqual(mv, [])
+
     def test_hard_exclusion_duplicate(self):
         poi = self._make_poi()
         result = self.score_poi(poi, {"interests": [], "must_visit": [], "avoid": []}, used_ids={"poi_001"})
@@ -607,6 +613,10 @@ class TestClusteringEngine(unittest.TestCase):
         self.assertTrue(self._is_must_visit(poi, ["p001"]))
         self.assertFalse(self._is_must_visit(poi, ["天坛"]))
 
+    def test_is_must_visit_rejects_overlong_short_keyword_match(self):
+        poi = {"name": "洪崖洞特色特产店(嘉陵江滨江路店)", "id": "shop_001"}
+        self.assertFalse(self._is_must_visit(poi, ["洪崖洞"]))
+
 
 class TestSchedulerAgent(unittest.TestCase):
     """Test schedule assembly rules."""
@@ -617,6 +627,16 @@ class TestSchedulerAgent(unittest.TestCase):
             return loop.run_until_complete(coro)
         finally:
             loop.close()
+
+    def test_stop_must_visit_rejects_overlong_short_keyword_match(self):
+        from agents.scheduler_agent import SchedulerAgent
+
+        stop = {
+            "poi_id": "shop_001",
+            "poi_name": "洪崖洞特色特产店(嘉陵江滨江路店)",
+        }
+
+        self.assertFalse(SchedulerAgent._is_stop_must_visit(stop, ["洪崖洞"]))
 
     def test_filter_infeasible_optional_stop_moves_to_replacement_pool(self):
         from agents.scheduler_agent import SchedulerAgent
@@ -2279,6 +2299,17 @@ class TestWeatherAndHotelIntegrations(unittest.TestCase):
 
         self.assertNotIn("price_per_night", merged[0])
         self.assertEqual(merged[0]["price_range"], "未知")
+
+    def test_weather_fallback_suggestions_accept_missing_numeric_values(self):
+        from agents.weather_agent import WeatherAgent
+
+        weather_data = [{
+            "condition": "多云",
+            "temperature_high": None,
+            "uv_index": None,
+        }]
+
+        self.assertEqual(WeatherAgent._fallback_suggestions(weather_data), ["适合出行"])
 
     def _run_async(self, coro):
         loop = asyncio.new_event_loop()

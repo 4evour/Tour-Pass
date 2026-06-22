@@ -11,6 +11,26 @@
 > 核心变更：从单Agent管线迁移到 LangGraph 多Agent架构（9个专业Agent），
 > 20城POI数据质量清洗，管理后台，R2图床支持，CI质量门禁。
 
+## 2026-06-22 15:21 - 审阅同步后端改动并收敛必去匹配口径
+
+### 变更内容 — 改了什么文件，具体改了什么
+- tools/matching.py — 新增/整理必去景点匹配工具，使用精确名称、ID、受限长度的短词包含匹配。
+- agents/poi_agent.py、agents/reviewer_agent.py、agents/scheduler_agent.py、agents/summary_agent.py、tools/scoring.py、tools/clustering.py — 将必去景点覆盖、补救、评分、聚类和总结报告改为统一匹配口径，避免短词误命中过长店铺名。
+- api_multi_agent.py — 修复 `/agent/chat` 中 session 清理和 session 获取未 `await` 的问题。
+- tools/weather_api.py、agents/weather_agent.py — 支持 7 天游天气接口、HTTP 状态检查和缺失天气数值兜底，避免 `None` 温度在 fallback 建议中触发比较错误。
+- agents/constants.py — 城市数据目录不存在时输出非阻断 warning，便于定位不支持城市或目录映射问题。
+- tests/test_multi_agent.py — 增加洪崖洞短词误匹配、天气缺失数值 fallback 的回归测试。
+
+### 原因 — 为什么要改
+- 外部同步改动已经引入了更严格的必去景点匹配和天气接口改进，但仍有后置调度、聚类、评分、总结层保留旧的 `mv in name` 逻辑，可能让“洪崖洞”继续误匹配到特产店/核雕店。
+- `/agent/chat` 使用异步 session store 时必须 await，否则运行时会拿到 coroutine 对象。
+- 天气接口允许真实 API 字段缺失后，下游 fallback 需要接受 `None` 数值。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响必去景点保留、缺失必去补救、行程审核、总结中的必去覆盖报告，以及 POI 评分与聚类。
+- 影响聊天修改行程接口的 session 获取路径。
+- 影响真实天气数据解析和天气建议 fallback；不改变天气 API 对外字段结构。
+
 ## 2026-06-22 14:31 - 提升 21 城真实高德路线边到生产数据
 
 ### 变更内容 — 改了什么文件，具体改了什么

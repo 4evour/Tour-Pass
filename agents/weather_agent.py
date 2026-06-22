@@ -120,9 +120,12 @@ class WeatherAgent(LLMAgent):
             condition = w.get("condition", "")
             if "雨" in condition:
                 parts.append("记得带伞")
-            if w.get("uv_index", 0) >= 4:
+            uv_index = w.get("uv_index") or 0
+            if uv_index >= 4:
                 parts.append("注意防晒")
-            temp_hi = w.get("temperature_high", 25)
+            temp_hi = w.get("temperature_high")
+            if not isinstance(temp_hi, (int, float)):
+                temp_hi = 25
             if temp_hi >= 35:
                 parts.append("注意防暑降温")
             elif temp_hi <= 5:

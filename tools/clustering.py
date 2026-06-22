@@ -13,6 +13,8 @@ import re
 from dataclasses import dataclass, field
 from collections import defaultdict
 
+from tools.matching import is_must_visit_covered, match_must_visit
+
 logger = logging.getLogger(__name__)
 
 _SCENIC_SUFFIXES = (
@@ -117,7 +119,7 @@ def _dedupe_attractions_by_place(attractions: list[dict], must_visit: list[str])
     def rank(poi: dict) -> tuple[int, int, float, float, int]:
         name = poi.get("name", "")
         exact = any(mv and name == mv for mv in must_visit)
-        contains = any(mv and mv in name for mv in must_visit)
+        contains = any(is_must_visit_covered(mv, {name}) for mv in must_visit)
         return (
             1 if exact else 0,
             1 if poi.get("is_must_visit") or contains else 0,
@@ -250,7 +252,7 @@ def _is_must_visit(poi: dict, must_visit: list[str]) -> bool:
     name = poi.get("name", "")
     pid = poi.get("id", "")
     for mv in must_visit:
-        if mv in name or mv == pid:
+        if is_must_visit_covered(mv, {name}, {pid} if pid else None):
             return True
     return False
 
@@ -330,14 +332,15 @@ def cluster_pois_for_days(
         matched_keywords: set[str] = set()
         for poi in must_pois:
             for mv in must_visit_names:
-                if mv in poi.get("name", "") or mv == poi.get("id"):
+                name = poi.get("name", "")
+                pid = poi.get("id", "")
+                if is_must_visit_covered(mv, {name}, {pid} if pid else None):
                     matched_keywords.add(mv)
 
         for mv in must_visit_set - matched_keywords:
             candidates = [
-                p for p in all_available_pois
-                if (mv in p.get("name", "") or mv == p.get("id"))
-                and p.get("type") not in ("hotel", "transit")
+                p for p in match_must_visit(mv, all_available_pois)
+                if p.get("type") not in ("hotel", "transit")
             ]
             if candidates:
                 candidates.sort(

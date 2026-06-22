@@ -26,6 +26,7 @@ from agents.config import USE_CPP_ROUTE_OPTIMIZER
 from agents.constants import haversine_km, CITY_DIR_MAP
 from tools import rag
 from tools.clustering import cluster_pois_for_days, _is_must_visit
+from tools.matching import is_must_visit_covered, match_must_visit
 from tools.route import optimize_route_smart, calculate_route_segments, get_route_metric
 
 logger = logging.getLogger(__name__)
@@ -382,7 +383,9 @@ class SchedulerAgent(BaseAgent):
         missing_pois = []
         for mv in missing:
             for poi in all_pois:
-                if mv in poi.get("name", ""):
+                name = poi.get("name", "")
+                pid = poi.get("id", "")
+                if is_must_visit_covered(mv, {name}, {pid} if pid else None):
                     missing_pois.append(poi)
                     break
         for poi in missing_pois:
@@ -525,7 +528,10 @@ class SchedulerAgent(BaseAgent):
     def _is_stop_must_visit(stop: dict, must_visit_names: list[str]) -> bool:
         name = stop.get("poi_name") or stop.get("name", "")
         poi_id = stop.get("poi_id") or stop.get("id", "")
-        return any(mv and (mv in name or mv == poi_id) for mv in must_visit_names)
+        return any(
+            is_must_visit_covered(mv, {name}, {poi_id} if poi_id else None)
+            for mv in must_visit_names
+        )
 
     @staticmethod
     def _is_route_metric_over_limit(metric: dict, pace: str) -> bool:
@@ -1265,7 +1271,9 @@ class SchedulerAgent(BaseAgent):
                 mv_ids = set()
                 for mv in must_visit_names:
                     for a in cluster.attractions:
-                        if mv in a.get("name", "") or mv == a.get("id"):
+                        name = a.get("name", "")
+                        pid = a.get("id", "")
+                        if is_must_visit_covered(mv, {name}, {pid} if pid else None):
                             mv_ids.add(a.get("id", ""))
                 stops = self._inject_missing_must_visit(stops, mv_ids, cluster.attractions)
 
@@ -1387,7 +1395,7 @@ class SchedulerAgent(BaseAgent):
 
             still_missing: list[str] = []
             for mv in must_visit_names:
-                if not any(mv in name for name in all_planned_names):
+                if not is_must_visit_covered(mv, all_planned_names):
                     still_missing.append(mv)
 
             if still_missing:
@@ -1395,10 +1403,12 @@ class SchedulerAgent(BaseAgent):
                 for mv in still_missing:
                     # Find POI in available_pois
                     target = None
-                    for p in available_pois:
-                        if mv in p.get("name", "") or mv == p.get("id"):
-                            target = p
-                            break
+                    candidates = match_must_visit(mv, available_pois)
+                    if candidates:
+                        target = min(
+                            candidates,
+                            key=lambda p: (p.get("name", "") != mv, len(p.get("name", ""))),
+                        )
                     if not target:
                         logger.error("Layer-4: cannot rescue '%s' — not in available_pois", mv)
                         continue
@@ -1443,7 +1453,7 @@ class SchedulerAgent(BaseAgent):
                 matched = ""
                 included = False
                 for name in final_planned:
-                    if mv in name:
+                    if is_must_visit_covered(mv, {name}):
                         included = True
                         matched = name
                         break
