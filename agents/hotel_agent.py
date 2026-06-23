@@ -15,6 +15,7 @@ from agents.base import LLMAgent
 from agents.constants import resolve_city_dir, haversine_km, compute_center, load_pois_by_type
 from agents.state import TourState
 from tools import hotel_price_api
+from tools.matching import match_must_visit
 
 logger = logging.getLogger(__name__)
 
@@ -32,7 +33,7 @@ HOTEL_SELECTION_SYSTEM = """你是一个酒店推荐专家。根据用户的旅�
 输出要求：
 - 从候选列表中选择1家酒店
 - 给出选择理由（一句话，包含价格/档次/位置等关键信息）
-- 输出严格 JSON: {"hotel_id": "xxx", "reason": "xxx"}
+- 输出严格 JSON: {{"hotel_id": "xxx", "reason": "xxx"}}
 """
 
 
@@ -126,6 +127,47 @@ def score_hotel_location(hotel: dict, poi_center: tuple[float, float], budget: s
     return score
 
 
+def _hotel_text(hotel: dict) -> str:
+    tags = hotel.get("tags") or []
+    return " ".join([
+        str(hotel.get("area", "")),
+        str(hotel.get("name", "")),
+        str(hotel.get("address", "")),
+        str(hotel.get("description", "")),
+        str(hotel.get("recommendation", "")),
+        " ".join(str(t) for t in tags),
+    ])
+
+
+def _reference_pois_for_hotel_center(
+    intent: dict,
+    candidate_pois: list[dict],
+    all_city_pois: list[dict],
+) -> list[dict]:
+    references: list[dict] = []
+    seen: set[str] = set()
+
+    for mv in intent.get("must_visit", []):
+        for poi in match_must_visit(mv, all_city_pois):
+            if poi.get("type") in ("hotel", "transit"):
+                continue
+            key = poi.get("id") or poi.get("name", "")
+            if key and key not in seen:
+                references.append(poi)
+                seen.add(key)
+                break
+
+    for poi in candidate_pois:
+        if poi.get("type") not in ("attraction", "nightlife"):
+            continue
+        key = poi.get("id") or poi.get("name", "")
+        if key and key not in seen:
+            references.append(poi)
+            seen.add(key)
+
+    return references
+
+
 # ── Main agent ─────────────────────────────────────────────────────────────────
 
 class HotelAgent(LLMAgent):
@@ -171,6 +213,9 @@ class HotelAgent(LLMAgent):
         if not hotels:
             return {"selected_hotel": None, "errors": [f"HotelAgent: no hotel data for {city}"]}
 
+        city_pois = load_pois_by_type(self.data_dir, city, "attraction")
+        reference_pois = _reference_pois_for_hotel_center(intent, pois, city_pois)
+
         price_result = await hotel_price_api.fetch_hotel_prices(city, hotels[:30])
         if price_result.get("prices"):
             hotels = hotel_price_api.merge_price_quotes(hotels, price_result["prices"])
@@ -180,13 +225,25 @@ class HotelAgent(LLMAgent):
             })
 
         # Pre-sort by location score (for candidate selection before LLM)
-        poi_center = compute_center(pois)
+        poi_center = compute_center(reference_pois or pois)
         hotels.sort(
             key=lambda h: score_hotel_location(h, poi_center, budget),
             reverse=True,
         )
 
         candidates = list(hotels)
+
+        must_visit_terms = [mv for mv in intent.get("must_visit", []) if mv]
+        if must_visit_terms:
+            matched_hotels = [
+                h for h in candidates
+                if any(mv in _hotel_text(h) for mv in must_visit_terms)
+            ]
+            if matched_hotels:
+                candidates = matched_hotels + [
+                    h for h in candidates
+                    if h.get("id") not in {mh.get("id") for mh in matched_hotels}
+                ]
 
         # ── Layer 1: Area filter ──────────────────────────────────────────────
         hotel_area = intent.get("hotel_area", "")

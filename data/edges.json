@@ -3289,58 +3289,6 @@
     "amap_status": "ok"
   },
   {
-    "from": "amap_3c22fafd",
-    "to": "amap_f161bf27",
-    "distance_meters": 510,
-    "walk_minutes": 6,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 330,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_3c22fafd",
-    "to": "amap_f567cbbb",
-    "distance_meters": 717,
-    "walk_minutes": 9,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 420,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_3c22fafd",
-    "to": "amap_403c501f",
-    "distance_meters": 880,
-    "walk_minutes": 11,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_3c22fafd",
-    "to": "amap_e03dc52b",
-    "distance_meters": 883,
-    "walk_minutes": 11,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 480,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
     "from": "amap_d926ce34",
     "to": "amap_3407bf92",
     "distance_meters": 340,
@@ -4222,58 +4170,6 @@
     "provider": "geo_estimated",
     "mode": "mixed",
     "duration_seconds": 300,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_e1f9ad1d",
-    "to": "amap_5e24ac61",
-    "distance_meters": 268,
-    "walk_minutes": 5,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 300,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_e1f9ad1d",
-    "to": "amap_e992b2b1",
-    "distance_meters": 415,
-    "walk_minutes": 5,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 300,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_e1f9ad1d",
-    "to": "amap_d3073b92",
-    "distance_meters": 428,
-    "walk_minutes": 5,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 300,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_e1f9ad1d",
-    "to": "amap_6dfd051f",
-    "distance_meters": 479,
-    "walk_minutes": 6,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 330,
     "amap_status": "fallback_geo_estimated"
   },
   {
@@ -8655,19 +8551,6 @@
     "provider": "geo_estimated",
     "mode": "mixed",
     "duration_seconds": 720,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
-    "from": "amap_6ba8e08e",
-    "to": "amap_3c22fafd",
-    "distance_meters": 1835,
-    "walk_minutes": 22,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 810,
     "amap_status": "fallback_geo_estimated"
   },
   {
@@ -20150,19 +20033,6 @@
     "amap_status": "fallback_geo_estimated"
   },
   {
-    "from": "amap_4e57930a",
-    "to": "amap_3c22fafd",
-    "distance_meters": 1610,
-    "walk_minutes": 19,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 720,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
     "from": "amap_7523b3e4",
     "to": "amap_b5f29c2",
     "distance_meters": 160,
@@ -23868,19 +23738,6 @@
     "amap_status": "fallback_geo_estimated"
   },
   {
-    "from": "amap_ff4ef320",
-    "to": "amap_3c22fafd",
-    "distance_meters": 1705,
-    "walk_minutes": 20,
-    "transit_minutes": 9,
-    "taxi_minutes": 5,
-    "source": "geo_estimated",
-    "provider": "geo_estimated",
-    "mode": "mixed",
-    "duration_seconds": 750,
-    "amap_status": "fallback_geo_estimated"
-  },
-  {
     "from": "amap_14d13243",
     "to": "amap_76d0c41f",
     "distance_meters": 615,
@@ -26361,19 +26218,6 @@
     "provider": "amap",
     "mode": "mixed",
     "duration_seconds": 720,
-    "amap_status": "ok"
-  },
-  {
-    "from": "changsha_brand_707c0e4d",
-    "to": "amap_3c22fafd",
-    "distance_meters": 1759,
-    "walk_minutes": 28,
-    "transit_minutes": 16,
-    "taxi_minutes": 9,
-    "source": "amap",
-    "provider": "amap",
-    "mode": "mixed",
-    "duration_seconds": 540,
     "amap_status": "ok"
   },
   {

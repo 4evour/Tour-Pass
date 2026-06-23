@@ -12,6 +12,13 @@ _SHORT_KEYWORD_EXCLUDED_NAME_TERMS = (
 _SHORT_KEYWORD_MAX_EXTRA_CHARS = 8
 
 
+def _compact_landmark_name(text: str) -> str:
+    if "碑" not in (text or ""):
+        return (text or "").strip()
+    compact = (text or "").replace("人民", "").replace("纪念", "")
+    return compact.strip()
+
+
 def _is_bounded_name_match(keyword: str, name: str) -> bool:
     if not keyword or len(keyword) < 2 or keyword not in name:
         return False
@@ -42,6 +49,16 @@ def match_must_visit(keyword: str, pois: list[dict]) -> list[dict]:
     if by_id:
         return by_id
 
+    # Landmark aliases such as "解放碑" -> "人民解放纪念碑".
+    compact_keyword = _compact_landmark_name(keyword)
+    compact_name_matches = [
+        p for p in pois
+        if compact_keyword
+        and compact_keyword == _compact_landmark_name(p.get("name", ""))
+    ]
+    if compact_name_matches:
+        return compact_name_matches
+
     # 3. Bounded substring match
     substring_matches = [
         p for p in pois
@@ -67,6 +84,10 @@ def is_must_visit_covered(keyword: str, planned_names: set[str], planned_ids: Op
 
     # ID
     if planned_ids and keyword in planned_ids:
+        return True
+
+    compact_keyword = _compact_landmark_name(keyword)
+    if compact_keyword and any(compact_keyword == _compact_landmark_name(name) for name in planned_names):
         return True
 
     # Bounded substring

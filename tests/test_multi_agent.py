@@ -1586,6 +1586,88 @@ class TestHotelAgent(unittest.TestCase):
 
         self.assertEqual(result["selected_hotel"]["id"], "jiefangbei")
 
+    def test_hotel_prompt_escapes_json_example(self):
+        from agents.hotel_agent import HotelAgent
+
+        prompt = HotelAgent(MagicMock()).build_prompt()
+
+        formatted = prompt.format(context="城市: 重庆")
+
+        self.assertIn('{"hotel_id": "xxx", "reason": "xxx"}', formatted)
+
+    def test_hotel_fallback_prefers_must_visit_area_when_poi_center_drifts(self):
+        from agents.hotel_agent import HotelAgent
+
+        with tempfile.TemporaryDirectory() as tmp:
+            city_dir = Path(tmp) / "testcity"
+            city_dir.mkdir()
+            pois = [
+                {
+                    "id": "jiefangbei_poi",
+                    "name": "解放碑",
+                    "type": "attraction",
+                    "area": "渝中区",
+                    "lat": 29.557,
+                    "lng": 106.577,
+                    "popularity": 4.8,
+                    "tags": ["地标"],
+                },
+                {
+                    "id": "remote_hotel",
+                    "name": "远区高分酒店",
+                    "type": "hotel",
+                    "area": "远区",
+                    "lat": 31.0,
+                    "lng": 121.0,
+                    "popularity": 5.0,
+                    "brand_category": "中端",
+                    "price_range": "300-500元",
+                    "tags": ["住宿", "酒店"],
+                    "description": "远区高分酒店。",
+                },
+                {
+                    "id": "jiefangbei_hotel",
+                    "name": "全季酒店(重庆解放碑步行街店)",
+                    "type": "hotel",
+                    "area": "渝中区",
+                    "lat": 29.56,
+                    "lng": 106.58,
+                    "popularity": 4.4,
+                    "brand_category": "中端",
+                    "price_range": "300-500元",
+                    "tags": ["住宿", "酒店", "解放碑片区"],
+                    "description": "位于解放碑商圈。",
+                },
+            ]
+            (city_dir / "pois.json").write_text(
+                json.dumps(pois, ensure_ascii=False),
+                encoding="utf-8",
+            )
+
+            agent = HotelAgent(MagicMock(), data_dir=tmp)
+            agent.invoke_llm = AsyncMock(side_effect=RuntimeError("LLM unavailable"))
+            with patch("agents.hotel_agent.hotel_price_api.fetch_hotel_prices", new=AsyncMock(return_value={"prices": []})):
+                result = self._run_async(agent.execute({
+                    "city": "testcity",
+                    "pois": [
+                        {
+                            "id": "remote_attr",
+                            "name": "远区景点",
+                            "type": "attraction",
+                            "lat": 31.0,
+                            "lng": 121.0,
+                        },
+                    ],
+                    "trip_intent": {
+                        "city": "testcity",
+                        "must_visit": ["解放碑"],
+                        "budget": "mid-range",
+                        "hotel_budget_max": 500,
+                    },
+                }))
+
+        self.assertEqual(result["selected_hotel"]["id"], "jiefangbei_hotel")
+
 
 # ══════════════════════════════════════════════════════════════════════════════
 # 4. Route Optimization Tests
@@ -2346,6 +2428,24 @@ class TestPoiAgent(unittest.TestCase):
 
         self.assertEqual(names.count("故宫博物院"), 1)
         self.assertEqual(names.count("司马台长城旅游区"), 1)
+
+    def test_chongqing_jiefangbei_must_visit_matches_landmark(self):
+        from agents.poi_agent import PoiAgent
+        from tools.matching import is_must_visit_covered
+
+        intent = {
+            "city": "重庆", "days": 3, "pace": "balanced",
+            "must_visit": ["解放碑"], "interests": ["food", "nightlife"],
+            "avoid": [], "strategy": "culinary",
+        }
+        result = self._run_async(PoiAgent(data_dir="data").execute({
+            "trip_intent": intent,
+            "city": "重庆",
+            "days": 3,
+        }))
+        names = [p.get("name", "") for p in result.get("pois", [])]
+
+        self.assertTrue(is_must_visit_covered("解放碑", set(names)), names)
 
     def test_generic_beijing_trip_excludes_business_meeting_centers(self):
         from agents.poi_agent import PoiAgent

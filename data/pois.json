@@ -1806,32 +1806,6 @@
     "close_minutes": 1080
   },
   {
-    "id": "amap_3c22fafd",
-    "name": "浏阳河婚庆文化园",
-    "type": "attraction",
-    "lat": 28.190126,
-    "lng": 113.046049,
-    "area": "芙蓉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "景点",
-      "风景名胜",
-      "公园广场",
-      "公园",
-      "东屯渡"
-    ],
-    "popularity": 4.7,
-    "price_level": 1,
-    "description": "浏阳河婚庆文化园是长沙拍照打卡的宝藏地，欧式教堂、浪漫草坪和河畔风景随手出大片。建议傍晚来散步，顺便逛逛创意市集或喝杯咖啡。适合情侣约会、闺蜜拍照，也适合带娃遛弯的亲子家庭，感受轻松惬意的城市慢生活。",
-    "source": "amap",
-    "source_id": "B02DB0WSD4",
-    "meal_type": "main",
-    "recommendation": "浪漫欧式建筑，傍晚灯光下拍照绝美，情侣必打卡。"
-  },
-  {
     "id": "amap_d926ce34",
     "name": "湖南烈士纪念塔",
     "type": "attraction",
@@ -2398,33 +2372,6 @@
     "recommendation": "滨江文化园里博物馆、图书馆扎堆，提前预约免费展览，傍晚",
     "open_minutes": 540,
     "close_minutes": 1020
-  },
-  {
-    "id": "amap_e1f9ad1d",
-    "name": "湖南省中医药研究院",
-    "type": "attraction",
-    "lat": 28.220548,
-    "lng": 112.946272,
-    "area": "岳麓区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "历史文化",
-      "室内",
-      "博物馆",
-      "科教文化服务",
-      "科教文化场所",
-      "湘江新区"
-    ],
-    "popularity": 4.3,
-    "price_level": 1,
-    "description": "走进湖南省中医药研究院，就像翻开一本立体的中医药百科全书。这里不仅能看到珍贵药材标本、古代医书典籍，还能了解湖湘中医的发展脉络。建议花1-2小时慢慢逛，留意展厅里的互动体验装置，很适合拍照打卡。适合对中医文化好奇的朋友、养生爱好者，或是想带娃涨知识的家长。",
-    "source": "amap",
-    "source_id": "B0J30ZBDET",
-    "meal_type": "main",
-    "recommendation": "中医药研究院藏着中医文化精髓，可参观中药标本馆，建议上午去，还能闻到草药香。"
   },
   {
     "id": "amap_59ff5b57",

@@ -3336,12 +3336,15 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 
 /* Placeholder image for no-image stops */
 .agent-stop-noimg {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   font-size: 48px;
   background: var(--soft);
+  pointer-events: none;
 }
 
 /* Mobile responsive */

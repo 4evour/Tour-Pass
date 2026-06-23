@@ -1169,51 +1169,6 @@
     }
   },
   {
-    "id": "amap_3c22fafd",
-    "name": "浏阳河婚庆文化园",
-    "type": "attraction",
-    "lat": 28.190126,
-    "lng": 113.046049,
-    "area": "芙蓉区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "景点",
-      "风景名胜",
-      "公园广场",
-      "公园",
-      "东屯渡"
-    ],
-    "popularity": 4.7,
-    "price_level": 1,
-    "description": "浏阳河婚庆文化园，来自高德 Web 服务 POI 搜索；分类：核心景点。",
-    "source": "amap",
-    "source_id": "B02DB0WSD4",
-    "recommendation": "长沙最大婚庆主题公园，欧式建筑群适合拍照打卡。别被门口高价气球摊吸引，园区内小店更实惠。",
-    "_angle": {
-      "key": "avoid",
-      "label": "避坑指南",
-      "instruction": "提醒一个容易踩的坑或常见误区"
-    },
-    "image_url": "images/changsha/images/amap_3c22fafd/1.jpg",
-    "images": [
-      {
-        "url": "images/changsha/images/amap_3c22fafd/1.jpg",
-        "source": "amap"
-      },
-      {
-        "url": "images/changsha/images/amap_3c22fafd/2.jpg",
-        "source": "amap"
-      },
-      {
-        "url": "images/changsha/images/amap_3c22fafd/3.jpg",
-        "source": "amap"
-      }
-    ]
-  },
-  {
     "id": "amap_3ee4ed59",
     "name": "长沙海底世界",
     "type": "attraction",
@@ -6405,53 +6360,6 @@
       "label": "交通攻略",
       "instruction": "给一个具体的交通建议（地铁、公交、自驾）"
     }
-  },
-  {
-    "id": "amap_e1f9ad1d",
-    "name": "湖南省中医药研究院",
-    "type": "attraction",
-    "lat": 28.220548,
-    "lng": 112.946272,
-    "area": "岳麓区",
-    "open_time": "09:00",
-    "close_time": "21:30",
-    "visit_duration_minutes": 90,
-    "tags": [
-      "城市游览",
-      "历史文化",
-      "室内",
-      "博物馆",
-      "科教文化服务",
-      "科教文化场所",
-      "湘江新区",
-      "景点"
-    ],
-    "popularity": 4,
-    "price_level": 1,
-    "description": "湖南省中医药研究院，来自高德 Web 服务 POI 搜索；分类：博物馆与文化。",
-    "source": "amap",
-    "source_id": "B0J30ZBDET",
-    "recommendation": "湖南省中医药研究院是集中医科研与医疗于一体的机构。每周三上午有免费义诊，别错过这个省钱机会。",
-    "_angle": {
-      "key": "saving",
-      "label": "省钱技巧",
-      "instruction": "给一个省钱的小窍门（门票、优惠、免费时段）"
-    },
-    "image_url": "images/changsha/images/amap_e1f9ad1d/1.jpg",
-    "images": [
-      {
-        "url": "images/changsha/images/amap_e1f9ad1d/1.jpg",
-        "source": "amap"
-      },
-      {
-        "url": "images/changsha/images/amap_e1f9ad1d/2.jpg",
-        "source": "amap"
-      },
-      {
-        "url": "images/changsha/images/amap_e1f9ad1d/3.jpg",
-        "source": "amap"
-      }
-    ]
   },
   {
     "id": "amap_59ff5b57",

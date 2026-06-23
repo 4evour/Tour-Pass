@@ -91,6 +91,7 @@ const ROUTES = {
 
 function getRoute() {
   const hash = location.hash.replace(/^#\/?/, "");
+  if (hash.startsWith("share/")) return "plan";
   const route = hash.split("?")[0] || "plan";
   return ROUTES[route] ? route : "plan";
 }
@@ -100,7 +101,13 @@ function navigateTo(target) {
   location.hash = hash.startsWith("#/") ? hash : `#/${hash.replace(/^#\/?/, "")}`;
 }
 
+function getShareIdFromHash() {
+  const hash = window.location.hash || "";
+  return hash.startsWith("#/share/") ? hash.replace("#/share/", "") : "";
+}
+
 function applyRoute() {
+  const shareId = getShareIdFromHash();
   const route = getRoute();
   const config = ROUTES[route];
   if (!config) return;
@@ -127,6 +134,14 @@ function applyRoute() {
   // Special: trips panel loads trip list
   if (route === "trips") {
     loadTripsPanel();
+  }
+
+  if (route === "profile") {
+    loadProfileView();
+  }
+
+  if (shareId) {
+    loadSharedTrip(shareId);
   }
 
   // Close mobile sidebar
@@ -1125,7 +1140,6 @@ async function checkAuth() {
     const data = await api("/auth/me");
     state.user = data;
     showApp();
-    handleRoute();
   } catch (e) {
     console.warn("checkAuth:", e.message);
     showAuth();
@@ -2407,6 +2421,7 @@ function renderStopCard(stop, day, itinerary) {
     var currentImageIndex = 0;
     var failedImageIndexes = {};
     var lastImageDirection = 1;
+    var activeImageUrl = "";
     var removeImagePlaceholder = function() {
       var ph = imgWrap.querySelector(".agent-stop-noimg");
       if (ph) ph.remove();
@@ -2437,20 +2452,25 @@ function renderStopCard(stop, day, itinerary) {
       lastImageDirection = step;
       img.classList.remove("error");
       removeImagePlaceholder();
-      img.src = imageUrls[currentImageIndex];
-    };
-    img.onload = function() {
-      this.classList.remove("error");
-      removeImagePlaceholder();
-    };
-    img.onerror = function() {
-      failedImageIndexes[currentImageIndex] = true;
-      if (imageUrls.length > 1 && Object.keys(failedImageIndexes).length < imageUrls.length) {
-        showImage(currentImageIndex + lastImageDirection, lastImageDirection);
-        return;
-      }
-      this.classList.add("error");
-      showImagePlaceholder();
+      activeImageUrl = imageUrls[currentImageIndex];
+      var requestedIndex = currentImageIndex;
+      var requestedUrl = activeImageUrl;
+      img.onload = function() {
+        if (requestedUrl !== activeImageUrl) return;
+        this.classList.remove("error");
+        removeImagePlaceholder();
+      };
+      img.onerror = function() {
+        if (requestedUrl !== activeImageUrl) return;
+        failedImageIndexes[requestedIndex] = true;
+        if (imageUrls.length > 1 && Object.keys(failedImageIndexes).length < imageUrls.length) {
+          showImage(requestedIndex + lastImageDirection, lastImageDirection);
+          return;
+        }
+        this.classList.add("error");
+        showImagePlaceholder();
+      };
+      img.src = activeImageUrl;
     };
     imgWrap.appendChild(img);
     showImage(0, 1);
@@ -2641,10 +2661,15 @@ function initFormInteractions() {
     if (!card) return;
     const grid = card.closest(".city-grid");
     if (!grid) return;
+    const wasSelected = card.classList.contains("selected");
     grid.querySelectorAll(".city-card").forEach(c => c.classList.remove("selected"));
-    card.classList.add("selected");
     const cityInput = $("formCity");
-    if (cityInput) cityInput.value = card.dataset.city;
+    if (wasSelected) {
+      if (cityInput) cityInput.value = "";
+    } else {
+      card.classList.add("selected");
+      if (cityInput) cityInput.value = card.dataset.city;
+    }
     const errEl = $("formCityError");
     if (errEl) errEl.hidden = true;
   });
@@ -3319,6 +3344,7 @@ updateStageVisibility();
 // City cards
 document.querySelectorAll(".city-card").forEach((card) => {
   card.addEventListener("click", () => {
+    if (card.closest("#formCityGrid")) return;
     document.querySelectorAll(".city-card").forEach(c => c.classList.remove("active"));
     card.classList.add("active");
     if ($("city")) $("city").value = card.dataset.city;
@@ -3338,7 +3364,8 @@ document.querySelectorAll(".city-card").forEach((card) => {
     const defaultCity = data.default || (data.cities && data.cities[0]?.name) || '';
     if (defaultCity) {
       if ($("city")) $("city").value = defaultCity;
-      const card = document.querySelector(`.city-card[data-city="${defaultCity}"]`);
+      const card = [...document.querySelectorAll(`.city-card[data-city="${defaultCity}"]`)]
+        .find(c => !c.closest("#formCityGrid"));
       if (card) {
         document.querySelectorAll(".city-card").forEach(c => c.classList.remove("active"));
         card.classList.add("active");
@@ -3952,31 +3979,6 @@ async function loadSharedTrip(shareId) {
     toast("\u52a0\u8f7d\u5206\u4eab\u884c\u7a0b\u5931\u8d25: " + e.message, "error");
   }
 }
-
-function handleRoute() {
-  const hash = window.location.hash || "#/";
-
-  // Check for share route
-  if (hash.startsWith("#/share/")) {
-    const shareId = hash.replace("#/share/", "");
-    if (shareId) loadSharedTrip(shareId);
-    return;
-  }
-  const mainApp = $("mainApp");
-  const profileView = $("profileView");
-
-  if (hash === "#/profile") {
-    // Show profile, hide main app
-    if (mainApp) mainApp.hidden = true;
-    if (profileView) { profileView.hidden = false; loadProfileView(); }
-  } else {
-    // Show main app, hide profile
-    if (profileView) profileView.hidden = true;
-    if (mainApp && state.user) mainApp.hidden = false;
-  }
-}
-
-window.addEventListener("hashchange", handleRoute);
 
 // Profile back button
 document.getElementById("profileBackBtn")?.addEventListener("click", () => navigateTo("#/"));
