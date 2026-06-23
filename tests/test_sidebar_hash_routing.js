@@ -112,6 +112,8 @@ async function main() {
         mainHidden: document.getElementById("mainApp").hidden,
         panelHidden: document.querySelector(`[data-panel="${panel}"]`).hidden,
         active: document.querySelector(`#sidebar a[data-route="${route}"]`).classList.contains("active"),
+        xhsInputVisible: route === "xhs" ? !document.getElementById("xhsInputView").hidden : true,
+        xhsPlaceholderGone: route === "xhs" ? !document.body.textContent.includes("功能开发中，敬请期待") : true,
       }), { route, panel });
 
       if (state.mainHidden) {
@@ -122,6 +124,9 @@ async function main() {
       }
       if (!state.active) {
         throw new Error(`${route} sidebar navigation should mark the matching item active.`);
+      }
+      if (!state.xhsInputVisible || !state.xhsPlaceholderGone) {
+        throw new Error("xhs route should show the real parser input instead of placeholder content.");
       }
     }
 

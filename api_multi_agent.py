@@ -20,6 +20,7 @@ import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Optional, Literal
+from urllib.parse import urlparse
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -1459,18 +1460,123 @@ JSON格式:
 2. 如果没有明确分天，按每天3-6个景点合理分配
 3. 提取预约提醒（"需预约"、"抢票"等关键词）放到tips里
 4. type从给定8个中选最匹配的
-5. 如果正文内容很少，根据常识补充合理的景点信息
-6. 严格只返回JSON"""
+5. 如果图片OCR文字包含箭头、序号、Day路线或地点列表，优先按OCR中的顺序提取
+6. 正文和OCR重复时去重合并
+7. 严格只返回JSON"""
+
+_BAIDU_OCR_TOKEN: str | None = None
+_BAIDU_OCR_TOKEN_EXPIRES = 0.0
+
+
+def _xhs_needs_ocr(body: str) -> bool:
+    text = (body or "").strip()
+    if len(text) < 30:
+        return True
+    patterns = [
+        r"day\s*\d+",
+        r"第[一二三四五六七八九十\d]+天",
+        r"[➡️→⇨]",
+        r"[①②③④⑤⑥⑦⑧⑨⑩]",
+        r"\d+[.、)\]）]\s*[^\s]{2,}",
+        r"景点|路线|行程|攻略|打卡|推荐|必去",
+    ]
+    return sum(1 for pattern in patterns if re.search(pattern, text, re.I)) < 3
+
+
+async def _get_baidu_ocr_token() -> str | None:
+    global _BAIDU_OCR_TOKEN, _BAIDU_OCR_TOKEN_EXPIRES
+    api_key = os.environ.get("BAIDU_OCR_API_KEY", "").strip()
+    secret_key = os.environ.get("BAIDU_OCR_SECRET_KEY", "").strip()
+    if not api_key or not secret_key:
+        return None
+    if _BAIDU_OCR_TOKEN and time.time() < _BAIDU_OCR_TOKEN_EXPIRES:
+        return _BAIDU_OCR_TOKEN
+    async with httpx.AsyncClient(timeout=10) as client:
+        resp = await client.post(
+            "https://aip.baidubce.com/oauth/2.0/token",
+            params={
+                "grant_type": "client_credentials",
+                "client_id": api_key,
+                "client_secret": secret_key,
+            },
+        )
+        resp.raise_for_status()
+        data = resp.json()
+    token = data.get("access_token")
+    if not token:
+        return None
+    _BAIDU_OCR_TOKEN = token
+    _BAIDU_OCR_TOKEN_EXPIRES = time.time() + max(60, int(data.get("expires_in", 3600)) - 600)
+    return token
+
+
+async def _ocr_xhs_image(url: str) -> str:
+    token = await _get_baidu_ocr_token()
+    if not token:
+        return ""
+    try:
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.post(
+                "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic",
+                params={"access_token": token},
+                headers={"Content-Type": "application/x-www-form-urlencoded"},
+                data={"url": url, "detect_direction": "true", "paragraph": "true"},
+            )
+            resp.raise_for_status()
+            data = resp.json()
+        words = data.get("words_result") or []
+        return "\n".join(item.get("words", "") for item in words if item.get("words")).strip()
+    except Exception as e:
+        logger.warning("XHS OCR failed for image: %s", e)
+        return ""
+
+
+async def _collect_xhs_ocr_texts(images: list, force: bool, body: str) -> list[str]:
+    if not images or not (force or _xhs_needs_ocr(body)):
+        return []
+    if not os.environ.get("BAIDU_OCR_API_KEY") or not os.environ.get("BAIDU_OCR_SECRET_KEY"):
+        return []
+    ocr_images = list(dict.fromkeys(str(url) for url in images if _is_allowed_xhs_image_url(str(url))))
+    if not force:
+        ocr_images = ocr_images[:9]
+    texts: list[str] = []
+    for i in range(0, len(ocr_images), 3):
+        batch = ocr_images[i : i + 3]
+        results = await asyncio.gather(*(_ocr_xhs_image(url) for url in batch))
+        texts.extend(text for text in results if len(text.strip()) > 2)
+    return texts
+
+
+def _is_allowed_xhs_image_url(raw_url: str) -> bool:
+    try:
+        parsed = urlparse(raw_url)
+    except Exception:
+        return False
+    if parsed.scheme not in {"http", "https"}:
+        return False
+    host = (parsed.hostname or "").lower()
+    allowed_hosts = {
+        "ci.xiaohongshu.com",
+        "sns-img-qc.xhscdn.com",
+        "sns-webpic-qc.xhscdn.com",
+        "sns-avatar-qc.xhscdn.com",
+    }
+    return (
+        host in allowed_hosts
+        or host.endswith(".xhscdn.com")
+    )
 
 
 class XhsParseRequest(BaseModel):
     link: str = Field(..., description="小红书分享链接或包含链接的文本")
+    forceOcr: bool = Field(default=False, description="是否强制识别图片文字")
 
 
 class XhsAnalyzeRequest(BaseModel):
     title: str = ""
     body: str = ""
     images: list = Field(default_factory=list)
+    ocrTexts: list[str] = Field(default_factory=list)
     noteId: str = ""
     userId: str = ""
 
@@ -1479,8 +1585,15 @@ class XhsAnalyzeRequest(BaseModel):
 async def xhs_parse(req: XhsParseRequest):
     """Parse a Xiaohongshu link and extract raw note content."""
     try:
+        if not req.link or len(req.link) > 2000:
+            raise ValueError("请输入有效的小红书链接，且长度不超过2000字符")
         from tools.xhs_parser import extract_xhs_note
         result = extract_xhs_note(req.link)
+        result["ocrTexts"] = await _collect_xhs_ocr_texts(
+            result.get("images", []),
+            req.forceOcr,
+            result.get("body", ""),
+        )
         return {"status": "ok", **result}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -1496,7 +1609,10 @@ async def xhs_analyze(req: XhsAnalyzeRequest):
         llm = _get_llm()
         from langchain_core.messages import HumanMessage, SystemMessage
 
+        ocr_text = "\n".join(str(text) for text in req.ocrTexts if str(text).strip())
         user_content = f"标题: {req.title}\n正文: {req.body}"
+        if ocr_text:
+            user_content += f"\n图片OCR文字: {ocr_text}"
         messages = [
             SystemMessage(content=_XHS_ANALYZE_PROMPT),
             HumanMessage(content=user_content),
@@ -1563,10 +1679,10 @@ async def xhs_analyze(req: XhsAnalyzeRequest):
 @app.get("/api/xhs/proxy")
 async def xhs_proxy(url: str):
     """Proxy XHS images to bypass Referer hotlink protection."""
-    if not url or not url.startswith("http"):
+    if not url or not _is_allowed_xhs_image_url(url):
         raise HTTPException(status_code=400, detail="Invalid URL")
     try:
-        async with httpx.AsyncClient(timeout=15, follow_redirects=True) as client:
+        async with httpx.AsyncClient(timeout=15, follow_redirects=False) as client:
             resp = await client.get(
                 url,
                 headers={
@@ -1574,6 +1690,9 @@ async def xhs_proxy(url: str):
                     "Referer": "https://www.xiaohongshu.com/",
                 },
             )
+            if resp.status_code in {301, 302, 303, 307, 308}:
+                redirect_url = resp.headers.get("location", "")
+                raise HTTPException(status_code=400, detail=f"Redirect not allowed: {redirect_url}")
             resp.raise_for_status()
             content_type = resp.headers.get("content-type", "image/jpeg")
             return FastAPIResponse(
@@ -1581,6 +1700,8 @@ async def xhs_proxy(url: str):
                 media_type=content_type,
                 headers={"Cache-Control": "public, max-age=86400"},
             )
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=502, detail=f"Image proxy failed: {e}")
 

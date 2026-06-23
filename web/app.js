@@ -4156,6 +4156,124 @@ var xhsLbImages = [], xhsLbIdx = 0;
 
 function xhsImg(url) { return url ? "/api/xhs/proxy?url=" + encodeURIComponent(url) : ""; }
 
+function xhsDurationToMinutes(duration) {
+  var text = String(duration || "").trim();
+  if (!text) return 60;
+  if (text.includes("半天")) return 240;
+  if (text.includes("一天") || text.includes("全天")) return 480;
+  var hourRange = text.match(/(\d+(?:\.\d+)?)\s*[-~至到]\s*(\d+(?:\.\d+)?)\s*小时/);
+  if (hourRange) return Math.max(30, Math.round(Number(hourRange[2]) * 60));
+  var hour = text.match(/(\d+(?:\.\d+)?)\s*(?:小时|h)/i);
+  if (hour) return Math.max(30, Math.round(Number(hour[1]) * 60));
+  var minute = text.match(/(\d+)\s*(?:分钟|分|min)/i);
+  if (minute) return Math.max(15, parseInt(minute[1], 10));
+  return 60;
+}
+
+function xhsPoiType(type) {
+  if (type === "美食") return "restaurant";
+  if (type === "住宿") return "hotel";
+  if (type === "交通") return "transit";
+  return "attraction";
+}
+
+function xhsTime(minutes) {
+  var h = Math.floor(minutes / 60);
+  var m = minutes % 60;
+  return String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0");
+}
+
+function xhsToSavedTripPayload(data) {
+  var days = Array.isArray(data && data.data) ? data.data : [];
+  var city = (data && data.city) || "旅行";
+  var responseDays = days.map(function(day, dayIndex) {
+    var current = 9 * 60;
+    var stops = (day.places || []).map(function(place, placeIndex) {
+      var duration = xhsDurationToMinutes(place.duration);
+      var start = current;
+      var end = start + duration;
+      current = end + 10;
+      var poiType = xhsPoiType(place.type);
+      var recommendation = [place.tips || "", place.description || ""].filter(Boolean).join(" · ");
+      return {
+        slot: "",
+        poi_id: "xhs-" + (data.id || Date.now()) + "-" + (day.day || dayIndex + 1) + "-" + placeIndex,
+        poi_name: place.name || "未命名地点",
+        poi_type: poiType,
+        area: city,
+        lat: 0,
+        lng: 0,
+        start_time: xhsTime(start),
+        end_time: xhsTime(end),
+        visit_duration_minutes: duration,
+        travel_minutes_from_previous: placeIndex === 0 ? 0 : 10,
+        recommendation: recommendation,
+        score: 0,
+        reason: place.description || place.tips || "",
+      };
+    });
+    return {
+      day: Number(day.day || dayIndex + 1),
+      total_travel_minutes: stops.reduce(function(sum, stop) { return sum + (stop.travel_minutes_from_previous || 0); }, 0),
+      total_visit_minutes: stops.reduce(function(sum, stop) { return sum + (stop.visit_duration_minutes || 0); }, 0),
+      stops: stops,
+    };
+  });
+  var totalStops = responseDays.reduce(function(sum, day) { return sum + day.stops.length; }, 0);
+  return {
+    title: city + "·小红书解析 " + Math.max(1, responseDays.length) + "日游",
+    request: {
+      city: city,
+      days: Math.max(1, responseDays.length),
+      interests: [],
+      pace: "标准",
+      source: "xhs",
+      note_id: data.id || "",
+      source_title: data.source_title || "",
+      summary: data.summary || "",
+    },
+    response: {
+      city: city,
+      days: responseDays,
+      total_score: 0,
+      alternatives: [],
+      comparison: {
+        total_stops: totalStops,
+        total_travel_minutes: responseDays.reduce(function(sum, day) { return sum + day.total_travel_minutes; }, 0),
+        total_visit_minutes: responseDays.reduce(function(sum, day) { return sum + day.total_visit_minutes; }, 0),
+      },
+      source: "xhs",
+      source_note_id: data.id || "",
+      summary: data.summary || "",
+    },
+  };
+}
+
+function xhsUpdateSaveButtons(saved) {
+  var saveBtn = document.getElementById("xhsSaveTripBtn");
+  if (saveBtn) saveBtn.textContent = saved ? "已保存" : "保存为行程";
+}
+
+async function xhsEnsureSaved() {
+  if (!xhsData) throw new Error("没有可保存的解析结果");
+  if (xhsData._savedTripId) return xhsData._savedTripId;
+  if (!localStorage.getItem("tp_token")) throw new Error("请先登录后再保存行程");
+  var payload = xhsToSavedTripPayload(xhsData);
+  var res = await api("/trips/save", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+  xhsData._savedTripId = res && res.id;
+  state.tripSaved = true;
+  state.savedTripId = xhsData._savedTripId;
+  state.candidates = [payload.response];
+  state.selectedIndex = 0;
+  state.lastPayload = payload.request;
+  saveTripState();
+  xhsUpdateSaveButtons(true);
+  return xhsData._savedTripId;
+}
+
 function xhsSetStep(n) {
   document.querySelectorAll("#xhsSteps .xhs-step").forEach(function(el, i) {
     el.classList.remove("active", "done");
@@ -4176,14 +4294,16 @@ function xhsHideError() {
 async function xhsParseLink() {
   var input = document.getElementById("xhsLinkInput");
   if (!input || !input.value.trim()) { xhsShowError("请粘贴小红书链接"); return; }
+  if (input.value.length > 2000) { xhsShowError("分享内容过长，请只粘贴链接或精简分享文案"); return; }
   var btn = document.getElementById("xhsParseBtn");
   btn.disabled = true; btn.classList.add("loading"); btn.textContent = "正在解析...";
   xhsHideError(); xhsSetStep(0);
   try {
     xhsSetStep(1);
+    var forceOcr = !!document.getElementById("xhsForceOcr")?.checked;
     var parseRes = await fetch("/api/xhs/parse", {
       method: "POST", headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ link: input.value.trim() })
+      body: JSON.stringify({ link: input.value.trim(), forceOcr: forceOcr })
     });
     var parseData = await parseRes.json();
     if (!parseRes.ok || parseData.error) throw new Error(parseData.detail || parseData.error || "解析失败");
@@ -4193,7 +4313,7 @@ async function xhsParseLink() {
       method: "POST", headers: {"Content-Type":"application/json"},
       body: JSON.stringify({
         title: parseData.title, body: parseData.body,
-        images: parseData.images || [], noteId: parseData.noteId || "",
+        images: parseData.images || [], ocrTexts: parseData.ocrTexts || [], noteId: parseData.noteId || "",
         userId: (state.user && state.user.id) || ""
       })
     });
@@ -4219,6 +4339,7 @@ function xhsRenderResult(d) {
   document.getElementById("xBadgePlaces").textContent = "👣 " + total + "个景点";
   document.getElementById("xhsTitle").textContent = d.source_title || d.city || "行程解析";
   document.getElementById("xhsSummary").textContent = d.summary || "";
+  xhsUpdateSaveButtons(!!d._savedTripId);
   xhsRenderGallery(d._images || []);
   xhsRenderTypeStats(d.data || []);
   document.getElementById("xhsOriginalBody").textContent = d._body || "";
@@ -4226,7 +4347,7 @@ function xhsRenderResult(d) {
   (d.data || []).forEach(function(day, i) {
     var btn = document.createElement("button");
     btn.className = "xhs-day-tab" + (i === 0 ? " active" : "");
-    btn.innerHTML = "<strong>Day " + (day.day || (i+1)) + "</strong><span class='xhs-day-tab-sub'>" + (day.places?day.places.length:0) + "个景点</span>";
+    btn.innerHTML = "<strong>Day " + escapeHtml(day.day || (i+1)) + "</strong><span class='xhs-day-tab-sub'>" + (day.places?day.places.length:0) + "个地点</span>";
     btn.onclick = function() { xhsSwitchDay(i); };
     tabs.appendChild(btn);
   });
@@ -4257,7 +4378,7 @@ function xhsRenderTypeStats(days) {
     var type = pair[0], count = pair[1];
     var cfg = XHS_TYPES[type] || {icon:"📍",bg:"#f5f5f5",color:"#666"};
     var card = document.createElement("div"); card.className = "xhs-type-stat-card";
-    card.innerHTML = '<div class="xhs-type-stat-icon" style="background:'+cfg.bg+';color:'+cfg.color+'">'+cfg.icon+'</div><div class="xhs-type-stat-info"><div class="xhs-type-stat-count">'+count+'</div><div class="xhs-type-stat-label">'+type+'</div></div>';
+    card.innerHTML = '<div class="xhs-type-stat-icon" style="background:'+cfg.bg+';color:'+cfg.color+'">'+cfg.icon+'</div><div class="xhs-type-stat-info"><div class="xhs-type-stat-count">'+count+'</div><div class="xhs-type-stat-label">'+escapeHtml(type)+'</div></div>';
     el.appendChild(card);
   });
 }
@@ -4272,17 +4393,17 @@ function xhsRenderDay(idx) {
   var day = xhsData.data[idx]; if (!day) return;
   var overview = document.getElementById("xhsDayOverview");
   var dur = (day.places||[]).map(function(p){return p.duration||"";}).filter(Boolean).join(" + ");
-  overview.innerHTML = "<strong>Day " + (day.day||(idx+1)) + "</strong> — " + (day.places?day.places.length:0) + "个景点" + (dur ? " · " + dur : "");
+  overview.innerHTML = "<strong>Day " + escapeHtml(day.day||(idx+1)) + "</strong> - " + (day.places?day.places.length:0) + "个地点" + (dur ? " · " + escapeHtml(dur) : "");
   var tl = document.getElementById("xhsTimeline"); tl.innerHTML = "";
   (day.places||[]).forEach(function(p,i) {
     var cfg = XHS_TYPES[p.type] || {icon:"📍",bg:"#f5f5f5",color:"#666"};
     var card = document.createElement("div"); card.className = "xhs-place";
     card.innerHTML = '<div class="xhs-place-num">'+(i+1)+'</div>' +
       '<div class="xhs-place-actions"><button class="xhs-place-action" title="编辑" onclick="xhsOpenModal('+i+')">✏️</button><button class="xhs-place-action danger" title="删除" onclick="xhsDeletePlace('+idx+','+i+')">🗑️</button></div>' +
-      '<div class="xhs-place-header"><h3 class="xhs-place-name">'+(p.name||"未命名")+'</h3><span class="xhs-place-type xhs-type-'+(p.type||"观光")+'">'+cfg.icon+' '+(p.type||"观光")+'</span></div>' +
-      (p.description?'<p class="xhs-place-desc">'+p.description+'</p>':'') +
-      '<div class="xhs-place-meta">'+(p.duration?'<span>⏱️ '+p.duration+'</span>':'')+'</div>' +
-      (p.tips?'<div class="xhs-place-tip">💡 '+p.tips+'</div>':'');
+      '<div class="xhs-place-header"><h3 class="xhs-place-name">'+escapeHtml(p.name||"未命名")+'</h3><span class="xhs-place-type xhs-type-'+escapeHtml(p.type||"观光")+'">'+cfg.icon+' '+escapeHtml(p.type||"观光")+'</span></div>' +
+      (p.description?'<p class="xhs-place-desc">'+escapeHtml(p.description)+'</p>':'') +
+      '<div class="xhs-place-meta">'+(p.duration?'<span>⏱️ '+escapeHtml(p.duration)+'</span>':'')+'</div>' +
+      (p.tips?'<div class="xhs-place-tip">💡 '+escapeHtml(p.tips)+'</div>':'');
     tl.appendChild(card);
   });
 }
@@ -4334,13 +4455,16 @@ function xhsSubmitPlace() {
   var day = xhsData.data[xhsCurrentDay];
   if (xhsEditingIndex >= 0) { day.places[xhsEditingIndex] = Object.assign({}, day.places[xhsEditingIndex], place); }
   else { if(!day.places)day.places=[]; day.places.push(place); }
-  xhsCloseModal(); xhsRenderDay(xhsCurrentDay); xhsRenderResult(xhsData);
+  xhsData._savedTripId = null;
+  var keepDay = xhsCurrentDay;
+  xhsCloseModal(); xhsRenderResult(xhsData); xhsSwitchDay(keepDay);
 }
 
 function xhsDeletePlace(dayIdx,placeIdx) {
   if(!xhsData||!xhsData.data[dayIdx]) return;
   xhsData.data[dayIdx].places.splice(placeIdx,1);
-  xhsRenderDay(dayIdx); xhsRenderResult(xhsData);
+  xhsData._savedTripId = null;
+  xhsRenderResult(xhsData); xhsSwitchDay(Math.min(dayIdx, (xhsData.data || []).length - 1));
 }
 
 function xhsBackToInput() {
@@ -4348,19 +4472,29 @@ function xhsBackToInput() {
   document.getElementById("xhsInputView").hidden=false; xhsSetStep(0);
 }
 
-function xhsSaveAsTrip() {
+async function xhsSaveAsTrip() {
   if(!xhsData) return;
-  try { var trips=JSON.parse(localStorage.getItem("tp_xhs_trips")||"[]");
-    trips.push(Object.assign({},xhsData,{savedAt:Date.now()}));
-    localStorage.setItem("tp_xhs_trips",JSON.stringify(trips));
-    toast("行程已保存！","success");
+  var btn = document.getElementById("xhsSaveTripBtn");
+  if (btn) { btn.disabled = true; btn.textContent = "保存中..."; }
+  try {
+    await xhsEnsureSaved();
+    toast("行程已保存到我的行程", "success");
   } catch(e) { toast("保存失败: "+e.message,"error"); }
+  finally { if (btn) { btn.disabled = false; xhsUpdateSaveButtons(!!xhsData._savedTripId); } }
 }
 
-function xhsExportToEditor() {
+async function xhsExportToEditor() {
   if(!xhsData) return;
-  var tripId = xhsData.id || ("xhs_"+Date.now());
-  try { sessionStorage.setItem("tp_xhs_export_"+tripId, JSON.stringify(xhsData));
-    navigateTo("editor?tripId="+tripId+"&source=xhs");
+  var btn = document.getElementById("xhsEditTripBtn");
+  if (btn) { btn.disabled = true; btn.textContent = "准备中..."; }
+  try {
+    var tripId = await xhsEnsureSaved();
+    navigateTo("editor?tripId="+tripId);
   } catch(e) { toast("导出失败: "+e.message,"error"); }
+  finally { if (btn) { btn.disabled = false; btn.textContent = "继续编辑"; } }
 }
+
+document.getElementById("xhsParseBtn")?.addEventListener("click", xhsParseLink);
+document.getElementById("xhsLinkInput")?.addEventListener("keydown", function(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === "Enter") xhsParseLink();
+});

@@ -8,17 +8,18 @@ import json
 import logging
 import re
 from typing import Optional
+from urllib.parse import urljoin, urlparse
 
 import httpx
 
 logger = logging.getLogger(__name__)
 
 _XHS_URL_PATTERNS = [
-    re.compile(r"(https?://www\.xiaohongshu\.com/explore/[A-Za-z0-9]+)"),
-    re.compile(r"(https?://www\.xiaohongshu\.com/note/[A-Za-z0-9]+)"),
-    re.compile(r"(https?://www\.xiaohongshu\.com/discovery/item/[A-Za-z0-9]+)"),
-    re.compile(r"(https?://xhslink\.com/[A-Za-z0-9]+)"),
-    re.compile(r"(xhslink\.com/[A-Za-z0-9]+)"),
+    re.compile(r"(https?://www\.xiaohongshu\.com/explore/[^\s,，。！]+)"),
+    re.compile(r"(https?://www\.xiaohongshu\.com/note/[^\s,，。！]+)"),
+    re.compile(r"(https?://www\.xiaohongshu\.com/discovery/item/[^\s,，。！]+)"),
+    re.compile(r"(https?://xhslink\.com/[^\s,，。！]+)"),
+    re.compile(r"(xhslink\.com/[^\s,，。！]+)"),
 ]
 
 _NOTE_ID_PATTERNS = [
@@ -36,6 +37,18 @@ _HEADERS = {
 }
 
 
+def is_allowed_xhs_url(url: str) -> bool:
+    """Return whether a URL belongs to supported XHS hosts."""
+    try:
+        parsed = urlparse(url)
+    except Exception:
+        return False
+    if parsed.scheme not in {"http", "https"}:
+      return False
+    host = (parsed.hostname or "").lower()
+    return host in {"www.xiaohongshu.com", "xhslink.com"}
+
+
 def extract_xhs_url(text: str) -> Optional[str]:
     """Extract the first XHS URL from arbitrary user input text."""
     text = text.strip()
@@ -45,7 +58,8 @@ def extract_xhs_url(text: str) -> Optional[str]:
             url = m.group(1).rstrip(",，。！ ")
             if url.startswith("xhslink.com"):
                 url = "https://" + url
-            return url
+            if is_allowed_xhs_url(url):
+                return url
     return None
 
 
@@ -63,9 +77,20 @@ def resolve_short_url(url: str) -> str:
     if "xhslink.com" not in url:
         return url
     try:
-        with httpx.Client(follow_redirects=True, timeout=10) as client:
-            resp = client.head(url, headers=_HEADERS)
-            return str(resp.url)
+        current = url
+        with httpx.Client(follow_redirects=False, timeout=10) as client:
+            for _ in range(5):
+                resp = client.head(current, headers=_HEADERS)
+                if resp.status_code not in {301, 302, 303, 307, 308}:
+                    return str(resp.url)
+                location = resp.headers.get("location")
+                if not location:
+                    return str(resp.url)
+                next_url = urljoin(str(resp.url), location)
+                if not is_allowed_xhs_url(next_url):
+                    raise ValueError("小红书短链跳转到了不受支持的地址")
+                current = next_url
+        return current
     except Exception as e:
         logger.warning("Failed to resolve short URL %s: %s", url, e)
         return url
@@ -186,6 +211,8 @@ def extract_xhs_note(link: str) -> dict:
         raise ValueError("未找到有效的小红书链接，请检查输入内容")
 
     url = resolve_short_url(url)
+    if not is_allowed_xhs_url(url):
+        raise ValueError("小红书短链跳转到了不受支持的地址")
 
     note_id = extract_note_id(url)
     if not note_id:

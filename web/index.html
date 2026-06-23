@@ -447,12 +447,69 @@
           <iframe id="editorIframe" class="editor-iframe" src="about:blank"></iframe>
         </div>
 
-        <!-- Panel: XHS (placeholder) -->
+        <!-- Panel: XHS -->
         <div data-panel="xhsPanel" hidden>
-          <div class="placeholder-page">
-            <div class="placeholder-icon">📕</div>
-            <h2>小红书解析</h2>
-            <p>功能开发中，敬请期待</p>
+          <div id="xhsInputView" class="xhs-input-view">
+            <div class="xhs-input-card">
+              <div class="xhs-input-icon">📕</div>
+              <h2>小红书行程解析</h2>
+              <p>粘贴小红书分享链接，提取路线、图片和预约提醒</p>
+              <div id="xhsSteps" class="xhs-steps" aria-label="解析进度">
+                <span class="xhs-step active">粘贴链接</span>
+                <span class="xhs-step">解析笔记</span>
+                <span class="xhs-step">生成行程</span>
+              </div>
+              <textarea id="xhsLinkInput" placeholder="粘贴小红书分享链接或分享文案..." maxlength="2000"></textarea>
+              <label class="xhs-ocr-option">
+                <input id="xhsForceOcr" type="checkbox" />
+                <span>强制识别图片文字</span>
+              </label>
+              <button id="xhsParseBtn" class="xhs-parse-btn" type="button">✨ 开始解析</button>
+              <div id="xhsError" class="xhs-error" hidden></div>
+            </div>
+          </div>
+
+          <div id="xhsResultView" class="xhs-result-view" hidden>
+            <div class="xhs-hero">
+              <img id="xhsHeroImg" alt="" />
+              <div class="xhs-hero-overlay"></div>
+              <div class="xhs-hero-content">
+                <div class="xhs-hero-badges">
+                  <span id="xBadgeCity" class="xhs-badge">📍 未知</span>
+                  <span id="xBadgeDays" class="xhs-badge">📅 0天</span>
+                  <span id="xBadgePlaces" class="xhs-badge">👣 0个地点</span>
+                </div>
+                <h1 id="xhsTitle">行程解析</h1>
+                <p id="xhsSummary"></p>
+              </div>
+            </div>
+
+            <div id="xhsGallery" class="xhs-gallery" aria-label="笔记图片"></div>
+            <div id="xhsTypeStats" class="xhs-type-stats"></div>
+
+            <div class="xhs-original">
+              <button class="xhs-original-toggle" type="button" onclick="xhsToggleOriginal()">原文笔记</button>
+              <div id="xhsOriginalBody" class="xhs-original-body" hidden></div>
+            </div>
+
+            <div id="xhsDayTabs" class="xhs-day-tabs" aria-label="行程天数"></div>
+            <div id="xhsDayOverview" class="xhs-day-overview"></div>
+
+            <div class="xhs-timeline-layout">
+              <div>
+                <div id="xhsTimeline" class="xhs-timeline"></div>
+                <button class="xhs-add-place" type="button" onclick="xhsOpenModal(-1)">+ 添加地点</button>
+              </div>
+              <aside class="xhs-map-panel">保存后可进入编辑器继续规划地图路线</aside>
+            </div>
+
+            <div class="xhs-actions">
+              <button class="xhs-action-btn" type="button" onclick="xhsBackToInput()">重新解析</button>
+              <button id="xhsSaveTripBtn" class="xhs-action-btn primary" type="button" onclick="xhsSaveAsTrip()">保存为行程</button>
+              <button id="xhsEditTripBtn" class="xhs-action-btn" type="button" onclick="xhsExportToEditor()">继续编辑</button>
+              <button class="xhs-action-btn" type="button" onclick="navigateTo('trips')">去我的行程</button>
+            </div>
+            <div class="xhs-disclaimer">行程由 AI 从笔记中解析生成，仅供规划参考。</div>
           </div>
         </div>
 
@@ -555,6 +612,29 @@
     </footer>
     <canvas id="fireworksCanvas" class="fireworks-canvas" hidden></canvas>
     <div id="easterMessage" class="easter-message" hidden></div>
+    <div id="xhsLightbox" class="xhs-lightbox" hidden>
+      <button class="xhs-lb-close" type="button" onclick="xhsCloseLb()" aria-label="关闭">×</button>
+      <button class="xhs-lb-prev" type="button" onclick="xhsLbNav(-1)" aria-label="上一张">‹</button>
+      <img id="xhsLbImg" alt="" />
+      <button class="xhs-lb-next" type="button" onclick="xhsLbNav(1)" aria-label="下一张">›</button>
+      <div id="xhsLbCounter" class="xhs-lb-counter"></div>
+    </div>
+    <div id="xhsPlaceModal" class="xhs-modal" hidden>
+      <div class="xhs-modal-content">
+        <h3 id="xhsModalTitle">编辑地点</h3>
+        <input id="xhsPlaceName" type="text" placeholder="地点名称" />
+        <div id="xhsPlaceTypes" class="xhs-type-picker"></div>
+        <textarea id="xhsPlaceDesc" placeholder="简短介绍"></textarea>
+        <div class="xhs-modal-row">
+          <input id="xhsPlaceDuration" type="text" placeholder="建议时长" />
+          <input id="xhsPlaceTips" type="text" placeholder="小贴士" />
+        </div>
+        <div class="xhs-modal-actions">
+          <button type="button" onclick="xhsCloseModal()">取消</button>
+          <button id="xhsModalSubmit" class="primary" type="button" onclick="xhsSubmitPlace()">保存</button>
+        </div>
+      </div>
+    </div>
 
     <script src="/vendor/leaflet.js"></script>
     <script src="/vendor/html2canvas.min.js"></script>

@@ -3655,6 +3655,21 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   box-shadow: 0 0 0 3px rgba(12,140,115,0.1);
 }
 
+.xhs-ocr-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--muted, #666);
+  text-align: left;
+}
+.xhs-ocr-option input {
+  width: 16px;
+  height: 16px;
+  accent-color: #0c8c73;
+}
+
 /* Parse button */
 .xhs-parse-btn {
   display: inline-flex;
