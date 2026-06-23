@@ -13,16 +13,39 @@
   <body style="visibility:hidden">
     <!-- Auth overlay -->
     <div id="authOverlay" class="auth-overlay">
+      <header class="auth-topbar">
+        <button class="auth-menu-btn" type="button" aria-label="菜单">☰</button>
+        <div class="auth-brand">
+          <span class="auth-logo">T</span>
+          <span>Tour-Ai</span>
+        </div>
+      </header>
+      <aside class="auth-sidebar" aria-label="登录页导航">
+        <a>景点推荐</a>
+        <a>路线规划</a>
+        <a>AI 助手</a>
+        <a>笔记解析</a>
+        <a>我的行程</a>
+        <a>旅行日记</a>
+        <span class="auth-sidebar-divider"></span>
+        <a>个人中心</a>
+        <a>定价方案</a>
+        <a>联系我们</a>
+      </aside>
       <div class="auth-card">
-        <h1 class="auth-title">Tour Pass</h1>
-        <p class="auth-subtitle">AI 旅行规划</p>
+        <h1 class="auth-title">登录</h1>
 
         <!-- Login form -->
         <div id="authLoginForm">
           <div class="auth-field">
+            <label for="authUsername">邮箱</label>
             <input id="authUsername" type="text" placeholder="用户名或邮箱" autocomplete="username" />
           </div>
           <div class="auth-field">
+            <div class="auth-field-label-row">
+              <label for="authPassword">密码</label>
+              <a href="#" aria-disabled="true">忘记密码？</a>
+            </div>
             <input id="authPassword" type="password" placeholder="密码" autocomplete="current-password" />
           </div>
           <div id="authError" class="auth-error" hidden></div>
@@ -67,30 +90,33 @@
     <!-- Mobile menu button -->
     <button id="mobileMenuBtn" class="mobile-menu-btn" type="button" hidden>☰</button>
 
+    <header class="sidebar-shell-topbar">
+      <button class="shell-menu-btn" type="button" aria-label="菜单">☰</button>
+      <div class="shell-brand">
+        <span class="shell-logo">T</span>
+        <span>Tour-Ai</span>
+      </div>
+    </header>
+
     <!-- Sidebar Navigation -->
     <nav id="sidebar" class="sidebar" hidden>
       <div class="sidebar-brand">
-        <div class="sidebar-logo">🟢</div>
+        <div class="sidebar-logo">T</div>
         <span class="sidebar-brand-text">Tour Pass</span>
       </div>
 
       <div class="sidebar-nav">
         <a href="#/plan" class="sidebar-item active" data-route="plan">
-          <span class="sidebar-icon">🤖</span>
-          <span class="sidebar-label">AI 规划</span>
+          <span class="sidebar-label">AI 助手</span>
         </a>
         <a href="#/trips" class="sidebar-item" data-route="trips">
-          <span class="sidebar-icon">📋</span>
           <span class="sidebar-label">我的行程</span>
         </a>
         <a href="#/editor" class="sidebar-item" data-route="editor">
-          <span class="sidebar-icon">✏️</span>
-          <span class="sidebar-label">行程编辑器</span>
+          <span class="sidebar-label">路线规划</span>
         </a>
         <a href="#/xhs" class="sidebar-item" data-route="xhs">
-          <span class="sidebar-icon">📕</span>
-          <span class="sidebar-label">小红书解析</span>
-          <span class="sidebar-badge">即将上线</span>
+          <span class="sidebar-label">笔记解析</span>
         </a>
       </div>
 
@@ -98,11 +124,9 @@
 
       <div class="sidebar-nav">
         <a href="#/profile" class="sidebar-item" data-route="profile">
-          <span class="sidebar-icon">👤</span>
           <span class="sidebar-label">个人中心</span>
         </a>
         <a href="#/contact" class="sidebar-item" data-route="contact">
-          <span class="sidebar-icon">📧</span>
           <span class="sidebar-label">联系我们</span>
         </a>
       </div>

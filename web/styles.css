@@ -1,6 +1,7 @@
 :root {
   color-scheme: light;
-  /* 翡翠旅途 - Emerald Journey */
+  /* Tour-AI shell */
+  --app-bg: #f3f4f6;
   --emerald-50: #ecfdf5;
   --emerald-100: #d1fae5;
   --emerald-400: #34d399;
@@ -10,21 +11,21 @@
   --amber-400: #fbbf24;
   --amber-500: #f59e0b;
   /* 语义色映射 */
-  --bg: #f8fffe;
+  --bg: var(--app-bg);
   --surface: #ffffff;
   --ink: #0f172a;
   --muted: #64748b;
   --line: #e2e8f0;
-  --accent: #059669;
-  --accent-dark: #047857;
+  --accent: #f4510c;
+  --accent-dark: #d94307;
   --warn: #f59e0b;
-  --soft: #ecfdf5;
+  --soft: #fff4ed;
   --blue-soft: #eaf1f8;
   /* 导航栏 */
   --sidebar-bg: #ffffff;
-  --sidebar-active: #ecfdf5;
-  --sidebar-active-border: #059669;
-  --sidebar-width: 240px;
+  --sidebar-active: #fff4ed;
+  --sidebar-active-border: #f4510c;
+  --sidebar-width: 244px;
   /* 通用 */
   --radius: 8px;
   --radius-sm: 4px;
@@ -1140,56 +1141,166 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .auth-overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(135deg, #0c4d43 0%, #146b5d 50%, #1a8f7a 100%);
+  background: var(--app-bg);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10000;
+  padding: 92px 24px 40px calc(var(--sidebar-width) + 24px);
+}
+.auth-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 180px;
+  padding: 0 30px;
+  background: var(--surface);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 2;
+}
+.auth-menu-btn,
+.shell-menu-btn {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: #4b5563;
+  font-size: 18px;
+  cursor: pointer;
+}
+.auth-brand,
+.shell-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+}
+.auth-logo,
+.shell-logo {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #ff8a72, #ff6a4f);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+}
+.auth-sidebar {
+  position: fixed;
+  top: 68px;
+  bottom: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px 16px;
+  background: var(--surface);
+  border-right: 1px solid #e5e7eb;
+  z-index: 1;
+}
+.auth-sidebar a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 6px;
+  color: #374151;
+  font-size: 14px;
+  text-decoration: none;
+}
+.auth-sidebar a:hover {
+  background: #f9fafb;
+  color: #111827;
+}
+.auth-sidebar-divider {
+  height: 1px;
+  margin: 8px 0;
+  background: #e5e7eb;
 }
 .auth-card {
   background: var(--surface);
-  border-radius: 16px;
-  padding: 40px 36px;
-  width: 360px;
+  border-radius: 8px;
+  padding: 32px;
+  width: 448px;
   max-width: 90vw;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.10);
   text-align: center;
 }
 .auth-title {
   font-size: 28px;
-  margin: 0 0 4px;
-  color: var(--accent);
+  margin: 0 0 30px;
+  color: #0f172a;
+  font-weight: 800;
 }
 .auth-subtitle {
   color: var(--muted);
-  margin: 0 0 28px;
+  margin: 16px 0 0;
   font-size: 14px;
 }
 .auth-field {
-  margin-bottom: 14px;
+  margin-bottom: 18px;
+  text-align: left;
+}
+.auth-field label,
+.auth-field-label-row {
+  color: #111827;
+  font-size: 13px;
+  font-weight: 600;
+}
+.auth-field label {
+  display: block;
+  margin-bottom: 7px;
+}
+.auth-field-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+.auth-field-label-row label {
+  margin: 0;
+}
+.auth-field-label-row a {
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
 }
 .auth-field input,
 .auth-field select,
 .auth-field textarea {
   width: 100%;
-  padding: 10px 14px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  min-height: 50px;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
   font-size: 15px;
-  background: var(--bg);
+  background: var(--surface);
   color: var(--ink);
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 .auth-field input:focus,
 .auth-field textarea:focus {
-  border-color: var(--accent);
+  border-color: #93b5fd;
+  box-shadow: 0 0 0 3px rgba(147, 181, 253, 0.22);
 }
 .auth-btn {
   width: 100%;
-  padding: 11px;
+  min-height: 48px;
+  padding: 12px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 15px;
   cursor: pointer;
   background: var(--surface);
@@ -1201,6 +1312,7 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   background: var(--accent);
   color: #fff;
   border-color: var(--accent);
+  font-weight: 700;
 }
 .auth-btn.primary:hover {
   background: var(--accent-dark);
@@ -1224,13 +1336,13 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .auth-switch a {
   color: var(--accent);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 500;
 }
 .auth-btn.guest {
-  background: transparent;
-  border: 1px dashed var(--line);
-  color: var(--muted);
-  margin-top: 8px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  color: #374151;
+  margin-top: 10px;
   font-size: 13px;
 }
 .auth-btn.guest:hover {
@@ -1247,6 +1359,26 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   white-space: nowrap;
   padding: 10px 14px !important;
   font-size: 13px !important;
+}
+
+@media (max-width: 767px) {
+  .auth-overlay {
+    padding: 92px 16px 32px;
+  }
+
+  .auth-topbar {
+    gap: 18px;
+    padding: 0 16px;
+  }
+
+  .auth-sidebar {
+    display: none;
+  }
+
+  .auth-card {
+    width: min(448px, 100%);
+    padding: 28px 22px;
+  }
 }
 
 /* ---- Topbar right ---- */
@@ -1305,11 +1437,12 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 /* ---- Chat hero ---- */
 .chat-hero {
   margin-top: 20px;
-  background: linear-gradient(135deg, #f0f9f7 0%, #e8f4f0 100%);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 20px;
+  background: var(--surface);
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 24px;
   position: relative;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
 }
 .chat-hero-inner {
   display: flex;
@@ -1319,8 +1452,8 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .chat-hero-input {
   flex: 1;
   padding: 12px 16px;
-  border: 2px solid var(--line);
-  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
   font-size: 15px;
   resize: none;
   background: var(--surface);
@@ -1331,13 +1464,14 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 }
 .chat-hero-input:focus {
   border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(244, 81, 12, 0.12);
 }
 .chat-hero-btn {
   padding: 12px 24px;
   background: var(--accent);
   color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -1356,7 +1490,7 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .chat-hint {
   padding: 6px 12px;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 999px;
   background: var(--surface);
   color: var(--ink);
   font-size: 13px;
@@ -3225,15 +3359,15 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   display: flex;
   gap: 4px;
   padding: 4px;
-  background: var(--soft);
-  border-radius: 10px;
+  background: #f3f4f6;
+  border-radius: 8px;
   margin-bottom: 12px;
   width: fit-content;
 }
 .mode-btn {
   padding: 6px 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   background: transparent;
   color: var(--muted);
   font-size: 13px;
@@ -3243,7 +3377,7 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .mode-btn.active {
   background: var(--surface);
   color: var(--ink);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.10);
   font-weight: 600;
 }
 .mode-btn:hover:not(.active) {
@@ -3253,8 +3387,8 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 /* ── Structured plan form ──────────────────────────────────────── */
 .plan-structured-form {
   background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
   padding: 16px;
   margin-bottom: 12px;
 }
@@ -3298,7 +3432,7 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .form-field input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(20,107,93,0.15);
+  box-shadow: 0 0 0 3px rgba(244, 81, 12, 0.12);
 }
 .form-radio-group {
   display: flex;

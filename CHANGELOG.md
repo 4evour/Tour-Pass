@@ -971,3 +971,22 @@
 - web/index.html — 仅替换 xhsPanel 区域，不影响其他面板
 - web/styles.css — 仅追加样式，不影响现有样式
 - web/app.js — 仅追加 XHS 函数，不影响现有路由/逻辑
+
+## 2026-06-23 12:13 - 修复 Tour-AI 风格布局加载
+
+### 变更内容
+- 修改 `src/api.cpp`：将 `/css/` 静态资源路径加入公开白名单，确保 `web/css/sidebar.css` 和 `web/css/plan-form.css` 在认证前可加载。
+- 修改 `web/index.html`：为登录页添加 Tour-AI 风格顶部栏和左侧导航骨架；为主应用添加固定顶部品牌栏，并调整侧栏导航文案为纯文字布局。
+- 修改 `web/styles.css`：将登录页从全屏绿色遮罩改为灰色工作区 + 居中白色登录卡；统一主色为橙色按钮和焦点态；调整 AI 规划卡片为白色工具面板。
+- 修改 `web/css/sidebar.css`：重做主应用左侧导航、顶部栏、内容区灰底布局，并修复平板/移动端侧栏表现。
+- 修改 `web/css/plan-form.css`：将结构化表单的选中、hover、focus 和提交按钮改为当前橙色主题。
+- 修改 `web/app.js`：让固定顶部栏菜单按钮复用现有移动端侧栏开关。
+- 新增 `tests/test_public_static_paths.js`、`tests/test_tour_ai_layout_markup.js`、`tests/test_shell_menu_binding.js`：覆盖 CSS 白名单、布局骨架和顶部菜单绑定。
+
+### 原因
+- 线上页面出现裸链接式侧栏，是因为子目录 CSS 没有通过认证前置白名单，导致关键布局样式没有加载。
+- 用户明确要求按 `tour-ai-azure.vercel.app/login` 截图里的 Tour-AI 版式调整当前布局。
+
+### 影响范围
+- 影响主站登录页、主应用外壳、左侧导航、AI 规划入口表单的视觉和移动端侧栏开关。
+- 不改变行程规划 API、AI Agent 请求流程、行程渲染数据结构或编辑器内部实现。

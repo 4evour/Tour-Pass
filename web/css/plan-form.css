@@ -1,4 +1,4 @@
-/* AI Plan Structured Form - Emerald Journey */
+/* AI Plan Structured Form - Tour-AI shell */
 
 .plan-form {
   max-width: 720px;
@@ -41,13 +41,13 @@
 }
 
 .city-card:hover {
-  border-color: var(--emerald-400);
-  background: var(--emerald-50);
+  border-color: var(--accent);
+  background: var(--soft);
 }
 
 .city-card.selected {
   border-color: var(--accent);
-  background: var(--emerald-50);
+  background: var(--soft);
   box-shadow: 0 0 0 1px var(--accent);
 }
 
@@ -92,7 +92,7 @@
 }
 
 .day-btn:hover {
-  border-color: var(--emerald-400);
+  border-color: var(--accent);
 }
 
 .day-btn.selected {
@@ -123,8 +123,8 @@
 }
 
 .chip:hover {
-  border-color: var(--emerald-400);
-  background: var(--emerald-50);
+  border-color: var(--accent);
+  background: var(--soft);
 }
 
 .chip.selected {
@@ -162,7 +162,7 @@
 }
 
 .pace-option:hover {
-  background: var(--emerald-50);
+  background: var(--soft);
 }
 
 .pace-option.selected {
@@ -204,7 +204,7 @@
 .range-inputs input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px var(--emerald-100);
+  box-shadow: 0 0 0 3px rgba(244, 81, 12, 0.12);
 }
 
 .range-inputs span {
@@ -228,7 +228,7 @@
 
 .tag-input-container:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px var(--emerald-100);
+  box-shadow: 0 0 0 3px rgba(244, 81, 12, 0.12);
 }
 
 .tag {
@@ -236,7 +236,7 @@
   align-items: center;
   gap: 4px;
   padding: 4px 8px;
-  background: var(--emerald-100);
+  background: #ffedd5;
   color: var(--accent-dark);
   border-radius: 4px;
   font-size: 12px;
@@ -291,7 +291,7 @@
 }
 
 .tag-suggestion:hover {
-  background: var(--emerald-50);
+  background: var(--soft);
 }
 
 /* Special Requests */
@@ -311,14 +311,14 @@
 .special-requests:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px var(--emerald-100);
+  box-shadow: 0 0 0 3px rgba(244, 81, 12, 0.12);
 }
 
 /* Submit Button */
 .plan-submit-btn {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, var(--emerald-600), var(--emerald-500));
+  background: var(--accent);
   color: white;
   border: none;
   border-radius: var(--radius);
@@ -330,9 +330,9 @@
 }
 
 .plan-submit-btn:hover {
-  background: linear-gradient(135deg, var(--emerald-700), var(--emerald-600));
+  background: var(--accent-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+  box-shadow: 0 4px 12px rgba(244, 81, 12, 0.22);
 }
 
 .plan-submit-btn:active {

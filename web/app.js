@@ -3575,6 +3575,9 @@ $("sidebarLogoutBtn")?.addEventListener("click", logout);
 $("mobileMenuBtn")?.addEventListener("click", () => {
   $("sidebar")?.classList.toggle("open");
 });
+document.querySelector(".shell-menu-btn")?.addEventListener("click", () => {
+  $("sidebar")?.classList.toggle("open");
+});
 initTheme();
 
 // Event delegation for dynamically rendered buttons

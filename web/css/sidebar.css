@@ -1,13 +1,64 @@
-/* Sidebar Navigation - Emerald Journey */
+/* Sidebar Navigation - Tour-AI shell */
 
-.sidebar {
+:root {
+  --sidebar-width: 244px;
+}
+
+.sidebar-shell-topbar {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 180px;
+  padding: 0 30px;
+  background: var(--surface);
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 120;
+}
+
+.shell-menu-btn {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: #4b5563;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.shell-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.shell-logo {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #ff8a72, #ff6a4f);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.sidebar {
+  position: fixed;
+  top: 68px;
+  left: 0;
   width: var(--sidebar-width, 240px);
-  height: 100vh;
+  height: calc(100vh - 68px);
   background: var(--sidebar-bg);
-  border-right: 1px solid var(--line);
+  border-right: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
   z-index: 100;
@@ -15,7 +66,7 @@
 }
 
 .sidebar-brand {
-  display: flex;
+  display: none;
   align-items: center;
   gap: 10px;
   padding: 20px 16px;
@@ -38,32 +89,34 @@
 }
 
 .sidebar-nav {
-  padding: 8px 0;
+  padding: 12px 16px 0;
 }
 
 .sidebar-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  color: var(--muted);
+  min-height: 44px;
+  gap: 0;
+  padding: 0 16px;
+  color: #374151;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
-  border-left: 3px solid transparent;
-  transition: all 0.15s ease;
+  border-left: 0;
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
   cursor: pointer;
 }
 
 .sidebar-item:hover {
-  color: var(--ink);
-  background: var(--soft);
+  color: #111827;
+  background: #f9fafb;
 }
 
 .sidebar-item.active {
-  color: var(--accent);
-  background: var(--sidebar-active);
-  border-left-color: var(--sidebar-active-border);
+  color: #111827;
+  background: #f3f4f6;
+  border-left-color: transparent;
   font-weight: 600;
 }
 
@@ -89,14 +142,14 @@
 
 .sidebar-divider {
   height: 1px;
-  background: var(--line);
-  margin: 4px 16px;
+  background: #e5e7eb;
+  margin: 12px 16px 0;
 }
 
 .sidebar-footer {
   margin-top: auto;
-  padding: 12px 16px;
-  border-top: 1px solid var(--line);
+  padding: 12px 16px 18px;
+  border-top: 1px solid #e5e7eb;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -116,8 +169,8 @@
 
 .sidebar-theme-toggle {
   background: none;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
   padding: 6px 10px;
   cursor: pointer;
   font-size: 14px;
@@ -131,8 +184,8 @@
 
 .sidebar-logout {
   background: none;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
   padding: 6px 10px;
   cursor: pointer;
   font-size: 13px;
@@ -147,15 +200,43 @@
 /* Main content area offset */
 .app-shell {
   margin-left: var(--sidebar-width, 240px);
+  padding-top: 68px;
+  max-width: none;
   min-height: 100vh;
+  background: var(--app-bg);
 }
 
 /* Page title */
 .page-title {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 800;
   color: var(--ink);
   margin: 0;
+}
+
+.workspace {
+  max-width: 960px;
+  min-height: calc(100vh - 68px);
+  margin: 0 auto;
+  padding: 34px 28px 48px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+}
+
+.topbar {
+  margin-bottom: 18px;
+}
+
+.topbar-right {
+  align-items: center;
+}
+
+.guest-retention-banner {
+  max-width: 960px;
+  margin: 24px auto 0;
+  border-color: #fed7aa;
+  background: #fff7ed;
 }
 
 /* Mobile menu button */
@@ -212,29 +293,25 @@
   border-radius: var(--radius);
 }
 
-/* Responsive: tablet (icon-only sidebar) */
+/* Responsive: tablet */
 @media (max-width: 1023px) and (min-width: 768px) {
   :root {
-    --sidebar-width: 60px;
+    --sidebar-width: 204px;
   }
 
-  .sidebar-brand-text,
-  .sidebar-label,
   .sidebar-badge,
-  .sidebar-user-name,
-  .sidebar-logout {
+  .sidebar-user-name {
     display: none;
   }
 
   .sidebar-item {
-    justify-content: center;
-    padding: 12px;
-    border-left: none;
-    border-bottom: 3px solid transparent;
+    justify-content: flex-start;
+    padding: 0 14px;
+    border-left: 0;
+    border-bottom: 0;
   }
 
   .sidebar-item.active {
-    border-bottom-color: var(--sidebar-active-border);
     border-left-color: transparent;
   }
 
@@ -250,6 +327,11 @@
 
 /* Responsive: mobile (hidden sidebar, hamburger menu) */
 @media (max-width: 767px) {
+  .sidebar-shell-topbar {
+    gap: 18px;
+    padding: 0 16px;
+  }
+
   .sidebar {
     transform: translateX(-100%);
     transition: transform 0.25s ease;
@@ -261,10 +343,20 @@
 
   .app-shell {
     margin-left: 0;
+    padding-top: 68px;
+  }
+
+  .workspace {
+    padding: 24px 16px 40px;
   }
 
   .mobile-menu-btn {
     display: block;
+    top: 18px;
+    left: 18px;
+    border: 0;
+    background: transparent;
+    z-index: 130;
   }
 }
 
@@ -384,5 +476,5 @@
 .contact-form input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 2px var(--emerald-100);
+  box-shadow: 0 0 0 3px rgba(244, 81, 12, 0.12);
 }

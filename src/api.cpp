@@ -508,6 +508,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                          || req.method == "OPTIONS"
                          || req.path == "/" || req.path == "/index.html"
                          || req.path == "/app.js" || req.path == "/styles.css"
+                         || req.path.find("/css/") == 0
                          || req.path == "/favicon.ico"
                          || req.path == "/admin.html"  // static page; /admin/* API endpoints require admin role
                          || req.path == "/admin.js"
