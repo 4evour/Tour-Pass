@@ -342,7 +342,7 @@ void setCommonHeaders(const httplib::Request& req, httplib::Response& res, const
     res.set_header("Access-Control-Expose-Headers", "X-Request-Id, X-Response-Time-Ms, X-Cache, X-Query-Remaining");
     res.set_header("X-Content-Type-Options", "nosniff");
     res.set_header("Referrer-Policy", "no-referrer");
-    res.set_header("X-Frame-Options", "DENY");
+    res.set_header("X-Frame-Options", req.path.find("/editor") == 0 ? "SAMEORIGIN" : "DENY");
     // CSP is set in post_routing_handler so individual routes can override it
 }
 

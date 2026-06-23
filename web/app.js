@@ -90,12 +90,14 @@ const ROUTES = {
 };
 
 function getRoute() {
-  const hash = location.hash.replace("#/", "") || "plan";
-  return ROUTES[hash] ? hash : "plan";
+  const hash = location.hash.replace(/^#\/?/, "");
+  const route = hash.split("?")[0] || "plan";
+  return ROUTES[route] ? route : "plan";
 }
 
-function navigateTo(route) {
-  location.hash = `#/${route}`;
+function navigateTo(target) {
+  const hash = String(target || "plan");
+  location.hash = hash.startsWith("#/") ? hash : `#/${hash.replace(/^#\/?/, "")}`;
 }
 
 function applyRoute() {
@@ -3928,11 +3930,6 @@ $("logoutBtn")?.addEventListener("click", logout);
 initFeedback();
 initEasterEgg();
 checkAuth();
-
-// ---- Hash Router (SPA navigation) ----
-function navigateTo(hash) {
-  window.location.hash = hash;
-}
 
 async function loadSharedTrip(shareId) {
   try {
