@@ -134,11 +134,26 @@ async function main() {
       throw new Error(`Browser console errors: ${errors.join(" | ")}`);
     }
 
+    await page.setViewportSize({ width: 580, height: 698 });
+    await page.click(".shell-menu-btn");
+    await page.waitForSelector("#sidebar.open", { timeout: 2000 });
+    await page.click(`#sidebar a[data-route="${getCurrentRouteName(page.url())}"]`);
+    await page.waitForTimeout(100);
+    const sidebarStillOpen = await page.$eval("#sidebar", el => el.classList.contains("open"));
+    if (sidebarStillOpen) {
+      throw new Error("Mobile sidebar should close even when clicking the active hash route.");
+    }
+
     console.log("Sidebar hash routing keeps the app shell visible and switches every panel.");
   } finally {
     await browser.close();
     server.close();
   }
+}
+
+function getCurrentRouteName(currentUrl) {
+  const hash = new URL(currentUrl).hash.replace(/^#\/?/, "");
+  return hash.split("?")[0] || "plan";
 }
 
 main().catch((error) => {

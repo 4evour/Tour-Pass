@@ -3607,6 +3607,10 @@ $("mobileMenuBtn")?.addEventListener("click", () => {
 document.querySelector(".shell-menu-btn")?.addEventListener("click", () => {
   $("sidebar")?.classList.toggle("open");
 });
+$("sidebar")?.addEventListener("click", (e) => {
+  const link = e.target.closest?.("a[data-route]");
+  if (link && link.dataset.route === getRoute()) applyRoute();
+});
 initTheme();
 
 // Event delegation for dynamically rendered buttons
