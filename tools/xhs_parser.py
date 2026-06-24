@@ -74,6 +74,14 @@ def extract_xhs_url(text: str) -> Optional[str]:
     return None
 
 
+def _normalize_pasted_text(text: str) -> str:
+    text = text.strip()
+    text = re.sub(r"https?://\S+", " ", text)
+    text = re.sub(r"xhslink\.com/\S+", " ", text)
+    text = re.sub(r"\s+", " ", text)
+    return text
+
+
 def extract_note_id(url: str) -> Optional[str]:
     """Extract the note ID from a resolved XHS URL."""
     for pat in _NOTE_ID_PATTERNS:
@@ -223,7 +231,17 @@ def extract_xhs_note(link: str) -> dict:
     """
     url = extract_xhs_url(link)
     if not url:
-        raise ValueError("未找到有效的小红书链接，请检查输入内容")
+        pasted_text = _normalize_pasted_text(link)
+        if not pasted_text:
+            raise ValueError("未找到有效的小红书链接，请检查输入内容")
+        note_suffix = re.sub(r"[^A-Za-z0-9]+", "-", pasted_text[:24]).strip("-")
+        return {
+            "title": pasted_text[:40],
+            "body": pasted_text,
+            "images": [],
+            "noteId": "pasted-" + (note_suffix or "text"),
+            "type": "pasted_text",
+        }
 
     url = resolve_short_url(url)
     if not is_allowed_xhs_url(url):
@@ -233,4 +251,17 @@ def extract_xhs_note(link: str) -> dict:
     if not note_id:
         raise ValueError(f"无法从链接中提取笔记 ID: {url}")
 
-    return fetch_note_ssr(note_id)
+    try:
+        return fetch_note_ssr(note_id)
+    except ValueError:
+        pasted_text = _normalize_pasted_text(link)
+        if len(pasted_text) >= 20:
+            note_suffix = re.sub(r"[^A-Za-z0-9]+", "-", pasted_text[:24]).strip("-")
+            return {
+                "title": pasted_text[:40],
+                "body": pasted_text,
+                "images": [],
+                "noteId": "pasted-" + (note_suffix or note_id),
+                "type": "pasted_text",
+            }
+        raise

@@ -4316,8 +4316,8 @@ function xhsHideError() {
 
 async function xhsParseLink() {
   var input = document.getElementById("xhsLinkInput");
-  if (!input || !input.value.trim()) { xhsShowError("请粘贴小红书链接"); return; }
-  if (input.value.length > 2000) { xhsShowError("分享内容过长，请只粘贴链接或精简分享文案"); return; }
+  if (!input || !input.value.trim()) { xhsShowError("请粘贴小红书链接或分享文案"); return; }
+  if (input.value.length > 5000) { xhsShowError("分享内容过长，请精简到5000字以内"); return; }
   var btn = document.getElementById("xhsParseBtn");
   btn.disabled = true; btn.classList.add("loading"); btn.textContent = "正在解析...";
   xhsHideError(); xhsSetStep(0);

@@ -3,7 +3,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from tools.xhs_parser import extract_xhs_url, fetch_note_ssr, is_allowed_xhs_url
+from tools.xhs_parser import extract_xhs_note, extract_xhs_url, fetch_note_ssr, is_allowed_xhs_url
 import api_multi_agent
 
 
@@ -28,7 +28,15 @@ def run_tests():
         def raise_for_status(self):
             return None
 
-    class FakeClient:
+    pasted_note = extract_xhs_note(
+        "重庆三日游路线：Day1 解放碑、洪崖洞、千厮门大桥；"
+        "Day2 磁器口、李子坝、鹅岭二厂；Day3 山城步道、长江索道。"
+    )
+    assert pasted_note["type"] == "pasted_text"
+    assert "重庆三日游" in pasted_note["body"]
+    assert pasted_note["noteId"].startswith("pasted-")
+
+    class MissingPageClient:
         def __init__(self, *args, **kwargs):
             pass
 
@@ -42,6 +50,32 @@ def run_tests():
             return FakeResponse()
 
     import tools.xhs_parser as xhs_parser
+    original_xhs_client = xhs_parser.httpx.Client
+    xhs_parser.httpx.Client = MissingPageClient
+    try:
+        shared_note = extract_xhs_note(
+            "重庆三日游路线：Day1 解放碑 洪崖洞。"
+            "https://www.xiaohongshu.com/explore/6a16b2840000000035030fc6?source=share"
+        )
+        assert shared_note["type"] == "pasted_text"
+        assert "重庆三日游" in shared_note["body"]
+        assert "xiaohongshu.com" not in shared_note["body"]
+    finally:
+        xhs_parser.httpx.Client = original_xhs_client
+
+    class FakeClient:
+        def __init__(self, *args, **kwargs):
+            pass
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def get(self, *args, **kwargs):
+            return FakeResponse()
+
     original_xhs_client = xhs_parser.httpx.Client
     xhs_parser.httpx.Client = FakeClient
     try:

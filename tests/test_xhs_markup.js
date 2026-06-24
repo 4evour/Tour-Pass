@@ -22,6 +22,14 @@ for (const id of requiredMarkup) {
   }
 }
 
+if (!indexHtml.includes('placeholder="粘贴小红书分享链接或分享文案..."')) {
+  throw new Error("XHS input should tell users they can paste share text.");
+}
+
+if (!indexHtml.includes('maxlength="5000"')) {
+  throw new Error("XHS input should allow pasted note text up to 5000 characters.");
+}
+
 if (indexHtml.includes("功能开发中，敬请期待")) {
   throw new Error("XHS panel should not render the placeholder copy.");
 }

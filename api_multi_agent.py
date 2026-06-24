@@ -1585,8 +1585,8 @@ class XhsAnalyzeRequest(BaseModel):
 async def xhs_parse(req: XhsParseRequest):
     """Parse a Xiaohongshu link and extract raw note content."""
     try:
-        if not req.link or len(req.link) > 2000:
-            raise ValueError("请输入有效的小红书链接，且长度不超过2000字符")
+        if not req.link or len(req.link) > 5000:
+            raise ValueError("请输入小红书链接或分享文案，且长度不超过5000字符")
         from tools.xhs_parser import extract_xhs_note
         result = extract_xhs_note(req.link)
         result["ocrTexts"] = await _collect_xhs_ocr_texts(
