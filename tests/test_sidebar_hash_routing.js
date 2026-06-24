@@ -111,6 +111,9 @@ async function main() {
       const state = await page.evaluate(({ route, panel }) => ({
         mainHidden: document.getElementById("mainApp").hidden,
         panelHidden: document.querySelector(`[data-panel="${panel}"]`).hidden,
+        panelInsideWorkspace: document.querySelector(`[data-panel="${panel}"]`).closest(".workspace") !== null,
+        panelTop: document.querySelector(`[data-panel="${panel}"]`).getBoundingClientRect().top,
+        viewportHeight: window.innerHeight,
         active: document.querySelector(`#sidebar a[data-route="${route}"]`).classList.contains("active"),
         xhsInputVisible: route === "xhs" ? !document.getElementById("xhsInputView").hidden : true,
         xhsPlaceholderGone: route === "xhs" ? !document.body.textContent.includes("功能开发中，敬请期待") : true,
@@ -121,6 +124,12 @@ async function main() {
       }
       if (state.panelHidden) {
         throw new Error(`${route} sidebar navigation should show ${panel}.`);
+      }
+      if (!state.panelInsideWorkspace) {
+        throw new Error(`${route} panel should render inside the shared workspace.`);
+      }
+      if (state.panelTop >= state.viewportHeight) {
+        throw new Error(`${route} panel should be visible in the first viewport, got top ${state.panelTop}.`);
       }
       if (!state.active) {
         throw new Error(`${route} sidebar navigation should mark the matching item active.`);
