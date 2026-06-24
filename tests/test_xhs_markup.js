@@ -22,8 +22,8 @@ for (const id of requiredMarkup) {
   }
 }
 
-if (!indexHtml.includes('placeholder="粘贴小红书分享链接或分享文案..."')) {
-  throw new Error("XHS input should tell users they can paste share text.");
+if (!indexHtml.includes('placeholder="粘贴小红书帖子全文或分享文案..."')) {
+  throw new Error("XHS input should tell users they can paste full note text.");
 }
 
 if (!indexHtml.includes('maxlength="5000"')) {

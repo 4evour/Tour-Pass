@@ -451,13 +451,19 @@
             <div class="xhs-input-card">
               <div class="xhs-input-icon">📕</div>
               <h2>小红书行程解析</h2>
-              <p>粘贴小红书分享链接，提取路线、图片和预约提醒</p>
+              <p>粘贴帖子全文并上传截图，提取路线、图片文字和预约提醒</p>
               <div id="xhsSteps" class="xhs-steps" aria-label="解析进度">
-                <span class="xhs-step active">粘贴链接</span>
+                <span class="xhs-step active">粘贴全文</span>
                 <span class="xhs-step">解析笔记</span>
                 <span class="xhs-step">生成行程</span>
               </div>
-              <textarea id="xhsLinkInput" placeholder="粘贴小红书分享链接或分享文案..." maxlength="5000"></textarea>
+              <textarea id="xhsLinkInput" placeholder="粘贴小红书帖子全文或分享文案..." maxlength="5000"></textarea>
+              <label class="xhs-image-upload" for="xhsImageInput">
+                <input id="xhsImageInput" type="file" accept="image/png,image/jpeg,image/webp" multiple />
+                <span>上传笔记截图</span>
+                <small>最多6张，单张压缩到2MB以内</small>
+              </label>
+              <div id="xhsImagePreview" class="xhs-image-preview" aria-label="已选择图片"></div>
               <label class="xhs-ocr-option">
                 <input id="xhsForceOcr" type="checkbox" />
                 <span>强制识别图片文字</span>

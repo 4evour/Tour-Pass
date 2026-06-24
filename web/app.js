@@ -4157,8 +4157,13 @@ const XHS_TYPES = {
 };
 var xhsData = null, xhsCurrentDay = 0, xhsEditingIndex = -1;
 var xhsLbImages = [], xhsLbIdx = 0;
+var xhsSelectedImages = [];
 
-function xhsImg(url) { return url ? "/api/xhs/proxy?url=" + encodeURIComponent(url) : ""; }
+function xhsImg(url) {
+  if (!url) return "";
+  if (url.indexOf("data:image/") === 0) return url;
+  return "/api/xhs/proxy?url=" + encodeURIComponent(url);
+}
 
 function xhsDurationToMinutes(duration) {
   var text = String(duration || "").trim();
@@ -4314,9 +4319,72 @@ function xhsHideError() {
   if (el) el.hidden = true;
 }
 
+function xhsRenderImagePreview() {
+  var el = document.getElementById("xhsImagePreview");
+  if (!el) return;
+  el.innerHTML = "";
+  xhsSelectedImages.forEach(function(item, i) {
+    var wrap = document.createElement("div");
+    wrap.className = "xhs-image-thumb";
+    var img = document.createElement("img");
+    img.src = item.dataUrl;
+    img.alt = item.name || "笔记截图";
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = "移除";
+    btn.onclick = function() {
+      xhsSelectedImages.splice(i, 1);
+      xhsRenderImagePreview();
+    };
+    wrap.appendChild(img);
+    wrap.appendChild(btn);
+    el.appendChild(wrap);
+  });
+}
+
+function xhsReadImageFile(file) {
+  return new Promise(function(resolve, reject) {
+    if (!/^image\/(png|jpeg|webp)$/.test(file.type)) {
+      reject(new Error("只支持 PNG、JPG 或 WebP 图片"));
+      return;
+    }
+    if (file.size > 8 * 1024 * 1024) {
+      reject(new Error("单张原图不能超过8MB"));
+      return;
+    }
+    var reader = new FileReader();
+    reader.onerror = function() { reject(new Error("图片读取失败")); };
+    reader.onload = function() {
+      var img = new Image();
+      img.onerror = function() { reject(new Error("图片解析失败")); };
+      img.onload = function() {
+        var maxSide = 1600;
+        var scale = Math.min(1, maxSide / Math.max(img.width, img.height));
+        var canvas = document.createElement("canvas");
+        canvas.width = Math.max(1, Math.round(img.width * scale));
+        canvas.height = Math.max(1, Math.round(img.height * scale));
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve({ name: file.name, dataUrl: canvas.toDataURL("image/jpeg", 0.82) });
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function xhsReadImageFiles(files) {
+  var selected = Array.from(files || []).slice(0, 6 - xhsSelectedImages.length);
+  for (var i = 0; i < selected.length; i++) {
+    var item = await xhsReadImageFile(selected[i]);
+    xhsSelectedImages.push(item);
+  }
+  xhsRenderImagePreview();
+}
+
 async function xhsParseLink() {
   var input = document.getElementById("xhsLinkInput");
-  if (!input || !input.value.trim()) { xhsShowError("请粘贴小红书链接或分享文案"); return; }
+  if ((!input || !input.value.trim()) && !xhsSelectedImages.length) { xhsShowError("请粘贴小红书全文或上传笔记截图"); return; }
   if (input.value.length > 5000) { xhsShowError("分享内容过长，请精简到5000字以内"); return; }
   var btn = document.getElementById("xhsParseBtn");
   btn.disabled = true; btn.classList.add("loading"); btn.textContent = "正在解析...";
@@ -4326,7 +4394,11 @@ async function xhsParseLink() {
     var forceOcr = !!document.getElementById("xhsForceOcr")?.checked;
     var parseRes = await fetch("/api/xhs/parse", {
       method: "POST", headers: {"Content-Type":"application/json"},
-      body: JSON.stringify({ link: input.value.trim(), forceOcr: forceOcr })
+      body: JSON.stringify({
+        link: input.value.trim(),
+        forceOcr: forceOcr || !!xhsSelectedImages.length,
+        imageDataUrls: xhsSelectedImages.map(function(item) { return item.dataUrl; })
+      })
     });
     var parseData = await parseRes.json();
     if (!parseRes.ok || parseData.error) throw new Error(xhsErrorMessage(parseData, "解析失败"));
@@ -4336,7 +4408,8 @@ async function xhsParseLink() {
       method: "POST", headers: {"Content-Type":"application/json"},
       body: JSON.stringify({
         title: parseData.title, body: parseData.body,
-        images: parseData.images || [], ocrTexts: parseData.ocrTexts || [], noteId: parseData.noteId || "",
+        images: (parseData.images || []).filter(function(url) { return String(url).indexOf("data:image/") !== 0; }),
+        ocrTexts: parseData.ocrTexts || [], noteId: parseData.noteId || "",
         userId: (state.user && state.user.id) || ""
       })
     });
@@ -4518,6 +4591,11 @@ async function xhsExportToEditor() {
 }
 
 document.getElementById("xhsParseBtn")?.addEventListener("click", xhsParseLink);
+document.getElementById("xhsImageInput")?.addEventListener("change", function(e) {
+  xhsHideError();
+  xhsReadImageFiles(e.target.files).catch(function(err) { xhsShowError(err.message); });
+  e.target.value = "";
+});
 document.getElementById("xhsLinkInput")?.addEventListener("keydown", function(e) {
   if ((e.ctrlKey || e.metaKey) && e.key === "Enter") xhsParseLink();
 });

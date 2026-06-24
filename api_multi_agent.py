@@ -10,6 +10,8 @@ Key improvements over the legacy single-agent adapter:
 """
 
 import asyncio
+import base64
+import binascii
 import hashlib
 import json
 import logging
@@ -1466,6 +1468,9 @@ JSON格式:
 
 _BAIDU_OCR_TOKEN: str | None = None
 _BAIDU_OCR_TOKEN_EXPIRES = 0.0
+_XHS_MAX_UPLOAD_IMAGES = 6
+_XHS_MAX_UPLOAD_IMAGE_BYTES = 2 * 1024 * 1024
+_XHS_IMAGE_DATA_URL_RE = re.compile(r"^data:(image/(?:png|jpeg|webp));base64,([A-Za-z0-9+/=\s]+)$")
 
 
 def _xhs_needs_ocr(body: str) -> bool:
@@ -1531,15 +1536,58 @@ async def _ocr_xhs_image(url: str) -> str:
         return ""
 
 
-async def _collect_xhs_ocr_texts(images: list, force: bool, body: str) -> list[str]:
-    if not images or not (force or _xhs_needs_ocr(body)):
+async def _ocr_xhs_image_data_url(data_url: str) -> str:
+    token = await _get_baidu_ocr_token()
+    if not token:
+        return ""
+    if len(str(data_url or "")) > 3_000_000:
+        raise ValueError("单张图片不能超过2MB")
+    match = _XHS_IMAGE_DATA_URL_RE.match(str(data_url or "").strip())
+    if not match:
+        raise ValueError("图片格式不支持，请上传 PNG、JPG 或 WebP")
+    encoded = re.sub(r"\s+", "", match.group(2))
+    try:
+        raw = base64.b64decode(encoded, validate=True)
+    except (binascii.Error, ValueError):
+        raise ValueError("图片数据无效，请重新上传")
+    if len(raw) > _XHS_MAX_UPLOAD_IMAGE_BYTES:
+        raise ValueError("单张图片不能超过2MB")
+    try:
+        async with httpx.AsyncClient(timeout=20) as client:
+            resp = await client.post(
+                "https://aip.baidubce.com/rest/2.0/ocr/v1/general_basic",
+                params={"access_token": token},
+                headers={"Content-Type": "application/x-www-form-urlencoded"},
+                data={"image": encoded, "detect_direction": "true", "paragraph": "true"},
+            )
+            resp.raise_for_status()
+            data = resp.json()
+        words = data.get("words_result") or []
+        return "\n".join(item.get("words", "") for item in words if item.get("words")).strip()
+    except ValueError:
+        raise
+    except Exception as e:
+        logger.warning("XHS OCR failed for uploaded image: %s", e)
+        return ""
+
+
+async def _collect_xhs_ocr_texts(images: list, image_data_urls: list[str], force: bool, body: str) -> list[str]:
+    has_uploaded_images = bool(image_data_urls)
+    if not images and not has_uploaded_images:
+        return []
+    if not has_uploaded_images and not (force or _xhs_needs_ocr(body)):
         return []
     if not os.environ.get("BAIDU_OCR_API_KEY") or not os.environ.get("BAIDU_OCR_SECRET_KEY"):
         return []
+    texts: list[str] = []
+    uploaded_images = list(dict.fromkeys(str(url) for url in image_data_urls if str(url).strip()))[:_XHS_MAX_UPLOAD_IMAGES]
+    for i in range(0, len(uploaded_images), 2):
+        batch = uploaded_images[i : i + 2]
+        results = await asyncio.gather(*(_ocr_xhs_image_data_url(url) for url in batch))
+        texts.extend(text for text in results if len(text.strip()) > 2)
     ocr_images = list(dict.fromkeys(str(url) for url in images if _is_allowed_xhs_image_url(str(url))))
     if not force:
         ocr_images = ocr_images[:9]
-    texts: list[str] = []
     for i in range(0, len(ocr_images), 3):
         batch = ocr_images[i : i + 3]
         results = await asyncio.gather(*(_ocr_xhs_image(url) for url in batch))
@@ -1568,8 +1616,9 @@ def _is_allowed_xhs_image_url(raw_url: str) -> bool:
 
 
 class XhsParseRequest(BaseModel):
-    link: str = Field(..., description="小红书分享链接或包含链接的文本")
+    link: str = Field(default="", description="小红书分享链接或包含链接的文本")
     forceOcr: bool = Field(default=False, description="是否强制识别图片文字")
+    imageDataUrls: list[str] = Field(default_factory=list, description="用户上传截图的 data URL")
 
 
 class XhsAnalyzeRequest(BaseModel):
@@ -1585,15 +1634,29 @@ class XhsAnalyzeRequest(BaseModel):
 async def xhs_parse(req: XhsParseRequest):
     """Parse a Xiaohongshu link and extract raw note content."""
     try:
-        if not req.link or len(req.link) > 5000:
+        if len(req.link or "") > 5000:
             raise ValueError("请输入小红书链接或分享文案，且长度不超过5000字符")
+        if len(req.imageDataUrls or []) > _XHS_MAX_UPLOAD_IMAGES:
+            raise ValueError("最多上传6张图片")
+        if sum(len(str(item or "")) for item in (req.imageDataUrls or [])) > 18_000_000:
+            raise ValueError("上传图片总量过大，请减少图片数量或压缩后再试")
+        if not (req.link or "").strip() and not req.imageDataUrls:
+            raise ValueError("请粘贴小红书全文或上传笔记图片")
         from tools.xhs_parser import extract_xhs_note
-        result = extract_xhs_note(req.link)
+        if (req.link or "").strip():
+            result = extract_xhs_note(req.link)
+        else:
+            result = {"title": "图片笔记", "body": "", "images": [], "noteId": f"upload-{uuid.uuid4().hex[:12]}", "type": "uploaded_images"}
         result["ocrTexts"] = await _collect_xhs_ocr_texts(
             result.get("images", []),
+            req.imageDataUrls or [],
             req.forceOcr,
             result.get("body", ""),
         )
+        if req.imageDataUrls and not (req.link or "").strip() and not result["ocrTexts"]:
+            raise ValueError("图片文字识别未配置或未识别到文字，请粘贴帖子全文后再解析")
+        if req.imageDataUrls:
+            result["images"] = (result.get("images") or []) + req.imageDataUrls[:_XHS_MAX_UPLOAD_IMAGES]
         return {"status": "ok", **result}
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))

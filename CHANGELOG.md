@@ -3,6 +3,21 @@
 > **版本规范**: Major.架构变更 | Minor.新功能 | Patch.bug修复/数据更新
 > 每次发版打对应 git tag（如 `git tag -a v2.1.0`）。
 
+## 2026-06-24 17:01 - 支持小红书截图 OCR 解析
+
+### 变更内容 — 改了什么文件，具体改了什么
+- web/index.html、web/app.js、web/styles.css — 将小红书解析入口改为“帖子全文 + 笔记截图”，新增多图上传、压缩预览、移除图片和 data URL 图集展示。
+- api_multi_agent.py — `/api/xhs/parse` 支持 `imageDataUrls`，对上传截图调用百度 OCR，并把 OCR 文本并入后续 DeepSeek 结构化分析。
+- tests/test_xhs_image_upload_markup.js、tests/xhs_upload_ocr_test.py、tests/test_xhs_markup.js — 增加上传控件、前端钩子、后端 OCR 输入校验和入口文案回归测试。
+
+### 原因 — 为什么要改
+- 当前接入的 DeepSeek 不具备识图能力，需要先用 OCR 把小红书截图中的路线文字提取出来，再交给 DeepSeek 做结构化解析。
+- 直接解析小红书链接受登录态和平台限制影响较大，全文和截图输入更稳定，也不需要接触用户小红书 Cookie。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响侧栏“小红书解析”的输入方式、截图 OCR、结果图库展示和解析错误提示。
+- 不改变用户登录、行程保存、编辑器导入、主 AI 规划流程，也不新增小红书账号登录态采集。
+
 ## 2026-06-24 16:19 - 支持小红书正文后备解析
 
 ### 变更内容 — 改了什么文件，具体改了什么

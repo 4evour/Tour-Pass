@@ -3655,6 +3655,67 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   box-shadow: 0 0 0 3px rgba(12,140,115,0.1);
 }
 
+.xhs-image-upload {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1.5px dashed var(--line, #d8e0df);
+  border-radius: 14px;
+  background: #f8fbfa;
+  color: var(--ink, #111);
+  cursor: pointer;
+  text-align: left;
+}
+.xhs-image-upload:hover {
+  border-color: #0c8c73;
+  background: #f0faf7;
+}
+.xhs-image-upload input {
+  display: none;
+}
+.xhs-image-upload span {
+  font-size: 13px;
+  font-weight: 700;
+}
+.xhs-image-upload small {
+  font-size: 12px;
+  color: var(--muted, #666);
+}
+.xhs-image-preview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.xhs-image-thumb {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--soft, #f5f5f5);
+}
+.xhs-image-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.xhs-image-thumb button {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  border: none;
+  border-radius: 8px;
+  padding: 3px 6px;
+  background: rgba(17,17,17,0.72);
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+}
+
 .xhs-ocr-option {
   display: flex;
   align-items: center;
