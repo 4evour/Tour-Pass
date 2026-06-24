@@ -36,6 +36,17 @@ _HEADERS = {
     "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
 }
 
+_UNAVAILABLE_PAGE_MARKERS = (
+    "你访问的页面不见了",
+    "页面不见了",
+    "帖子不存在",
+)
+
+
+def _is_unavailable_fallback(title: str, body: str) -> bool:
+    text = f"{title} {body}".strip()
+    return any(marker in text for marker in _UNAVAILABLE_PAGE_MARKERS)
+
 
 def is_allowed_xhs_url(url: str) -> bool:
     """Return whether a URL belongs to supported XHS hosts."""
@@ -183,6 +194,10 @@ def fetch_note_ssr(note_id: str) -> dict:
 
     if not title and not body:
         raise ValueError("帖子不存在或已被删除，无法提取内容")
+    if _is_unavailable_fallback(title, body) or not body.strip():
+        raise ValueError(
+            "该笔记当前无法读取正文，可能需要登录、已删除或不是公开笔记；请换公开笔记链接，或粘贴分享文案后再解析"
+        )
 
     return {
         "title": title,

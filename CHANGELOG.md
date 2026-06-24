@@ -3,6 +3,23 @@
 > **版本规范**: Major.架构变更 | Minor.新功能 | Patch.bug修复/数据更新
 > 每次发版打对应 git tag（如 `git tag -a v2.1.0`）。
 
+## 2026-06-24 15:48 - 修复小红书解析错误反馈与网关代理
+
+### 变更内容 — 改了什么文件，具体改了什么
+- web/app.js — 新增 `xhsErrorMessage`，把 FastAPI/Pydantic 对象型错误转换成可读文本，并用于解析和分析接口错误提示。
+- src/api.cpp — 给 C++ 主服务补充 `/api/xhs/parse`、`/api/xhs/analyze`、`/api/xhs/proxy` 到 Python Agent 的代理路由。
+- tools/xhs_parser.py — 识别“小红书 - 你访问的页面不见了”或无正文的公开页回退结果，返回明确的不可读取提示。
+- tests/test_xhs_frontend_error_message.js、tests/test_xhs_agent_proxy_routes.js、tests/test_xhs_parser.py — 增加回归测试覆盖错误展示、网关代理和不可读取笔记提示。
+
+### 原因 — 为什么要改
+- 小红书解析失败时前端会把对象型错误直接显示为 `[object Object]`，用户无法判断是链接问题还是服务问题。
+- 生产入口只暴露 C++ 主服务，XHS Python 接口没有经过主服务代理会导致解析请求无法稳定到达 Agent。
+- 部分小红书链接格式正确但公开 SSR 页面拿不到正文，需要给用户明确反馈，而不是继续进入 LLM 分析。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响侧栏“小红书解析”的接口调用、错误提示和图片代理访问。
+- 不改变行程保存结构、AI 规划主流程或已有 `/agent/*` 代理接口。
+
 ## 2026-06-24 14:54 - 修复侧栏路由面板首屏空白
 
 ### 变更内容 — 改了什么文件，具体改了什么

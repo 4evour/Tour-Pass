@@ -352,13 +352,11 @@ std::string queryString(const httplib::Request& req) {
     return req.target.substr(pos + 1);
 }
 
-#ifndef _WIN32
 std::string upstreamPathWithQuery(const httplib::Request& req) {
     const std::string qs = queryString(req);
     if (qs.empty()) return req.path;
     return req.path + "?" + qs;
 }
-#endif
 
 bool isAllowedImageRequestPath(const std::string& path) {
     if (path.empty() || path.front() == '/' || path.find("..") != std::string::npos || path.find('\\') != std::string::npos) {
@@ -773,7 +771,8 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 return;
             }
 
-            std::wstring wpath(req.path.begin(), req.path.end());
+            const std::string upstreamPath = upstreamPathWithQuery(req);
+            std::wstring wpath(upstreamPath.begin(), upstreamPath.end());
             LPCWSTR verb = (req.method == "POST") ? L"POST" : L"GET";
 
             HINTERNET hRequest = WinHttpOpenRequest(hConnect, verb, wpath.c_str(),
@@ -935,6 +934,9 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         server.Post("/agent/plan-multi", agentProxyHandler);
         server.Post("/agent/chat", agentProxyHandler);
         server.Post("/agent/rag/ingest", agentProxyHandler);
+        server.Post("/api/xhs/parse", agentProxyHandler);
+        server.Post("/api/xhs/analyze", agentProxyHandler);
+        server.Get("/api/xhs/proxy", agentProxyHandler);
     }
 
 

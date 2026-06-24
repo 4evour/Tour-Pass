@@ -4286,6 +4286,25 @@ function xhsSetStep(n) {
   });
 }
 
+function xhsErrorMessage(payload, fallback) {
+  function formatValue(value) {
+    if (!value) return "";
+    if (typeof value === "string") return value;
+    if (Array.isArray(value)) {
+      return value.map(formatValue).filter(Boolean).join("；");
+    }
+    if (typeof value === "object") {
+      if (typeof value.message === "string") return value.message;
+      if (typeof value.msg === "string") return value.msg;
+      if (typeof value.detail === "string") return value.detail;
+      try { return JSON.stringify(value); } catch (e) { return ""; }
+    }
+    return String(value);
+  }
+  var message = formatValue(payload && (payload.detail || payload.error || payload.message));
+  return message || fallback;
+}
+
 function xhsShowError(msg) {
   var el = document.getElementById("xhsError");
   if (el) { el.textContent = msg; el.hidden = false; }
@@ -4310,7 +4329,7 @@ async function xhsParseLink() {
       body: JSON.stringify({ link: input.value.trim(), forceOcr: forceOcr })
     });
     var parseData = await parseRes.json();
-    if (!parseRes.ok || parseData.error) throw new Error(parseData.detail || parseData.error || "解析失败");
+    if (!parseRes.ok || parseData.error) throw new Error(xhsErrorMessage(parseData, "解析失败"));
 
     xhsSetStep(2);
     var analyzeRes = await fetch("/api/xhs/analyze", {
@@ -4322,7 +4341,7 @@ async function xhsParseLink() {
       })
     });
     var analyzeData = await analyzeRes.json();
-    if (!analyzeRes.ok || analyzeData.error) throw new Error(analyzeData.detail || analyzeData.error || "分析失败");
+    if (!analyzeRes.ok || analyzeData.error) throw new Error(xhsErrorMessage(analyzeData, "分析失败"));
 
     xhsData = Object.assign({}, analyzeData, { _body: parseData.body, _images: parseData.images || [] });
     xhsRenderResult(xhsData);
