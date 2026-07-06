@@ -188,9 +188,13 @@ export default function AgentChat({ city, onItineraryGenerated }: Props) {
   const applyModification = async (action: Record<string, unknown>, message: string) => {
     if (!sessionId) return;
     try {
+      const token = localStorage.getItem('tp_token');
       const res = await fetch('/agent/modify', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
         body: JSON.stringify({
           session_id: sessionId,
           action: action.action,

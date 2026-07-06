@@ -550,6 +550,19 @@ bool PostgresStore::updateTrip(int64_t tripId, int64_t userId, const std::string
     return ok;
 }
 
+bool PostgresStore::deleteTrip(int64_t tripId, int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    PGresult* res = queryP("DELETE FROM saved_trips WHERE id = $1 AND user_id = $2;",
+                           {std::to_string(tripId), std::to_string(userId)});
+    bool ok = PQresultStatus(res) == PGRES_COMMAND_OK;
+    if (ok) {
+        const char* tuples = PQcmdTuples(res);
+        ok = std::string(tuples) == "1";
+    }
+    PQclear(res);
+    return ok;
+}
+
 nlohmann::json PostgresStore::listTrips(int64_t userId) {
     std::lock_guard<std::mutex> lock(mutex_);
     nlohmann::json arr = nlohmann::json::array();

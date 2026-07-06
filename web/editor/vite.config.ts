@@ -33,7 +33,7 @@ export default defineConfig({
       '/trips': 'http://localhost:8080',
       '/auth': 'http://localhost:8080',
       '/agent': {
-        target: 'http://localhost:8001',
+        target: 'http://localhost:8090',
         changeOrigin: true,
       },
     },

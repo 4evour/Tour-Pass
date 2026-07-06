@@ -3,6 +3,23 @@
 > **版本规范**: Major.架构变更 | Minor.新功能 | Patch.bug修复/数据更新
 > 每次发版打对应 git tag（如 `git tag -a v2.1.0`）。
 
+## 2026-07-05 18:29 - 修复行程接口鉴权与前端注入风险
+
+### 变更内容 — 改了什么文件，具体改了什么
+- `src/api.cpp` — 收紧公开路径白名单，保护 `/api/xhs/analyze`、`/agent/modify` 和 RAG 导入类接口；新增 `/agent/modify` C++ 代理、未知城市校验、不可达路线距离标记和 `DELETE /trips/{id}`。
+- `include/tourpass/data_store.h`、`include/tourpass/sqlite_store.h`、`include/tourpass/pg_store.h`、`src/sqlite_store.cpp`、`src/pg_store.cpp` — 为存储层增加按用户删除行程的接口和 SQLite/Postgres 实现。
+- `web/app.js` — 修复 toast、城市卡、必去标签和 POI 建议的 HTML 注入风险；为 `/agent/modify` 和 `/api/xhs/analyze` 请求补齐鉴权头。
+- `web/editor/src/components/AgentChat.tsx`、`web/editor/src/components/Analytics/SharePanel.tsx`、`web/editor/vite.config.ts` — 为编辑器 Agent 修改请求补齐 token；分享面板改用已有保存/分享接口；统一本地 `/agent` 代理端口到 8090。
+- `web/editor-dist/index.html`、`web/editor-dist/assets/*` — 重新构建编辑器发布产物，使分享面板和 Agent 鉴权修复进入静态包。
+- `tests/test_main.cpp`、`tests/test_xhs_agent_proxy_routes.js` — 增加 SQLite 删除行程和代理/公开白名单回归测试。
+
+### 原因 — 为什么要改
+- 审查发现部分受保护能力被公开路径误放行，前端直接写入用户可控 HTML 存在 XSS 风险，编辑器分享调用了不存在的接口，且本地代理端口与当前 Agent 服务配置不一致。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 影响行程保存/删除/分享、小红书分析、Agent 修改行程、公开 API 鉴权、主站表单渲染安全、编辑器本地开发代理和相关测试。
+- 公开规划、城市查询、POI 浏览、静态资源和既有公开分享页保持原路径。
+
 ## 2026-07-02 14:15 - 补充架构图表版
 
 ### 变更内容 — 改了什么文件，具体改了什么

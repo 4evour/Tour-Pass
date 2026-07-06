@@ -632,6 +632,15 @@ void testSQLiteStorePersistsOperationalRecords() {
         expectTrue(!jobs.empty(), "sqlite store reads recent jobs");
         expectTrue(jobs.front()["id"] == "job-test", "sqlite store returns job id");
         expectTrue(jobs.front()["status"] == "SUCCEEDED", "sqlite store updates job status");
+
+        int64_t userId = store.createUser("delete-trip-user", "hash", "user");
+        expectTrue(userId > 0, "sqlite store creates user for trip deletion");
+        int64_t tripId = store.saveTrip(userId, "长沙 2日游", "{\"city\":\"长沙\"}", "{\"city\":\"长沙\"}");
+        expectTrue(tripId > 0, "sqlite store saves trip before deletion");
+        expectTrue(store.deleteTrip(tripId, userId), "sqlite store deletes a user's own trip");
+        expectTrue(!store.getTrip(tripId, userId).has_value(), "sqlite store no longer returns deleted trip");
+        expectTrue(!store.deleteTrip(tripId, userId), "sqlite store reports missing trip on repeated deletion");
+
         expectTrue(store.stats()["write_count"] >= 5, "sqlite store tracks writes");
     }
     std::remove("output/test-tourpass.sqlite");

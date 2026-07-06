@@ -174,7 +174,16 @@ function toast(message, type = "info", actionHtml = "") {
   }
   const el = document.createElement("div");
   el.className = `toast toast-${type}`;
-  el.innerHTML = `<span class="toast-msg">${message}</span>${actionHtml ? `<span class="toast-actions">${actionHtml}</span>` : ""}`;
+  const msg = document.createElement("span");
+  msg.className = "toast-msg";
+  msg.textContent = message;
+  el.appendChild(msg);
+  if (actionHtml) {
+    const actions = document.createElement("span");
+    actions.className = "toast-actions";
+    actions.innerHTML = actionHtml;
+    el.appendChild(actions);
+  }
   container.appendChild(el);
   requestAnimationFrame(() => el.classList.add("toast-show"));
   setTimeout(() => {
@@ -2633,10 +2642,10 @@ async function loadFormCities() {
     grid.innerHTML = list.map(name => {
       const emoji = CITY_EMOJIS[name] || "📍";
       const tag = CITY_TAGS[name] || "探索发现";
-      return `<div class="city-card" data-city="${name}">
+      return `<div class="city-card" data-city="${escapeHtml(name)}">
         <div class="city-card-emoji">${emoji}</div>
-        <div class="city-card-name">${name}</div>
-        <div class="city-card-tag">${tag}</div>
+        <div class="city-card-name">${escapeHtml(name)}</div>
+        <div class="city-card-tag">${escapeHtml(tag)}</div>
       </div>`;
     }).join("");
   } catch (e) {
@@ -2644,10 +2653,10 @@ async function loadFormCities() {
     grid.innerHTML = Object.keys(CITY_EMOJIS).map(name => {
       const emoji = CITY_EMOJIS[name];
       const tag = CITY_TAGS[name] || "探索发现";
-      return `<div class="city-card" data-city="${name}">
+      return `<div class="city-card" data-city="${escapeHtml(name)}">
         <div class="city-card-emoji">${emoji}</div>
-        <div class="city-card-name">${name}</div>
-        <div class="city-card-tag">${tag}</div>
+        <div class="city-card-name">${escapeHtml(name)}</div>
+        <div class="city-card-tag">${escapeHtml(tag)}</div>
       </div>`;
     }).join("");
   }
@@ -2730,7 +2739,7 @@ function initFormInteractions() {
     tags.forEach(function(tag, i) {
       const el = document.createElement("span");
       el.className = "tag";
-      el.innerHTML = tag + ' <span class="tag-remove" data-index="' + i + '">×</span>';
+      el.innerHTML = escapeHtml(tag) + ' <span class="tag-remove" data-index="' + i + '">×</span>';
       tagContainer.insertBefore(el, tagInput);
     });
   }
@@ -2771,7 +2780,10 @@ function initFormInteractions() {
             if (tagSuggestions) tagSuggestions.classList.remove("visible");
             return;
           }
-          tagSuggestions.innerHTML = pois.map(p => `<div class="tag-suggestion" data-name="${p.name}">${p.name}</div>`).join("");
+          tagSuggestions.innerHTML = pois.map(p => {
+            const name = escapeHtml(p.name || "");
+            return `<div class="tag-suggestion" data-name="${name}">${name}</div>`;
+          }).join("");
           tagSuggestions.classList.add("visible");
         } catch(e) { /* skip */ }
       }, 300);
@@ -3102,11 +3114,10 @@ function applyModification(action, message) {
 
   addChatBubble("assistant", "⏳ 正在修改行程...");
 
-  fetch("/agent/modify", {
+  api("/agent/modify", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
-  }).then(function(res) { return res.json(); })
+  })
   .then(function(data) {
     if (data.status === "ok" && data.itinerary) {
       state.currentItinerary = data.itinerary;
@@ -4404,8 +4415,10 @@ async function xhsParseLink() {
     if (!parseRes.ok || parseData.error) throw new Error(xhsErrorMessage(parseData, "解析失败"));
 
     xhsSetStep(2);
+    var analyzeHeaders = {"Content-Type":"application/json"};
+    if (state.token) analyzeHeaders.Authorization = "Bearer " + state.token;
     var analyzeRes = await fetch("/api/xhs/analyze", {
-      method: "POST", headers: {"Content-Type":"application/json"},
+      method: "POST", headers: analyzeHeaders,
       body: JSON.stringify({
         title: parseData.title, body: parseData.body,
         images: (parseData.images || []).filter(function(url) { return String(url).indexOf("data:image/") !== 0; }),

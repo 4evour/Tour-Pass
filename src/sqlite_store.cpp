@@ -592,6 +592,19 @@ bool SQLiteStore::updateTrip(int64_t tripId, int64_t userId, const std::string& 
     return false;
 }
 
+bool SQLiteStore::deleteTrip(int64_t tripId, int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "DELETE FROM saved_trips WHERE id = ? AND user_id = ?;");
+    sqlite3_bind_int64(stmt.get(), 1, tripId);
+    sqlite3_bind_int64(stmt.get(), 2, userId);
+    if (sqlite3_step(stmt.get()) == SQLITE_DONE) {
+        recordWrite(true);
+        return sqlite3_changes(db_) == 1;
+    }
+    recordWrite(false);
+    return false;
+}
+
 nlohmann::json SQLiteStore::listTrips(int64_t userId) {
     std::lock_guard<std::mutex> lock(mutex_);
     Statement stmt(db_, "SELECT id, title, created_at, share_id FROM saved_trips WHERE user_id = ? ORDER BY created_at DESC LIMIT 50;");

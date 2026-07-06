@@ -420,7 +420,7 @@ std::string extractJobId(const httplib::Request& req) {
 }
 
 nlohmann::json planJson(ApiContext& context, const TripRequest& tripRequest) {
-    auto* city = context.getCity(tripRequest.city);
+    auto* city = context.findCityExact(tripRequest.city);
     if (!city) return errorJson("CITY_NOT_FOUND", "未找到城市数据: " + tripRequest.city);
     try {
         if (tripRequest.candidateCount > 1) {
@@ -523,8 +523,22 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                          || req.path == "/poi/search"
                          || req.path == "/poi/areas"
                          || req.path.find("/poi/by-area") == 0
-                         || req.path.find("/api/") == 0
-                         || req.path.find("/agent/") == 0
+                         || req.path == "/api/travel-time"
+                         || req.path == "/api/city-guide"
+                         || req.path == "/api/cities"
+                         || req.path == "/api/optimize-route"
+                         || req.path == "/api/xhs/parse"
+                         || req.path == "/api/xhs/proxy"
+                         || req.path == "/agent/ping"
+                         || req.path == "/agent/health"
+                         || req.path == "/agent/stats"
+                         || req.path == "/agent/hot"
+                         || req.path.find("/agent/hot/") == 0
+                         || req.path == "/agent/plan"
+                         || req.path == "/agent/plan-structured"
+                         || req.path == "/agent/plan-sync"
+                         || req.path == "/agent/plan-multi"
+                         || req.path == "/agent/chat"
                          || req.path.find("/editor") == 0
                          || req.path.find("/editor-dist/") == 0;
 
@@ -547,6 +561,12 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
 
         // Admin-only paths
         if (req.path.find("/admin/") == 0 && authRole != "admin") {
+            context.metrics.recordRejectedRequest();
+            setJson(res, errorJson("FORBIDDEN", "需要管理员权限"), 403);
+            return httplib::Server::HandlerResponse::Handled;
+        }
+
+        if (req.path == "/agent/rag/ingest" && authRole != "admin") {
             context.metrics.recordRejectedRequest();
             setJson(res, errorJson("FORBIDDEN", "需要管理员权限"), 403);
             return httplib::Server::HandlerResponse::Handled;
@@ -933,6 +953,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         server.Post("/agent/plan-sync", agentProxyHandler);
         server.Post("/agent/plan-multi", agentProxyHandler);
         server.Post("/agent/chat", agentProxyHandler);
+        server.Post("/agent/modify", agentProxyHandler);
         server.Post("/agent/rag/ingest", agentProxyHandler);
         server.Post("/api/xhs/parse", agentProxyHandler);
         server.Post("/api/xhs/analyze", agentProxyHandler);
@@ -1005,6 +1026,10 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             }
             auto body = nlohmann::json::parse(req.body);
             TripRequest tripRequest = tripRequestFromJson(body, context.defaultCity);
+            if (!context.findCityExact(tripRequest.city)) {
+                setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市数据: " + tripRequest.city), 404);
+                return;
+            }
             nlohmann::json result = planJson(context, tripRequest);
             context.cache.put(key, result);
             setJson(res, result);
@@ -1166,12 +1191,13 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
 
         RouteResult route = city->graph.shortestRoute(from, to);
         int travelMinutes = (route.travelMinutes == std::numeric_limits<int>::max()) ? -1 : route.travelMinutes;
+        int distanceMeters = travelMinutes < 0 ? -1 : travelMinutes * 80;
 
         setJson(res, {
             {"from", from},
             {"to", to},
             {"travelMinutes", travelMinutes},
-            {"distanceMeters", route.travelMinutes * 80}  // rough estimate
+            {"distanceMeters", distanceMeters}  // rough estimate
         });
     });
 
@@ -2111,6 +2137,19 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         auto trip = context.store->getTrip(tripId, userId);
         if (!trip) { setJson(res, errorJson("NOT_FOUND", "行程不存在"), 404); return; }
         setJson(res, *trip);
+    });
+
+    server.Delete(R"(/trips/(\d+))", [&](const httplib::Request& req, httplib::Response& res) {
+        auto [userId, role] = getAuthUser(req);
+        if (userId <= 0) { setJson(res, errorJson("UNAUTHORIZED", "请先登录"), 401); return; }
+        int64_t tripId = 0;
+        try { tripId = std::stoll(req.matches[1]); } catch (...) {}
+        if (tripId <= 0) { setJson(res, errorJson("INVALID_REQUEST", "无效的行程ID"), 400); return; }
+        if (!context.store->deleteTrip(tripId, userId)) {
+            setJson(res, errorJson("NOT_FOUND", "行程不存在或无权删除"), 404);
+            return;
+        }
+        setJson(res, {{"status", "deleted"}, {"id", tripId}});
     });
 
     server.Post(R"(/trips/(\d+)/share)", [&](const httplib::Request& req, httplib::Response& res) {

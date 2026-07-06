@@ -60,6 +60,7 @@ public:
     // --- saved trips ---
     int64_t saveTrip(int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) override;
     bool updateTrip(int64_t tripId, int64_t userId, const std::string& title, const std::string& requestJson, const std::string& responseJson) override;
+    bool deleteTrip(int64_t tripId, int64_t userId) override;
     nlohmann::json listTrips(int64_t userId) override;
     std::optional<nlohmann::json> getTrip(int64_t tripId, int64_t userId) override;
     std::string generateShareId(int64_t tripId) override;

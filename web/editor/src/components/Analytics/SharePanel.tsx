@@ -1,5 +1,7 @@
 ﻿import React, { useState } from 'react';
 import type { DayPlan, Poi } from '../../types';
+import { api } from '../../utils/api';
+import { serializeForSave } from '../../utils/serialize';
 
 interface SharePanelProps {
   days: DayPlan[];
@@ -16,14 +18,14 @@ export const SharePanel: React.FC<SharePanelProps> = ({ days, city, defaultHotel
     setIsLoading(true);
     
     try {
-      const response = await fetch('/api/share', {
+      const { title, request, response } = serializeForSave(city, days);
+      const saved = await api('/trips/save', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ days, city, defaultHotel }),
+        body: { title, request, response },
       });
-      
-      const data = await response.json();
-      setShareUrl(data.url);
+      const data = await api(`/trips/${saved.id}/share`, { method: 'POST' });
+      const sharePath = data.share_url || `/s/${data.share_id}`;
+      setShareUrl(`${window.location.origin}${sharePath}`);
     } catch (error) {
       alert('生成分享链接失败');
     } finally {
