@@ -1054,18 +1054,9 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
     min-height: 36px;
   }
 
-  .chat-hero-input {
-    min-height: 72px;
-    font-size: 16px; /* prevent iOS zoom on focus */
-  }
   .chat-hero-btn {
     min-height: 44px;
     padding: 10px 18px;
-  }
-  .chat-hint {
-    min-height: 36px;
-    padding: 6px 10px;
-    font-size: 12px;
   }
 
   .interest-tags .tag,
@@ -1446,28 +1437,6 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   position: relative;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
 }
-.chat-hero-inner {
-  display: flex;
-  gap: 10px;
-  align-items: flex-end;
-}
-.chat-hero-input {
-  flex: 1;
-  padding: 12px 16px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  font-size: 15px;
-  resize: none;
-  background: var(--surface);
-  color: var(--ink);
-  outline: none;
-  transition: border-color 0.2s;
-  line-height: 1.5;
-}
-.chat-hero-input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(244, 81, 12, 0.12);
-}
 .chat-hero-btn {
   padding: 12px 24px;
   background: var(--accent);
@@ -1483,45 +1452,6 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 }
 .chat-hero-btn:hover { background: var(--accent-dark); }
 .chat-hero-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-.chat-hero-hints {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 10px;
-}
-.chat-hint {
-  padding: 6px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: var(--surface);
-  color: var(--ink);
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.chat-hint:hover {
-  border-color: var(--accent);
-  background: var(--soft);
-  color: var(--accent-dark);
-}
-.chat-hero-subhint {
-  margin-top: 6px;
-  font-size: 11px;
-  color: var(--muted);
-  opacity: 0.7;
-}
-.chat-hero-output {
-  margin-top: 14px;
-  padding: 14px;
-  background: var(--surface);
-  border-radius: 8px;
-  border: 1px solid var(--line);
-  font-size: 14px;
-  line-height: 1.6;
-  max-height: 200px;
-  overflow-y: auto;
-}
 
 /* ---- Loading animation ---- */
 .loading-overlay {
@@ -2463,38 +2393,6 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
 .hotel-item strong { display: block; font-size: 13px; }
 .hotel-item span { font-size: 11px; color: var(--muted); }
 
-/* ---- Hot recommendations / Templates ---- */
-.hot-recs { padding: 20px; }
-.hot-recs h3 { margin: 0 0 4px; font-size: 18px; }
-.hot-rec-subtitle { font-size: 13px; color: var(--muted); margin: 0 0 16px; }
-.hot-rec-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 10px;
-}
-.hot-rec-card {
-  background: var(--surface);
-  border: 2px solid var(--line);
-  border-radius: 10px;
-  padding: 14px;
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.2s;
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-}
-.hot-rec-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 4px 12px rgba(20,107,93,0.12);
-  transform: translateY(-1px);
-}
-.hot-rec-icon { font-size: 28px; flex-shrink: 0; }
-.hot-rec-info { flex: 1; }
-.hot-rec-info strong { display: block; font-size: 14px; margin-bottom: 2px; }
-.hot-rec-theme { font-size: 11px; color: var(--accent); background: var(--soft); padding: 1px 6px; border-radius: 999px; }
-.hot-rec-spots { display: block; font-size: 12px; color: var(--muted); margin-top: 4px; }
-
 /* ---- Day block (from existing styles, enhanced) ---- */
 .day-block {
   background: var(--surface);
@@ -3272,29 +3170,6 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   font-size: 12px;
 }
 
-/* Keyword tags */
-.agent-keyword-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-.agent-keyword {
-  padding: 5px 12px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.15s;
-  background: var(--surface);
-  color: var(--ink);
-}
-.agent-keyword:hover {
-  border-color: var(--accent);
-  background: var(--soft);
-  color: var(--accent-dark);
-}
-
 /* Agent progress bar */
 .agent-progress {
   display: flex;
@@ -3357,36 +3232,6 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   .agent-header-meta { flex-wrap: wrap; gap: 8px; }
   .agent-stop-name { font-size: 14px; }
   .agent-stop-body { padding: 10px 12px; }
-}
-
-/* ── Plan mode toggle ──────────────────────────────────────────── */
-.plan-mode-toggle {
-  display: flex;
-  gap: 4px;
-  padding: 4px;
-  background: #f3f4f6;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  width: fit-content;
-}
-.mode-btn {
-  padding: 6px 16px;
-  border: none;
-  border-radius: 6px;
-  background: transparent;
-  color: var(--muted);
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.mode-btn.active {
-  background: var(--surface);
-  color: var(--ink);
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.10);
-  font-weight: 600;
-}
-.mode-btn:hover:not(.active) {
-  color: var(--ink);
 }
 
 /* ── Structured plan form ──────────────────────────────────────── */

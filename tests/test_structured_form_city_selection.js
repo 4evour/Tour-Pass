@@ -77,8 +77,18 @@ async function main() {
     await page.addInitScript(() => localStorage.setItem("tp_token", "test-token"));
     await page.goto(url, { waitUntil: "networkidle" });
     await page.waitForSelector("#mainApp:not([hidden])", { timeout: 5000 });
-    await page.click("#modeFormBtn");
+    await page.waitForSelector("#planModeForm:visible", { timeout: 5000 });
     await page.waitForSelector('#formCityGrid .city-card[data-city="长沙"]', { timeout: 5000 });
+
+    const removedEntryPointCounts = await page.evaluate(() => ({
+      modeToggle: document.querySelectorAll(".plan-mode-toggle").length,
+      textMode: document.querySelectorAll("#planModeText").length,
+      quickPrompts: document.querySelectorAll(".chat-hero-hints").length,
+      keywordBar: document.querySelectorAll("#keywordBar").length,
+    }));
+    if (Object.values(removedEntryPointCounts).some((count) => count !== 0)) {
+      throw new Error("Natural-language planning entry points should not be rendered");
+    }
 
     const initialState = await page.evaluate(() => ({
       value: document.getElementById("formCity").value,

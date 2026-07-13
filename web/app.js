@@ -1077,8 +1077,6 @@ function showApp() {
   if (restoreTripState() && state.candidates.length > 0) {
     renderPlan();
     setStage(state.activeStage);
-  } else {
-    renderHotRecommendations();
   }
 }
 
@@ -2051,9 +2049,7 @@ $("explainToolButton").addEventListener("click", explainPlan);
 
 function showLoading() {
   var loadingOverlay = $("loadingOverlay");
-  var chatOutput = $("chatOutput");
   if (loadingOverlay) loadingOverlay.hidden = false;
-  if (chatOutput) chatOutput.hidden = true;
   const steps = ["loadStep1", "loadStep2", "loadStep3"];
   steps.forEach(id => {
     var step = $(id);
@@ -2076,76 +2072,6 @@ function showLoading() {
 function hideLoading() {
   var loadingOverlay = $("loadingOverlay");
   if (loadingOverlay) loadingOverlay.hidden = true;
-}
-
-async function chatPlan() {
-  const message = $("chatInput").value.trim();
-  if (!message) return;
-  $("chatBtnText").hidden = true;
-  $("chatBtnLoading").hidden = false;
-  $("chatButton").disabled = true;
-  $("chatOutput").hidden = true;
-
-  var prog = $("agentProgress");
-  var stepsEl = $("progressSteps");
-  if (prog) { prog.hidden = false; }
-  if (stepsEl) { stepsEl.innerHTML = ""; }
-  var agentRes = $("agentResult");
-  if (agentRes) { agentRes.hidden = true; agentRes.innerHTML = ""; }
-  var planOut = $("planOutput");
-  if (planOut) { planOut.hidden = true; }
-
-  try {
-    var itinerary = null;
-    var response = await fetch("/agent/plan", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: message, session_id: state.sessionId }),
-    });
-    if (!response.ok) throw new Error("HTTP " + response.status);
-
-    var reader = response.body.getReader();
-    var decoder = new TextDecoder();
-    var buffer = "";
-    while (true) {
-      var result = await reader.read();
-      if (result.done) break;
-      buffer += decoder.decode(result.value, { stream: true });
-      var lines = buffer.split("\n");
-      buffer = lines.pop() || "";
-      for (var i = 0; i < lines.length; i++) {
-        var line = lines[i];
-        if (line.startsWith("event: ")) continue;
-        if (line.startsWith("data: ")) {
-          try {
-            var evt = JSON.parse(line.slice(6));
-            // Capture session_id from any event that carries it
-            if (evt.session_id) { state.sessionId = evt.session_id; sessionStorage.setItem("tp_session_id", evt.session_id); }
-            if (evt.type === "itinerary") { itinerary = evt.itinerary; state.currentItinerary = itinerary; }
-            else if (evt.type === "error") { throw new Error(evt.content || "Planning failed"); }
-            else if (evt.type !== "done" && stepsEl) {
-              stepsEl.innerHTML += '<span class="agent-progress-step done">' + escapeHtml(evt.content || evt.type) + "</span>";
-            }
-          } catch (e) {}
-        }
-      }
-    }
-    if (prog) prog.hidden = true;
-    if (itinerary) {
-      renderAgentResult(itinerary);
-      $("chatOutput").innerHTML = '<p style="color:var(--accent-dark);font-size:13px;">&#10003; 行程已生成，可以在下方对话中继续修改</p>';
-      $("chatOutput").hidden = false;
-      showMultiTurnPanel();
-    } else { throw new Error("未能生成行程"); }
-  } catch (error) {
-    if (prog) prog.hidden = true;
-    $("chatOutput").innerHTML = '<p style="color:#c0392b;">' + escapeHtml(error.message) + "</p>";
-    $("chatOutput").hidden = false;
-  } finally {
-    $("chatButton").disabled = false;
-    $("chatBtnText").hidden = false;
-    $("chatBtnLoading").hidden = true;
-  }
 }
 
 function renderAgentResult(itinerary) {
@@ -2590,33 +2516,6 @@ function renderStopCard(stop, day, itinerary) {
   return card;
 }
 
-$("chatButton").addEventListener("click", chatPlan);
-document.querySelectorAll(".chat-hint").forEach(function(btn) {
-  btn.addEventListener("click", function() {
-    $("chatInput").value = btn.dataset.prompt;
-    chatPlan();
-  });
-});
-
-// ---- Plan mode toggle ----
-function switchPlanMode(mode) {
-  var textPanel = $("planModeText");
-  var formPanel = $("planModeForm");
-  var textBtn = $("modeTextBtn");
-  var formBtn = $("modeFormBtn");
-  if (mode === "form") {
-    textPanel.hidden = true;
-    formPanel.hidden = false;
-    textBtn.classList.remove("active");
-    formBtn.classList.add("active");
-  } else {
-    textPanel.hidden = false;
-    formPanel.hidden = true;
-    textBtn.classList.add("active");
-    formBtn.classList.remove("active");
-  }
-}
-
 // ---- Load cities into form grid ----
 const CITY_EMOJIS = {
   "北京": "🏛️", "上海": "🌆", "广州": "🌺", "深圳": "🏙️", "成都": "🐼", "重庆": "🏔️",
@@ -2863,8 +2762,6 @@ function submitStructuredPlan() {
   btn.disabled = true;
   if (submitText) submitText.hidden = true;
   if (submitLoading) submitLoading.hidden = false;
-  var chatOutput = $("chatOutput");
-  if (chatOutput) chatOutput.hidden = true;
   var agentRes = $("agentResult");
   if (agentRes) { agentRes.hidden = true; agentRes.innerHTML = ""; }
   var planOut = $("planOutput");
@@ -2922,12 +2819,6 @@ function submitStructuredPlan() {
   });
 }
 
-$("modeTextBtn")?.addEventListener("click", function() {
-  switchPlanMode("text");
-});
-$("modeFormBtn")?.addEventListener("click", function() {
-  switchPlanMode("form");
-});
 $("formSubmitBtn")?.addEventListener("click", submitStructuredPlan);
 initFormInteractions();
 
@@ -3132,17 +3023,6 @@ function applyModification(action, message) {
     addChatBubble("assistant", "修改失败：" + err.message);
   });
 }
-document.querySelectorAll(".agent-keyword").forEach(function(tag) {
-  tag.addEventListener("click", function() {
-    var input = $("chatInput");
-    var kw = tag.dataset.kw;
-    if (input.value.indexOf(kw) === -1) {
-      input.value = input.value.trim() + (input.value.trim() ? "\uFF0C" : "") + "\u559C\u6B22" + kw;
-    }
-    input.focus();
-  });
-});
-
 // Event delegation for stop remove buttons (CSP-safe)
 document.addEventListener("click", function(e) {
   var rmBtn = e.target.closest(".stop-remove-btn");
@@ -3288,10 +3168,6 @@ function swapRestaurant(oldPoiId, newPoiId, newName) {
     }
   }
 }
-$("chatInput").addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) chatPlan();
-});
-
 function setStage(stage) {
   state.activeStage = stage;
   updateStageVisibility();
@@ -3503,88 +3379,6 @@ async function shareTrip() {
     toast("分享失败：" + e.message, "error");
     if (shareBtn) { shareBtn.textContent = "🔗 分享"; shareBtn.disabled = false; }
   }
-}
-
-// ---- Itinerary templates ----
-const TEMPLATES = [
-  { city: "武汉", days: 2, icon: "🏙️", name: "武汉文化之旅", theme: "历史文化",
-    msg: "去武汉玩2天，要去黄鹤楼和东湖，每晚酒店预算450以内，文化优先，也想安排湖北省博物馆", spots: "黄鹤楼 · 东湖 · 湖北省博物馆" },
-  { city: "武汉", days: 2, icon: "🍜", name: "武汉美食探索", theme: "美食",
-    msg: "去武汉玩2天，要去户部巷和江汉路，每晚酒店预算400以内，美食优先，不要太累", spots: "户部巷 · 吉庆街 · 热干面" },
-  { city: "武汉", days: 3, icon: "🌙", name: "武汉深度游", theme: "文化+美食+夜景",
-    msg: "去武汉玩3天，要去黄鹤楼、东湖和湖北省博物馆，每晚酒店预算500以内，文化优先，也要吃地道美食看夜景", spots: "黄鹤楼 · 东湖 · 博物馆 · 江汉路" },
-  { city: "武汉", days: 2, icon: "🌉", name: "武汉经典游", theme: "历史文化+美食",
-    msg: "去武汉玩2天，要去黄鹤楼和户部巷，每晚酒店预算450以内，文化优先，也想尝热干面", spots: "黄鹤楼 · 户部巷 · 东湖" },
-  { city: "大理", days: 3, icon: "🏔️", name: "大理风光游", theme: "自然风光+文化",
-    msg: "去大理玩3天，要去洱海和大理古城，每晚酒店预算500以内，自然优先，也想安排崇圣寺三塔", spots: "洱海 · 大理古城 · 崇圣寺三塔" },
-  { city: "丽江", days: 3, icon: "🏘️", name: "丽江古城游", theme: "古镇+自然",
-    msg: "去丽江玩3天，要去丽江古城和玉龙雪山，每晚酒店预算550以内，自然优先，也想安排束河古镇", spots: "丽江古城 · 玉龙雪山 · 束河古镇" },
-  { city: "南京", days: 2, icon: "🏛️", name: "南京历史游", theme: "历史文化",
-    msg: "去南京玩2天，要去中山陵和夫子庙，每晚酒店预算500以内，文化优先，也想安排明孝陵", spots: "中山陵 · 夫子庙 · 明孝陵" },
-  { city: "苏州", days: 2, icon: "🏡", name: "苏州园林游", theme: "园林+古镇",
-    msg: "去苏州玩2天，要去拙政园和虎丘，每晚酒店预算550以内，文化优先，也想看看江南园林和平江路", spots: "拙政园 · 虎丘 · 平江路" },
-  { city: "北京", days: 3, icon: "🏯", name: "北京经典游", theme: "历史文化",
-    msg: "去北京玩3天，要去故宫、长城和天安门，每晚酒店预算700以内，文化优先，也想安排颐和园", spots: "故宫 · 长城 · 天安门 · 颐和园" },
-  { city: "成都", days: 3, icon: "🐼", name: "成都休闲游", theme: "美食+熊猫",
-    msg: "去成都玩3天，要去大熊猫基地和宽窄巷子，每晚酒店预算450以内，美食优先，想吃火锅和串串", spots: "大熊猫基地 · 宽窄巷子 · 锦里" },
-  { city: "重庆", days: 2, icon: "🔥", name: "重庆山城游", theme: "美食+夜景",
-    msg: "去重庆玩2天，要去洪崖洞和解放碑，每晚酒店预算450以内，美食优先，想吃火锅看夜景", spots: "洪崖洞 · 解放碑 · 磁器口" },
-  { city: "杭州", days: 2, icon: "🌊", name: "杭州西湖游", theme: "自然+文化",
-    msg: "去杭州玩2天，要去西湖和灵隐寺，每晚酒店预算650以内，自然优先，也想安排河坊街", spots: "西湖 · 灵隐寺 · 河坊街" },
-  { city: "西安", days: 3, icon: "🏛️", name: "西安古都游", theme: "历史+美食",
-    msg: "去西安玩3天，要去兵马俑和古城墙，每晚酒店预算500以内，文化优先，也想吃肉夹馍和逛回民街", spots: "兵马俑 · 古城墙 · 回民街 · 大雁塔" },
-  { city: "上海", days: 3, icon: "🌃", name: "上海都市游", theme: "都市+文化",
-    msg: "去上海玩3天，要去外滩、豫园和迪士尼，每晚酒店预算800以内，文化优先，也想安排城市夜景", spots: "外滩 · 豫园 · 南京路 · 东方明珠" },
-  { city: "广州", days: 2, icon: "🥘", name: "广州美食游", theme: "美食+文化",
-    msg: "去广州玩2天，要去广州塔和沙面，每晚酒店预算500以内，美食优先，想吃早茶和粤菜", spots: "广州塔 · 北京路 · 上下九 · 沙面" },
-  { city: "深圳", days: 2, icon: "🏙️", name: "深圳科技游", theme: "科技+休闲",
-    msg: "去深圳玩2天，要去世界之窗和欢乐海岸，每晚酒店预算600以内，购物优先，也想安排海边放松", spots: "世界之窗 · 欢乐海岸 · 华侨城 · 大梅沙" },
-  { city: "厦门", days: 3, icon: "🏖️", name: "厦门海岛游", theme: "海岛+文艺",
-    msg: "去厦门玩3天，要去鼓浪屿和曾厝垵，每晚酒店预算600以内，自然优先，想看海吃海鲜", spots: "鼓浪屿 · 曾厝垵 · 环岛路 · 南普陀寺" },
-  { city: "青岛", days: 2, icon: "🍺", name: "青岛海滨游", theme: "海滨+啤酒",
-    msg: "去青岛玩2天，要去栈桥和八大关，每晚酒店预算550以内，自然优先，想喝啤酒吃海鲜", spots: "栈桥 · 八大关 · 五四广场 · 崂山" },
-  { city: "桂林", days: 3, icon: "🏞️", name: "桂林山水游", theme: "自然风光",
-    msg: "去桂林玩3天，要去漓江和阳朔，每晚酒店预算500以内，自然优先，想看山水风光", spots: "漓江 · 阳朔 · 象鼻山 · 龙脊梯田" },
-  { city: "三亚", days: 3, icon: "🌊", name: "三亚海滨游", theme: "海滨度假",
-    msg: "去三亚玩3天，要去亚龙湾和天涯海角，每晚酒店预算900以内，自然优先，想看海吃海鲜", spots: "亚龙湾 · 天涯海角 · 南山寺 · 蜈支洲岛" },
-  { city: "哈尔滨", days: 2, icon: "❄️", name: "哈尔滨冰雪游", theme: "冰雪+建筑",
-    msg: "去哈尔滨玩2天，要去冰雪大世界和中央大街，每晚酒店预算500以内，文化优先，也想安排圣索菲亚教堂", spots: "冰雪大世界 · 中央大街 · 圣索菲亚教堂 · 太阳岛" },
-  { city: "昆明", days: 3, icon: "🌸", name: "昆明春城游", theme: "自然+民族",
-    msg: "去昆明玩3天，要去滇池和石林，每晚酒店预算450以内，自然优先，想感受春城慢节奏", spots: "滇池 · 石林 · 翠湖 · 西山" },
-  { city: "张家界", days: 3, icon: "🏔️", name: "张家界奇峰游", theme: "自然奇观",
-    msg: "去张家界玩3天，要去天门山和玻璃桥，每晚酒店预算500以内，自然优先，想看奇峰和森林步道", spots: "天门山 · 玻璃桥 · 袁家界 · 金鞭溪" },
-];
-
-function renderHotRecommendations() {
-  const output = $("planOutput");
-  output.className = "plan-output";
-  output.innerHTML = `
-    <div class="hot-recs">
-      <h3>🔥 热门行程模板</h3>
-      <p class="hot-rec-subtitle">选择一个模板快速开始，或在上方聊天框描述你的旅行计划</p>
-      <div class="hot-rec-grid">
-        ${TEMPLATES.map((t, i) => `
-          <button class="hot-rec-card" type="button" data-index="${i}">
-            <div class="hot-rec-icon">${t.icon}</div>
-            <div class="hot-rec-info">
-              <strong>${t.city} ${t.days}日 · ${t.name}</strong>
-              <span class="hot-rec-theme">${t.theme}</span>
-              <span class="hot-rec-spots">${t.spots}</span>
-            </div>
-          </button>
-        `).join("")}
-      </div>
-    </div>
-  `;
-  document.querySelectorAll(".hot-rec-card").forEach(card => {
-    card.addEventListener("click", () => {
-      const tpl = TEMPLATES[parseInt(card.dataset.index)];
-      if (!tpl) return;
-      // Set chat input and trigger
-      $("chatInput").value = tpl.msg;
-      chatPlan();
-    });
-  });
 }
 
 // ---- Dark mode ----
