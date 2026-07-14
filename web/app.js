@@ -84,7 +84,6 @@ const ROUTES = {
   plan:    { title: "AI 智能规划",   panel: "planPanel" },
   trips:   { title: "我的行程",     panel: "tripsPanel" },
   editor:  { title: "行程编辑器",   panel: "editorPanel" },
-  xhs:     { title: "小红书解析",   panel: "xhsPanel" },
   profile: { title: "个人中心",     panel: "profilePanel" },
   contact: { title: "联系我们",     panel: "contactPanel" },
 };
