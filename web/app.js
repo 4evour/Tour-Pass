@@ -2093,6 +2093,23 @@ function renderAgentResult(itinerary) {
   header.innerHTML = h;
   container.appendChild(header);
 
+  var saveActions = document.createElement("div");
+  saveActions.className = "agent-result-actions";
+  var saveButton = document.createElement("button");
+  saveButton.id = "agentSaveTripBtn";
+  saveButton.type = "button";
+  saveButton.className = "primary-action small";
+  saveButton.disabled = Boolean(state.tripSaved && state.savedTripId);
+  saveButton.textContent = saveButton.disabled ? "✅ 已保存" : "💾 保存到我的行程";
+  var saveHint = document.createElement("span");
+  saveHint.className = "agent-result-save-hint";
+  saveHint.textContent = state.user?.role === "guest"
+    ? "游客行程保留 7 天，注册后可长期保存"
+    : "保存后可在“我的行程”中查看和编辑";
+  saveActions.appendChild(saveButton);
+  saveActions.appendChild(saveHint);
+  container.appendChild(saveActions);
+
   if (hotel) {
     var hCard = document.createElement("div");
     hCard.className = "agent-hotel-card";
@@ -2785,6 +2802,14 @@ function submitStructuredPlan() {
         if (submitText) submitText.hidden = false;
         if (submitLoading) submitLoading.hidden = true;
         if (itinerary) {
+          state.currentItinerary = itinerary;
+          state.candidates = [itinerary];
+          state.selectedIndex = 0;
+          state.lastPayload = payload;
+          state.tripSaved = false;
+          state.savedTripId = null;
+          saveCooldownUntil = 0;
+          saveTripState();
           renderAgentResult(itinerary);
           showMultiTurnPanel();
           toast("✅ 行程已生成！", "success");
@@ -2851,7 +2876,7 @@ async function loadTripsPanel() {
         </div>
         <div class="trip-actions">
           <button class="trip-btn trips-load-btn" data-trip-id="${t.id}">📂 查看</button>
-          <button class="trip-btn trips-edit-btn" data-trip-id="${t.id}">✏️ 编辑</button>
+          <button class="trip-btn trips-edit-btn" data-trip-id="${t.id}" aria-label="编辑这条行程">✏️ 编辑路线</button>
           <button class="trip-btn trips-delete-btn" data-trip-id="${t.id}">🗑️</button>
         </div>
       </div>`;
@@ -3310,13 +3335,16 @@ document.addEventListener("click", (e) => {
 
 // Save / Share trip
 let saveCooldownUntil = 0;
-async function saveTrip() {
-  const candidate = state.candidates[state.selectedIndex];
+async function saveTrip(saveBtn) {
+  const isAgentResult = saveBtn?.id === "agentSaveTripBtn";
+  const candidate = isAgentResult
+    ? state.currentItinerary
+    : state.candidates[state.selectedIndex];
   if (!candidate) return;
   const now = Date.now();
   if (now < saveCooldownUntil) { toast("请勿频繁操作", "info"); return; }
   if (state.tripSaved) { toast("该行程已保存", "info"); return; }
-  const saveBtn = document.getElementById("saveTripBtn");
+  saveBtn = saveBtn || document.getElementById("saveTripBtn") || document.getElementById("agentSaveTripBtn");
   if (saveBtn) { saveBtn.disabled = true; saveBtn.textContent = "保存中..."; }
   saveCooldownUntil = now + 2000;
   try {
@@ -3324,7 +3352,7 @@ async function saveTrip() {
       method: "POST",
       body: JSON.stringify({
         title: (() => {
-          const city = state.lastPayload?.city || "旅行";
+          const city = state.lastPayload?.city || candidate.city || "旅行";
           const days = candidate.days?.length || state.lastPayload?.days || 1;
           const interests = (state.lastPayload?.interests || []).slice(0, 2).join("·");
           return `${city}${interests ? "·" + interests : ""} ${days}日游`;
@@ -3335,6 +3363,11 @@ async function saveTrip() {
     });
     state.tripSaved = true;
     state.savedTripId = res?.id;
+    if (isAgentResult) {
+      state.candidates = [candidate];
+      state.selectedIndex = 0;
+    }
+    saveTripState();
     if (saveBtn) { saveBtn.textContent = "✅ 已保存"; }
     const guestHint = state.user?.role === "guest" ? " (游客数据保留 7 天，注册后可长期保存)" : "";
     toast(`行程已保存！${guestHint}`, "success",
@@ -3419,7 +3452,8 @@ initTheme();
 
 // Event delegation for dynamically rendered buttons
 document.addEventListener("click", (e) => {
-  if (e.target.id === "saveTripBtn" || e.target.closest?.("#saveTripBtn")) saveTrip();
+  const saveBtn = e.target.closest?.("#saveTripBtn, #agentSaveTripBtn");
+  if (saveBtn) saveTrip(saveBtn);
   if (e.target.id === "shareTripBtn" || e.target.closest?.("#shareTripBtn")) shareTrip();
   if (e.target.id === "shareImageBtn" || e.target.closest?.("#shareImageBtn")) generateShareImage();
   if (e.target.id === "exportBtn" || e.target.closest?.("#exportBtn")) exportTrip();

@@ -2811,6 +2811,23 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   padding: 0 0 40px;
 }
 
+.agent-result-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 24px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.agent-result-save-hint {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 /* Header card */
 .agent-header {
   background: linear-gradient(135deg, #146b5d 0%, #0c8c73 100%);
@@ -3230,6 +3247,7 @@ body[data-active-stage="debug"] [data-plan-section="debug"] {
   .agent-header { padding: 16px; border-radius: 12px; }
   .agent-header h2 { font-size: 18px; }
   .agent-header-meta { flex-wrap: wrap; gap: 8px; }
+  .agent-result-actions { align-items: stretch; flex-direction: column; }
   .agent-stop-name { font-size: 14px; }
   .agent-stop-body { padding: 10px 12px; }
 }
