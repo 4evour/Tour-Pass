@@ -89,7 +89,7 @@ function generatePDFContent(days: DayPlan[], city: string, defaultHotel: Poi | n
 </head>
 <body>
   <h1>${city} 行程单</h1>
-  
+
   ${defaultHotel ? `
   <div class="stop hotel">
     <div class="stop-number">🏨</div>
@@ -99,7 +99,7 @@ function generatePDFContent(days: DayPlan[], city: string, defaultHotel: Poi | n
     </div>
   </div>
   ` : ''}
-  
+
   ${days.map((day, i) => `
     <div class="day">
       <h2>第${day.day}天</h2>
@@ -119,7 +119,7 @@ function generatePDFContent(days: DayPlan[], city: string, defaultHotel: Poi | n
       `).join('')}
     </div>
   `).join('')}
-  
+
   <div class="footer">
     <p>由 Tour Pass 生成 · ${new Date().toLocaleDateString()}</p>
   </div>
