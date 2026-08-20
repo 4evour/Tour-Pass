@@ -82,11 +82,13 @@ Tour Pass 是一个面向城市自由行的 AI 行程规划平台。你可以选
 
 ## 数据规模
 
-- **21 城市**：共约 15000+ POI（景点 / 餐饮 / 酒店 / 交通 / 夜游）
-- **通勤边**：每城市 1000-2000 条，高德真实路线占比 80%+
+- **21 个城市数据集**：共 9,588 个城市 POI（景点 / 餐饮 / 酒店 / 交通）；根目录另保留 703 条样例 POI
+- **通勤边**：21 城共 49,429 条，当前数据均标记为高德路线；根目录样例数据另有 2,022 条边，来源比例不同
 - **城市攻略**：每城配 guidebook.json，包含交通、美食、住宿、注意事项等结构化信息
-- **推荐语质量**：模板化比例从 76.6% 降至 0%，93.5% 包含景点介绍+实用建议，平均 37 字
+- **推荐语**：支持本地模板和 LLM 两种生成方式；未配置或禁用 LLM 时自动回退到本地模板
 - 预置城市：长沙、武汉、北京、上海、广州、深圳、成都、重庆、杭州、南京、西安、青岛、厦门、苏州、昆明、大理、丽江、桂林、三亚、哈尔滨、张家界
+
+以上数据以 `npm run validate:data:all` 的当前校验结果为准；仓库当前校验覆盖 21 个城市数据集和 1 个根目录样例数据集。
 
 ## 环境要求
 
@@ -130,9 +132,12 @@ ctest --test-dir build
 **Python Agent 服务**：
 
 ```powershell
-pip install -r agent/requirements.txt
-python -m agent.main        # 启动 Agent 服务（端口 8090）
+pip install -r requirements-multi-agent.txt
+python -m uvicorn api_multi_agent:app --host 0.0.0.0 --port 8090
 ```
+
+上面启动的是当前 Docker 和 Render 默认使用的多 Agent 服务。`agent/requirements.txt` 与
+`python -m agent.main` 仍保留用于 legacy Agent 兼容运行。
 
 **React 编辑器**（开发模式）：
 
@@ -158,8 +163,10 @@ http://127.0.0.1:5173      # 编辑器开发服务器
 |------|------|--------|
 | `PORT` | 监听端口 | `8080` |
 | `HOST` | 监听地址 | `127.0.0.1` |
-| `TOURPASS_CITY` | 加载城市数据 | `changsha` |
+| `TOURPASS_DEFAULT_CITY` | 默认规划城市 | 城市列表中的第一个可用城市（当前为 `changsha`） |
 | `TOURPASS_DB_PATH` | SQLite 数据库路径 | `storage/tourpass.sqlite` |
+| `DATABASE_URL` | PostgreSQL 连接串；配置后优先使用 PostgreSQL | - |
+| `TOURPASS_DB_DISABLED` | 禁用数据库，使用纯内存演示模式 | `0` |
 | `LLM_DISABLED` | 禁用 LLM（演示模式） | `0` |
 | `OPENAI_API_KEY` | LLM API Key | - |
 | `LLM_BASE_URL` | LLM API 地址 | `https://api.deepseek.com` |
@@ -167,7 +174,10 @@ http://127.0.0.1:5173      # 编辑器开发服务器
 | `TOURPASS_JWT_SECRET` | JWT 签名密钥 | - |
 | `TOURPASS_API_KEY` | API 访问密钥 | - |
 | `TOURPASS_AMAP_API_KEY` | 高德地图 API Key | - |
-| `TOURPASS_WORKERS` | 工作线程数 | `4` |
+| `TOURPASS_WORKERS` | 工作线程数 | 按 CPU 核数计算，最多 `8` |
+| `TOURPASS_MAX_QUEUE` | HTTP 请求队列上限 | `64` |
+| `TOURPASS_JOB_WORKERS` | 异步规划任务 worker 数 | `1` |
+| `TOURPASS_MAX_BODY_BYTES` | JSON 请求体大小上限 | `65536` |
 | `TOURPASS_BEAM_WIDTH` | Beam Search 宽度 | `5` |
 | `TOURPASS_DISTANCE_CACHE_MODE` | 距离缓存模式 | `auto` |
 | `RESEND_API_KEY` | 邮件服务 API Key | - |
@@ -178,8 +188,12 @@ http://127.0.0.1:5173      # 编辑器开发服务器
 | 变量 | 说明 | 默认值 |
 |------|------|--------|
 | `AGENT_PORT` | Agent 服务端口 | `8090` |
+| `AGENT_IMPL` | Agent 实现 | `multi`（Docker/Render 默认） |
 | `AGENT_BASE_URL` | Agent 服务地址 | `http://127.0.0.1:8090` |
 | `DEEPSEEK_API_KEY` | DeepSeek API Key | - |
+| `CPP_BACKEND_URL` | C++ 后端地址 | `http://127.0.0.1:8080` |
+| `QWEATHER_KEY` | 和风天气 API Key | - |
+| `QWEATHER_API_HOST` | 和风天气 API Host | `devapi.qweather.com` |
 
 ### 前端
 
@@ -193,11 +207,15 @@ LLM 配置：默认读取 `config/llm.local.json`，格式参考 `config/llm.exa
 
 ```powershell
 docker build -t tour-pass:local .
-docker run --rm -p 8080:8080 -e LLM_DISABLED=1 tour-pass:local
+docker run --rm -p 8080:8080 `
+  -e LLM_DISABLED=1 `
+  -e TOURPASS_JWT_SECRET=local-dev-secret-change-me `
+  tour-pass:local
 node scripts/container_smoke.js http://127.0.0.1:8080
 ```
 
-Docker 镜像默认 `LLM_DISABLED=1` 作为演示安全默认值。多阶段构建包含 C++ 后端和 Python Agent 服务。部署细节见 [docs/deployment.md](docs/deployment.md)。
+Docker 镜像默认 `LLM_DISABLED=1` 作为演示安全默认值；启动时仍必须提供 `TOURPASS_JWT_SECRET`。
+多阶段构建包含 C++ 后端和 Python Agent 服务。部署细节见 [docs/deployment.md](docs/deployment.md)。
 
 ## API 接口
 
@@ -376,8 +394,8 @@ graph TB
     LangGraph --> RAG
 
     subgraph Data["数据层"]
-        POI[("城市 POI<br/>15000+ 条")]
-        Edges[("通勤边<br/>每城 1000-2000")]
+        POI[("城市 POI<br/>9,588 条")]
+        Edges[("通勤边<br/>21 城 49,429 条")]
         Guide[("城市攻略<br/>21 城")]
     end
 
@@ -391,7 +409,7 @@ graph TB
 - 密钥通过环境变量或 `config/llm.local.json`（已 gitignore）注入，代码中不硬编码
 - `.gitignore` 已排除 `.claude/`、`.trae/`、`config/llm.local.json`、`.env`、`output/`、`storage/` 等敏感目录
 - API Key 校验使用常量时间比较
-- 密码哈希使用 PBKDF2（10000 轮迭代）
+- 密码哈希在启用 OpenSSL 时使用 PBKDF2-HMAC-SHA256（100,000 轮）；无 OpenSSL 时使用 10,000 轮迭代哈希 fallback。生产部署必须启用 OpenSSL
 - SQL 查询全部参数化
 - JWT 鉴权支持角色权限控制（admin/user/guest）
 - 用户查询配额控制（guest 3 次/天，user 10 次/天，admin 无限制）

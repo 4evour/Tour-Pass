@@ -354,7 +354,7 @@ export LLM_MODEL=deepseek-chat
 - `TOURPASS_BEAM_WIDTH` / `TOURPASS_BRANCH_FACTOR`：Beam Search 保留状态数和每槽分支数，默认 `5` / `6`。
 - `TOURPASS_TRAVEL_TIME_PROVIDER`：通勤时间数据源，`local`（默认，使用本地 edges.json）或 `amap`（实时高德路线 API）。
 - `TOURPASS_AMAP_API_KEY` / `AMAP_API_KEY`：高德 API Key，`amap` provider 需要。
-- `TOURPASS_CITY`：选择加载哪个城市的数据（如 `changsha`、`wuhan`），对应 `data/{city}/` 目录。
+- `TOURPASS_DEFAULT_CITY`：设置默认规划城市（如 `changsha`、`wuhan`）；如果未设置，则使用城市列表中的第一个可用城市。单次请求仍可通过请求体中的 `city` 选择目的地。
 
 ## 错误格式
 
