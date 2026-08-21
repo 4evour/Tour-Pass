@@ -3,6 +3,24 @@
 > **版本规范**: Major.架构变更 | Minor.新功能 | Patch.bug修复/数据更新
 > 每次发版打对应 git tag（如 `git tag -a v2.1.0`）。
 
+## 2026-08-22 - 修复主站与编辑器交互竞态
+
+### 变更内容
+- `web/app.js` — 将动态内联点击事件改为 CSP 兼容的事件委托。
+- `web/index.html`、`tests/test_tour_ai_layout_markup.js` — 登录前后只显示已上线入口，并保持菜单顺序一致。
+- `web/editor/src/NewEditorApp.tsx`、`hooks/useRoute.ts` — 启用路线钩子、传递城市上下文并取消过期请求。
+- `web/editor/src/components/Wizard/HotelsStep.tsx` — 切城时取消旧酒店请求。
+- `web/editor/src/stores/itineraryStore.ts` — 总天数减少时裁剪多余日期。
+- `tests/test_reviewed_frontend_contracts.js`、`itineraryStore.test.ts` — 增加 CSP、路线、酒店和日期回归测试。
+- `scripts/verify_ui.js` — 将过时 Demo 验证更新为当前游客结构化规划与流式结果渲染链路。
+- `web/editor-dist/` — 从当前源码重新构建发布产物。
+
+### 原因
+- 防止 CSP 阻断动态按钮、路线钩子未挂载、城市上下文丢失、旧异步响应覆盖新状态以及缩短行程后保留旧日期。
+
+### 影响范围
+- 影响主站动态交互和 React 编辑器的路线、酒店、日期状态；不定义完整的跨城市逐日路线语义。
+
 ## 2026-08-22 - 保证 POI 管理更新的事务一致性
 
 ### 变更内容

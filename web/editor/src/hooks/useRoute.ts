@@ -4,6 +4,7 @@ import type { RouteSegment, Poi } from '../types';
 
 export function useRoute() {
   const days = useItineraryStore(s => s.days);
+  const city = useItineraryStore(s => s.city);
   const defaultHotel = useItineraryStore(s => s.defaultHotel);
   const getEffectiveHotel = useItineraryStore(s => s.getEffectiveHotel);
   const getStartPoi = useItineraryStore(s => s.getStartPoi);
@@ -61,7 +62,7 @@ export function useRoute() {
     fetch('/editor/batch-route', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ poi_ids: deduped }),
+      body: JSON.stringify({ poi_ids: deduped, city }),
       signal: controller.signal,
     })
       .then(r => r.json())
@@ -70,7 +71,8 @@ export function useRoute() {
           setRoutes(data.segments as RouteSegment[]);
         }
       })
-      .catch(() => {
+      .catch((error) => {
+        if (error.name === 'AbortError') return;
         // Fallback: create simple straight-line segments
         const segments: RouteSegment[] = [];
         for (let i = 0; i < deduped.length - 1; i++) {
@@ -89,5 +91,5 @@ export function useRoute() {
       });
 
     return () => controller.abort();
-  }, [days, defaultHotel, getEffectiveHotel, getStartPoi, setRoutes]);
+  }, [days, defaultHotel, city, getEffectiveHotel, getStartPoi, setRoutes]);
 }

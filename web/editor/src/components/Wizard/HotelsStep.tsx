@@ -56,7 +56,8 @@ export const HotelsStep: React.FC = () => {
     setLoading(true);
     setError('');
     setHotels([]);
-    fetch(`/poi/search?type=hotel&city=${encodeURIComponent(currentCity)}&limit=100`)
+    const controller = new AbortController();
+    fetch(`/poi/search?type=hotel&city=${encodeURIComponent(currentCity)}&limit=100`, { signal: controller.signal })
       .then(r => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         return r.json();
@@ -67,9 +68,11 @@ export const HotelsStep: React.FC = () => {
         setLoading(false);
       })
       .catch(err => {
+        if (err.name === 'AbortError') return;
         setError('加载酒店失败: ' + err.message);
         setLoading(false);
       });
+    return () => controller.abort();
   }, [currentCity]);
 
   const filteredHotels = useMemo(() => {

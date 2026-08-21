@@ -27,58 +27,91 @@ async function main() {
   });
   page.on("pageerror", (error) => errors.push(error.message));
 
-  await page.goto(url, { waitUntil: "networkidle" });
-  await page.click("#loadExampleButton");
-  await page.click("button.primary-action");
-  await page.waitForSelector(".overview-section", { timeout: 10000 });
+  const fixtureItinerary = {
+    city: "长沙",
+    summary: "UI smoke fixture",
+    days: [1, 2].map((day) => ({
+      day,
+      summary: `第 ${day} 天`,
+      stops: [1, 2].map((stop) => ({
+        poi_id: `ui-smoke-${day}-${stop}`,
+        poi_name: `测试地点 ${day}-${stop}`,
+        poi_type: stop === 1 ? "attraction" : "restaurant",
+        area: "测试区域",
+        start_time: stop === 1 ? "09:00" : "12:00",
+        end_time: stop === 1 ? "10:30" : "13:00",
+        visit_duration_minutes: stop === 1 ? 90 : 60,
+        travel_minutes_from_previous: stop === 1 ? 0 : 15,
+      })),
+    })),
+  };
+  await page.route("**/agent/plan-structured", async (route) => {
+    const stream = [
+      `data: ${JSON.stringify({ type: "session", session_id: "ui-smoke-session" })}`,
+      `data: ${JSON.stringify({ type: "itinerary", itinerary: fixtureItinerary })}`,
+      "",
+    ].join("\n");
+    await route.fulfill({
+      status: 200,
+      contentType: "text/event-stream; charset=utf-8",
+      body: stream,
+    });
+  });
 
-  await page.click('[data-stage="compare"]');
-  await page.waitForSelector(".comparison-panel", { timeout: 10000 });
-
-  await page.click('[data-stage="itinerary"]');
-  await page.waitForSelector(".visual-panel", { timeout: 10000 });
-
-  await page.click('[data-stage="debug"]');
-  await page.waitForSelector(".debug-panel", { timeout: 10000 });
-
-  await page.click('[data-stage="tools"]');
-  await page.waitForSelector(".inspector:not([hidden])", { timeout: 10000 });
-
-  const routeNodes = await page.locator(".route-node").count();
-  const timelineStops = await page.locator(".timeline-stop").count();
-  const comparisonCards = await page.locator(".comparison-card").count();
-  const beamSteps = await page.locator(".beam-step").count();
-  const paretoDebugItems = await page.locator(".pareto-debug span").count();
-  const diversityMetrics = await page.locator(".diversity-metrics span").count();
-  const searchContributionItems = await page.locator("#searchOutput .score-breakdown span").count();
-
-  await browser.close();
+  let city = "";
+  let dayCount = 0;
+  let stopCount = 0;
+  let sidebarItemCount = 0;
+  let serviceStatus = "";
+  try {
+    await page.goto(url, { waitUntil: "networkidle" });
+    await page.click("#guestBtn");
+    await page.waitForSelector("#mainApp:not([hidden])", { timeout: 10000 });
+    await page.waitForSelector("#formCityGrid .city-card", { timeout: 10000 });
+    const changsha = page.locator('#formCityGrid .city-card[data-city="长沙"]');
+    const cityCard = await changsha.count()
+      ? changsha
+      : page.locator("#formCityGrid .city-card").first();
+    city = await cityCard.getAttribute("data-city") || "";
+    await cityCard.click();
+    await page.click('#formDaysGroup .day-btn[data-value="2"]');
+    const planResponse = page.waitForResponse(
+      (response) => response.url().includes("/agent/plan-structured"),
+      { timeout: 60000 },
+    );
+    await page.click("#formSubmitBtn");
+    const response = await planResponse;
+    if (!response.ok()) {
+      throw new Error(`Structured planning request failed with HTTP ${response.status()}`);
+    }
+    await page.waitForSelector("#agentResult:not([hidden]) .agent-day", { timeout: 60000 });
+    dayCount = await page.locator("#agentResult .agent-day").count();
+    stopCount = await page.locator("#agentResult .agent-stop").count();
+    sidebarItemCount = await page.locator("#sidebar .sidebar-item").count();
+    serviceStatus = await page.locator("#serviceStatus").innerText();
+  } finally {
+    await browser.close();
+  }
 
   if (errors.length > 0) {
     throw new Error(`Browser console errors: ${errors.join(" | ")}`);
   }
-  if (routeNodes < 2) {
-    throw new Error(`Expected route visualization nodes, got ${routeNodes}`);
+  if (!city) {
+    throw new Error("Expected at least one selectable city");
   }
-  if (timelineStops < 4) {
-    throw new Error(`Expected timeline stops, got ${timelineStops}`);
+  if (dayCount !== 2) {
+    throw new Error(`Expected 2 itinerary days, got ${dayCount}`);
   }
-  if (comparisonCards < 2) {
-    throw new Error(`Expected candidate comparison cards, got ${comparisonCards}`);
+  if (stopCount < 4) {
+    throw new Error(`Expected at least 4 itinerary stops, got ${stopCount}`);
   }
-  if (beamSteps < 3) {
-    throw new Error(`Expected Beam Search debug steps, got ${beamSteps}`);
+  if (sidebarItemCount !== 5) {
+    throw new Error(`Expected 5 sidebar entries, got ${sidebarItemCount}`);
   }
-  if (paretoDebugItems < 1) {
-    throw new Error(`Expected Pareto debug evidence, got ${paretoDebugItems}`);
+  if (!serviceStatus.includes("POI")) {
+    throw new Error(`Expected POI service status, got ${serviceStatus}`);
   }
-  if (diversityMetrics < 3) {
-    throw new Error(`Expected diversity metrics, got ${diversityMetrics}`);
-  }
-  if (searchContributionItems < 1) {
-    throw new Error(`Expected BM25 contribution chips, got ${searchContributionItems}`);
-  }
-  console.log(`UI verification passed: ${routeNodes} route nodes, ${timelineStops} timeline stops, ${comparisonCards} comparison cards, ${beamSteps} beam steps, ${diversityMetrics} diversity metrics, ${searchContributionItems} search contributions.`);
+  console.log(`UI verification passed: guest planning for ${city}, ${dayCount} days, ${stopCount} stops, ${sidebarItemCount} sidebar entries.`);
 }
 
 main().catch((error) => {
