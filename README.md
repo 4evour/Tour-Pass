@@ -172,6 +172,7 @@ http://127.0.0.1:5173      # 编辑器开发服务器
 | `LLM_BASE_URL` | LLM API 地址 | `https://api.deepseek.com` |
 | `LLM_MODEL` | LLM 模型名 | `deepseek-chat` |
 | `TOURPASS_JWT_SECRET` | JWT 签名密钥 | - |
+| `TOURPASS_ADMIN_USERS` | 允许注册为管理员的用户名或邮箱，多个值用逗号分隔 | - |
 | `TOURPASS_API_KEY` | API 访问密钥 | - |
 | `TOURPASS_AMAP_API_KEY` | 高德地图 API Key | - |
 | `TOURPASS_WORKERS` | 工作线程数 | 按 CPU 核数计算，最多 `8` |
@@ -210,11 +211,13 @@ docker build -t tour-pass:local .
 docker run --rm -p 8080:8080 `
   -e LLM_DISABLED=1 `
   -e TOURPASS_JWT_SECRET=local-dev-secret-change-me `
+  -e TOURPASS_ADMIN_USERS=admin@example.com `
   tour-pass:local
 node scripts/container_smoke.js http://127.0.0.1:8080
 ```
 
 Docker 镜像默认 `LLM_DISABLED=1` 作为演示安全默认值；启动时仍必须提供 `TOURPASS_JWT_SECRET`。
+需要管理员账号时，必须在首次注册前显式设置 `TOURPASS_ADMIN_USERS`；未配置时所有普通注册均为 `user`，不会自动提升首位用户。
 多阶段构建包含 C++ 后端和 Python Agent 服务。部署细节见 [docs/deployment.md](docs/deployment.md)。
 
 ## API 接口

@@ -26,6 +26,8 @@ services:
         sync: false
       - key: TOURPASS_JWT_SECRET
         sync: false
+      - key: TOURPASS_ADMIN_USERS
+        sync: false
       - key: TOURPASS_AMAP_API_KEY
         sync: false
       - key: QWEATHER_KEY

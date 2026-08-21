@@ -355,6 +355,7 @@ export LLM_MODEL=deepseek-chat
 - `TOURPASS_TRAVEL_TIME_PROVIDER`：通勤时间数据源，`local`（默认，使用本地 edges.json）或 `amap`（实时高德路线 API）。
 - `TOURPASS_AMAP_API_KEY` / `AMAP_API_KEY`：高德 API Key，`amap` provider 需要。
 - `TOURPASS_DEFAULT_CITY`：设置默认规划城市（如 `changsha`、`wuhan`）；如果未设置，则使用城市列表中的第一个可用城市。单次请求仍可通过请求体中的 `city` 选择目的地。
+- `TOURPASS_ADMIN_USERS`：允许注册为管理员的用户名或邮箱白名单，多个值用逗号分隔。未配置时普通注册一律创建 `user`，首位用户也不会被自动提升；用户名注册按用户名匹配，邮箱注册按邮箱匹配。
 
 ## 错误格式
 

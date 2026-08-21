@@ -168,19 +168,6 @@ bool isAdminValue(const char* envList, const std::string& value) {
     return false;
 }
 
-bool shouldAutoPromoteAdmin(DataStore* store) {
-    if (!store || !store->enabled()) return false;
-    try {
-        auto allUsers = store->listUsers(500);
-        for (const auto& u : allUsers) {
-            if (u.value("role", "") == "admin") return false;
-        }
-    } catch (...) {
-        return false;
-    }
-    return true;
-}
-
 struct IpRateLimiter {
     static constexpr size_t maxTotalIps = 50000;
     std::mutex mu;
@@ -1887,7 +1874,6 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             }
             std::string hashed = hashPassword(password);
             std::string role = isAdminValue(std::getenv("TOURPASS_ADMIN_USERS"), username) ? "admin" : "user";
-            if (role == "user" && shouldAutoPromoteAdmin(context.store)) role = "admin";
             int64_t userId = context.store->createUser(username, hashed, role);
             std::string token = createToken(userId, username, role);
             setJson(res, {{"token", token}, {"user", {{"id", userId}, {"username", username}, {"role", role}}}}, 201);
@@ -2070,7 +2056,6 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             }
             std::string hashed = hashPassword(password);
             std::string role = isAdminValue(std::getenv("TOURPASS_ADMIN_USERS"), email) ? "admin" : "user";
-            if (role == "user" && shouldAutoPromoteAdmin(context.store)) role = "admin";
             int64_t userId = context.store->createUser(username, hashed, role, email);
             std::string token = createToken(userId, username, role);
             setJson(res, {{"token", token}, {"user", {{"id", userId}, {"username", username}, {"email", email}, {"role", role}}}}, 201);
