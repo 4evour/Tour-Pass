@@ -19,7 +19,6 @@ import logging
 from langchain_core.language_models import BaseChatModel
 from langgraph.constants import START, END
 from langgraph.graph import StateGraph
-from langgraph.checkpoint.memory import MemorySaver
 
 from agents.state import TourState
 from agents.intent_agent import IntentAgent
@@ -67,7 +66,7 @@ def _build_parallel_data_gather(
         # ── Phase 1: POI (critical, must succeed) ────────────────────────
         try:
             poi_result = await poi_agent(state)
-        except Exception as e:
+        except Exception:
             logger.critical("[DataGather] CRITICAL PoiAgent failed — aborting")
             raise
 
@@ -236,8 +235,8 @@ def build_tour_graph(
     builder.add_edge("node_ticket", "node_summary")
     builder.add_edge("node_summary", END)
 
-    graph = builder.compile(checkpointer=MemorySaver())
-    logger.info("Tour planning graph built successfully (parallel data gather + MemorySaver checkpointer)")
+    graph = builder.compile()
+    logger.info("Tour planning graph built successfully (parallel data gather)")
     return graph
 
 

@@ -4251,7 +4251,7 @@ async function xhsParseLink() {
         title: parseData.title, body: parseData.body,
         images: (parseData.images || []).filter(function(url) { return String(url).indexOf("data:image/") !== 0; }),
         ocrTexts: parseData.ocrTexts || [], noteId: parseData.noteId || "",
-        userId: (state.user && state.user.id) || ""
+        userId: state.user && state.user.id != null ? String(state.user.id) : ""
       })
     });
     var analyzeData = await analyzeRes.json();
