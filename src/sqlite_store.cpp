@@ -592,6 +592,42 @@ bool SQLiteStore::updateTrip(int64_t tripId, int64_t userId, const std::string& 
     return false;
 }
 
+std::optional<int> SQLiteStore::tryConsumeQuery(int64_t userId, int limit) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (limit <= 0) return std::nullopt;
+    const std::string today = todayDate();
+    Statement stmt(db_,
+        "INSERT INTO query_usage(user_id, query_date, query_count) VALUES (?, ?, 1) "
+        "ON CONFLICT(user_id, query_date) DO UPDATE SET query_count = query_usage.query_count + 1 "
+        "WHERE query_usage.query_count < ? RETURNING query_count;");
+    sqlite3_bind_int64(stmt.get(), 1, userId);
+    bindText(stmt.get(), 2, today);
+    sqlite3_bind_int(stmt.get(), 3, limit);
+    int result = sqlite3_step(stmt.get());
+    if (result == SQLITE_ROW) {
+        int used = sqlite3_column_int(stmt.get(), 0);
+        recordWrite(true);
+        return limit - used;
+    }
+    if (result == SQLITE_DONE) return std::nullopt;
+    recordWrite(false);
+    throw std::runtime_error(sqlite3_errmsg(db_));
+}
+
+void SQLiteStore::refundQuery(int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    Statement stmt(db_, "UPDATE query_usage SET query_count = query_count - 1 WHERE user_id = ? AND query_date = ? AND query_count > 0;");
+    sqlite3_bind_int64(stmt.get(), 1, userId);
+    bindText(stmt.get(), 2, todayDate());
+    int result = sqlite3_step(stmt.get());
+    if (result == SQLITE_DONE) {
+        recordWrite(true);
+        return;
+    }
+    recordWrite(false);
+    throw std::runtime_error(sqlite3_errmsg(db_));
+}
+
 bool SQLiteStore::deleteTrip(int64_t tripId, int64_t userId) {
     std::lock_guard<std::mutex> lock(mutex_);
     Statement stmt(db_, "DELETE FROM saved_trips WHERE id = ? AND user_id = ?;");

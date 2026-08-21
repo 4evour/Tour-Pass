@@ -7,6 +7,7 @@
 #include <filesystem>
 #include <atomic>
 #include <thread>
+#include <vector>
 
 #include "httplib.h"
 #include "tourpass/api.h"
@@ -686,6 +687,30 @@ void testSQLiteStorePersistsOperationalRecords() {
         expectTrue(store.deleteTrip(tripId, userId), "sqlite store deletes a user's own trip");
         expectTrue(!store.getTrip(tripId, userId).has_value(), "sqlite store no longer returns deleted trip");
         expectTrue(!store.deleteTrip(tripId, userId), "sqlite store reports missing trip on repeated deletion");
+
+        int64_t quotaUserId = store.createUser("quota-user", "hash", "user");
+        expectTrue(store.tryConsumeQuery(quotaUserId, 2) == std::optional<int>(1), "first query reservation reports one remaining");
+        expectTrue(store.tryConsumeQuery(quotaUserId, 2) == std::optional<int>(0), "second query reservation consumes final quota");
+        expectTrue(!store.tryConsumeQuery(quotaUserId, 2).has_value(), "query reservation rejects exhausted quota");
+        store.refundQuery(quotaUserId);
+        expectTrue(store.getQueryCount(quotaUserId) == 1, "failed query refunds one reservation");
+        store.refundQuery(quotaUserId);
+        store.refundQuery(quotaUserId);
+        expectTrue(store.getQueryCount(quotaUserId) == 0, "query refunds never make usage negative");
+
+        int64_t concurrentQuotaUserId = store.createUser("concurrent-quota-user", "hash", "user");
+        std::atomic<int> acceptedReservations{0};
+        std::vector<std::thread> quotaWorkers;
+        for (int i = 0; i < 20; ++i) {
+            quotaWorkers.emplace_back([&] {
+                if (store.tryConsumeQuery(concurrentQuotaUserId, 7).has_value()) {
+                    ++acceptedReservations;
+                }
+            });
+        }
+        for (auto& worker : quotaWorkers) worker.join();
+        expectTrue(acceptedReservations == 7, "concurrent query reservations never exceed the limit");
+        expectTrue(store.getQueryCount(concurrentQuotaUserId) == 7, "concurrent reservations persist the exact limit");
 
         expectTrue(store.stats()["write_count"] >= 5, "sqlite store tracks writes");
     }
