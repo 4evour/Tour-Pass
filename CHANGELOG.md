@@ -3,6 +3,21 @@
 > **版本规范**: Major.架构变更 | Minor.新功能 | Patch.bug修复/数据更新
 > 每次发版打对应 git tag（如 `git tag -a v2.1.0`）。
 
+## 2026-08-22 - 收紧构建与城市 API 契约
+
+### 变更内容
+- `.gitattributes`、`package.json` — 移除 Git 属性文件 BOM，固定 Dockerfile 与编辑器产物行尾，并增加语法回归检查。
+- `CMakeLists.txt` — 为 MSVC C++ 编译启用 UTF-8 源码解析。
+- `src/api.cpp` — 显式未知城市返回 404，城市攻略使用城市白名单校验，并为 `/poi/browse` 补充开放、关闭和游览时长字段。
+- `web/app.js` — 首页健康状态优先读取多城市汇总字段 `total_poi_count`，同时兼容旧字段。
+- `tests/test_reviewed_api_contracts.js` — 增加上述行为的回归契约。
+
+### 原因
+- 防止错误城市静默回退、攻略路径参数逃逸、POI 浏览字段缺失和首页 POI 总数显示异常。
+
+### 影响范围
+- 影响 Windows/MSVC 构建、城市相关 API、POI 浏览响应和首页健康状态；未传城市时的默认城市行为保持不变。
+
 ## 2026-08-20 - 按源码状态更新 README
 
 ### 变更内容

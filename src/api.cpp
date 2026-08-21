@@ -124,18 +124,7 @@ struct ApiContext {
 
     CityBundle* getCity(const std::string& city) {
         auto it = cities.find(city);
-        if (it != cities.end()) return it->second;
-
-        if (!defaultCity.empty()) {
-            auto def = cities.find(defaultCity);
-            if (def != cities.end()) return def->second;
-        }
-
-        if (!cities.empty()) {
-            return cities.begin()->second;
-        }
-
-        return nullptr;
+        return (it != cities.end()) ? it->second : nullptr;
     }
 
     // Exact city lookup without fallback — returns nullptr if city not found
@@ -1227,6 +1216,10 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     // ── Agent API: City guide ──────────────────────────────────────────────
     server.Get("/api/city-guide", [&](const httplib::Request& req, httplib::Response& res) {
         std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
+        if (!context.findCityExact(cityName)) {
+            setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404);
+            return;
+        }
         std::string path = "data/" + cityName + "/city_guide.json";
         std::ifstream file(path);
         if (!file.is_open()) {
@@ -1370,6 +1363,9 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 {"popularity", e.poi->popularity},
                 {"description", e.poi->description},
                 {"recommendation", e.poi->recommendation},
+                {"open_minutes", e.poi->openMinutes},
+                {"close_minutes", e.poi->closeMinutes},
+                {"visit_duration", e.poi->visitDurationMinutes},
                 {"image_url", resolveAssetUrl(e.poi->imageUrl)},
                 {"guide_text", e.poi->guideText}
             };
