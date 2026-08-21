@@ -68,7 +68,13 @@ std::string joinTerms(const std::vector<std::string>& terms) {
 }  // namespace
 
 SearchEngine::SearchEngine(const PoiGraph& graph) : graph_(graph), averageLength_(1.0) {
+    rebuild();
+}
+
+void SearchEngine::rebuild() {
     const auto& pois = graph_.pois();
+    index_.clear();
+    invertedIndex_.clear();
     index_.reserve(pois.size());
     double totalLength = 0.0;
     for (const auto& poi : pois) {

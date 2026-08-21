@@ -45,6 +45,7 @@ struct PoiSearchIndex {
 class SearchEngine {
 public:
     explicit SearchEngine(const PoiGraph& graph);
+    void rebuild();
     std::vector<SearchResult> search(const std::string& query, const std::string& type, int limit) const;
 
 private:
