@@ -283,11 +283,11 @@ export const useItineraryStore = create<ItineraryState & ItineraryActions>((set,
   // 同步 totalDays 到 days 数组，确保每个 day 都有对应的 DayPlan
   syncDaysFromTotal: () => {
     set((state) => {
-      if (state.days.length >= state.totalDays) return state;
-      const newDays = [...state.days];
+      const newDays = state.days.slice(0, state.totalDays);
       for (let i = newDays.length; i < state.totalDays; i++) {
         newDays.push(makeDefaultDay(i + 1));
       }
+      if (newDays.length === state.days.length) return state;
       return { days: newDays };
     });
   },

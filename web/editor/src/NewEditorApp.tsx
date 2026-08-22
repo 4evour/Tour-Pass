@@ -5,8 +5,10 @@ import { useItineraryStore } from './stores/itineraryStore';
 import { WizardNav, DaysStep, CitiesStep, SegmentsStep, HotelsStep, PlanStep, ReviewStep } from './components/Wizard';
 import { api } from './utils/api';
 import { deserializeTrip, serializeForSave } from './utils/serialize';
+import { useRoute } from './hooks/useRoute';
 
 export default function NewEditorApp() {
+  useRoute();
   const wizardStep = useItineraryStore(state => state.wizardStep);
   const cities = useItineraryStore(state => state.cities);
   const setCity = useItineraryStore(state => state.setCity);

@@ -1888,7 +1888,7 @@ function renderStop(stop) {
           ${isMeal ? `<div class="stop-area-hint">📍 建议在 <strong>${escapeHtml(stop.area)}</strong> 一带用餐</div>` : ""}
           <div class="stop-reason">${escapeHtml(stop.reason) || ""}</div>
           ${stop.recommendation ? `<div class="stop-tip">💡 ${escapeHtml(stop.recommendation)}</div>` : ""}
-          ${guideText ? `<div class="stop-guide"><div class="stop-guide-text" id="${uid}">${escapeHtml(shortGuide)}${needToggle ? "..." : ""}</div>${needToggle ? `<button class="stop-guide-toggle" data-full-text="${escapeHtml(guideText)}" data-short-text="${escapeHtml(shortGuide)}..." data-target="${uid}" onclick="toggleGuide(this)">展开攻略</button>` : ""}</div>` : ""}
+          ${guideText ? `<div class="stop-guide"><div class="stop-guide-text" id="${uid}">${escapeHtml(shortGuide)}${needToggle ? "..." : ""}</div>${needToggle ? `<button class="stop-guide-toggle" data-action="toggle-guide" data-full-text="${escapeHtml(guideText)}" data-short-text="${escapeHtml(shortGuide)}..." data-target="${uid}">展开攻略</button>` : ""}</div>` : ""}
         </div>
       </div>
       <div class="stop-actions">
@@ -1913,6 +1913,11 @@ function toggleGuide(btn) {
     btn.textContent = "收起";
   }
 }
+
+document.addEventListener("click", function(e) {
+  const guideButton = e.target.closest(".stop-guide-toggle[data-action='toggle-guide']");
+  if (guideButton) toggleGuide(guideButton);
+});
 
 function timeWindowLabel(status) {
   const labels = {
@@ -4336,7 +4341,7 @@ function xhsRenderDay(idx) {
     var cfg = XHS_TYPES[p.type] || {icon:"📍",bg:"#f5f5f5",color:"#666"};
     var card = document.createElement("div"); card.className = "xhs-place";
     card.innerHTML = '<div class="xhs-place-num">'+(i+1)+'</div>' +
-      '<div class="xhs-place-actions"><button class="xhs-place-action" title="编辑" onclick="xhsOpenModal('+i+')">✏️</button><button class="xhs-place-action danger" title="删除" onclick="xhsDeletePlace('+idx+','+i+')">🗑️</button></div>' +
+      '<div class="xhs-place-actions"><button class="xhs-place-action" title="编辑" data-xhs-edit-index="'+i+'">✏️</button><button class="xhs-place-action danger" title="删除" data-xhs-delete-day="'+idx+'" data-xhs-delete-index="'+i+'">🗑️</button></div>' +
       '<div class="xhs-place-header"><h3 class="xhs-place-name">'+escapeHtml(p.name||"未命名")+'</h3><span class="xhs-place-type xhs-type-'+escapeHtml(p.type||"观光")+'">'+cfg.icon+' '+escapeHtml(p.type||"观光")+'</span></div>' +
       (p.description?'<p class="xhs-place-desc">'+escapeHtml(p.description)+'</p>':'') +
       '<div class="xhs-place-meta">'+(p.duration?'<span>⏱️ '+escapeHtml(p.duration)+'</span>':'')+'</div>' +
@@ -4344,6 +4349,18 @@ function xhsRenderDay(idx) {
     tl.appendChild(card);
   });
 }
+
+document.addEventListener("click", function(e) {
+  var editButton = e.target.closest("[data-xhs-edit-index]");
+  if (editButton) {
+    xhsOpenModal(Number(editButton.dataset.xhsEditIndex));
+    return;
+  }
+  var deleteButton = e.target.closest("[data-xhs-delete-day][data-xhs-delete-index]");
+  if (deleteButton) {
+    xhsDeletePlace(Number(deleteButton.dataset.xhsDeleteDay), Number(deleteButton.dataset.xhsDeleteIndex));
+  }
+});
 
 function xhsOpenLb(idx) { xhsLbIdx=idx; document.getElementById("xhsLightbox").hidden=false; xhsUpdateLb(); }
 function xhsCloseLb() { document.getElementById("xhsLightbox").hidden=true; }
