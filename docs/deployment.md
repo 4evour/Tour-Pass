@@ -16,6 +16,8 @@ docker build -t tour-pass:local .
 docker run --rm -p 8080:8080 `
   -e LLM_DISABLED=1 `
   -e TOURPASS_DB_PATH=/app/storage/tourpass.sqlite `
+  -e TOURPASS_JWT_SECRET=local-dev-secret-change-me `
+  -e TOURPASS_ADMIN_USERS=admin@example.com `
   tour-pass:local
 ```
 
@@ -74,12 +76,16 @@ docker run --rm -p 8080:8080 -e LLM_DISABLED=1 ghcr.io/<owner>/tour-pass:latest
   - `HOST=0.0.0.0`
   - `LLM_DISABLED=1`
   - `TOURPASS_DB_PATH=/app/storage/tourpass.sqlite`
+  - `TOURPASS_JWT_SECRET=<随机且保密的签名密钥>`
+  - 如需管理员：`TOURPASS_ADMIN_USERS=<用户名或邮箱白名单>`
   - 可选：`TOURPASS_WORKERS`、`TOURPASS_MAX_QUEUE`、`TOURPASS_MAX_IN_FLIGHT`
   - 可选：`TOURPASS_DISTANCE_CACHE_MODE=auto`
 
 如果平台提供持久卷，将 `/app/storage` 挂载为持久目录；否则 SQLite 记录会随容器重启丢失。规划热路径不依赖 SQLite，SQLite 只用于规划历史、异步任务、benchmark 和数据版本复盘。
 
 仓库提供 `render.yaml` 作为 Docker Web Service 草案。除非已经实际创建服务并获得公网 URL，文档和简历中不得声称项目已上线。
+
+`TOURPASS_ADMIN_USERS` 必须在目标账号注册前配置，多个用户名或邮箱使用逗号分隔。未配置时服务不会自动把首位注册用户提升为管理员；已存在用户如需调整角色，应通过受控的数据迁移或现有管理员接口完成。
 
 ## LLM 与密钥
 
