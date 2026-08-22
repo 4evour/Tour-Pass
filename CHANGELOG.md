@@ -3,6 +3,21 @@
 > **版本规范**: Major.架构变更 | Minor.新功能 | Patch.bug修复/数据更新
 > 每次发版打对应 git tag（如 `git tag -a v2.1.0`）。
 
+## 2026-08-22 - 保证 POI 管理更新的事务一致性
+
+### 变更内容
+- `src/data_loader.cpp` — 使用同目录临时文件和原子替换保存 POI，失败时清理临时文件。
+- `include/tourpass/api.h`、`src/api.cpp` — 为城市数据增加共享读/独占写锁，后台在副本上修改并在写盘成功后提交内存。
+- `include/tourpass/search.h`、`src/search.cpp` — 增加搜索索引重建。
+- `include/tourpass/service_runtime.h`、`src/service_runtime.cpp` — 增加响应缓存清理。
+- `tests/test_main.cpp`、`tests/test_poi_admin_consistency_contract.js` — 增加原子保存、索引、缓存和同步回归测试。
+
+### 原因
+- 防止并发数据竞争、部分文件写入、磁盘失败后内存漂移，以及成功更新后搜索和缓存仍返回旧数据。
+
+### 影响范围
+- 影响城市图读取和管理员 POI 写入；不改变 POI API 请求/响应格式或数据内容。
+
 ## 2026-08-22 - 修复 Agent 会话与资源边界
 
 ### 变更内容

@@ -103,6 +103,12 @@ void ResponseCache::put(const std::string& key, const nlohmann::json& value) {
     }
 }
 
+void ResponseCache::clear() {
+    std::lock_guard<std::mutex> lock(mutex_);
+    entries_.clear();
+    index_.clear();
+}
+
 CacheStats ResponseCache::stats() const {
     std::lock_guard<std::mutex> lock(mutex_);
     return CacheStats{entries_.size(), hits_, misses_, evictions_};

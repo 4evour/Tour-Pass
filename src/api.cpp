@@ -10,6 +10,8 @@
 #include <iostream>
 #include <limits>
 #include <memory>
+#include <mutex>
+#include <shared_mutex>
 #include <sstream>
 #include <thread>
 #include <unordered_map>
@@ -411,6 +413,7 @@ std::string extractJobId(const httplib::Request& req) {
 nlohmann::json planJson(ApiContext& context, const TripRequest& tripRequest) {
     auto* city = context.findCityExact(tripRequest.city);
     if (!city) return errorJson("CITY_NOT_FOUND", "未找到城市数据: " + tripRequest.city);
+    std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
     try {
         if (tripRequest.candidateCount > 1) {
             nlohmann::json candidates = nlohmann::json::array();
@@ -956,6 +959,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         nlohmann::json cityInfo = nlohmann::json::object();
         size_t totalPois = 0;
         for (const auto& [name, ptr] : context.cities) {
+            std::shared_lock<std::shared_mutex> dataLock(ptr->dataMutex);
             cityInfo[name] = {{"poi_count", ptr->graph.pois().size()}, {"edge_count", ptr->graph.edgeCount()}};
             totalPois += ptr->graph.pois().size();
         }
@@ -973,6 +977,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     server.Get("/cities", [&](const httplib::Request&, httplib::Response& res) {
         nlohmann::json arr = nlohmann::json::array();
         for (const auto& [name, ptr] : context.cities) {
+            std::shared_lock<std::shared_mutex> dataLock(ptr->dataMutex);
             arr.push_back({{"name", name}, {"poi_count", ptr->graph.pois().size()}});
         }
         setJson(res, {{"cities", arr}, {"default", context.defaultCity}});
@@ -1150,6 +1155,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
         auto* city = context.getCity(cityName);
         if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+        std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
         std::string key = requestCacheKey(req.method, req.path, queryString(req), "");
         if (serveFromCache(context, res, key)) return;
         std::string from = req.get_param_value("from");
@@ -1174,6 +1180,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
         auto* city = context.getCity(cityName);
         if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+        std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
 
         std::string from = req.get_param_value("from");
         std::string to = req.get_param_value("to");
@@ -1201,6 +1208,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + tripRequest.city), 404);
                 return;
             }
+            std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
 
             // Use the existing planner
             TripPlanner planner(city->graph);
@@ -1238,6 +1246,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
     server.Get("/api/cities", [&](const httplib::Request& req, httplib::Response& res) {
         nlohmann::json data = nlohmann::json::array();
         for (const auto& [name, bundle] : context.cities) {
+            std::shared_lock<std::shared_mutex> dataLock(bundle->dataMutex);
             int poiCount = 0, hotelCount = 0;
             for (const auto& poi : bundle->graph.pois()) {
                 poiCount++;
@@ -1277,6 +1286,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 return;
             }
             nlohmann::json data = nlohmann::json::array();
+            std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
             for (const auto& result : city->search.search(query, type, body.value("limit", 5))) {
                 data.push_back(searchResultToJson(result));
             }
@@ -1297,6 +1307,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
         auto* city = context.getCity(cityName);
         if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+        std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
         int limit = 10;
         if (req.has_param("limit")) {
             try {
@@ -1325,6 +1336,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         std::string typeFilter = req.has_param("type") ? req.get_param_value("type") : "";
         auto* city = context.getCity(cityName);
         if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+        std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
         int limit = 50;
         if (req.has_param("limit")) {
             try { limit = std::stoi(req.get_param_value("limit")); } catch (...) { limit = 50; }
@@ -1389,6 +1401,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
         auto* city = context.getCity(cityName);
         if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+        std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
 
         std::string key = requestCacheKey(req.method, req.path, queryString(req), "");
         if (serveFromCache(context, res, key)) return;
@@ -1444,6 +1457,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         auto* city = context.getCity(cityName);
         if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
         if (area.empty()) { setJson(res, errorJson("VALIDATION_ERROR", "area 参数不能为空"), 400); return; }
+        std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
 
         int limit = 10;
         if (req.has_param("limit")) {
@@ -1705,6 +1719,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                     setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + request.city), 404);
                     return;
                 }
+                std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
                 itinerary = city->planner.plan(request);
             }
             setJson(res, {{"explanation", context.llm.explain(itinerary)}, {"llm_configured", context.llm.isConfigured()}});
@@ -1755,6 +1770,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市数据: " + parsed.request.city), 404);
                 return;
             }
+            std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
 
             // Step 2: Fuzzy match POI names via BM25 search
             nlohmann::json matchedPois = nlohmann::json::array();
@@ -2334,6 +2350,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         std::string cityName = req.has_param("city") ? req.get_param_value("city") : context.defaultCity;
         auto* city = context.findCityExact(cityName);
         if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404); return; }
+        std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
 
         std::string typeFilter = req.has_param("type") ? req.get_param_value("type") : "";
         std::string q = req.has_param("q") ? req.get_param_value("q") : "";
@@ -2373,6 +2390,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         std::string poiId = req.matches[1];
         // Search across all cities
         for (auto& [name, city] : context.cities) {
+            std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
             const auto* poi = city->graph.findPoi(poiId);
             if (poi) {
                 nlohmann::json result = poiToJson(*poi);
@@ -2399,53 +2417,64 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         } else {
             // Search all cities
             for (auto& [name, c] : context.cities) {
+                std::shared_lock<std::shared_mutex> dataLock(c->dataMutex);
                 if (c->graph.findPoi(poiId)) { city = c; cityName = name; break; }
             }
         }
         if (!city) { setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404); return; }
 
+        std::unique_lock<std::shared_mutex> dataLock(city->dataMutex);
         Poi* poi = city->graph.findMutablePoi(poiId);
         if (!poi) { setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404); return; }
+        Poi updated = *poi;
 
         // Update fields
-        if (body.contains("name")) poi->name = body["name"].get<std::string>();
-        if (body.contains("type")) poi->type = poiTypeFromString(body["type"].get<std::string>());
-        if (body.contains("lat")) poi->lat = body["lat"].get<double>();
-        if (body.contains("lng")) poi->lng = body["lng"].get<double>();
-        if (body.contains("area")) poi->area = body["area"].get<std::string>();
-        if (body.contains("description")) poi->description = body["description"].get<std::string>();
-        if (body.contains("recommendation")) poi->recommendation = body["recommendation"].get<std::string>();
-        if (body.contains("guide_text")) poi->guideText = body["guide_text"].get<std::string>();
-        if (body.contains("meal_type")) poi->mealType = body["meal_type"].get<std::string>();
-        if (body.contains("popularity")) poi->popularity = body["popularity"].get<double>();
-        if (body.contains("price_level")) poi->priceLevel = body["price_level"].get<int>();
-        if (body.contains("visit_duration_minutes")) poi->visitDurationMinutes = body["visit_duration_minutes"].get<int>();
+        if (body.contains("name")) updated.name = body["name"].get<std::string>();
+        if (body.contains("type")) updated.type = poiTypeFromString(body["type"].get<std::string>());
+        if (body.contains("lat")) updated.lat = body["lat"].get<double>();
+        if (body.contains("lng")) updated.lng = body["lng"].get<double>();
+        if (body.contains("area")) updated.area = body["area"].get<std::string>();
+        if (body.contains("description")) updated.description = body["description"].get<std::string>();
+        if (body.contains("recommendation")) updated.recommendation = body["recommendation"].get<std::string>();
+        if (body.contains("guide_text")) updated.guideText = body["guide_text"].get<std::string>();
+        if (body.contains("meal_type")) updated.mealType = body["meal_type"].get<std::string>();
+        if (body.contains("popularity")) updated.popularity = body["popularity"].get<double>();
+        if (body.contains("price_level")) updated.priceLevel = body["price_level"].get<int>();
+        if (body.contains("visit_duration_minutes")) updated.visitDurationMinutes = body["visit_duration_minutes"].get<int>();
         if (body.contains("tags") && body["tags"].is_array()) {
-            poi->tags.clear();
-            for (const auto& tag : body["tags"]) poi->tags.push_back(tag.get<std::string>());
+            updated.tags.clear();
+            for (const auto& tag : body["tags"]) updated.tags.push_back(tag.get<std::string>());
         }
-        if (body.contains("open_time")) poi->openMinutes = parseTimeToMinutes(body["open_time"].get<std::string>());
-        if (body.contains("close_time")) poi->closeMinutes = parseTimeToMinutes(body["close_time"].get<std::string>());
-        if (body.contains("image_url")) poi->imageUrl = body["image_url"].get<std::string>();
+        if (body.contains("open_time")) updated.openMinutes = parseTimeToMinutes(body["open_time"].get<std::string>());
+        if (body.contains("close_time")) updated.closeMinutes = parseTimeToMinutes(body["close_time"].get<std::string>());
+        if (body.contains("image_url")) updated.imageUrl = body["image_url"].get<std::string>();
         if (body.contains("images") && body["images"].is_array()) {
-            poi->images.clear();
+            updated.images.clear();
             for (const auto& img : body["images"]) {
                 PoiImage pi;
                 pi.url = img.value("url", "");
                 pi.source = img.value("source", "");
                 pi.noteUrl = img.value("note_url", "");
-                poi->images.push_back(pi);
+                updated.images.push_back(pi);
             }
         }
 
-        // Save to disk
+        auto updatedPois = city->graph.pois();
+        auto updatedIt = std::find_if(updatedPois.begin(), updatedPois.end(), [&](const Poi& item) {
+            return item.id == poiId;
+        });
+        if (updatedIt == updatedPois.end()) { setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404); return; }
+        *updatedIt = updated;
         try {
-            savePois(city->poisPath, city->graph.pois());
+            savePois(city->poisPath, updatedPois);
         } catch (const std::exception& ex) {
             setJson(res, errorJson("SAVE_FAILED", "保存失败: " + std::string(ex.what())), 500);
             return;
         }
 
+        *poi = std::move(updated);
+        city->search.rebuild();
+        context.cache.clear();
         setJson(res, {{"status", "updated"}, {"poi", poiToJson(*poi)}});
     });
 
@@ -2468,21 +2497,33 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             city = context.findCityExact(cityName);
         } else {
             for (auto& [name, c] : context.cities) {
+                std::shared_lock<std::shared_mutex> dataLock(c->dataMutex);
                 if (c->graph.findPoi(poiId)) { city = c; break; }
             }
         }
         if (!city) { setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404); return; }
 
+        std::unique_lock<std::shared_mutex> dataLock(city->dataMutex);
         Poi* poi = city->graph.findMutablePoi(poiId);
         if (!poi) { setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404); return; }
 
-        poi->imageUrl = imageUrl;
+        Poi updated = *poi;
+        updated.imageUrl = imageUrl;
+        auto updatedPois = city->graph.pois();
+        auto updatedIt = std::find_if(updatedPois.begin(), updatedPois.end(), [&](const Poi& item) {
+            return item.id == poiId;
+        });
+        if (updatedIt == updatedPois.end()) { setJson(res, errorJson("NOT_FOUND", "未找到 POI: " + poiId), 404); return; }
+        *updatedIt = updated;
         try {
-            savePois(city->poisPath, city->graph.pois());
+            savePois(city->poisPath, updatedPois);
         } catch (const std::exception& ex) {
             setJson(res, errorJson("SAVE_FAILED", "保存失败: " + std::string(ex.what())), 500);
             return;
         }
+        *poi = std::move(updated);
+        city->search.rebuild();
+        context.cache.clear();
         setJson(res, {{"status", "updated"}, {"poi_id", poiId}, {"image_url", imageUrl}});
     });
 
@@ -2494,6 +2535,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             std::string cityName = body.value("city", context.defaultCity);
             auto* city = context.getCity(cityName);
             if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市"), 404); return; }
+            std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
             nlohmann::json segments = nlohmann::json::array();
             for (size_t i = 0; i + 1 < poiIds.size(); ++i) {
                 int travel = city->graph.shortestMinutes(poiIds[i], poiIds[i + 1]);
@@ -2546,6 +2588,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
 
             auto* city = context.getCity(cityName);
             if (!city) { setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市"), 404); return; }
+            std::shared_lock<std::shared_mutex> dataLock(city->dataMutex);
 
             std::set<std::string> usedSet(usedIds.begin(), usedIds.end());
             struct ScoredPoi { const Poi* poi; double score; std::string reason; };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <shared_mutex>
 #include <unordered_map>
 
 #include "tourpass/data_store.h"
@@ -17,6 +18,7 @@ struct CityBundle {
     TripPlanner planner;
     SearchEngine search;
     std::string poisPath;
+    mutable std::shared_mutex dataMutex;
     CityBundle(std::vector<Poi> pois, std::vector<Edge> edges)
         : graph(std::move(pois), std::move(edges)), planner(graph), search(graph) {}
     CityBundle(const CityBundle&) = delete;

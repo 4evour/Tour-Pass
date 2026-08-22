@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <fstream>
+#include <filesystem>
 #include <atomic>
 #include <thread>
 
@@ -596,6 +597,51 @@ void testResponseCacheTracksHitsAndEvictsLeastRecentEntry() {
     expectTrue(cache.stats().misses == 1, "cache records misses");
 }
 
+void testSearchRebuildAndResponseCacheClear() {
+    tourpass::Poi poi;
+    poi.id = "mutable-poi";
+    poi.name = "Old Landmark";
+    poi.type = tourpass::PoiType::Attraction;
+    poi.popularity = 0.0;
+    tourpass::PoiGraph graph({poi}, {});
+    tourpass::SearchEngine search(graph);
+
+    auto oldResults = search.search("Old", "", 5);
+    expectTrue(!oldResults.empty() && !oldResults.front().matchedTerms.empty(), "search index contains original POI fields");
+
+    graph.findMutablePoi("mutable-poi")->name = "New Landmark";
+    search.rebuild();
+    auto newResults = search.search("New", "", 5);
+    expectTrue(!newResults.empty() && !newResults.front().matchedTerms.empty(), "search rebuild reflects updated POI fields");
+
+    tourpass::ResponseCache cache(2, std::chrono::seconds(60));
+    cache.put("poi", nlohmann::json{{"name", "Old Landmark"}});
+    cache.clear();
+    expectTrue(cache.stats().entries == 0, "cache clear removes stale responses");
+}
+
+void testSavePoisAtomicallyReplacesTarget() {
+    const std::string path = "output/test-pois-atomic.json";
+    std::filesystem::create_directories("output");
+    {
+        std::ofstream out(path);
+        out << "[]";
+    }
+
+    tourpass::Poi poi;
+    poi.id = "saved-poi";
+    poi.name = "Saved Landmark";
+    poi.type = tourpass::PoiType::Attraction;
+    poi.openMinutes = 0;
+    poi.closeMinutes = 23 * 60 + 59;
+    tourpass::savePois(path, {poi});
+
+    auto saved = tourpass::loadPois(path);
+    expectTrue(saved.size() == 1 && saved.front().name == "Saved Landmark", "atomic POI save replaces target with valid JSON");
+    expectTrue(!std::filesystem::exists(path + ".tmp"), "atomic POI save removes its temporary file");
+    std::filesystem::remove(path);
+}
+
 void testServiceMetricsRecordsStatusAndLatency() {
     tourpass::ServiceMetrics metrics;
     metrics.beginRequest();
@@ -880,6 +926,8 @@ int main() {
         testSearch();
         testSearchExplainsBm25Matches();
         testResponseCacheTracksHitsAndEvictsLeastRecentEntry();
+        testSearchRebuildAndResponseCacheClear();
+        testSavePoisAtomicallyReplacesTarget();
         testServiceMetricsRecordsStatusAndLatency();
         testSQLiteStorePersistsOperationalRecords();
         testTripJobStoreRunsPlannerJobsAsynchronously();

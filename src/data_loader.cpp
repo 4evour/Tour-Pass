@@ -1,6 +1,7 @@
 #include "tourpass/data_loader.h"
 
 #include <fstream>
+#include <filesystem>
 #include <iostream>
 #include <queue>
 #include <set>
@@ -9,9 +10,28 @@
 
 #include "tourpass/graph.h"
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 namespace tourpass {
 
 namespace {
+
+void replaceFileAtomically(const std::filesystem::path& temporary, const std::filesystem::path& target) {
+#ifdef _WIN32
+    if (!MoveFileExW(temporary.wstring().c_str(), target.wstring().c_str(),
+                     MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH)) {
+        throw std::runtime_error("cannot replace file: " + target.string());
+    }
+#else
+    std::error_code error;
+    std::filesystem::rename(temporary, target, error);
+    if (error) {
+        throw std::runtime_error("cannot replace file: " + target.string() + ": " + error.message());
+    }
+#endif
+}
 
 nlohmann::json readJsonFile(const std::string& path) {
     std::ifstream input(path);
@@ -213,12 +233,22 @@ void savePois(const std::string& path, const std::vector<Poi>& pois) {
         output.push_back(item);
     }
 
-    // Write with pretty print (indent=2) matching project convention
-    std::ofstream out(path);
-    if (!out) {
-        throw std::runtime_error("cannot write file: " + path);
+    // Write to the same directory, then atomically replace the target.
+    const std::filesystem::path target(path);
+    std::filesystem::path temporary(path + ".tmp");
+    std::error_code removeError;
+    std::filesystem::remove(temporary, removeError);
+    try {
+        std::ofstream out;
+        out.exceptions(std::ios::failbit | std::ios::badbit);
+        out.open(temporary, std::ios::out | std::ios::trunc);
+        out << output.dump(2) << std::endl;
+        out.close();
+        replaceFileAtomically(temporary, target);
+    } catch (...) {
+        std::filesystem::remove(temporary, removeError);
+        throw;
     }
-    out << output.dump(2) << std::endl;
 }
 
 }  // namespace tourpass

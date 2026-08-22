@@ -50,6 +50,7 @@ public:
 
     bool get(const std::string& key, nlohmann::json& value);
     void put(const std::string& key, const nlohmann::json& value);
+    void clear();
     CacheStats stats() const;
 
 private:
