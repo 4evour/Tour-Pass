@@ -24,6 +24,26 @@ if (!cityGuideBlock.includes("context.findCityExact(cityName)")) {
   throw new Error("Expected city guide requests to validate the city before constructing a file path.");
 }
 
+function assertUnknownCityResponse(routeStart, routeEnd, label) {
+  const start = api.indexOf(routeStart);
+  const end = api.indexOf(routeEnd, start);
+  const block = api.slice(start, end);
+  if (start < 0 || end < 0 || !block.includes("CITY_NOT_FOUND") || !block.includes("404")) {
+    throw new Error(`Expected ${label} to return HTTP 404 with CITY_NOT_FOUND for an unknown city.`);
+  }
+}
+
+assertUnknownCityResponse(
+  'server.Post("/trip/alternatives"',
+  'server.Get("/poi/search"',
+  "/trip/alternatives",
+);
+assertUnknownCityResponse(
+  'server.Post("/itinerary/explain"',
+  'server.Post("/trip/chat"',
+  "/itinerary/explain",
+);
+
 const browseStart = api.indexOf('server.Get("/poi/browse"');
 const browseEnd = api.indexOf("// GET /poi/areas", browseStart);
 const browseBlock = api.slice(browseStart, browseEnd);

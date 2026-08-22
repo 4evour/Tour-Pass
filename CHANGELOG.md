@@ -3,6 +3,18 @@
 > **版本规范**: Major.架构变更 | Minor.新功能 | Patch.bug修复/数据更新
 > 每次发版打对应 git tag（如 `git tag -a v2.1.0`）。
 
+## 2026-08-22 - 统一显式未知城市的路由响应
+
+### 变更内容
+- `src/api.cpp` — `/trip/alternatives` 与 `/itinerary/explain` 在显式城市不存在时返回 HTTP 404 和 `CITY_NOT_FOUND`。
+- `tests/test_reviewed_api_contracts.js`、`scripts/api_smoke.ps1` — 增加源码契约和真实 HTTP 路由回归验证。
+
+### 原因
+- 修复 `getCity()` 停止回退后，部分路由仍把空城市继续处理为成功响应的不一致行为。
+
+### 影响范围
+- 影响替代方案与行程解释接口的未知城市错误语义；有效城市和未传城市时的默认行为不变。
+
 ## 2026-08-22 - 收紧构建与城市 API 契约
 
 ### 变更内容

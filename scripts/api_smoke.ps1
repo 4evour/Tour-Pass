@@ -139,6 +139,19 @@ try {
         throw "Alternatives smoke check failed."
     }
 
+    $unknownCityBody = '{"city":"不存在城市","scenario":"下雨","limit":3}'
+    $unknownAlternatives = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/trip/alternatives" -Method Post -ContentType "application/json; charset=utf-8" -Headers $authHeaders -Body $unknownCityBody -UseBasicParsing -SkipHttpErrorCheck
+    $unknownAlternativesError = $unknownAlternatives.Content | ConvertFrom-Json
+    if ([int]$unknownAlternatives.StatusCode -ne 404 -or $unknownAlternativesError.error.code -ne "CITY_NOT_FOUND") {
+        throw "Alternatives unknown-city contract failed: HTTP $($unknownAlternatives.StatusCode), code=$($unknownAlternativesError.error.code)."
+    }
+
+    $unknownExplain = Invoke-WebRequest -Uri "http://127.0.0.1:$Port/itinerary/explain" -Method Post -ContentType "application/json; charset=utf-8" -Headers $authHeaders -Body '{"city":"不存在城市","days":2}' -UseBasicParsing -SkipHttpErrorCheck
+    $unknownExplainError = $unknownExplain.Content | ConvertFrom-Json
+    if ([int]$unknownExplain.StatusCode -ne 404 -or $unknownExplainError.error.code -ne "CITY_NOT_FOUND") {
+        throw "Itinerary explain unknown-city contract failed: HTTP $($unknownExplain.StatusCode), code=$($unknownExplainError.error.code)."
+    }
+
     Write-Host "API smoke checks passed on http://127.0.0.1:$Port"
 } finally {
     if ($null -ne $process -and -not $process.HasExited) {

@@ -1272,11 +1272,13 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
 
             std::string cityName = body.value("city", context.defaultCity);
             auto* city = context.getCity(cityName);
+            if (!city) {
+                setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + cityName), 404);
+                return;
+            }
             nlohmann::json data = nlohmann::json::array();
-            if (city) {
-                for (const auto& result : city->search.search(query, type, body.value("limit", 5))) {
-                    data.push_back(searchResultToJson(result));
-                }
+            for (const auto& result : city->search.search(query, type, body.value("limit", 5))) {
+                data.push_back(searchResultToJson(result));
             }
             setJson(res, {
                 {"scenario", scenario},
@@ -1699,7 +1701,11 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
             } else {
                 TripRequest request = tripRequestFromJson(body, context.defaultCity);
                 auto* city = context.getCity(request.city);
-                if (city) itinerary = city->planner.plan(request);
+                if (!city) {
+                    setJson(res, errorJson("CITY_NOT_FOUND", "未找到城市: " + request.city), 404);
+                    return;
+                }
+                itinerary = city->planner.plan(request);
             }
             setJson(res, {{"explanation", context.llm.explain(itinerary)}, {"llm_configured", context.llm.isConfigured()}});
         } catch (const std::exception& ex) {
