@@ -1278,7 +1278,8 @@ async function loadHealth() {
   if (!serviceStatus) return;
   try {
     const health = await api("/health");
-    serviceStatus.textContent = `已连接 · ${health.poi_count} POI · ${health.llm_configured ? "LLM 已配置" : "模板兜底"}`;
+    const poiCount = health.total_poi_count ?? health.poi_count ?? 0;
+    serviceStatus.textContent = `已连接 · ${poiCount} POI · ${health.llm_configured ? "LLM 已配置" : "模板兜底"}`;
     serviceStatus.classList.add("ok");
   } catch (e) {
     console.warn("loadHealth:", e.message);

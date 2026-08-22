@@ -28,6 +28,7 @@
     "editor:build": "npm --prefix web/editor run build",
     "test:amap-pipeline": "node tests/test_amap_pipeline.js",
     "test:import-real-pois": "node tests/test_import_real_pois.js",
+    "test:gitattributes": "node tests/test_gitattributes_contract.js",
     "verify:ui": "node scripts/verify_ui.js"
   },
   "repository": {
