@@ -50,8 +50,8 @@ RUN pip3 install --no-cache-dir --break-system-packages \
     -r requirements-multi-agent.txt
 
 # Verify Agent imports work
-RUN python3 -c "import api_multi_agent; print('Multi-Agent module OK')" || echo "WARN: Multi-Agent import failed"
-RUN python3 -c "import agent.main; print('Legacy Agent module OK')" || echo "WARN: Legacy Agent import failed"
+RUN python3 -c "import api_multi_agent; print('Multi-Agent module OK')"
+RUN python3 -c "import agent.main; print('Legacy Agent module OK')"
 
 RUN mkdir -p /app/config /app/storage \
     && chown -R tourpass:tourpass /app
@@ -64,6 +64,6 @@ USER tourpass
 EXPOSE 8080
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-    CMD curl -fsS http://localhost:8080/health || exit 1
+    CMD curl -fsS http://localhost:8080/health && curl -fsS http://localhost:8090/agent/ping || exit 1
 
 CMD ["/app/entrypoint.sh"]
