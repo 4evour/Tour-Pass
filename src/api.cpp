@@ -141,6 +141,8 @@ struct RequestMeta {
     std::chrono::steady_clock::time_point startedAt;
     int64_t userId = 0;
     std::string role;
+    bool queryReserved = false;
+    int queryRemainingAfterReserve = -1;
 };
 
 std::mutex metaMutex;
@@ -442,6 +444,18 @@ void recordDbWrite(ApiContext& context, const std::function<void(DataStore&)>& w
     }
 }
 
+bool refundReservedQuery(ApiContext& context, int64_t userId) {
+    if (!context.store || !context.store->enabled()) return false;
+    try {
+        context.store->refundQuery(userId);
+        context.metrics.recordDbWrite(true);
+        return true;
+    } catch (const std::exception&) {
+        context.metrics.recordDbWrite(false);
+        return false;
+    }
+}
+
 static EmailRateLimiter emailLimiter(60);
 static VerificationAttemptLimiter verifyAttemptLimiter;
 
@@ -551,6 +565,11 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
             return httplib::Server::HandlerResponse::Handled;
         }
 
+        {
+            std::lock_guard<std::mutex> lock(metaMutex);
+            requestMeta[&req].userId = authUserId;
+            requestMeta[&req].role = authRole;
+        }
         // Query rate limit for /trip/plan and /trip/chat
         bool isQueryPath = req.path == "/trip/plan" || req.path == "/trip/chat";
         // API key rate limit (separate from per-user limits)
@@ -562,27 +581,6 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                 return httplib::Server::HandlerResponse::Handled;
             }
         }
-        if (isQueryPath && authUserId > 0 && context.store && context.store->enabled()) {
-            int used = context.store->getQueryCount(authUserId);
-            int bonus = context.store->getBonusQueries(authUserId);
-            int limit = getQueryLimit(authRole);
-            int remaining = limit + bonus - used;
-            res.set_header("X-Query-Remaining", std::to_string(std::max(0, remaining)));
-            if (remaining <= 0) {
-                context.metrics.recordRejectedRequest();
-                setJson(res, errorJson("DAILY_LIMIT_EXCEEDED", "今日查询次数已用完，明天再来或触发彩蛋获取额外次数", {{"remaining", 0}}), 429);
-                return httplib::Server::HandlerResponse::Handled;
-            }
-        }
-
-        // Store auth info in response headers for route handlers to read via request
-        // We use a trick: store in a thread-local map keyed by request pointer
-        {
-            std::lock_guard<std::mutex> lock(metaMutex);
-            requestMeta[&req].userId = authUserId;
-            requestMeta[&req].role = authRole;
-        }
-
         std::string clientIp = req.remote_addr;
         if (!rateLimiter.allow(clientIp)) {
             context.metrics.recordRejectedRequest();
@@ -600,6 +598,23 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
         if ((req.method == "POST" || req.method == "PUT" || req.method == "PATCH") && req.body.size() > context.config.maxBodyBytes) {
             setJson(res, errorJson("PAYLOAD_TOO_LARGE", "请求体超过服务限制", {{"max_body_bytes", context.config.maxBodyBytes}}), 413);
             return httplib::Server::HandlerResponse::Handled;
+        }
+
+        // Reserve user quota only after all request-level admission checks pass.
+        // This keeps rejected requests from consuming a daily query.
+        if (isQueryPath && authUserId > 0 && context.store && context.store->enabled()) {
+            int bonus = context.store->getBonusQueries(authUserId);
+            int limit = getQueryLimit(authRole);
+            auto remaining = context.store->tryConsumeQuery(authUserId, limit + bonus);
+            if (!remaining) {
+                context.metrics.recordRejectedRequest();
+                setJson(res, errorJson("DAILY_LIMIT_EXCEEDED", "今日查询次数已用完，明天再来或触发彩蛋获取额外次数", {{"remaining", 0}}), 429);
+                return httplib::Server::HandlerResponse::Handled;
+            }
+            res.set_header("X-Query-Remaining", std::to_string(*remaining));
+            std::lock_guard<std::mutex> lock(metaMutex);
+            requestMeta[&req].queryReserved = true;
+            requestMeta[&req].queryRemainingAfterReserve = *remaining;
         }
         return httplib::Server::HandlerResponse::Unhandled;
     });
@@ -634,13 +649,12 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
             recordDbWrite(context, [&](DataStore& store) {
                 store.recordPlanningRequest(meta.id, "POST /trip/plan", cacheStatus, req.body, res.status, elapsed.count());
             });
-            // Track query usage on success
-            if (res.status == 200 && meta.userId > 0 && context.store && context.store->enabled()) {
-                context.store->incrementQueryCount(meta.userId);
-            }
         }
-        if (req.method == "POST" && req.path == "/trip/chat" && res.status == 200 && meta.userId > 0 && context.store && context.store->enabled()) {
-            context.store->incrementQueryCount(meta.userId);
+        if (meta.queryReserved && res.status != 200) {
+            if (refundReservedQuery(context, meta.userId)) {
+                res.headers.erase("X-Query-Remaining");
+                res.set_header("X-Query-Remaining", std::to_string(meta.queryRemainingAfterReserve + 1));
+            }
         }
         context.metrics.recordRequest(routeName(req), res.status, elapsed, res.has_header("X-Cache"));
         context.metrics.endRequest();
@@ -666,6 +680,12 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
             }
         }
         setCommonHeaders(req, res, meta.id);
+        if (meta.queryReserved) {
+            if (refundReservedQuery(context, meta.userId)) {
+                res.headers.erase("X-Query-Remaining");
+                res.set_header("X-Query-Remaining", std::to_string(meta.queryRemainingAfterReserve + 1));
+            }
+        }
         setJson(res, errorJson("INTERNAL_ERROR", "服务端处理失败", nlohmann::json::object()), 500);
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - meta.startedAt);
         res.set_header("X-Response-Time-Ms", std::to_string(elapsed.count()));

@@ -550,6 +550,36 @@ bool PostgresStore::updateTrip(int64_t tripId, int64_t userId, const std::string
     return ok;
 }
 
+std::optional<int> PostgresStore::tryConsumeQuery(int64_t userId, int limit) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    if (limit <= 0) return std::nullopt;
+    std::string today = queryScalar("SELECT CURRENT_DATE::text;");
+    PGresult* res = queryP(
+        "INSERT INTO query_usage(user_id, query_date, query_count) VALUES ($1, $2, 1) "
+        "ON CONFLICT(user_id, query_date) DO UPDATE SET query_count = query_usage.query_count + 1 "
+        "WHERE query_usage.query_count < $3 RETURNING query_count::text;",
+        {std::to_string(userId), today, std::to_string(limit)});
+    if (PQresultStatus(res) != PGRES_TUPLES_OK) {
+        std::string reason = PQresultErrorMessage(res);
+        ++writeFailures_;
+        PQclear(res);
+        throw std::runtime_error("PostgreSQL query quota reservation failed: " + reason);
+    }
+    std::optional<int> remaining;
+    if (PQntuples(res) > 0) {
+        remaining = limit - std::stoi(PQgetvalue(res, 0, 0));
+        ++writeCount_;
+    }
+    PQclear(res);
+    return remaining;
+}
+
+void PostgresStore::refundQuery(int64_t userId) {
+    std::lock_guard<std::mutex> lock(mutex_);
+    std::string today = queryScalar("SELECT CURRENT_DATE::text;");
+    execP("UPDATE query_usage SET query_count = query_count - 1 WHERE user_id = $1 AND query_date = $2 AND query_count > 0;", {std::to_string(userId), today});
+}
+
 bool PostgresStore::deleteTrip(int64_t tripId, int64_t userId) {
     std::lock_guard<std::mutex> lock(mutex_);
     PGresult* res = queryP("DELETE FROM saved_trips WHERE id = $1 AND user_id = $2;",

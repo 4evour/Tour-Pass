@@ -53,6 +53,8 @@ public:
     int getQueryCount(int64_t userId) override;
     int getBonusQueries(int64_t userId) override;
     void incrementQueryCount(int64_t userId) override;
+    std::optional<int> tryConsumeQuery(int64_t userId, int limit) override;
+    void refundQuery(int64_t userId) override;
     void addBonusQueries(int64_t userId, int amount) override;
     bool hasEasterEggToday(int64_t userId) override;
     void recordEasterEgg(int64_t userId) override;

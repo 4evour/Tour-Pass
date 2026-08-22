@@ -48,6 +48,11 @@ public:
     virtual int getQueryCount(int64_t userId) = 0;
     virtual int getBonusQueries(int64_t userId) = 0;
     virtual void incrementQueryCount(int64_t userId) = 0;
+    // Atomically reserve one daily query. Returns the remaining quota after
+    // reservation, or nullopt when the limit has already been exhausted.
+    virtual std::optional<int> tryConsumeQuery(int64_t userId, int limit) = 0;
+    // Return one previously reserved query without allowing a negative count.
+    virtual void refundQuery(int64_t userId) = 0;
     virtual void addBonusQueries(int64_t userId, int amount) = 0;
     virtual bool hasEasterEggToday(int64_t userId) = 0;
     virtual void recordEasterEgg(int64_t userId) = 0;

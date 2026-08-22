@@ -3,6 +3,20 @@
 > **版本规范**: Major.架构变更 | Minor.新功能 | Patch.bug修复/数据更新
 > 每次发版打对应 git tag（如 `git tag -a v2.1.0`）。
 
+## 2026-08-22 - 原子预占并返还查询配额
+
+### 变更内容
+- `src/api.cpp` — 请求通过基础准入检查后预占配额，非 200 响应和异常返还，并返回一致的剩余额度响应头。
+- `include/tourpass/data_store.h`、SQLite/PostgreSQL 存储实现 — 增加原子 `tryConsumeQuery` 与防负数 `refundQuery` 契约。
+- `tests/test_main.cpp`、`tests/test_reviewed_query_quota_contract.js` — 覆盖并发上限、耗尽拒绝、失败返还和存储实现契约。
+- `docs/api.md` — 记录 `/trip/plan` 与 `/trip/chat` 的预占、计费和返还语义。
+
+### 原因
+- 消除并发请求在“先读取、成功后再递增”窗口内共同越过每日上限的竞态。
+
+### 影响范围
+- 影响已登录用户的规划与聊天查询计数；仅 HTTP 200 最终计费，基础准入失败不会预占配额。
+
 ## 2026-08-22 - 改为显式配置管理员账号
 
 ### 变更内容

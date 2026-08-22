@@ -43,6 +43,8 @@ OpenAPI/Swagger 规范见 [`docs/openapi.yaml`](openapi.yaml)。可以将该文�
 
 所有响应都会附带 `X-Request-Id` 和 `X-Response-Time-Ms`。支持缓存的接口还会返回 `X-Cache: HIT` 或 `X-Cache: MISS`。
 
+已登录用户调用 `POST /trip/plan` 或 `POST /trip/chat` 时，服务会在进入业务处理前原子预占一次当日查询配额，并通过 `X-Query-Remaining` 返回剩余额度。只有 HTTP 200 响应最终计费；校验失败、服务错误或未捕获异常会返还预占额度并更新该响应头。并发请求无法共同越过当日上限。
+
 ## POST /trip/plan
 
 根据用户偏好生成结构化行程。规划器使用 Beam Search 在每个时间槽保留 Top-K 局部状态，综合站点评分、通勤成本、开放时间和必去覆盖选择路线。`candidate_count` 大于 1 时返回 `candidates` 数组，候选方案会体现轻松少走路、紧凑多覆盖、文化优先、美食优先、雨天室内等真实评分策略差异。
