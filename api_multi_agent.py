@@ -12,7 +12,6 @@ Key improvements over the legacy single-agent adapter:
 import asyncio
 import base64
 import binascii
-import hashlib
 import json
 import logging
 import os
@@ -24,7 +23,7 @@ from pathlib import Path
 from typing import Optional, Literal
 from urllib.parse import urlparse
 
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.responses import Response as FastAPIResponse
@@ -50,6 +49,7 @@ from tools.cache import (
 )
 from tools import rag as rag_module
 from tools.route import calculate_route_segments
+from tools.session_store import get_session_store
 
 logging.basicConfig(
     level=logging.INFO,
@@ -70,13 +70,15 @@ _data_dir = Path(os.environ.get("TOUR_PASS_DATA_DIR") or os.environ.get("DATA_DI
 
 # ── Session store for multi-turn chat ──────────────────────────────────────
 # Uses Redis when available, falls back to in-memory with asyncio.Lock
-from tools.session_store import get_session_store
-
-
 async def _get_or_create_session(session_id: str) -> dict:
     """Get existing chat session or create a new one."""
     store = get_session_store()
     return await store.get_or_create(session_id)
+
+
+async def _save_session(session: dict) -> None:
+    store = get_session_store()
+    await store.save(session)
 
 
 async def _cleanup_expired_sessions():
@@ -442,9 +444,8 @@ async def get_data_image(city: str, asset_path: str):
 def _make_thread_id(message: str = "") -> str:
     """Generate a per-request unique thread ID.
 
-    With MemorySaver checkpointer enabled, each request needs a unique
-    thread_id to ensure state isolation. Using uuid instead of message
-    hash prevents different users sending the same message from sharing state.
+    A random ID keeps request tracing isolated when configurable graph
+    metadata is inspected by callbacks.
     """
     return uuid.uuid4().hex[:16]
 
@@ -537,6 +538,7 @@ async def plan_itinerary(req: PlanRequest):
                     "role": "assistant",
                     "content": itinerary.get("summary", "行程已生成"),
                 })
+                await _save_session(session)
 
                 # Write to cache
                 intent = final_state.get("trip_intent") or {}
@@ -603,7 +605,8 @@ async def plan_itinerary_sync(req: PlanRequest):
             SystemMessage(content="Parse the user's travel request. Reply with JSON only: {\"city\":\"\",\"days\":3,\"pace\":\"balanced\",\"strategy\":\"balanced\",\"must_visit\":[]}"),
             HumanMessage(content=req.message),
         ])
-        import json as _json, re as _re
+        import json as _json
+        import re as _re
         _text = intent_resp.content.strip()
         _m = _re.search(r'\{.*\}', _text, _re.DOTALL)
         if _m:
@@ -745,6 +748,7 @@ async def plan_structured(req: StructuredPlanRequest):
                     "role": "assistant",
                     "content": itinerary.get("summary", "行程已生成"),
                 })
+                await _save_session(session)
 
                 yield make_sse_event("itinerary", {
                     "type": "itinerary",
@@ -865,6 +869,7 @@ async def chat_with_session(req: SessionChatRequest):
         resp = await llm.ainvoke(messages)
         reply = resp.content.strip()
         session["history"].append({"role": "assistant", "content": reply})
+        await _save_session(session)
 
         # Try to parse modification intent
         action = None
@@ -905,7 +910,7 @@ async def modify_itinerary(req: ModifyRequest):
 
     This takes ~1-2 seconds instead of 10+ seconds for a full re-plan.
     """
-    session = _chat_sessions.get(req.session_id)
+    session = await get_session_store().get(req.session_id)
     if not session or not session.get("state"):
         raise HTTPException(status_code=404, detail="No active session found. Generate a plan first.")
 
@@ -955,6 +960,7 @@ async def modify_itinerary(req: ModifyRequest):
             "role": "assistant",
             "content": f"已修改行程：{req.message or req.action}",
         })
+        await _save_session(session)
 
         return {
             "status": "ok",
@@ -1105,6 +1111,7 @@ async def _partial_replan(session, state, message):
         "role": "assistant",
         "content": f"已重新编排行程：{message}",
     })
+    await _save_session(session)
 
     return {
         "status": "ok",
@@ -1117,11 +1124,12 @@ async def _partial_replan(session, state, message):
 @app.get("/agent/sessions")
 async def list_sessions():
     """List active chat sessions (debug endpoint)."""
+    sessions = await get_session_store().list_sessions()
     return {
-        "active": len(_chat_sessions),
+        "active": len(sessions),
         "sessions": [
-            {"id": sid, "ts": s.get("ts"), "history_len": len(s.get("history", []))}
-            for sid, s in _chat_sessions.items()
+            {"id": s.get("session_id"), "ts": s.get("ts"), "history_len": len(s.get("history", []))}
+            for s in sessions
         ],
     }
 
@@ -1188,7 +1196,11 @@ async def _run_single_plan(message: str, strategy_override: str = "") -> Optiona
 
 class MultiPlanRequest(BaseModel):
     message: str
-    strategies: list[str] = ["balanced", "culture", "culinary"]
+    strategies: list[Literal["balanced", "culture", "culinary", "nature"]] = Field(
+        default_factory=lambda: ["balanced", "culture", "culinary"],
+        min_length=1,
+        max_length=4,
+    )
     context: Optional[dict] = None
 
 
@@ -1382,6 +1394,7 @@ async def chat_with_agent(req: ChatRequest):
         # Save to session history
         if session:
             session["history"].append({"role": "assistant", "content": reply})
+            await _save_session(session)
 
         action = None
         try:
@@ -1630,6 +1643,13 @@ class XhsAnalyzeRequest(BaseModel):
     userId: str = ""
 
 
+def _safe_xhs_user_id(user_id: str) -> str:
+    value = (user_id or "guest").strip()
+    if not re.fullmatch(r"[A-Za-z0-9_-]{1,64}", value):
+        raise ValueError("用户标识格式不合法")
+    return value
+
+
 @app.post("/api/xhs/parse")
 async def xhs_parse(req: XhsParseRequest):
     """Parse a Xiaohongshu link and extract raw note content."""
@@ -1644,7 +1664,7 @@ async def xhs_parse(req: XhsParseRequest):
             raise ValueError("请粘贴小红书全文或上传笔记图片")
         from tools.xhs_parser import extract_xhs_note
         if (req.link or "").strip():
-            result = extract_xhs_note(req.link)
+            result = await asyncio.to_thread(extract_xhs_note, req.link)
         else:
             result = {"title": "图片笔记", "body": "", "images": [], "noteId": f"upload-{uuid.uuid4().hex[:12]}", "type": "uploaded_images"}
         result["ocrTexts"] = await _collect_xhs_ocr_texts(
@@ -1714,7 +1734,7 @@ async def xhs_analyze(req: XhsAnalyzeRequest):
         }
 
         # Persist to user's xhs_notes
-        uid = req.userId or "guest"
+        uid = _safe_xhs_user_id(req.userId)
         notes_dir = _data_dir / uid
         notes_dir.mkdir(parents=True, exist_ok=True)
         notes_file = notes_dir / "xhs_notes.json"

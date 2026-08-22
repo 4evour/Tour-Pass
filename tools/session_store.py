@@ -86,6 +86,33 @@ class SessionStore:
             self._memory[new_id] = session
             return session
 
+    async def get(self, session_id: str) -> Optional[dict]:
+        """Return an existing non-expired session without creating one."""
+        if not session_id:
+            return None
+        r = self._get_redis_client()
+        if r:
+            try:
+                raw = r.get(f"session:{session_id}")
+                if not raw:
+                    return None
+                session = json.loads(raw)
+                if time.time() - session.get("ts", 0) >= self.ttl:
+                    r.delete(f"session:{session_id}")
+                    return None
+                return session
+            except Exception as e:
+                logger.warning("Redis session get failed: %s, falling back to memory", e)
+
+        async with self._lock:
+            session = self._memory.get(session_id)
+            if not session:
+                return None
+            if time.time() - session.get("ts", 0) >= self.ttl:
+                del self._memory[session_id]
+                return None
+            return session
+
     async def save(self, session: dict):
         """Persist session state."""
         session["ts"] = time.time()
@@ -103,6 +130,26 @@ class SessionStore:
         async with self._lock:
             if sid:
                 self._memory[sid] = session
+
+    async def list_sessions(self, limit: int = 100) -> list[dict]:
+        """List active sessions for the debug endpoint."""
+        r = self._get_redis_client()
+        if r:
+            sessions = []
+            try:
+                for key in r.scan_iter(match="session:*", count=min(limit, 100)):
+                    raw = r.get(key)
+                    if raw:
+                        sessions.append(json.loads(raw))
+                    if len(sessions) >= limit:
+                        break
+                return sessions
+            except Exception as e:
+                logger.warning("Redis session list failed: %s, falling back to memory", e)
+
+        await self.cleanup()
+        async with self._lock:
+            return list(self._memory.values())[:limit]
 
     async def cleanup(self):
         """Remove expired sessions."""
