@@ -43,6 +43,35 @@ OpenAPI/Swagger 规范见 [`docs/openapi.yaml`](openapi.yaml)。可以将该文�
 
 所有响应都会附带 `X-Request-Id` 和 `X-Response-Time-Ms`。支持缓存的接口还会返回 `X-Cache: HIT` 或 `X-Cache: MISS`。
 
+## POST /api/itineraries/plan
+
+Grounded Planner 的默认生产入口，返回 SSE。只有 `city` 必填；日期、天数、节奏、侧重、预算、同行人、酒店、必去项、交通方式和附加要求都可以省略、传 `null` 或空值。服务端采用的默认值会出现在结果 `warnings`/assumptions 中。
+
+```json
+{
+  "city": "长沙",
+  "days": 2,
+  "pace": "balanced",
+  "strategy": "culture",
+  "must_visit": ["橘子洲"],
+  "hotel_area": "",
+  "transport_mode": "driving",
+  "special_requests": "少走路，每天最多3个景点，中午留正常时间吃饭"
+}
+```
+
+事件类型固定为 `accepted`、`stage`、`result`、`error`、`done`。`result` 事件中的 `itinerary` 保持现有主站渲染字段，并增加：
+
+- `planning_run_id`：单次规划追踪 ID。
+- `validation`：Hard Validator 结果。
+- `warnings`：默认值、未知开放状态和降级信息。
+- `days[].route_segments[]`：每段实际交通方式、provider、采集时间和 `verified` 置信度。
+- `days[].weather.provider`：`qweather`（和风天气）、`amap` 或 `unavailable`。
+
+`special_requests` 保留原文；当前可确定执行“少走路”“每天最多 N 个景点”“预留午餐”“住某区域”“不去某类地点”。无法结构化的部分只影响 LLM 路线骨架，不得覆盖硬约束。
+
+兼容入口 `POST /agent/plan-structured` 默认映射到同一实现。设置 `TOURPASS_GROUNDED_PLANNER_ENABLED=false` 后恢复旧多 Agent 实现。
+
 ## POST /trip/plan
 
 根据用户偏好生成结构化行程。规划器使用 Beam Search 在每个时间槽保留 Top-K 局部状态，综合站点评分、通勤成本、开放时间和必去覆盖选择路线。`candidate_count` 大于 1 时返回 `candidates` 数组，候选方案会体现轻松少走路、紧凑多覆盖、文化优先、美食优先、雨天室内等真实评分策略差异。

@@ -555,6 +555,18 @@ void testTripRequestCandidateValidation() {
     expectTrue(threw, "request rejects too many candidates");
 }
 
+void testParseTimeAcceptsEndOfDay() {
+    expectTrue(tourpass::parseTimeToMinutes("24:00") == 24 * 60,
+               "time parser accepts 24:00 as end-of-day");
+    bool threw = false;
+    try {
+        (void)tourpass::parseTimeToMinutes("24:01");
+    } catch (...) {
+        threw = true;
+    }
+    expectTrue(threw, "time parser rejects invalid time after 24:00");
+}
+
 void testSearch() {
     auto data = tourpass::loadDataSet("data/pois_sample.json", "data/edges_sample.json");
     tourpass::PoiGraph graph(data.pois, data.edges);
@@ -877,6 +889,7 @@ int main() {
         testPlannerReadsBeamSearchParametersFromEnvironment();
         testPlannerAvoidCanHardExcludePoiByName();
         testTripRequestCandidateValidation();
+        testParseTimeAcceptsEndOfDay();
         testSearch();
         testSearchExplainsBm25Matches();
         testResponseCacheTracksHitsAndEvictsLeastRecentEntry();

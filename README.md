@@ -1,4 +1,4 @@
-﻿# Tour Pass
+﻿﻿# Tour Pass
 
 > **在线体验**：<https://tour-pass.onrender.com>
 
@@ -45,10 +45,10 @@ Tour Pass 是一个面向城市自由行的 AI 行程规划平台。你可以选
 
 | 模块 | 对用户的价值 | 主要实现 |
 | --- | --- | --- |
-| AI 行程规划 | 将结构化条件或自然语言需求转成多日路线 | LangGraph、LLM、RAG、POI/酒店检索 |
-| 路线优化 | 在景点偏好、开放时间和通勤成本之间取得平衡 | Beam Search、Dijkstra/A*、时间窗校验 |
-| 智能推荐 | 为景点生成更具体的游玩建议，减少模板化描述 | 多维评分、地理聚类、推荐语生成 |
-| 行程编辑器 | 生成后仍可手动调整，不必重新规划 | React、TypeScript、Zustand、dnd-kit |
+| AI 行程规划 | 将弹性结构化条件转成可核验的多日路线 | 单主 LLM 路线骨架、typed tools、Hard Validator |
+| 实体与路线证据 | 确认地点、分店、开放状态和指定方式通勤 | 本地缓存、高德 Web API、和风天气 |
+| 路线优化 | 在必去、时间窗、酒店闭环和真实通勤约束内求解 | C++ Beam Search、Dijkstra/A*、确定性修复 |
+| 遗留编辑器 | 迁移期保留手动编辑和回滚能力，不在新规划默认链路 | React、TypeScript、Zustand、dnd-kit |
 | 地图与导出 | 直观看路线并保存可分享的行程 | Leaflet、路线绘制、JSON/PDF 导出 |
 
 ### 规划引擎细节
@@ -225,15 +225,15 @@ Docker 镜像默认 `LLM_DISABLED=1` 作为演示安全默认值；启动时仍�
 # 健康检查
 curl.exe http://127.0.0.1:8080/health
 
-# 自然语言行程规划（LLM）
+# Grounded Planner 默认入口（SSE；只有 city 必填）
+curl.exe -N -X POST http://127.0.0.1:8080/api/itineraries/plan \
+  -H "Content-Type: application/json; charset=utf-8" \
+  -d "{\"city\":\"长沙\",\"must_visit\":[\"橘子洲\"],\"special_requests\":\"少走路，每天最多3个景点，中午留正常时间吃饭\"}"
+
+# 旧自然语言和结构化规划仍在迁移期保留作回滚/对照
 curl.exe -X POST http://127.0.0.1:8080/trip/chat \
   -H "Content-Type: application/json; charset=utf-8" \
   --data-binary "@docs/sample_chat_request.json"
-
-# 结构化行程规划
-curl.exe -X POST http://127.0.0.1:8080/trip/plan \
-  -H "Content-Type: application/json; charset=utf-8" \
-  --data-binary "@docs/sample_trip_request.json"
 
 # 异步行程规划
 curl.exe -X POST http://127.0.0.1:8080/trip/jobs \

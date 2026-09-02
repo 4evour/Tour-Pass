@@ -26,10 +26,10 @@ from urllib.parse import urlparse
 
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.responses import Response as FastAPIResponse
 import httpx
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 # Load .env file
 try:
@@ -56,8 +56,10 @@ logging.basicConfig(
     format="%(asctime)s [%(name)s] %(levelname)s: %(message)s",
 )
 logger = logging.getLogger(__name__)
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("httpcore").setLevel(logging.WARNING)
 
-_VERSION = "2.0.0"
+_VERSION = "3.0.0"
 
 # ---------------------------------------------------------------------------
 # Module-level singletons (initialised at startup)
@@ -65,6 +67,7 @@ _VERSION = "2.0.0"
 
 _llm = None
 _graph = None
+_grounded_planner = None
 _poi_cache: dict[str, dict[str, dict]] = {}
 _data_dir = Path(os.environ.get("TOUR_PASS_DATA_DIR") or os.environ.get("DATA_DIR") or "data")
 
@@ -110,6 +113,19 @@ def _get_graph():
         _graph = build_tour_graph(_get_llm(), data_dir=str(_data_dir))
         logger.info("Graph compiled and cached")
     return _graph
+
+def _grounded_planner_enabled() -> bool:
+    return os.environ.get("TOURPASS_GROUNDED_PLANNER_ENABLED", "true").lower() in {"1", "true", "yes", "on"}
+
+
+def _get_grounded_planner():
+    """Get or create the single Grounded Planner runtime."""
+    global _grounded_planner
+    if _grounded_planner is None:
+        from planner.runtime import GroundedPlanner
+        _grounded_planner = GroundedPlanner(_get_llm(), data_dir=str(_data_dir))
+        logger.info("Grounded Planner initialised")
+    return _grounded_planner
 
 
 # ---------------------------------------------------------------------------
@@ -382,14 +398,14 @@ def make_sse_event(event_type: str, data: dict) -> str:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    logger.info("TourPass Multi-Agent service starting...")
-    # Keep startup lightweight on Render free tier. LLM, graph, and RAG are
-    # initialised lazily on the first planning request so health checks can
-    # come up first.
-    logger.info("LLM/Graph will be initialised lazily on first planning request")
-    logger.info("RAG will be initialised lazily on first retrieval request")
+    logger.info("TourPass planning service starting...")
+    # Keep startup lightweight on Render free tier. Providers and models are
+    # initialised lazily so health checks can come up first.
+    logger.info("Planning runtimes will be initialised lazily on first request")
     yield
-    logger.info("TourPass Multi-Agent service shutting down...")
+    if _grounded_planner is not None:
+        await _grounded_planner.close()
+    logger.info("TourPass planning service shutting down...")
 
 
 app = FastAPI(
@@ -653,35 +669,155 @@ async def plan_itinerary_sync(req: PlanRequest):
 
 
 class StructuredPlanRequest(BaseModel):
-    """Structured travel plan request from form-based UI.
+    """Flexible structured request.
 
-    All fields are pre-validated by the frontend, so IntentAgent's
-    regex/LLM parsing is bypassed entirely for efficiency.
+    Only city is required. Empty optional fields are normalized to transparent
+    defaults by the planner and returned as assumptions.
     """
-    city: str = Field(description="Destination city (Chinese name)")
-    days: int = Field(default=3, ge=1, le=10, description="Number of travel days")
+
+    city: str = Field(min_length=1, description="Destination city (Chinese name)")
+    days: int = Field(default=3, ge=1, le=7, description="Number of travel days")
     pace: Literal["relaxed", "balanced", "intense"] = Field(default="balanced")
     strategy: Literal["balanced", "culture", "culinary", "nature"] = Field(default="balanced")
     budget: Optional[Literal["budget", "mid-range", "luxury"]] = Field(default=None)
-    travelers: Literal["solo", "couple", "family", "friends", "elderly"] = Field(default="solo")
+    travelers: str = Field(default="unspecified")
     interests: list[str] = Field(default_factory=list)
     must_visit: list[str] = Field(default_factory=list)
     avoid: list[str] = Field(default_factory=list)
-    hotel_budget_min: int = Field(default=0)
-    hotel_budget_max: int = Field(default=0)
+    hotel_budget_min: int = Field(default=0, ge=0)
+    hotel_budget_max: int = Field(default=0, ge=0)
     hotel_area: str = Field(default="")
     special_requests: Optional[str] = Field(default=None)
-    session_id: Optional[str] = Field(default=None, description="Chat session ID for multi-turn")
+    session_id: Optional[str] = Field(default=None, description="Chat session ID for compatibility")
+    date_start: Optional[str] = Field(default=None, description="First travel date in YYYY-MM-DD")
+    daily_start: str = Field(default="09:00", pattern=r"^\d{1,2}:\d{2}$")
+    daily_end: str = Field(default="21:30", pattern=r"^\d{1,2}:\d{2}$")
+    hotel_name: str = Field(default="")
+    transport_mode: Literal["driving", "walking", "transit"] = Field(default="driving")
+
+    @field_validator("days", mode="before")
+    @classmethod
+    def default_days(cls, value):
+        return 3 if value in (None, "") else value
+
+    @field_validator("hotel_budget_min", "hotel_budget_max", mode="before")
+    @classmethod
+    def default_money(cls, value):
+        return 0 if value in (None, "") else value
+
+    @field_validator("pace", mode="before")
+    @classmethod
+    def default_pace(cls, value):
+        return "balanced" if value in (None, "") else value
+
+    @field_validator("strategy", mode="before")
+    @classmethod
+    def default_strategy(cls, value):
+        return "balanced" if value in (None, "") else value
+
+    @field_validator("transport_mode", mode="before")
+    @classmethod
+    def default_transport(cls, value):
+        return "driving" if value in (None, "") else value
+
+    @field_validator("budget", mode="before")
+    @classmethod
+    def empty_budget(cls, value):
+        return None if value == "" else value
+
+    @field_validator("interests", "must_visit", "avoid", mode="before")
+    @classmethod
+    def default_lists(cls, value):
+        if value in (None, ""):
+            return []
+        if isinstance(value, str):
+            return [item.strip() for item in re.split(r"[,，;；]", value) if item.strip()]
+        return value
+
+
+async def _run_grounded_plan(req: StructuredPlanRequest):
+    planner = _get_grounded_planner()
+    payload = req.model_dump(exclude={"session_id"}, mode="json")
+    return await planner.plan(payload)
+
+
+async def _plan_structured_grounded(req: StructuredPlanRequest):
+    session_id = req.session_id or uuid.uuid4().hex[:12]
+
+    async def event_stream():
+        yield make_sse_event("accepted", {
+            "type": "session",
+            "session_id": session_id,
+            "content": f"正在生成{req.city}{req.days}天可信行程",
+        })
+        try:
+            result = await _run_grounded_plan(req)
+            for event in result.trace:
+                yield make_sse_event("stage", {
+                    "type": "stage",
+                    "planning_run_id": result.planning_run_id,
+                    **event,
+                })
+            frontend = _get_grounded_planner().to_frontend(result)
+            if not result.success:
+                yield make_sse_event("error", {
+                    "type": "error",
+                    "content": result.error or "规划失败",
+                    "planning_run_id": result.planning_run_id,
+                    "validation": result.validation.model_dump(mode="json"),
+                })
+                return
+            session = await _get_or_create_session(session_id)
+            session["intent"] = req.model_dump(exclude={"session_id"}, mode="json")
+            session["itinerary"] = frontend
+            session["history"].extend([
+                {"role": "user", "content": f"规划了{req.city}{req.days}天行程"},
+                {"role": "assistant", "content": frontend.get("summary", "行程已生成")},
+            ])
+            yield make_sse_event("result", {
+                "type": "itinerary",
+                "itinerary": frontend,
+                "session_id": session_id,
+                "planning_run_id": result.planning_run_id,
+            })
+        except Exception as exc:
+            logger.exception("Grounded Planner request failed")
+            yield make_sse_event("error", {"type": "error", "content": str(exc)})
+        finally:
+            yield "event: done\ndata: {}\n\n"
+
+    return StreamingResponse(
+        event_stream(),
+        media_type="text/event-stream",
+        headers={"Cache-Control": "no-cache", "Connection": "keep-alive", "X-Accel-Buffering": "no"},
+    )
+
+
+@app.post("/planner/plan")
+async def planner_plan(req: StructuredPlanRequest):
+    """Internal synchronous Grounded Planner endpoint."""
+    result = await _run_grounded_plan(req)
+    body = _get_grounded_planner().to_frontend(result)
+    return JSONResponse(body, status_code=200 if result.success else 422)
+
+
+@app.post("/api/itineraries/plan")
+async def plan_itinerary_resource(req: StructuredPlanRequest):
+    """Public SSE endpoint for the Grounded Planner."""
+    await _cleanup_expired_sessions()
+    return await _plan_structured_grounded(req)
 
 
 @app.post("/agent/plan-structured")
 async def plan_structured(req: StructuredPlanRequest):
-    """Generate itinerary from structured form input. Returns SSE stream.
+    """Generate an itinerary from structured input.
 
-    Key difference from /agent/plan: IntentAgent is bypassed because
-    the intent is already fully parsed. This saves 1 LLM call and
-    ~1-2 seconds of latency.
+    Grounded Planner is the default implementation. Set
+    TOURPASS_GROUNDED_PLANNER_ENABLED=false for the legacy rollback path.
     """
+    if _grounded_planner_enabled():
+        await _cleanup_expired_sessions()
+        return await _plan_structured_grounded(req)
     # Periodic session cleanup
     await _cleanup_expired_sessions()
 
@@ -1134,24 +1270,23 @@ async def ping():
 
 @app.get("/agent/health")
 async def health():
+    from agents.config import AMAP_API_KEY
+    from tools.weather_api import get_config_status
+
     result = {
         "status": "ok",
         "version": _VERSION,
-        "agent": "multi-agent",
+        "planner": "grounded" if _grounded_planner_enabled() else "legacy",
+        "providers": {
+            "amap": {"available": bool(AMAP_API_KEY)},
+            "weather": get_config_status(),
+        },
+        "agent": "grounded-planner" if _grounded_planner_enabled() else "multi-agent",
     }
-    try:
-        result["rag"] = rag_module.get_index_stats()
-    except Exception as e:
-        result["rag_error"] = str(e)
     try:
         result["xhs"] = _xhs_route_stats()
     except Exception as e:
         result["xhs_error"] = str(e)
-    try:
-        from tools.weather_api import get_config_status
-        result["weather"] = get_config_status()
-    except Exception as e:
-        result["weather_error"] = str(e)
     return result
 
 

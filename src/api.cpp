@@ -505,7 +505,8 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                          || req.path.find("/api/share/") == 0
                          || req.method == "OPTIONS"
                          || req.path == "/" || req.path == "/index.html"
-                         || req.path == "/app.js" || req.path == "/styles.css"
+                         || req.path == "/grounded-preview.html"
+                         || req.path == "/grounded-preview.js"
                          || req.path.find("/css/") == 0
                          || req.path == "/favicon.ico"
                          || req.path == "/admin.html"  // static page; /admin/* API endpoints require admin role
@@ -527,6 +528,7 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
                          || req.path == "/api/city-guide"
                          || req.path == "/api/cities"
                          || req.path == "/api/optimize-route"
+                         || req.path == "/api/itineraries/plan"
                          || req.path == "/api/xhs/parse"
                          || req.path == "/api/xhs/proxy"
                          || req.path == "/agent/ping"
@@ -711,6 +713,95 @@ void installMiddleware(httplib::Server& server, ApiContext& context) {
         }
         std::cout << std::endl;
     });
+}
+
+Poi groundedPoiFromJson(const nlohmann::json& item) {
+    if (!item.is_object()) {
+        throw std::runtime_error("candidate_pois entries must be objects");
+    }
+    Poi poi;
+    poi.id = item.value("id", "");
+    poi.name = item.value("name", "");
+    if (poi.id.empty() || poi.name.empty()) {
+        throw std::runtime_error("candidate_pois require id and name");
+    }
+    poi.type = poiTypeFromString(item.value("type", "attraction"));
+    poi.lat = item.value("lat", 0.0);
+    poi.lng = item.value("lng", 0.0);
+    poi.area = item.value("area", "");
+    poi.openMinutes = parseTimeToMinutes(item.value("open_time", "09:00"));
+    poi.closeMinutes = parseTimeToMinutes(item.value("close_time", "21:30"));
+    poi.visitDurationMinutes = item.value("visit_duration_minutes", 90);
+    poi.popularity = item.value("popularity", 0.0);
+    poi.priceLevel = item.value("price_level", 1);
+    poi.description = item.value("description", "");
+    poi.mealType = item.value("meal_type", "main");
+    poi.recommendation = item.value("recommendation", "");
+    poi.imageUrl = item.value("image_url", "");
+    if (item.contains("tags") && item.at("tags").is_array()) {
+        for (const auto& tag : item.at("tags")) {
+            if (!tag.is_string()) {
+                throw std::runtime_error("candidate_pois tags must be strings");
+            }
+            poi.tags.push_back(tag.get<std::string>());
+        }
+    }
+    return poi;
+}
+
+std::vector<Poi> groundedPoisFromJson(const nlohmann::json& body) {
+    if (!body.contains("candidate_pois") || !body.at("candidate_pois").is_array()) {
+        throw std::runtime_error("candidate_pois must be an array");
+    }
+    std::vector<Poi> pois;
+    std::unordered_map<std::string, bool> ids;
+    for (const auto& item : body.at("candidate_pois")) {
+        Poi poi = groundedPoiFromJson(item);
+        if (ids.count(poi.id) > 0) {
+            throw std::runtime_error("duplicate candidate poi id: " + poi.id);
+        }
+        ids[poi.id] = true;
+        pois.push_back(std::move(poi));
+    }
+    if (pois.empty() || pois.size() > 32) {
+        throw std::runtime_error("candidate_pois must contain 1..32 entries");
+    }
+    return pois;
+}
+
+std::vector<Edge> groundedRoutesFromJson(const nlohmann::json& body, const std::vector<Poi>& pois) {
+    if (!body.contains("route_matrix") || !body.at("route_matrix").is_array()) {
+        throw std::runtime_error("route_matrix must be an array");
+    }
+    std::unordered_map<std::string, bool> ids;
+    for (const auto& poi : pois) {
+        ids[poi.id] = true;
+    }
+    std::vector<Edge> edges;
+    for (const auto& item : body.at("route_matrix")) {
+        if (!item.is_object() || item.value("confidence", "") != "verified") {
+            continue;
+        }
+        Edge edge;
+        edge.from = item.value("from_entity_id", "");
+        edge.to = item.value("to_entity_id", "");
+        if (ids.count(edge.from) == 0 || ids.count(edge.to) == 0 || edge.from == edge.to) {
+            continue;
+        }
+        const int minutes = item.value("duration_minutes", -1);
+        if (minutes <= 0) {
+            continue;
+        }
+        edge.distanceMeters = item.value("distance_meters", 0);
+        edge.transitMinutes = minutes;
+        edge.taxiMinutes = minutes;
+        edge.walkMinutes = minutes;
+        edges.push_back(edge);
+    }
+    if (edges.empty()) {
+        throw std::runtime_error("route_matrix has no verified edges");
+    }
+    return edges;
 }
 
 }  // namespace
@@ -949,6 +1040,7 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
         server.Get("/agent/stats", agentProxyHandler);
         server.Get("/agent/hot", agentProxyHandler);
         server.Post("/agent/plan", agentProxyHandler);
+        server.Post("/api/itineraries/plan", agentProxyHandler);
         server.Post("/agent/plan-structured", agentProxyHandler);
         server.Post("/agent/plan-sync", agentProxyHandler);
         server.Post("/agent/plan-multi", agentProxyHandler);
@@ -1213,11 +1305,16 @@ int runServer(std::unordered_map<std::string, std::unique_ptr<CityBundle>> citie
                 return;
             }
 
-            // Use the existing planner
-            TripPlanner planner(city->graph);
-            Itinerary itinerary = planner.plan(tripRequest);
-            nlohmann::json result = itineraryToJson(itinerary);
-            setJson(res, result);
+            if (body.contains("candidate_pois") || body.contains("route_matrix")) {
+                auto pois = groundedPoisFromJson(body);
+                auto edges = groundedRoutesFromJson(body, pois);
+                PoiGraph requestGraph(std::move(pois), std::move(edges));
+                TripPlanner planner(requestGraph);
+                setJson(res, itineraryToJson(planner.plan(tripRequest)));
+            } else {
+                TripPlanner planner(city->graph);
+                setJson(res, itineraryToJson(planner.plan(tripRequest)));
+            }
         } catch (const std::exception& ex) {
             std::cerr << "VALIDATION /api/optimize-route: " << ex.what() << std::endl;
             setJson(res, errorJson("OPTIMIZATION_ERROR", ex.what()), 400);

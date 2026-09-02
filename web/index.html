@@ -21,15 +21,11 @@
         </div>
       </header>
       <aside class="auth-sidebar" aria-label="登录页导航">
-        <a>景点推荐</a>
-        <a>路线规划</a>
         <a>AI 助手</a>
-        <a>笔记解析</a>
         <a>我的行程</a>
-        <a>旅行日记</a>
+        <a>路线规划</a>
         <span class="auth-sidebar-divider"></span>
         <a>个人中心</a>
-        <a>定价方案</a>
         <a>联系我们</a>
       </aside>
       <div class="auth-card">
@@ -169,7 +165,7 @@
 
               <!-- Days -->
               <div class="plan-form-section">
-                <div class="plan-form-section-title">📆 游玩天数</div>
+                <div class="plan-form-section-title">📆 游玩天数 <span style="color:var(--muted);font-weight:400;font-size:12px;">（不确定可保持默认 3 天）</span></div>
                 <div class="day-buttons" id="formDaysGroup">
                   <button type="button" class="day-btn" data-value="2">2</button>
                   <button type="button" class="day-btn selected" data-value="3">3</button>
@@ -183,7 +179,7 @@
 
               <!-- Travelers -->
               <div class="plan-form-section">
-                <div class="plan-form-section-title">👥 出行人群</div>
+                <div class="plan-form-section-title">👥 出行人群 <span style="color:var(--muted);font-weight:400;font-size:12px;">（不确定可保持默认）</span></div>
                 <div class="chip-group" id="formTravelersGroup">
                   <button type="button" class="chip selected" data-value="solo"><span class="chip-emoji">🧑</span> 一个人</button>
                   <button type="button" class="chip" data-value="couple"><span class="chip-emoji">💑</span> 情侣</button>
@@ -196,7 +192,7 @@
 
               <!-- Strategy -->
               <div class="plan-form-section">
-                <div class="plan-form-section-title">🎯 旅游侧重</div>
+                <div class="plan-form-section-title">🎯 旅游侧重 <span style="color:var(--muted);font-weight:400;font-size:12px;">（不确定可选均衡）</span></div>
                 <div class="chip-group" id="formStrategyGroup">
                   <button type="button" class="chip selected" data-value="balanced"><span class="chip-emoji">⚖️</span> 均衡</button>
                   <button type="button" class="chip" data-value="culture"><span class="chip-emoji">🏛️</span> 文化</button>
@@ -209,7 +205,7 @@
 
               <!-- Pace -->
               <div class="plan-form-section">
-                <div class="plan-form-section-title">⏱️ 节奏</div>
+                <div class="plan-form-section-title">⏱️ 节奏 <span style="color:var(--muted);font-weight:400;font-size:12px;">（不确定可选标准）</span></div>
                 <div class="pace-selector" id="formPaceGroup">
                   <div class="pace-option" data-value="relaxed">
                     <span class="pace-option-label">轻松</span>
@@ -263,7 +259,7 @@
               <!-- Special Requests -->
               <div class="plan-form-section">
                 <div class="plan-form-section-title">📝 特殊要求 <span style="color:var(--muted);font-weight:400;font-size:12px;">（选填）</span></div>
-                <textarea class="special-requests" id="formSpecialRequests" rows="3" placeholder="例：想住天河区，第三天下午想购物，不去购物中心"></textarea>
+                <textarea class="special-requests" id="formSpecialRequests" rows="3" placeholder="可留空。也可以写：少走路、每天最多 3 个景点、中午留 1 小时吃饭、想住五一广场附近、不去购物中心"></textarea>
               </div>
 
               <!-- Submit -->

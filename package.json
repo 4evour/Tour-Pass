@@ -23,6 +23,7 @@
     "validate:data": "node scripts/validate_data.js --allow-transit-schedule-defaults --allow-disconnected --required-types attraction,restaurant,hotel",
     "validate:data:all": "node scripts/validate_data.js --all-cities",
     "test:validate-data-all": "node tests/test_validate_data_all_cities.js",
+    "audit:data:grounded": "node scripts/audit_grounded_data.js",
     "test:multi-agent": "node scripts/run_python_test.js tests/test_multi_agent.py -v",
     "editor:test": "npm --prefix web/editor run test",
     "editor:build": "npm --prefix web/editor run build",

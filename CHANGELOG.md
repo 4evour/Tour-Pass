@@ -3,6 +3,75 @@
 > **版本规范**: Major.架构变更 | Minor.新功能 | Patch.bug修复/数据更新
 > 每次发版打对应 git tag（如 `git tag -a v2.1.0`）。
 
+## 2026-09-01 - 修复 Grounded 运行时边界错误
+
+### 变更内容
+- `src/models.cpp` — 接受合法的 `24:00` 日终时间，拒绝 `24:01` 等非法值，修复高德开放时间传入 C++ Solver 时的 400。
+- `planner/runtime.py` — 防止 LLM 将非用户必去地点标记为 `must_visit` 后阻止确定性删减；失败时记录 `planning_run_id`、错误码和具体原因。
+- `planner/tools/places.py` — 识别名称中包含“暂停开放/暂停营业/已关闭”的地点，并从普通候选中剔除。
+- `planner/tools/routes.py` — 请求级路线矩阵同时查询正向和反向路线，不再用反向复制替代真实返回。
+- `tests/test_grounded_planner.py`、`tests/test_main.cpp` — 增加上述回归覆盖。
+
+### 原因
+- 日志显示高德详情存在 `24:00` 开放时间，旧 C++ 时间解析器拒绝该合法日终值，导致 `/api/optimize-route` 返回 400。
+- 规划失败提示 `day N exceeds daily end time` 表示当前 LLM 骨架在加入午餐预留、通勤和停留后没有可行时间轴；此前非必去查询被模型错误标成 `must_visit` 时，修复器无法删除这些可选站点，放大了失败概率。
+
+### 影响范围
+- 仅影响 Grounded Planner 新链路的时间边界、候选角色归一化、地点关闭过滤和路线矩阵证据；旧接口和旧数据结构保持兼容。
+
+## 2026-09-01 - 诊断三日规划时间窗失败
+
+### 变更内容
+- `planner/runtime.py`、`src/models.cpp` — 增加失败日志和时间边界修复；LLM 误将普通地点标为 `must_visit` 时不再阻塞可选地点删减，C++ 接受合法 `24:00` 日终时间。
+- `api_multi_agent.py` — 降低 `httpx/httpcore` 请求日志级别，避免高德和天气请求 URL 中的凭据进入服务日志。
+- `planner/tools/places.py`、`planner/tools/routes.py`、`tests/test_grounded_planner.py` — 识别暂停开放地点、正反向路线分别核验，并增加回归测试。
+
+### 原因
+- 预览页面出现 `day 3 exceeds daily end time`。该提示表示当天骨架在停留、午餐和真实通勤加入后无可行时间轴；日志还发现高德 `24:00` 合法开放边界被旧 C++ 解析器拒绝，以及可选地点角色可能被 LLM 错标为必去。
+- 日志请求级别曾记录带查询参数的外部 URL，需在规划服务层关闭详细 HTTP 请求日志。
+
+### 影响范围
+- 修复 Grounded Planner 的时间边界和确定性修复路径；不改变用户硬约束。
+- 当前可重复运行三日长沙 smoke；日志仍显示和风天气预警子接口返回 `403 Deprecated`，三日预报和生活指数接口正常，灾害预警数据暂不可用。
+
+## 2026-08-31 - 启动 Grounded Planner 新生产链路
+
+### 变更内容
+- 新增 `planner/` 单主规划器：定义 Pydantic 契约、版本化骨架提示、请求级 LLM 预算、结构化 trace、高德实体/路线 provider、和风天气主源与高德降级、C++ 求解适配、独立硬校验和确定性删减修复。
+- `api_multi_agent.py`、`src/api.cpp` — 新增外部 `/api/itineraries/plan` 与内部 `/planner/plan`，把旧 `/agent/plan-structured` 默认映射到 Grounded Planner；C++ `/api/optimize-route` 支持请求级动态 POI 和 verified 路线矩阵；保留 `TOURPASS_GROUNDED_PLANNER_ENABLED=false` 回滚。
+- `web/app.js`、`web/index.html` — 结构化表单改调新资源接口，正确展示高德已核验路线；仅城市必填，其余选项允许保持默认，附加要求示例明确支持少走路、每日站点上限、午餐、住宿区域和避免项。
+- `scripts/audit_grounded_data.js`、`tests/fixtures/grounded-planner/core_places.json`、`package.json` — 增加三城市核心地点/别名与路线语义审计。
+- `tests/test_grounded_planner.py`、`tests/test_agent_trip_save.js` — 覆盖空值默认、附加要求约束、别名消歧、QPS 请求去重、关闭地点、`partial` 路线拒绝和新前端入口。
+- `scripts/container_smoke.js` — 为 smoke 注册使用长度受限的唯一用户名，使同一环境可重复执行。
+- `web/grounded-preview.html`、`web/grounded-preview.js` — 新增独立本地预览页面，展示结构化输入、透明默认、附加要求、规划状态、每日行程、真实通勤和风险提示，不改变主站页面。
+- `src/api.cpp` — 放行预览页面静态资源。
+- `.codebase-memory/graph.db.zst` — 对当前工作区完成持久化知识图谱刷新。
+
+### 原因
+- 旧角色式多 Agent 的候选截断、默认开放时间和估算路线不能稳定优于直接 LLM；新链路让 LLM 负责路线骨架，工具和确定性算法负责事实、顺序、时间和交付门禁。
+- 用户可能无法提前确定日期、预算、节奏或住宿；结构化表单应减少歧义而不是增加填写门槛，所有默认选择必须透明。
+
+### 影响范围
+- 主站结构化规划默认进入 Grounded Planner；旧自然语言、多 Agent 和编辑器代码仍保留作回滚与对照，尚未物理删除。
+- 已创建并推送改造前远端标签 `grounded-planner-before-migration-20260830`。
+- 当前完成本地纵向链路，不代表达到生产发布门槛；三城市完整 benchmark、官方开放公告、影子运行和灰度观察仍待完成。
+
+## 2026-08-30 - 补充 Grounded Planner 数据与外部工具决策
+
+### 变更内容
+- `docs/grounded-planner/README.md` — 记录本地 POI/路线只读审计结论，明确本地数据改为召回、缓存和 benchmark；补充高德官方 MCP、和风天气（QWeather）及有界 LLM 调用预算决策。
+- `docs/grounded-planner/01-architecture-and-contracts.md` — 增加高德 Web API/官方 MCP provider 边界、实体在线补查与别名消歧、路线验证状态、和风天气主源与高德天气降级合同。
+- `docs/grounded-planner/02-implementation-plan.md` — 将核心地点语义审计、在线候选扩展、QPS 控制、错误 Top 1、`partial` 路线、天气主备 provider 纳入 Phase 0、Phase 2 和 Phase 3 的任务与退出条件。
+- `docs/grounded-planner/03-evaluation-and-release.md` — 增加核心 POI 召回、别名解析、默认开放时间硬证据使用、路线方式核验、天气来源和对应故障注入/发布门槛。
+
+### 原因
+- 现有结构校验全部通过，但 5,152 个景点全部使用默认开放时间，49,429 条路线边中 49,397 条为 `partial`；本地数据完整性和字段存在性不能证明事实可核验。
+- 高德已有官方 MCP，但生产规划器仍需要稳定的 Tour Pass typed tools、批量路线、缓存、QPS 和脱敏边界。
+- QWeather 即项目此前接入的和风天气英文产品/API 名称，需要在文档中消除“更换天气供应商”的歧义。
+
+### 影响范围
+- 仅更新 Grounded Planner 待评审方案和变更记录，不修改运行时代码、数据文件、API、部署配置或现有天气接入。
+
 ## 2026-08-20 - 按源码状态更新 README
 
 ### 变更内容
@@ -1420,3 +1489,62 @@
 ### 影响范围 — 改动影响了哪些功能/模块
 - 影响主站 AI 智能规划结果页、行程保存状态和“我的行程”数据写入。
 - 不改变后端 API、鉴权规则或数据库结构；继续使用现有 `POST /trips/save` 接口。
+
+## 2026-07-15 23:50 - 统一登录前后侧边栏
+
+### 变更内容 — 改了什么文件，具体改了什么
+- `web/index.html` — 登录页侧边栏移除未上线的“景点推荐、笔记解析、旅行日记、定价方案”，并将已上线入口的顺序与登录后侧边栏保持一致。
+- `tests/test_tour_ai_layout_markup.js` — 增加登录前后菜单标签和顺序完全一致的回归检查。
+- `.codebase-memory/graph.db.zst` — 使用 codebase-memory-mcp fast 模式重新索引并持久化当前代码关系。
+- `CHANGELOG.md` — 追加本次变更记录。
+
+### 原因 — 为什么要改
+- 登录页使用独立静态菜单，未随主应用下线功能同步，导致登录前仍展示不可用入口。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 仅影响登录页侧边栏展示和对应前端契约测试，不改变登录、路由或后端接口。
+
+## 2026-08-27 - 调研 Tour Pass Agent 化演进方向
+
+### 变更内容 — 改了什么文件，具体改了什么
+- `research/tour-pass-agentic-evolution-2026/` — 新增源码证据图、外部 Agent 架构对比、中心论点、claim ledger、开放问题和分阶段建议。
+- `CHANGELOG.md` — 追加本次调研记录。
+
+### 原因 — 为什么要改
+- 评估项目的“玩具感”究竟来自规划算法、Agent 编排、会话状态、工具执行还是反馈闭环，并筛选 2025–2026 年 Agent 设计中适合旅游规划的机制。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 仅新增研究文档和变更记录，不改变运行时代码、API、数据、前端或部署配置。
+- 本次未刷新知识图谱：没有代码结构变化，且当前会话未提供 `codebase-memory-mcp` 工具。
+
+## 2026-08-27 - 对照 Pi 与 DeepSeek Harness 的 Agent Runtime 设计
+
+### 变更内容 — 改了什么文件，具体改了什么
+- `research/tour-pass-pi-dsh-design-reference-2026/` — 新增 Pi Coding Agent 与 DeepSeek Harness 的源码证据图、运行链路、架构对比、claim ledger、开放问题和 Tour Pass 最小 runtime 草图。
+- `CHANGELOG.md` — 追加本次源码对照调研记录。
+
+### 原因 — 为什么要改
+- 当前 Tour Pass 的多 Agent 仍主要表现为一次性固定工作流，需要明确如何从前沿 harness 中借鉴持久会话、上下文投影、动态工具、审批、压缩恢复和真正隔离的子 Agent 机制。
+- 暂缓复杂前端建设，将技术验证重点转向可恢复、可审计、可评估的无头 Agent runtime。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 仅新增研究文档和变更记录，不改变运行时代码、API、数据、前端或部署配置。
+- 本次未刷新知识图谱：没有代码结构变化，且当前会话未提供 `codebase-memory-mcp` 工具。
+
+## 2026-08-29 - 编写 Grounded Planner 转型开发文档
+
+### 变更内容 — 改了什么文件，具体改了什么
+- docs/grounded-planner/README.md — 固化转型结论、产品边界、架构原则和评审决策点。
+- docs/grounded-planner/01-architecture-and-contracts.md — 固化单主规划器、工具、证据、求解器、硬校验和 API 契约。
+- docs/grounded-planner/02-implementation-plan.md — 新增 Phase 0～6 的文件级实施任务、依赖、验证命令、退出条件和停止线。
+- docs/grounded-planner/03-evaluation-and-release.md — 新增 legacy/direct LLM/grounded 对照评估、故障注入、灰度、回滚和发布清单。
+- CHANGELOG.md — 追加本次文档变更记录。
+
+### 原因 — 为什么要改
+- 当前多 Agent 工作流、无来源数据、硬约束失效和编辑器投入方向不符合项目转型目标。
+- 需要一份可以先评审、再按阶段执行的工程文档，避免继续以一次性 API 调用或角色式 Agent 叠加替代真正的工具取证、确定性求解和质量验证。
+
+### 影响范围 — 改动影响了哪些功能/模块
+- 本次仅新增/更新文档，不改变运行时代码、API、数据、前端或部署配置。
+- 由于当前会话未提供 codebase-memory-mcp 工具，本次未刷新知识图谱；结构性代码实施前必须先恢复工具并重新索引。
+- 未执行 C++、Python、前端或容器构建测试；后续按 02-implementation-plan.md 和 03-evaluation-and-release.md 的阶段门槛执行。

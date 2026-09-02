@@ -930,11 +930,10 @@ function escapeHtml(value) {
 }
 
 function routeSourceLabel(source) {
-  return source === "amap_cached" ? "高德" : "估算";
+  return String(source || "").startsWith("amap") ? "高德已核验" : "估算";
 }
-
 function routeSourceClass(source) {
-  return source === "amap_cached" ? "route-real" : "route-estimated";
+  return String(source || "").startsWith("amap") ? "route-real" : "route-estimated";
 }
 
 function formatDistanceMeters(meters) {
@@ -2784,7 +2783,7 @@ function submitStructuredPlan() {
   if (planOut) { planOut.hidden = true; }
   showLoading();
 
-  fetch("/agent/plan-structured", {
+  fetch("/api/itineraries/plan", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
@@ -2794,6 +2793,7 @@ function submitStructuredPlan() {
     var decoder = new TextDecoder();
     var buffer = "";
     var itinerary = null;
+    var streamError = "";
 
     function processChunk(result) {
       if (result.done) {
@@ -2801,6 +2801,9 @@ function submitStructuredPlan() {
         btn.disabled = false;
         if (submitText) submitText.hidden = false;
         if (submitLoading) submitLoading.hidden = true;
+        if (!itinerary && streamError) {
+          toast("生成失败: " + streamError, "error");
+        }
         if (itinerary) {
           state.currentItinerary = itinerary;
           state.candidates = [itinerary];
@@ -2811,7 +2814,7 @@ function submitStructuredPlan() {
           saveCooldownUntil = 0;
           saveTripState();
           renderAgentResult(itinerary);
-          showMultiTurnPanel();
+          // Grounded Planner uses whole-plan regeneration instead of chat patches.
           toast("✅ 行程已生成！", "success");
         }
         return;
@@ -2827,6 +2830,9 @@ function submitStructuredPlan() {
             if (data.type === "itinerary" && data.itinerary) {
               itinerary = data.itinerary;
               state.currentItinerary = itinerary;
+            }
+            if (data.type === "error") {
+              streamError = data.content || "规划失败";
             }
           } catch (e) { /* skip */ }
         }

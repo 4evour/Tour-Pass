@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grounded Planner · 本地预览</title>
+  <style>
+    :root { --ink:#17211b; --muted:#66736b; --paper:#f4f3ed; --card:#fffefa; --line:#d9dfd7; --green:#245c4a; --lime:#dce9b7; --orange:#d96b3b; --shadow:0 18px 50px #183b2b12; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter,"Noto Sans SC","Microsoft YaHei",sans-serif; }
+    button,input,select,textarea { font:inherit; }
+    button { cursor:pointer; }
+    .page { max-width:1200px; margin:auto; padding:34px 22px 70px; }
+    .masthead { display:flex; justify-content:space-between; align-items:flex-start; gap:24px; border-bottom:1px solid var(--ink); padding-bottom:24px; }
+    .eyebrow { color:var(--orange); font-size:12px; letter-spacing:.16em; font-weight:800; text-transform:uppercase; }
+    h1 { max-width:700px; margin:12px 0 10px; font:700 clamp(38px,6vw,76px)/.98 Georgia,"Songti SC",serif; letter-spacing:-.055em; }
+    .lede { max-width:570px; color:var(--muted); font-size:16px; line-height:1.7; margin:0; }
+    .stamp { min-width:160px; padding:14px; border:1px solid var(--green); color:var(--green); font-size:12px; line-height:1.6; }
+    .layout { display:grid; grid-template-columns:minmax(300px,390px) 1fr; gap:22px; margin-top:22px; }
+    .card { background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow); }
+    .form-card { padding:22px; }
+    .card-title { display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:18px; }
+    .card-title strong { font-size:18px; }
+    .card-title span { color:var(--muted); font-size:12px; }
+    label { display:block; margin:15px 0 7px; font-size:12px; color:var(--muted); font-weight:700; }
+    input,select,textarea { width:100%; border:1px solid var(--line); border-radius:0; background:#fff; color:var(--ink); padding:11px 12px; outline:none; }
+    input:focus,select:focus,textarea:focus { border-color:var(--green); box-shadow:0 0 0 3px #245c4a18; }
+    .two { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .hint { color:var(--muted); font-size:12px; line-height:1.5; margin:7px 0 0; }
+    .chips { display:flex; flex-wrap:wrap; gap:7px; }
+    .chip { border:1px solid var(--line); background:#fff; color:var(--muted); padding:8px 10px; }
+    .chip.active { border-color:var(--green); background:var(--lime); color:var(--green); font-weight:700; }
+    .actions { display:flex; gap:9px; margin-top:20px; }
+    .primary { flex:1; border:0; background:var(--green); color:white; padding:13px 15px; font-weight:800; }
+    .primary:disabled { opacity:.55; cursor:wait; }
+    .secondary { border:1px solid var(--line); background:transparent; color:var(--muted); padding:13px 15px; }
+    .result-card { min-height:650px; padding:22px; }
+    .empty { min-height:590px; display:grid; place-items:center; text-align:center; color:var(--muted); border:1px dashed var(--line); padding:30px; }
+    .empty b { display:block; color:var(--green); font:700 36px Georgia,serif; margin-bottom:10px; }
+    .status { display:flex; gap:10px; align-items:center; color:var(--muted); font-size:13px; min-height:25px; }
+    .dot { width:9px; height:9px; border-radius:50%; background:var(--orange); }
+    .dot.ok { background:#4d9a63; }
+    .run-id { color:var(--muted); font:11px ui-monospace,monospace; word-break:break-all; }
+    .result-head { display:flex; justify-content:space-between; gap:14px; align-items:flex-start; border-bottom:1px solid var(--ink); padding-bottom:15px; }
+    .result-head h2 { margin:0 0 6px; font:700 31px/1.05 Georgia,"Songti SC",serif; }
+    .badge { background:var(--lime); color:var(--green); padding:7px 9px; font-size:11px; font-weight:800; white-space:nowrap; }
+    .assumptions { margin:14px 0; padding:12px 14px; background:#fff7e7; border-left:3px solid var(--orange); color:#76502b; font-size:12px; line-height:1.7; }
+    .days { display:grid; gap:12px; margin-top:18px; }
+    .day { border:1px solid var(--line); padding:15px; background:#fff; }
+    .day-top { display:flex; justify-content:space-between; gap:10px; align-items:baseline; }
+    .day-top strong { color:var(--green); font-size:14px; letter-spacing:.03em; }
+    .day-top span { color:var(--muted); font-size:11px; }
+    .theme { font:700 21px Georgia,"Songti SC",serif; margin:6px 0 12px; }
+    .stops { display:grid; gap:8px; }
+    .stop { display:grid; grid-template-columns:70px 1fr auto; gap:10px; align-items:start; padding-top:9px; border-top:1px solid #edf0eb; }
+    .time { color:var(--green); font:700 12px ui-monospace,monospace; }
+    .stop-name { font-weight:800; font-size:14px; }
+    .stop-meta { color:var(--muted); font-size:11px; margin-top:3px; line-height:1.5; }
+    .verified { color:#3d8358; font-size:11px; white-space:nowrap; }
+    .verified::before { content:"✓ "; }
+    .risk { margin-top:12px; color:#825627; background:#fff7e7; padding:9px 10px; font-size:11px; line-height:1.5; }
+    .error { margin-top:15px; padding:12px; color:#8b3825; background:#fff0ec; border-left:3px solid var(--orange); font-size:13px; line-height:1.5; }
+    @media (max-width:850px) { .masthead { display:block; } .stamp { margin-top:18px; } .layout { grid-template-columns:1fr; } .result-card { min-height:400px; } .empty { min-height:300px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <div class="eyebrow">Tour Pass / local preview</div>
+        <h1>先定方向，<br>再把路线做实。</h1>
+        <p class="lede">一个轻量的 Grounded Planner 预览。你可以只选城市；剩下的内容不确定也没关系，系统会把采用的假设写出来。</p>
+      </div>
+      <div class="stamp">GROUNDed<br>PLANNER / 03.0<br><br>LLM → 证据 → 求解 → 校验</div>
+    </header>
+
+    <section class="layout">
+      <form class="card form-card" id="planForm">
+        <div class="card-title"><strong>告诉我大方向</strong><span>城市必填，其余可空</span></div>
+        <label for="city">目的地</label>
+        <select id="city" required><option value="长沙">长沙</option><option value="青岛">青岛</option><option value="重庆">重庆</option><option value="成都">成都</option><option value="杭州">杭州</option><option value="北京">北京</option></select>
+        <div class="two">
+          <div><label for="days">天数</label><input id="days" type="number" min="1" max="7" placeholder="默认 3 天"></div>
+          <div><label for="dateStart">出发日期</label><input id="dateStart" type="date"></div>
+        </div>
+        <label>节奏</label>
+        <div class="chips" data-target="pace"><button type="button" class="chip active" data-value="balanced">标准</button><button type="button" class="chip" data-value="relaxed">轻松</button><button type="button" class="chip" data-value="intense">紧凑</button></div>
+        <input type="hidden" id="pace" value="balanced">
+        <label>侧重</label>
+        <div class="chips" data-target="strategy"><button type="button" class="chip active" data-value="balanced">均衡</button><button type="button" class="chip" data-value="culture">文化</button><button type="button" class="chip" data-value="culinary">美食</button><button type="button" class="chip" data-value="nature">自然</button></div>
+        <input type="hidden" id="strategy" value="balanced">
+        <label for="mustVisit">必去地点 <span>(可空)</span></label><input id="mustVisit" placeholder="例如：橘子洲、岳麓山，用逗号分隔">
+        <label for="hotelArea">住宿区域 <span>(可空)</span></label><input id="hotelArea" placeholder="例如：五一广场附近">
+        <label for="special">附加要求 <span>(可空，直接写人话)</span></label><textarea id="special" rows="4" placeholder="少走路；每天最多 3 个景点；中午留 1 小时吃饭；不去购物中心"></textarea>
+        <p class="hint">系统会识别能确定执行的要求；无法确定的内容保留给路线骨架参考，不会覆盖硬约束。</p>
+        <div class="actions"><button class="primary" id="submit" type="submit">生成可信行程</button><button class="secondary" id="clear" type="button">清空</button></div>
+      </form>
+
+      <section class="card result-card" aria-live="polite">
+        <div class="status" id="status"><span class="dot"></span><span>等待一次提交</span></div>
+        <div id="result"><div class="empty"><div><b>01</b>左侧提交后，这里会展示<br>实体、时间、通勤与风险。</div></div></div>
+      </section>
+    </section>
+  </main>
+  <script src="/grounded-preview.js" defer></script>
+</body>
+</html>

@@ -80,7 +80,8 @@ int parseTimeToMinutes(const std::string& value) {
     }
     int hour = std::stoi(value.substr(0, colonPos));
     int minute = std::stoi(value.substr(colonPos + 1));
-    if (hour < 0 || hour > 23 || minute < 0 || minute > 59) {
+    if (hour < 0 || hour > 24 || minute < 0 || minute > 59 ||
+        (hour == 24 && minute != 0)) {
         throw std::runtime_error("invalid time value: " + value);
     }
     return hour * 60 + minute;

@@ -31,7 +31,7 @@ function startServer() {
     if (url.pathname === "/poi/search") return json(res, { data: [] });
     if (url.pathname.startsWith("/city/")) return json(res, { city: "广州", sections: {} });
 
-    if (url.pathname === "/agent/plan-structured") {
+    if (url.pathname === "/api/itineraries/plan") {
       const itinerary = {
         city: "广州",
         days: [{ day: 1, stops: [{ poi_name: "测试景点", poi_type: "attraction", start_time: "09:00", end_time: "10:00" }] }],

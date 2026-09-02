@@ -1,8 +1,8 @@
 openapi: 3.0.3
 info:
   title: Tour Pass API
-  version: 2.6.0
-  description: C++17 城市自由行结构化行程规划算法服务 API。当前数据为演示样例，不代表真实地图或生产 SLA。
+  version: 3.0.0
+  description: C++17 网关 + Python Grounded Planner 的城市自由行服务 API；旧规划接口在迁移期保留。
 servers:
   - url: http://127.0.0.1:8080
 paths:
@@ -41,6 +41,24 @@ paths:
                   cache_enabled: { type: boolean }
                   db_enabled: { type: boolean }
                   db_path: { type: string }
+  /api/itineraries/plan:
+    post:
+      summary: Generate a grounded itinerary as SSE
+      description: Only city is required. Empty optional fields use transparent defaults; special_requests are retained and deterministic constraints are extracted when possible.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GroundedPlanRequest"
+      responses:
+        "200":
+          description: SSE events accepted, stage, result/error and done.
+          content:
+            text/event-stream:
+              schema: { type: string }
+        "422":
+          $ref: "#/components/responses/Error"
   /trip/plan:
     post:
       summary: Generate itinerary or candidate itineraries
@@ -375,6 +393,35 @@ components:
           items: { type: string }
         candidate_count: { type: integer, minimum: 1, maximum: 5, default: 1 }
         strategy: { type: string, default: balanced }
+    GroundedPlanRequest:
+      type: object
+      required: [city]
+      properties:
+        city: { type: string, example: 长沙 }
+        days: { type: integer, minimum: 1, maximum: 7, default: 3, nullable: true }
+        date_start: { type: string, format: date, nullable: true }
+        daily_start: { type: string, default: "09:00" }
+        daily_end: { type: string, default: "21:30" }
+        pace: { type: string, enum: [relaxed, balanced, intense], default: balanced, nullable: true }
+        strategy: { type: string, enum: [balanced, culture, culinary, nature], default: balanced, nullable: true }
+        budget: { type: string, enum: [budget, mid-range, luxury], nullable: true }
+        travelers: { type: string, nullable: true }
+        interests:
+          type: array
+          nullable: true
+          items: { type: string }
+        must_visit:
+          type: array
+          nullable: true
+          items: { type: string }
+        avoid:
+          type: array
+          nullable: true
+          items: { type: string }
+        hotel_name: { type: string, nullable: true }
+        hotel_area: { type: string, nullable: true }
+        transport_mode: { type: string, enum: [driving, walking, transit], default: driving, nullable: true }
+        special_requests: { type: string, nullable: true }
     Itinerary:
       type: object
       properties:

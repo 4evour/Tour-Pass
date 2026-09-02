@@ -1,0 +1,35 @@
+{
+  "version": "2026-08-30-v1",
+  "cities": {
+    "changsha": [
+      {"canonical_name": "橘子洲风景名胜区", "aliases": ["橘子洲", "橘子洲头"], "required_local": true},
+      {"canonical_name": "岳麓山风景名胜区", "aliases": ["岳麓山"], "required_local": true},
+      {"canonical_name": "湖南省博物馆", "aliases": ["湖南博物院", "湖南省博物院"], "required_local": true},
+      {"canonical_name": "太平老街历史文化街区", "aliases": ["太平老街"], "required_local": true},
+      {"canonical_name": "杜甫江阁", "aliases": [], "required_local": true},
+      {"canonical_name": "爱晚亭", "aliases": [], "required_local": false},
+      {"canonical_name": "李自健美术馆", "aliases": [], "required_local": false},
+      {"canonical_name": "黄兴路步行街", "aliases": ["黄兴南路步行街"], "required_local": false}
+    ],
+    "qingdao": [
+      {"canonical_name": "栈桥景区", "aliases": ["栈桥"], "required_local": true},
+      {"canonical_name": "五四广场", "aliases": [], "required_local": true},
+      {"canonical_name": "八大关风景区", "aliases": ["八大关"], "required_local": true},
+      {"canonical_name": "小青岛公园", "aliases": ["小青岛"], "required_local": true},
+      {"canonical_name": "青岛网红墙", "aliases": ["大学路网红墙"], "required_local": true},
+      {"canonical_name": "青岛第一海水浴场", "aliases": ["第一海水浴场"], "required_local": false},
+      {"canonical_name": "青岛第二海水浴场", "aliases": ["第二海水浴场"], "required_local": false},
+      {"canonical_name": "天主教青岛教区圣弥厄尔主教座堂天主堂", "aliases": ["圣弥厄尔教堂"], "required_local": true}
+    ],
+    "chongqing": [
+      {"canonical_name": "洪崖洞民俗风貌区", "aliases": ["洪崖洞"], "required_local": true},
+      {"canonical_name": "解放碑步行街", "aliases": ["解放碑"], "required_local": true},
+      {"canonical_name": "李子坝单轨穿楼观景平台", "aliases": ["李子坝穿楼", "李子坝"], "required_local": false},
+      {"canonical_name": "长江索道", "aliases": [], "required_local": false},
+      {"canonical_name": "白象居", "aliases": [], "required_local": false},
+      {"canonical_name": "TESTBED2贰厂文创公园", "aliases": ["鹅岭二厂", "二厂文创公园"], "required_local": false},
+      {"canonical_name": "千厮门大桥", "aliases": [], "required_local": false},
+      {"canonical_name": "北仓文创街区", "aliases": ["北仓文创街", "北仓文创园"], "required_local": false}
+    ]
+  }
+}

@@ -81,8 +81,9 @@ async function main() {
   }
   console.log(`Agent health: ${agentHealth.data.agent || "unknown"} v${agentHealth.data.version || "?"}`);
 
+  const smokeUser = `smk_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`;
   const auth = await postJson(`${baseUrl}/auth/register`, {
-    username: "container_smoke_user",
+    username: smokeUser,
     password: "container_smoke_password",
   });
   if (!auth.token) {
