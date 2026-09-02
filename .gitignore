@@ -1,87 +1,24 @@
-﻿bin/
-build/
-build-*/
-.codegraph/
-.prismo/
-node_modules/
-*.exe
-*.o
-*.obj
-*.dll
-*.a
-*.lib
-*.log
-llm-debug-*.log
+﻿# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and secrets
+.venv/
+venv/
 .env
-config/llm.local.json
-test-results/
-playwright-report/
-storage/*.sqlite
-storage/*.db
-storage/*.sqlite-wal
-storage/*.sqlite-shm
-storage/*.db-wal
-storage/*.db-shm
-output/
-output/*.sqlite
-output/*.sqlite-wal
-output/*.sqlite-shm
-output/*.json
-output/synthetic-*/
-output/test-*/
-output/amap-cache/
-output/amap-changsha/
+.env.local
+
+# Runtime state
+trip_agent/runtime-cache.sqlite
+trip_agent/runtime-cache.sqlite-*
+*.log
+
+# Editors and OS
 .vscode/
 .idea/
-
-.claude/
-.trae/
-.qoder/
-
-# Test scripts (not for production)
-test_*.py
-_test*.py
-_test*.js
-_debug*.py
-_fix*.py
-check_*.py
-quick_test.py
-htest.py
-final_test.py
-audit_images.py
-fix_network.bat
-test_body.json
-start_cpp.bat
-
-# Agent build artifacts
-agent/__pycache__/
-agent/*.pyc
-data/chromadb/
-pip_install*.log
-agent_server*.log
-cpp_server*.log
-__pycache__/
-*.pyc
-*.pyo
-.env
-error.log
-output.log
-
-# Progress tracking files
-scripts/*progress*.json
-
-# Local XHS login/cookie helpers and backup bundles
-scripts/_auto_cookie.js
-scripts/_get_cookie_v2.js
-scripts/_login*.js
-scripts/_save_session.js
-scripts/xhs_sign/*.bak
-
-# Local handoff/context notes
-docs/handoff_*.md
-
-# Image directories (served from R2 CDN, not git)
-data/*/images/
-
-# Web data directory (duplicate of data/)
-web/data/
+.DS_Store
+Thumbs.db

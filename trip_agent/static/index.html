@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tour Pass · 行程工作台</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Tour Pass 首页">
+        <span class="brand-mark">TP</span>
+        <span><b>TOUR PASS</b><small>行程工作台</small></span>
+      </a>
+      <div class="top-status"><i></i> 实时地点 · 路线 · 天气</div>
+    </header>
+
+    <section class="workspace">
+      <aside class="assistant-panel">
+        <div class="assistant-head">
+          <span class="kicker">旅行顾问</span>
+          <h1>先说想法，<br>再一起把路走通。</h1>
+          <p>城市和天数足够开始。同行人、酒店、预算和节奏都可以在对话中继续补充。</p>
+        </div>
+        <div class="messages" id="messages" aria-live="polite">
+          <div class="message assistant">告诉我这次旅行最在意什么。我会补齐每天的时间轴、交通衔接、住宿锚点和风险提醒。</div>
+        </div>
+        <form class="composer" id="composer">
+          <label for="input">继续完善行程</label>
+          <textarea id="input" rows="4" placeholder="例如：广州三天，住越秀区，带父母，少走路，想看老城和珠江夜景"></textarea>
+          <div class="composer-foot">
+            <span id="status">等待输入</span>
+            <button id="send" type="submit">规划行程</button>
+          </div>
+        </form>
+      </aside>
+
+      <section class="result-panel" id="result">
+        <div class="empty-state">
+          <div class="empty-route"><i></i><i></i><i></i></div>
+          <div>
+            <span class="kicker">等待目的地</span>
+            <h2>一份能照着走的行程，<br>不只是一串景点名称。</h2>
+            <p>生成后，这里会展示逐日时间轴、真实交通段、开放匹配、住宿锚点、地图坐标、区域取舍和完整度检查。</p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="/static/app.js" defer></script>
+</body>
+</html>
