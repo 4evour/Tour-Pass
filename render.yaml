@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: tour-pass
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: tour-pass-db
+          property: connectionString
+      - key: TRIP_AGENT_LLM_KEY
+        sync: false
+      - key: AMAP_API_KEY
+        sync: false
+      - key: QWEATHER_KEY
+        sync: false
+      - key: TRIP_AGENT_SECURE_COOKIES
+        value: "true"
+      - key: TRIP_AGENT_TRUST_PROXY
+        value: "true"
+      - key: TRIP_AGENT_IP_HASH_KEY
+        generateValue: true
+
+databases:
+  - name: tour-pass-db

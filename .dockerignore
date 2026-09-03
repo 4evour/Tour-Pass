@@ -1,0 +1,11 @@
+.git
+.env
+.env.*
+!.env.example
+__pycache__
+.pytest_cache
+.ruff_cache
+*.pyc
+*.sqlite
+*.sqlite-*
+trip_agent/logs
