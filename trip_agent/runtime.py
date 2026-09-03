@@ -22,7 +22,7 @@ class TripRuntime:
         self.request_timeout_seconds = max(
             15.0,
             min(
-                float(os.environ.get("TRIP_AGENT_RUN_TIMEOUT_SECONDS", "300")),
+                float(os.environ.get("TRIP_AGENT_RUN_TIMEOUT_SECONDS", "600")),
                 600.0,
             ),
         )

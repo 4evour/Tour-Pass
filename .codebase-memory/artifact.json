@@ -1,11 +1,11 @@
 {
     "schema_version": 2,
-    "commit": "b3ec66aee57382333027c5ffef57ec2d56aa387b",
-    "indexed_at": "2026-09-03T06:40:45Z",
+    "commit": "f982fbba41b3bb66744a3fdde81b3cdc302ea33e",
+    "indexed_at": "2026-09-03T07:09:06Z",
     "project": "Tour-Pass-trip-agent",
-    "nodes": 357,
-    "edges": 898,
-    "original_size": 2555904,
-    "compressed_size": 302017,
+    "nodes": 360,
+    "edges": 917,
+    "original_size": 2621440,
+    "compressed_size": 311098,
     "compression_level": 3
 }

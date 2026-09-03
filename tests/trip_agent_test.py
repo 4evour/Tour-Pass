@@ -90,7 +90,24 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(response.content, '{"action":"ask"}')
         self.assertEqual(request_count, 2)
 
-    async def test_llm_uses_responses_wire_protocol(self) -> None:
+    async def test_llm_does_not_retry_read_timeout(self) -> None:
+        request_count = 0
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            nonlocal request_count
+            request_count += 1
+            raise httpx.ReadTimeout("slow response", request=request)
+
+        llm = OpenAICompatibleLLM()
+        llm.key = "test-key"
+        llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        with self.assertRaises(httpx.ReadTimeout):
+            await llm.ainvoke([{"role": "user", "content": "test"}])
+        await llm.close()
+
+        self.assertEqual(request_count, 1)
+
+    async def test_llm_uses_responses_stream_protocol(self) -> None:
         messages = [{"role": "user", "content": "test"}]
 
         def handler(request: httpx.Request) -> httpx.Response:
@@ -100,23 +117,24 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(payload["input"], messages)
             self.assertEqual(payload["max_output_tokens"], 8192)
             self.assertEqual(payload["reasoning"], {"effort": "high"})
+            self.assertTrue(payload["stream"])
             self.assertFalse(payload["store"])
             self.assertNotIn("temperature", payload)
             return httpx.Response(
                 200,
-                json={
-                    "output": [
-                        {
-                            "type": "message",
-                            "content": [
-                                {
-                                    "type": "output_text",
-                                    "text": '{"action":"ask"}',
-                                }
-                            ],
-                        }
-                    ]
-                },
+                headers={"content-type": "text/event-stream"},
+                content=(
+                    "event: response.output_text.delta\n"
+                    'data: {"type":"response.output_text.delta",'
+                    '"delta":"{\\"action\\":"}\n\n'
+                    "event: response.output_text.delta\n"
+                    'data: {"type":"response.output_text.delta",'
+                    '"delta":"\\"ask\\"}"}\n\n'
+                    "event: response.output_text.done\n"
+                    'data: {"type":"response.output_text.done",'
+                    '"text":"{\\"action\\":\\"ask\\"}"}\n\n'
+                    "data: [DONE]\n\n"
+                ).encode(),
             )
 
         llm = OpenAICompatibleLLM()

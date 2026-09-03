@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import os
 from types import SimpleNamespace
 from typing import Any
@@ -43,6 +44,13 @@ class OpenAICompatibleLLM:
                 8192,
             ),
         )
+        self.timeout_seconds = max(
+            30.0,
+            min(
+                float(os.environ.get("TRIP_AGENT_LLM_TIMEOUT_SECONDS", "480")),
+                540.0,
+            ),
+        )
         self.client: httpx.AsyncClient | None = None
 
     @property
@@ -60,6 +68,7 @@ class OpenAICompatibleLLM:
                 "model": self.model,
                 "input": messages,
                 "max_output_tokens": self.max_output_tokens,
+                "stream": True,
                 "store": False,
             }
             if self.reasoning_effort:
@@ -100,32 +109,114 @@ class OpenAICompatibleLLM:
             raise RuntimeError("LLM response has no output text")
         return "".join(text_parts)
 
+    async def _stream_response(
+        self,
+        endpoint: str,
+        headers: dict[str, str],
+        payload: dict[str, Any],
+    ) -> str:
+        text_parts: list[str] = []
+        completed_text = ""
+        event_name = ""
+        received_event = False
+        try:
+            async with self.client.stream(
+                "POST", endpoint, headers=headers, json=payload
+            ) as response:
+                response.raise_for_status()
+                async for line in response.aiter_lines():
+                    if line.startswith("event:"):
+                        event_name = line.removeprefix("event:").strip()
+                        continue
+                    if not line.startswith("data:"):
+                        continue
+                    raw_event = line.removeprefix("data:").strip()
+                    if not raw_event or raw_event == "[DONE]":
+                        continue
+                    event = json.loads(raw_event)
+                    received_event = True
+                    event_type = str(event.get("type") or event_name)
+                    if event_type == "response.output_text.delta":
+                        delta = event.get("delta")
+                        if isinstance(delta, str):
+                            text_parts.append(delta)
+                    elif event_type == "response.output_text.done":
+                        text = event.get("text")
+                        if isinstance(text, str):
+                            completed_text = text
+                    elif event_type == "response.completed" and not text_parts:
+                        completed = event.get("response")
+                        if isinstance(completed, dict):
+                            completed_text = self._response_content(completed)
+                    elif event_type in {
+                        "error",
+                        "response.failed",
+                        "response.incomplete",
+                    }:
+                        error = event.get("error")
+                        if not isinstance(error, dict):
+                            response_body = event.get("response")
+                            error = (
+                                response_body.get("error")
+                                if isinstance(response_body, dict)
+                                else {}
+                            )
+                        message = (
+                            error.get("message") if isinstance(error, dict) else None
+                        )
+                        raise RuntimeError(
+                            f"LLM stream failed: {message or event_type}"
+                        )
+        except httpx.TransportError as exc:
+            if received_event:
+                raise RuntimeError(
+                    "LLM stream interrupted after response started"
+                ) from exc
+            raise
+
+        content = "".join(text_parts) or completed_text
+        if not content:
+            raise RuntimeError("LLM stream has no output text")
+        return content
+
     async def ainvoke(self, messages: list[dict[str, Any]]) -> Any:
         if not self.available:
             raise RuntimeError("TRIP_AGENT_LLM_KEY is not configured")
-        self.client = self.client or httpx.AsyncClient(timeout=90)
+        self.client = self.client or httpx.AsyncClient(
+            timeout=httpx.Timeout(
+                connect=15.0,
+                read=self.timeout_seconds,
+                write=30.0,
+                pool=30.0,
+            )
+        )
         retryable_statuses = {429, 500, 502, 503, 504}
         last_error: Exception | None = None
         endpoint, payload = self._request(messages)
+        headers = {
+            "Authorization": f"Bearer {self.key}",
+            "Content-Type": "application/json",
+        }
 
         for attempt in range(3):
             try:
-                response = await self.client.post(
-                    endpoint,
-                    headers={
-                        "Authorization": f"Bearer {self.key}",
-                        "Content-Type": "application/json",
-                    },
-                    json=payload,
-                )
-                if response.status_code in retryable_statuses:
+                if self.wire_api == "responses":
+                    content = await self._stream_response(endpoint, headers, payload)
+                else:
+                    response = await self.client.post(
+                        endpoint,
+                        headers=headers,
+                        json=payload,
+                    )
                     response.raise_for_status()
-                response.raise_for_status()
-                return SimpleNamespace(content=self._response_content(response.json()))
+                    content = self._response_content(response.json())
+                return SimpleNamespace(content=content)
             except httpx.HTTPStatusError as exc:
                 if exc.response.status_code not in retryable_statuses:
                     raise
                 last_error = exc
+            except httpx.ReadTimeout:
+                raise
             except httpx.TransportError as exc:
                 last_error = exc
 
