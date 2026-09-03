@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## 2026-09-03 - 切换 Responses 中转模型
+
+### 变更内容
+- `trip_agent/llm.py` - 增加 OpenAI Responses 协议、`/responses` 请求和输出文本解析，同时保留 Chat Completions 兼容能力。
+- `trip_agent/.env.example` - 将默认中转地址和模型更新为 `https://ztoken.zlux.top`、`gpt-5.6-luna`，推理强度设为 `high`。
+- `tests/trip_agent_test.py` - 增加 Responses 请求结构与响应解析回归测试。
+
+### 原因
+- 原 DeepSeek 配置使用失效密钥，请求返回 HTTP 401，导致规划流程无法获得模型响应。
+
+### 影响范围
+- 本地 Trip Agent 改用 Responses 协议；真实密钥只保存在被 Git 忽略的 `.env` 中。
+
+
 ## 2026-09-03 - 独立 Trip Agent 成为主线
 
 ### 变更内容

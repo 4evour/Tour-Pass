@@ -90,6 +90,47 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(response.content, '{"action":"ask"}')
         self.assertEqual(request_count, 2)
 
+    async def test_llm_uses_responses_wire_protocol(self) -> None:
+        messages = [{"role": "user", "content": "test"}]
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            self.assertEqual(request.url.path, "/responses")
+            payload = json.loads(request.content)
+            self.assertEqual(payload["model"], "gpt-5.6-luna")
+            self.assertEqual(payload["input"], messages)
+            self.assertEqual(payload["max_output_tokens"], 8192)
+            self.assertEqual(payload["reasoning"], {"effort": "high"})
+            self.assertFalse(payload["store"])
+            self.assertNotIn("temperature", payload)
+            return httpx.Response(
+                200,
+                json={
+                    "output": [
+                        {
+                            "type": "message",
+                            "content": [
+                                {
+                                    "type": "output_text",
+                                    "text": '{"action":"ask"}',
+                                }
+                            ],
+                        }
+                    ]
+                },
+            )
+
+        llm = OpenAICompatibleLLM()
+        llm.key = "test-key"
+        llm.base_url = "https://ztoken.zlux.top"
+        llm.model = "gpt-5.6-luna"
+        llm.wire_api = "responses"
+        llm.reasoning_effort = "high"
+        llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        response = await llm.ainvoke(messages)
+        await llm.close()
+
+        self.assertEqual(response.content, '{"action":"ask"}')
+
     async def test_model_json_decision_retries_from_clean_context(self) -> None:
         agent = TripAgent(
             RawLLM(
