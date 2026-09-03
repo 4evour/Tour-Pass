@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Tour Pass · 行程工作台</title>
-  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="/static/styles.css?v=20260903-4">
 </head>
 <body>
   <main class="shell">
@@ -13,7 +13,14 @@
         <span class="brand-mark">TP</span>
         <span><b>TOUR PASS</b><small>行程工作台</small></span>
       </a>
-      <div class="top-status"><i></i> 实时地点 · 路线 · 天气</div>
+      <div class="top-actions">
+        <div class="top-status"><i></i> 实时地点 · 路线 · 天气</div>
+        <span class="quota-chip" id="quota-chip">今日 5 次</span>
+        <a class="top-button" href="/explore" id="open-explore">发现行程</a>
+        <button class="top-button" id="new-trip" type="button">新行程</button>
+        <button class="top-button primary" id="open-saved" type="button">已保存行程 <span id="saved-count">0</span></button>
+        <button class="top-button" id="auth-button" type="button">登录</button>
+      </div>
     </header>
 
     <section class="workspace">
@@ -23,17 +30,65 @@
           <h1>先说想法，<br>再一起把路走通。</h1>
           <p>城市和天数足够开始。同行人、酒店、预算和节奏都可以在对话中继续补充。</p>
         </div>
-        <div class="messages" id="messages" aria-live="polite">
-          <div class="message assistant">告诉我这次旅行最在意什么。我会补齐每天的时间轴、交通衔接、住宿锚点和风险提醒。</div>
+        <div class="input-mode" role="tablist" aria-label="行程输入方式">
+          <button class="active" id="structured-tab" type="button" role="tab" aria-selected="true">快速填写</button>
+          <button id="conversation-tab" type="button" role="tab" aria-selected="false">自由描述</button>
         </div>
-        <form class="composer" id="composer">
-          <label for="input">继续完善行程</label>
-          <textarea id="input" rows="4" placeholder="例如：广州三天，住越秀区，带父母，少走路，想看老城和珠江夜景"></textarea>
-          <div class="composer-foot">
-            <span id="status">等待输入</span>
-            <button id="send" type="submit">规划行程</button>
+        <div class="input-pane structured-pane" id="structured-pane">
+          <form class="trip-form" id="trip-form">
+            <div class="form-intro"><b>先填关键条件</b><span>目的地必填，其余都可以跳过</span></div>
+            <div class="form-grid">
+              <label class="wide"><span>目的地城市 *</span><input id="destination" name="destination" required maxlength="40" placeholder="例如：广州"></label>
+              <label><span>游玩天数</span><select id="days" name="days">
+                <option value="1">1 天</option><option value="2">2 天</option><option value="3" selected>3 天</option>
+                <option value="4">4 天</option><option value="5">5 天</option><option value="6">6 天</option><option value="7">7 天</option>
+              </select></label>
+              <label><span>出发日期</span><input id="start-date" name="start_date" type="date"></label>
+              <label class="wide"><span>酒店或住宿区域</span><input id="hotel-area" name="hotel_area" maxlength="80" placeholder="例如：越秀区；没订也可以不填"></label>
+              <label><span>同行人</span><select id="travelers" name="travelers">
+                <option value="">未指定</option><option>独自旅行</option><option>情侣 / 夫妻</option><option>亲子家庭</option><option>带父母</option><option>朋友同行</option>
+              </select></label>
+              <label><span>旅行节奏</span><select id="pace" name="pace">
+                <option value="轻松">轻松</option><option value="标准" selected>标准</option><option value="紧凑">紧凑</option>
+              </select></label>
+              <label><span>主要交通</span><select id="transport" name="transport">
+                <option value="公共交通优先">公共交通</option><option value="打车优先">打车优先</option><option value="步行优先">步行优先</option><option value="自驾">自驾</option><option value="混合交通" selected>混合交通</option>
+              </select></label>
+              <label><span>预算偏好</span><select id="budget" name="budget">
+                <option value="">未指定</option><option value="经济">经济</option><option value="适中">适中</option><option value="品质">品质</option>
+              </select></label>
+              <label><span>每天开始</span><input id="day-start" name="day_start" type="time" value="09:00"></label>
+              <label><span>每天结束</span><input id="day-end" name="day_end" type="time" value="20:00"></label>
+              <label class="wide"><span>必去地点</span><textarea id="must-visits" name="must_visits" rows="2" maxlength="300" placeholder="例如：陈家祠、沙面、珠江夜游"></textarea></label>
+            </div>
+            <fieldset class="interest-field">
+              <legend>感兴趣的体验</legend>
+              <div class="interest-options">
+                <label><input type="checkbox" name="interest" value="历史人文"><span>历史人文</span></label>
+                <label><input type="checkbox" name="interest" value="自然风景"><span>自然风景</span></label>
+                <label><input type="checkbox" name="interest" value="当地美食"><span>当地美食</span></label>
+                <label><input type="checkbox" name="interest" value="亲子活动"><span>亲子活动</span></label>
+                <label><input type="checkbox" name="interest" value="城市夜景"><span>城市夜景</span></label>
+                <label><input type="checkbox" name="interest" value="小众街区"><span>小众街区</span></label>
+              </div>
+            </fieldset>
+            <label class="notes-field"><span>其他要求</span><textarea id="extra-notes" name="notes" rows="2" maxlength="500" placeholder="例如：少走路、不吃辣、需要午休"></textarea></label>
+            <button class="structured-submit" id="structured-submit" type="submit">生成完整行程 <span>→</span></button>
+          </form>
+        </div>
+        <div class="input-pane conversation-pane" id="conversation-pane" hidden>
+          <div class="messages" id="messages" aria-live="polite">
+            <div class="message assistant">告诉我这次旅行最在意什么。我会补齐每天的时间轴、交通衔接、住宿锚点和风险提醒。</div>
           </div>
-        </form>
+          <form class="composer" id="composer">
+            <label id="composer-label" for="input">继续完善行程</label>
+            <textarea id="input" rows="4" placeholder="例如：广州三天，住越秀区，带父母，少走路，想看老城和珠江夜景"></textarea>
+            <div class="composer-foot">
+              <span id="status">等待输入</span>
+              <button id="send" type="submit">规划行程</button>
+            </div>
+          </form>
+        </div>
       </aside>
 
       <section class="result-panel" id="result">
@@ -48,6 +103,39 @@
       </section>
     </section>
   </main>
-  <script src="/static/app.js" defer></script>
+  <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+  <aside class="saved-drawer" id="saved-drawer" aria-label="已保存行程" hidden>
+    <header>
+      <div><span class="kicker">TRIP ARCHIVE</span><h2>已保存行程</h2></div>
+      <button id="close-saved" type="button" aria-label="关闭已保存行程">关闭</button>
+    </header>
+    <p class="saved-note">每次成功生成或修改后自动保存。当前浏览器可以直接保存；注册后可跨设备找回。</p>
+    <div class="saved-list" id="saved-list"><p>正在读取…</p></div>
+  </aside>
+  <aside class="saved-drawer" id="explore-drawer" aria-label="发现公开行程" hidden>
+    <header>
+      <div><span class="kicker">PUBLIC TRIPS</span><h2>发现行程</h2></div>
+      <button id="close-explore" type="button">关闭</button>
+    </header>
+    <form class="explore-filter" id="explore-filter">
+      <input id="explore-city" maxlength="40" placeholder="按城市筛选">
+      <select id="explore-days"><option value="">全部天数</option><option value="1">1 天</option><option value="2">2 天</option><option value="3">3 天</option><option value="4">4 天</option><option value="5">5 天</option><option value="6">6 天</option><option value="7">7 天</option></select>
+      <button type="submit">查询</button>
+    </form>
+    <div class="saved-list" id="explore-list"><p>正在读取…</p></div>
+  </aside>
+  <dialog class="auth-dialog" id="auth-dialog">
+    <form method="dialog" class="auth-card" id="auth-form">
+      <header><div><span class="kicker">TOUR PASS ACCOUNT</span><h2 id="auth-title">登录</h2></div><button value="cancel" type="submit">关闭</button></header>
+      <p>无需注册也能规划。登录后可跨设备保存，并把行程发布到发现页。</p>
+      <label><span>用户名</span><input id="auth-username" autocomplete="username" minlength="3" maxlength="32" required></label>
+      <label><span>密码</span><input id="auth-password" type="password" autocomplete="current-password" minlength="8" maxlength="128" required></label>
+      <p class="auth-error" id="auth-error" hidden></p>
+      <button class="structured-submit" id="auth-submit" value="default" type="submit">登录</button>
+      <button class="auth-switch" id="auth-switch" value="default" type="button">没有账号？注册</button>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" hidden></div>
+  <script src="/static/app.js?v=20260903-4" defer></script>
 </body>
 </html>
