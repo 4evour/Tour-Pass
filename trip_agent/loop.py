@@ -3,19 +3,24 @@ from __future__ import annotations
 import asyncio
 import json
 import re
+import time
 import uuid
+from collections.abc import Callable
 from typing import Any
 
 from .contracts import ChatResponse
+from .observability import log_event
 from .plan_output import normalize_plan as normalize_complete_plan
 from .prompts import PLAN_OUTPUT_GUIDE
 from .providers.amap import AmapProvider
+from .store import TripStore
 
 SYSTEM_PROMPT = (
     """你是 Tour Pass 的资深旅行规划顾问。你的首要目标是交付内容完整、可直接执行、阅读体验良好的行程，而不是尽快结束。
 你可以主动调用高德地点搜索、地点详情、路线和天气工具。先在脑中形成 2~3 个区域组合，再查询最终会采用的地点。需要 2 个以上独立查询时必须使用 batch；典型流程是“天气与核心地点 -> 补充地点 -> 所有相邻交通段与酒店闭环 -> 完整 plan”，不要为每个工具单独往返模型。
 地点、地址、坐标、开放时间、路线距离、路线耗时和天气只能来自工具；体验取舍、节奏和叙事可以由你判断，但必须标记为 model_judgment。
 用户说“去广州/广州三天”时，广州就是目的地，绝不能再追问从哪座城市出发。只有目的地城市完全缺失时才追问；日期、酒店、预算、出发地等非关键缺失信息一律采用合理默认或写 unknown，并记录到 assumptions，不得为此中断规划。
+如果上下文包含“当前已保存行程”，用户是在修改已有方案：必须保留用户未要求改变的城市、天数、酒店和日程，只调整明确提出的部分，并输出修改后的完整替代行程。
 action 只能是 tool、ask、plan。调用工具时把工具名放在 tool 字段；交付时使用 action=plan。
 每次只输出一个 JSON 对象。不要输出 Markdown、解释文字或思维过程。
 一次请求最多执行 20 个高价值底层工具调用，batch 内每项计一次。优先分配为：天气 1 次；按区域或核心地点搜索 6~8 次；剩余预算查询每个相邻活动之间以及酒店首尾的 route。最多使用四轮 batch；地点证据齐备后必须把剩余预算优先用于路线，不要反复搜索同类地点。
@@ -52,12 +57,14 @@ class TripAgent:
         llm: Any,
         amap: AmapProvider | None = None,
         weather: Any = None,
+        store: TripStore | None = None,
         max_steps: int = 16,
         max_tool_calls: int = 20,
     ) -> None:
         self.llm = llm
         self.amap = amap or AmapProvider()
         self.weather = weather
+        self.store = store
         self.max_steps = max(1, min(max_steps, 24))
         self.max_tool_calls = max(1, min(max_tool_calls, 30))
         self.sessions: dict[str, list[dict[str, str]]] = {}
@@ -115,6 +122,8 @@ class TripAgent:
         allow_plan: bool = True,
         planning_status: str = "",
         route_only: bool = False,
+        trace: dict[str, Any] | None = None,
+        on_model_event: Callable[[dict[str, Any]], None] | None = None,
     ) -> dict[str, Any]:
         prompt = SYSTEM_PROMPT if allow_plan else TOOL_DECISION_PROMPT
         tools = self.tool_definitions()
@@ -141,7 +150,24 @@ class TripAgent:
             messages = list(base_messages)
             if attempt:
                 messages.append({"role": "user", "content": repair_instruction})
-            response = await self.llm.ainvoke(messages)
+                if on_model_event is not None:
+                    on_model_event(
+                        {
+                            "type": "model_retry",
+                            "attempt": attempt + 1,
+                            "reason": type(last_error).__name__,
+                        }
+                    )
+            response = await self.llm.ainvoke(
+                messages,
+                trace={**(trace or {}), "json_attempt": attempt + 1},
+                on_progress=on_model_event,
+                reasoning_effort=(
+                    getattr(self.llm, "final_reasoning_effort", "medium")
+                    if allow_plan
+                    else None
+                ),
+            )
             content = (
                 response.content if hasattr(response, "content") else str(response)
             )
@@ -288,15 +314,65 @@ class TripAgent:
         match = re.search(r"([一二两三四五六七])天", message)
         return chinese_days.get(match.group(1), 3) if match else 3
 
-    async def run(self, message: str, session_id: str | None = None) -> ChatResponse:
-        session_id = session_id or uuid.uuid4().hex[:12]
+    async def run(
+        self,
+        message: str,
+        session_id: str | None = None,
+        on_event: Callable[[dict[str, Any]], None] | None = None,
+        owner: tuple[str, str] = ("guest", "local"),
+    ) -> ChatResponse:
+        session_id = session_id or uuid.uuid4().hex
         run_id = uuid.uuid4().hex
-        history = self.sessions.setdefault(session_id, [])
+        if self.store is not None:
+            history = self.store.history(session_id, owner)
+            previous_plan = self.store.latest_plan(session_id, owner)
+        else:
+            history = self.sessions.setdefault(session_id, [])
+            previous_plan = None
+        if previous_plan is not None:
+            history.append(
+                {
+                    "role": "user",
+                    "content": "当前已保存行程如下。请把本轮用户要求视为对它的修改，并在重新核验受影响事实后输出完整替代行程："
+                    + json.dumps(
+                        previous_plan,
+                        ensure_ascii=False,
+                        separators=(",", ":"),
+                    ),
+                }
+            )
         history.append({"role": "user", "content": message})
         request_start = len(history) - 1
-        events: list[dict[str, Any]] = [
-            {"type": "run_started", "run_id": run_id, "session_id": session_id}
-        ]
+        started_at = time.perf_counter()
+        events: list[dict[str, Any]] = []
+
+        def emit_event(event: dict[str, Any]) -> None:
+            enriched = {
+                **event,
+                "elapsed_ms": round((time.perf_counter() - started_at) * 1000),
+            }
+            events.append(enriched)
+            log_event(
+                "planner_event",
+                **{
+                    "run_id": run_id,
+                    "session_id": session_id,
+                    **enriched,
+                },
+            )
+            if on_event is not None:
+                on_event(enriched)
+
+        emit_event({"type": "run_started", "run_id": run_id, "session_id": session_id})
+        if previous_plan is not None:
+            emit_event(
+                {
+                    "type": "session_restored",
+                    "message_count": len(history) - 2,
+                    "previous_city": previous_plan.get("city"),
+                    "previous_title": previous_plan.get("title"),
+                }
+            )
         tool_count = 0
         reply = ""
         plan = None
@@ -357,7 +433,14 @@ class TripAgent:
             elif tool == "weather":
                 weather_evidence = result
 
-        requested_days = self._requested_days(message)
+        stored_days = (
+            previous_plan.get("days") if isinstance(previous_plan, dict) else None
+        )
+        requested_days = (
+            len(stored_days)
+            if isinstance(stored_days, list) and stored_days
+            else self._requested_days(message)
+        )
         target_places = max(3, requested_days * 2)
         target_routes = min(
             requested_days * 3,
@@ -399,11 +482,33 @@ class TripAgent:
                         "content": "工具预算已用完。现在只能输出 action=plan 交付已核验地点，或 action=ask 追问；禁止继续调用工具。",
                     }
                 )
+            model_phase = (
+                "route_planning"
+                if route_only
+                else "final_planning"
+                if allow_plan
+                else "evidence_planning"
+            )
+            emit_event(
+                {
+                    "type": "model_started",
+                    "phase": model_phase,
+                    "step": step + 1,
+                    "detail": planning_status,
+                }
+            )
             decision = await self.ask_model(
                 model_history,
                 allow_plan=allow_plan,
                 planning_status=planning_status,
                 route_only=route_only,
+                trace={
+                    "run_id": run_id,
+                    "session_id": session_id,
+                    "stage": model_phase,
+                    "step": step + 1,
+                },
+                on_model_event=emit_event,
             )
             action = str(decision.get("action", "")).strip().lower()
             if action in tool_names:
@@ -417,6 +522,15 @@ class TripAgent:
                 action = "plan"
             elif not action and isinstance(decision.get("plan"), dict):
                 action = "plan"
+            emit_event(
+                {
+                    "type": "model_finished",
+                    "phase": model_phase,
+                    "step": step + 1,
+                    "action": action,
+                    "tool": str(decision.get("tool", "")),
+                }
+            )
             if action == "plan" and not allow_plan:
                 history.append(
                     {
@@ -424,7 +538,7 @@ class TripAgent:
                         "content": "证据尚不足，plan 已拒绝。请继续调用 batch，优先补足真实路线。",
                     }
                 )
-                events.append(
+                emit_event(
                     {
                         "type": "decision_rejected",
                         "action": "plan",
@@ -435,7 +549,7 @@ class TripAgent:
                 continue
             if action == "ask":
                 reply = str(decision.get("reply") or "还需要一个信息才能继续规划。")
-                events.append(
+                emit_event(
                     {"type": "assistant_message", "content": reply, "step": step + 1}
                 )
                 break
@@ -465,7 +579,7 @@ class TripAgent:
                         )
                     )
                     if invalid_route_call:
-                        events.append(
+                        emit_event(
                             {
                                 "type": "tool_rejected",
                                 "tool": name,
@@ -494,7 +608,7 @@ class TripAgent:
                         ):
                             fresh_calls.append(call)
                     if not fresh_calls:
-                        events.append(
+                        emit_event(
                             {
                                 "type": "tool_rejected",
                                 "tool": name,
@@ -520,7 +634,7 @@ class TripAgent:
                     else:
                         args = {"calls": fresh_calls}
                 elif tool_call_key(name, args) in successful_tool_calls:
-                    events.append(
+                    emit_event(
                         {
                             "type": "tool_rejected",
                             "tool": name,
@@ -542,7 +656,7 @@ class TripAgent:
                     else 1
                 )
                 if tool_count + tool_cost > self.max_tool_calls:
-                    events.append(
+                    emit_event(
                         {
                             "type": "tool_rejected",
                             "tool": name,
@@ -558,7 +672,8 @@ class TripAgent:
                     )
                     continue
                 tool_count += tool_cost
-                events.append(
+                tool_started_at = time.perf_counter()
+                emit_event(
                     {
                         "type": "tool_started",
                         "tool": name,
@@ -598,12 +713,15 @@ class TripAgent:
                             {"role": "user", "content": f"工具 {name} 返回：{compact}"},
                         ]
                     )
-                    events.append(
+                    emit_event(
                         {
                             "type": "tool_finished",
                             "tool": name,
                             "cache_hit": result.get("cache_hit", False),
                             "response_hash": result.get("response_hash", ""),
+                            "tool_elapsed_ms": round(
+                                (time.perf_counter() - tool_started_at) * 1000
+                            ),
                             "step": step + 1,
                         }
                     )
@@ -611,22 +729,41 @@ class TripAgent:
                     history.append(
                         {"role": "user", "content": f"工具 {name} 失败：{exc}"}
                     )
-                    events.append(
+                    emit_event(
                         {
                             "type": "tool_finished",
                             "tool": name,
                             "error": str(exc),
+                            "tool_elapsed_ms": round(
+                                (time.perf_counter() - tool_started_at) * 1000
+                            ),
                             "step": step + 1,
                         }
                     )
                 continue
             if action == "plan":
+                validation_started_at = time.perf_counter()
+                emit_event(
+                    {
+                        "type": "plan_validation_started",
+                        "step": step + 1,
+                    }
+                )
                 try:
                     plan = self.normalize_plan(
                         decision.get("plan") or {},
                         known_places=known_places,
                         route_evidence=route_evidence,
                         weather_evidence=weather_evidence,
+                    )
+                    emit_event(
+                        {
+                            "type": "plan_validation_finished",
+                            "step": step + 1,
+                            "validation_elapsed_ms": round(
+                                (time.perf_counter() - validation_started_at) * 1000
+                            ),
+                        }
                     )
                 except ValueError as exc:
                     history.append(
@@ -635,7 +772,7 @@ class TripAgent:
                             "content": f"最终结构无法解析：{exc}。请按完整 schema 修正后重新输出。",
                         }
                     )
-                    events.append(
+                    emit_event(
                         {
                             "type": "plan_rejected",
                             "error": str(exc),
@@ -644,7 +781,7 @@ class TripAgent:
                     )
                     continue
                 reply = str(decision.get("reply") or "行程已经整理完成。")
-                events.append(
+                emit_event(
                     {
                         "type": "plan_ready",
                         "step": step + 1,
@@ -653,7 +790,7 @@ class TripAgent:
                     }
                 )
                 break
-            events.append(
+            emit_event(
                 {
                     "type": "decision_rejected",
                     "action": action,
@@ -669,11 +806,35 @@ class TripAgent:
             )
         if plan is None and not reply:
             reply = "这次查询步骤已达到上限。请缩小范围，或补充城市和游玩天数后再试。"
-            events.append({"type": "run_error", "error": "step_budget_exceeded"})
+            emit_event({"type": "run_error", "error": "step_budget_exceeded"})
         history.append({"role": "assistant", "content": reply})
-        events.append(
+        if self.store is not None:
+            emit_event(
+                {
+                    "type": "persistence_started",
+                    "has_plan": plan is not None,
+                }
+            )
+            self.store.save_exchange(
+                session_id=session_id,
+                run_id=run_id,
+                owner=owner,
+                user_message=message,
+                reply=reply,
+                plan=plan,
+                events=events,
+            )
+            emit_event(
+                {
+                    "type": "persistence_finished",
+                    "has_plan": plan is not None,
+                }
+            )
+        emit_event(
             {"type": "run_finished", "run_id": run_id, "success": plan is not None}
         )
+        if self.store is not None and plan is not None:
+            self.store.update_events(run_id, events)
         return ChatResponse(
             session_id=session_id, run_id=run_id, reply=reply, plan=plan, events=events
         )

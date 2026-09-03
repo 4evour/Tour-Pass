@@ -1,4 +1,4 @@
-﻿# Python
+﻿﻿# Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -15,6 +15,9 @@ venv/
 # Runtime state
 trip_agent/runtime-cache.sqlite
 trip_agent/runtime-cache.sqlite-*
+trip_agent/trips.sqlite
+trip_agent/trips.sqlite-*
+trip_agent/logs/
 *.log
 
 # Editors and OS

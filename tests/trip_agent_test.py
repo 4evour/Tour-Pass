@@ -1,4 +1,5 @@
 from __future__ import annotations
+import asyncio
 
 import json
 import tempfile
@@ -7,12 +8,18 @@ from pathlib import Path
 from types import SimpleNamespace
 
 import httpx
+from fastapi import HTTPException, Request
 
+from trip_agent.app import stream_chat_events
+from trip_agent.auth import AuthManager
 from trip_agent.cache import ProviderCache
+from trip_agent.contracts import ChatRequest, ChatResponse
+from trip_agent.observability import close_logging, configure_logging, log_event
 from trip_agent.loop import TripAgent, extract_json
 from trip_agent.llm import OpenAICompatibleLLM
 from trip_agent.plan_output import normalize_plan, normalize_risk, normalize_transfer
 from trip_agent.providers.amap import AmapProvider
+from trip_agent.store import TripStore
 from trip_agent.providers.weather import WeatherProvider
 
 
@@ -20,7 +27,7 @@ class FakeLLM:
     def __init__(self, decisions: list[dict]) -> None:
         self.decisions = iter(decisions)
 
-    async def ainvoke(self, messages: list[dict]) -> SimpleNamespace:
+    async def ainvoke(self, messages: list[dict], **kwargs) -> SimpleNamespace:
         return SimpleNamespace(
             content=json.dumps(next(self.decisions), ensure_ascii=False)
         )
@@ -30,7 +37,7 @@ class RawLLM:
     def __init__(self, responses: list[str]) -> None:
         self.responses = iter(responses)
 
-    async def ainvoke(self, messages: list[dict]) -> SimpleNamespace:
+    async def ainvoke(self, messages: list[dict], **kwargs) -> SimpleNamespace:
         return SimpleNamespace(content=next(self.responses))
 
 
@@ -83,6 +90,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
 
         llm = OpenAICompatibleLLM()
         llm.key = "test-key"
+        llm.wire_api = "chat_completions"
         llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
         response = await llm.ainvoke([{"role": "user", "content": "test"}])
         await llm.close()
@@ -144,10 +152,37 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         llm.wire_api = "responses"
         llm.reasoning_effort = "high"
         llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
-        response = await llm.ainvoke(messages)
+        progress: list[dict] = []
+        response = await llm.ainvoke(messages, on_progress=progress.append)
         await llm.close()
 
         self.assertEqual(response.content, '{"action":"ask"}')
+        self.assertEqual(response.metrics["output_chars"], 16)
+        self.assertEqual(
+            [event["milestone"] for event in progress],
+            ["connected", "first_event", "first_text"],
+        )
+
+    def test_llm_usage_summary_keeps_token_metrics_only(self) -> None:
+        summary = OpenAICompatibleLLM._usage_summary(
+            {
+                "input_tokens": 120,
+                "output_tokens": 35,
+                "total_tokens": 155,
+                "output_tokens_details": {"reasoning_tokens": 20},
+                "attribution": {"large": "provider-specific payload"},
+            }
+        )
+
+        self.assertEqual(
+            summary,
+            {
+                "input_tokens": 120,
+                "output_tokens": 35,
+                "total_tokens": 155,
+                "output_tokens_details.reasoning_tokens": 20,
+            },
+        )
 
     async def test_model_json_decision_retries_from_clean_context(self) -> None:
         agent = TripAgent(
@@ -574,6 +609,244 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             self.assertTrue(second["cache_hit"])
             self.assertEqual(request_count, 1)
             self.assertEqual(cache.stats(), {"entries": 1, "fresh_entries": 1})
+
+    async def test_agent_publishes_progress_while_run_is_active(self) -> None:
+        published: list[dict] = []
+        agent = TripAgent(
+            FakeLLM([{"action": "ask", "reply": "请补充目的地"}]),
+            amap=FakeAmap(),
+        )
+
+        response = await agent.run("想旅行", on_event=published.append)
+
+        self.assertEqual(published, response.events)
+        self.assertEqual(
+            [event["type"] for event in published],
+            [
+                "run_started",
+                "model_started",
+                "model_finished",
+                "assistant_message",
+                "run_finished",
+            ],
+        )
+        self.assertTrue(all(event["elapsed_ms"] >= 0 for event in published))
+
+    async def test_stream_chat_events_yields_progress_before_result(self) -> None:
+        class StreamingAgent:
+            async def run(self, message, session_id, on_event):
+                on_event({"type": "run_started", "elapsed_ms": 0})
+                await asyncio.sleep(0.01)
+                return ChatResponse(
+                    session_id="session-1",
+                    run_id="run-1",
+                    reply="请补充目的地",
+                    events=[],
+                )
+
+        active_runtime = SimpleNamespace(
+            agent=StreamingAgent(), request_timeout_seconds=1
+        )
+        stream = stream_chat_events(ChatRequest(message="想旅行"), active_runtime)
+
+        first = await anext(stream)
+        remaining = [chunk async for chunk in stream]
+        first_payload = json.loads(
+            next(line[5:] for line in first.splitlines() if line.startswith("data:"))
+        )
+        result_payload = json.loads(
+            next(
+                line[5:]
+                for line in "".join(remaining).splitlines()
+                if line.startswith("data:")
+            )
+        )
+
+        self.assertEqual(first_payload["type"], "progress")
+        self.assertEqual(first_payload["event"]["type"], "run_started")
+        self.assertEqual(result_payload["type"], "result")
+        self.assertEqual(result_payload["result"]["run_id"], "run-1")
+
+    async def test_stream_chat_events_returns_typed_timeout(self) -> None:
+        class SlowAgent:
+            async def run(self, message, session_id, on_event):
+                on_event({"type": "run_started", "elapsed_ms": 0})
+                await asyncio.sleep(1)
+
+        active_runtime = SimpleNamespace(
+            agent=SlowAgent(), request_timeout_seconds=0.001
+        )
+        chunks = [
+            chunk
+            async for chunk in stream_chat_events(
+                ChatRequest(message="想旅行"), active_runtime
+            )
+        ]
+        payloads = [
+            json.loads(line[5:])
+            for line in "".join(chunks).splitlines()
+            if line.startswith("data:")
+        ]
+
+        self.assertEqual(payloads[-1]["type"], "error")
+        self.assertEqual(payloads[-1]["error"]["code"], "planning_timeout")
+
+    def test_structured_log_redacts_secrets_and_keeps_timing(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "planning.jsonl"
+            configure_logging(path)
+            log_event(
+                "llm_request_finished",
+                run_id="run-1",
+                total_ms=1234,
+                api_key="must-not-leak",
+            )
+            record = json.loads(path.read_text(encoding="utf-8").splitlines()[-1])
+            close_logging()
+
+        self.assertEqual(record["event"], "llm_request_finished")
+        self.assertEqual(record["total_ms"], 1234)
+        self.assertEqual(record["api_key"], "[REDACTED]")
+
+    def test_trip_store_survives_reopen_and_restores_latest_itinerary(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "trips.sqlite"
+            store = TripStore(path)
+            store.save_exchange(
+                session_id="session-1",
+                run_id="run-1",
+                user_message="长沙三天",
+                reply="已经规划完成",
+                plan={"city": "长沙", "title": "长沙三日行程"},
+                events=[{"type": "run_finished", "elapsed_ms": 1200}],
+            )
+            reopened = TripStore(path)
+
+            summaries = reopened.list_sessions()
+            detail = reopened.get_session("session-1")
+
+        self.assertEqual(len(summaries), 1)
+        self.assertEqual(summaries[0]["title"], "长沙三日行程")
+        self.assertEqual(detail["latest"]["plan"]["city"], "长沙")
+        self.assertEqual(
+            [message["role"] for message in detail["messages"]],
+            ["user", "assistant"],
+        )
+
+    async def test_agent_restores_saved_plan_for_follow_up_change(self) -> None:
+        class CapturingLLM:
+            final_reasoning_effort = "medium"
+
+            def __init__(self) -> None:
+                self.messages = []
+
+            async def ainvoke(self, messages, **kwargs):
+                self.messages = messages
+                return SimpleNamespace(
+                    content='{"action":"ask","reply":"需要确认修改范围"}'
+                )
+
+        with tempfile.TemporaryDirectory() as directory:
+            store = TripStore(Path(directory) / "trips.sqlite")
+            store.save_exchange(
+                session_id="session-1",
+                run_id="run-1",
+                user_message="长沙三天",
+                reply="已经规划完成",
+                plan={
+                    "city": "长沙",
+                    "title": "长沙三日行程",
+                    "days": [{"day": 1}, {"day": 2}, {"day": 3}],
+                },
+                events=[],
+            )
+            llm = CapturingLLM()
+            agent = TripAgent(llm, amap=FakeAmap(), store=store)
+
+            response = await agent.run("把第二天下午改得轻松一些", "session-1")
+
+            restored_context = "\n".join(message["content"] for message in llm.messages)
+            detail = store.get_session("session-1")
+
+        self.assertIn("当前已保存行程", restored_context)
+        self.assertIn("长沙三日行程", restored_context)
+        self.assertIn("session_restored", [event["type"] for event in response.events])
+        model_started = next(
+            event for event in response.events if event["type"] == "model_started"
+        )
+        self.assertIn("已核验地点 0/6", model_started["detail"])
+        self.assertEqual(len(detail["messages"]), 4)
+
+    def test_guest_quota_account_upgrade_and_owner_isolation(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            store = TripStore(Path(directory) / "platform.sqlite")
+            auth = AuthManager(store._sessions)
+            guest = auth._issue(None).identity
+            request = Request(
+                {"type": "http", "client": ("203.0.113.7", 1234), "headers": []}
+            )
+            for remaining in range(4, -1, -1):
+                self.assertEqual(auth.consume_quota(guest, request)[0], remaining)
+            with self.assertRaises(HTTPException) as rejected:
+                auth.consume_quota(guest, request)
+            self.assertEqual(rejected.exception.status_code, 429)
+
+            store.save_exchange(
+                owner=guest.owner,
+                session_id="private-trip",
+                run_id="private-run",
+                user_message="长沙三天",
+                reply="完成",
+                plan={"city": "长沙", "title": "长沙三日行程", "days": [{"day": 1}]},
+                events=[],
+            )
+            user_session = auth.register("旅行者一号", "correct-horse-battery", guest)
+            store.claim_guest_trips(guest.id, user_session.identity.id)
+
+            self.assertIsNone(store.get_session("private-trip", guest.owner))
+            self.assertIsNotNone(
+                store.get_session("private-trip", user_session.identity.owner)
+            )
+            self.assertEqual(
+                auth.login(
+                    "旅行者一号", "correct-horse-battery", "203.0.113.7"
+                ).identity.id,
+                user_session.identity.id,
+            )
+            store.close()
+
+    def test_guest_share_is_unlisted_until_account_upgrade(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            store = TripStore(Path(directory) / "sharing.sqlite")
+            auth = AuthManager(store._sessions)
+            guest = auth._issue(None).identity
+            store.save_exchange(
+                owner=guest.owner,
+                session_id="share-trip",
+                run_id="share-run",
+                user_message="青岛两天",
+                reply="完成",
+                plan={
+                    "city": "青岛",
+                    "title": "青岛海岸两日",
+                    "days": [{"day": 1}, {"day": 2}],
+                },
+                events=[],
+            )
+            unlisted = store.publish("share-trip", guest.owner)
+            self.assertEqual(unlisted["visibility"], "unlisted")
+            self.assertEqual(store.list_public(), [])
+
+            user = auth.register("青岛旅人", "correct-horse-battery", guest).identity
+            store.claim_guest_trips(guest.id, user.id)
+            published = store.publish("share-trip", user.owner)
+
+            self.assertEqual(published["visibility"], "public")
+            self.assertEqual(
+                store.get_public(published["slug"])["plan"]["city"], "青岛"
+            )
+            self.assertEqual(len(store.list_public(city="青岛", days=2)), 1)
+            store.close()
 
 
 if __name__ == "__main__":
