@@ -1,5 +1,48 @@
 # CHANGELOG
 
+## 2026-09-07 - 原生工具规划循环、硬校验与可重放评估
+
+### 变更内容
+- `trip_agent/llm.py`、`trip_agent/model_schema.py`、`trip_agent/loop.py` - 将模型交互切换为 Responses 原生 Function Calling；支持同轮并发地点、详情、路线和天气调用，限制工具、步骤与提交次数，并将完整行程改为 `submit_itinerary` 专用结构化提交。
+- `trip_agent/validation.py`、`trip_agent/plan_output.py` - 增加服务端 Hard Validator，校验用户约束、实体唯一性、开放风险、时间轴、真实路线和住宿闭环；校验失败只向模型返回结构化问题，最终失败则停止交付。
+- `trip_agent/reviewer.py`、`trip_agent/runtime.py` - 增加独立上下文 Reviewer，默认以影子模式审查已通过硬校验的行程，不参与事实生成或放宽硬门禁。
+- `trip_agent/context.py`、`trip_agent/store.py` - 将历史对话和上一版行程整理为版本化 `PlanningContext`，后续修改沿用已确认约束，同时保留会话所有权与持久化边界。
+- `trip_agent/evaluate.py`、`README.md` - 增加真实模型与 Provider 评估命令、完整请求/响应录制、版本与源码哈希、耗时和 Token 汇总，以及不访问外部服务的逐调用确定性重放；重放恢复录制时的初始与最终推理强度，避免配置漂移导致请求哈希不一致。
+- `trip_agent/static/app.js`、`trip_agent/static/styles.css` - 进度页新增原生工具批次、提交校验、修复和独立审查事件展示；继续只暴露系统动作，不展示模型内部推理。
+- `tests/trip_agent_test.py` - 覆盖原生工具协议、并发工具执行、严格提交契约、硬校验失败与修复、会话上下文、Reviewer、录制重放和路线端点别名解析。
+- `trip_agent/loop.py`、`trip_agent/model_schema.py` - 按证据收集与提交阶段裁剪工具契约，合并同批及跨轮的相同成功工具请求，并对可安全前移的活动执行确定性路线缓冲修复；住宿区域可使用已核验地标或交通站点作为路线锚点，区域同名餐厅不会再阻断锚点解析。
+- `trip_agent/plan_output.py`、`trip_agent/validation.py` - 预约状态只采信 Provider 证据；住宿区域与具名路线锚点可通过相同实体 ID 或坐标闭环，避免别名造成假失败。
+- `trip_agent/reviewer.py`、`trip_agent/llm.py` - Reviewer v3 使用高推理强度复核完整时间叙述与路线证据；Responses 流在服务端 `stream_read_error` 或已开始后的网络中断时执行有限重试。
+- `trip_agent/context.py`、`trip_agent/loop.py`、`trip_agent/runtime.py` - 增加分层模型记忆预算：仅注入近期对话、结构化约束、上一版与待修复行程摘要，并按候选相关性限制 POI 和路线证据；预算可通过环境变量配置且限制在安全范围内。
+
+### 原因
+- 旧循环依赖模型输出自定义动作 JSON，工具查询与最终交付缺少强制边界；模型可能在没有完整实体和路线证据时直接生成结果，失败后也缺少可审计的定向修复。
+- 需要用完整输入输出和外部调用记录复现一次规划，量化各阶段耗时、成本和硬门禁结果，而不是依赖人工挑选样例。
+- 规划循环此前会在每轮重新注入完整历史、上一版行程、候选行程和累计证据，导致长会话输入持续膨胀，并把已持久化但当前决策不需要的数据重复发送给模型。
+
+### 影响范围
+- 默认主链路允许最多 24 个模型步骤、48 次实际外部查询和 4 次结构化提交；模型调用次数由任务实际需要决定，但所有循环均受预算限制，相同成功工具请求不重复消耗 Provider 配额。
+- 只有通过 Hard Validator 的行程才能交付；Reviewer 影子结论不会改变交付结果。未经 Provider 核验的开放时间仍以警告展示，不冒充已确认事实。
+- 评估产物包含完整模型上下文与第三方结果并被 Git 忽略；结构化日志继续脱敏。知识图谱已按当前工作区以 `moderate`、`persistence=true` 刷新。
+- 完整行程、历史和 Provider 原始结果仍保留在数据库、日志与评估录制中；裁剪只影响模型可见上下文。评估清单记录实际记忆预算，重放沿用同一预算以保持确定性。
+
+## 2026-09-04 - 降低规划循环延迟并约束模型输出
+
+### 变更内容
+- `trip_agent/loop.py` - 将每轮变化的证据计数移到模型请求末尾，保持系统提示、工具契约和既有历史的稳定前缀，避免状态数字变化使整段上下文失去缓存。
+- `trip_agent/loop.py` - 地点详情与路线结果只向模型传递规划必需字段；高德原始响应继续用于服务端证据处理，但不再反复拼入模型上下文。
+- `trip_agent/llm.py`、`trip_agent/.env.example` - 工具决策默认使用 `low` 推理强度，最终规划使用 `medium`，避免简单决策和结构整理消耗 `high` 推理预算。
+- `trip_agent/model_schema.py`、`trip_agent/llm.py` - 通过 Responses `text.format` 启用严格 JSON Schema；不同阶段只允许对应动作、工具参数和完整行程字段。
+- `trip_agent/loop.py` - JSON 解析失败时记录输出哈希、长度、错误位置和括号状态，不记录模型正文或用户内容。
+- `tests/trip_agent_test.py` - 增加稳定请求前缀、解析诊断、工具证据压缩和严格 Schema 回归测试。
+
+### 原因
+- 线上一次一日游规划在最终模型请求中输入 31,414 token 且缓存归零，并产生 11,599 output token；动态系统提示和原始工具载荷放大了传输、推理与流式响应耗时。
+
+### 影响范围
+- 不改变当前模型调用上限或路线选择逻辑；模型输出新增 `decision` 根字段并由运行时解包，连续规划步骤更容易复用稳定前缀，模型可见工具上下文显著缩小。
+
+
 ## 2026-09-03 - 增加轻量账号、分享与公开行程
 
 ### 变更内容
@@ -8,6 +51,7 @@
 - `trip_agent/static/` - 增加剩余额度、登录注册、私密分享、账号公开发布、公开行程浏览筛选，以及调用浏览器打印对话框的 PDF 导出入口。
 - `Dockerfile`、`render.yaml`、`.dockerignore` - 增加 Render Web Service 与 PostgreSQL 的最小部署配置。
 - `README.md` - 汇总当前平台能力、一次完整规划调用链和校验边界；本轮明确不加入硬校验器，完整度报告继续作为透明提示而非交付门禁。
+- `.env`、`trip_agent/.env.example` 与生产环境 - 统一使用 `ztoken.zlux.top` 的 Responses 流式接口和 `gpt-5.6-luna`，规划与最终整理阶段均使用 `high` 推理强度；修正 Docker `--env-file` 将引号计入密钥导致的 401。
 
 ### 原因
 - 允许首次访问者无需注册即可体验，同时让后续用户跨设备保留行程，并在不引入 OAuth、Redis、任务队列或独立 PDF 服务的前提下形成可分享的公开内容。
