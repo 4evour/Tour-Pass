@@ -194,7 +194,7 @@ function formatDuration(milliseconds) {
 }
 
 function toolLabel(tool) {
-  return ({search_places:"地点搜索",place_detail:"地点详情",route:"真实路线",weather:"天气",batch:"并行查询"})[tool] || tool || "外部工具";
+  return ({search_places:"地点搜索",place_detail:"地点详情",route:"真实路线",weather:"天气",ask_user:"用户确认",submit_itinerary:"行程提交"})[tool] || tool || "外部工具";
 }
 
 function describeTool(tool, args={}) {
@@ -205,26 +205,21 @@ function describeTool(tool, args={}) {
   return toolLabel(tool);
 }
 
-function batchCalls(event) {
-  if (event.tool !== "batch") return [];
-  return list(object(event.arguments).calls).filter((call) => call && typeof call === "object");
-}
 
 function eventCopy(event) {
   if (event.type === "run_started") return ["请求已接收", "规划运行已经建立"];
   if (event.type === "session_restored") return ["已恢复原行程上下文", `${event.previous_title || event.previous_city || "已保存行程"} · ${event.message_count || 0} 条历史消息`];
   if (event.type === "model_started") {
     const labels = {
-      evidence_planning: "模型正在设计证据查询",
-      route_planning: "模型正在补齐真实交通",
-      final_planning: "模型正在生成完整行程"
+      agent_loop: "主规划器正在决定下一步"
     };
     return [labels[event.phase] || "模型正在规划下一步", event.detail || "正在读取已有证据和用户约束"];
   }
   if (event.type === "model_finished") {
-    const actions = {tool:"决定调用外部工具", ask:"决定向用户补充提问", plan:"已生成结构化行程"};
-    return ["模型本轮处理完成", actions[event.action] || `返回 ${event.action || "未知"} 动作`];
+    const count = list(event.tool_calls).length;
+    return ["模型本轮处理完成", count ? `返回 ${count} 个原生工具调用` : "未返回可执行工具调用"];
   }
+  if (event.type === "model_tool_calls") return ["模型已选择下一步动作", `${list(event.calls).length} 个原生工具调用`];
   if (event.type === "model_stream") {
     const copies = {
       connected: ["模型服务已连接", `HTTP ${event.http_status || "已连接"} · ${event.model_elapsed_ms || 0} 毫秒`],
@@ -235,22 +230,32 @@ function eventCopy(event) {
   }
   if (event.type === "model_retry") return ["模型输出需要重试", `第 ${event.attempt || "?"} 次生成 · ${event.reason || "格式错误"}`];
   if (event.type === "tool_started") {
-    const calls = batchCalls(event);
     return [
-      calls.length ? `并行核验 ${calls.length} 项事实` : `正在调用${toolLabel(event.tool)}`,
-      calls.length ? calls.map((call) => describeTool(call.tool, object(call.arguments))).join("；") : describeTool(event.tool, object(event.arguments))
+      `正在调用${toolLabel(event.tool)}`,
+      describeTool(event.tool, object(event.arguments))
     ];
   }
   if (event.type === "tool_finished") {
     return event.error
       ? [`${toolLabel(event.tool)}失败`, event.error]
-      : [`${toolLabel(event.tool)}完成`, event.cache_hit ? "命中本地缓存" : "已取得新的外部证据"];
+      : [
+          `${toolLabel(event.tool)}完成`,
+          event.reused ? "复用本轮已核验证据" : event.cache_hit ? "命中 Provider 缓存" : "已取得新的外部证据",
+        ];
   }
   if (event.type === "tool_rejected") return ["工具调用未执行", event.error || "调用不符合当前预算或阶段要求"];
   if (event.type === "decision_rejected") return ["规划动作需要修正", list(event.fields).join("、") || event.action || "动作无效"];
   if (event.type === "plan_rejected") return ["行程结构需要修正", event.error || "未通过结构解析"];
-  if (event.type === "plan_validation_started") return ["正在检查行程结构", "解析时间轴、地点证据和完整度字段"];
-  if (event.type === "plan_validation_finished") return ["行程结构检查完成", `耗时 ${event.validation_elapsed_ms || 0} 毫秒`];
+  if (event.type === "plan_validation_started") return ["正在执行硬校验", "检查用户约束、实体、时间轴、路线证据和住宿闭环"];
+  if (event.type === "plan_repair_applied") return ["已校准通勤时间轴", `${list(event.repairs).length} 处活动时间已加入路线执行缓冲`];
+  if (event.type === "plan_validation_finished") {
+    const failures = list(event.hard_failure_codes);
+    return event.passed
+      ? ["硬校验通过", `耗时 ${event.validation_elapsed_ms || 0} 毫秒 · ${list(event.warning_codes).length} 项提示`]
+      : ["硬校验未通过", failures.join("、") || "候选行程需要修复"];
+  }
+  if (event.type === "review_started") return ["独立审查开始", "影子 Reviewer 正在检查软质量，不改写行程"];
+  if (event.type === "review_finished") return ["独立审查完成", `${event.verdict || "unknown"} · ${event.issue_count || 0} 项建议`];
   if (event.type === "persistence_started") return ["正在保存本次对话", event.has_plan ? "写入行程、消息和生成轨迹" : "写入对话消息"];
   if (event.type === "persistence_finished") return ["本次对话已持久化", event.has_plan ? "行程已自动保存，可以继续修改" : "对话已保存"];
   if (event.type === "plan_ready") return ["行程结构已经就绪", `已使用 ${event.tool_count || 0} 次工具核验，完整度 ${event.completeness_score || 0}`];
@@ -261,15 +266,10 @@ function eventCopy(event) {
 
 function stageFor(event) {
   if (event.type === "run_started") return 0;
-  if (event.type === "model_started") {
-    return ({evidence_planning:1,route_planning:3,final_planning:4})[event.phase] ?? 1;
-  }
-  if (event.type === "tool_started") {
-    const includesRoute = event.tool === "route" || batchCalls(event).some((call) => call.tool === "route");
-    return includesRoute ? 3 : 2;
-  }
+  if (event.type === "model_started") return 1;
+  if (event.type === "tool_started") return event.tool === "route" ? 3 : 2;
   if (event.type === "plan_ready") return 5;
-  if (["plan_validation_started", "plan_validation_finished", "persistence_started", "persistence_finished"].includes(event.type)) return 5;
+  if (["plan_repair_applied", "plan_validation_started", "plan_validation_finished", "review_started", "review_finished", "persistence_started", "persistence_finished"].includes(event.type)) return 5;
   if (event.type === "run_finished" && event.success) return progressStages.length;
   return progressState.activeStage;
 }
@@ -277,14 +277,10 @@ function stageFor(event) {
 function eventRows() {
   return progressState.events.map((event) => {
     const [title, detail] = eventCopy(event);
-    const calls = batchCalls(event);
-    const nested = calls.length
-      ? `<ul>${calls.map((call) => `<li>${escapeHtml(describeTool(call.tool, object(call.arguments)))}</li>`).join("")}</ul>`
-      : "";
     return `<div class="trace-row">
       <time>${formatDuration(event.elapsed_ms || 0)}</time>
       <i></i>
-      <div><b>${escapeHtml(title)}</b>${detail ? `<p>${escapeHtml(detail)}</p>` : ""}${nested}</div>
+      <div><b>${escapeHtml(title)}</b>${detail ? `<p>${escapeHtml(detail)}</p>` : ""}</div>
     </div>`;
   }).join("");
 }
@@ -292,8 +288,7 @@ function eventRows() {
 function progressStats() {
   const modelCalls = progressState.events.filter((event) => event.type === "model_started").length;
   const toolCalls = progressState.events
-    .filter((event) => event.type === "tool_started")
-    .reduce((total, event) => total + Math.max(1, batchCalls(event).length), 0);
+    .filter((event) => event.type === "tool_started").length;
   const lastEvent = progressState.events.at(-1);
   const elapsed = lastEvent?.type === "run_finished"
     ? lastEvent.elapsed_ms
@@ -452,6 +447,15 @@ function renderQuality(completeness) {
   return `<section class="surface"><div class="section-label"><span>完整度检查</span><span>${report.passed || 0}/${report.total || 0}</span></div><div class="quality-grid">${list(report.checks).map((check) => `<div class="quality-check ${check.status}"><i></i><div><b>${textOr(check.name)}</b><br><span>${textOr(check.detail)}</span></div></div>`).join("")}</div></section>`;
 }
 
+function renderReview(review) {
+  const report = object(review);
+  const issues = list(report.issues);
+  if (!Object.keys(report).length) return "";
+  const verdict = report.verdict === "pass" ? "通过" : report.verdict === "revise" ? "建议调整" : "未执行";
+  const mode = report.shadow ? "影子审查，不阻断交付" : "交付前审查";
+  return `<section class="surface"><div class="section-label"><span>独立质量审查</span><span>${verdict} · ${mode}</span></div><p>${textOr(report.summary, "暂无审查说明")}</p>${issues.length ? `<div class="risk-grid">${issues.map((issue) => `<article class="risk ${issue.severity === "info" ? "info" : ""}"><b>${textOr(issue.code, "质量建议")}</b><p>${textOr(issue.message, "暂无详情")}${issue.suggestion ? `<br>建议：${escapeHtml(issue.suggestion)}` : ""}</p></article>`).join("")}</div>` : ""}</section>`;
+}
+
 function renderPlan(data, publicView=false) {
   if (!data.plan) return;
   const plan = data.plan;
@@ -459,6 +463,7 @@ function renderPlan(data, publicView=false) {
   const profile = object(plan.trip_profile);
   const hotel = object(plan.hotel);
   const completeness = object(plan.completeness);
+  const validationWarnings = list(object(plan.validation).warnings);
   const score = Math.max(0, Math.min(100, Number(completeness.score) || 0));
   const highlights = list(narrative.highlights);
   const runLabel = String(data.run_id || "published").slice(0, 10);
@@ -503,6 +508,8 @@ function renderPlan(data, publicView=false) {
         ${renderMap(object(plan.map))}
       </div>
       <div style="margin-top:14px">${renderQuality(completeness)}</div>
+      <div style="margin-top:14px">${renderReview(object(plan.review))}</div>
+      ${validationWarnings.length ? `<div style="margin-top:14px">${renderRisks(validationWarnings.map((warning) => ({level:"warning",title:warning.code === "OPENING_UNVERIFIED" ? "开放状态待确认" : "校验提示",detail:warning.message,source:"unknown"})))}</div>` : ""}
       ${list(plan.warnings).length ? `<div style="margin-top:14px">${renderRisks(list(plan.warnings).map((warning) => ({level:"warning",title:"全局提醒",detail:warning})))}</div>` : ""}
     </div>`;
 }
