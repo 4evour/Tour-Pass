@@ -18,6 +18,7 @@ trip_agent/runtime-cache.sqlite-*
 trip_agent/trips.sqlite
 trip_agent/trips.sqlite-*
 trip_agent/logs/
+artifacts/
 *.log
 
 # Editors and OS
