@@ -15,6 +15,9 @@ from .observability import log_event
 
 
 class OpenAICompatibleLLM:
+    requires_decision_wrapper = True
+    supports_tool_calls = True
+
     def __init__(self) -> None:
         self.key = (
             os.environ.get("TRIP_AGENT_LLM_KEY")
@@ -40,16 +43,16 @@ class OpenAICompatibleLLM:
         else:
             raise ValueError(f"Unsupported TRIP_AGENT_WIRE_API: {wire_api}")
         self.reasoning_effort = os.environ.get(
-            "TRIP_AGENT_REASONING_EFFORT", "high"
+            "TRIP_AGENT_REASONING_EFFORT", "medium"
         ).strip()
         self.final_reasoning_effort = os.environ.get(
-            "TRIP_AGENT_FINAL_REASONING_EFFORT", "medium"
+            "TRIP_AGENT_FINAL_REASONING_EFFORT", "high"
         ).strip()
         self.max_output_tokens = max(
             2048,
             min(
-                int(os.environ.get("TRIP_AGENT_MAX_OUTPUT_TOKENS", "8192")),
-                8192,
+                int(os.environ.get("TRIP_AGENT_MAX_OUTPUT_TOKENS", "12000")),
+                16384,
             ),
         )
         self.timeout_seconds = max(
@@ -69,7 +72,14 @@ class OpenAICompatibleLLM:
         if self.client and not self.client.is_closed:
             await self.client.aclose()
 
-    def _request(self, messages: list[dict[str, Any]]) -> tuple[str, dict[str, Any]]:
+    def _request(
+        self,
+        messages: list[dict[str, Any]],
+        *,
+        output_format: dict[str, Any] | None = None,
+        tools: list[dict[str, Any]] | None = None,
+        tool_choice: str | dict[str, Any] | None = None,
+    ) -> tuple[str, dict[str, Any]]:
         base_url = self.base_url.rstrip("/")
         if self.wire_api == "responses":
             payload: dict[str, Any] = {
@@ -81,24 +91,52 @@ class OpenAICompatibleLLM:
             }
             if self.reasoning_effort:
                 payload["reasoning"] = {"effort": self.reasoning_effort}
+            if output_format is not None:
+                payload["text"] = {"format": output_format}
+            if tools:
+                payload["tools"] = tools
+                payload["tool_choice"] = tool_choice or "auto"
             return f"{base_url}/responses", payload
-        return (
-            f"{base_url}/chat/completions",
+        response_format = (
             {
-                "model": self.model,
-                "max_tokens": self.max_output_tokens,
-                "temperature": 0.2,
-                "messages": messages,
-                "response_format": {"type": "json_object"},
-            },
+                "type": "json_schema",
+                "json_schema": {
+                    key: value for key, value in output_format.items() if key != "type"
+                },
+            }
+            if output_format is not None
+            else {"type": "json_object"}
         )
+        payload = {
+            "model": self.model,
+            "max_tokens": self.max_output_tokens,
+            "temperature": 0.2,
+            "messages": self._chat_messages(messages),
+            "response_format": response_format,
+        }
+        if tools:
+            payload["tools"] = [
+                {
+                    "type": "function",
+                    "function": {
+                        "name": tool["name"],
+                        "description": tool["description"],
+                        "parameters": tool["parameters"],
+                        "strict": tool.get("strict", True),
+                    },
+                }
+                for tool in tools
+            ]
+            payload["tool_choice"] = tool_choice or "auto"
+        return f"{base_url}/chat/completions", payload
 
     def _response_content(self, body: dict[str, Any]) -> str:
         if self.wire_api == "chat_completions":
             choices = body.get("choices") or []
             if not choices or not isinstance(choices[0].get("message"), dict):
                 raise RuntimeError("LLM response has no message")
-            return str(choices[0]["message"].get("content", ""))
+            content = choices[0]["message"].get("content")
+            return content if isinstance(content, str) else ""
 
         output_text = body.get("output_text")
         if isinstance(output_text, str) and output_text:
@@ -113,9 +151,73 @@ class OpenAICompatibleLLM:
                 text = content.get("text")
                 if isinstance(text, str) and text:
                     text_parts.append(text)
-        if not text_parts:
-            raise RuntimeError("LLM response has no output text")
         return "".join(text_parts)
+
+    @staticmethod
+    def _response_tool_calls(
+        body: dict[str, Any], wire_api: str
+    ) -> list[dict[str, Any]]:
+        if wire_api == "chat_completions":
+            choices = body.get("choices") or []
+            message = choices[0].get("message") if choices else {}
+            raw_calls = message.get("tool_calls") if isinstance(message, dict) else []
+            calls = []
+            for item in raw_calls or []:
+                function = item.get("function") if isinstance(item, dict) else {}
+                if not isinstance(function, dict):
+                    continue
+                calls.append(
+                    {
+                        "call_id": str(item.get("id") or uuid.uuid4().hex),
+                        "name": str(function.get("name") or ""),
+                        "arguments": str(function.get("arguments") or "{}"),
+                    }
+                )
+            return calls
+        return [
+            {
+                "call_id": str(
+                    item.get("call_id") or item.get("id") or uuid.uuid4().hex
+                ),
+                "name": str(item.get("name") or ""),
+                "arguments": str(item.get("arguments") or "{}"),
+            }
+            for item in body.get("output") or []
+            if isinstance(item, dict) and item.get("type") == "function_call"
+        ]
+
+    @staticmethod
+    def _chat_messages(messages: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        converted: list[dict[str, Any]] = []
+        for message in messages:
+            if message.get("type") == "function_call":
+                converted.append(
+                    {
+                        "role": "assistant",
+                        "content": None,
+                        "tool_calls": [
+                            {
+                                "id": message["call_id"],
+                                "type": "function",
+                                "function": {
+                                    "name": message["name"],
+                                    "arguments": message["arguments"],
+                                },
+                            }
+                        ],
+                    }
+                )
+            elif message.get("type") == "function_call_output":
+                converted.append(
+                    {
+                        "role": "tool",
+                        "tool_call_id": message["call_id"],
+                        "content": message["output"],
+                    }
+                )
+            else:
+                converted.append(message)
+        return converted
 
     @staticmethod
     def _usage_summary(usage: dict[str, Any]) -> dict[str, int]:
@@ -140,7 +242,7 @@ class OpenAICompatibleLLM:
         payload: dict[str, Any],
         *,
         on_progress: Callable[[dict[str, Any]], None] | None = None,
-    ) -> tuple[str, dict[str, Any]]:
+    ) -> tuple[str, list[dict[str, Any]], dict[str, Any]]:
         started_at = time.perf_counter()
         text_parts: list[str] = []
         completed_text = ""
@@ -151,6 +253,7 @@ class OpenAICompatibleLLM:
         first_text_ms: int | None = None
         connected_ms: int | None = None
         usage: dict[str, Any] = {}
+        tool_calls: list[dict[str, Any]] = []
 
         def elapsed_ms() -> int:
             return round((time.perf_counter() - started_at) * 1000)
@@ -200,6 +303,15 @@ class OpenAICompatibleLLM:
                         text = event.get("text")
                         if isinstance(text, str):
                             completed_text = text
+                    elif event_type == "response.output_item.done":
+                        item = event.get("item")
+                        if (
+                            isinstance(item, dict)
+                            and item.get("type") == "function_call"
+                        ):
+                            tool_calls = self._response_tool_calls(
+                                {"output": [item]}, "responses"
+                            )
                     elif event_type == "response.completed":
                         completed = event.get("response")
                         if isinstance(completed, dict):
@@ -208,6 +320,11 @@ class OpenAICompatibleLLM:
                                 usage = self._usage_summary(raw_usage)
                             if not text_parts:
                                 completed_text = self._response_content(completed)
+                            completed_calls = self._response_tool_calls(
+                                completed, "responses"
+                            )
+                            if completed_calls:
+                                tool_calls = completed_calls
                     elif event_type in {
                         "error",
                         "response.failed",
@@ -235,17 +352,22 @@ class OpenAICompatibleLLM:
             raise
 
         content = "".join(text_parts) or completed_text
-        if not content:
-            raise RuntimeError("LLM stream has no output text")
-        return content, {
-            "connected_ms": connected_ms,
-            "first_event_ms": first_event_ms,
-            "first_text_ms": first_text_ms,
-            "total_ms": elapsed_ms(),
-            "sse_event_count": event_count,
-            "output_chars": len(content),
-            "usage": usage,
-        }
+        if not content and not tool_calls:
+            raise RuntimeError("LLM stream has neither output text nor tool calls")
+        return (
+            content,
+            tool_calls,
+            {
+                "connected_ms": connected_ms,
+                "first_event_ms": first_event_ms,
+                "first_text_ms": first_text_ms,
+                "total_ms": elapsed_ms(),
+                "sse_event_count": event_count,
+                "output_chars": len(content),
+                "tool_call_count": len(tool_calls),
+                "usage": usage,
+            },
+        )
 
     async def ainvoke(
         self,
@@ -254,6 +376,9 @@ class OpenAICompatibleLLM:
         trace: dict[str, Any] | None = None,
         on_progress: Callable[[dict[str, Any]], None] | None = None,
         reasoning_effort: str | None = None,
+        output_format: dict[str, Any] | None = None,
+        tools: list[dict[str, Any]] | None = None,
+        tool_choice: str | dict[str, Any] | None = None,
     ) -> Any:
         if not self.available:
             raise RuntimeError("TRIP_AGENT_LLM_KEY is not configured")
@@ -267,7 +392,12 @@ class OpenAICompatibleLLM:
         )
         retryable_statuses = {429, 500, 502, 503, 504}
         last_error: Exception | None = None
-        endpoint, payload = self._request(messages)
+        endpoint, payload = self._request(
+            messages,
+            output_format=output_format,
+            tools=tools,
+            tool_choice=tool_choice,
+        )
         if self.wire_api == "responses" and reasoning_effort is not None:
             if reasoning_effort:
                 payload["reasoning"] = {"effort": reasoning_effort}
@@ -284,6 +414,15 @@ class OpenAICompatibleLLM:
             len(json.dumps(message, ensure_ascii=False, separators=(",", ":")))
             for message in messages
         )
+        tool_schema_chars = len(
+            json.dumps(tools or [], ensure_ascii=False, separators=(",", ":"))
+        )
+        output_schema_chars = len(
+            json.dumps(output_format or {}, ensure_ascii=False, separators=(",", ":"))
+        )
+        request_chars = len(
+            json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+        )
         log_event(
             "llm_request_started",
             call_id=call_id,
@@ -296,6 +435,9 @@ class OpenAICompatibleLLM:
             ),
             message_count=len(messages),
             input_chars=input_chars,
+            tool_schema_chars=tool_schema_chars,
+            output_schema_chars=output_schema_chars,
+            request_chars=request_chars,
             max_output_tokens=self.max_output_tokens,
             **trace_fields,
         )
@@ -303,7 +445,7 @@ class OpenAICompatibleLLM:
         for attempt in range(3):
             try:
                 if self.wire_api == "responses":
-                    content, metrics = await self._stream_response(
+                    content, tool_calls, metrics = await self._stream_response(
                         endpoint,
                         headers,
                         payload,
@@ -316,12 +458,19 @@ class OpenAICompatibleLLM:
                         json=payload,
                     )
                     response.raise_for_status()
-                    content = self._response_content(response.json())
+                    body = response.json()
+                    content = self._response_content(body)
+                    tool_calls = self._response_tool_calls(body, self.wire_api)
+                    if not content and not tool_calls:
+                        raise RuntimeError(
+                            "LLM response has neither text nor tool calls"
+                        )
                     metrics = {
                         "total_ms": round(
                             (time.perf_counter() - request_started) * 1000
                         ),
                         "output_chars": len(content),
+                        "tool_call_count": len(tool_calls),
                     }
                 log_event(
                     "llm_request_finished",
@@ -330,7 +479,9 @@ class OpenAICompatibleLLM:
                     **metrics,
                     **trace_fields,
                 )
-                return SimpleNamespace(content=content, metrics=metrics)
+                return SimpleNamespace(
+                    content=content, tool_calls=tool_calls, metrics=metrics
+                )
             except httpx.HTTPStatusError as exc:
                 if exc.response.status_code not in retryable_statuses:
                     log_event(
@@ -355,6 +506,24 @@ class OpenAICompatibleLLM:
                 )
                 raise
             except httpx.TransportError as exc:
+                last_error = exc
+            except RuntimeError as exc:
+                if not any(
+                    marker in str(exc)
+                    for marker in (
+                        "stream_read_error",
+                        "stream interrupted after response started",
+                    )
+                ):
+                    log_event(
+                        "llm_request_failed",
+                        call_id=call_id,
+                        attempt=attempt + 1,
+                        error_type=type(exc).__name__,
+                        total_ms=round((time.perf_counter() - request_started) * 1000),
+                        **trace_fields,
+                    )
+                    raise
                 last_error = exc
             except Exception as exc:
                 log_event(

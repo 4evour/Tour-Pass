@@ -15,6 +15,16 @@ def integer(value: Any, default: int = 0) -> int:
         return default
 
 
+def interval_minutes(start: Any, end: Any, fallback: Any = 0) -> int:
+    values: list[int] = []
+    for value in (start, end):
+        match = re.fullmatch(r"([01]?\d|2[0-3]):([0-5]\d)", text(value))
+        if match is None:
+            return integer(fallback)
+        values.append(int(match.group(1)) * 60 + int(match.group(2)))
+    return values[1] - values[0] if values[1] > values[0] else integer(fallback)
+
+
 def mapping(value: Any) -> dict[str, Any]:
     return value if isinstance(value, dict) else {}
 
@@ -23,36 +33,69 @@ def items(value: Any) -> list[Any]:
     return value if isinstance(value, list) else []
 
 
-def normalize_anchor(value: Any, fallback: str) -> dict[str, Any]:
+def normalize_anchor(
+    value: Any,
+    fallback: str,
+    evidence: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     anchor = mapping(value)
+    evidence = evidence or {}
+    user_fact = text(anchor.get("source")) == "user"
+    anchor_type = text(anchor.get("type"), "area")
+    if (
+        anchor_type == "hotel"
+        and evidence
+        and "住宿服务" not in text(evidence.get("type"))
+    ):
+        anchor_type = "area"
     return {
         "name": text(anchor.get("name"), fallback),
-        "type": text(anchor.get("type"), "area"),
-        "location": None,
+        "place_id": text(evidence.get("id"))
+        or (text(anchor.get("place_id")) if user_fact else None),
+        "type": anchor_type,
+        "location": text(evidence.get("location"))
+        or (text(anchor.get("location")) if user_fact else None),
+        "source": "amap" if evidence else ("user" if user_fact else "model_judgment"),
     }
 
 
-def normalize_reservation(value: Any) -> dict[str, Any]:
+def normalize_reservation(
+    value: Any,
+    evidence: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     reservation = mapping(value)
+    verified = mapping(mapping(evidence).get("reservation"))
+    required = verified.get("required")
     return {
-        "required": bool(reservation.get("required", False)),
-        "status": text(reservation.get("status"), "unknown"),
-        "note": text(reservation.get("note")) or None,
+        "required": required if isinstance(required, bool) else None,
+        "status": text(verified.get("status"), "unknown"),
+        "note": text(verified.get("note") or reservation.get("note")) or None,
     }
 
 
-def normalize_hotel(value: Any) -> dict[str, Any]:
+def normalize_hotel(
+    value: Any,
+    evidence: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     hotel = mapping(value)
+    evidence = evidence or {}
     requested_source = text(hotel.get("source"), "model_judgment")
-    source = "user" if requested_source == "user" else "model_judgment"
+    user_fact = requested_source == "user"
+    source = "amap" if evidence else ("user" if user_fact else "model_judgment")
     status = text(hotel.get("status"), "unknown")
-    if source != "user" and status == "confirmed":
+    if not user_fact and status == "confirmed":
         status = "recommended_area"
     return {
         "name": text(hotel.get("name"), "待确认住宿区域"),
-        "area": text(hotel.get("area")),
-        "address": text(hotel.get("address")) or None if source == "user" else None,
-        "location": text(hotel.get("location")) or None if source == "user" else None,
+        "place_id": text(evidence.get("id"))
+        or (text(hotel.get("place_id")) if user_fact else None),
+        "area": text(
+            hotel.get("area") or evidence.get("adname") or evidence.get("business_area")
+        ),
+        "address": text(evidence.get("address"))
+        or (text(hotel.get("address")) if user_fact else None),
+        "location": text(evidence.get("location"))
+        or (text(hotel.get("location")) if user_fact else None),
         "status": status,
         "reason": text(hotel.get("reason")),
         "source": source,
@@ -129,7 +172,11 @@ def normalize_plan(
 ) -> dict[str, Any]:
     if not isinstance(plan, dict) or not items(plan.get("days")):
         raise ValueError("plan.days 不能为空")
-    hotel = normalize_hotel(plan.get("hotel"))
+    raw_hotel = mapping(plan.get("hotel"))
+    hotel = normalize_hotel(
+        raw_hotel,
+        resolve_place(raw_hotel, known_places),
+    )
     days = [
         normalize_day(
             day,
@@ -188,13 +235,25 @@ def normalize_day(
     )
     cluster = mapping(day.get("area_cluster"))
     fallback_anchor = hotel["name"]
-    start_anchor = normalize_anchor(day.get("start_anchor"), fallback_anchor)
-    end_anchor = normalize_anchor(day.get("end_anchor"), fallback_anchor)
+    raw_start_anchor = mapping(day.get("start_anchor"))
+    raw_end_anchor = mapping(day.get("end_anchor"))
+    start_anchor = normalize_anchor(
+        raw_start_anchor,
+        fallback_anchor,
+        resolve_place(raw_start_anchor, known_places),
+    )
+    end_anchor = normalize_anchor(
+        raw_end_anchor,
+        fallback_anchor,
+        resolve_place(raw_end_anchor, known_places),
+    )
     if hotel.get("name"):
         hotel_anchor = {
             "name": hotel["name"],
+            "place_id": hotel.get("place_id"),
             "type": "hotel" if hotel.get("status") == "confirmed" else "area",
             "location": hotel.get("location"),
+            "source": hotel.get("source", "model_judgment"),
         }
         if start_anchor["type"] != "station":
             start_anchor = dict(hotel_anchor)
@@ -225,7 +284,11 @@ def normalize_day(
         },
         "schedule": schedule,
         "transfers": [
-            normalize_transfer(item, route_evidence, schedule)
+            normalize_transfer(
+                item,
+                route_evidence,
+                [start_anchor, *schedule, end_anchor],
+            )
             for item in items(day.get("transfers"))
         ],
         "risks": [
@@ -272,22 +335,26 @@ def normalize_schedule_item(
         or evidence.get("opentime")
         or biz_ext.get("open_time")
         or biz_ext.get("open_time2")
+        or biz_ext.get("opentime2")
+        or biz_ext.get("opentime")
     )
     opening_match = text(value.get("opening_match"), "unknown")
     if not verified_opening or opening_match not in {"matched", "risk"}:
         opening_match = "unknown"
+    start = text(value.get("start"))
+    end = text(value.get("end"))
     return {
         "period": text(value.get("period"), "afternoon"),
         "type": item_type,
-        "start": text(value.get("start")),
-        "end": text(value.get("end")),
-        "duration_minutes": integer(value.get("duration_minutes")),
+        "start": start,
+        "end": end,
+        "duration_minutes": interval_minutes(start, end, value.get("duration_minutes")),
         "place_id": text(canonical_id) or None,
         "name": text(evidence.get("name") or value.get("name")),
         "reason": text(value.get("reason")),
         "opening_hours": verified_opening or None,
         "opening_match": opening_match,
-        "reservation": normalize_reservation(value.get("reservation")),
+        "reservation": normalize_reservation(value.get("reservation"), evidence),
         "address": text(canonical_address) or None,
         "area": text(canonical_area) or None,
         "location": text(canonical_location) or None,
@@ -302,10 +369,10 @@ def place_key(value: Any) -> str:
     return re.sub(r"[\s（）()·\-—]", "", text(value).casefold())
 
 
-def schedule_location(name: Any, schedule: list[dict[str, Any]]) -> str:
+def schedule_endpoint(name: Any, schedule: list[dict[str, Any]]) -> dict[str, Any]:
     requested = place_key(name)
     if not requested:
-        return ""
+        return {}
     for item in schedule:
         candidate = place_key(item.get("name"))
         if (
@@ -317,8 +384,12 @@ def schedule_location(name: Any, schedule: list[dict[str, Any]]) -> str:
                 or requested in candidate
             )
         ):
-            return text(item.get("location"))
-    return ""
+            return item
+    return {}
+
+
+def schedule_location(name: Any, schedule: list[dict[str, Any]]) -> str:
+    return text(schedule_endpoint(name, schedule).get("location"))
 
 
 def normalize_transfer(
@@ -328,8 +399,10 @@ def normalize_transfer(
 ) -> dict[str, Any]:
     transfer = mapping(value)
     evidence_hash = text(transfer.get("evidence_hash"))
-    from_location = schedule_location(transfer.get("from_name"), schedule)
-    to_location = schedule_location(transfer.get("to_name"), schedule)
+    from_endpoint = schedule_endpoint(transfer.get("from_name"), schedule)
+    to_endpoint = schedule_endpoint(transfer.get("to_name"), schedule)
+    from_location = text(from_endpoint.get("location"))
+    to_location = text(to_endpoint.get("location"))
     evidence = next(
         (
             item
@@ -344,8 +417,8 @@ def normalize_transfer(
         None,
     )
     return {
-        "from_name": text(transfer.get("from_name")),
-        "to_name": text(transfer.get("to_name")),
+        "from_name": text(from_endpoint.get("name"), text(transfer.get("from_name"))),
+        "to_name": text(to_endpoint.get("name"), text(transfer.get("to_name"))),
         "from_location": from_location or None,
         "to_location": to_location or None,
         "mode": text((evidence or transfer).get("mode"), "unknown"),
@@ -357,7 +430,7 @@ def normalize_transfer(
         "distance_meters": integer(evidence.get("distance_meters")) if evidence else 0,
         "instructions": text(transfer.get("instructions")),
         "source": "amap" if evidence else "unknown",
-        "evidence_hash": evidence_hash if evidence else None,
+        "evidence_hash": text(evidence.get("response_hash")) if evidence else None,
     }
 
 

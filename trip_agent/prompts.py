@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 PLAN_OUTPUT_GUIDE = r"""
-最终交付时，action 必须为 "plan"，reply 是 1~2 句可直接展示给用户的总览，plan 必须严格使用下面的 JSON 结构。不要省略字段；未知事实写 null 或 "unknown"，不能编造。
+最终交付时必须调用 submit_itinerary；reply 是 1~2 句可直接展示给用户的总览，plan 必须严格使用下面的 JSON 结构。不要省略字段；未知事实写 null 或 "unknown"，不能编造。
 
 {
   "city": "城市",
