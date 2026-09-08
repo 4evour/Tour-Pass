@@ -20,11 +20,10 @@ from trip_agent.context import (
     compact_plan_memory,
     compact_repair_memory,
 )
-from trip_agent.contracts import ChatRequest, ChatResponse
+from trip_agent.contracts import ChatRequest, ChatResponse, StructuredTripRequest
 from trip_agent.observability import close_logging, configure_logging, log_event
 from trip_agent.loop import TripAgent
 from trip_agent.llm import OpenAICompatibleLLM
-from trip_agent.model_schema import planner_tools
 from trip_agent.plan_output import (
     normalize_plan,
     normalize_risk,
@@ -34,107 +33,174 @@ from trip_agent.plan_output import (
 from trip_agent.providers.amap import AmapProvider
 from trip_agent.store import TripStore
 from trip_agent.providers.weather import WeatherProvider
-from trip_agent.reviewer import ItineraryReviewer
 from trip_agent.validation import HardValidator
+from trip_agent.workflow import _select_place
 
 
-def native_response(decision: dict, call_prefix: str = "call") -> SimpleNamespace:
-    action = str(decision.get("action") or "")
-    if decision.get("calls"):
-        calls = decision["calls"]
-    elif action == "tool" or decision.get("tool"):
-        calls = [
+def skeleton_plan(city: str = "长沙", days: int = 1) -> dict:
+    day_items = []
+    for day in range(1, days + 1):
+        day_items.append(
             {
-                "tool": decision.get("tool"),
-                "arguments": decision.get("arguments") or {},
+                "day": day,
+                "theme": "山水与城市",
+                "summary": "按相邻片区安排主要景点和用餐。",
+                "primary_area": "岳麓区",
+                "secondary_areas": [],
+                "stops": [
+                    {
+                        "type": "visit",
+                        "name": "岳麓山",
+                        "search_query": "岳麓山",
+                        "period": "morning",
+                        "duration_minutes": 120,
+                        "reason": "代表性城市景观。",
+                        "optional": False,
+                        "practical_tip": "穿舒适的鞋。",
+                    },
+                    {
+                        "type": "visit",
+                        "name": "橘子洲",
+                        "search_query": "橘子洲",
+                        "period": "afternoon",
+                        "duration_minutes": 90,
+                        "reason": "体验城市滨水景观。",
+                        "optional": True,
+                        "practical_tip": "留意景区接驳信息。",
+                    },
+                ],
             }
-        ]
-    elif action == "plan":
-        calls = [
+        )
+    return {
+        "title": f"{city}{days}日行程",
+        "overview": "兼顾代表性景点、交通和休息。",
+        "hotel": {
+            "name": "五一广场住宿区",
+            "area": "五一广场",
+            "status": "recommended_area",
+            "reason": "公共交通方便。",
+            "search_query": "五一广场地铁站",
+        },
+        "candidate_areas": [
             {
-                "tool": "submit_itinerary",
-                "arguments": {
-                    "reply": decision.get("reply") or "",
-                    "plan": decision.get("plan") or {},
-                },
-            }
-        ]
-    elif action == "ask":
-        calls = [
+                "name": "五一广场",
+                "highlights": ["交通方便"],
+                "tradeoffs": ["热门时段人多"],
+                "fit_score": 90,
+                "selected": True,
+            },
             {
-                "tool": "ask_user",
-                "arguments": {"question": decision.get("reply") or ""},
-            }
-        ]
-    else:
-        calls = []
-    return SimpleNamespace(
-        content="",
-        tool_calls=[
-            {
-                "call_id": f"{call_prefix}-{index}",
-                "name": item["tool"],
-                "arguments": json.dumps(item["arguments"], ensure_ascii=False),
-            }
-            for index, item in enumerate(calls)
+                "name": "岳麓区",
+                "highlights": ["靠近主要景点"],
+                "tradeoffs": ["夜间选择较少"],
+                "fit_score": 80,
+                "selected": False,
+            },
         ],
-        metrics={},
-    )
+        "days": day_items,
+        "narrative": {
+            "headline": "按片区慢慢游",
+            "summary": "减少折返并保留用餐时间。",
+            "highlights": ["山水", "城市"],
+            "tradeoffs": ["开放时间需复核"],
+        },
+        "warnings": [],
+    }
 
 
-class FakeLLM:
-    def __init__(self, decisions: list[dict]) -> None:
-        self.decisions = iter(decisions)
+class SkeletonLLM:
+    reasoning_effort = "medium"
+    model = "fake-model"
+
+    def __init__(self, skeleton: dict | None = None) -> None:
+        self.skeleton = skeleton or skeleton_plan()
         self.call_count = 0
-
-    async def ainvoke(self, messages: list[dict], **kwargs) -> SimpleNamespace:
-        self.call_count += 1
-        return native_response(next(self.decisions), f"call-{self.call_count}")
-
-
-class RecordingLLM(FakeLLM):
-    final_reasoning_effort = "medium"
-    reasoning_effort = "low"
-
-    def __init__(self, decisions: list[dict]) -> None:
-        super().__init__(decisions)
         self.messages: list[list[dict]] = []
         self.invocations: list[dict] = []
 
     async def ainvoke(self, messages: list[dict], **kwargs) -> SimpleNamespace:
-        self.invocations.append(dict(kwargs))
+        self.call_count += 1
         self.messages.append(list(messages))
-        if kwargs.get("output_format") is not None:
-            self.call_count += 1
-            decision = next(self.decisions)
-            return SimpleNamespace(
-                content=json.dumps({"decision": decision}, ensure_ascii=False)
-            )
-        return await super().ainvoke(messages, **kwargs)
+        self.invocations.append(dict(kwargs))
+        return SimpleNamespace(
+            content=json.dumps(self.skeleton, ensure_ascii=False),
+            tool_calls=[],
+            metrics={
+                "usage": {
+                    "input_tokens": 2000,
+                    "output_tokens": 500,
+                    "input_tokens_details.cached_tokens": 1024,
+                }
+            },
+        )
 
 
 class FakeAmap:
     def __init__(self) -> None:
         self.search_calls = 0
+        self.route_calls = 0
 
     async def close(self) -> None:
         return None
 
     async def search_places(self, city: str, keywords: str, limit: int = 8) -> dict:
         self.search_calls += 1
+        if "五一广场" in keywords:
+            place = {
+                "id": "AREA1",
+                "name": "五一广场地铁站",
+                "type": "交通设施服务;地铁站",
+                "address": "五一大道",
+                "area": "芙蓉区",
+                "location": "112.977,28.196",
+            }
+        elif "橘子洲" in keywords:
+            place = {
+                "id": "B002",
+                "name": "橘子洲景区",
+                "type": "风景名胜",
+                "address": "橘子洲头",
+                "area": "岳麓区",
+                "location": "112.962,28.174",
+            }
+        elif "餐厅" in keywords or "午餐" in keywords:
+            place = {
+                "id": "FOOD1",
+                "name": "岳麓区本地餐厅",
+                "type": "餐饮服务;中餐厅",
+                "address": "麓山路",
+                "area": "岳麓区",
+                "location": "112.950,28.180",
+            }
+        else:
+            place = {
+                "id": "B001",
+                "name": "岳麓山国家重点风景名胜区",
+                "type": "风景名胜",
+                "address": "登高路58号",
+                "area": "岳麓区",
+                "location": "112.94,28.18",
+            }
         return {
-            "places": [
-                {
-                    "id": "B001",
-                    "name": "岳麓山国家重点风景名胜区",
-                    "address": "登高路58号",
-                    "area": "岳麓区",
-                    "location": "112.94,28.18",
-                }
-            ],
+            "places": [place],
             "source": "amap",
             "cache_hit": False,
-            "response_hash": "sha256:place",
+            "response_hash": f"sha256:{place['id']}",
+        }
+
+    async def route(
+        self, city: str, origin: str, destination: str, mode: str = "driving"
+    ) -> dict:
+        self.route_calls += 1
+        return {
+            "origin": origin,
+            "destination": destination,
+            "mode": mode,
+            "distance_meters": 2400,
+            "duration_seconds": 1200,
+            "source": "amap",
+            "cache_hit": False,
+            "response_hash": f"sha256:{origin}:{destination}:{mode}",
         }
 
 
@@ -178,7 +244,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         def handler(request: httpx.Request) -> httpx.Response:
             nonlocal request_count
             request_count += 1
-            self.assertEqual(json.loads(request.content)["max_tokens"], 12000)
+            self.assertEqual(json.loads(request.content)["max_tokens"], 4096)
             if request_count == 1:
                 raise httpx.RemoteProtocolError(
                     "incomplete chunked read", request=request
@@ -223,7 +289,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             payload = json.loads(request.content)
             self.assertEqual(payload["model"], "gpt-5.6-luna")
             self.assertEqual(payload["input"], messages)
-            self.assertEqual(payload["max_output_tokens"], 12000)
+            self.assertEqual(payload["max_output_tokens"], 4096)
             self.assertEqual(payload["reasoning"], {"effort": "high"})
             self.assertTrue(payload["stream"])
             self.assertFalse(payload["store"])
@@ -263,6 +329,42 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             ["connected", "first_event", "first_text"],
         )
 
+    async def test_llm_hedges_slow_structured_response(self) -> None:
+        request_count = 0
+
+        async def handler(_request: httpx.Request) -> httpx.Response:
+            nonlocal request_count
+            request_count += 1
+            if request_count == 1:
+                await asyncio.sleep(0.08)
+            return httpx.Response(
+                200,
+                headers={"content-type": "text/event-stream"},
+                content=(
+                    "event: response.output_text.done\n"
+                    'data: {"type":"response.output_text.done",'
+                    '"text":"{\\"ok\\":true}"}\n\n'
+                    "data: [DONE]\n\n"
+                ).encode(),
+            )
+
+        llm = OpenAICompatibleLLM()
+        llm.key = "test-key"
+        llm.wire_api = "responses"
+        llm.hedge_delay_seconds = 0.01
+        llm.timeout_seconds = 1
+        llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        response = await llm.ainvoke(
+            [{"role": "user", "content": "test"}],
+            output_format={"type": "json_schema"},
+        )
+        await llm.close()
+
+        self.assertEqual(response.content, '{"ok":true}')
+        self.assertEqual(request_count, 2)
+        self.assertTrue(response.metrics["hedged"])
+        self.assertEqual(response.metrics["provider_request_count"], 2)
+
     async def test_llm_retries_transient_responses_stream_error(self) -> None:
         request_count = 0
 
@@ -297,54 +399,6 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(response.content, '{"action":"ask"}')
         self.assertEqual(request_count, 2)
 
-    async def test_llm_parses_native_responses_function_call(self) -> None:
-        tools = planner_tools()
-
-        def handler(request: httpx.Request) -> httpx.Response:
-            payload = json.loads(request.content)
-            self.assertEqual(payload["tools"], tools)
-            self.assertEqual(payload["tool_choice"], "required")
-            return httpx.Response(
-                200,
-                headers={"content-type": "text/event-stream"},
-                content=(
-                    "event: response.completed\n"
-                    'data: {"type":"response.completed","response":{"output":['
-                    '{"type":"function_call","call_id":"call-1",'
-                    '"name":"search_places","arguments":'
-                    '"{\\"city\\":\\"长沙\\",\\"keywords\\":\\"岳麓山\\",'
-                    '\\"limit\\":3}"}],"usage":{"input_tokens":10,'
-                    '"output_tokens":5}}}\n\n'
-                    "data: [DONE]\n\n"
-                ).encode(),
-            )
-
-        llm = OpenAICompatibleLLM()
-        llm.key = "test-key"
-        llm.base_url = "https://ztoken.zlux.top"
-        llm.model = "gpt-5.6-luna"
-        llm.wire_api = "responses"
-        llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
-        response = await llm.ainvoke(
-            [{"role": "user", "content": "test"}],
-            tools=tools,
-            tool_choice="required",
-        )
-        await llm.close()
-
-        self.assertEqual(response.content, "")
-        self.assertEqual(
-            response.tool_calls,
-            [
-                {
-                    "call_id": "call-1",
-                    "name": "search_places",
-                    "arguments": ('{"city":"长沙","keywords":"岳麓山","limit":3}'),
-                }
-            ],
-        )
-        self.assertEqual(response.metrics["tool_call_count"], 1)
-
     def test_chat_tool_call_without_text_has_empty_content(self) -> None:
         llm = OpenAICompatibleLLM()
         llm.wire_api = "chat_completions"
@@ -375,218 +429,179 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             },
         )
 
-    def test_model_tool_result_drops_large_provider_payloads(self) -> None:
-        route = TripAgent._model_tool_result(
-            "route",
-            {
-                "origin": "120.1,36.1",
-                "destination": "120.2,36.2",
-                "mode": "transit",
-                "duration_seconds": 1200,
-                "distance_meters": 8000,
-                "source": "amap",
-                "response_hash": "sha256:route",
-                "summary": {"segments": ["large-sensitive-route-payload"]},
-            },
-        )
-        detail = TripAgent._model_tool_result(
-            "place_detail",
-            {
-                "source": "amap",
-                "response_hash": "sha256:place",
-                "place": {
-                    "id": "B001",
-                    "name": "栈桥",
-                    "location": "120.1,36.1",
-                    "business_hours": "08:00-18:00",
-                    "photos": ["large-sensitive-photo-payload"],
-                    "biz_ext": {
-                        "rating": "4.8",
-                        "open_time": "08:00-18:00",
-                        "unsupported": "large-sensitive-business-payload",
-                    },
-                },
-            },
-        )
+    def test_structured_trip_request_requires_destination(self) -> None:
+        with self.assertRaises(ValueError):
+            ChatRequest(message="", trip=StructuredTripRequest(destination=""))
 
-        serialized = json.dumps([route, detail], ensure_ascii=False)
-        self.assertNotIn("large-sensitive", serialized)
-        self.assertNotIn("summary", route)
-        self.assertEqual(route["duration_seconds"], 1200)
-        self.assertEqual(detail["place"]["business_hours"], "08:00-18:00")
+        request = ChatRequest(
+            message="",
+            trip=StructuredTripRequest(
+                destination="广州",
+                days=3,
+                date_range={"start": "2026-10-01", "end": "2026-10-03"},
+                travellers="两位成人",
+                pace="relaxed",
+                transport_preference="public_transit",
+                daily_window={"start": "08:30", "end": "19:00"},
+            ),
+        )
+        payload = request.trip.model_dump(mode="json")
+        self.assertEqual(payload["destination"], "广州")
+        self.assertEqual(payload["days"], 3)
         self.assertEqual(
-            detail["place"]["biz_ext"],
-            {"rating": "4.8", "open_time": "08:00-18:00"},
+            payload["date_range"],
+            {"start": "2026-10-01", "end": "2026-10-03"},
+        )
+        self.assertEqual(payload["travellers"], "两位成人")
+        self.assertEqual(payload["pace"], "relaxed")
+        self.assertEqual(payload["transport_preference"], "public_transit")
+        self.assertEqual(payload["daily_window"], {"start": "08:30", "end": "19:00"})
+
+    async def test_fast_workflow_calls_model_once_and_builds_verified_plan(
+        self,
+    ) -> None:
+        llm = SkeletonLLM()
+        amap = FakeAmap()
+        published: list[dict] = []
+        agent = TripAgent(llm, amap=amap)
+
+        response = await agent.run(
+            "请生成行程",
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "daily_window": {"start": "09:00", "end": "20:00"},
+                "transport_preference": "public_transit",
+                "travellers": "两位成人",
+                "must_visits": ["岳麓山"],
+            },
+            on_event=published.append,
         )
 
-    async def test_agent_only_sends_compact_route_evidence_to_model(self) -> None:
-        class LargeResultAmap(FakeAmap):
+        self.assertTrue(response.plan)
+        self.assertEqual(llm.call_count, 1)
+        self.assertEqual(amap.search_calls, 4)
+        self.assertEqual(amap.route_calls, 4)
+        self.assertEqual(llm.invocations[0]["reasoning_effort"], "medium")
+        self.assertIn("prompt_cache_key", llm.invocations[0])
+        self.assertNotIn("tools", llm.invocations[0])
+        self.assertTrue(
+            any(item["type"] == "meal" for item in response.plan["days"][0]["schedule"])
+        )
+        validation = [
+            event
+            for event in response.events
+            if event["type"] == "plan_validation_finished"
+        ][-1]
+        self.assertTrue(validation["passed"])
+        self.assertEqual(
+            sum(event["type"] == "model_started" for event in response.events), 1
+        )
+        self.assertTrue(any(event["type"] == "prompt_cache" for event in published))
+
+    async def test_fast_workflow_delivers_partial_plan_for_optional_unresolved_stop(
+        self,
+    ) -> None:
+        class PartialAmap(FakeAmap):
             async def search_places(
                 self, city: str, keywords: str, limit: int = 8
             ) -> dict:
-                return {
-                    "places": [
-                        {
-                            "id": f"B00{index}",
-                            "name": f"地点{index}",
-                            "location": f"120.{index},36.{index}",
-                        }
-                        for index in range(1, 4)
-                    ],
-                    "source": "amap",
-                    "cache_hit": False,
-                    "response_hash": "sha256:places",
-                }
+                if "橘子洲" in keywords:
+                    self.search_calls += 1
+                    return {
+                        "places": [],
+                        "source": "amap",
+                        "cache_hit": False,
+                        "response_hash": "sha256:empty",
+                    }
+                return await super().search_places(city, keywords, limit)
 
-            async def route(
-                self,
-                city: str,
-                origin: str,
-                destination: str,
-                mode: str = "driving",
-            ) -> dict:
-                return {
-                    "origin": origin,
-                    "destination": destination,
-                    "mode": mode,
-                    "distance_meters": 5000,
-                    "duration_seconds": 900,
-                    "summary": {"segments": ["large-route-payload"]},
-                    "source": "amap",
-                    "cache_hit": False,
-                    "response_hash": "sha256:route",
-                }
-
-        llm = RecordingLLM(
-            [
-                {
-                    "action": "tool",
-                    "tool": "search_places",
-                    "arguments": {"city": "青岛", "keywords": "海滨景点"},
-                },
-                {
-                    "action": "tool",
-                    "tool": "route",
-                    "arguments": {
-                        "city": "青岛",
-                        "origin": "120.1,36.1",
-                        "destination": "120.2,36.2",
-                        "mode": "transit",
-                    },
-                },
-                {"action": "ask", "reply": "证据已收集"},
-            ]
-        )
-        result = await TripAgent(llm, amap=LargeResultAmap(), max_steps=3).run(
-            "青岛一日游"
+        llm = SkeletonLLM()
+        agent = TripAgent(llm, amap=PartialAmap())
+        response = await agent.run(
+            "请生成行程",
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "daily_window": {"start": "09:00", "end": "20:00"},
+                "must_visits": ["岳麓山"],
+            },
         )
 
-        final_input = json.dumps(llm.messages[-1], ensure_ascii=False)
-        route_event = [
-            event
-            for event in result.events
-            if event["type"] == "tool_finished" and event["tool"] == "route"
-        ][0]
-        self.assertNotIn("large-route-payload", final_input)
-        self.assertGreater(
-            route_event["raw_result_chars"], route_event["model_context_chars"]
-        )
-        self.assertIn("当前已核验证据", final_input)
-        first_tools = {tool["name"] for tool in llm.invocations[0]["tools"]}
-        second_tools = {tool["name"] for tool in llm.invocations[1]["tools"]}
-        final_tools = {tool["name"] for tool in llm.invocations[2]["tools"]}
-        self.assertNotIn("submit_itinerary", first_tools)
-        self.assertNotIn("submit_itinerary", second_tools)
-        self.assertIn("submit_itinerary", final_tools)
-        self.assertEqual(llm.invocations[0]["reasoning_effort"], "low")
-        self.assertEqual(llm.invocations[2]["reasoning_effort"], "medium")
-
-    async def test_agent_executes_native_parallel_tool_calls(self) -> None:
-        native_calls = {
-            "calls": [
-                {
-                    "tool": "search_places",
-                    "arguments": {"city": "长沙", "keywords": "岳麓山"},
-                },
-                {
-                    "tool": "search_places",
-                    "arguments": {"city": "长沙", "keywords": "橘子洲"},
-                },
-            ],
-        }
-        amap = FakeAmap()
-        result = await TripAgent(
-            FakeLLM([native_calls, {"action": "ask", "reply": "证据已收集"}]),
-            amap=amap,
-            max_steps=2,
-        ).run("长沙一日游")
-
-        self.assertEqual(amap.search_calls, 2)
-        self.assertEqual(result.reply, "证据已收集")
+        self.assertTrue(response.plan)
+        self.assertEqual(llm.call_count, 1)
         self.assertNotIn(
-            "error",
-            next(event for event in result.events if event["type"] == "tool_finished"),
+            "橘子洲",
+            [item["name"] for item in response.plan["days"][0]["schedule"]],
+        )
+        self.assertTrue(
+            any("可选项已移除" in warning for warning in response.plan["warnings"])
         )
 
-    async def test_agent_coalesces_duplicate_calls_in_same_parallel_batch(
-        self,
-    ) -> None:
-        duplicate_calls = {
-            "calls": [
-                {
-                    "tool": "search_places",
-                    "arguments": {"city": "长沙", "keywords": "岳麓山"},
-                },
-                {
-                    "tool": "search_places",
-                    "arguments": {"city": "长沙", "keywords": "岳麓山"},
-                },
-            ],
-        }
-        amap = FakeAmap()
-        result = await TripAgent(
-            FakeLLM([duplicate_calls, {"action": "ask", "reply": "证据已收集"}]),
-            amap=amap,
-            max_steps=2,
-        ).run("长沙一日游")
-
-        self.assertEqual(amap.search_calls, 1)
-        reused = [
-            event
-            for event in result.events
-            if event["type"] == "tool_finished" and event.get("reused")
+    async def test_fast_workflow_keeps_lunch_inside_meal_window(self) -> None:
+        skeleton = skeleton_plan()
+        skeleton["days"][0]["stops"] = [
+            {
+                "type": "visit",
+                "name": "岳麓山",
+                "search_query": "岳麓山",
+                "period": "morning",
+                "duration_minutes": 180,
+            },
+            {
+                "type": "visit",
+                "name": "橘子洲",
+                "search_query": "橘子洲",
+                "period": "morning",
+                "duration_minutes": 180,
+            },
+            {
+                "type": "meal",
+                "name": "岳麓区本地餐厅",
+                "search_query": "岳麓区本地餐厅",
+                "period": "lunch",
+                "duration_minutes": 75,
+            },
         ]
-        self.assertEqual(len(reused), 1)
+        agent = TripAgent(SkeletonLLM(skeleton), amap=FakeAmap())
 
-    async def test_agent_reuses_repeated_native_tool_results(self) -> None:
-        native_calls = {
-            "calls": [
-                {
-                    "tool": "search_places",
-                    "arguments": {"city": "长沙", "keywords": "岳麓山"},
-                },
-                {
-                    "tool": "search_places",
-                    "arguments": {"city": "长沙", "keywords": "橘子洲"},
-                },
-            ],
-        }
+        response = await agent.run(
+            "请生成行程",
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "daily_window": {"start": "09:00", "end": "20:00"},
+            },
+        )
+
+        self.assertTrue(response.plan)
+        lunch = next(
+            item
+            for item in response.plan["days"][0]["schedule"]
+            if item["period"] == "lunch"
+        )
+        self.assertLess(lunch["start"], "13:30")
+
+    async def test_fast_workflow_enforces_provider_request_budget(self) -> None:
+        llm = SkeletonLLM()
         amap = FakeAmap()
-        result = await TripAgent(
-            FakeLLM(
-                [native_calls, native_calls, {"action": "ask", "reply": "证据已收集"}]
-            ),
-            amap=amap,
-            max_steps=3,
-        ).run("长沙一日游")
+        agent = TripAgent(llm, amap=amap, max_provider_calls=5)
 
-        self.assertEqual(amap.search_calls, 2)
-        reused = [
-            event
-            for event in result.events
-            if event["type"] == "tool_finished" and event.get("reused")
-        ]
-        self.assertEqual(len(reused), 2)
+        response = await agent.run(
+            "请生成行程",
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "daily_window": {"start": "09:00", "end": "20:00"},
+                "must_visits": ["岳麓山"],
+            },
+        )
+
+        self.assertTrue(response.plan)
+        self.assertEqual(amap.search_calls + amap.route_calls, 5)
+        self.assertTrue(
+            any("保守估算" in warning for warning in response.plan["warnings"])
+        )
 
     def test_risk_source_requires_matching_weather_evidence(self) -> None:
         weather = {"provider": "qweather", "response_hash": "sha256:weather"}
@@ -747,6 +762,21 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(verified["source"], "amap")
         self.assertEqual(verified["duration_minutes"], 9)
         self.assertEqual(verified["distance_meters"], 720)
+        estimated = normalize_transfer(
+            {
+                "from_name": "模型地点",
+                "to_name": "散步",
+                "mode": "transit",
+                "duration_minutes": 18,
+                "distance_meters": 2200,
+                "source": "estimate",
+            },
+            [],
+            schedule,
+        )
+        self.assertEqual(estimated["source"], "estimate")
+        self.assertEqual(estimated["duration_minutes"], 18)
+        self.assertEqual(estimated["distance_meters"], 2200)
         aliased_anchor = normalize_transfer(
             {
                 "from_name": "五一广场",
@@ -772,6 +802,28 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(aliased_anchor["from_name"], "五一广场住宿区")
         self.assertEqual(aliased_anchor["to_name"], "岳麓山风景名胜区")
         self.assertEqual(aliased_anchor["source"], "amap")
+        specific_endpoint = normalize_transfer(
+            {
+                "from_name": "广州塔",
+                "to_name": "广州塔璇玑地中海自助旋转餐厅(广州塔店)",
+                "mode": "walking",
+                "duration_minutes": 8,
+                "distance_meters": 80,
+                "source": "estimate",
+            },
+            [],
+            [
+                {"name": "广州塔", "location": "113.324521,23.106428"},
+                {
+                    "name": "广州塔璇玑地中海自助旋转餐厅(广州塔店)",
+                    "location": "113.324530,23.106430",
+                },
+            ],
+        )
+        self.assertEqual(
+            specific_endpoint["to_name"],
+            "广州塔璇玑地中海自助旋转餐厅(广州塔店)",
+        )
 
         mismatched_route = [dict(route_evidence[0], origin="113.0,23.0")]
         mismatched = normalize_transfer(
@@ -803,148 +855,6 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             "周一至周日 07:00-22:00；节假日以公告为准",
         )
         self.assertEqual(normalized["opening_match"], "matched")
-
-    async def test_agent_enriches_model_schedule_with_canonical_place(self) -> None:
-        llm = FakeLLM(
-            [
-                {
-                    "tool": "search_places",
-                    "arguments": {"city": "长沙", "keywords": "岳麓山"},
-                },
-                {
-                    "action": "plan",
-                    "reply": "已规划",
-                    "plan": {
-                        "city": "长沙",
-                        "title": "岳麓山慢游",
-                        "hotel": {
-                            "name": "五一广场住宿区",
-                            "status": "recommended_area",
-                        },
-                        "candidate_comparison": {
-                            "areas": [
-                                {"name": "岳麓山", "selected": True},
-                                {"name": "五一广场", "selected": False},
-                            ]
-                        },
-                        "days": [
-                            {
-                                "day": 1,
-                                "theme": "山水",
-                                "start_time": "09:00",
-                                "end_time": "12:00",
-                                "start_anchor": {"name": "五一广场住宿区"},
-                                "end_anchor": {"name": "五一广场住宿区"},
-                                "schedule": [
-                                    {
-                                        "period": "morning",
-                                        "type": "visit",
-                                        "name": "岳麓山",
-                                        "reason": "登高看城",
-                                        "start": "09:00",
-                                        "end": "12:00",
-                                        "duration_minutes": 180,
-                                        "opening_match": "unknown",
-                                    }
-                                ],
-                                "transfers": [],
-                                "risks": [],
-                            }
-                        ],
-                        "narrative": {
-                            "headline": "把一天留给岳麓山",
-                            "summary": "上午集中游览，不追求打卡数量。",
-                        },
-                    },
-                },
-            ]
-        )
-        amap = FakeAmap()
-        result = await TripAgent(llm, amap=amap, max_steps=3).run("长沙一日游")
-
-        schedule_item = result.plan["days"][0]["schedule"][0]
-        self.assertEqual(amap.search_calls, 1)
-        self.assertEqual(result.reply, "已规划")
-        self.assertEqual(schedule_item["place_id"], "B001")
-        self.assertEqual(schedule_item["name"], "岳麓山国家重点风景名胜区")
-        self.assertEqual(schedule_item["duration_minutes"], 180)
-        self.assertEqual(schedule_item["source"], "amap")
-        self.assertIn("completeness", result.plan)
-
-    async def test_reused_tool_result_does_not_consume_budget(self) -> None:
-        tool_decision = {
-            "action": "tool",
-            "tool": "search_places",
-            "arguments": {"city": "长沙", "keywords": "岳麓山"},
-        }
-        final_decision = {
-            "action": "plan",
-            "reply": "已规划",
-            "plan": {
-                "city": "长沙",
-                "days": [
-                    {
-                        "day": 1,
-                        "schedule": [
-                            {
-                                "type": "free_time",
-                                "name": "自由活动",
-                                "start": "09:00",
-                                "end": "10:00",
-                                "duration_minutes": 60,
-                            }
-                        ],
-                    }
-                ],
-            },
-        }
-        amap = FakeAmap()
-        result = await TripAgent(
-            FakeLLM([tool_decision, tool_decision, final_decision]),
-            amap=amap,
-            max_steps=3,
-            max_tool_calls=1,
-        ).run("长沙一日游")
-
-        self.assertIsNotNone(result.plan)
-        self.assertEqual(amap.search_calls, 1)
-        self.assertTrue(any(event.get("reused") for event in result.events))
-
-    def test_native_tool_contract_exposes_terminal_submission(self) -> None:
-        tools = planner_tools()
-        names = {tool["name"] for tool in tools}
-
-        self.assertEqual(
-            names,
-            {
-                "search_places",
-                "place_detail",
-                "route",
-                "weather",
-                "ask_user",
-                "submit_itinerary",
-            },
-        )
-        submit = next(tool for tool in tools if tool["name"] == "submit_itinerary")
-        plan = submit["parameters"]["properties"]["plan"]
-        hotel_fields = plan["properties"]["hotel"]["properties"]
-        day = plan["properties"]["days"]["items"]
-        schedule_item = day["properties"]["schedule"]["items"]
-        transfer = day["properties"]["transfers"]["items"]
-        self.assertNotIn("place_id", hotel_fields)
-        self.assertNotIn("place_id", schedule_item["properties"])
-        self.assertNotIn("evidence_hash", transfer["properties"])
-        self.assertTrue(submit["strict"])
-        self.assertIn("plan", submit["parameters"]["properties"])
-        self.assertNotIn("batch", names)
-
-    def test_planner_tools_withhold_submission_during_evidence_stage(self) -> None:
-        names = {tool["name"] for tool in planner_tools(allow_submit=False)}
-
-        self.assertEqual(
-            names,
-            {"search_places", "place_detail", "route", "weather", "ask_user"},
-        )
 
     def test_hard_validator_allows_unknown_opening_as_warning(self) -> None:
         place = {
@@ -1105,47 +1015,6 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             [failure["code"] for failure in misaligned["hard_failures"]],
         )
 
-    def test_route_timeline_repair_moves_activity_after_arrival_buffer(self) -> None:
-        plan = {
-            "days": [
-                {
-                    "start_time": "09:00",
-                    "end_time": "20:00",
-                    "start_anchor": {"name": "住宿锚点"},
-                    "schedule": [
-                        {
-                            "type": "visit",
-                            "name": "景点甲",
-                            "start": "09:00",
-                            "end": "10:10",
-                        },
-                        {
-                            "type": "meal",
-                            "name": "午餐",
-                            "start": "12:25",
-                            "end": "13:20",
-                        },
-                    ],
-                    "transfers": [
-                        {
-                            "from_name": "住宿锚点",
-                            "to_name": "景点甲",
-                            "mode": "transit",
-                            "start": "09:00",
-                            "end": "09:58",
-                            "duration_minutes": 58,
-                        }
-                    ],
-                }
-            ]
-        }
-
-        repairs = TripAgent._repair_route_timeline(plan)
-
-        self.assertEqual(repairs[0]["reason"], "route_execution_buffer")
-        self.assertEqual(plan["days"][0]["schedule"][0]["start"], "10:08")
-        self.assertEqual(plan["days"][0]["schedule"][0]["end"], "11:18")
-
     def test_normalizer_derives_duration_from_fixed_timeline(self) -> None:
         plan = single_place_plan()
         plan["days"][0]["schedule"][0]["start"] = "09:15"
@@ -1270,7 +1139,48 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertNotIn("HOTEL_LOOP_MISMATCH", failure_codes)
         self.assertNotIn("ANCHOR_ROUTE_UNVERIFIED", failure_codes)
 
-    def test_hard_validator_rejects_unresolved_requested_hotel_anchor(self) -> None:
+    def test_place_resolver_does_not_match_empty_place_id(self) -> None:
+        hotel = {"id": "H001", "name": "珠江新城地铁站"}
+        attraction = {"id": "P001", "name": "陈家祠"}
+
+        resolved = TripAgent._resolve_place_evidence(
+            {"name": "陈家祠"},
+            {"": hotel, "陈家祠": attraction},
+        )
+
+        self.assertIs(resolved, attraction)
+        area = TripAgent._resolve_place_evidence(
+            {"name": "体育西路—珠江新城"},
+            {"体育西路珠江新城": hotel},
+        )
+        self.assertIs(area, hotel)
+
+    def test_visit_place_selection_rejects_exact_named_address_hotspot(self) -> None:
+        selected = _select_place(
+            {
+                "places": [
+                    {
+                        "id": "wrong",
+                        "name": "陈家祠",
+                        "location": "113.1,23.1",
+                        "type": "地名地址信息;热点地名",
+                    },
+                    {
+                        "id": "right",
+                        "name": "陈家祠堂",
+                        "location": "113.2,23.2",
+                        "type": "风景名胜;人文景观",
+                    },
+                ]
+            },
+            name="陈家祠",
+            query="陈家祠 广州",
+            stop_type="visit",
+        )
+
+        self.assertEqual(selected["id"], "right")
+
+    def test_hard_validator_warns_for_unresolved_requested_hotel_anchor(self) -> None:
         place = {
             "id": "B001",
             "name": "岳麓山国家重点风景名胜区",
@@ -1288,196 +1198,10 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
 
         report = HardValidator().validate(normalized, context)
 
-        self.assertFalse(report["passed"])
+        self.assertTrue(report["passed"])
         self.assertIn(
             "ANCHOR_ROUTE_UNVERIFIED",
-            [failure["code"] for failure in report["hard_failures"]],
-        )
-
-    def test_route_arguments_resolve_known_names_and_embedded_coordinates(self) -> None:
-        known = {
-            "岳麓山风景名胜区": {
-                "id": "B001",
-                "name": "岳麓山风景名胜区",
-                "location": "112.936104,28.183601",
-            }
-        }
-
-        resolved = TripAgent._resolve_route_arguments(
-            {
-                "city": "长沙",
-                "origin": "岳麓山风景名胜区",
-                "destination": "五一广场，112.977340,28.196500",
-                "mode": "transit",
-            },
-            known,
-        )
-
-        self.assertEqual(resolved["origin"], "112.936104,28.183601")
-        self.assertEqual(resolved["destination"], "112.977340,28.196500")
-
-    async def test_submit_itinerary_returns_failures_then_accepts_repair(self) -> None:
-        plan = single_place_plan()
-        plan["overview"] = "不应在修复轮重复发送的完整候选内容"
-        llm = RecordingLLM(
-            [
-                {"action": "plan", "reply": "初稿", "plan": plan},
-                {
-                    "action": "tool",
-                    "tool": "search_places",
-                    "arguments": {
-                        "city": "长沙",
-                        "keywords": "岳麓山",
-                        "limit": 3,
-                    },
-                },
-                {"action": "plan", "reply": "已修复", "plan": plan},
-            ]
-        )
-
-        result = await TripAgent(
-            llm,
-            amap=FakeAmap(),
-            max_steps=3,
-            max_submit_attempts=3,
-        ).run("请为我规划长沙1天行程；必去地点：岳麓山。")
-
-        reports = [
-            event["validation_report"]
-            for event in result.events
-            if event["type"] == "plan_validation_finished"
-        ]
-        self.assertEqual([report["passed"] for report in reports], [False, True])
-        self.assertEqual(reports[0]["repairs_remaining"], 2)
-        self.assertEqual(reports[1]["repairs_used"], 1)
-        self.assertEqual(result.reply, "已修复")
-        self.assertIsNotNone(result.plan)
-        repair_messages = llm.messages[1]
-        repair_context = "\n".join(
-            message.get("content", "")
-            for message in repair_messages
-            if isinstance(message.get("content"), str)
-        )
-        self.assertIn("当前待修复候选", repair_context)
-        self.assertIn("UNRESOLVED_ENTITY", repair_context)
-        self.assertNotIn("不应在修复轮重复发送的完整候选内容", repair_context)
-        self.assertFalse(
-            any(message.get("type") == "function_call" for message in repair_messages)
-        )
-
-    async def test_submit_itinerary_stops_after_two_repairs(self) -> None:
-        llm = FakeLLM(
-            [
-                {
-                    "action": "plan",
-                    "reply": "初稿",
-                    "plan": single_place_plan("初稿"),
-                },
-                {
-                    "action": "plan",
-                    "reply": "修复一",
-                    "plan": single_place_plan("修复一"),
-                },
-                {
-                    "action": "plan",
-                    "reply": "修复二",
-                    "plan": single_place_plan("修复二"),
-                },
-            ]
-        )
-
-        result = await TripAgent(
-            llm,
-            amap=FakeAmap(),
-            max_steps=3,
-            max_submit_attempts=3,
-        ).run("请为我规划长沙1天行程；必去地点：岳麓山。")
-
-        self.assertIsNone(result.plan)
-        self.assertIn("UNRESOLVED_ENTITY", result.reply)
-        exhausted = next(
-            event
-            for event in result.events
-            if event.get("error") == "repair_budget_exhausted"
-        )
-        self.assertEqual(exhausted["hard_failure_codes"], ["UNRESOLVED_ENTITY"])
-
-    async def test_reviewer_receives_full_quality_digest_at_high_reasoning(
-        self,
-    ) -> None:
-        class ReviewerLLM:
-            async def ainvoke(self, messages, **kwargs):
-                self.messages = messages
-                self.kwargs = kwargs
-                return SimpleNamespace(
-                    content=json.dumps(
-                        {"verdict": "pass", "summary": "一致", "issues": []},
-                        ensure_ascii=False,
-                    ),
-                    metrics={},
-                )
-
-        llm = ReviewerLLM()
-        reviewer = ItineraryReviewer(llm)
-        result = await reviewer.review(
-            planning_context={"destination": "长沙"},
-            plan={
-                "city": "长沙",
-                "overview": "09:00 出发",
-                "candidate_comparison": {"areas": []},
-                "days": [],
-                "warnings": [],
-            },
-            validation_report={"passed": True},
-        )
-
-        digest = json.loads(llm.messages[1]["content"])
-        self.assertEqual(digest["candidate_plan"]["overview"], "09:00 出发")
-        self.assertIn("candidate_comparison", digest["candidate_plan"])
-        self.assertEqual(llm.kwargs["reasoning_effort"], "high")
-        self.assertEqual(result["reviewer_version"], "reviewer-v3")
-
-    async def test_shadow_reviewer_cannot_block_hard_valid_plan(self) -> None:
-        class ShadowReviewer:
-            async def review(self, **kwargs):
-                return {
-                    "verdict": "revise",
-                    "summary": "建议调整",
-                    "issues": [{"code": "PACE"}],
-                    "shadow": True,
-                    "reviewer_version": "reviewer-test",
-                }
-
-        result = await TripAgent(
-            FakeLLM(
-                [
-                    {
-                        "action": "tool",
-                        "tool": "search_places",
-                        "arguments": {
-                            "city": "长沙",
-                            "keywords": "岳麓山",
-                            "limit": 3,
-                        },
-                    },
-                    {
-                        "action": "plan",
-                        "reply": "已完成",
-                        "plan": single_place_plan(),
-                    },
-                ]
-            ),
-            amap=FakeAmap(),
-            reviewer=ShadowReviewer(),
-            max_steps=2,
-        ).run("请为我规划长沙1天行程；必去地点：岳麓山。")
-
-        self.assertIsNotNone(result.plan)
-        self.assertEqual(result.plan["review"]["verdict"], "revise")
-        self.assertTrue(result.plan["review"]["shadow"])
-        self.assertLess(result.plan["completeness"]["score"], 100)
-        self.assertEqual(
-            result.plan["completeness"]["checks"][-1]["name"], "独立质量审查"
+            [warning["code"] for warning in report["warnings"]],
         )
 
     def test_context_survives_question_without_an_accepted_plan(self) -> None:
@@ -1559,24 +1283,14 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_agent_publishes_progress_while_run_is_active(self) -> None:
         published: list[dict] = []
-        agent = TripAgent(
-            FakeLLM([{"action": "ask", "reply": "请补充目的地"}]),
-            amap=FakeAmap(),
-        )
+        agent = TripAgent(SkeletonLLM(), amap=FakeAmap())
 
         response = await agent.run("想旅行", on_event=published.append)
 
         self.assertEqual(published, response.events)
         self.assertEqual(
             [event["type"] for event in published],
-            [
-                "run_started",
-                "model_started",
-                "model_finished",
-                "model_tool_calls",
-                "assistant_message",
-                "run_finished",
-            ],
+            ["run_started", "assistant_message", "run_finished"],
         )
         self.assertTrue(all(event["elapsed_ms"] >= 0 for event in published))
 
@@ -1655,6 +1369,12 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             "请规划长沙1天行程。住宿地点或区域：五一广场住宿区。",
         )
         self.assertEqual(labeled["hotel_area"], "五一广场住宿区")
+        conversational = build_planning_context(
+            None,
+            "我要去广州玩三天，给我规划一下行程，要具体，要合理",
+        )
+        self.assertEqual(conversational["destination"], "广州")
+        self.assertEqual(conversational["days"], 3)
 
     def test_memory_policy_compacts_history_and_previous_plan(self) -> None:
         policy = MemoryPolicy(
@@ -1731,57 +1451,6 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             },
         )
 
-    def test_evidence_memory_prioritizes_candidate_places_with_fixed_caps(self) -> None:
-        policy = MemoryPolicy(evidence_places=6, evidence_routes=6)
-        places = {
-            f"B{index:03d}": {
-                "id": f"B{index:03d}",
-                "name": f"地点{index}",
-                "location": f"112.{index},28.{index}",
-            }
-            for index in range(10)
-        }
-        routes = [
-            {
-                "origin": f"B{index:03d}",
-                "destination": f"B{index + 1:03d}",
-                "mode": "walking",
-                "response_hash": f"route-{index}",
-            }
-            for index in range(10)
-        ]
-        snapshot = TripAgent._evidence_snapshot(
-            places,
-            routes,
-            None,
-            policy=policy,
-            focus_plan={
-                "days": [
-                    {
-                        "schedule": [{"place_id": "B009", "name": "地点9"}],
-                        "transfers": [{"evidence_hash": "route-9"}],
-                    }
-                ]
-            },
-        )
-
-        self.assertEqual(len(snapshot["places"]), 6)
-        self.assertEqual(len(snapshot["routes"]), 6)
-        self.assertIn("B009", [place["id"] for place in snapshot["places"]])
-        self.assertIn(
-            "route-9",
-            [route["response_hash"] for route in snapshot["routes"]],
-        )
-        self.assertEqual(
-            snapshot["memory_limits"],
-            {
-                "source_places": 10,
-                "included_places": 6,
-                "source_routes": 10,
-                "included_routes": 6,
-            },
-        )
-
     def test_structured_log_redacts_secrets_and_keeps_timing(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "planning.jsonl"
@@ -1825,17 +1494,6 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         )
 
     async def test_agent_restores_saved_plan_for_follow_up_change(self) -> None:
-        class CapturingLLM:
-            def __init__(self) -> None:
-                self.messages = []
-
-            async def ainvoke(self, messages, **kwargs):
-                self.messages = list(messages)
-                return native_response(
-                    {"action": "ask", "reply": "需要确认修改范围"},
-                    "follow-up",
-                )
-
         with tempfile.TemporaryDirectory() as directory:
             store = TripStore(Path(directory) / "trips.sqlite")
             store.save_exchange(
@@ -1851,14 +1509,16 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
                 },
                 events=[],
             )
-            llm = CapturingLLM()
+            llm = SkeletonLLM(skeleton_plan("长沙", 3))
             agent = TripAgent(llm, amap=FakeAmap(), store=store)
 
             response = await agent.run("把第二天下午改得轻松一些", "session-1")
 
-            restored_context = "\n".join(message["content"] for message in llm.messages)
+            restored_context = "\n".join(
+                message["content"] for message in llm.messages[0]
+            )
 
-        self.assertIn("当前结构化会话状态", restored_context)
+        self.assertIn('"planning_context"', restored_context)
         self.assertIn('"previous_plan_digest":{"city":"长沙"', restored_context)
         self.assertIn("长沙三日行程", restored_context)
         self.assertNotIn("这段完整介绍不应重复发送给模型", restored_context)
@@ -1866,7 +1526,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         model_started = next(
             event for event in response.events if event["type"] == "model_started"
         )
-        self.assertIn("提交 0/4", model_started["detail"])
+        self.assertEqual(model_started["phase"], "skeleton")
 
     def test_guest_quota_account_upgrade_and_owner_isolation(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
