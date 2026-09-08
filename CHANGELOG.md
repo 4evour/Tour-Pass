@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 2026-09-08 - 单次骨架规划与确定性行程组装
+
+### 变更内容
+- `trip_agent/loop.py`、`trip_agent/workflow.py`、`trip_agent/model_schema.py` - 将开放式原生工具循环改为轻量骨架生成与程序化组装；正常路径只调用模型一次，随后由后端批量核验地点、天气和路线并生成完整时间轴。
+- `trip_agent/contracts.py`、`trip_agent/app.py`、`trip_agent/static/` - 结构化表单直接提交类型化旅行请求，保留日期、同行人、节奏、交通方式和每日时段，不再依赖模型从拼接文本中恢复这些字段。
+- `trip_agent/llm.py`、`trip_agent/cache.py`、`trip_agent/providers/amap.py` - 增加稳定提示缓存键、慢请求对冲、规范化 Provider 缓存键和限速下的并发网络请求。
+- `trip_agent/validation.py`、`trip_agent/plan_output.py` - 必去地点继续执行硬门禁；可选地点、住宿首尾锚点和预算外路线无法核验时改为明确警告，并支持标记保守估算的交通段。
+- `trip_agent/evaluate.py`、`tests/trip_agent_test.py` - 更新评估录制、重放和回归测试，覆盖单次骨架生成、请求预算、提示缓存、对冲请求、可选地点降级和结构化请求边界。
+
+### 原因
+- 多轮模型工具循环会放大延迟、Token 和 Provider 调用量，并把可确定化的查询、排序、时间计算和修复交给模型重复完成。
+- 表单此前同时发送结构化数据和展示文本，但服务端契约字段不一致会丢失日期、同行人、交通偏好和每日时段。
+
+### 影响范围
+- 默认 Provider 请求预算为 14；正常路径单次模型调用，结构化骨架无法解析时最多补一次格式重试。
+- 快速模式不再运行独立 Reviewer，也不让模型反复修改完整行程；Hard Validator 仍决定最终是否交付。
+- 未核验的可选事实以警告或估算展示，不再冒充高德证据；必去地点无法解析仍阻止交付。
+
 ## 2026-09-07 - 原生工具规划循环、硬校验与可重放评估
 
 ### 变更内容
