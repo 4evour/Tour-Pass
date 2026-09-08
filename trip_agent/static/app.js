@@ -40,8 +40,12 @@ function applyAuthState(data) {
 }
 const periodLabels = {morning:"上午",lunch:"午餐",afternoon:"下午",dinner:"晚餐",evening:"晚间"};
 const modeLabels = {walking:"步行",transit:"公共交通",driving:"驾车",taxi:"打车",mixed:"混合交通",unknown:"待确认"};
-const sourceLabels = {amap:"高德已核验",qweather:"天气已核验",user:"用户确认",model_judgment:"规划建议",unknown:"待核验"};
+const sourceLabels = {amap:"高德数据",qweather:"和风天气数据",user:"用户确认",model_judgment:"规划建议",unknown:"待核验"};
 const list = (value) => Array.isArray(value) ? value : [];
+const splitValues = (value) => String(value || "")
+  .split(/[、，,；;\n]+/)
+  .map((item) => item.trim())
+  .filter(Boolean);
 const object = (value) => value && typeof value === "object" && !Array.isArray(value) ? value : {};
 const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[char]);
 const textOr = (value, fallback="待确认") => value ? escapeHtml(value) : fallback;
@@ -194,12 +198,11 @@ function formatDuration(milliseconds) {
 }
 
 function toolLabel(tool) {
-  return ({search_places:"地点搜索",place_detail:"地点详情",route:"真实路线",weather:"天气",ask_user:"用户确认",submit_itinerary:"行程提交"})[tool] || tool || "外部工具";
+  return ({search_places:"地点搜索", route:"真实路线", weather:"天气"})[tool] || tool || "外部工具";
 }
 
 function describeTool(tool, args={}) {
   if (tool === "search_places") return `搜索 ${args.city || ""}「${args.keywords || "地点"}」`;
-  if (tool === "place_detail") return `确认地点 ${args.place_id || ""}`;
   if (tool === "weather") return `查询 ${args.city || ""} ${args.days || ""} 天天气`;
   if (tool === "route") return `计算 ${args.city || ""} 一段真实交通`;
   return toolLabel(tool);
@@ -211,15 +214,24 @@ function eventCopy(event) {
   if (event.type === "session_restored") return ["已恢复原行程上下文", `${event.previous_title || event.previous_city || "已保存行程"} · ${event.message_count || 0} 条历史消息`];
   if (event.type === "model_started") {
     const labels = {
-      agent_loop: "主规划器正在决定下一步"
+      skeleton: "正在生成轻量行程骨架"
     };
-    return [labels[event.phase] || "模型正在规划下一步", event.detail || "正在读取已有证据和用户约束"];
+    return [labels[event.phase] || "模型正在规划", event.detail || "正在读取结构化约束"];
   }
   if (event.type === "model_finished") {
-    const count = list(event.tool_calls).length;
-    return ["模型本轮处理完成", count ? `返回 ${count} 个原生工具调用` : "未返回可执行工具调用"];
+    if (event.error) return ["模型结构化输出无效", event.message || event.error];
+    return event.phase === "skeleton"
+      ? ["行程骨架生成完成", "下一步由程序批量核验地点并计算路线"]
+      : ["模型处理完成", `${list(event.tool_calls).length} 个工具调用`];
   }
-  if (event.type === "model_tool_calls") return ["模型已选择下一步动作", `${list(event.calls).length} 个原生工具调用`];
+  if (event.type === "prompt_cache") {
+    const cached = Number(event.cached_tokens || 0);
+    const total = Number(event.input_tokens || 0);
+    return [
+      cached ? "模型提示缓存已命中" : "模型提示缓存未命中",
+      `${cached.toLocaleString()} / ${total.toLocaleString()} 输入 Token 使用缓存计费`
+    ];
+  }
   if (event.type === "model_stream") {
     const copies = {
       connected: ["模型服务已连接", `HTTP ${event.http_status || "已连接"} · ${event.model_elapsed_ms || 0} 毫秒`],
@@ -243,19 +255,14 @@ function eventCopy(event) {
           event.reused ? "复用本轮已核验证据" : event.cache_hit ? "命中 Provider 缓存" : "已取得新的外部证据",
         ];
   }
-  if (event.type === "tool_rejected") return ["工具调用未执行", event.error || "调用不符合当前预算或阶段要求"];
-  if (event.type === "decision_rejected") return ["规划动作需要修正", list(event.fields).join("、") || event.action || "动作无效"];
-  if (event.type === "plan_rejected") return ["行程结构需要修正", event.error || "未通过结构解析"];
   if (event.type === "plan_validation_started") return ["正在执行硬校验", "检查用户约束、实体、时间轴、路线证据和住宿闭环"];
-  if (event.type === "plan_repair_applied") return ["已校准通勤时间轴", `${list(event.repairs).length} 处活动时间已加入路线执行缓冲`];
+  if (event.type === "plan_repair_applied") return ["已执行确定性修复", `${list(event.repairs).length} 处结构或时间轴调整`];
   if (event.type === "plan_validation_finished") {
     const failures = list(event.hard_failure_codes);
     return event.passed
       ? ["硬校验通过", `耗时 ${event.validation_elapsed_ms || 0} 毫秒 · ${list(event.warning_codes).length} 项提示`]
       : ["硬校验未通过", failures.join("、") || "候选行程需要修复"];
   }
-  if (event.type === "review_started") return ["独立审查开始", "影子 Reviewer 正在检查软质量，不改写行程"];
-  if (event.type === "review_finished") return ["独立审查完成", `${event.verdict || "unknown"} · ${event.issue_count || 0} 项建议`];
   if (event.type === "persistence_started") return ["正在保存本次对话", event.has_plan ? "写入行程、消息和生成轨迹" : "写入对话消息"];
   if (event.type === "persistence_finished") return ["本次对话已持久化", event.has_plan ? "行程已自动保存，可以继续修改" : "对话已保存"];
   if (event.type === "plan_ready") return ["行程结构已经就绪", `已使用 ${event.tool_count || 0} 次工具核验，完整度 ${event.completeness_score || 0}`];
@@ -269,7 +276,7 @@ function stageFor(event) {
   if (event.type === "model_started") return 1;
   if (event.type === "tool_started") return event.tool === "route" ? 3 : 2;
   if (event.type === "plan_ready") return 5;
-  if (["plan_repair_applied", "plan_validation_started", "plan_validation_finished", "review_started", "review_finished", "persistence_started", "persistence_finished"].includes(event.type)) return 5;
+  if (["plan_repair_applied", "plan_validation_started", "plan_validation_finished", "persistence_started", "persistence_finished"].includes(event.type)) return 5;
   if (event.type === "run_finished" && event.success) return progressStages.length;
   return progressState.activeStage;
 }
@@ -373,8 +380,11 @@ function renderTransfer(transfer) {
 function renderScheduleItem(item) {
   const openingClass = item.opening_match === "matched" ? "ok" : item.opening_match === "risk" ? "risk" : "";
   const openingLabel = item.opening_match === "matched" ? "到访时段可用" : item.opening_match === "risk" ? "开放时间有风险" : "开放状态待确认";
+  const openingHours = textOr(item.opening_hours);
+  const openingDetail = openingHours.length > 72 ? `${openingHours.slice(0, 72)}…` : openingHours;
   const reservation = object(item.reservation);
-  const mapLink = item.location ? `<a class="fact" href="https://uri.amap.com/marker?position=${encodeURIComponent(item.location)}&name=${encodeURIComponent(item.name)}" target="_blank" rel="noreferrer">坐标 ${escapeHtml(item.location)}</a>` : `<span class="fact risk">坐标待确认</span>`;
+  const reservationLabel = !reservation.status || reservation.status === "unknown" ? "预约待确认" : reservation.status;
+  const mapLink = item.location ? `<a class="fact" href="https://uri.amap.com/marker?position=${encodeURIComponent(item.location)}&name=${encodeURIComponent(item.name)}" target="_blank" rel="noreferrer">在高德地图查看</a>` : `<span class="fact risk">地图位置待确认</span>`;
   return `<div class="timeline-row">
     <div class="clock">${textOr(item.start, "--:--")}<br><small>${textOr(item.end, "--:--")}</small></div>
     <div class="route-axis"><i class="route-dot"></i></div>
@@ -382,8 +392,8 @@ function renderScheduleItem(item) {
       <div class="stop-top"><div><h3>${textOr(item.name, "未命名活动")}</h3><p>${textOr(item.reason, "暂无体验说明")}</p></div><span class="period">${textOr(periodLabels[item.period], "时段")}</span></div>
       <div class="fact-row">
         <span class="fact">停留 ${item.duration_minutes || "?"} 分钟</span>
-        <span class="fact ${openingClass}">${openingLabel}${item.opening_hours ? ` · ${escapeHtml(item.opening_hours)}` : ""}</span>
-        <span class="fact">${textOr(reservation.status, "预约待确认")}</span>
+        <span class="fact ${openingClass}" title="${escapeHtml(openingHours)}">${openingLabel}${openingDetail ? ` · ${escapeHtml(openingDetail)}` : ""}</span>
+        <span class="fact">${escapeHtml(reservationLabel)}</span>
         <span class="fact">${textOr(item.area, "区域待确认")}</span>
         ${mapLink}
         <span class="fact">${textOr(sourceLabels[item.source], "规划建议")}</span>
@@ -567,8 +577,12 @@ function buildStructuredMessage() {
     ["must_visits", "必去地点"],
     ["notes", "其他要求"]
   ];
+  const displayValues = {
+    pace: $("pace").selectedOptions[0]?.textContent || "",
+    transport: $("transport").selectedOptions[0]?.textContent || ""
+  };
   optional.forEach(([name, label]) => {
-    const value = String(data.get(name) || "").trim();
+    const value = String(displayValues[name] || data.get(name) || "").trim();
     if (value) parts.push(`${label}：${value}`);
   });
   const dayStart = String(data.get("day_start") || "").trim();
@@ -580,7 +594,29 @@ function buildStructuredMessage() {
   return `${parts.join("；")}。`;
 }
 
-async function submitPlanning(message) {
+function buildStructuredRequest() {
+  const data = new FormData(tripForm);
+  const startDate = String(data.get("start_date") || "").trim();
+  return {
+    destination: String(data.get("destination") || "").trim(),
+    days: Number(data.get("days") || 3),
+    date_range: {start: startDate || null, end: null},
+    hotel_area: String(data.get("hotel_area") || "").trim(),
+    travellers: String(data.get("travelers") || "").trim(),
+    pace: String(data.get("pace") || "balanced"),
+    transport_preference: String(data.get("transport") || "mixed"),
+    budget: String(data.get("budget") || "").trim(),
+    must_visits: splitValues(data.get("must_visits")),
+    notes: String(data.get("notes") || "").trim(),
+    interests: data.getAll("interest").map(String),
+    daily_window: {
+      start: String(data.get("day_start") || "09:00"),
+      end: String(data.get("day_end") || "20:00")
+    }
+  };
+}
+
+async function submitPlanning(message, trip=null) {
   addMessage("user", message);
   setBusy(true);
   statusEl.textContent = sessionId
@@ -591,7 +627,7 @@ async function submitPlanning(message) {
     const response = await apiFetch("/chat/stream", {
       method: "POST",
       headers: {"Content-Type": "application/json", "Accept":"text/event-stream"},
-      body: JSON.stringify({message, session_id: sessionId})
+      body: JSON.stringify({message, trip, session_id: sessionId})
     });
     const remaining = Number(response.headers.get("X-Query-Remaining"));
     if (authState && Number.isFinite(remaining)) {
@@ -699,8 +735,9 @@ tripForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   if (!tripForm.reportValidity()) return;
   const message = buildStructuredMessage();
+  const trip = buildStructuredRequest();
   switchInputMode("conversation");
-  await submitPlanning(message);
+  await submitPlanning(message, trip);
 });
 
 $("composer").addEventListener("submit", async (event) => {
