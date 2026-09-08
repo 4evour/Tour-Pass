@@ -145,9 +145,12 @@ def merge_adjacent_schedule(
         ):
             previous = merged[-1]
             previous["end"] = entry.get("end") or previous["end"]
-            previous["duration_minutes"] = integer(
-                previous.get("duration_minutes")
-            ) + integer(entry.get("duration_minutes"))
+            previous["duration_minutes"] = interval_minutes(
+                previous.get("start"),
+                previous.get("end"),
+                integer(previous.get("duration_minutes"))
+                + integer(entry.get("duration_minutes")),
+            )
             previous["practical_tips"] = list(
                 dict.fromkeys(
                     [
@@ -373,19 +376,24 @@ def schedule_endpoint(name: Any, schedule: list[dict[str, Any]]) -> dict[str, An
     requested = place_key(name)
     if not requested:
         return {}
-    for item in schedule:
-        candidate = place_key(item.get("name"))
-        if (
-            candidate
-            and item.get("location")
-            and (
-                candidate == requested
-                or candidate in requested
-                or requested in candidate
-            )
-        ):
-            return item
-    return {}
+    candidates = [
+        item
+        for item in schedule
+        if place_key(item.get("name")) and item.get("location")
+    ]
+    exact = next(
+        (item for item in candidates if place_key(item.get("name")) == requested),
+        None,
+    )
+    if exact is not None:
+        return exact
+    fuzzy = [
+        item
+        for item in candidates
+        if place_key(item.get("name")) in requested
+        or requested in place_key(item.get("name"))
+    ]
+    return max(fuzzy, key=lambda item: len(place_key(item.get("name"))), default={})
 
 
 def schedule_location(name: Any, schedule: list[dict[str, Any]]) -> str:
@@ -408,6 +416,7 @@ def normalize_transfer(
             item
             for item in route_evidence
             if from_location
+            if text(transfer.get("source")) != "estimate"
             and to_location
             and text(item.get("origin")) == from_location
             and text(item.get("destination")) == to_location
@@ -415,6 +424,13 @@ def normalize_transfer(
             and (not evidence_hash or text(item.get("response_hash")) == evidence_hash)
         ),
         None,
+    )
+    estimated = (
+        evidence is None
+        and text(transfer.get("source")) == "estimate"
+        and bool(from_location)
+        and bool(to_location)
+        and integer(transfer.get("duration_minutes")) > 0
     )
     return {
         "from_name": text(from_endpoint.get("name"), text(transfer.get("from_name"))),
@@ -425,11 +441,21 @@ def normalize_transfer(
         "start": text(transfer.get("start")),
         "end": text(transfer.get("end")),
         "duration_minutes": (
-            round(integer(evidence.get("duration_seconds")) / 60) if evidence else 0
+            round(integer(evidence.get("duration_seconds")) / 60)
+            if evidence
+            else integer(transfer.get("duration_minutes"))
+            if estimated
+            else 0
         ),
-        "distance_meters": integer(evidence.get("distance_meters")) if evidence else 0,
+        "distance_meters": (
+            integer(evidence.get("distance_meters"))
+            if evidence
+            else integer(transfer.get("distance_meters"))
+            if estimated
+            else 0
+        ),
         "instructions": text(transfer.get("instructions")),
-        "source": "amap" if evidence else "unknown",
+        "source": "amap" if evidence else "estimate" if estimated else "unknown",
         "evidence_hash": text(evidence.get("response_hash")) if evidence else None,
     }
 

@@ -19,10 +19,10 @@ class AmapProvider:
         )
         self.cache = cache or ProviderCache()
         self._client: httpx.AsyncClient | None = None
-        self._lock = asyncio.Lock()
+        self._rate_lock = asyncio.Lock()
         self._last_request = 0.0
         self.min_interval = max(
-            float(os.environ.get("AMAP_MIN_INTERVAL_SECONDS", "0.2")), 0.0
+            float(os.environ.get("AMAP_MIN_INTERVAL_SECONDS", "0.5")), 0.5
         )
 
     @property
@@ -41,29 +41,29 @@ class AmapProvider:
             return cached
         if not self.available:
             raise RuntimeError("AMAP_API_KEY is not configured")
-        async with self._lock:
+        async with self._rate_lock:
             wait = self.min_interval - (time.monotonic() - self._last_request)
             if wait > 0:
                 await asyncio.sleep(wait)
-            client = self._client or httpx.AsyncClient(timeout=15)
-            self._client = client
-            started = time.perf_counter()
-            response = await client.get(
-                f"https://restapi.amap.com{path}",
-                params={"key": self.api_key, **params},
-            )
             self._last_request = time.monotonic()
-            if response.is_error:
-                raise RuntimeError(
-                    f"AMap {operation} failed with HTTP {response.status_code}"
-                )
-            body = response.json()
-            latency = round((time.perf_counter() - started) * 1000)
-            if str(body.get("status")) != "1":
-                raise RuntimeError(
-                    f"AMap {operation} failed: {body.get('info') or 'AMAP_ERROR'}"
-                )
-            return self.cache.put("amap", operation, params, body, ttl, latency)
+        client = self._client or httpx.AsyncClient(timeout=15)
+        self._client = client
+        started = time.perf_counter()
+        response = await client.get(
+            f"https://restapi.amap.com{path}",
+            params={"key": self.api_key, **params},
+        )
+        if response.is_error:
+            raise RuntimeError(
+                f"AMap {operation} failed with HTTP {response.status_code}"
+            )
+        body = response.json()
+        latency = round((time.perf_counter() - started) * 1000)
+        if str(body.get("status")) != "1":
+            raise RuntimeError(
+                f"AMap {operation} failed: {body.get('info') or 'AMAP_ERROR'}"
+            )
+        return self.cache.put("amap", operation, params, body, ttl, latency)
 
     async def search_places(
         self, city: str, keywords: str, category: str = "", limit: int = 8
@@ -87,8 +87,14 @@ class AmapProvider:
                 "type": item.get("type", ""),
                 "address": item.get("address", ""),
                 "area": item.get("adname") or item.get("business_area", ""),
+                "adname": item.get("adname", ""),
+                "business_area": item.get("business_area", ""),
                 "location": item.get("location", ""),
                 "alias": item.get("alias", ""),
+                "business_hours": item.get("business_hours", ""),
+                "opentime": item.get("opentime", ""),
+                "opentime2": item.get("opentime2", ""),
+                "biz_ext": item.get("biz_ext") or {},
                 "rating": (item.get("biz_ext") or {}).get("rating", ""),
             }
             for item in raw[:limit]

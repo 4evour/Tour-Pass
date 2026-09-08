@@ -54,7 +54,7 @@ def _warning(code: str, path: str, message: str) -> dict[str, Any]:
 
 @dataclass
 class HardValidator:
-    version: str = "hard-validator-v2"
+    version: str = "hard-validator-v3"
     _failures: list[dict[str, Any]] = field(default_factory=list, init=False)
     _warnings: list[dict[str, Any]] = field(default_factory=list, init=False)
 
@@ -328,25 +328,16 @@ class HardValidator:
             missing_anchor_location = not start_anchor.get(
                 "location"
             ) or not end_anchor.get("location")
-            if missing_anchor_location and context.get("hotel_area"):
-                self._failures.append(
-                    _issue(
-                        "ANCHOR_ROUTE_UNVERIFIED",
-                        path,
-                        "用户指定了住宿锚点，但首尾锚点没有绑定可核验坐标",
-                        allowed_actions=[
-                            "search_places",
-                            "route",
-                            "resolve_hotel_anchor",
-                        ],
-                    )
-                )
-            elif missing_anchor_location:
+            if missing_anchor_location:
                 self._warnings.append(
                     _warning(
                         "ANCHOR_ROUTE_UNVERIFIED",
                         path,
-                        "住宿为未解析区域锚点，首尾路线无法精确核验",
+                        (
+                            "住宿锚点未绑定地图坐标，首尾路线暂未核验"
+                            if context.get("hotel_area")
+                            else "住宿为未解析区域锚点，首尾路线无法精确核验"
+                        ),
                     )
                 )
 
@@ -384,33 +375,44 @@ class HardValidator:
                         )
                     )
                 if item.get("type") in {"visit", "meal"}:
+                    required_place = any(
+                        requested
+                        and (
+                            requested in _key(item.get("name"))
+                            or _key(item.get("name")) in requested
+                        )
+                        for requested in (
+                            _key(value) for value in context.get("must_visits") or []
+                        )
+                    )
                     if (
                         not item.get("place_id")
                         or not item.get("location")
                         or item.get("source") != "amap"
                     ):
-                        self._failures.append(
+                        target = self._failures if required_place else self._warnings
+                        target.append(
                             _issue(
                                 "UNRESOLVED_ENTITY",
                                 item_path,
-                                "地点没有绑定 Provider 返回的真实实体",
-                                allowed_actions=[
-                                    "search_places",
-                                    "place_detail",
-                                    "replace_optional_stop",
-                                ],
+                                "必去地点没有绑定 Provider 返回的真实实体",
+                                allowed_actions=["resolve_required_stop"],
+                            )
+                            if required_place
+                            else _warning(
+                                "UNRESOLVED_ENTITY",
+                                item_path,
+                                "可选地点没有绑定地图实体，已标记为待确认",
                             )
                         )
                     else:
                         place_id = _text(item.get("place_id"))
                         if place_id in seen_places:
-                            self._failures.append(
-                                _issue(
+                            self._warnings.append(
+                                _warning(
                                     "DUPLICATE_PLACE",
                                     item_path,
-                                    "同一 POI 被重复安排",
-                                    actual=item.get("name"),
-                                    expected=f"仅出现一次；首次位于 {seen_places[place_id]}",
+                                    f"同一 POI 重复出现；首次位于 {seen_places[place_id]}",
                                 )
                             )
                         else:
@@ -506,16 +508,11 @@ class HardValidator:
                 or transfer.get("source") != "amap"
                 or not transfer.get("evidence_hash")
             ):
-                self._failures.append(
-                    _issue(
+                self._warnings.append(
+                    _warning(
                         "MISSING_ROUTE_EVIDENCE",
                         edge_path,
-                        f"{origin.get('name')}到{destination.get('name')}缺少真实路线证据",
-                        allowed_actions=[
-                            "route",
-                            "change_day_order",
-                            "remove_optional_stop",
-                        ],
+                        f"{origin.get('name')}到{destination.get('name')}的路线暂未核验",
                     )
                 )
                 continue

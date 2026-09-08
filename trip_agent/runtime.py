@@ -8,7 +8,6 @@ from .auth import AuthManager
 from .context import MemoryPolicy
 from .llm import OpenAICompatibleLLM
 from .loop import TripAgent
-from .reviewer import ItineraryReviewer
 from .observability import close_logging, configure_logging, log_event
 from .providers.amap import AmapProvider
 from .providers.weather import WeatherProvider
@@ -31,16 +30,11 @@ class TripRuntime:
         self.amap = AmapProvider(cache)
         self.weather = WeatherProvider(cache, amap=self.amap)
         self.llm = OpenAICompatibleLLM()
-        reviewer = ItineraryReviewer(
-            self.llm,
-            shadow=os.environ.get("TRIP_AGENT_REVIEWER_SHADOW", "true").strip().lower()
-            not in {"0", "false", "no"},
-        )
         self.request_timeout_seconds = max(
             15.0,
             min(
-                float(os.environ.get("TRIP_AGENT_RUN_TIMEOUT_SECONDS", "600")),
-                600.0,
+                float(os.environ.get("TRIP_AGENT_RUN_TIMEOUT_SECONDS", "75")),
+                180.0,
             ),
         )
         memory_policy = MemoryPolicy(
@@ -64,31 +58,21 @@ class TripRuntime:
             store=self.store,
             amap=self.amap,
             weather=self.weather,
-            reviewer=(
-                reviewer
-                if os.environ.get("TRIP_AGENT_REVIEWER_ENABLED", "true").strip().lower()
-                not in {"0", "false", "no"}
-                else None
-            ),
-            max_steps=int(os.environ.get("TRIP_AGENT_MAX_STEPS", "24")),
-            max_tool_calls=int(os.environ.get("TRIP_AGENT_MAX_TOOLS", "48")),
-            max_submit_attempts=int(
-                os.environ.get("TRIP_AGENT_MAX_SUBMIT_ATTEMPTS", "4")
-            ),
             memory_policy=memory_policy,
+            max_provider_calls=int(
+                os.environ.get("TRIP_AGENT_MAX_PROVIDER_CALLS", "14")
+            ),
         )
         log_event(
             "runtime_started",
             model=self.llm.model,
             wire_api=self.llm.wire_api,
             reasoning_effort=self.llm.reasoning_effort,
-            final_reasoning_effort=self.llm.final_reasoning_effort,
             request_timeout_seconds=self.request_timeout_seconds,
-            reviewer_enabled=self.agent.reviewer is not None,
-            reviewer_shadow=reviewer.shadow,
-            max_steps=self.agent.max_steps,
-            max_tool_calls=self.agent.max_tool_calls,
-            max_submit_attempts=self.agent.max_submit_attempts,
+            workflow="single_model_deterministic",
+            max_model_calls=1,
+            max_provider_calls=self.agent.max_provider_calls,
+            reviewer_enabled=False,
             memory_policy=self.agent.memory_policy.as_dict(),
         )
 

@@ -63,6 +63,35 @@ def _split_values(value: str) -> list[str]:
     return [item.strip() for item in re.split(r"[、,，/]+", value) if item.strip()]
 
 
+_DAY_DIGITS = {
+    "一": 1,
+    "二": 2,
+    "两": 2,
+    "三": 3,
+    "四": 4,
+    "五": 5,
+    "六": 6,
+    "七": 7,
+    "八": 8,
+    "九": 9,
+}
+
+
+def _day_count(value: str) -> int:
+    value = value.strip()
+    if value.isdigit():
+        return int(value)
+    if value == "十":
+        return 10
+    if "十" in value:
+        left, right = value.split("十", 1)
+        return _DAY_DIGITS.get(left, 1) * 10 + _DAY_DIGITS.get(right, 0)
+    return _DAY_DIGITS.get(value, 0)
+
+
+_DAY_TOKEN = r"(?:[1-9]\d*|[一二两三四五六七八九十]+)"
+
+
 def _clip(value: Any, limit: int) -> str:
     content = " ".join(_text(value).split())
     if len(content) <= limit:
@@ -360,6 +389,7 @@ def build_planning_context(
     previous_plan: dict[str, Any] | None,
     current_message: str,
     history: list[dict[str, str]] | None = None,
+    structured_request: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Merge explicit requests onto the last accepted structured context."""
     context = _derive_from_plan(previous_plan)
@@ -373,19 +403,33 @@ def build_planning_context(
 
     def apply(message: str) -> None:
         message = _text(message)
+        day_pattern = f"({_DAY_TOKEN})"
         request_match = re.search(
-            r"(?:请)?(?:为我)?规划\s*([^，,；;。\d]{2,20}?)([1-9]\d*)天(?:行程)?",
+            rf"(?:请)?(?:为我)?规划\s*([\u4e00-\u9fff]{{2,20}}?)"
+            rf"\s*{day_pattern}\s*天(?:行程)?",
             message,
         )
-        if request_match:
-            context["destination"] = request_match.group(1).strip()
-            context["days"] = int(request_match.group(2))
+        travel_match = re.search(
+            rf"(?:想|要|准备|计划|打算|希望)?(?:去|到)"
+            rf"([\u4e00-\u9fff]{{2,10}}?)(?:玩|游玩|旅游|旅行|逛|待)?"
+            rf"\s*{day_pattern}\s*天",
+            message,
+        )
+        compact_match = re.search(
+            rf"(?:^|[，,；;。\s])([\u4e00-\u9fff]{{2,10}}?)"
+            rf"(?:玩|游玩|旅游|旅行)?\s*{day_pattern}\s*天",
+            message,
+        )
+        trip_match = request_match or travel_match or compact_match
+        if trip_match:
+            context["destination"] = trip_match.group(1).strip()
+            context["days"] = _day_count(trip_match.group(2))
         else:
             days_match = re.search(
-                r"(?:改成|调整为|规划|安排)?\s*([1-9]\d*)\s*天", message
+                rf"(?:改成|调整为|规划|安排)?\s*{day_pattern}\s*天", message
             )
             if days_match:
-                context["days"] = int(days_match.group(1))
+                context["days"] = _day_count(days_match.group(1))
 
         for segment in re.split(r"[；;。]", message):
             if "：" not in segment and ":" not in segment:
@@ -435,6 +479,48 @@ def build_planning_context(
             if historical.get("role") == "user":
                 apply(historical.get("content", ""))
     apply(current_message)
+    if structured_request is not None:
+        date_range = (
+            structured_request.get("date_range")
+            if isinstance(structured_request.get("date_range"), dict)
+            else {}
+        )
+        daily_window = (
+            structured_request.get("daily_window")
+            if isinstance(structured_request.get("daily_window"), dict)
+            else {}
+        )
+        context.update(
+            {
+                "destination": _text(structured_request.get("destination")),
+                "days": int(structured_request.get("days") or 3),
+                "start_date": _text(
+                    date_range.get("start") or structured_request.get("start_date")
+                ),
+                "hotel_area": _text(structured_request.get("hotel_area")),
+                "travelers": _text(
+                    structured_request.get("travellers")
+                    or structured_request.get("travelers")
+                ),
+                "pace": _text(structured_request.get("pace")),
+                "transport": _text(
+                    structured_request.get("transport_preference")
+                    or structured_request.get("transport")
+                ),
+                "budget": _text(structured_request.get("budget")),
+                "must_visits": list(structured_request.get("must_visits") or []),
+                "notes": _text(structured_request.get("notes")),
+                "interests": list(structured_request.get("interests") or []),
+                "daily_window": {
+                    "start": _text(
+                        daily_window.get("start") or structured_request.get("day_start")
+                    ),
+                    "end": _text(
+                        daily_window.get("end") or structured_request.get("day_end")
+                    ),
+                },
+            }
+        )
     context["revision"] = previous_revision + 1
     context["latest_request"] = _text(current_message)
     return context

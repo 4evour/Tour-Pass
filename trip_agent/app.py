@@ -234,12 +234,21 @@ async def chat(payload: ChatRequest, request: Request, response: Response) -> di
         raise HTTPException(
             status_code=503, detail="TRIP_AGENT_LLM_KEY is not configured"
         )
+    if not current.amap.available:
+        raise HTTPException(status_code=503, detail="AMAP_API_KEY is not configured")
     remaining, _ = current.auth.consume_quota(identity, request)
     response.headers["X-Query-Remaining"] = str(remaining)
     try:
         result = await asyncio.wait_for(
             current.agent.run(
-                payload.message, payload.session_id, owner=identity.owner
+                payload.message,
+                payload.session_id,
+                owner=identity.owner,
+                **(
+                    {"structured_request": payload.trip.model_dump(mode="json")}
+                    if payload.trip
+                    else {}
+                ),
             ),
             timeout=current.request_timeout_seconds,
         )
@@ -275,6 +284,11 @@ async def stream_chat_events(
                     payload.message,
                     payload.session_id,
                     on_event=publish_progress,
+                    **(
+                        {"structured_request": payload.trip.model_dump(mode="json")}
+                        if payload.trip
+                        else {}
+                    ),
                     **({} if owner == ("guest", "local") else {"owner": owner}),
                 ),
                 timeout=current.request_timeout_seconds,
@@ -354,6 +368,8 @@ async def chat_stream(payload: ChatRequest, request: Request) -> StreamingRespon
         raise HTTPException(
             status_code=503, detail="TRIP_AGENT_LLM_KEY is not configured"
         )
+    if not current.amap.available:
+        raise HTTPException(status_code=503, detail="AMAP_API_KEY is not configured")
     remaining, _ = current.auth.consume_quota(identity, request)
     response = StreamingResponse(
         stream_chat_events(payload, current, identity.owner),

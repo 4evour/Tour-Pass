@@ -42,10 +42,26 @@ class ProviderCache:
         db.row_factory = sqlite3.Row
         return db
 
+    @classmethod
+    def _canonicalize(cls, value: Any) -> Any:
+        if isinstance(value, dict):
+            return {
+                str(key): cls._canonicalize(item)
+                for key, item in sorted(value.items(), key=lambda pair: str(pair[0]))
+            }
+        if isinstance(value, list):
+            return [cls._canonicalize(item) for item in value]
+        if isinstance(value, str):
+            return " ".join(value.strip().casefold().split())
+        return value
+
     @staticmethod
     def make_key(provider: str, operation: str, request: dict[str, Any]) -> str:
         payload = json.dumps(
-            request, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+            ProviderCache._canonicalize(request),
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
         )
         return hashlib.sha256(f"{provider}:{operation}:{payload}".encode()).hexdigest()
 

@@ -43,23 +43,30 @@ class OpenAICompatibleLLM:
         else:
             raise ValueError(f"Unsupported TRIP_AGENT_WIRE_API: {wire_api}")
         self.reasoning_effort = os.environ.get(
-            "TRIP_AGENT_REASONING_EFFORT", "medium"
+            "TRIP_AGENT_REASONING_EFFORT", "low"
         ).strip()
         self.final_reasoning_effort = os.environ.get(
-            "TRIP_AGENT_FINAL_REASONING_EFFORT", "high"
+            "TRIP_AGENT_FINAL_REASONING_EFFORT", "low"
         ).strip()
         self.max_output_tokens = max(
-            2048,
+            1024,
             min(
-                int(os.environ.get("TRIP_AGENT_MAX_OUTPUT_TOKENS", "12000")),
-                16384,
+                int(os.environ.get("TRIP_AGENT_MAX_OUTPUT_TOKENS", "4096")),
+                4096,
+            ),
+        )
+        self.hedge_delay_seconds = max(
+            0.0,
+            min(
+                float(os.environ.get("TRIP_AGENT_LLM_HEDGE_DELAY_SECONDS", "1.5")),
+                10.0,
             ),
         )
         self.timeout_seconds = max(
-            30.0,
+            15.0,
             min(
-                float(os.environ.get("TRIP_AGENT_LLM_TIMEOUT_SECONDS", "480")),
-                540.0,
+                float(os.environ.get("TRIP_AGENT_LLM_TIMEOUT_SECONDS", "60")),
+                120.0,
             ),
         )
         self.client: httpx.AsyncClient | None = None
@@ -79,6 +86,7 @@ class OpenAICompatibleLLM:
         output_format: dict[str, Any] | None = None,
         tools: list[dict[str, Any]] | None = None,
         tool_choice: str | dict[str, Any] | None = None,
+        prompt_cache_key: str | None = None,
     ) -> tuple[str, dict[str, Any]]:
         base_url = self.base_url.rstrip("/")
         if self.wire_api == "responses":
@@ -96,6 +104,8 @@ class OpenAICompatibleLLM:
             if tools:
                 payload["tools"] = tools
                 payload["tool_choice"] = tool_choice or "auto"
+            if prompt_cache_key:
+                payload["prompt_cache_key"] = prompt_cache_key
             return f"{base_url}/responses", payload
         response_format = (
             {
@@ -369,6 +379,63 @@ class OpenAICompatibleLLM:
             },
         )
 
+    async def _stream_response_hedged(
+        self,
+        endpoint: str,
+        headers: dict[str, str],
+        payload: dict[str, Any],
+        on_progress: Callable[[dict[str, Any]], None] | None,
+    ) -> tuple[str, list[dict[str, Any]], dict[str, Any]]:
+        primary = asyncio.create_task(
+            self._stream_response(
+                endpoint,
+                headers,
+                payload,
+                on_progress=on_progress,
+            )
+        )
+        try:
+            result = await asyncio.wait_for(
+                asyncio.shield(primary), timeout=self.hedge_delay_seconds
+            )
+            result[2]["provider_request_count"] = 1
+            return result
+        except TimeoutError:
+            pass
+
+        hedge = asyncio.create_task(
+            self._stream_response(
+                endpoint,
+                headers,
+                payload,
+                on_progress=None,
+            )
+        )
+        pending: set[asyncio.Task[Any]] = {primary, hedge}
+        first_error: BaseException | None = None
+        try:
+            while pending:
+                done, pending = await asyncio.wait(
+                    pending, return_when=asyncio.FIRST_COMPLETED
+                )
+                for completed in done:
+                    try:
+                        result = completed.result()
+                    except BaseException as exc:
+                        first_error = first_error or exc
+                        continue
+                    result[2]["provider_request_count"] = 2
+                    result[2]["hedged"] = completed is hedge
+                    return result
+            if first_error is not None:
+                raise first_error
+            raise RuntimeError("LLM hedge completed without a result")
+        finally:
+            for task in pending:
+                task.cancel()
+            if pending:
+                await asyncio.gather(*pending, return_exceptions=True)
+
     async def ainvoke(
         self,
         messages: list[dict[str, Any]],
@@ -379,6 +446,7 @@ class OpenAICompatibleLLM:
         output_format: dict[str, Any] | None = None,
         tools: list[dict[str, Any]] | None = None,
         tool_choice: str | dict[str, Any] | None = None,
+        prompt_cache_key: str | None = None,
     ) -> Any:
         if not self.available:
             raise RuntimeError("TRIP_AGENT_LLM_KEY is not configured")
@@ -397,6 +465,7 @@ class OpenAICompatibleLLM:
             output_format=output_format,
             tools=tools,
             tool_choice=tool_choice,
+            prompt_cache_key=prompt_cache_key,
         )
         if self.wire_api == "responses" and reasoning_effort is not None:
             if reasoning_effort:
@@ -439,18 +508,32 @@ class OpenAICompatibleLLM:
             output_schema_chars=output_schema_chars,
             request_chars=request_chars,
             max_output_tokens=self.max_output_tokens,
+            prompt_cache_enabled=bool(prompt_cache_key),
             **trace_fields,
         )
 
-        for attempt in range(3):
+        for attempt in range(2):
             try:
                 if self.wire_api == "responses":
-                    content, tool_calls, metrics = await self._stream_response(
-                        endpoint,
-                        headers,
-                        payload,
-                        on_progress=on_progress,
-                    )
+                    async with asyncio.timeout(self.timeout_seconds):
+                        if output_format and self.hedge_delay_seconds > 0:
+                            (
+                                content,
+                                tool_calls,
+                                metrics,
+                            ) = await self._stream_response_hedged(
+                                endpoint,
+                                headers,
+                                payload,
+                                on_progress,
+                            )
+                        else:
+                            content, tool_calls, metrics = await self._stream_response(
+                                endpoint,
+                                headers,
+                                payload,
+                                on_progress=on_progress,
+                            )
                 else:
                     response = await self.client.post(
                         endpoint,
@@ -543,14 +626,14 @@ class OpenAICompatibleLLM:
                 error_type=type(last_error).__name__,
                 **trace_fields,
             )
-            if attempt < 2:
-                await asyncio.sleep(0.5 * (2**attempt))
+            if attempt < 1:
+                await asyncio.sleep(0.5)
 
         error = RuntimeError(f"LLM request failed after retries: {last_error}")
         log_event(
             "llm_request_failed",
             call_id=call_id,
-            attempt=3,
+            attempt=2,
             error_type=type(last_error).__name__,
             total_ms=round((time.perf_counter() - request_started) * 1000),
             **trace_fields,
