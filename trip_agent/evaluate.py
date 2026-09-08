@@ -18,12 +18,11 @@ from dotenv import load_dotenv
 from .cache import ProviderCache
 from .context import MemoryPolicy
 from .llm import OpenAICompatibleLLM
-from .loop import SYSTEM_PROMPT, TripAgent
-from .model_schema import planner_tools, review_output_format
+from .loop import SKELETON_PROMPT, TripAgent
+from .model_schema import itinerary_skeleton_output_format
 from .observability import close_logging, configure_logging
 from .providers.amap import AmapProvider
 from .providers.weather import WeatherProvider
-from .reviewer import REVIEWER_PROMPT, ItineraryReviewer
 from .store import TripStore
 
 DEFAULT_REQUESTS = [
@@ -35,6 +34,20 @@ DEFAULT_REQUESTS = [
             "09:00至20:00，节奏标准，优先公共交通和步行。"
             "所有地点必须核验，提供真实通勤并回到住宿区。"
         ),
+        "trip": {
+            "destination": "长沙",
+            "days": 1,
+            "date_range": {"start": None, "end": None},
+            "hotel_area": "五一广场住宿区",
+            "travellers": "",
+            "pace": "balanced",
+            "transport_preference": "public_transit",
+            "budget": "",
+            "must_visits": ["岳麓山", "橘子洲"],
+            "notes": "所有地点必须核验，提供真实通勤并回到住宿区。",
+            "interests": [],
+            "daily_window": {"start": "09:00", "end": "20:00"},
+        },
     },
     {
         "id": "qingdao-loop",
@@ -44,6 +57,20 @@ DEFAULT_REQUESTS = [
             "09:00至19:30，节奏轻松，少走回头路。"
             "所有地点必须核验，提供真实通勤并回到住宿区。"
         ),
+        "trip": {
+            "destination": "青岛",
+            "days": 1,
+            "date_range": {"start": None, "end": None},
+            "hotel_area": "五四广场住宿区",
+            "travellers": "",
+            "pace": "relaxed",
+            "transport_preference": "public_transit",
+            "budget": "",
+            "must_visits": ["栈桥", "八大关"],
+            "notes": "少走回头路，所有地点必须核验并回到住宿区。",
+            "interests": [],
+            "daily_window": {"start": "09:00", "end": "19:30"},
+        },
     },
     {
         "id": "chongqing-loop",
@@ -53,6 +80,20 @@ DEFAULT_REQUESTS = [
             "10:00至21:00，节奏标准，尽量少步行。"
             "所有地点必须核验，提供真实通勤并回到住宿区。"
         ),
+        "trip": {
+            "destination": "重庆",
+            "days": 1,
+            "date_range": {"start": None, "end": None},
+            "hotel_area": "解放碑住宿区",
+            "travellers": "",
+            "pace": "balanced",
+            "transport_preference": "taxi",
+            "budget": "",
+            "must_visits": ["李子坝", "洪崖洞"],
+            "notes": "尽量少步行，所有地点必须核验并回到住宿区。",
+            "interests": [],
+            "daily_window": {"start": "10:00", "end": "21:00"},
+        },
     },
 ]
 
@@ -111,7 +152,14 @@ def _request_signature(
     options = {
         key: value
         for key, value in kwargs.items()
-        if key in {"output_format", "reasoning_effort", "tool_choice", "tools"}
+        if key
+        in {
+            "output_format",
+            "reasoning_effort",
+            "tool_choice",
+            "tools",
+            "prompt_cache_key",
+        }
     }
     return {"messages": _json_copy(messages), "options": _json_copy(options)}
 
@@ -128,7 +176,7 @@ class RecordingLLM:
         signature = _request_signature(messages, kwargs)
         record: dict[str, Any] = {
             "index": len(self.calls) + 1,
-            "purpose": "reviewer" if kwargs.get("output_format") else "planner",
+            "purpose": "skeleton",
             "request_hash": _json_hash(signature),
             "request": signature,
         }
@@ -433,7 +481,16 @@ def _summarize(
         )
         for call in llm_calls
     )
-    review = (response.plan or {}).get("review", {}) if response.plan else {}
+    cached_input_tokens = sum(
+        int(
+            (call.get("response") or {})
+            .get("metrics", {})
+            .get("usage", {})
+            .get("input_tokens_details.cached_tokens", 0)
+            or 0
+        )
+        for call in llm_calls
+    )
     return {
         "success": response.plan is not None,
         "elapsed_ms": elapsed_ms,
@@ -441,11 +498,12 @@ def _summarize(
         "semantic_result_hash": _json_hash(
             {"reply": response.reply, "plan": response.plan}
         ),
-        "planner_llm_calls": sum(call["purpose"] == "planner" for call in llm_calls),
-        "reviewer_llm_calls": sum(call["purpose"] == "reviewer" for call in llm_calls),
+        "planner_llm_calls": sum(call["purpose"] == "skeleton" for call in llm_calls),
         "llm_elapsed_ms": sum(int(call.get("elapsed_ms", 0)) for call in llm_calls),
         "input_tokens": input_tokens,
         "output_tokens": output_tokens,
+        "cached_input_tokens": cached_input_tokens,
+        "non_cached_input_tokens": max(0, input_tokens - cached_input_tokens),
         "provider_calls": len(provider_calls),
         "provider_elapsed_ms": sum(
             int(call.get("elapsed_ms", 0)) for call in provider_calls
@@ -457,8 +515,6 @@ def _summarize(
         "hard_failure_history": hard_history,
         "final_hard_pass": bool(final_validation.get("passed")),
         "warning_codes": warnings,
-        "review_verdict": review.get("verdict", "not_run"),
-        "review_issue_count": len(review.get("issues") or []),
         "completeness_score": (
             (response.plan or {}).get("completeness", {}).get("score")
             if response.plan
@@ -483,11 +539,14 @@ def _aggregate(summaries: list[dict[str, Any]]) -> dict[str, Any]:
         ),
         "total_elapsed_ms": sum(item["elapsed_ms"] for item in summaries),
         "total_planner_llm_calls": sum(item["planner_llm_calls"] for item in summaries),
-        "total_reviewer_llm_calls": sum(
-            item["reviewer_llm_calls"] for item in summaries
-        ),
         "total_input_tokens": sum(item["input_tokens"] for item in summaries),
         "total_output_tokens": sum(item["output_tokens"] for item in summaries),
+        "total_cached_input_tokens": sum(
+            item["cached_input_tokens"] for item in summaries
+        ),
+        "total_non_cached_input_tokens": sum(
+            item["non_cached_input_tokens"] for item in summaries
+        ),
         "total_provider_calls": sum(item["provider_calls"] for item in summaries),
         "average_completeness_score": (
             round(
@@ -531,24 +590,23 @@ def _manifest(
             path: _file_hash(path)
             for path in (
                 "trip_agent/context.py",
+                "trip_agent/contracts.py",
                 "trip_agent/evaluate.py",
                 "trip_agent/llm.py",
                 "trip_agent/loop.py",
                 "trip_agent/model_schema.py",
                 "trip_agent/plan_output.py",
-                "trip_agent/reviewer.py",
                 "trip_agent/validation.py",
+                "trip_agent/workflow.py",
             )
         },
         "model": args.model,
         "wire_api": args.wire_api,
         "reasoning_effort": args.reasoning_effort,
-        "final_reasoning_effort": args.final_reasoning_effort,
-        "max_steps": args.max_steps,
-        "max_tool_calls": args.max_tool_calls,
-        "max_submit_attempts": args.max_submit_attempts,
-        "reviewer_enabled": not args.no_reviewer,
-        "reviewer_shadow": True,
+        "workflow": "single_model_deterministic",
+        "max_model_calls": 1,
+        "reviewer_enabled": False,
+        "max_provider_calls": 14,
         "memory_policy": MemoryPolicy(
             history_messages=args.memory_history_messages,
             message_chars=args.memory_message_chars,
@@ -559,12 +617,10 @@ def _manifest(
         ).as_dict(),
         "request_count": len(requests),
         "prompt_hashes": {
-            "planner": _json_hash(SYSTEM_PROMPT),
-            "reviewer": _json_hash(REVIEWER_PROMPT),
+            "skeleton": _json_hash(SKELETON_PROMPT),
         },
         "contract_hashes": {
-            "tools": _json_hash(planner_tools()),
-            "review_output": _json_hash(review_output_format()),
+            "skeleton_output": _json_hash(itinerary_skeleton_output_format()),
         },
         "versions": {"httpx": httpx_version},
         "provider_availability": {
@@ -587,10 +643,17 @@ def _load_requests(path: str | None) -> list[dict[str, Any]]:
     if not isinstance(payload, list) or not payload:
         raise ValueError("requests 文件必须是非空 JSON 数组")
     for index, item in enumerate(payload):
-        if not isinstance(item, dict) or not str(item.get("message", "")).strip():
-            raise ValueError(f"requests[{index}] 缺少 message")
+        if not isinstance(item, dict) or (
+            not str(item.get("message", "")).strip()
+            and not isinstance(item.get("trip"), dict)
+        ):
+            raise ValueError(f"requests[{index}] 缺少 message 或 trip")
+        item.setdefault("message", "")
         item.setdefault("id", f"request-{index + 1}")
-        item.setdefault("city", "unknown")
+        item.setdefault(
+            "city",
+            (item.get("trip") or {}).get("destination", "unknown"),
+        )
     return payload
 
 
@@ -618,28 +681,26 @@ async def _live(args: argparse.Namespace) -> int:
         llm_inner.model = args.model
         llm_inner.wire_api = args.wire_api
         llm_inner.reasoning_effort = args.reasoning_effort
-        llm_inner.final_reasoning_effort = args.final_reasoning_effort
         llm = RecordingLLM(llm_inner)
-        reviewer = None
-        if not args.no_reviewer:
-            reviewer = ItineraryReviewer(llm=llm, shadow=True)
         store = TripStore(f"sqlite:///{(output_root / 'trips.sqlite').as_posix()}")
         agent = TripAgent(
             llm=llm,
             amap=amap,
             weather=weather,
             store=store,
-            reviewer=reviewer,
-            max_steps=args.max_steps,
-            max_tool_calls=args.max_tool_calls,
-            max_submit_attempts=args.max_submit_attempts,
             memory_policy=MemoryPolicy(**manifest["memory_policy"]),
+            max_provider_calls=manifest["max_provider_calls"],
         )
         started_at = time.perf_counter()
         try:
             response = await agent.run(
                 str(request["message"]),
                 session_id=f"eval-{stamp}-{request['id']}",
+                structured_request=(
+                    request.get("trip")
+                    if isinstance(request.get("trip"), dict)
+                    else None
+                ),
             )
         finally:
             elapsed_ms = round((time.perf_counter() - started_at) * 1000)
@@ -696,28 +757,25 @@ async def _replay(args: argparse.Namespace) -> int:
     llm = ReplayLLM(
         recording["llm"],
         manifest["model"],
-        manifest.get("reasoning_effort", "low"),
-        manifest.get("final_reasoning_effort", "medium"),
+        manifest.get("reasoning_effort", "medium"),
+        manifest.get("reasoning_effort", "medium"),
     )
     amap = ReplayAmap(recording["amap"])
     weather = ReplayWeather(recording["weather"])
-    reviewer = None
-    if manifest.get("reviewer_enabled"):
-        reviewer = ItineraryReviewer(llm=llm, shadow=True)
     memory_policy = MemoryPolicy(**manifest.get("memory_policy", {}))
     agent = TripAgent(
         llm=llm,
         amap=amap,
         weather=weather,
-        reviewer=reviewer,
-        max_steps=int(manifest["max_steps"]),
-        max_tool_calls=int(manifest["max_tool_calls"]),
-        max_submit_attempts=int(manifest["max_submit_attempts"]),
         memory_policy=memory_policy,
+        max_provider_calls=int(manifest.get("max_provider_calls", 14)),
     )
     response = await agent.run(
         str(request["message"]),
         session_id=str(expected["session_id"]),
+        structured_request=(
+            request.get("trip") if isinstance(request.get("trip"), dict) else None
+        ),
     )
     await agent.close()
     await llm.close()
@@ -752,18 +810,13 @@ def _parser() -> argparse.ArgumentParser:
     live.add_argument(
         "--wire-api", choices=["responses", "chat_completions"], default="responses"
     )
-    live.add_argument("--reasoning-effort", default="medium")
-    live.add_argument("--final-reasoning-effort", default="high")
-    live.add_argument("--max-steps", type=int, default=24)
-    live.add_argument("--max-tool-calls", type=int, default=48)
-    live.add_argument("--max-submit-attempts", type=int, default=4)
+    live.add_argument("--reasoning-effort", default="low")
     live.add_argument("--memory-history-messages", type=int, default=4)
     live.add_argument("--memory-message-chars", type=int, default=800)
     live.add_argument("--memory-plan-days", type=int, default=7)
     live.add_argument("--memory-items-per-day", type=int, default=8)
     live.add_argument("--memory-evidence-places", type=int, default=24)
     live.add_argument("--memory-evidence-routes", type=int, default=24)
-    live.add_argument("--no-reviewer", action="store_true")
     replay = subparsers.add_parser("replay")
     replay.add_argument("run_dir")
     return parser
