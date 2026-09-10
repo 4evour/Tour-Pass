@@ -35,6 +35,7 @@ from trip_agent.plan_output import (
 )
 from trip_agent.providers.amap import AmapProvider
 from trip_agent.providers.rail import (
+    Rail12306Provider,
     _STATION_SCRIPT,
     _parse_prices,
     _parse_station_script,
@@ -522,6 +523,10 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(payload["transport_preference"], "public_transit")
         self.assertEqual(payload["daily_window"], {"start": "08:30", "end": "19:00"})
 
+    def test_structured_trip_request_rejects_explicit_empty_party(self) -> None:
+        with self.assertRaises(ValueError):
+            StructuredTripRequest(destination="广州", party={"adults": 0})
+
     async def test_fast_workflow_calls_model_once_and_builds_verified_plan(
         self,
     ) -> None:
@@ -795,6 +800,13 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertFalse(
             _closed_on_date("04/15-10/15 周二 全天不开放", date(2026, 10, 16))
         )
+        self.assertFalse(
+            _closed_on_date(
+                "周一至周五 09:00-18:00；周末 全天不开放",
+                date(2026, 9, 9),
+            )
+        )
+        self.assertFalse(_closed_on_date("法定节假日 全天不开放", date(2026, 9, 9)))
 
     async def test_fast_workflow_keeps_lunch_inside_meal_window(self) -> None:
         skeleton = skeleton_plan()
@@ -885,6 +897,50 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             max_provider_calls=1000,
         )
         self.assertEqual(agent.max_provider_calls, 100)
+
+    async def test_provider_budget_includes_rail_calls(self) -> None:
+        class CountingRail:
+            available = True
+
+            def __init__(self) -> None:
+                self.calls = 0
+
+            async def search_trains(self, **_kwargs):
+                self.calls += 1
+                return {"provider": "rail12306", "available": True, "trains": []}
+
+        skeleton = skeleton_plan("昆明", 2)
+        skeleton["days"][1]["destination"] = "大理"
+        skeleton["days"][1]["intercity_leg"] = {
+            "from": "昆明",
+            "to": "大理",
+            "mode": "rail",
+            "departure_hint": "09:00",
+            "arrival_hint": None,
+        }
+        amap = FakeAmap()
+        rail = CountingRail()
+        response = await TripAgent(
+            SkeletonLLM(skeleton),
+            amap=amap,
+            rail=rail,
+            max_provider_calls=5,
+        ).run(
+            "昆明和大理两日行程",
+            structured_request={
+                "destination": "昆明、大理",
+                "destinations": [
+                    {"name": "昆明", "days": 1},
+                    {"name": "大理", "days": 1},
+                ],
+                "days": 2,
+                "start_date": "2026-09-14",
+            },
+        )
+
+        self.assertTrue(response.plan)
+        self.assertEqual(rail.calls, 1)
+        self.assertLessEqual(amap.search_calls + amap.route_calls + rail.calls, 5)
 
     def test_risk_source_requires_matching_weather_evidence(self) -> None:
         weather = {"provider": "qweather", "response_hash": "sha256:weather"}
@@ -1495,6 +1551,9 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             "name": "岳麓山国家重点风景名胜区",
             "location": "112.94,28.18",
             "type": "风景名胜",
+            "response_hash": "sha256:stale-place",
+            "fetched_at": 1_789_000_000.0,
+            "stale": True,
         }
         normalized = TripAgent.normalize_plan(
             single_place_plan(),
@@ -1510,6 +1569,10 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(report["passed"])
         self.assertIn(
             "ANCHOR_ROUTE_UNVERIFIED",
+            [warning["code"] for warning in report["warnings"]],
+        )
+        self.assertIn(
+            "STALE_PLACE_EVIDENCE",
             [warning["code"] for warning in report["warnings"]],
         )
 
@@ -1589,6 +1652,78 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             self.assertTrue(second["cache_hit"])
             self.assertEqual(request_count, 1)
             self.assertEqual(cache.stats(), {"entries": 1, "fresh_entries": 1})
+
+    def test_stale_cache_respects_maximum_fetch_age(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            cache = ProviderCache(Path(directory) / "cache.sqlite")
+            request = {"city": "广州", "keywords": "广州塔"}
+            cache.put(
+                "amap",
+                "place_search",
+                request,
+                {"status": "1", "pois": []},
+                ttl_seconds=0,
+                latency_ms=1,
+            )
+
+            self.assertIsNotNone(
+                cache.get_stale(
+                    "amap",
+                    "place_search",
+                    request,
+                    max_age_seconds=60,
+                )
+            )
+            self.assertIsNone(
+                cache.get_stale(
+                    "amap",
+                    "place_search",
+                    request,
+                    max_age_seconds=0,
+                )
+            )
+
+    async def test_amap_stale_fallback_exposes_age_metadata(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            cache = ProviderCache(Path(directory) / "cache.sqlite")
+            request = {
+                "city": "广州",
+                "keywords": "广州塔",
+                "offset": 8,
+                "page": 1,
+                "extensions": "all",
+                "citylimit": "true",
+            }
+            cache.put(
+                "amap",
+                "place_search",
+                request,
+                {
+                    "status": "1",
+                    "pois": [
+                        {
+                            "id": "B001",
+                            "name": "广州塔",
+                            "location": "113.32,23.11",
+                        }
+                    ],
+                },
+                ttl_seconds=0,
+                latency_ms=1,
+            )
+            provider = AmapProvider(cache)
+            provider.api_key = "test-key"
+            provider.min_interval = 0
+
+            def handler(_request: httpx.Request) -> httpx.Response:
+                return httpx.Response(503)
+
+            provider._client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+            result = await provider.search_places("广州", "广州塔")
+            await provider.close()
+
+            self.assertTrue(result["stale"])
+            self.assertIsInstance(result["fetched_at"], float)
 
     async def test_amap_resolves_compound_destination_to_city_adcode(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -1685,6 +1820,19 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             context["must_visits"],
             ["长隆野生动物世界", "广州长隆欢乐世界", "沙湾古镇"],
         )
+
+    def test_context_does_not_split_place_name_containing_conjunction(self) -> None:
+        context = build_planning_context(
+            None,
+            "我要去上海玩三天；必去地点：上海和平饭店、外滩。",
+        )
+        conjunction = build_planning_context(
+            None,
+            "我要去广州玩三天；必去地点：广州塔和越秀公园。",
+        )
+
+        self.assertEqual(context["must_visits"], ["上海和平饭店", "外滩"])
+        self.assertEqual(conjunction["must_visits"], ["广州塔", "越秀公园"])
 
     def test_relaxed_skeleton_trims_optional_non_meal_stops(self) -> None:
         skeleton = skeleton_plan()
@@ -2466,6 +2614,40 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         )
         self.assertTrue(all(1 <= len(day["stops"]) <= 5 for day in repaired["days"]))
 
+    def test_repair_skeleton_completes_missing_intercity_leg(self) -> None:
+        context = build_planning_context(
+            None,
+            "请按表单生成",
+            structured_request={
+                "destination": "昆明、大理",
+                "destinations": [
+                    {"name": "昆明", "days": 1},
+                    {"name": "大理", "days": 1},
+                ],
+                "days": 2,
+                "intercity_preferences": ["动车优先"],
+            },
+        )
+        skeleton = skeleton_plan("昆明", 2)
+        skeleton["days"][1]["destination"] = "大理"
+        skeleton["days"][1]["intercity_leg"] = None
+
+        repaired, repairs = repair_skeleton(skeleton, context)
+
+        self.assertEqual(
+            repaired["days"][1]["intercity_leg"],
+            {
+                "from": "昆明",
+                "to": "大理",
+                "mode": "rail",
+                "departure_hint": None,
+                "arrival_hint": None,
+            },
+        )
+        self.assertTrue(
+            any(item["reason"] == "repair_intercity_leg" for item in repairs)
+        )
+
     async def test_fast_workflow_returns_decisions_budget_and_evidence(self) -> None:
         response = await TripAgent(SkeletonLLM(), amap=FakeAmap()).run(
             "请生成完整行程",
@@ -2512,6 +2694,28 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         )
         self.assertIn("late_drop_order", plan["days"][0]["fallback"])
 
+    def test_normalize_plan_preserves_authoritative_booking_tasks(self) -> None:
+        plan = single_place_plan()
+        plan["booking_tasks"] = [
+            {
+                "id": "booking-user-supplied",
+                "category": "transport",
+                "target_name": "长沙南站",
+                "status": "not_required",
+                "action": "无需预约",
+            }
+        ]
+
+        normalized = normalize_plan(
+            plan,
+            known_places={},
+            resolve_place=lambda _item, _places: None,
+            route_evidence=[],
+            weather_evidence=None,
+        )
+
+        self.assertEqual(normalized["booking_tasks"], plan["booking_tasks"])
+
     def test_unspecified_duration_is_left_for_model_judgment(self) -> None:
         request = StructuredTripRequest(destination="云南")
         context = build_planning_context(None, "我想去云南玩一圈")
@@ -2541,6 +2745,10 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(response.plan["duration"]["days"], 4)
         self.assertEqual(response.plan["planning_context"]["days"], 4)
         self.assertEqual(llm.call_count, 1)
+        days_schema = llm.invocations[0]["output_format"]["schema"]["properties"][
+            "days"
+        ]
+        self.assertIn("根据用户需求选择合理天数", days_schema["description"])
 
     async def test_complete_model_judgment_survives_fact_enrichment(self) -> None:
         skeleton = skeleton_plan()
@@ -2625,6 +2833,78 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(parsed.isoformat(), "2026-09-15T00:00:00")
 
+    async def test_rail_retries_unsuccessful_response_with_refreshed_path(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            provider = Rail12306Provider(
+                ProviderCache(Path(directory) / "rail-cache.sqlite")
+            )
+            provider._stations = {
+                "names": {"昆明南": "KOM", "大理": "DKM"},
+                "cities": {},
+                "code_to_name": {"KOM": "昆明南", "DKM": "大理"},
+            }
+            refreshes: list[bool] = []
+
+            async def load_query_path(*, refresh: bool = False) -> str:
+                refreshes.append(refresh)
+                return "lcquery" if refresh else "query"
+
+            responses = iter(
+                [
+                    {"status": False, "data": None},
+                    {"status": True, "data": {"map": {}, "result": []}},
+                ]
+            )
+
+            def handler(_request: httpx.Request) -> httpx.Response:
+                return httpx.Response(200, json=next(responses))
+
+            provider._load_query_path = load_query_path
+            provider._client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+            provider.min_interval = 0
+            result = await provider.search_trains(
+                travel_date="2026-09-14",
+                from_station="昆明南",
+                to_station="大理",
+            )
+            await provider.close()
+
+            self.assertEqual(refreshes, [False, True])
+            self.assertEqual(result["trains"], [])
+
+    async def test_rail_non_object_response_uses_documented_error(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            provider = Rail12306Provider(
+                ProviderCache(Path(directory) / "rail-cache.sqlite")
+            )
+            provider._stations = {
+                "names": {"昆明南": "KOM", "大理": "DKM"},
+                "cities": {},
+                "code_to_name": {"KOM": "昆明南", "DKM": "大理"},
+            }
+
+            async def load_query_path(*, refresh: bool = False) -> str:
+                return "lcquery" if refresh else "query"
+
+            def handler(_request: httpx.Request) -> httpx.Response:
+                return httpx.Response(200, json=[])
+
+            provider._load_query_path = load_query_path
+            provider._client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+            provider.min_interval = 0
+            with self.assertRaisesRegex(
+                RuntimeError,
+                "12306 returned an unsuccessful timetable response",
+            ):
+                await provider.search_trains(
+                    travel_date="2026-09-14",
+                    from_station="昆明南",
+                    to_station="大理",
+                )
+            await provider.close()
+
     def test_rail_parser_keeps_station_names_and_common_fares(self) -> None:
         stations = _parse_station_script(
             "var station_names ='@bjb|北京北|VAP|beijingbei|bjb|0|0357|北京|||"
@@ -2699,9 +2979,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         skeleton["overview"] = (
             "动车实际车次、时刻和参考票价需由程序按2026年9月12日查询后填入。"
         )
-        skeleton["budget_notes"] = [
-            "动车票价和住宿价格需由程序按出行日期查询。"
-        ]
+        skeleton["budget_notes"] = ["动车票价和住宿价格需由程序按出行日期查询。"]
         rail = FakeRail()
         response = await TripAgent(
             SkeletonLLM(skeleton), amap=FakeAmap(), rail=rail
@@ -2741,22 +3019,27 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             )
         )
         self.assertFalse(
-            any(
-                "城际班次与票价尚未接入" in item
-                for item in response.plan["unknowns"]
-            )
+            any("城际班次与票价尚未接入" in item for item in response.plan["unknowns"])
         )
 
-    def test_itinerary_schema_requires_narrative_fields(self) -> None:
+    def test_itinerary_schema_is_strict_output_compatible(self) -> None:
         schema = itinerary_skeleton_output_format(expected_days=3)["schema"]
         day_schema = schema["properties"]["days"]["items"]
         stop_schema = day_schema["properties"]["stops"]["items"]
 
-        self.assertEqual(day_schema["properties"]["summary"]["minLength"], 1)
-        self.assertEqual(schema["properties"]["days"]["minItems"], 3)
-        self.assertEqual(schema["properties"]["days"]["maxItems"], 3)
+        def schema_keywords(value):
+            if isinstance(value, dict):
+                for key, item in value.items():
+                    yield key
+                    yield from schema_keywords(item)
+            elif isinstance(value, list):
+                for item in value:
+                    yield from schema_keywords(item)
+
+        keywords = set(schema_keywords(schema))
+        self.assertFalse({"minLength", "minItems", "maxItems"} & keywords)
+        self.assertIn("恰好 3 个", schema["properties"]["days"]["description"])
         self.assertIn("自然语言", day_schema["properties"]["summary"]["description"])
-        self.assertEqual(stop_schema["properties"]["reason"]["minLength"], 1)
         self.assertIn(
             "具体能看什么", stop_schema["properties"]["reason"]["description"]
         )

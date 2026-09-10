@@ -84,10 +84,7 @@ def _looks_like_transport_hub(value: Any) -> bool:
             name,
         )
         or re.fullmatch(r".{1,8}(?:南站|北站|东站|西站)", name)
-        or (
-            re.search(r"(?:动车|高铁|列车)", name)
-            and re.search(r"(?:机场|站)", name)
-        )
+        or (re.search(r"(?:动车|高铁|列车)", name) and re.search(r"(?:机场|站)", name))
     )
 
 
@@ -135,8 +132,14 @@ def _closed_on_date(opening_hours: Any, visit_date: date) -> bool:
                 else list(range(start_index, 7)) + list(range(0, end_index + 1))
             )
             applicable_days.update(weekday_order[index] for index in indexes)
-        if not applicable_days or weekday in applicable_days:
-            return True
+        has_weekday_marker = bool(re.search(r"(?:周|星期|节假日)", segment))
+        if applicable_days:
+            if weekday in applicable_days:
+                return True
+            continue
+        if has_weekday_marker:
+            continue
+        return True
     return False
 
 
@@ -161,6 +164,21 @@ def repair_skeleton(
 
     def destination_name(item: dict[str, Any]) -> str:
         return _text(item.get("destination") or item.get("name"))
+
+    def preferred_intercity_mode() -> str:
+        preferences = " ".join(
+            _text(item) for item in context.get("intercity_preferences") or []
+        )
+        for mode, markers in (
+            ("flight", ("飞机", "航班", "航空")),
+            ("rail", ("动车", "高铁", "火车", "铁路")),
+            ("coach", ("大巴", "客车", "汽车")),
+            ("ferry", ("轮渡", "渡轮", "船")),
+            ("driving", ("自驾",)),
+        ):
+            if any(marker in preferences for marker in markers):
+                return mode
+        return "unknown"
 
     destination_requests = [
         dict(item)
@@ -298,6 +316,38 @@ def repair_skeleton(
                 {"reason": "trim_optional_stop", "name": _text(removed.get("name"))}
             )
         day["stops"] = unique_stops
+
+    if len(allocated_destinations) >= len(raw_days):
+        default_intercity_mode = preferred_intercity_mode()
+        for day_index in range(1, len(raw_days)):
+            previous_destination = allocated_destinations[day_index - 1]
+            current_destination = allocated_destinations[day_index]
+            if _matches(previous_destination, current_destination):
+                continue
+            day = raw_days[day_index]
+            existing_leg = (
+                dict(day.get("intercity_leg"))
+                if isinstance(day.get("intercity_leg"), dict)
+                else {}
+            )
+            repaired_leg = {
+                **existing_leg,
+                "from": _text(existing_leg.get("from"), previous_destination),
+                "to": _text(existing_leg.get("to"), current_destination),
+                "mode": _text(existing_leg.get("mode"), default_intercity_mode),
+                "departure_hint": existing_leg.get("departure_hint"),
+                "arrival_hint": existing_leg.get("arrival_hint"),
+            }
+            if repaired_leg != existing_leg:
+                day["intercity_leg"] = repaired_leg
+                repairs.append(
+                    {
+                        "reason": "repair_intercity_leg",
+                        "day": day_index + 1,
+                        "from": previous_destination,
+                        "to": current_destination,
+                    }
+                )
 
     for must_visit in context.get("must_visits") or []:
         if any(
@@ -1226,6 +1276,9 @@ class ItineraryAssembler:
                 selected = dict(selected)
                 selected["source"] = "amap"
                 selected["response_hash"] = (result or {}).get("response_hash")
+                selected["fetched_at"] = (result or {}).get("fetched_at")
+                selected["expires_at"] = (result or {}).get("expires_at")
+                selected["stale"] = bool((result or {}).get("stale"))
                 if stop_type in {"hotel", "meal"}:
                     required_category = (
                         "住宿服务" if stop_type == "hotel" else "餐饮服务"
@@ -1235,6 +1288,9 @@ class ItineraryAssembler:
                             **dict(candidate),
                             "source": "amap",
                             "response_hash": (result or {}).get("response_hash"),
+                            "fetched_at": (result or {}).get("fetched_at"),
+                            "expires_at": (result or {}).get("expires_at"),
+                            "stale": bool((result or {}).get("stale")),
                         }
                         for candidate in (result or {}).get("places") or []
                         if isinstance(candidate, dict)
@@ -1344,6 +1400,7 @@ class ItineraryAssembler:
             self.max_provider_calls
             - len(search_jobs)
             - len(weather_specs)
+            - len(rail_specs)
             - region_slots,
         )
         selected_routes = route_specs[:route_budget]
@@ -1790,6 +1847,8 @@ class ItineraryAssembler:
                             )
                             else "model_judgment"
                         ),
+                        "evidence_fetched_at": evidence.get("fetched_at"),
+                        "evidence_stale": bool(evidence.get("stale")),
                         "optional": bool(stop.get("optional", True)),
                         "required_by_user": bool(stop.get("_required_by_user")),
                         "visit_scale": _text(stop.get("visit_scale"), "standard"),
@@ -1828,6 +1887,8 @@ class ItineraryAssembler:
                                 "source": "amap",
                                 "evidence_hash": _text(candidate.get("response_hash"))
                                 or None,
+                                "evidence_fetched_at": candidate.get("fetched_at"),
+                                "evidence_stale": bool(candidate.get("stale")),
                             }
                             for candidate in stop.get("_candidate_places") or []
                             if isinstance(candidate, dict)
@@ -2058,6 +2119,8 @@ class ItineraryAssembler:
                         if hotel_index == 0 and context.get("hotel_area")
                         else "model_judgment"
                     ),
+                    "evidence_fetched_at": evidence.get("fetched_at"),
+                    "evidence_stale": bool(evidence.get("stale")),
                 }
             )
         hotel_option_outputs: list[dict[str, Any]] = []
@@ -2079,6 +2142,8 @@ class ItineraryAssembler:
                         (hotel_item.get("_resolved_place") or {}).get("response_hash")
                     )
                     or None,
+                    "evidence_fetched_at": evidence.get("fetched_at"),
+                    "evidence_stale": bool(evidence.get("stale")),
                     "evidence_refs": [],
                 }
             )
@@ -2115,6 +2180,8 @@ class ItineraryAssembler:
                         "estimated_total": None,
                         "cancellation": None,
                         "evidence_hash": _text(candidate.get("response_hash")) or None,
+                        "evidence_fetched_at": candidate.get("fetched_at"),
+                        "evidence_stale": bool(candidate.get("stale")),
                         "evidence_refs": [],
                     }
                 )
@@ -2185,14 +2252,10 @@ class ItineraryAssembler:
             None,
         )
         transport_notes = [
-            _text(item)
-            for item in skeleton.get("transport_notes") or []
-            if _text(item)
+            _text(item) for item in skeleton.get("transport_notes") or [] if _text(item)
         ]
         budget_notes = [
-            _text(item)
-            for item in skeleton.get("budget_notes") or []
-            if _text(item)
+            _text(item) for item in skeleton.get("budget_notes") or [] if _text(item)
         ]
         if verified_rail:
             rail_date = _text(
@@ -2234,9 +2297,7 @@ class ItineraryAssembler:
                     and re.search(r"(?:程序|尚未接入|未接入)", item)
                 )
             ]
-            budget_notes.append(
-                "铁路时刻与参考票价已核验，余票库存仍需在购票时确认。"
-            )
+            budget_notes.append("铁路时刻与参考票价已核验，余票库存仍需在购票时确认。")
             transport_notes.append(verified_summary)
         dining_options = [
             {

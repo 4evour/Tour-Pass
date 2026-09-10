@@ -85,15 +85,33 @@ class ProviderCache:
             "response_hash": row["response_hash"],
             "cache_hit": True,
         }
+
     def get_stale(
-        self, provider: str, operation: str, request: dict[str, Any]
+        self,
+        provider: str,
+        operation: str,
+        request: dict[str, Any],
+        *,
+        max_age_seconds: float | None = None,
     ) -> dict[str, Any] | None:
         key = self.make_key(provider, operation, request)
+        cutoff = (
+            None
+            if max_age_seconds is None
+            else time.time() - max(0.0, float(max_age_seconds))
+        )
         with self._lock, closing(self._connect()) as db:
-            row = db.execute(
-                "SELECT * FROM provider_cache WHERE cache_key = ?",
-                (key,),
-            ).fetchone()
+            if cutoff is None:
+                row = db.execute(
+                    "SELECT * FROM provider_cache WHERE cache_key = ?",
+                    (key,),
+                ).fetchone()
+            else:
+                row = db.execute(
+                    "SELECT * FROM provider_cache "
+                    "WHERE cache_key = ? AND fetched_at >= ?",
+                    (key, cutoff),
+                ).fetchone()
         if row is None:
             return None
         return {
@@ -106,7 +124,6 @@ class ProviderCache:
             "cache_hit": True,
             "stale": True,
         }
-
 
     def put(
         self,

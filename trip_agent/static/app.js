@@ -519,7 +519,7 @@ function renderWeather(weather) {
   if (!days.length) {
     return `<section class="manual-card weather-card unavailable"><header><b>天气与穿着</b><span>待日期</span></header><p>尚未提供准确出发日期，因此不展示可能过期的天气预报。确定日期后重新生成即可补齐。</p><ul><li>出发前 24 小时复核降雨、温度和紫外线。</li><li>随身准备饮用水、折叠伞和舒适步行鞋。</li></ul></section>`;
   }
-  return `<section class="manual-card weather-card"><header><b>天气与穿着</b><span>${textOr(sourceLabels[report.provider], "天气数据")}</span></header><div class="weather-days">${days.map((day) => `<div><span>${textOr(day.date, "日期待定")}</span><b>${textOr(day.condition, "天气待确认")}</b><small>${textOr(day.low, "?")}—${textOr(day.high, "?")}℃${day.wind ? ` · ${escapeHtml(day.wind)}` : ""}</small></div>`).join("")}</div><p>临近出发仍应复核短时降雨、体感温度和景区临时通知。</p></section>`;
+  return `<section class="manual-card weather-card"><header><b>天气与穿着</b><span>${textOr(sourceLabels[report.provider], "天气数据")}</span></header><div class="weather-days">${days.map((day) => `<div><span>${textOr(day.date, "日期待定")}</span><b>${textOr(day.condition, "天气待确认")}</b><small>${textOr(day.low === null || day.low === undefined ? "" : String(day.low), "?")}—${textOr(day.high === null || day.high === undefined ? "" : String(day.high), "?")}℃${day.wind ? ` · ${escapeHtml(day.wind)}` : ""}</small></div>`).join("")}</div><p>临近出发仍应复核短时降雨、体感温度和景区临时通知。</p></section>`;
 }
 
 function money(value, currency="CNY") {
@@ -664,7 +664,7 @@ function renderPlan(data, publicView=false) {
   const score = Math.max(0, Math.min(100, Number(completeness.score) || 0));
   const highlights = list(narrative.highlights);
   const runLabel = String(data.run_id || "published").slice(0, 10);
-  const paceLabel = ({relaxed:"松弛慢游",balanced:"松弛有序",packed:"行程充实"})[profile.pace] || textOr(profile.pace, "节奏待定");
+  const paceLabel = ({relaxed:"松弛慢游",balanced:"松弛有序",intensive:"行程充实",packed:"行程充实"})[profile.pace] || textOr(profile.pace, "节奏待定");
   const transportLabel = modeLabels[profile.transport_preference] || textOr(profile.transport_preference, "交通待定");
   const hotelStatusLabel = ({confirmed:"已确认",recommended_area:"推荐住宿区域",unknown:"待确认"})[hotel.status] || textOr(hotel.status, "待确认");
   const actions = publicView
@@ -891,7 +891,7 @@ function buildStructuredRequest() {
     hotel_preferences: String(data.get("hotel_preferences") || "").trim(),
     travellers: String(data.get("travelers") || "").trim(),
     party: {
-      adults: Number(data.get("adults") || 0),
+      adults: Number(data.get("adults") || 1),
       children_ages: splitValues(data.get("children_ages")).map(Number).filter(Number.isFinite),
       seniors: Number(data.get("seniors") || 0),
       rooms,

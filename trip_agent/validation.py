@@ -15,6 +15,7 @@ def _text(value: Any) -> str:
 def _key(value: Any) -> str:
     return re.sub(r"[\s·（）()\-—]", "", _text(value)).casefold()
 
+
 def _matches_key(left: str, right: str) -> bool:
     def options(value: str) -> list[str]:
         return [
@@ -216,11 +217,18 @@ class HardValidator:
         context: dict[str, Any],
     ) -> None:
         seen_places: dict[str, str] = {}
-        hotels = [
-            item for item in plan.get("hotels") or [] if isinstance(item, dict)
-        ]
+        hotels = [item for item in plan.get("hotels") or [] if isinstance(item, dict)]
         if not hotels and isinstance(plan.get("hotel"), dict):
             hotels = [plan["hotel"]]
+        for hotel_index, hotel in enumerate(hotels):
+            if hotel.get("evidence_stale"):
+                self._warnings.append(
+                    _warning(
+                        "STALE_PLACE_EVIDENCE",
+                        f"$.hotels[{hotel_index}]",
+                        "住宿地点来自有时效上限的历史地图缓存，出发前需要重新核对",
+                    )
+                )
 
         def matches_hotel_anchor(
             anchor: dict[str, Any], expected_hotel: dict[str, Any]
@@ -244,9 +252,7 @@ class HardValidator:
         requested_end = _minutes(window.get("end"))
         expected_start_date = _text(context.get("start_date"))
         requested_destinations = [
-            item
-            for item in context.get("destinations") or []
-            if isinstance(item, dict)
+            item for item in context.get("destinations") or [] if isinstance(item, dict)
         ]
         allocations_are_explicit = bool(requested_destinations) and all(
             int(item.get("days") or 0) > 0 for item in requested_destinations
@@ -260,7 +266,9 @@ class HardValidator:
             if allocations_are_explicit
             else []
         )
-        arrival = context.get("arrival") if isinstance(context.get("arrival"), dict) else {}
+        arrival = (
+            context.get("arrival") if isinstance(context.get("arrival"), dict) else {}
+        )
         departure = (
             context.get("departure")
             if isinstance(context.get("departure"), dict)
@@ -474,9 +482,7 @@ class HardValidator:
                 )
             if hotel_loop_issue:
                 (
-                    self._failures
-                    if context.get("hotel_area")
-                    else self._warnings
+                    self._failures if context.get("hotel_area") else self._warnings
                 ).append(hotel_loop_issue)
             missing_anchor_location = not start_anchor.get(
                 "location"
@@ -505,6 +511,14 @@ class HardValidator:
             previous_end: int | None = None
             for item_index, item in enumerate(schedule):
                 item_path = f"{path}.schedule[{item_index}]"
+                if item.get("evidence_stale"):
+                    self._warnings.append(
+                        _warning(
+                            "STALE_PLACE_EVIDENCE",
+                            item_path,
+                            "地点来自有时效上限的历史地图缓存，出发前需要重新核对",
+                        )
+                    )
                 start, end = _minutes(item.get("start")), _minutes(item.get("end"))
                 if start is None or end is None or start >= end:
                     self._failures.append(

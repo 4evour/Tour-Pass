@@ -71,14 +71,24 @@ def _text(value: Any) -> str:
 def _split_values(value: str) -> list[str]:
     return [item.strip() for item in re.split(r"[、,，/]+", value) if item.strip()]
 
+
+_CONJUNCTION_PLACE_SUFFIX = (
+    r"(?:博物馆|纪念馆|美术馆|大教堂|动物世界|欢乐世界|"
+    r"风景区|景区|公园|古镇|古城|广场|故宫|乐园|"
+    r"[山湖海江河池塔寺宫园城镇村街巷岛洲馆祠坊桥湾滩岸])"
+)
+
+
 def _split_must_visits(value: str) -> list[str]:
     result: list[str] = []
     for item in _split_values(value):
-        conjunction = re.fullmatch(r"(.{2,})和(.{2,})", item)
+        conjunction = re.fullmatch(
+            rf"(.{{1,}}{_CONJUNCTION_PLACE_SUFFIX})和"
+            rf"(.{{1,}}{_CONJUNCTION_PLACE_SUFFIX})",
+            item,
+        )
         if conjunction:
-            result.extend(
-                part.strip() for part in conjunction.groups() if part.strip()
-            )
+            result.extend(part.strip() for part in conjunction.groups() if part.strip())
         else:
             result.append(item)
     return result
@@ -478,7 +488,9 @@ def build_planning_context(
                 part.strip(),
             )
             name = re.sub(r"(?:游玩|旅行|旅游|玩)$", "", name).strip()
-            if 2 <= len(name) <= 40 and re.fullmatch(r"[\u4e00-\u9fffA-Za-z·\s]+", name):
+            if 2 <= len(name) <= 40 and re.fullmatch(
+                r"[\u4e00-\u9fffA-Za-z·\s]+", name
+            ):
                 cleaned.append(name)
         return list(dict.fromkeys(cleaned))
 
@@ -754,9 +766,7 @@ def build_planning_context(
                     structured_request.get("destinations") or context["destinations"]
                 ),
                 "days": (
-                    int(requested_days)
-                    if requested_days not in (None, "")
-                    else None
+                    int(requested_days) if requested_days not in (None, "") else None
                 ),
                 "nights": structured_request.get("nights"),
                 "start_date": _text(
@@ -765,9 +775,7 @@ def build_planning_context(
                 "arrival": deepcopy(structured_request.get("arrival") or {}),
                 "departure": deepcopy(structured_request.get("departure") or {}),
                 "hotel_area": _text(structured_request.get("hotel_area")),
-                "hotel_preferences": _text(
-                    structured_request.get("hotel_preferences")
-                ),
+                "hotel_preferences": _text(structured_request.get("hotel_preferences")),
                 "travelers": _text(
                     structured_request.get("travellers")
                     or structured_request.get("travelers")
@@ -782,18 +790,14 @@ def build_planning_context(
                     structured_request.get("intercity_preferences") or []
                 ),
                 "budget": _text(structured_request.get("budget")),
-                "budget_range": deepcopy(
-                    structured_request.get("budget_range") or {}
-                ),
+                "budget_range": deepcopy(structured_request.get("budget_range") or {}),
                 "must_visits": list(structured_request.get("must_visits") or []),
                 "notes": _text(structured_request.get("notes")),
                 "interests": list(structured_request.get("interests") or []),
                 "dietary_requirements": list(
                     structured_request.get("dietary_requirements") or []
                 ),
-                "mobility_needs": list(
-                    structured_request.get("mobility_needs") or []
-                ),
+                "mobility_needs": list(structured_request.get("mobility_needs") or []),
                 "booking_preferences": _text(
                     structured_request.get("booking_preferences")
                 ),
@@ -810,8 +814,7 @@ def build_planning_context(
     raw_destinations = [
         item
         for item in context.get("destinations") or []
-        if isinstance(item, dict)
-        and _text(item.get("destination") or item.get("name"))
+        if isinstance(item, dict) and _text(item.get("destination") or item.get("name"))
     ]
     explicit_days = (
         int(context["days"]) if context.get("days") not in (None, "") else None

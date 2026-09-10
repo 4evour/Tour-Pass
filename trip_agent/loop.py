@@ -195,8 +195,9 @@ class TripAgent:
             reply = "请先告诉我目的地城市。"
             emit_event({"type": "assistant_message", "content": reply})
         else:
+            requested_days = planning_context.get("days")
             schema = itinerary_skeleton_output_format(
-                int(planning_context.get("days") or 3)
+                int(requested_days) if requested_days else None
             )
             cache_material = (
                 SKELETON_PROMPT

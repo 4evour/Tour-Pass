@@ -291,19 +291,27 @@ class Rail12306Provider:
         stale = self.cache.get_stale("rail12306", "search_trains", request)
         started = time.perf_counter()
         try:
-            query_path = await self._load_query_path()
-            response = await self._get(
-                f"{_API_BASE}/otn/{query_path}",
-                params={
-                    "leftTicketDTO.train_date": parsed_date.isoformat(),
-                    "leftTicketDTO.from_station": from_code,
-                    "leftTicketDTO.to_station": to_code,
-                    "purpose_codes": "ADULT",
-                },
-            )
-            body = response.json()
-            data = body.get("data") if isinstance(body, dict) else None
-            if not body.get("status") or not isinstance(data, dict):
+            data: dict[str, Any] | None = None
+            for attempt in range(2):
+                query_path = await self._load_query_path(refresh=attempt == 1)
+                response = await self._get(
+                    f"{_API_BASE}/otn/{query_path}",
+                    params={
+                        "leftTicketDTO.train_date": parsed_date.isoformat(),
+                        "leftTicketDTO.from_station": from_code,
+                        "leftTicketDTO.to_station": to_code,
+                        "purpose_codes": "ADULT",
+                    },
+                )
+                body = response.json()
+                data = body.get("data") if isinstance(body, dict) else None
+                if isinstance(data, dict) and body.get("status"):
+                    break
+                if attempt == 1:
+                    raise RuntimeError(
+                        "12306 returned an unsuccessful timetable response"
+                    )
+            if data is None:
                 raise RuntimeError("12306 returned an unsuccessful timetable response")
             station_map = data.get("map") if isinstance(data.get("map"), dict) else {}
             trains: list[dict[str, Any]] = []

@@ -98,6 +98,8 @@ def normalize_hotel(
         "location": text(evidence.get("location"))
         or (text(hotel.get("location")) if user_fact else None),
         "evidence_hash": text(evidence.get("response_hash")) or None,
+        "evidence_fetched_at": evidence.get("fetched_at"),
+        "evidence_stale": bool(evidence.get("stale")),
         "status": status,
         "reason": text(hotel.get("reason")),
         "source": source,
@@ -347,9 +349,7 @@ def normalize_day(
             "notes": text(mapping(day.get("fallback")).get("notes")),
             "late_drop_order": [
                 text(item)
-                for item in items(
-                    mapping(day.get("fallback")).get("late_drop_order")
-                )
+                for item in items(mapping(day.get("fallback")).get("late_drop_order"))
                 if text(item)
             ],
         },
@@ -423,6 +423,8 @@ def normalize_schedule_item(
         "source": "amap" if evidence else ("user" if user_fact else "model_judgment"),
         "visit_scale": text(value.get("visit_scale"), "standard"),
         "evidence_hash": text(evidence.get("response_hash")) or None,
+        "evidence_fetched_at": evidence.get("fetched_at"),
+        "evidence_stale": bool(evidence.get("stale")),
         "optional": bool(value.get("optional", True)),
         "evidence_refs": [],
         "practical_tips": [
@@ -437,12 +439,15 @@ def normalize_schedule_item(
                 "location": text(mapping(item).get("location")) or None,
                 "source": text(mapping(item).get("source"), "model_judgment"),
                 "evidence_hash": text(mapping(item).get("evidence_hash")) or None,
+                "evidence_fetched_at": mapping(item).get("evidence_fetched_at"),
+                "evidence_stale": bool(mapping(item).get("evidence_stale")),
                 "evidence_refs": [],
             }
             for item in items(value.get("alternatives"))
             if text(mapping(item).get("name"))
         ],
     }
+
 
 def place_key(value: Any) -> str:
     return re.sub(r"[\s（）()·\-—]", "", text(value).casefold())
@@ -570,17 +575,20 @@ def add_traceability(plan: dict[str, Any]) -> None:
         supports: list[str],
         confidence: str,
         response_hash: str | None,
+        retrieved_at: Any = None,
+        stale: bool = False,
     ) -> None:
         evidence[evidence_ref] = {
             "id": evidence_ref,
             "provider": provider,
             "title": title,
             "url": url,
-            "retrieved_at": None,
+            "retrieved_at": retrieved_at,
             "valid_for_date": None,
             "supports": supports,
-            "confidence": confidence,
+            "confidence": "low" if stale else confidence,
             "response_hash": response_hash,
+            "stale": stale,
         }
 
     hotels = items(plan.get("hotels"))
@@ -623,11 +631,12 @@ def add_traceability(plan: dict[str, Any]) -> None:
             supports=[f"hotel_options[{hotel_index}].location"],
             confidence="medium",
             response_hash=text(hotel.get("evidence_hash")) or None,
+            retrieved_at=hotel.get("evidence_fetched_at"),
+            stale=bool(hotel.get("evidence_stale")),
         )
     plan["hotel_options"] = hotel_options
 
     dining_options: list[dict[str, Any]] = []
-    booking_tasks: list[dict[str, Any]] = []
     local_transport: list[dict[str, Any]] = []
     period_labels = {
         "breakfast": "早餐",
@@ -643,7 +652,9 @@ def add_traceability(plan: dict[str, Any]) -> None:
         for item_index, item in enumerate(items(day.get("schedule"))):
             item_id = f"day-{day_index + 1}-item-{item_index + 1}"
             item["id"] = item_id
-            grouped.setdefault(text(item.get("period"), "afternoon"), []).append(item_id)
+            grouped.setdefault(text(item.get("period"), "afternoon"), []).append(
+                item_id
+            )
             if item.get("optional"):
                 optional_items.append(item_id)
             item["evidence_refs"] = []
@@ -667,19 +678,18 @@ def add_traceability(plan: dict[str, Any]) -> None:
                     ],
                     confidence="medium",
                     response_hash=text(item.get("evidence_hash")) or None,
+                    retrieved_at=item.get("evidence_fetched_at"),
+                    stale=bool(item.get("evidence_stale")),
                 )
             for alternative_index, alternative in enumerate(
                 items(item.get("alternatives"))
             ):
                 alternative["evidence_refs"] = []
-                if (
-                    alternative.get("source") != "amap"
-                    or not alternative.get("place_id")
+                if alternative.get("source") != "amap" or not alternative.get(
+                    "place_id"
                 ):
                     continue
-                alternative_ref = evidence_id(
-                    "amap-poi", alternative.get("place_id")
-                )
+                alternative_ref = evidence_id("amap-poi", alternative.get("place_id"))
                 alternative["evidence_refs"] = [alternative_ref]
                 alternative_url = (
                     f"https://uri.amap.com/marker?position={alternative['location']}"
@@ -698,6 +708,8 @@ def add_traceability(plan: dict[str, Any]) -> None:
                     ],
                     confidence="medium",
                     response_hash=text(alternative.get("evidence_hash")) or None,
+                    retrieved_at=alternative.get("evidence_fetched_at"),
+                    stale=bool(alternative.get("evidence_stale")),
                 )
             reservation = mapping(item.get("reservation"))
             if item.get("type") == "meal":
@@ -719,35 +731,6 @@ def add_traceability(plan: dict[str, Any]) -> None:
                         "price_per_person": None,
                         "reservation_required": reservation.get("required"),
                         "alternatives": items(item.get("alternatives")),
-                        "evidence_refs": list(item.get("evidence_refs") or []),
-                    }
-                )
-            if (
-                item.get("type") == "visit"
-                or reservation.get("required") is True
-            ) and reservation.get("required") is not False:
-                booking_tasks.append(
-                    {
-                        "id": f"booking-{day_index + 1}-{item_index + 1}",
-                        "category": (
-                            "dining" if item.get("type") == "meal" else "attraction"
-                        ),
-                        "target_ref": item.get("place_id"),
-                        "target_name": item.get("name"),
-                        "day": day_index + 1,
-                        "status": (
-                            "action_required"
-                            if reservation.get("required") is True
-                            else "needs_verification"
-                        ),
-                        "action": (
-                            "立即预约"
-                            if reservation.get("required") is True
-                            else "出发前核对是否需要预约"
-                        ),
-                        "deadline": None,
-                        "booking_url": None,
-                        "delegation_supported": False,
                         "evidence_refs": list(item.get("evidence_refs") or []),
                     }
                 )
@@ -810,7 +793,6 @@ def add_traceability(plan: dict[str, Any]) -> None:
                 }
             )
     plan["dining_options"] = dining_options
-    plan["booking_tasks"] = booking_tasks
     transport = mapping(plan.get("transport_options"))
     transport["local"] = local_transport
     intercity_options = items(transport.get("intercity"))
@@ -838,6 +820,8 @@ def add_traceability(plan: dict[str, Any]) -> None:
                 ],
                 confidence="medium",
                 response_hash=text(option.get("evidence_hash")) or None,
+                retrieved_at=option.get("fetched_at"),
+                stale=bool(option.get("stale")),
             )
     transport["intercity"] = intercity_options
     plan["transport_options"] = transport
@@ -1109,7 +1093,8 @@ def build_completeness_report(plan: dict[str, Any]) -> dict[str, Any]:
     budget = mapping(plan.get("budget"))
     check(
         "预算明细",
-        bool(items(budget.get("categories"))) and bool(items(budget.get("assumptions"))),
+        bool(items(budget.get("categories")))
+        and bool(items(budget.get("assumptions"))),
         "预算按类别列出并说明估算假设",
         "预算类别或估算假设不足",
     )

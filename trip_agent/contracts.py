@@ -155,9 +155,7 @@ class StructuredTripRequest(BaseModel):
             stated_days = sum(item.days or 0 for item in self.destinations)
             if self.days is None and stated_days:
                 self.days = stated_days
-                self.nights = (
-                    self.days - 1 if self.nights is None else self.nights
-                )
+                self.nights = self.days - 1 if self.nights is None else self.nights
             elif stated_days and stated_days != self.days:
                 raise ValueError("各目的地天数之和必须等于总游玩天数")
         for field_name in (
@@ -243,9 +241,7 @@ class StreamResult(BaseModel):
 
 
 class StreamErrorDetail(BaseModel):
-    code: Literal[
-        "planning_timeout", "planning_service_unavailable", "planning_failed"
-    ]
+    code: Literal["planning_timeout", "planning_service_unavailable", "planning_failed"]
     message: str
 
 

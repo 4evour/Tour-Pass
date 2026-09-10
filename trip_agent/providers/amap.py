@@ -11,6 +11,11 @@ import httpx
 
 from ..cache import ProviderCache
 
+_STALE_MAX_AGE_SECONDS = {
+    "place_search": 7 * 86400,
+    "place_detail": 14 * 86400,
+}
+
 
 class AmapProvider:
     def __init__(self, cache: ProviderCache | None = None) -> None:
@@ -41,9 +46,15 @@ class AmapProvider:
             return cached
         if not self.available:
             raise RuntimeError("AMAP_API_KEY is not configured")
+        stale_max_age = _STALE_MAX_AGE_SECONDS.get(operation)
         stale = (
-            self.cache.get_stale("amap", operation, params)
-            if operation in {"place_search", "place_detail"}
+            self.cache.get_stale(
+                "amap",
+                operation,
+                params,
+                max_age_seconds=stale_max_age,
+            )
+            if stale_max_age is not None
             else None
         )
         client = self._client or httpx.AsyncClient(timeout=15)
@@ -68,9 +79,7 @@ class AmapProvider:
             body = response.json()
             if str(body.get("status")) == "1":
                 latency = round((time.perf_counter() - started) * 1000)
-                return self.cache.put(
-                    "amap", operation, params, body, ttl, latency
-                )
+                return self.cache.put("amap", operation, params, body, ttl, latency)
             info = str(body.get("info") or "AMAP_ERROR")
             if info == "CUQPS_HAS_EXCEEDED_THE_LIMIT" and attempt == 0:
                 await asyncio.sleep(max(1.0, self.min_interval))
@@ -89,7 +98,9 @@ class AmapProvider:
                 for length in range(2, min(6, len(clean) - 1) + 1)
                 if clean[:length] != clean
             )
-        for keyword in dict.fromkeys(candidate for candidate in candidates if candidate):
+        for keyword in dict.fromkeys(
+            candidate for candidate in candidates if candidate
+        ):
             record = await self._request(
                 "district_lookup",
                 "/v3/config/district",
@@ -177,6 +188,8 @@ class AmapProvider:
             "cache_hit": record["cache_hit"],
             "stale": bool(record.get("stale")),
             "response_hash": record["response_hash"],
+            "fetched_at": record["fetched_at"],
+            "expires_at": record["expires_at"],
         }
 
     async def place_detail(self, place_id: str) -> dict[str, Any]:
@@ -192,6 +205,9 @@ class AmapProvider:
             "source": "amap",
             "cache_hit": record["cache_hit"],
             "response_hash": record["response_hash"],
+            "stale": bool(record.get("stale")),
+            "fetched_at": record["fetched_at"],
+            "expires_at": record["expires_at"],
         }
 
     async def weather(self, city: str) -> dict[str, Any]:
