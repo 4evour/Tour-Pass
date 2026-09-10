@@ -11,6 +11,11 @@ import httpx
 
 from ..cache import ProviderCache
 
+_STALE_MAX_AGE_SECONDS = {
+    "place_search": 7 * 86400,
+    "place_detail": 14 * 86400,
+}
+
 
 class AmapProvider:
     def __init__(self, cache: ProviderCache | None = None) -> None:
@@ -41,29 +46,107 @@ class AmapProvider:
             return cached
         if not self.available:
             raise RuntimeError("AMAP_API_KEY is not configured")
-        async with self._rate_lock:
-            wait = self.min_interval - (time.monotonic() - self._last_request)
-            if wait > 0:
-                await asyncio.sleep(wait)
-            self._last_request = time.monotonic()
+        stale_max_age = _STALE_MAX_AGE_SECONDS.get(operation)
+        stale = (
+            self.cache.get_stale(
+                "amap",
+                operation,
+                params,
+                max_age_seconds=stale_max_age,
+            )
+            if stale_max_age is not None
+            else None
+        )
         client = self._client or httpx.AsyncClient(timeout=15)
         self._client = client
         started = time.perf_counter()
-        response = await client.get(
-            f"https://restapi.amap.com{path}",
-            params={"key": self.api_key, **params},
-        )
-        if response.is_error:
-            raise RuntimeError(
-                f"AMap {operation} failed with HTTP {response.status_code}"
+        for attempt in range(2):
+            async with self._rate_lock:
+                wait = self.min_interval - (time.monotonic() - self._last_request)
+                if wait > 0:
+                    await asyncio.sleep(wait)
+                self._last_request = time.monotonic()
+            response = await client.get(
+                f"https://restapi.amap.com{path}",
+                params={"key": self.api_key, **params},
             )
-        body = response.json()
-        latency = round((time.perf_counter() - started) * 1000)
-        if str(body.get("status")) != "1":
-            raise RuntimeError(
-                f"AMap {operation} failed: {body.get('info') or 'AMAP_ERROR'}"
+            if response.is_error:
+                if stale is not None:
+                    return stale
+                raise RuntimeError(
+                    f"AMap {operation} failed with HTTP {response.status_code}"
+                )
+            body = response.json()
+            if str(body.get("status")) == "1":
+                latency = round((time.perf_counter() - started) * 1000)
+                return self.cache.put("amap", operation, params, body, ttl, latency)
+            info = str(body.get("info") or "AMAP_ERROR")
+            if info == "CUQPS_HAS_EXCEEDED_THE_LIMIT" and attempt == 0:
+                await asyncio.sleep(max(1.0, self.min_interval))
+                continue
+            if stale is not None:
+                return stale
+            raise RuntimeError(f"AMap {operation} failed: {info}")
+        raise RuntimeError(f"AMap {operation} failed: retry exhausted")
+
+    async def resolve_search_city(self, destination: str) -> dict[str, Any]:
+        clean = "".join(destination.split())
+        candidates = [clean]
+        if len(clean) > 3:
+            candidates.extend(
+                clean[:length]
+                for length in range(2, min(6, len(clean) - 1) + 1)
+                if clean[:length] != clean
             )
-        return self.cache.put("amap", operation, params, body, ttl, latency)
+        for keyword in dict.fromkeys(
+            candidate for candidate in candidates if candidate
+        ):
+            record = await self._request(
+                "district_lookup",
+                "/v3/config/district",
+                {
+                    "keywords": keyword,
+                    "subdistrict": 1,
+                    "extensions": "base",
+                },
+                ttl=30 * 86400,
+            )
+            districts = record["response"].get("districts") or []
+            district = next(
+                (item for item in districts if isinstance(item, dict)), None
+            )
+            if district and district.get("adcode"):
+                descendants = [
+                    item
+                    for item in district.get("districts") or []
+                    if isinstance(item, dict) and item.get("adcode")
+                ]
+                matching_descendants = [
+                    item
+                    for item in descendants
+                    if str(item.get("name") or "").rstrip("省市区县") in clean
+                ]
+                resolved = max(
+                    matching_descendants or [district],
+                    key=lambda item: (
+                        item.get("level") in {"district", "street"},
+                        len(str(item.get("name") or "")),
+                    ),
+                )
+                return {
+                    "search_city": str(resolved["adcode"]),
+                    "name": str(resolved.get("name") or keyword),
+                    "level": str(resolved.get("level") or ""),
+                    "cache_hit": bool(record.get("cache_hit")),
+                    "response_hash": record.get("response_hash", ""),
+                }
+        return {
+            "search_city": clean,
+            "name": clean,
+            "level": "",
+            "cache_hit": False,
+            "response_hash": "",
+        }
 
     async def search_places(
         self, city: str, keywords: str, category: str = "", limit: int = 8
@@ -103,7 +186,10 @@ class AmapProvider:
             "places": places,
             "source": "amap",
             "cache_hit": record["cache_hit"],
+            "stale": bool(record.get("stale")),
             "response_hash": record["response_hash"],
+            "fetched_at": record["fetched_at"],
+            "expires_at": record["expires_at"],
         }
 
     async def place_detail(self, place_id: str) -> dict[str, Any]:
@@ -119,6 +205,9 @@ class AmapProvider:
             "source": "amap",
             "cache_hit": record["cache_hit"],
             "response_hash": record["response_hash"],
+            "stale": bool(record.get("stale")),
+            "fetched_at": record["fetched_at"],
+            "expires_at": record["expires_at"],
         }
 
     async def weather(self, city: str) -> dict[str, Any]:
