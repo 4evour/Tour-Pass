@@ -85,6 +85,28 @@ class ProviderCache:
             "response_hash": row["response_hash"],
             "cache_hit": True,
         }
+    def get_stale(
+        self, provider: str, operation: str, request: dict[str, Any]
+    ) -> dict[str, Any] | None:
+        key = self.make_key(provider, operation, request)
+        with self._lock, closing(self._connect()) as db:
+            row = db.execute(
+                "SELECT * FROM provider_cache WHERE cache_key = ?",
+                (key,),
+            ).fetchone()
+        if row is None:
+            return None
+        return {
+            "response": json.loads(row["response_json"]),
+            "fetched_at": row["fetched_at"],
+            "expires_at": row["expires_at"],
+            "latency_ms": row["latency_ms"],
+            "status": row["status"],
+            "response_hash": row["response_hash"],
+            "cache_hit": True,
+            "stale": True,
+        }
+
 
     def put(
         self,

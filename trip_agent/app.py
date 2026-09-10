@@ -24,12 +24,17 @@ from .contracts import (
     StreamProgress,
     StreamResult,
 )
+from .llm import LLMServiceUnavailableError
 from .observability import log_event
 from .runtime import TripRuntime
 
 runtime: TripRuntime | None = None
 STATIC_DIR = Path(__file__).parent / "static"
-load_dotenv(os.environ.get("TRIP_AGENT_ENV_FILE", ".env"))
+load_dotenv(
+    os.environ.get("TRIP_AGENT_ENV_FILE")
+    or Path(__file__).resolve().parents[1] / ".env",
+    override=True,
+)
 
 
 @asynccontextmanager
@@ -254,6 +259,10 @@ async def chat(payload: ChatRequest, request: Request, response: Response) -> di
         )
     except TimeoutError as exc:
         raise HTTPException(status_code=504, detail="Trip Agent 规划超时") from exc
+    except LLMServiceUnavailableError as exc:
+        raise HTTPException(
+            status_code=503, detail="模型服务暂时无法连接，请稍后重试"
+        ) from exc
     except PermissionError as exc:
         raise HTTPException(status_code=404, detail="行程不存在") from exc
     except Exception as exc:
@@ -301,6 +310,22 @@ async def stream_chat_events(
                     "error",
                     StreamErrorDetail(
                         code="planning_timeout", message="规划超时，请缩小范围后重试。"
+                    ),
+                )
+            )
+        except LLMServiceUnavailableError as exc:
+            log_event(
+                "planning_request_failed",
+                error_type=type(exc).__name__,
+                error=str(exc),
+                **trace_context,
+            )
+            queue.put_nowait(
+                (
+                    "error",
+                    StreamErrorDetail(
+                        code="planning_service_unavailable",
+                        message="模型服务暂时无法连接，请稍后重试。",
                     ),
                 )
             )

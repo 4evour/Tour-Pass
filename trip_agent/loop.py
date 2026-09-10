@@ -23,11 +23,13 @@ from .store import TripStore
 from .validation import HardValidator
 from .workflow import ItineraryAssembler
 
-SKELETON_PROMPT = """你是 Tour Pass 的行程骨架规划器。只输出符合给定 JSON Schema 的结果，不调用工具，不输出思维过程。
-输入末尾提供结构化旅行约束和可选的上一版行程摘要。必须严格满足目的地、天数、每日时段、同行人、节奏、交通、预算、兴趣、必去地点和用户备注；必去地点名称必须原样出现在 stops。
-每天安排 3~4 个主要活动，按相邻片区组织，避免跨城折返；跨越 11:30~13:30 时必须包含午餐。均衡或紧凑节奏安排 4 项且必须是 3 个 visit 加 1 个 lunch，轻松节奏安排 2 个 visit 加 1 个 lunch；晚餐不单列为 stop。每个 stop 只能对应一个真实地点，不得把两个地点合并为一项，也不得同时选择相互包含或体验高度重复的景点。除最后一个相邻夜景项目外，同一天的景点和餐厅必须位于同一行政区或连续步行片区；三日行程的 primary_area 不得重复。同一天的餐厅必须位于当天游览动线附近，并优先选择有目的地代表性的知名老店，避免普通连锁或无代表性小店。meal 的 name 必须是具体真实餐厅或分店，禁止使用“某片区餐厅”等占位名称。按 morning、lunch、afternoon、evening 的实际执行顺序输出；目的地适合且用户时段允许时，多日行程至少一天以晚间游览活动收尾。为景点或餐厅填写准确、简短、适合地图检索的 search_query；free_time 的 search_query 必须为 null。
-不要生成介绍文案、候选区比较、坐标、Provider ID、路线距离、路线时间、开放时间、票价或预约结论；介绍文案与外部事实由程序补齐。没有指定住宿时只推荐一个交通方便的住宿片区，并用该片区内明确地标或地铁站作为 search_query；指定住宿时必须保留用户原文。
-修改既有行程时只改变用户要求的部分，并输出完整替代骨架；不得伪造不确定事实。
+SKELETON_PROMPT = """你是 Tour Pass 的资深旅行规划师。一次性输出符合 JSON Schema 的完整可执行方案；不调用工具，不输出思维过程。
+输入包含结构化约束、原始需求和上一版摘要。先整体判断路线、片区、体力与体验，再生成完整结果。最新要求优先于旧要求，用户明确要求优先于你的推断；抵返时间、同行人年龄与行动能力、房型、预算、饮食、节奏、必去/不去和预约偏好都必须落实。
+用户明确给出天数、目的地或路线时严格遵守；未明确时，由你根据目的地体量、交通、节奏、预算和往返条件自行决定合理的天数与目的地，并在 overview 或 tradeoffs 中解释依据。多目的地按用户指定顺序，或在用户未指定时按地理和交通合理性排序；换城日填写 intercity_leg，主动为进出站、入住和休息留余量。未提供出行日期或抵返时刻时不得自行虚构，intercity_leg 的时刻填 null，由程序查询；hotels 覆盖每个过夜目的地，未指定具体酒店时推荐交通方便的住宿片区或地铁站。
+你负责判断每天的主题、景点组合、先后顺序、三餐、路线与取舍。以真实旅行体验为先：同片区聚合，避免折返；完整游玩日通常安排 2~4 个核心活动，抵达日、返程日、换城日和大型项目主动减量。活动只使用 breakfast、morning、lunch、afternoon、dinner、evening 这些自然时段，不生成景点的分钟级到达、离开或停留时间；只有用户明确给出的航班、列车等固定班次可以保留精确时刻。完整游玩日安排早餐、午餐和晚餐，餐厅没有把握时写片区就近用餐和具体菜品选择，不得虚构分店。
+day.summary 用一至两句自然语言串起上午、下午、晚上、三餐、片区间怎么走以及主动舍弃的项目。每个 stop 对应一个具体地点、用餐或明确的自由活动；stop.reason 用一句话具体写能看什么、怎么逛、值得尝什么，避免“代表性景观”“感受文化”“丰富体验”等空话。search_query 保持简短，free_time 的 search_query 必须为 null。
+不要生成坐标、Provider ID、精确路线距离、实时票价、库存、“已经预约”或未经输入支持的抵返时刻。开放时间、天气、路线耗时、铁路班次和票价由程序补充；模型不确定时直接说明取舍，不要用假事实填满字段。budget_notes、safety_notes 和 transport_notes 只给与目的地、同行人和路线真正相关的条件式建议，不得冒充官方预警。
+修改既有行程时只改变用户要求的部分，但仍一次输出完整替代方案。
 """
 
 
@@ -37,18 +39,20 @@ class TripAgent:
         llm: Any,
         amap: AmapProvider | None = None,
         weather: Any = None,
+        rail: Any = None,
         store: TripStore | None = None,
         validator: HardValidator | None = None,
         memory_policy: MemoryPolicy | None = None,
-        max_provider_calls: int = 14,
+        max_provider_calls: int = 18,
     ) -> None:
         self.llm = llm
         self.amap = amap or AmapProvider()
         self.weather = weather
+        self.rail = rail
         self.store = store
         self.validator = validator or HardValidator()
         self.memory_policy = memory_policy or MemoryPolicy()
-        self.max_provider_calls = max(1, min(int(max_provider_calls), 40))
+        self.max_provider_calls = max(1, min(int(max_provider_calls), 100))
         self.sessions: dict[str, list[dict[str, str]]] = {}
 
     async def close(self) -> None:
@@ -191,14 +195,16 @@ class TripAgent:
             reply = "请先告诉我目的地城市。"
             emit_event({"type": "assistant_message", "content": reply})
         else:
-            schema = itinerary_skeleton_output_format()
+            schema = itinerary_skeleton_output_format(
+                int(planning_context.get("days") or 3)
+            )
             cache_material = (
                 SKELETON_PROMPT
                 + json.dumps(schema, ensure_ascii=False, sort_keys=True)
                 + str(getattr(self.llm, "model", ""))
             )
             prompt_cache_key = (
-                "tour-pass-fast-v1-"
+                "tour-pass-complete-v5-"
                 + hashlib.sha256(cache_material.encode()).hexdigest()[:20]
             )
             request_payload = {
@@ -219,84 +225,75 @@ class TripAgent:
                 },
             ]
             skeleton: dict[str, Any] | None = None
-            model_metrics: dict[str, Any] = {}
-            for attempt in range(2):
-                emit_event(
-                    {
-                        "type": "model_started",
-                        "phase": "skeleton",
-                        "step": attempt + 1,
-                        "detail": "生成轻量行程骨架",
-                    }
-                )
-                response = await self.llm.ainvoke(
-                    model_messages,
-                    trace={
-                        "run_id": run_id,
-                        "session_id": session_id,
-                        "stage": "skeleton",
-                        "step": attempt + 1,
-                    },
-                    on_progress=emit_event,
-                    reasoning_effort=getattr(self.llm, "reasoning_effort", "medium"),
-                    output_format=schema,
-                    prompt_cache_key=prompt_cache_key,
-                )
-                model_metrics = getattr(response, "metrics", {})
-                try:
-                    parsed = json.loads(response.content)
-                    if not isinstance(parsed, dict):
-                        raise ValueError("骨架输出必须是 JSON 对象")
-                    skeleton = parsed
-                except (json.JSONDecodeError, ValueError) as exc:
-                    emit_event(
-                        {
-                            "type": "model_finished",
-                            "phase": "skeleton",
-                            "step": attempt + 1,
-                            "error": "invalid_structured_output",
-                            "message": str(exc),
-                            "model_metrics": model_metrics,
-                        }
-                    )
-                    if attempt == 0:
-                        model_messages.append(
-                            {
-                                "role": "user",
-                                "content": "上一响应不是可解析的结构化对象，请严格按 JSON Schema 重新输出。",
-                            }
-                        )
-                        continue
-                    raise RuntimeError("模型连续两次未返回有效行程骨架") from exc
+            emit_event(
+                {
+                    "type": "model_started",
+                    "phase": "complete_plan",
+                    "step": 1,
+                    "detail": "一次生成完整旅行方案",
+                }
+            )
+            response = await self.llm.ainvoke(
+                model_messages,
+                trace={
+                    "run_id": run_id,
+                    "session_id": session_id,
+                    "stage": "complete_plan",
+                    "step": 1,
+                },
+                on_progress=emit_event,
+                reasoning_effort=getattr(self.llm, "reasoning_effort", "medium"),
+                output_format=schema,
+                prompt_cache_key=prompt_cache_key,
+            )
+            model_metrics = getattr(response, "metrics", {})
+            try:
+                parsed = json.loads(response.content)
+                if not isinstance(parsed, dict):
+                    raise ValueError("完整方案输出必须是 JSON 对象")
+                skeleton = parsed
+            except (json.JSONDecodeError, ValueError) as exc:
                 emit_event(
                     {
                         "type": "model_finished",
-                        "phase": "skeleton",
-                        "step": attempt + 1,
-                        "tool_calls": [],
+                        "phase": "complete_plan",
+                        "step": 1,
+                        "error": "invalid_structured_output",
+                        "message": str(exc),
                         "model_metrics": model_metrics,
                     }
                 )
-                usage = model_metrics.get("usage") or {}
-                emit_event(
-                    {
-                        "type": "prompt_cache",
-                        "cached_tokens": int(
-                            usage.get("input_tokens_details.cached_tokens") or 0
-                        ),
-                        "cache_write_tokens": int(
-                            usage.get("input_tokens_details.cache_write_tokens") or 0
-                        ),
-                        "input_tokens": int(usage.get("input_tokens") or 0),
-                    }
-                )
-                break
-
+                raise RuntimeError("模型未返回有效的完整旅行方案") from exc
+            emit_event(
+                {
+                    "type": "model_finished",
+                    "phase": "complete_plan",
+                    "step": 1,
+                    "tool_calls": [],
+                    "model_metrics": model_metrics,
+                }
+            )
+            usage = model_metrics.get("usage") or {}
+            emit_event(
+                {
+                    "type": "prompt_cache",
+                    "cached_tokens": int(
+                        usage.get("input_tokens_details.cached_tokens") or 0
+                    ),
+                    "cache_write_tokens": int(
+                        usage.get("input_tokens_details.cache_write_tokens") or 0
+                    ),
+                    "input_tokens": int(usage.get("input_tokens") or 0),
+                }
+            )
             if skeleton is None:
-                raise RuntimeError("模型未生成行程骨架")
+                raise RuntimeError("模型未生成完整旅行方案")
 
             assembler = ItineraryAssembler(
-                self.amap, self.weather, self.max_provider_calls
+                self.amap,
+                self.weather,
+                self.max_provider_calls,
+                rail=self.rail,
             )
             (
                 raw_plan,

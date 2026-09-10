@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import re
 from typing import Any, Callable
+from urllib.parse import quote
 
 
 def text(value: Any, default: str = "") -> str:
@@ -96,6 +97,7 @@ def normalize_hotel(
         or (text(hotel.get("address")) if user_fact else None),
         "location": text(evidence.get("location"))
         or (text(hotel.get("location")) if user_fact else None),
+        "evidence_hash": text(evidence.get("response_hash")) or None,
         "status": status,
         "reason": text(hotel.get("reason")),
         "source": source,
@@ -176,15 +178,33 @@ def normalize_plan(
     if not isinstance(plan, dict) or not items(plan.get("days")):
         raise ValueError("plan.days 不能为空")
     raw_hotel = mapping(plan.get("hotel"))
-    hotel = normalize_hotel(
-        raw_hotel,
-        resolve_place(raw_hotel, known_places),
-    )
+    raw_hotels = [
+        mapping(value) for value in items(plan.get("hotels")) if mapping(value)
+    ] or [raw_hotel]
+    hotels = [
+        normalize_hotel(value, resolve_place(value, known_places))
+        | {"destination": text(value.get("destination"), text(plan.get("city")))}
+        for value in raw_hotels
+    ]
+    hotel = hotels[0]
+
+    def hotel_for_day(day: Any) -> dict[str, Any]:
+        destination = text(mapping(day).get("destination"))
+        return next(
+            (
+                value
+                for value in hotels
+                if destination
+                and place_key(value.get("destination")) == place_key(destination)
+            ),
+            hotel,
+        )
+
     days = [
         normalize_day(
             day,
             index,
-            hotel,
+            hotel_for_day(day),
             known_places,
             resolve_place,
             route_evidence,
@@ -193,15 +213,28 @@ def normalize_plan(
         for index, day in enumerate(items(plan["days"]), 1)
     ]
     result = {
+        "schema_version": integer(plan.get("schema_version"), 2),
         "city": text(plan.get("city")),
         "title": text(plan.get("title"), f"{text(plan.get('city'))}深度行程"),
         "overview": text(plan.get("overview")),
+        "duration": mapping(plan.get("duration")),
         "date_range": {
             "start": text(mapping(plan.get("date_range")).get("start")) or None,
             "end": text(mapping(plan.get("date_range")).get("end")) or None,
         },
+        "arrival": mapping(plan.get("arrival")),
+        "departure": mapping(plan.get("departure")),
+        "destinations": items(plan.get("destinations")),
+        "party": mapping(plan.get("party")),
         "trip_profile": mapping(plan.get("trip_profile")),
         "hotel": hotel,
+        "hotels": hotels,
+        "hotel_options": items(plan.get("hotel_options")),
+        "transport_options": mapping(plan.get("transport_options")),
+        "dining_options": items(plan.get("dining_options")),
+        "booking_tasks": items(plan.get("booking_tasks")),
+        "budget": mapping(plan.get("budget")),
+        "safety": mapping(plan.get("safety")),
         "candidate_comparison": normalize_comparison(plan.get("candidate_comparison")),
         "days": days,
         "map": normalize_map(plan.get("map"), days),
@@ -212,7 +245,12 @@ def normalize_plan(
         ],
         "verified_routes": route_evidence,
         "weather": weather_evidence,
+        "evidence": items(plan.get("evidence")),
+        "unknowns": [
+            text(value) for value in items(plan.get("unknowns")) if text(value)
+        ],
     }
+    add_traceability(result)
     result["completeness"] = build_completeness_report(result)
     return result
 
@@ -262,7 +300,25 @@ def normalize_day(
             start_anchor = dict(hotel_anchor)
         if end_anchor["type"] != "station":
             end_anchor = dict(hotel_anchor)
+    transfers = [
+        normalize_transfer(
+            item,
+            route_evidence,
+            [start_anchor, *schedule, end_anchor],
+        )
+        for item in items(day.get("transfers"))
+    ]
+    transfers = [
+        item
+        for item in transfers
+        if not (
+            item.get("from_location")
+            and item.get("from_location") == item.get("to_location")
+        )
+    ]
     return {
+        "destination": text(day.get("destination")),
+        "intercity_leg": mapping(day.get("intercity_leg")),
         "day": integer(day.get("day"), index),
         "date": text(day.get("date")) or None,
         "weekday": text(day.get("weekday")) or None,
@@ -286,14 +342,17 @@ def normalize_day(
             "rationale": text(cluster.get("rationale")),
         },
         "schedule": schedule,
-        "transfers": [
-            normalize_transfer(
-                item,
-                route_evidence,
-                [start_anchor, *schedule, end_anchor],
-            )
-            for item in items(day.get("transfers"))
-        ],
+        "transfers": transfers,
+        "fallback": {
+            "notes": text(mapping(day.get("fallback")).get("notes")),
+            "late_drop_order": [
+                text(item)
+                for item in items(
+                    mapping(day.get("fallback")).get("late_drop_order")
+                )
+                if text(item)
+            ],
+        },
         "risks": [
             normalize_risk(item, weather_evidence) for item in items(day.get("risks"))
         ],
@@ -362,11 +421,28 @@ def normalize_schedule_item(
         "area": text(canonical_area) or None,
         "location": text(canonical_location) or None,
         "source": "amap" if evidence else ("user" if user_fact else "model_judgment"),
+        "visit_scale": text(value.get("visit_scale"), "standard"),
+        "evidence_hash": text(evidence.get("response_hash")) or None,
+        "optional": bool(value.get("optional", True)),
+        "evidence_refs": [],
         "practical_tips": [
             text(item) for item in items(value.get("practical_tips")) if text(item)
         ],
+        "alternatives": [
+            {
+                "name": text(mapping(item).get("name")),
+                "place_id": text(mapping(item).get("place_id")) or None,
+                "area": text(mapping(item).get("area")) or None,
+                "address": text(mapping(item).get("address")) or None,
+                "location": text(mapping(item).get("location")) or None,
+                "source": text(mapping(item).get("source"), "model_judgment"),
+                "evidence_hash": text(mapping(item).get("evidence_hash")) or None,
+                "evidence_refs": [],
+            }
+            for item in items(value.get("alternatives"))
+            if text(mapping(item).get("name"))
+        ],
     }
-
 
 def place_key(value: Any) -> str:
     return re.sub(r"[\s（）()·\-—]", "", text(value).casefold())
@@ -409,8 +485,17 @@ def normalize_transfer(
     evidence_hash = text(transfer.get("evidence_hash"))
     from_endpoint = schedule_endpoint(transfer.get("from_name"), schedule)
     to_endpoint = schedule_endpoint(transfer.get("to_name"), schedule)
-    from_location = text(from_endpoint.get("location"))
-    to_location = text(to_endpoint.get("location"))
+    schedule_locations = {
+        text(item.get("location")) for item in schedule if text(item.get("location"))
+    }
+    raw_from_location = text(transfer.get("from_location"))
+    raw_to_location = text(transfer.get("to_location"))
+    if raw_from_location not in schedule_locations:
+        raw_from_location = ""
+    if raw_to_location not in schedule_locations:
+        raw_to_location = ""
+    from_location = raw_from_location or text(from_endpoint.get("location"))
+    to_location = raw_to_location or text(to_endpoint.get("location"))
     evidence = next(
         (
             item
@@ -433,8 +518,16 @@ def normalize_transfer(
         and integer(transfer.get("duration_minutes")) > 0
     )
     return {
-        "from_name": text(from_endpoint.get("name"), text(transfer.get("from_name"))),
-        "to_name": text(to_endpoint.get("name"), text(transfer.get("to_name"))),
+        "from_name": (
+            text(transfer.get("from_name"))
+            if raw_from_location
+            else text(from_endpoint.get("name"), text(transfer.get("from_name")))
+        ),
+        "to_name": (
+            text(transfer.get("to_name"))
+            if raw_to_location
+            else text(to_endpoint.get("name"), text(transfer.get("to_name")))
+        ),
         "from_location": from_location or None,
         "to_location": to_location or None,
         "mode": text((evidence or transfer).get("mode"), "unknown"),
@@ -458,6 +551,341 @@ def normalize_transfer(
         "source": "amap" if evidence else "estimate" if estimated else "unknown",
         "evidence_hash": text(evidence.get("response_hash")) if evidence else None,
     }
+
+
+def add_traceability(plan: dict[str, Any]) -> None:
+    """Attach evidence references and complete choice/task views without inventing facts."""
+    evidence: dict[str, dict[str, Any]] = {}
+
+    def evidence_id(prefix: str, value: Any) -> str:
+        token = re.sub(r"[^0-9A-Za-z]+", "-", text(value)).strip("-").lower()
+        return f"{prefix}-{token[-32:] or 'unknown'}"
+
+    def add_evidence(
+        evidence_ref: str,
+        *,
+        provider: str,
+        title: str,
+        url: str | None,
+        supports: list[str],
+        confidence: str,
+        response_hash: str | None,
+    ) -> None:
+        evidence[evidence_ref] = {
+            "id": evidence_ref,
+            "provider": provider,
+            "title": title,
+            "url": url,
+            "retrieved_at": None,
+            "valid_for_date": None,
+            "supports": supports,
+            "confidence": confidence,
+            "response_hash": response_hash,
+        }
+
+    hotels = items(plan.get("hotels"))
+    raw_options = [*hotels, *items(plan.get("hotel_options"))]
+    hotel_options: list[dict[str, Any]] = []
+    seen_hotels: set[str] = set()
+    for option in raw_options:
+        key = text(option.get("place_id")) or (
+            f"{text(option.get('destination'))}:{text(option.get('name'))}"
+        )
+        if not key or key in seen_hotels:
+            continue
+        seen_hotels.add(key)
+        hotel_options.append(option)
+    selected_ids = {
+        text(hotel.get("place_id")) or text(hotel.get("name")) for hotel in hotels
+    }
+    for hotel_index, hotel in enumerate(hotel_options):
+        selected_key = text(hotel.get("place_id")) or text(hotel.get("name"))
+        hotel["selected"] = selected_key in selected_ids
+        hotel.setdefault("price_per_night", None)
+        hotel.setdefault("estimated_total", None)
+        hotel.setdefault("cancellation", None)
+        hotel["evidence_refs"] = []
+        if hotel.get("source") != "amap" or not hotel.get("place_id"):
+            continue
+        ref = evidence_id("amap-poi", hotel.get("place_id"))
+        hotel["evidence_refs"] = [ref]
+        url = (
+            f"https://uri.amap.com/marker?position={hotel['location']}"
+            f"&name={quote(text(hotel.get('name')))}"
+            if hotel.get("location")
+            else None
+        )
+        add_evidence(
+            ref,
+            provider="amap",
+            title=f"{text(hotel.get('name'))}地图实体",
+            url=url,
+            supports=[f"hotel_options[{hotel_index}].location"],
+            confidence="medium",
+            response_hash=text(hotel.get("evidence_hash")) or None,
+        )
+    plan["hotel_options"] = hotel_options
+
+    dining_options: list[dict[str, Any]] = []
+    booking_tasks: list[dict[str, Any]] = []
+    local_transport: list[dict[str, Any]] = []
+    period_labels = {
+        "breakfast": "早餐",
+        "morning": "上午",
+        "lunch": "午餐",
+        "afternoon": "下午",
+        "dinner": "晚餐",
+        "evening": "晚上",
+    }
+    for day_index, day in enumerate(items(plan.get("days"))):
+        grouped: dict[str, list[str]] = {}
+        optional_items: list[str] = []
+        for item_index, item in enumerate(items(day.get("schedule"))):
+            item_id = f"day-{day_index + 1}-item-{item_index + 1}"
+            item["id"] = item_id
+            grouped.setdefault(text(item.get("period"), "afternoon"), []).append(item_id)
+            if item.get("optional"):
+                optional_items.append(item_id)
+            item["evidence_refs"] = []
+            if item.get("source") == "amap" and item.get("place_id"):
+                ref = evidence_id("amap-poi", item.get("place_id"))
+                item["evidence_refs"] = [ref]
+                url = (
+                    f"https://uri.amap.com/marker?position={item['location']}"
+                    f"&name={quote(text(item.get('name')))}"
+                    if item.get("location")
+                    else None
+                )
+                add_evidence(
+                    ref,
+                    provider="amap",
+                    title=f"{text(item.get('name'))}地图实体",
+                    url=url,
+                    supports=[
+                        f"days[{day_index}].schedule[{item_index}].place_id",
+                        f"days[{day_index}].schedule[{item_index}].location",
+                    ],
+                    confidence="medium",
+                    response_hash=text(item.get("evidence_hash")) or None,
+                )
+            for alternative_index, alternative in enumerate(
+                items(item.get("alternatives"))
+            ):
+                alternative["evidence_refs"] = []
+                if (
+                    alternative.get("source") != "amap"
+                    or not alternative.get("place_id")
+                ):
+                    continue
+                alternative_ref = evidence_id(
+                    "amap-poi", alternative.get("place_id")
+                )
+                alternative["evidence_refs"] = [alternative_ref]
+                alternative_url = (
+                    f"https://uri.amap.com/marker?position={alternative['location']}"
+                    f"&name={quote(text(alternative.get('name')))}"
+                    if alternative.get("location")
+                    else None
+                )
+                add_evidence(
+                    alternative_ref,
+                    provider="amap",
+                    title=f"{text(alternative.get('name'))}地图实体",
+                    url=alternative_url,
+                    supports=[
+                        f"days[{day_index}].schedule[{item_index}]"
+                        f".alternatives[{alternative_index}].place_id"
+                    ],
+                    confidence="medium",
+                    response_hash=text(alternative.get("evidence_hash")) or None,
+                )
+            reservation = mapping(item.get("reservation"))
+            if item.get("type") == "meal":
+                dining_options.append(
+                    {
+                        "id": f"meal-{day_index + 1}-{item_index + 1}",
+                        "day": day_index + 1,
+                        "destination": day.get("destination"),
+                        "name": item.get("name"),
+                        "period": item.get("period"),
+                        "area": item.get("area"),
+                        "address": item.get("address"),
+                        "description": item.get("reason"),
+                        "status": (
+                            "verified_place"
+                            if item.get("place_id")
+                            else "needs_verification"
+                        ),
+                        "price_per_person": None,
+                        "reservation_required": reservation.get("required"),
+                        "alternatives": items(item.get("alternatives")),
+                        "evidence_refs": list(item.get("evidence_refs") or []),
+                    }
+                )
+            if (
+                item.get("type") == "visit"
+                or reservation.get("required") is True
+            ) and reservation.get("required") is not False:
+                booking_tasks.append(
+                    {
+                        "id": f"booking-{day_index + 1}-{item_index + 1}",
+                        "category": (
+                            "dining" if item.get("type") == "meal" else "attraction"
+                        ),
+                        "target_ref": item.get("place_id"),
+                        "target_name": item.get("name"),
+                        "day": day_index + 1,
+                        "status": (
+                            "action_required"
+                            if reservation.get("required") is True
+                            else "needs_verification"
+                        ),
+                        "action": (
+                            "立即预约"
+                            if reservation.get("required") is True
+                            else "出发前核对是否需要预约"
+                        ),
+                        "deadline": None,
+                        "booking_url": None,
+                        "delegation_supported": False,
+                        "evidence_refs": list(item.get("evidence_refs") or []),
+                    }
+                )
+        day["periods"] = [
+            {
+                "period": period,
+                "label": period_labels[period],
+                "item_refs": grouped.get(period, []),
+            }
+            for period in period_labels
+        ]
+        existing_fallback = mapping(day.get("fallback"))
+        day["fallback"] = {
+            "late_drop_order": [
+                text(item)
+                for item in items(existing_fallback.get("late_drop_order"))
+                if text(item)
+            ]
+            or list(reversed(optional_items)),
+            "rain": existing_fallback.get("rain"),
+            "notes": text(existing_fallback.get("notes"))
+            or (
+                "发生晚点时按顺序删减可选项；雨天替代方案需结合实时天气和室内开放状态另行确认。"
+                if optional_items
+                else "当天没有自动可删减项，延误时需整体调整。"
+            ),
+        }
+        for transfer_index, transfer in enumerate(items(day.get("transfers"))):
+            transfer["evidence_refs"] = []
+            if transfer.get("source") == "amap" and transfer.get("evidence_hash"):
+                ref = evidence_id("amap-route", transfer.get("evidence_hash"))
+                transfer["evidence_refs"] = [ref]
+                add_evidence(
+                    ref,
+                    provider="amap",
+                    title=(
+                        f"{text(transfer.get('from_name'))}至"
+                        f"{text(transfer.get('to_name'))}路线"
+                    ),
+                    url=None,
+                    supports=[
+                        f"days[{day_index}].transfers[{transfer_index}].duration_minutes",
+                        f"days[{day_index}].transfers[{transfer_index}].distance_meters",
+                    ],
+                    confidence="medium",
+                    response_hash=text(transfer.get("evidence_hash")) or None,
+                )
+            local_transport.append(
+                {
+                    "id": f"transfer-{day_index + 1}-{transfer_index + 1}",
+                    "day": day_index + 1,
+                    "from_name": transfer.get("from_name"),
+                    "to_name": transfer.get("to_name"),
+                    "mode": transfer.get("mode"),
+                    "duration_minutes": transfer.get("duration_minutes"),
+                    "distance_meters": transfer.get("distance_meters"),
+                    "instructions": transfer.get("instructions"),
+                    "source": transfer.get("source"),
+                    "evidence_refs": list(transfer.get("evidence_refs") or []),
+                }
+            )
+    plan["dining_options"] = dining_options
+    plan["booking_tasks"] = booking_tasks
+    transport = mapping(plan.get("transport_options"))
+    transport["local"] = local_transport
+    intercity_options = items(transport.get("intercity"))
+    for option_index, option in enumerate(intercity_options):
+        option["evidence_refs"] = []
+        if (
+            option.get("provider") == "rail12306"
+            and option.get("source_url")
+            and option.get("evidence_hash")
+        ):
+            ref = evidence_id("rail12306", option.get("evidence_hash"))
+            option["evidence_refs"] = [ref]
+            add_evidence(
+                ref,
+                provider="rail12306",
+                title=(
+                    f"{text(option.get('train_code'), '铁路班次')} "
+                    f"{text(option.get('from'))}至{text(option.get('to'))}"
+                ),
+                url=text(option.get("source_url")) or None,
+                supports=[
+                    f"transport_options.intercity[{option_index}].departure_hint",
+                    f"transport_options.intercity[{option_index}].arrival_hint",
+                    f"transport_options.intercity[{option_index}].price",
+                ],
+                confidence="medium",
+                response_hash=text(option.get("evidence_hash")) or None,
+            )
+    transport["intercity"] = intercity_options
+    plan["transport_options"] = transport
+
+    weather = mapping(plan.get("weather"))
+    requested_dates = {
+        text(day.get("date"))
+        for day in items(plan.get("days"))
+        if text(day.get("date"))
+    }
+    if requested_dates:
+        weather["days"] = [
+            day
+            for day in items(weather.get("days"))
+            if text(mapping(day).get("date")) in requested_dates
+        ]
+    if items(weather.get("days")):
+        response_hash = text(weather.get("response_hash")) or None
+        ref = evidence_id("weather", response_hash or weather.get("provider"))
+        add_evidence(
+            ref,
+            provider=text(weather.get("provider"), "unknown"),
+            title="行程日期内逐日天气预报",
+            url=None,
+            supports=["weather.days"],
+            confidence="medium",
+            response_hash=response_hash,
+        )
+        weather["evidence_refs"] = [ref]
+        weather["mode"] = "forecast"
+        weather["available"] = True
+    elif weather:
+        weather["mode"] = "unavailable"
+        weather["available"] = False
+        weather["coverage"] = "none"
+        weather["fallback_reason"] = "天气预报窗口尚未覆盖行程日期"
+
+    profile = mapping(plan.get("trip_profile"))
+    safety = mapping(plan.get("safety"))
+    mobility_needs = [
+        text(value) for value in items(profile.get("mobility_needs")) if text(value)
+    ]
+    safety["special_population_notes"] = [
+        {"note": value, "source": "user"} for value in mobility_needs
+    ]
+    safety.setdefault("source_status", "unavailable")
+    plan["safety"] = safety
+    plan["evidence"] = list(evidence.values())
 
 
 def normalize_comparison(value: Any) -> dict[str, Any]:
@@ -633,6 +1061,85 @@ def build_completeness_report(plan: dict[str, Any]) -> dict[str, Any]:
         bool(narrative.get("headline") and narrative.get("summary")),
         "包含可读总览和体验叙事",
         "缺少完整行程叙事",
+    )
+    duration = mapping(plan.get("duration"))
+    check(
+        "天数与日期",
+        integer(duration.get("days")) == len(days)
+        and bool(mapping(plan.get("date_range")).get("start")),
+        "行程天数与日期范围完整",
+        "日期未填写或天数与每日行程不一致",
+    )
+    check(
+        "每日时段与兜底",
+        bool(days)
+        and all(
+            len(items(day.get("periods"))) == 6
+            and isinstance(day.get("fallback"), dict)
+            for day in days
+        ),
+        "每天均有六时段索引和延误/雨天兜底",
+        "部分日期缺少时段索引或兜底方案",
+    )
+    check(
+        "住宿选项",
+        bool(items(plan.get("hotels"))) and bool(items(plan.get("hotel_options"))),
+        "住宿按城市列出并标记证据状态",
+        "住宿选项不完整",
+    )
+    transport = mapping(plan.get("transport_options"))
+    check(
+        "交通选项",
+        bool(items(transport.get("local")) or items(transport.get("intercity"))),
+        "已列出市内或跨城交通选项",
+        "没有形成独立交通选项",
+    )
+    check(
+        "餐饮选项",
+        bool(items(plan.get("dining_options"))),
+        "用餐点已形成可核验选项",
+        "没有形成独立餐饮选项",
+    )
+    check(
+        "预订清单",
+        isinstance(plan.get("booking_tasks"), list),
+        "预约状态已形成待办清单",
+        "缺少预约待办清单",
+    )
+    budget = mapping(plan.get("budget"))
+    check(
+        "预算明细",
+        bool(items(budget.get("categories"))) and bool(items(budget.get("assumptions"))),
+        "预算按类别列出并说明估算假设",
+        "预算类别或估算假设不足",
+    )
+    check(
+        "安全信息",
+        isinstance(plan.get("safety"), dict)
+        and "source_status" in mapping(plan.get("safety")),
+        "安全信息明确标注来源状态",
+        "安全信息未标注来源状态",
+    )
+    evidence_ids = {
+        text(item.get("id"))
+        for item in items(plan.get("evidence"))
+        if isinstance(item, dict) and text(item.get("id"))
+    }
+    claimed_refs = [
+        text(ref)
+        for day in days
+        for entry in [
+            *items(day.get("schedule")),
+            *items(day.get("transfers")),
+        ]
+        for ref in items(mapping(entry).get("evidence_refs"))
+        if text(ref)
+    ]
+    check(
+        "事实证据链",
+        bool(claimed_refs) and all(ref in evidence_ids for ref in claimed_refs),
+        "地图或天气事实均可追溯到证据记录",
+        "缺少可追溯事实，或存在失效证据引用",
     )
     passed = sum(item["status"] == "pass" for item in checks)
     return {

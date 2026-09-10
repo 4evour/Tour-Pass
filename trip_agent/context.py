@@ -7,13 +7,22 @@ from typing import Any
 
 
 _LABELS = {
+    "目的地": "destination",
+    "途经城市": "destinations",
     "出发日期": "start_date",
     "住宿地点或区域": "hotel_area",
+    "住宿地点": "hotel_area",
+    "住宿区域": "hotel_area",
+    "住宿偏好": "hotel_preferences",
     "同行人": "travelers",
     "旅行节奏": "pace",
     "主要交通方式": "transport",
+    "城际交通偏好": "intercity_preferences",
     "预算偏好": "budget",
     "必去地点": "must_visits",
+    "饮食要求": "dietary_requirements",
+    "行动需求": "mobility_needs",
+    "预订偏好": "booking_preferences",
     "其他要求": "notes",
     "感兴趣的体验": "interests",
 }
@@ -21,20 +30,20 @@ _LABELS = {
 
 @dataclass(frozen=True, slots=True)
 class MemoryPolicy:
-    history_messages: int = 4
-    message_chars: int = 800
-    plan_days: int = 7
+    history_messages: int = 6
+    message_chars: int = 4000
+    plan_days: int = 30
     schedule_items_per_day: int = 8
-    evidence_places: int = 24
-    evidence_routes: int = 24
+    evidence_places: int = 40
+    evidence_routes: int = 40
 
     def __post_init__(self) -> None:
         limits = {
             "history_messages": (0, 12),
-            "message_chars": (160, 2400),
-            "plan_days": (1, 7),
+            "message_chars": (160, 12000),
+            "plan_days": (1, 30),
             "schedule_items_per_day": (2, 12),
-            "evidence_places": (6, 40),
+            "evidence_places": (6, 80),
             "evidence_routes": (6, 40),
         }
         for name, (minimum, maximum) in limits.items():
@@ -61,6 +70,18 @@ def _text(value: Any) -> str:
 
 def _split_values(value: str) -> list[str]:
     return [item.strip() for item in re.split(r"[、,，/]+", value) if item.strip()]
+
+def _split_must_visits(value: str) -> list[str]:
+    result: list[str] = []
+    for item in _split_values(value):
+        conjunction = re.fullmatch(r"(.{2,})和(.{2,})", item)
+        if conjunction:
+            result.extend(
+                part.strip() for part in conjunction.groups() if part.strip()
+            )
+        else:
+            result.append(item)
+    return result
 
 
 _DAY_DIGITS = {
@@ -117,31 +138,53 @@ def compact_conversation_history(
 
 
 def compact_planning_context(context: dict[str, Any]) -> dict[str, Any]:
-    """Return stable user constraints without duplicating the current request."""
+    """Return user constraints, including the raw requests that carry nuance."""
     result: dict[str, Any] = {}
     for key in (
         "schema_version",
         "destination",
+        "destinations",
         "days",
+        "nights",
         "start_date",
+        "arrival",
+        "departure",
         "hotel_area",
+        "hotel_preferences",
         "travelers",
+        "party",
         "pace",
         "transport",
+        "intercity_preferences",
         "budget",
+        "budget_range",
         "notes",
+        "dietary_requirements",
+        "mobility_needs",
+        "booking_preferences",
         "daily_window",
         "revision",
     ):
         value = context.get(key)
         if value not in (None, "", [], {}):
             result[key] = (
-                _clip(value, 500) if isinstance(value, str) else deepcopy(value)
+                _clip(value, 4000) if isinstance(value, str) else deepcopy(value)
             )
-    for key in ("must_visits", "interests"):
+    for key in (
+        "must_visits",
+        "interests",
+        "dietary_requirements",
+        "mobility_needs",
+        "intercity_preferences",
+    ):
         values = context.get(key)
         if isinstance(values, list):
-            result[key] = [_clip(value, 120) for value in values[:20] if _text(value)]
+            result[key] = [_clip(value, 160) for value in values[:60] if _text(value)]
+    raw_requests = context.get("freeform_requests")
+    if isinstance(raw_requests, list):
+        result["freeform_requests"] = [
+            _clip(value, 4000) for value in raw_requests[-6:] if _text(value)
+        ]
     return result
 
 
@@ -368,19 +411,32 @@ def _derive_from_plan(plan: dict[str, Any] | None) -> dict[str, Any]:
     )
     hotel = plan.get("hotel") if isinstance(plan.get("hotel"), dict) else {}
     days = plan.get("days") if isinstance(plan.get("days"), list) else []
+    duration = plan.get("duration") if isinstance(plan.get("duration"), dict) else {}
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "destination": _text(plan.get("city")),
-        "days": int(profile.get("days") or len(days) or 0),
+        "destinations": deepcopy(plan.get("destinations") or []),
+        "days": int(profile.get("days") or duration.get("days") or len(days) or 0),
+        "nights": int(duration.get("nights") or max(len(days) - 1, 0)),
         "start_date": _text((plan.get("date_range") or {}).get("start")),
+        "arrival": deepcopy(plan.get("arrival") or {}),
+        "departure": deepcopy(plan.get("departure") or {}),
         "hotel_area": _text(hotel.get("name") or hotel.get("area")),
+        "hotel_preferences": "",
         "travelers": _text(profile.get("travelers")),
+        "party": deepcopy(plan.get("party") or {}),
         "pace": _text(profile.get("pace")),
         "transport": _text(profile.get("transport_preference")),
-        "budget": "",
+        "intercity_preferences": [],
+        "budget": _text(profile.get("budget")),
+        "budget_range": {},
         "must_visits": [],
         "notes": "",
         "interests": list(profile.get("preferences") or []),
+        "dietary_requirements": [],
+        "mobility_needs": [],
+        "booking_preferences": "",
+        "freeform_requests": [],
         "daily_window": {"start": "", "end": ""},
     }
 
@@ -391,19 +447,65 @@ def build_planning_context(
     history: list[dict[str, str]] | None = None,
     structured_request: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Merge explicit requests onto the last accepted structured context."""
+    """Merge explicit fields and raw conversation into one durable planning brief."""
     context = _derive_from_plan(previous_plan)
-    context.setdefault("schema_version", 1)
-    context.setdefault("must_visits", [])
-    context.setdefault("interests", [])
+    context["schema_version"] = 2
+    for key in (
+        "destinations",
+        "must_visits",
+        "interests",
+        "intercity_preferences",
+        "dietary_requirements",
+        "mobility_needs",
+        "freeform_requests",
+    ):
+        context.setdefault(key, [])
     previous_revision = int(context.get("revision") or 0)
     if not previous_revision and history:
         previous_revision = sum(item.get("role") == "user" for item in history)
     context.setdefault("daily_window", {"start": "", "end": ""})
 
+    def destination_list(value: str) -> list[str]:
+        parts = re.split(
+            r"\s*(?:、|，|,|＋|\+|→|—>|->|再去|然后去|最后去|到)\s*",
+            value,
+        )
+        cleaned = []
+        for part in parts:
+            name = re.sub(
+                r"^(?:(?:\d{1,2})?日的|从|先去|去|到|途经|目的地(?:是|为)?|的)",
+                "",
+                part.strip(),
+            )
+            name = re.sub(r"(?:游玩|旅行|旅游|玩)$", "", name).strip()
+            if 2 <= len(name) <= 40 and re.fullmatch(r"[\u4e00-\u9fffA-Za-z·\s]+", name):
+                cleaned.append(name)
+        return list(dict.fromkeys(cleaned))
+
     def apply(message: str) -> None:
         message = _text(message)
+        if not message:
+            return
+        requests = list(context.get("freeform_requests") or [])
+        if message not in requests:
+            requests.append(message)
+        context["freeform_requests"] = requests[-8:]
+
         day_pattern = f"({_DAY_TOKEN})"
+        multi_match = re.search(
+            rf"((?:[\u4e00-\u9fffA-Za-z·]{{2,20}})"
+            rf"(?:\s*(?:、|，|,|＋|\+|→|—>|->|再去|然后去|最后去|到)\s*"
+            rf"[\u4e00-\u9fffA-Za-z·]{{2,20}})+)"
+            rf"(?:游玩|旅行|旅游|玩)?\s*{day_pattern}\s*天",
+            message,
+        )
+        if multi_match:
+            names = destination_list(multi_match.group(1))
+            if len(names) > 1:
+                context["destinations"] = [{"name": name} for name in names]
+                context["destination"] = "、".join(names)
+                context["days"] = _day_count(multi_match.group(2))
+
         request_match = re.search(
             rf"(?:请)?(?:为我)?规划\s*([\u4e00-\u9fff]{{2,20}}?)"
             rf"\s*{day_pattern}\s*天(?:行程)?",
@@ -421,47 +523,128 @@ def build_planning_context(
             message,
         )
         trip_match = request_match or travel_match or compact_match
-        if trip_match:
-            context["destination"] = trip_match.group(1).strip()
+        if trip_match and not multi_match:
+            destination = trip_match.group(1).strip()
+            context["destination"] = destination
+            context["destinations"] = [{"name": destination}]
             context["days"] = _day_count(trip_match.group(2))
-        else:
+        elif not multi_match:
+            destination_match = re.search(
+                r"(?:想|要|准备|计划|打算|希望|我要)?(?:去|到)"
+                r"([\u4e00-\u9fffA-Za-z·]{2,20}?)"
+                r"(?:游玩|旅游|旅行|逛|待|玩)?"
+                r"(?:一圈|看看|走走)?(?:[，,。；;\s]|$)",
+                message,
+            )
+            if destination_match and not context.get("destination"):
+                destination = destination_match.group(1).strip()
+                context["destination"] = destination
+                context["destinations"] = [{"name": destination}]
             days_match = re.search(
                 rf"(?:改成|调整为|规划|安排)?\s*{day_pattern}\s*天", message
             )
             if days_match:
                 context["days"] = _day_count(days_match.group(1))
 
-        for segment in re.split(r"[；;。]", message):
+        date_match = re.search(
+            r"(\d{4})年(\d{1,2})月(\d{1,2})日"
+            r"\s*(?:至|到|—|-)\s*"
+            r"(?:(\d{4})年)?(\d{1,2})月(\d{1,2})日",
+            message,
+        )
+        if date_match:
+            context["start_date"] = (
+                f"{int(date_match.group(1)):04d}-"
+                f"{int(date_match.group(2)):02d}-"
+                f"{int(date_match.group(3)):02d}"
+            )
+
+        nights_match = re.search(rf"({_DAY_TOKEN})\s*晚", message)
+        if nights_match:
+            context["nights"] = _day_count(nights_match.group(1))
+
+        list_keys = {
+            "must_visits",
+            "interests",
+            "intercity_preferences",
+            "dietary_requirements",
+            "mobility_needs",
+        }
+        for segment in re.split(r"[；;。\n]", message):
             if "：" not in segment and ":" not in segment:
                 continue
             parts = re.split(r"[：:]", segment, maxsplit=1)
             if len(parts) != 2:
                 continue
-            label = parts[0].strip()
-            value = parts[1].strip()
+            label, value = parts[0].strip(), parts[1].strip()
             key = next(
                 (target for name, target in _LABELS.items() if label.endswith(name)),
                 None,
             )
             if not key or not value:
                 continue
-            context[key] = (
-                _split_values(value) if key in {"must_visits", "interests"} else value
-            )
+            if key == "destinations":
+                names = destination_list(value)
+                if names:
+                    context[key] = [{"name": name} for name in names]
+                    context["destination"] = "、".join(names)
+            elif key in list_keys:
+                context[key] = _split_values(value)
+            else:
+                context[key] = value
+
         hotel_match = re.search(
             r"(?:住宿地点或区域|住宿地点|住宿区域|住宿|住在?)(?:在|为)?"
-            r"[：:\s]*([^，,；;。]{2,30})",
+            r"[：:\s]*([^，,；;。]{2,80})",
             message,
         )
         if hotel_match:
-            context["hotel_area"] = hotel_match.group(1).strip()
+            hotel_area = hotel_match.group(1).strip()
+            if not re.fullmatch(rf"{_DAY_TOKEN}\s*晚.*", hotel_area):
+                context["hotel_area"] = hotel_area
 
-        must_visit_match = re.search(
-            r"必去(?:地点)?[：:\s]*([^；;。]{2,100})",
+        if any(marker in message for marker in ("不要太赶", "轻松一点", "节奏轻松")):
+            context["pace"] = "relaxed"
+        elif any(marker in message for marker in ("行程紧凑", "多安排一些", "特种兵")):
+            context["pace"] = "intensive"
+        elif any(marker in message for marker in ("节奏均衡", "节奏适中", "整体均衡")):
+            context["pace"] = "balanced"
+        if any(
+            marker in message
+            for marker in (
+                "公共交通为主",
+                "公交地铁为主",
+                "公共交通+短途打车",
+                "公共交通加短途打车",
+                "公共交通和短途打车",
+            )
+        ):
+            context["transport"] = "public_transit"
+        elif "打车为主" in message:
+            context["transport"] = "taxi"
+        elif "步行为主" in message:
+            context["transport"] = "walking"
+        elif "自驾" in message:
+            context["transport"] = "driving"
+
+        must_visit_groups = re.findall(
+            r"(?:[\u4e00-\u9fff]{0,8})?必去(?:地点)?[：:\s]*"
+            r"([^；;。]{2,600}?)(?=[，,](?:想|希望|不|每天|每日|请)|[；;。]|$)",
             message,
         )
-        if must_visit_match:
-            context["must_visits"] = _split_values(must_visit_match.group(1))
+        if must_visit_groups:
+            context["must_visits"] = list(
+                dict.fromkeys(
+                    visit
+                    for group in must_visit_groups
+                    for visit in _split_must_visits(group)
+                )
+            )
+        elif wish_matches := re.findall(
+            r"(?:，|,|；|;)\s*想去([^，,；;。]{2,200})",
+            message,
+        ):
+            context["must_visits"] = _split_must_visits(wish_matches[-1])
 
         window = re.search(
             r"(?:每日游玩时段[：:]\s*)?"
@@ -473,6 +656,79 @@ def build_planning_context(
                 "start": "" if window.group(1) == "不限" else window.group(1),
                 "end": "" if window.group(2) == "不限" else window.group(2),
             }
+        elif natural_window := re.search(
+            r"每天.{0,16}?(\d{1,2})点(?:左右)?(?:出门|开始)"
+            r".{0,24}?(\d{1,2})点(?:前)?(?:回|结束)",
+            message,
+        ):
+            context["daily_window"] = {
+                "start": f"{int(natural_window.group(1)):02d}:00",
+                "end": f"{int(natural_window.group(2)):02d}:00",
+            }
+
+        budget_match = re.search(
+            r"(?:总预算|(?<!人均)预算)\s*(?:约|大约|控制在)?\s*(\d{3,8})\s*元",
+            message,
+        )
+        per_person_match = re.search(
+            r"人均\s*(?:预算)?\s*(?:约)?\s*(\d{2,7})\s*元", message
+        )
+        if budget_match or per_person_match:
+            budget_range = dict(context.get("budget_range") or {})
+            if budget_match:
+                budget_range["total_max"] = int(budget_match.group(1))
+            if per_person_match:
+                budget_range["per_person"] = int(per_person_match.group(1))
+            budget_range.setdefault("currency", "CNY")
+            context["budget_range"] = budget_range
+
+        adults = re.search(
+            rf"({_DAY_TOKEN})\s*(?:名|位)[^，,。；;]{{0,24}}?成人",
+            message,
+        )
+        child_clauses = [
+            segment
+            for segment in re.split(r"[，,。；;]", message)
+            if any(marker in segment for marker in ("儿童", "孩子", "小孩"))
+        ]
+        children = [
+            age
+            for segment in child_clauses
+            for age in re.findall(r"(\d+)\s*岁", segment)
+        ]
+        seniors = re.search(rf"({_DAY_TOKEN})\s*(?:名|位)?老人", message)
+        rooms = re.search(rf"({_DAY_TOKEN})\s*间房", message)
+        if adults or children or seniors or rooms:
+            party = dict(context.get("party") or {})
+            if adults:
+                party["adults"] = _day_count(adults.group(1))
+            if children:
+                party["children_ages"] = [int(age) for age in children]
+            if seniors:
+                party["seniors"] = _day_count(seniors.group(1))
+            if rooms:
+                party["rooms"] = _day_count(rooms.group(1))
+            context["party"] = party
+
+        endpoint_markers = {
+            "arrival": ("抵达", "到达", "落地"),
+            "departure": ("返程", "离开", "返回"),
+        }
+        for kind, markers in endpoint_markers.items():
+            marker_pattern = "|".join(markers)
+            match = re.search(
+                rf"(\d{{1,2}}):(\d{{2}})[^，,。；;]{{0,30}}(?:{marker_pattern})",
+                message,
+            ) or re.search(
+                rf"(?:{marker_pattern})[^，,。；;]{{0,30}}"
+                rf"(\d{{1,2}}):(\d{{2}})",
+                message,
+            )
+            if not match:
+                continue
+            endpoint = dict(context.get(kind) or {})
+            endpoint["time"] = f"{int(match.group(1)):02d}:{match.group(2)}"
+            context[kind] = endpoint
 
     if not previous_plan:
         for historical in history or []:
@@ -490,27 +746,57 @@ def build_planning_context(
             if isinstance(structured_request.get("daily_window"), dict)
             else {}
         )
+        requested_days = structured_request.get("days")
         context.update(
             {
                 "destination": _text(structured_request.get("destination")),
-                "days": int(structured_request.get("days") or 3),
+                "destinations": deepcopy(
+                    structured_request.get("destinations") or context["destinations"]
+                ),
+                "days": (
+                    int(requested_days)
+                    if requested_days not in (None, "")
+                    else None
+                ),
+                "nights": structured_request.get("nights"),
                 "start_date": _text(
                     date_range.get("start") or structured_request.get("start_date")
                 ),
+                "arrival": deepcopy(structured_request.get("arrival") or {}),
+                "departure": deepcopy(structured_request.get("departure") or {}),
                 "hotel_area": _text(structured_request.get("hotel_area")),
+                "hotel_preferences": _text(
+                    structured_request.get("hotel_preferences")
+                ),
                 "travelers": _text(
                     structured_request.get("travellers")
                     or structured_request.get("travelers")
                 ),
+                "party": deepcopy(structured_request.get("party") or {}),
                 "pace": _text(structured_request.get("pace")),
                 "transport": _text(
                     structured_request.get("transport_preference")
                     or structured_request.get("transport")
                 ),
+                "intercity_preferences": list(
+                    structured_request.get("intercity_preferences") or []
+                ),
                 "budget": _text(structured_request.get("budget")),
+                "budget_range": deepcopy(
+                    structured_request.get("budget_range") or {}
+                ),
                 "must_visits": list(structured_request.get("must_visits") or []),
                 "notes": _text(structured_request.get("notes")),
                 "interests": list(structured_request.get("interests") or []),
+                "dietary_requirements": list(
+                    structured_request.get("dietary_requirements") or []
+                ),
+                "mobility_needs": list(
+                    structured_request.get("mobility_needs") or []
+                ),
+                "booking_preferences": _text(
+                    structured_request.get("booking_preferences")
+                ),
                 "daily_window": {
                     "start": _text(
                         daily_window.get("start") or structured_request.get("day_start")
@@ -521,6 +807,40 @@ def build_planning_context(
                 },
             }
         )
+    raw_destinations = [
+        item
+        for item in context.get("destinations") or []
+        if isinstance(item, dict)
+        and _text(item.get("destination") or item.get("name"))
+    ]
+    explicit_days = (
+        int(context["days"]) if context.get("days") not in (None, "") else None
+    )
+    if raw_destinations:
+        normalized_destinations = [
+            {
+                "destination": _text(item.get("destination") or item.get("name")),
+                "days": int(item.get("days") or 0),
+                "hotel_area": _text(item.get("hotel_area")) or None,
+                "notes": _text(item.get("notes")) or None,
+            }
+            for item in raw_destinations
+        ]
+        assigned = sum(item["days"] for item in normalized_destinations)
+        if explicit_days is None and assigned:
+            context["days"] = assigned
+            explicit_days = assigned
+        context["destinations"] = normalized_destinations
+        context["destination"] = "、".join(
+            item["destination"] for item in normalized_destinations
+        )
+    context["nights"] = (
+        max(explicit_days - 1, 0)
+        if explicit_days is not None and context.get("nights") in (None, "")
+        else int(context["nights"])
+        if context.get("nights") not in (None, "")
+        else None
+    )
     context["revision"] = previous_revision + 1
     context["latest_request"] = _text(current_message)
     return context

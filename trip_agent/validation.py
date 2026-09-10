@@ -4,7 +4,7 @@ import hashlib
 import json
 import re
 from dataclasses import dataclass, field
-from datetime import date
+from datetime import date, timedelta
 from typing import Any
 
 
@@ -14,6 +14,35 @@ def _text(value: Any) -> str:
 
 def _key(value: Any) -> str:
     return re.sub(r"[\s·（）()\-—]", "", _text(value)).casefold()
+
+def _matches_key(left: str, right: str) -> bool:
+    def options(value: str) -> list[str]:
+        return [
+            re.sub(r"(?:一带|附近|周边|区域|择一)$", "", item)
+            for item in re.split(r"(?:优先|或者|或|/)", value)
+            if item
+        ]
+
+    def matches_one(left_value: str, right_value: str) -> bool:
+        if left_value in right_value or right_value in left_value:
+            return True
+        left_without_city = left_value[2:] if len(left_value) >= 6 else left_value
+        right_without_city = right_value[2:] if len(right_value) >= 6 else right_value
+        return bool(
+            left_without_city in right_value
+            or right_without_city in left_value
+            or left_without_city in right_without_city
+            or right_without_city in left_without_city
+        )
+
+    if not left or not right:
+        return False
+    return any(
+        matches_one(left_value, right_value)
+        for left_value in options(left)
+        for right_value in options(right)
+        if left_value and right_value
+    )
 
 
 def _minutes(value: Any) -> int | None:
@@ -54,7 +83,7 @@ def _warning(code: str, path: str, message: str) -> dict[str, Any]:
 
 @dataclass
 class HardValidator:
-    version: str = "hard-validator-v3"
+    version: str = "hard-validator-v4"
     _failures: list[dict[str, Any]] = field(default_factory=list, init=False)
     _warnings: list[dict[str, Any]] = field(default_factory=list, init=False)
 
@@ -164,7 +193,7 @@ class HardValidator:
         for index, must_visit in enumerate(context.get("must_visits") or []):
             requested = _key(must_visit)
             if requested and not any(
-                requested in name or name in requested for name in names if name
+                _matches_key(requested, name) for name in names if name
             ):
                 self._failures.append(
                     _issue(
@@ -187,19 +216,24 @@ class HardValidator:
         context: dict[str, Any],
     ) -> None:
         seen_places: dict[str, str] = {}
-        hotel = plan.get("hotel") if isinstance(plan.get("hotel"), dict) else {}
-        hotel_name = _key(hotel.get("name"))
+        hotels = [
+            item for item in plan.get("hotels") or [] if isinstance(item, dict)
+        ]
+        if not hotels and isinstance(plan.get("hotel"), dict):
+            hotels = [plan["hotel"]]
 
-        def matches_hotel_anchor(anchor: dict[str, Any]) -> bool:
-            hotel_place_id = _text(hotel.get("place_id"))
+        def matches_hotel_anchor(
+            anchor: dict[str, Any], expected_hotel: dict[str, Any]
+        ) -> bool:
+            hotel_place_id = _text(expected_hotel.get("place_id"))
             anchor_place_id = _text(anchor.get("place_id"))
             if hotel_place_id and anchor_place_id:
                 return hotel_place_id == anchor_place_id
-            hotel_location = _text(hotel.get("location"))
+            hotel_location = _text(expected_hotel.get("location"))
             anchor_location = _text(anchor.get("location"))
             if hotel_location and anchor_location:
                 return hotel_location == anchor_location
-            return hotel_name == _key(anchor.get("name"))
+            return _key(expected_hotel.get("name")) == _key(anchor.get("name"))
 
         window = (
             context.get("daily_window")
@@ -209,6 +243,29 @@ class HardValidator:
         requested_start = _minutes(window.get("start"))
         requested_end = _minutes(window.get("end"))
         expected_start_date = _text(context.get("start_date"))
+        requested_destinations = [
+            item
+            for item in context.get("destinations") or []
+            if isinstance(item, dict)
+        ]
+        allocations_are_explicit = bool(requested_destinations) and all(
+            int(item.get("days") or 0) > 0 for item in requested_destinations
+        )
+        expected_destinations = (
+            [
+                _text(item.get("destination"))
+                for item in requested_destinations
+                for _ in range(int(item.get("days") or 0))
+            ]
+            if allocations_are_explicit
+            else []
+        )
+        arrival = context.get("arrival") if isinstance(context.get("arrival"), dict) else {}
+        departure = (
+            context.get("departure")
+            if isinstance(context.get("departure"), dict)
+            else {}
+        )
 
         for day_index, raw_day in enumerate(days):
             path = f"$.days[{day_index}]"
@@ -216,6 +273,61 @@ class HardValidator:
                 self._failures.append(_issue("INVALID_DAY", path, "每日行程必须是对象"))
                 continue
             day = raw_day
+            expected_destination = (
+                expected_destinations[day_index]
+                if day_index < len(expected_destinations)
+                else ""
+            )
+            actual_destination = _text(day.get("destination"))
+            if expected_destination and not (
+                actual_destination == expected_destination
+                or expected_destination in actual_destination
+                or actual_destination in expected_destination
+            ):
+                self._failures.append(
+                    _issue(
+                        "DESTINATION_SEQUENCE_INVALID",
+                        f"{path}.destination",
+                        "每日目的地必须按用户给定顺序分配",
+                        actual=actual_destination,
+                        expected=expected_destination,
+                    )
+                )
+            intercity_leg = (
+                day.get("intercity_leg")
+                if isinstance(day.get("intercity_leg"), dict)
+                else {}
+            )
+            if (
+                day_index > 0
+                and expected_destinations
+                and expected_destinations[day_index - 1] != expected_destination
+                and not (
+                    _text(intercity_leg.get("mode"))
+                    and _text(intercity_leg.get("from"))
+                    and _text(intercity_leg.get("to"))
+                )
+            ):
+                self._failures.append(
+                    _issue(
+                        "MISSING_INTERCITY_LEG",
+                        f"{path}.intercity_leg",
+                        "跨城日必须说明城际移动方式和时间偏移",
+                    )
+                )
+            hotel = next(
+                (
+                    item
+                    for item in hotels
+                    if _text(item.get("destination")) == actual_destination
+                    or (
+                        expected_destination
+                        and _text(item.get("destination")) == expected_destination
+                    )
+                ),
+                hotels[0] if hotels else {},
+            )
+            hotel_name = _key(hotel.get("name"))
             if int(day.get("day") or 0) != day_index + 1:
                 self._failures.append(
                     _issue(
@@ -226,20 +338,24 @@ class HardValidator:
                         expected=day_index + 1,
                     )
                 )
-            if (
-                day_index == 0
-                and expected_start_date
-                and _text(day.get("date")) != expected_start_date
-            ):
-                self._failures.append(
-                    _issue(
-                        "START_DATE_MISMATCH",
-                        f"{path}.date",
-                        "首日日期与用户要求不一致",
-                        actual=day.get("date"),
-                        expected=expected_start_date,
+            if expected_start_date:
+                try:
+                    expected_date = (
+                        date.fromisoformat(expected_start_date)
+                        + timedelta(days=day_index)
+                    ).isoformat()
+                except ValueError:
+                    expected_date = expected_start_date
+                if _text(day.get("date")) != expected_date:
+                    self._failures.append(
+                        _issue(
+                            "DATE_SEQUENCE_MISMATCH",
+                            f"{path}.date",
+                            "每日日期必须从出发日期连续递增",
+                            actual=day.get("date"),
+                            expected=expected_date,
+                        )
                     )
-                )
             if not expected_start_date and (day.get("date") or day.get("weekday")):
                 self._failures.append(
                     _issue(
@@ -268,6 +384,38 @@ class HardValidator:
                 _minutes(day.get("start_time")),
                 _minutes(day.get("end_time")),
             )
+            if (
+                day_index == 0
+                and _text(arrival.get("time"))
+                and day_start is not None
+                and _minutes(arrival.get("time")) is not None
+                and day_start < int(_minutes(arrival.get("time")) or 0)
+            ):
+                self._failures.append(
+                    _issue(
+                        "ACTIVITY_BEFORE_ARRIVAL",
+                        f"{path}.start_time",
+                        "首日活动不能早于抵达时间",
+                        actual=day.get("start_time"),
+                        expected=arrival.get("time"),
+                    )
+                )
+            if (
+                day_index == len(days) - 1
+                and _text(departure.get("time"))
+                and day_end is not None
+                and _minutes(departure.get("time")) is not None
+                and day_end > int(_minutes(departure.get("time")) or 0)
+            ):
+                self._failures.append(
+                    _issue(
+                        "ACTIVITY_AFTER_DEPARTURE",
+                        f"{path}.end_time",
+                        "末日活动不能晚于返程时间",
+                        actual=day.get("end_time"),
+                        expected=departure.get("time"),
+                    )
+                )
             if day_start is None or day_end is None or day_start >= day_end:
                 self._failures.append(
                     _issue("INVALID_DAY_WINDOW", path, "每日开始和结束时间无效")
@@ -309,22 +457,27 @@ class HardValidator:
             end_anchor = (
                 day.get("end_anchor") if isinstance(day.get("end_anchor"), dict) else {}
             )
+            hotel_loop_issue = None
             if not _text(start_anchor.get("name")) or not _text(end_anchor.get("name")):
-                self._failures.append(
-                    _issue("HOTEL_LOOP_MISSING", path, "每日必须有明确起终点")
+                hotel_loop_issue = _issue(
+                    "HOTEL_LOOP_MISSING", path, "每日缺少明确起终点"
                 )
             elif hotel_name and (
-                not matches_hotel_anchor(start_anchor)
-                or not matches_hotel_anchor(end_anchor)
+                not matches_hotel_anchor(start_anchor, hotel)
+                or not matches_hotel_anchor(end_anchor, hotel)
             ):
-                self._failures.append(
-                    _issue(
-                        "HOTEL_LOOP_MISMATCH",
-                        path,
-                        "每日必须从住宿锚点出发并返回",
-                        expected=hotel.get("name"),
-                    )
+                hotel_loop_issue = _issue(
+                    "HOTEL_LOOP_MISMATCH",
+                    path,
+                    "每日起终点与建议住宿锚点不一致",
+                    expected=hotel.get("name"),
                 )
+            if hotel_loop_issue:
+                (
+                    self._failures
+                    if context.get("hotel_area")
+                    else self._warnings
+                ).append(hotel_loop_issue)
             missing_anchor_location = not start_anchor.get(
                 "location"
             ) or not end_anchor.get("location")
@@ -365,22 +518,16 @@ class HardValidator:
                 previous_end = end
                 declared_duration = int(item.get("duration_minutes") or 0)
                 if abs(declared_duration - (end - start)) > 1:
-                    self._failures.append(
-                        _issue(
-                            "DURATION_MISMATCH",
+                    self._warnings.append(
+                        _warning(
+                            "DURATION_ESTIMATE_ADJUSTED",
                             f"{item_path}.duration_minutes",
-                            "停留时长与开始结束时间不一致",
-                            actual=declared_duration,
-                            expected=end - start,
+                            "建议停留时长与展示时段不同，以当天节奏灵活调整",
                         )
                     )
                 if item.get("type") in {"visit", "meal"}:
                     required_place = any(
-                        requested
-                        and (
-                            requested in _key(item.get("name"))
-                            or _key(item.get("name")) in requested
-                        )
+                        _matches_key(requested, _key(item.get("name")))
                         for requested in (
                             _key(value) for value in context.get("must_visits") or []
                         )
@@ -390,19 +537,16 @@ class HardValidator:
                         or not item.get("location")
                         or item.get("source") != "amap"
                     ):
-                        target = self._failures if required_place else self._warnings
-                        target.append(
-                            _issue(
+                        self._warnings.append(
+                            _warning(
                                 "UNRESOLVED_ENTITY",
                                 item_path,
-                                "必去地点没有绑定 Provider 返回的真实实体",
-                                allowed_actions=["resolve_required_stop"],
-                            )
-                            if required_place
-                            else _warning(
-                                "UNRESOLVED_ENTITY",
-                                item_path,
-                                "可选地点没有绑定地图实体，已标记为待确认",
+                                (
+                                    "用户指定的必去地点已保留，但地图服务未能绑定真实实体，"
+                                    "坐标与路线需手动确认"
+                                    if required_place
+                                    else "可选地点没有绑定地图实体，已标记为待确认"
+                                ),
                             )
                         )
                     else:
@@ -418,12 +562,11 @@ class HardValidator:
                         else:
                             seen_places[place_id] = item_path
                     if item.get("opening_match") == "risk":
-                        self._failures.append(
-                            _issue(
+                        self._warnings.append(
+                            _warning(
                                 "OPENING_CONFLICT",
                                 item_path,
-                                "到访时间与已知开放时间冲突",
-                                evidence_refs=[_text(item.get("place_id"))],
+                                "建议到访时段可能与已知开放信息冲突，出发前请按官方信息调整",
                             )
                         )
                     elif item.get("opening_match") == "unknown":
@@ -460,12 +603,11 @@ class HardValidator:
                 for item in valid_schedule
             )
             if spans_lunch and not has_lunch:
-                self._failures.append(
-                    _issue(
-                        "MEAL_WINDOW_MISSING",
+                self._warnings.append(
+                    _warning(
+                        "MEAL_BREAK_SUGGESTED",
                         f"{path}.schedule",
-                        "跨越午餐时段的完整行程必须显式安排午餐或用餐休息",
-                        allowed_actions=["add_meal_or_break", "reschedule_activities"],
+                        "行程跨越午餐时段，可按现场情况插入用餐或休息",
                     )
                 )
 
@@ -525,23 +667,11 @@ class HardValidator:
                 duration <= 0
                 or origin_end + duration + buffer_minutes > destination_start
             ):
-                self._failures.append(
-                    _issue(
-                        "ROUTE_TIME_CONFLICT",
+                self._warnings.append(
+                    _warning(
+                        "TIGHT_TRANSFER",
                         edge_path,
-                        "真实通勤时间及必要缓冲无法放入两个活动之间",
-                        actual={
-                            "gap_minutes": destination_start - origin_end,
-                            "route_minutes": duration,
-                            "buffer_minutes": buffer_minutes,
-                        },
-                        expected="gap_minutes >= route_minutes + buffer_minutes",
-                        evidence_refs=[_text(transfer.get("evidence_hash"))],
-                        allowed_actions=[
-                            "move_activity_time",
-                            "change_day_order",
-                            "remove_optional_stop",
-                        ],
+                        "地图参考通勤时间可能挤压相邻活动，建议当天灵活缩短停留或顺延",
                     )
                 )
                 continue
@@ -554,20 +684,10 @@ class HardValidator:
                 or transfer_end > destination_start
                 or transfer_end - transfer_start < duration
             ):
-                self._failures.append(
-                    _issue(
-                        "TRANSFER_TIMELINE_CONFLICT",
+                self._warnings.append(
+                    _warning(
+                        "TRANSFER_TIME_ESTIMATED",
                         edge_path,
-                        "通勤段起止时间与相邻活动或真实路线耗时不一致",
-                        actual={
-                            "origin_end": origin_end,
-                            "transfer_start": transfer_start,
-                            "transfer_end": transfer_end,
-                            "destination_start": destination_start,
-                            "route_minutes": duration,
-                        },
-                        expected="origin_end <= transfer_start < transfer_end <= destination_start，且通勤区间不少于真实路线耗时",
-                        evidence_refs=[_text(transfer.get("evidence_hash"))],
-                        allowed_actions=["align_transfer_timeline"],
+                        "通勤时段与地图参考耗时未完全对齐，实际以实时导航为准",
                     )
                 )

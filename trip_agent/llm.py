@@ -14,6 +14,10 @@ import httpx
 from .observability import log_event
 
 
+class LLMServiceUnavailableError(RuntimeError):
+    """Raised after transient model transport failures exhaust retries."""
+
+
 class OpenAICompatibleLLM:
     requires_decision_wrapper = True
     supports_tool_calls = True
@@ -65,7 +69,7 @@ class OpenAICompatibleLLM:
         self.timeout_seconds = max(
             15.0,
             min(
-                float(os.environ.get("TRIP_AGENT_LLM_TIMEOUT_SECONDS", "60")),
+                float(os.environ.get("TRIP_AGENT_LLM_TIMEOUT_SECONDS", "120")),
                 120.0,
             ),
         )
@@ -512,7 +516,8 @@ class OpenAICompatibleLLM:
             **trace_fields,
         )
 
-        for attempt in range(2):
+        max_attempts = 3
+        for attempt in range(max_attempts):
             try:
                 if self.wire_api == "responses":
                     async with asyncio.timeout(self.timeout_seconds):
@@ -619,21 +624,23 @@ class OpenAICompatibleLLM:
                 )
                 raise
 
-            log_event(
-                "llm_request_retry",
-                call_id=call_id,
-                attempt=attempt + 1,
-                error_type=type(last_error).__name__,
-                **trace_fields,
-            )
-            if attempt < 1:
-                await asyncio.sleep(0.5)
+            if attempt + 1 < max_attempts:
+                log_event(
+                    "llm_request_retry",
+                    call_id=call_id,
+                    attempt=attempt + 1,
+                    error_type=type(last_error).__name__,
+                    **trace_fields,
+                )
+                await asyncio.sleep(0.5 * (attempt + 1))
 
-        error = RuntimeError(f"LLM request failed after retries: {last_error}")
+        error = LLMServiceUnavailableError(
+            f"LLM request failed after retries: {last_error}"
+        )
         log_event(
             "llm_request_failed",
             call_id=call_id,
-            attempt=2,
+            attempt=max_attempts,
             error_type=type(last_error).__name__,
             total_ms=round((time.perf_counter() - request_started) * 1000),
             **trace_fields,

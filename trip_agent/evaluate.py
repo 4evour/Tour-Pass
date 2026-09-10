@@ -606,7 +606,13 @@ def _manifest(
         "workflow": "single_model_deterministic",
         "max_model_calls": 1,
         "reviewer_enabled": False,
-        "max_provider_calls": 14,
+        "max_provider_calls": max(
+            1,
+            min(
+                int(os.environ.get("TRIP_AGENT_MAX_PROVIDER_CALLS", "100")),
+                100,
+            ),
+        ),
         "memory_policy": MemoryPolicy(
             history_messages=args.memory_history_messages,
             message_chars=args.memory_message_chars,
@@ -768,7 +774,7 @@ async def _replay(args: argparse.Namespace) -> int:
         amap=amap,
         weather=weather,
         memory_policy=memory_policy,
-        max_provider_calls=int(manifest.get("max_provider_calls", 14)),
+        max_provider_calls=int(manifest.get("max_provider_calls", 100)),
     )
     response = await agent.run(
         str(request["message"]),
