@@ -15,3 +15,358 @@
 .top-button{text-decoration:none}.quota-chip{padding:7px 9px;border-radius:9px;color:#315b4d;background:var(--mint);font-size:9px;font-weight:800;white-space:nowrap}.plan-actions{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.plan-action{padding:8px 11px;border:1px solid #ffffff42;border-radius:9px;color:#fff;background:#ffffff12;font-size:10px;font-weight:800}.plan-action:hover{background:#ffffff20}.auth-dialog{width:min(430px,calc(100% - 28px));padding:0;border:0;border-radius:18px;color:var(--ink);box-shadow:var(--shadow)}.auth-dialog::backdrop{background:rgba(13,28,23,.48);backdrop-filter:blur(3px)}.auth-card{display:grid;gap:14px;padding:24px}.auth-card header{display:flex;align-items:flex-start;justify-content:space-between}.auth-card h2{margin:8px 0 0;font:700 30px/1.1 "STSong","Songti SC",serif}.auth-card header button{padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--muted)}.auth-card>p{margin:0;color:var(--muted);font-size:11px;line-height:1.65}.auth-card label span{display:block;margin-bottom:6px;font-size:10px;font-weight:800}.auth-card input{width:100%;padding:11px;border:1px solid var(--line);border-radius:9px}.auth-card .structured-submit{position:static;margin:2px 0 0}.auth-switch{border:0;color:var(--route);background:transparent;font-size:10px}.auth-error{padding:9px!important;border-radius:8px;color:var(--warning)!important;background:var(--warning-soft)}.explore-filter{display:grid;grid-template-columns:1fr 110px auto;gap:7px;margin:16px 0}.explore-filter input,.explore-filter select,.explore-filter button{min-width:0;padding:9px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:10px}.explore-filter button{color:#fff;border-color:var(--route);background:var(--route);font-weight:800}.public-item{display:grid;gap:7px;padding:15px;border:1px solid var(--line);border-radius:13px;color:inherit;background:#fff;text-decoration:none}.public-item:hover{border-color:#86ae9e}.public-item small{color:var(--success);font:800 9px/1 ui-monospace,monospace}.public-item b{font:700 17px/1.35 "STSong","Songti SC",serif}.public-item span{color:var(--muted);font-size:10px}.toast{position:fixed;z-index:40;right:22px;bottom:22px;max-width:360px;padding:12px 15px;border-radius:10px;color:#fff;background:var(--ink);box-shadow:var(--shadow);font-size:11px}.public-notice{padding:10px 14px;color:#315b4d;background:var(--mint);font-size:11px;text-align:center}
 @media(max-width:760px){.quota-chip{display:none}.top-actions{overflow-x:auto}.top-button{flex:none}.explore-filter{grid-template-columns:1fr 90px}.explore-filter button{grid-column:1/-1}.plan-actions{margin-top:16px}}
 @media print{body{background:#fff}.shell{width:100%;padding:0}.topbar,.assistant-panel,.plan-actions,.run-trace,.drawer-backdrop,.saved-drawer,.auth-dialog,.toast{display:none!important}.workspace{display:block}.result-panel{border:0;box-shadow:none}.plan-hero{color:#14231e;background:#fff;border-bottom:2px solid #14231e}.plan-hero p{color:#4f5f58}.plan-hero .kicker{color:#197653}.plan-body{padding:12px;background:#fff}.day-card,.surface{break-inside:avoid;box-shadow:none}.day-card{page-break-inside:avoid}.lower-grid,.summary-grid{grid-template-columns:1fr}.plan-hero::after{display:none}}
+
+/* Travel guide presentation: deterministic HTML/CSS, no generated imagery. */
+html{scroll-behavior:smooth}
+.result-panel:has(.guide-sheet){background:#eaf0eb;padding:18px}
+.guide-cover{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;min-height:0;padding:34px 38px 28px;border-radius:28px 28px 0 0;overflow:hidden;background:#164b3d;color:#fff;box-shadow:none}
+.guide-cover:before,.guide-cover:after{content:"";position:absolute;pointer-events:none;border-radius:999px}
+.guide-cover:before{width:360px;height:360px;right:-170px;top:-225px;border:54px solid rgba(236,241,184,.12)}
+.guide-cover:after{width:170px;height:170px;right:12%;bottom:-130px;background:rgba(143,199,171,.16)}
+.guide-cover .cover-copy,.guide-cover .guide-stamp,.guide-cover .plan-actions{position:relative;z-index:1}
+.guide-cover .cover-copy{max-width:760px}
+.guide-cover .kicker{display:block;margin-bottom:14px;color:#cfe6d8;font-size:11px;font-weight:800;letter-spacing:.14em}
+.guide-cover h1{max-width:820px;margin:0;font-family:"Iowan Old Style","Songti SC","STSong",serif;font-size:clamp(34px,4vw,58px);font-weight:700;line-height:1.08;letter-spacing:-.035em}
+.guide-cover p{max-width:760px;margin:16px 0 0;color:#d8e8df;font-size:14px;line-height:1.8}
+.guide-cover .hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.guide-cover .hero-meta span{padding:7px 11px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.08);color:#f7fbf8;font-size:11px}
+.guide-stamp{align-self:start;display:grid;place-items:center;width:94px;aspect-ratio:1;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:rgba(255,255,255,.07);transform:rotate(4deg)}
+.guide-stamp strong{font-family:"Iowan Old Style","Songti SC","STSong",serif;font-size:32px;line-height:1}
+.guide-stamp span{margin-top:-10px;font-size:9px;font-weight:900;letter-spacing:.16em}
+.guide-stamp small{margin-top:-12px;color:#cfe6d8;font-size:9px}
+.guide-cover .plan-actions{grid-column:1/-1;justify-content:flex-start;margin-top:0}
+.guide-cover .plan-action{min-width:112px;padding:9px 14px;border-color:rgba(255,255,255,.24);background:#f7f5e8;color:#17483b}
+.guide-sheet{max-width:none;padding:20px 22px 26px;background:#fbfcf8;border-radius:0 0 28px 28px;box-shadow:0 20px 60px rgba(28,58,46,.10)}
+.guide-sheet .run-trace{margin:0 0 14px;border:0;background:transparent}
+.guide-sheet .run-trace summary{padding:8px 2px;color:#6c7972;font-size:11px}
+.day-jumpbar{position:sticky;top:64px;z-index:8;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin:0 0 14px;padding:8px;border:1px solid #e4e8df;border-radius:18px;background:rgba(251,252,248,.92);box-shadow:0 8px 24px rgba(39,62,51,.08);backdrop-filter:blur(14px)}
+.day-jump{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:9px;min-width:0;padding:9px 11px;border-radius:12px;color:#243b32;text-decoration:none;transition:transform .18s ease,filter .18s ease}
+.day-jump:hover{transform:translateY(-1px);filter:saturate(1.08)}
+.day-jump b{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.76);font-size:11px}
+.day-jump span{overflow:hidden;font-size:11px;font-weight:800;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}
+.day-jump-1{background:#dff0e5}.day-jump-2{background:#f3edc9}.day-jump-3{background:#ece6f6}.day-jump-4{background:#dfeef5}.day-jump-5{background:#f7e2d7}
+.guide-intro{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.8fr);gap:24px;margin-bottom:14px;padding:24px 26px;border:1px solid #e5e9df;border-radius:22px;background:#f3f6ef}
+.guide-intro .section-label{display:block;margin-bottom:8px;color:#56806d;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.guide-intro h2{margin:0 0 8px;font-family:"Iowan Old Style","Songti SC","STSong",serif;font-size:24px;letter-spacing:-.02em}
+.guide-intro p{margin:0;color:#5a6a62;font-size:13px;line-height:1.75}
+.guide-highlights{display:flex;align-content:flex-start;flex-wrap:wrap;gap:8px}
+.guide-highlights span{padding:8px 11px;border-radius:10px;background:#fff;color:#315446;font-size:11px;font-weight:700;box-shadow:inset 0 0 0 1px #e4e9e1}
+.stay-card{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:15px;margin-bottom:16px;padding:16px 20px;border-radius:18px;background:#214f43;color:#f5faf6}
+.stay-mark{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:#f0e5b3;color:#24483e;font-size:22px}
+.stay-card span{color:#bcd5ca;font-size:10px;font-weight:800;letter-spacing:.08em}
+.stay-card h3{margin:3px 0;font-family:"Iowan Old Style","Songti SC","STSong",serif;font-size:19px}
+.stay-card p{margin:0;color:#d5e4dd;font-size:11px;line-height:1.55}
+.guide-day{--day-bg:#e5f2e8;--day-strong:#79af91;--day-ink:#17483b;margin:0 0 18px;border:0;border-radius:26px;background:#fff;box-shadow:0 8px 30px rgba(39,62,51,.08);scroll-margin-top:136px;overflow:hidden}
+.guide-day.day-tone-2{--day-bg:#f5efcf;--day-strong:#d6ba4b;--day-ink:#514513}
+.guide-day.day-tone-3{--day-bg:#eee8f7;--day-strong:#9f82c2;--day-ink:#46355c}
+.guide-day.day-tone-4{--day-bg:#e1eff5;--day-strong:#71a6bd;--day-ink:#244c5d}
+.guide-day.day-tone-5{--day-bg:#f8e5db;--day-strong:#d28e6f;--day-ink:#633928}
+.guide-day .day-head{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:18px;padding:24px 26px 18px;border:0;background:var(--day-bg);color:var(--day-ink)}
+.guide-day .day-number{display:grid;place-items:center;width:62px;height:70px;border-radius:19px;background:var(--day-ink);color:#fff}
+.guide-day .day-number b{font-size:9px;letter-spacing:.12em}
+.guide-day .day-number strong{margin-top:-5px;font-family:"Iowan Old Style","Songti SC","STSong",serif;font-size:32px;line-height:1}
+.guide-day .day-title{min-width:0}
+.guide-day .day-title .kicker{color:var(--day-ink);font-size:10px;font-weight:850;letter-spacing:.04em;opacity:.72}
+.guide-day .day-title h2{margin:4px 0 5px;font-family:"Iowan Old Style","Songti SC","STSong",serif;font-size:26px;line-height:1.22;letter-spacing:-.025em}
+.guide-day .day-title p{max-width:820px;margin:0;color:var(--day-ink);font-size:12px;line-height:1.65;opacity:.78}
+.guide-day .day-route{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start;padding:11px 26px;background:var(--day-ink);color:#fff}
+.guide-day .day-route span{padding-top:2px;color:rgba(255,255,255,.68);font-size:9px;font-weight:900;letter-spacing:.1em}
+.guide-day .day-route b{font-size:11px;line-height:1.55}
+.guide-day .day-context{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;padding:14px 22px;border:0;border-bottom:1px dashed #dde3db;background:#fff}
+.guide-day .context-item{padding:0 12px;border-left:1px solid #e7ebe4}
+.guide-day .context-item:first-child{border-left:0}
+.guide-day .context-item span{display:block;margin-bottom:4px;color:#89958f;font-size:9px;font-weight:800}
+.guide-day .context-item b{display:block;color:#30463d;font-size:11px;line-height:1.45}
+.guide-day .timeline{padding:20px 26px 24px;background:#fff}
+.guide-day .timeline-row{display:grid;grid-template-columns:64px 22px minmax(0,1fr);gap:9px;align-items:stretch;padding:0;background:transparent}
+.guide-day .clock{display:flex;flex-direction:column;align-items:flex-end;padding-top:13px;color:#203d32;font-variant-numeric:tabular-nums}
+.guide-day .clock b{font-size:12px}
+.guide-day .clock small{margin-top:3px;color:#8b9690;font-size:9px}
+.guide-day .route-axis{position:relative;width:22px;min-height:100%}
+.guide-day .route-axis:before{content:"";position:absolute;left:10px;top:0;bottom:-8px;width:2px;background:var(--day-bg)}
+.guide-day .route-axis .route-dot{position:absolute;z-index:1;top:16px;left:5px;width:12px;height:12px;border:3px solid #fff;border-radius:50%;background:var(--day-strong);box-shadow:0 0 0 1px var(--day-strong)}
+.guide-day .stop-content{margin-bottom:10px;padding:14px 15px 12px;border:0;border-left:4px solid var(--day-strong);border-radius:14px;background:color-mix(in srgb,var(--day-bg) 48%,#fff);box-shadow:none}
+.guide-day .stop-meal .stop-content{border-left-color:#d8ad43;background:#faf4d9}
+.guide-day .stop-hotel .stop-content{border-left-color:#8e74b2;background:#f1ecf8}
+.guide-day .stop-free .stop-content{border-left-color:#6ca3b9;background:#eaf4f8}
+.guide-day .stop-top{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:start}
+.stop-kind{display:grid;place-items:center;width:28px;height:28px;border-radius:9px;background:var(--day-ink);color:#fff;font-size:11px;font-weight:900}
+.stop-copy{min-width:0}
+.stop-copy h3{margin:0;color:#223b31;font-family:"Iowan Old Style","Songti SC","STSong",serif;font-size:17px;line-height:1.3}
+.stop-copy p{margin:4px 0 0;color:#65726c;font-size:11px;line-height:1.6}
+.map-link{padding:5px 7px;border-radius:8px;background:rgba(255,255,255,.72);color:#315e4d;font-size:9px;font-weight:800;text-decoration:none;white-space:nowrap}
+.map-link.disabled{color:#8a948f}
+.stop-facts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;padding-left:38px}
+.stop-facts span{padding:4px 7px;border:1px solid rgba(52,84,70,.1);border-radius:999px;background:rgba(255,255,255,.7);color:#5f6d66;font-size:9px}
+.stop-facts span.ok{color:#26724f}.stop-facts span.risk{color:#a14f35}
+.stop-evidence{margin:9px 0 0 38px;border-top:1px dashed rgba(42,74,60,.14)}
+.stop-evidence summary{padding:7px 0 0;color:#728079;font-size:9px;cursor:pointer}
+.stop-evidence>div{display:flex;flex-wrap:wrap;gap:8px;margin-top:7px;color:#718078;font-size:9px;line-height:1.55}
+.guide-day .route-hop{display:grid;grid-template-columns:28px minmax(0,1fr);gap:9px;margin:0 0 10px 95px;padding:10px 13px;border:1px dashed #cbd8d0;border-radius:12px;background:#f8faf7;color:#466257}
+.hop-symbol{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#e0eee6;color:#32614e;font-size:15px}
+.hop-copy>div{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.hop-copy b{color:#274b3d;font-size:10px}
+.hop-copy span,.hop-copy p,.hop-copy small{font-size:9px;line-height:1.5}
+.hop-copy p{margin:2px 0 0;color:#4f655b}
+.hop-copy small{display:block;margin-top:3px;color:#7b8881}
+.day-notice{margin:0 26px 22px;border:1px solid #ecd59d;border-radius:14px;background:#fff8e2}
+.day-notice>summary{padding:11px 14px;color:#7d6323;font-size:10px;font-weight:800;cursor:pointer}
+.day-notice>.surface{margin:0;border:0;border-top:1px solid #efdfb6;border-radius:0;background:transparent}
+.travel-notes{margin:6px 0 16px;padding:20px 22px;border-radius:20px;background:#f5efc8;color:#4b421d}
+.travel-notes header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.travel-notes header b{font-family:"Iowan Old Style","Songti SC","STSong",serif;font-size:19px}
+.travel-notes header span{padding:5px 8px;border-radius:999px;background:#fff9df;font-size:9px;font-weight:900}
+.travel-notes ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 24px;margin:0;padding-left:18px}
+.travel-notes li{font-size:10px;line-height:1.6}
+.guide-drawer{margin-top:14px;border:1px solid #dfe5dd;border-radius:18px;background:#f6f8f4;overflow:hidden}
+.guide-drawer>summary{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;list-style:none}
+.guide-drawer>summary::-webkit-details-marker{display:none}
+.guide-drawer>summary span{display:grid;gap:3px}
+.guide-drawer>summary b{color:#2d483d;font-size:12px}
+.guide-drawer>summary small{color:#819087;font-size:9px}
+.guide-drawer>summary i{font-style:normal;color:#527363;font-size:9px}
+.guide-drawer .drawer-collapse{display:none}.guide-drawer[open] .drawer-expand{display:none}.guide-drawer[open] .drawer-collapse{display:inline}
+.guide-drawer-body{padding:0 14px 14px;border-top:1px solid #e1e7df}
+.drawer-section{margin-top:12px}
+.guide-footer{display:flex;justify-content:space-between;padding:18px 4px 2px;color:#9aa49f;font-size:8px;font-weight:800;letter-spacing:.12em}
+
+@media(max-width:760px){
+  .result-panel:has(.guide-sheet){padding:0;background:#fbfcf8}
+  .guide-cover{grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:25px 18px 21px;border-radius:0}
+  .guide-cover h1{font-size:35px}
+  .guide-cover p{font-size:12px;line-height:1.65}
+  .guide-stamp{width:70px}.guide-stamp strong{font-size:25px}.guide-stamp small{display:none}
+  .guide-cover .plan-actions{grid-column:1/-1}
+  .guide-sheet{padding:12px;border-radius:0;box-shadow:none}
+  .day-jumpbar{top:56px;display:flex;overflow-x:auto;margin-bottom:12px;border-radius:15px;scrollbar-width:none}
+  .day-jump{flex:0 0 150px}
+  .guide-intro{grid-template-columns:1fr;gap:14px;padding:19px;border-radius:18px}
+  .stay-card{padding:14px 16px}
+  .guide-day{border-radius:20px;scroll-margin-top:124px}
+  .guide-day .day-head{grid-template-columns:52px minmax(0,1fr);gap:12px;padding:18px 16px 14px}
+  .guide-day .day-number{width:52px;height:59px;border-radius:16px}
+  .guide-day .day-number strong{font-size:27px}
+  .guide-day .day-title h2{font-size:22px}
+  .guide-day .day-route{grid-template-columns:1fr;gap:4px;padding:10px 16px}
+  .guide-day .day-context{grid-template-columns:1fr;padding:8px 16px}
+  .guide-day .context-item{padding:7px 0;border-left:0;border-top:1px solid #edf0eb}
+  .guide-day .context-item:first-child{border-top:0}
+  .guide-day .timeline{padding:15px 12px 18px 8px}
+  .guide-day .timeline-row{grid-template-columns:50px 18px minmax(0,1fr);gap:6px}
+  .guide-day .clock{padding-top:11px}.guide-day .clock b{font-size:11px}.guide-day .clock small{font-size:8px}
+  .guide-day .route-axis{width:18px}.guide-day .route-axis:before{left:8px}.guide-day .route-axis .route-dot{left:3px}
+  .guide-day .stop-content{padding:12px 11px 10px}
+  .guide-day .stop-top{grid-template-columns:auto minmax(0,1fr)}
+  .guide-day .stop-top .map-link{grid-column:2;justify-self:start}
+  .stop-copy h3{font-size:15px}.stop-copy p{font-size:10px}
+  .stop-facts{padding-left:0}
+  .stop-evidence{margin-left:0}
+  .guide-day .route-hop{margin-left:74px;margin-right:0}
+  .day-notice{margin:0 14px 16px}
+  .travel-notes ul{grid-template-columns:1fr}
+  .guide-drawer-body{padding:0 10px 10px}
+}
+
+@media print{
+  .guide-cover{border-radius:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .guide-sheet{padding:12px;box-shadow:none}
+  .day-jumpbar,.guide-sheet .run-trace,.guide-drawer>summary{display:none!important}
+  .guide-day{break-inside:avoid-page;box-shadow:none}
+  .guide-day+.guide-day{break-before:page}
+  .guide-drawer-body{display:block!important;border:0}
+  .travel-notes,.guide-day .day-head,.guide-day .day-route,.stay-card{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* Readable travel manual. */
+.top-status,.top-button{font-size:12px}
+.assistant-head p{font-size:14px}.message{font-size:15px}.tool-event{font-size:12px}
+.input-mode button{font-size:12px}.composer label{font-size:13px}.composer textarea{font-size:14px}.composer-foot span{font-size:12px}
+.form-intro b{font-size:13px}.form-intro span{font-size:11px}
+.form-grid label>span,.notes-field>span,.interest-field legend{font-size:11px}
+.trip-form input,.trip-form select,.trip-form textarea{font-size:13px}
+
+.result-panel:has(.guide-sheet){padding:12px}
+.guide-cover{padding:34px 38px 28px;border-radius:22px 22px 0 0}
+.guide-cover h1{font-size:clamp(32px,3.6vw,52px)}
+.guide-cover p{margin-top:13px;font-size:15px;line-height:1.72}
+.guide-cover .hero-meta{margin-top:14px}
+.guide-stamp{width:84px}
+.guide-sheet{padding:14px 16px 20px;border-radius:0 0 22px 22px}
+.guide-sheet .run-trace{margin-bottom:8px}
+.trip-statbar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-bottom:9px;border-radius:14px;background:#174b3d;color:#f7faf8;overflow:hidden}
+.trip-statbar>div{display:grid;gap:4px;min-width:0;padding:14px 16px;border-left:1px solid rgba(255,255,255,.13)}
+.trip-statbar>div:first-child{border-left:0}
+.trip-statbar span{color:#bcd4ca;font-size:12px;font-weight:900;letter-spacing:.08em}
+.trip-statbar b{overflow:hidden;font:700 17px/1.4 "Iowan Old Style","Songti SC","STSong",serif;text-overflow:ellipsis;white-space:nowrap}
+.trip-statbar small{color:#dce7e2;font-size:11px}
+.day-jumpbar{top:58px;gap:6px;margin-bottom:9px;padding:6px;border-radius:14px}
+.day-jump{gap:9px;padding:9px 11px}.day-jump b{width:34px;height:34px}.day-jump span{font-size:12px}
+.guide-intro{gap:22px;margin-bottom:12px;padding:22px 24px;border-radius:18px}
+.guide-intro h2{font-size:25px}.guide-intro p{font-size:14px;line-height:1.72}
+.guide-highlights{gap:7px}.guide-highlights span{padding:8px 10px;font-size:12px}
+.stay-card{gap:13px;margin-bottom:14px;padding:14px 18px;border-radius:15px}
+.stay-mark{width:38px;height:38px;border-radius:10px;font-size:20px}
+.stay-card h3{font-size:19px}.stay-card p{font-size:14px}
+.guide-day{margin-bottom:14px;border:1px solid #e1e6df;border-radius:14px;box-shadow:none}
+.guide-day .day-head{grid-template-columns:54px minmax(0,1fr);gap:14px;padding:16px 18px 13px}
+.guide-day .day-number{width:54px;height:62px;border-radius:9px}
+.guide-day .day-number strong{font-size:28px}
+.guide-day .day-title h2{margin:2px 0 5px;font-size:24px}
+.guide-day .day-title p{max-width:900px;font-size:14px;line-height:1.8;opacity:.88}
+.guide-day .day-route{padding:10px 18px;border-bottom:1px dashed #dce4dd;background:#fff;color:#2d493d}
+.guide-day .day-route span{color:#5d7d6f;font-size:10px}.guide-day .day-route b{font-size:13px;font-weight:700}
+.guide-day .timeline{padding:12px 18px 18px}
+.guide-day .period-divider{display:flex;align-items:center;gap:10px;margin:12px 0 5px;color:var(--day-strong);font-size:12px;font-weight:900;letter-spacing:.12em}
+.guide-day .period-divider:after{content:"";height:1px;flex:1;background:color-mix(in srgb,var(--day-strong) 22%,transparent)}
+.guide-day .timeline-row{grid-template-columns:20px minmax(0,1fr);gap:9px}
+.guide-day .route-axis{width:20px}
+.guide-day .route-axis:before{left:9px}
+.guide-day .route-axis .route-dot{top:16px;left:4px}
+.guide-day .stop-content,.guide-day .stop-meal .stop-content,.guide-day .stop-hotel .stop-content,.guide-day .stop-free .stop-content{margin:0;padding:13px 2px 16px;border:0;border-bottom:1px dashed #dfe5df;border-radius:0;background:transparent}
+.guide-day .timeline-row:last-child .stop-content{border-bottom:0}
+.guide-day .stop-top{grid-template-columns:auto minmax(0,1fr);gap:10px}
+.stop-kind{width:30px;height:30px;border-radius:7px;font-size:11px}
+.stop-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.stop-copy h3{font-size:19px}.stop-copy>p{max-width:900px;margin-top:5px;font-size:14px;line-height:1.8}
+.map-link{flex:none;padding:5px 7px;font-size:11px}
+.stop-facts{gap:12px;margin-top:8px;padding-left:0}
+.stop-facts span{padding:0;border:0;border-radius:0;background:transparent;color:#6f7d76;font-size:11px}
+.stop-opening{display:flex;gap:8px;margin:8px 0 0!important;padding:7px 9px;border-left:2px solid #9ab7a8;background:#f3f7f3;color:#5b6d64!important;font-size:11px!important;line-height:1.6!important}
+.stop-opening b{flex:none;color:#31594a;font-size:11px}
+.stop-opening.ok{border-left-color:#5d9b79}.stop-opening.risk{border-left-color:#c58745;background:#fff8ea}
+.guide-day .route-hop{grid-template-columns:28px minmax(0,1fr);gap:9px;margin:0 0 4px 29px;padding:9px 11px;border:0;border-radius:8px;background:#f5f8f5}
+.hop-symbol{width:28px;height:28px;font-size:14px}.hop-copy b{font-size:13px}.hop-copy span,.hop-copy p,.hop-copy small{font-size:12px}
+.day-alerts{margin:0 18px 16px;padding:12px 14px;border:1px solid #ead6a7;border-radius:12px;background:#fff8e4;color:#675425}
+.day-alerts>b{font-size:12px;letter-spacing:.08em}.day-alerts p{margin:6px 0 0;font-size:12px;line-height:1.65}.day-alerts strong{margin-right:6px}
+.travel-manual{margin:13px 0}
+.manual-title{display:flex;align-items:end;justify-content:space-between;margin-bottom:7px;padding:0 2px}
+.manual-title span{color:#4f7766;font-size:10px;font-weight:900;letter-spacing:.15em}
+.manual-title h2{margin:3px 0 0;font:700 26px/1.15 "Iowan Old Style","Songti SC","STSong",serif}
+.manual-title p{max-width:520px;margin:0;color:#77857e;font-size:13px;line-height:1.6}
+.manual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:10px}
+.manual-grid.compact{align-items:stretch}
+.manual-card,.reservation-board{padding:17px 18px;border:1px solid #dfe6de;border-radius:14px;background:#f8faf7}
+.manual-card>header,.reservation-board>header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.manual-card>header b,.reservation-board>header b{font:700 16px/1.25 "Iowan Old Style","Songti SC","STSong",serif}
+.manual-card>header span,.reservation-board>header span{color:#718179;font-size:11px;font-weight:800}
+.manual-card h3{margin:0 0 5px;font-size:16px}.manual-card p{margin:0;color:#637169;font-size:13px;line-height:1.7}
+.manual-card ul{display:grid;gap:6px;margin:10px 0 0;padding-left:18px}.manual-card li{font-size:12px;line-height:1.65}
+.stay-transit-card{background:#e7f1ea}
+.stay-transit-card dl{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0}
+.stay-transit-card dl div{padding:9px;border-radius:8px;background:rgba(255,255,255,.72)}
+.stay-transit-card dt{color:#718079;font-size:11px}.stay-transit-card dd{margin:4px 0 0;font-size:13px;font-weight:800}
+.stay-transit-card>a{color:#24644c;font-size:12px;font-weight:800}
+.weather-card{background:#edf4e8}.weather-card.unavailable{background:#f3f0df}
+.weather-days{display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:7px;margin-bottom:9px}
+.weather-days>div{display:grid;gap:3px;padding:9px;border-radius:8px;background:rgba(255,255,255,.76)}
+.weather-days span,.weather-days small{color:#6d7a73;font-size:11px}.weather-days b{font-size:13px}
+.reservation-board{margin-bottom:10px;background:#fff}
+.reservation-list{border-top:1px solid #e2e7e1}
+.reservation-list>div{display:grid;grid-template-columns:36px minmax(0,1fr) 110px 110px;gap:10px;align-items:center;padding:11px 2px;border-bottom:1px solid #edf0ec}
+.reservation-list b{display:grid;place-items:center;width:30px;height:24px;border-radius:6px;background:#1c5443;color:#fff;font-size:11px}
+.reservation-list span{overflow:hidden;font-size:12px;font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+.reservation-list em,.reservation-list i{font-size:11px;font-style:normal;text-align:right}
+.reservation-list em{color:#3f755f}.reservation-list i{color:#8b6531}
+.packing-card{background:#f1f5ec}.assumptions-card{background:#f6f0e4}
+.travel-notes{margin:10px 0 12px;padding:18px 20px;border-radius:15px}
+.travel-notes header{margin-bottom:9px}.travel-notes header b{font-size:18px}.travel-notes li{font-size:12px;line-height:1.65}
+.guide-drawer{margin-top:10px}.guide-drawer>summary{padding:14px 16px}
+.guide-footer{padding-top:14px;font-size:10px}
+.trip-export-frame{box-sizing:border-box;font-family:"Microsoft YaHei UI","PingFang SC",sans-serif}
+.trip-export-frame .guide-cover,.trip-export-frame .guide-sheet{width:100%}
+
+
+@media(max-width:760px){
+  .guide-cover{padding:24px 17px 20px}.guide-cover h1{font-size:32px}.guide-cover p{font-size:13px}
+  .guide-sheet{padding:8px}
+  .trip-statbar{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .trip-statbar>div{padding:11px 12px;border-top:1px solid rgba(255,255,255,.12)}
+  .trip-statbar>div:nth-child(odd){border-left:0}.trip-statbar>div:last-child{grid-column:1/-1}
+  .trip-statbar b{font-size:14px}
+  .day-jumpbar{top:54px}
+  .guide-intro{gap:12px;padding:17px}.guide-intro h2{font-size:22px}
+  .guide-day .day-head{grid-template-columns:48px minmax(0,1fr);gap:11px;padding:16px 14px 13px}
+  .guide-day .day-number{width:48px;height:52px}.guide-day .day-title h2{font-size:21px}
+  .guide-day .day-route{padding:9px 14px}
+  .guide-day .day-context{grid-template-columns:1fr;padding:8px 14px}
+  .guide-day .context-item{padding:8px 0;border-top:1px solid #edf0eb;border-left:0}
+  .guide-day .context-item:first-child{border-top:0;border-left:0}
+  .guide-day .timeline{padding:14px 10px 16px}
+  .guide-day .period-divider{margin-top:10px}
+  .guide-day .timeline-row{grid-template-columns:18px minmax(0,1fr);gap:6px}
+  .guide-day .route-axis{width:18px}.guide-day .route-axis:before{left:8px}.guide-day .route-axis .route-dot{left:3px}
+  .guide-day .stop-content{padding:12px 4px 11px}
+  .stop-details{margin-left:0}.stop-tips{margin-left:0}
+  .guide-day .route-hop{margin-left:24px;padding:9px 10px}
+  .manual-title{display:block}.manual-title p{margin-top:5px}
+  .manual-grid{grid-template-columns:1fr}
+  .reservation-list>div{grid-template-columns:30px minmax(0,1fr);gap:7px;padding:11px 2px}
+  .reservation-list em,.reservation-list i{grid-column:2;text-align:left}
+  .travel-notes ul{grid-template-columns:1fr}
+}
+
+@media print{
+  .trip-statbar,.manual-card,.reservation-board,.travel-notes{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .travel-manual{break-before:page}
+}
+
+/* Full planning contract: optional structured inputs and execution modules. */
+.advanced-input{margin-top:10px;border:1px solid var(--line);border-radius:11px;background:#fff}
+.advanced-input>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 12px;cursor:pointer;list-style:none}
+.advanced-input>summary::-webkit-details-marker{display:none}
+.advanced-input>summary b{font-size:12px}
+.advanced-input>summary span{color:var(--muted);font-size:10px;text-align:right}
+.advanced-input[open]>summary{border-bottom:1px solid var(--line);background:#f3f7f5}
+.advanced-grid{padding:12px}
+.decision-modules{margin:24px 0}
+.decision-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.decision-card{min-width:0;padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.decision-card>header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:13px}
+.decision-card>header b{font-size:15px}
+.decision-card>header span{color:var(--muted);font:800 11px/1.3 ui-monospace,monospace}
+.module-lead{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.65}
+.choice-list,.task-list{display:grid;gap:8px}
+.choice-list article{padding:13px;border:1px solid #e2e8e5;border-radius:11px;background:#fafcfb}
+.choice-list article.selected{border-color:#74aa91;background:#eff8f4}
+.choice-list article>div:first-child{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.choice-list strong{font-size:13px}
+.choice-list i,.task-list i{padding:5px 7px;border-radius:10px;color:#46645a;background:#edf2ef;font-size:10px;font-style:normal;white-space:nowrap}
+.choice-list p{margin:7px 0;color:#4f5f58;font-size:12px;line-height:1.65}
+.choice-list small{display:block;color:var(--muted);font-size:11px;line-height:1.65}
+.choice-facts{display:flex!important;justify-content:flex-start!important;gap:7px;margin-top:9px}
+.choice-facts span{padding:5px 7px;border-radius:7px;background:#fff;color:#52645d;font-size:10px}
+.task-list>div{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid #edf1ef}
+.task-list>div:last-child{border:0}
+.task-list>div>b{color:var(--route);font:800 11px/1.4 ui-monospace,monospace}
+.task-list>div span strong,.task-list>div span small,.task-list>div span em{display:block}
+.task-list>div span strong{font-size:13px}
+.task-list>div span small,.task-list>div span em{margin-top:4px;color:var(--muted);font-size:11px;line-height:1.6;font-style:normal}
+.task-list i.urgent{color:#9a3d28;background:var(--warning-soft)}
+.budget-total{display:grid;grid-template-columns:1fr auto;gap:5px 12px;padding:12px;border-radius:11px;background:#14231e;color:#fff}
+.budget-total span,.budget-total small{color:#b8c7c1;font-size:10px}
+.budget-total strong{font:800 20px/1 ui-monospace,monospace}
+.budget-total small{grid-column:1/-1}
+.budget-bars{display:grid;gap:6px;margin-top:11px}
+.budget-bars>div{display:flex;justify-content:space-between;padding:8px 10px;border-radius:7px;background:#f2f6f4;font-size:11px}
+.decision-card ul{margin:11px 0 0;padding-left:18px;color:var(--muted);font-size:11px;line-height:1.7}
+.decision-card details{margin-top:11px;padding-top:10px;border-top:1px solid var(--line);font-size:12px}
+.intercity-callout{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:13px 18px;color:#294e40;background:#eaf7f1;border-bottom:1px solid #cfe3da;font-size:12px}
+.intercity-callout small{color:var(--muted)}
+.day-fallback{margin:0 24px 20px;padding:13px 15px;border-left:3px solid #c58a35;background:#fff8e9}
+.day-fallback b{font-size:13px}
+.day-fallback p{margin:5px 0;color:#6c5a3c;font-size:12px;line-height:1.65}
+.day-fallback small{color:#8a734e;font-size:11px}
+.evidence-list{display:grid;gap:8px}
+.evidence-list>a,.evidence-list>div{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;padding:12px;border:1px solid var(--line);border-radius:9px;color:inherit;text-decoration:none}
+.evidence-list b,.evidence-list small{display:block}
+.evidence-list b{font-size:12px}
+.evidence-list small,.evidence-list span{color:var(--muted);font-size:10px}
+.prompt-example{margin:0 0 12px;border:1px solid var(--line);border-radius:12px;background:#f8faf8}
+.prompt-example summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;cursor:pointer;color:var(--ink);font-size:12px;font-weight:800}
+.prompt-example summary small{color:var(--muted);font-size:10px;font-weight:600}
+.prompt-example p{margin:0;padding:0 12px 10px;color:var(--muted);font-size:12px;line-height:1.7}
+.prompt-example button{margin:0 12px 12px;padding:8px 11px;border:1px solid #b9d3c6;border-radius:8px;background:#e8f3ed;color:#164b3d;font-size:11px;font-weight:800}
+@media(max-width:1050px){.decision-grid{grid-template-columns:1fr}.intercity-callout{grid-template-columns:1fr}.intercity-callout b,.intercity-callout span,.intercity-callout small{display:block}}
+@media(max-width:760px){.advanced-input>summary span{display:none}.decision-modules{margin:18px 0}.decision-card{padding:14px}.day-fallback{margin:0 13px 16px}.task-list>div{grid-template-columns:auto minmax(0,1fr)}.task-list>div>i{grid-column:2;width:max-content}.evidence-list>a,.evidence-list>div{grid-template-columns:1fr}.evidence-list span{margin-top:3px}}
+@media(max-width:760px){.topbar{height:auto;min-height:72px;align-items:flex-start;gap:10px;padding:10px 0}.brand{flex:none}.top-actions{min-width:0;padding-bottom:2px;scrollbar-width:none}.top-actions::-webkit-scrollbar{display:none}}
+@media print{.advanced-input{display:none}.decision-grid{grid-template-columns:1fr 1fr}.decision-card{break-inside:avoid}.evidence-list>a,.evidence-list>div{break-inside:avoid}}

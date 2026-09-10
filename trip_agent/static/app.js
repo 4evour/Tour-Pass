@@ -8,7 +8,7 @@ const savedDrawer = $("saved-drawer");
 const savedList = $("saved-list");
 const tripForm = $("trip-form");
 const emptyResultMarkup = resultPanel.innerHTML;
-const welcomeMessage = "告诉我这次旅行最在意什么。我会补齐每天的时间轴、交通衔接、住宿锚点和风险提醒。";
+const welcomeMessage = "告诉我想去哪里，以及你最在意什么。没有确定天数也没关系，我会判断合理范围并一次给出完整方案。";
 let sessionId = localStorage.getItem("tour-pass-active-session");
 let authState = null;
 let authMode = "login";
@@ -38,8 +38,9 @@ function applyAuthState(data) {
   $("quota-chip").textContent = `今日 ${data.quota.remaining}/${data.quota.limit} 次`;
   $("auth-button").textContent = data.authenticated ? data.user.username : "登录";
 }
-const periodLabels = {morning:"上午",lunch:"午餐",afternoon:"下午",dinner:"晚餐",evening:"晚间"};
-const modeLabels = {walking:"步行",transit:"公共交通",driving:"驾车",taxi:"打车",mixed:"混合交通",unknown:"待确认"};
+const periodLabels = {breakfast:"早餐",morning:"上午",lunch:"午餐",afternoon:"下午",dinner:"晚餐",evening:"晚上"};
+const visitScaleLabels = {quick_stop:"顺路短停",standard:"留出一段完整时间",half_day:"预留半天",full_day:"当天主要安排"};
+const modeLabels = {walking:"步行",transit:"公共交通",public_transit:"公共交通",driving:"驾车",taxi:"打车",mixed:"混合交通",unknown:"待确认"};
 const sourceLabels = {amap:"高德数据",qweather:"和风天气数据",user:"用户确认",model_judgment:"规划建议",unknown:"待核验"};
 const list = (value) => Array.isArray(value) ? value : [];
 const splitValues = (value) => String(value || "")
@@ -167,9 +168,9 @@ function startNewTrip() {
   statusEl.textContent = "等待输入";
   setSessionMode(false);
   tripForm.reset();
-  switchInputMode("structured");
+  switchInputMode("conversation");
   closeSavedTrips();
-  $("destination").focus();
+  input.focus();
 }
 
 const progressStages = [
@@ -372,31 +373,38 @@ function renderTraceSummary() {
 
 function renderTransfer(transfer) {
   if (!transfer) return "";
+  const mode = textOr(modeLabels[transfer.mode], "交通待确认");
   const duration = transfer.duration_minutes ? `${transfer.duration_minutes} 分钟` : "耗时待确认";
   const distance = transfer.distance_meters ? `${(transfer.distance_meters / 1000).toFixed(1)} 公里` : "距离待确认";
-  return `<div class="transfer"><b>${textOr(modeLabels[transfer.mode], "交通待确认")}</b> · ${duration} · ${distance}<br>${textOr(transfer.from_name)} → ${textOr(transfer.to_name)} · ${textOr(sourceLabels[transfer.source], "待核验")}${transfer.instructions ? `<br>走法建议：${escapeHtml(transfer.instructions)}` : ""}</div>`;
+  return `<div class="transfer route-hop">
+    <span class="hop-symbol" aria-hidden="true">↳</span>
+    <div class="hop-copy">
+      <div><b>${mode}</b><span>${duration} · ${distance}</span></div>
+      <p>${textOr(transfer.from_name)} → ${textOr(transfer.to_name)}</p>
+      ${transfer.instructions ? `<small>${escapeHtml(transfer.instructions)}</small>` : ""}
+    </div>
+  </div>`;
 }
 
 function renderScheduleItem(item) {
-  const openingClass = item.opening_match === "matched" ? "ok" : item.opening_match === "risk" ? "risk" : "";
-  const openingLabel = item.opening_match === "matched" ? "到访时段可用" : item.opening_match === "risk" ? "开放时间有风险" : "开放状态待确认";
-  const openingHours = textOr(item.opening_hours);
-  const openingDetail = openingHours.length > 72 ? `${openingHours.slice(0, 72)}…` : openingHours;
-  const reservation = object(item.reservation);
-  const reservationLabel = !reservation.status || reservation.status === "unknown" ? "预约待确认" : reservation.status;
-  const mapLink = item.location ? `<a class="fact" href="https://uri.amap.com/marker?position=${encodeURIComponent(item.location)}&name=${encodeURIComponent(item.name)}" target="_blank" rel="noreferrer">在高德地图查看</a>` : `<span class="fact risk">地图位置待确认</span>`;
-  return `<div class="timeline-row">
-    <div class="clock">${textOr(item.start, "--:--")}<br><small>${textOr(item.end, "--:--")}</small></div>
+  const openingHours = String(item.opening_hours || "").trim();
+  const openingDetail = openingHours.length > 96 ? `${openingHours.slice(0, 96)}…` : openingHours;
+  const openingClass = item.opening_match === "risk" ? "risk" : "ok";
+  const type = String(item.type || "visit");
+  const typeLabel = type === "meal" ? "吃" : type === "hotel" ? "住" : type === "free" ? "闲" : "游";
+  const mapLink = item.location ? `<a class="map-link" href="https://uri.amap.com/marker?position=${encodeURIComponent(item.location)}&name=${encodeURIComponent(item.name)}" target="_blank" rel="noreferrer">地图 ↗</a>` : "";
+  const rhythm = type === "visit" ? textOr(visitScaleLabels[item.visit_scale], "按现场节奏游览") : type === "meal" ? "按当天路线就近安排" : "";
+  return `<div class="timeline-row stop-${escapeHtml(type)}">
     <div class="route-axis"><i class="route-dot"></i></div>
     <div class="stop-content">
-      <div class="stop-top"><div><h3>${textOr(item.name, "未命名活动")}</h3><p>${textOr(item.reason, "暂无体验说明")}</p></div><span class="period">${textOr(periodLabels[item.period], "时段")}</span></div>
-      <div class="fact-row">
-        <span class="fact">停留 ${item.duration_minutes || "?"} 分钟</span>
-        <span class="fact ${openingClass}" title="${escapeHtml(openingHours)}">${openingLabel}${openingDetail ? ` · ${escapeHtml(openingDetail)}` : ""}</span>
-        <span class="fact">${escapeHtml(reservationLabel)}</span>
-        <span class="fact">${textOr(item.area, "区域待确认")}</span>
-        ${mapLink}
-        <span class="fact">${textOr(sourceLabels[item.source], "规划建议")}</span>
+      <div class="stop-top">
+        <span class="stop-kind">${typeLabel}</span>
+        <div class="stop-copy">
+          <div class="stop-heading"><h3>${textOr(item.name, "未命名活动")}</h3>${mapLink}</div>
+          <p>${textOr(item.reason, "体验说明待补充")}</p>
+          ${rhythm ? `<div class="stop-facts"><span>${escapeHtml(rhythm)}</span></div>` : ""}
+          ${openingHours ? `<p class="stop-opening ${openingClass}" title="${escapeHtml(openingHours)}"><b>开放时间</b>${escapeHtml(openingDetail)}</p>` : ""}
+        </div>
       </div>
     </div>
   </div>`;
@@ -410,10 +418,17 @@ function renderRisks(risks) {
 function renderDay(day) {
   const schedule = list(day.schedule);
   const transfers = list(day.transfers);
-  const cluster = object(day.area_cluster);
+  const fallback = object(day.fallback);
+  const intercity = object(day.intercity_leg);
   const usedTransfers = new Set();
   const timelineParts = [];
+  let currentPeriod = "";
   schedule.forEach((item) => {
+    const period = String(item.period || "afternoon");
+    if (period !== currentPeriod) {
+      currentPeriod = period;
+      timelineParts.push(`<div class="period-divider"><span>${textOr(periodLabels[period], "行程")}</span></div>`);
+    }
     const leadingIndex = transfers.findIndex((transfer, index) =>
       !usedTransfers.has(index) && samePlace(transfer.to_name, item.name));
     if (leadingIndex >= 0) {
@@ -425,20 +440,25 @@ function renderDay(day) {
   transfers.forEach((transfer, index) => {
     if (!usedTransfers.has(index)) timelineParts.push(renderTransfer(transfer));
   });
-  const timeline = timelineParts.join("");
-  return `<article class="day-card">
+  const routeNames = schedule
+    .filter((item) => item.type !== "meal" && item.type !== "hotel")
+    .map((item) => textOr(item.name))
+    .join(" → ");
+  const tone = ((Number(day.day) || 1) - 1) % 5 + 1;
+  return `<article class="day-card guide-day day-tone-${tone}" id="day-${Number(day.day) || 1}">
     <header class="day-head">
-      <div class="day-number">DAY ${day.day}</div>
-      <div class="day-title"><span class="kicker">${textOr(day.date || day.weekday, "日期待定")}</span><h2>${textOr(day.theme, "城市探索")}</h2><p>${textOr(day.summary, "当天路线说明待补充")}</p></div>
-      <div class="day-hours">${textOr(day.start_time, "--:--")} — ${textOr(day.end_time, "--:--")}</div>
+      <div class="day-number"><b>DAY</b><strong>${Number(day.day) || 1}</strong></div>
+      <div class="day-title">
+        <span class="kicker">${textOr(day.date || day.weekday, "日期待定")}</span>
+        <h2>${textOr(day.theme, "城市探索")}</h2>
+        <p>${textOr(day.summary, "当天路线说明待补充")}</p>
+      </div>
     </header>
-    <div class="day-context">
-      <div class="context-item"><span>出发锚点</span><b>${textOr(object(day.start_anchor).name)}</b></div>
-      <div class="context-item"><span>区域组合</span><b>${textOr(cluster.primary_area)}${list(cluster.secondary_areas).length ? ` + ${escapeHtml(list(cluster.secondary_areas).join(" / "))}` : ""}</b></div>
-      <div class="context-item"><span>结束锚点</span><b>${textOr(object(day.end_anchor).name)}</b></div>
-    </div>
-    <div class="timeline">${timeline || "<p>时间轴待补充</p>"}</div>
-    ${list(day.risks).length ? `<div style="padding:0 24px 24px">${renderRisks(list(day.risks))}</div>` : ""}
+    <div class="day-route"><span>这一天怎么走</span><b>${routeNames || "路线待补充"}</b></div>
+    ${intercity.summary ? `<div class="intercity-callout"><b>跨城移动</b><span>${textOr(intercity.summary)}</span><small>${textOr(intercity.departure_hint, "出发时间待核验")} → ${textOr(intercity.arrival_hint, "抵达时间待核验")}${intercity.price ? ` · ${textOr(intercity.seat_type, "参考席别")} ${money(intercity.price)}` : ""}${intercity.status === "verified_schedule" ? " · 12306 时刻已核验" : ""}</small></div>` : ""}
+    <div class="timeline">${timelineParts.join("") || "<p>时间轴待补充</p>"}</div>
+    ${fallback.notes ? `<aside class="day-fallback"><b>晚点 / 雨天兜底</b><p>${textOr(fallback.notes)}</p>${list(fallback.late_drop_order).length ? `<small>优先删减 ${list(fallback.late_drop_order).length} 个可选项</small>` : ""}</aside>` : ""}
+    ${list(day.risks).length ? `<aside class="day-alerts"><b>当天提醒</b>${list(day.risks).map((risk) => `<p><strong>${textOr(risk.title, "行程提醒")}</strong>${textOr(risk.detail, "暂无详情")}${risk.mitigation ? ` · ${escapeHtml(risk.mitigation)}` : ""}</p>`).join("")}</aside>` : ""}
   </article>`;
 }
 
@@ -466,61 +486,250 @@ function renderReview(review) {
   return `<section class="surface"><div class="section-label"><span>独立质量审查</span><span>${verdict} · ${mode}</span></div><p>${textOr(report.summary, "暂无审查说明")}</p>${issues.length ? `<div class="risk-grid">${issues.map((issue) => `<article class="risk ${issue.severity === "info" ? "info" : ""}"><b>${textOr(issue.code, "质量建议")}</b><p>${textOr(issue.message, "暂无详情")}${issue.suggestion ? `<br>建议：${escapeHtml(issue.suggestion)}` : ""}</p></article>`).join("")}</div>` : ""}</section>`;
 }
 
+function renderTripStats(plan, days, profile) {
+  const schedules = days.flatMap((day) => list(day.schedule));
+  const transfers = days.flatMap((day) => list(day.transfers));
+  const visitCount = schedules.filter((item) => item.type !== "meal" && item.type !== "hotel").length;
+  const mealCount = schedules.filter((item) => item.type === "meal").length;
+  const transferMinutes = transfers.reduce((total, item) => total + (Number(item.duration_minutes) || 0), 0);
+  const distanceMeters = transfers.reduce((total, item) => total + (Number(item.distance_meters) || 0), 0);
+  const dates = object(plan.date_range);
+  const dateLabel = dates.start
+    ? `${escapeHtml(String(dates.start).slice(5))}${dates.end && dates.end !== dates.start ? ` — ${escapeHtml(String(dates.end).slice(5))}` : ""}`
+    : "日期待定";
+  const planningContext = object(plan.planning_context);
+  const budgetRange = object(planningContext.budget_range);
+  const budget = profile.budget
+    || planningContext.budget
+    || (budgetRange.per_person ? `人均 ¥${Number(budgetRange.per_person).toLocaleString("zh-CN")}` : "")
+    || (budgetRange.total_max ? `总计 ¥${Number(budgetRange.total_max).toLocaleString("zh-CN")}` : "")
+    || "未设置";
+  return `<section class="trip-statbar" aria-label="行程关键数据">
+    <div><span>日期 / 天数</span><b>${dateLabel}</b><small>${days.length} 天</small></div>
+    <div><span>行程规模</span><b>${visitCount} 个游览点</b><small>${mealCount} 次用餐安排</small></div>
+    <div><span>时间表达</span><b>上午 · 下午 · 晚上</b><small>仅固定班次保留时刻</small></div>
+    <div><span>路线核验</span><b>${distanceMeters ? `${(distanceMeters / 1000).toFixed(1)} 公里` : "待核验"}</b><small>${transfers.length} 段 · 约 ${transferMinutes} 分钟</small></div>
+    <div><span>预算偏好</span><b>${escapeHtml(String(budget))}</b><small>${budget === "未设置" ? "不生成虚假费用" : "按偏好规划"}</small></div>
+  </section>`;
+}
+
+function renderWeather(weather) {
+  const report = object(weather);
+  const days = list(report.days);
+  if (!days.length) {
+    return `<section class="manual-card weather-card unavailable"><header><b>天气与穿着</b><span>待日期</span></header><p>尚未提供准确出发日期，因此不展示可能过期的天气预报。确定日期后重新生成即可补齐。</p><ul><li>出发前 24 小时复核降雨、温度和紫外线。</li><li>随身准备饮用水、折叠伞和舒适步行鞋。</li></ul></section>`;
+  }
+  return `<section class="manual-card weather-card"><header><b>天气与穿着</b><span>${textOr(sourceLabels[report.provider], "天气数据")}</span></header><div class="weather-days">${days.map((day) => `<div><span>${textOr(day.date, "日期待定")}</span><b>${textOr(day.condition, "天气待确认")}</b><small>${textOr(day.low, "?")}—${textOr(day.high, "?")}℃${day.wind ? ` · ${escapeHtml(day.wind)}` : ""}</small></div>`).join("")}</div><p>临近出发仍应复核短时降雨、体感温度和景区临时通知。</p></section>`;
+}
+
+function money(value, currency="CNY") {
+  return value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value)) ? `${currency === "CNY" ? "¥" : `${currency} `}${Number(value).toLocaleString("zh-CN")}` : "待核价";
+}
+
+function renderExecutionModules(plan) {
+  const hotels = list(plan.hotel_options);
+  const transport = object(plan.transport_options);
+  const intercity = list(transport.intercity);
+  const local = list(transport.local);
+  const localStrategy = object(transport.local_strategy);
+  const dining = list(plan.dining_options);
+  const bookings = list(plan.booking_tasks);
+  const budget = object(plan.budget);
+  const safety = object(plan.safety);
+  const unknowns = list(plan.unknowns);
+  const categoryRows = list(budget.categories);
+  const safetyItems = [
+    ...list(safety.destination_alerts),
+    ...list(safety.medical),
+    ...list(safety.transport_risks),
+    ...list(safety.food_safety),
+    ...list(safety.altitude_notes),
+    ...list(safety.special_population_notes),
+  ];
+  const selectedMode = localStrategy.selected || object(plan.trip_profile).transport_preference;
+  return `<section class="decision-modules">
+    <header class="manual-title"><div><span>DECISIONS & ACTIONS</span><h2>选择、费用与待办</h2></div><p>把可比较选项、未核实信息和出发前动作拆开呈现。</p></header>
+    <div class="decision-grid">
+      <section class="decision-card module-hotels">
+        <header><b>住宿选项</b><span>${hotels.length} 个</span></header>
+        <div class="choice-list">${hotels.map((hotel) => `<article class="${hotel.selected ? "selected" : ""}">
+          <div><strong>${textOr(hotel.name, "住宿待确认")}</strong>${hotel.selected ? "<i>当前锚点</i>" : "<i>候选</i>"}</div>
+          <p>${textOr(hotel.destination)} · ${textOr(hotel.address || hotel.area, "位置待确认")}</p>
+          <small>${textOr(hotel.reason, "房型、库存、价格与取消政策待核验")}</small>
+          <div class="choice-facts"><span>${money(hotel.price_per_night, budget.currency)}</span><span>${hotel.cancellation ? escapeHtml(String(hotel.cancellation)) : "取消政策待核验"}</span></div>
+        </article>`).join("") || "<p>住宿选项待补充</p>"}</div>
+      </section>
+      <section class="decision-card module-transport">
+        <header><b>交通选项</b><span>${local.length} 段市内 · ${intercity.length} 段城际</span></header>
+        <p class="module-lead">市内偏好：${textOr(modeLabels[selectedMode], "待确认")}；${textOr(list(localStrategy.notes).join("；"), "逐段耗时以日程中的地图路线为准。")}</p>
+        <div class="choice-list compact">${intercity.map((item) => `<article>
+          <div><strong>D${item.day} ${textOr(item.from)} → ${textOr(item.to)}</strong><i>${textOr(modeLabels[item.mode], textOr(item.mode, "待选"))}</i></div>
+          <p>${textOr(item.train_code, "班次待核验")} · ${textOr(item.departure_hint, "出发时段待核验")} → ${textOr(item.arrival_hint, "抵达时段待核验")}</p>
+          <small>${item.status === "verified_schedule" || item.status === "stale_schedule" ? `${textOr(item.seat_type, "参考席别")} ${money(item.price)}；时刻与参考票价来自 12306，余票未接入` : "班次、票价与余票待核验"}</small>
+        </article>`).join("") || `<p>${local.length ? `已形成 ${local.length} 段市内路线；没有跨城移动。` : "交通方案待补充"}</p>`}</div>
+      </section>
+      <section class="decision-card module-dining">
+        <header><b>餐饮选项</b><span>${dining.length} 餐</span></header>
+        <div class="task-list">${dining.map((item) => `<div>
+          <b>D${item.day} · ${textOr(periodLabels[item.period], "用餐")}</b>
+          <span><strong>${textOr(item.name, "餐厅待确认")}</strong><small>${textOr(item.description, "当天按路线和口味就近选择。")}</small>${item.area ? `<em>${textOr(item.area)}</em>` : ""}${list(item.alternatives).length ? `<em>备选：${list(item.alternatives).map((alt) => textOr(alt.name)).join("、")}</em>` : ""}</span>
+        </div>`).join("") || "<p>餐饮点待补充</p>"}</div>
+      </section>
+      <section class="decision-card module-bookings">
+        <header><b>预订与核对清单</b><span>${bookings.length} 项</span></header>
+        <div class="task-list">${bookings.map((task) => `<div>
+          <b>D${task.day}</b><span><strong>${textOr(task.target_name, "项目待确认")}</strong><small>${textOr(task.action, "出发前核对")}</small></span><i class="${task.status === "action_required" ? "urgent" : ""}">${task.status === "action_required" ? "需预约" : "待核实"}</i>
+        </div>`).join("") || "<p>当前没有待办；仍建议出发前复核开放状态。</p>"}</div>
+      </section>
+      <section class="decision-card module-budget">
+        <header><b>预算分配</b><span>${textOr(budget.coverage, "未估算")}</span></header>
+        <div class="budget-total"><span>用户预算上限</span><strong>${money(object(budget.user_limit).total_max || budget.planning_ceiling, budget.currency)}</strong><small>不是实时价格报价</small></div>
+        <div class="budget-bars">${categoryRows.map((item) => `<div><span>${textOr(item.label)}</span><b>${money(item.planning_cap, budget.currency)}</b></div>`).join("") || "<p>未提供金额，无法可靠拆分预算。</p>"}</div>
+        <ul>${list(budget.assumptions).map((item) => `<li>${escapeHtml(String(item))}</li>`).join("")}</ul>
+      </section>
+      <section class="decision-card module-safety">
+        <header><b>安全与特殊人群</b><span>${textOr(safety.source_status, "unavailable")}</span></header>
+        ${safetyItems.length ? `<ul>${safetyItems.map((item) => `<li>${textOr(object(item).note || object(item).detail || item)}</li>`).join("")}</ul>` : "<p>未接入官方目的地安全信息；不要把空白理解为没有风险。</p>"}
+        ${unknowns.length ? `<details><summary>当前未知项 ${unknowns.length} 条</summary><ul>${unknowns.map((item) => `<li>${escapeHtml(String(item))}</li>`).join("")}</ul></details>` : ""}
+      </section>
+    </div>
+  </section>`;
+}
+
+function renderEvidence(evidence) {
+  const records = list(evidence);
+  if (!records.length) return "";
+  return `<section class="surface"><div class="section-label"><span>事实来源</span><span>${records.length} 条证据</span></div><div class="evidence-list">${records.map((item) => {
+    const title = `<b>${textOr(item.title, "来源记录")}</b><small>${textOr(sourceLabels[item.provider], textOr(item.provider, "未知来源"))} · 置信度 ${textOr(item.confidence, "unknown")}</small>`;
+    return item.url ? `<a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${title}<span>打开 ↗</span></a>` : `<div>${title}<span>内部响应指纹</span></div>`;
+  }).join("")}</div></section>`;
+}
+
+
+function renderTravelManual(plan, days, hotel, profile) {
+  const schedules = days
+    .flatMap((day) => list(day.schedule).map((item) => ({...item, day:day.day})))
+    .filter((item) => item.type === "visit" || object(item.reservation).required === true);
+  const transfers = days.flatMap((day) => list(day.transfers));
+  const verifiedRoutes = transfers.filter((item) => item.source === "amap").length;
+  const estimatedRoutes = transfers.length - verifiedRoutes;
+  const hotelMap = hotel.location ? `<a href="https://uri.amap.com/marker?position=${encodeURIComponent(hotel.location)}&name=${encodeURIComponent(hotel.name)}" target="_blank" rel="noreferrer">打开住宿地图 ↗</a>` : "";
+  const assumptions = list(profile.assumptions).slice(0, 4);
+  const checklist = [
+    "身份证件、优惠证件与同行人联系方式",
+    "酒店、门票和交通订单的离线截图",
+    "充电器、移动电源与常用药品",
+    "折叠伞、防晒用品、饮用水和舒适鞋",
+    "保存住宿地址及每天最后一段返程路线",
+    "出发前复核营业时间、预约状态与末班交通",
+  ];
+  return `<section class="travel-manual">
+    <header class="manual-title"><div><span>TRAVEL NOTES</span><h2>行前手册</h2></div><p>把会影响当天执行的信息集中放在这里，不用逐段翻找。</p></header>
+    <div class="manual-grid">
+      <section class="manual-card stay-transit-card">
+        <header><b>住宿与交通</b><span>${verifiedRoutes}/${transfers.length} 段已核验</span></header>
+        <h3>${textOr(hotel.name, "住宿区域待确认")}</h3>
+        <p>${textOr(hotel.address || hotel.area, "住宿地址待确认")}</p>
+        <dl><div><dt>主要交通</dt><dd>${textOr(modeLabels[profile.transport_preference], "待确认")}</dd></div><div><dt>实时路线</dt><dd>${verifiedRoutes} 段</dd></div><div><dt>保守估算</dt><dd>${estimatedRoutes} 段</dd></div></dl>
+        ${hotelMap}
+      </section>
+      ${renderWeather(plan.weather)}
+    </div>
+    <section class="reservation-board">
+      <header><b>预约与营业核对</b><span>${schedules.length} 项</span></header>
+      <div class="reservation-list">${schedules.map((item) => {
+        const reservation = object(item.reservation);
+        const reservationLabel = reservation.required === true ? "必须预约" : reservation.required === false ? "无需预约" : "预约待确认";
+        const openingLabel = item.opening_match === "matched" ? "时段可用" : item.opening_match === "risk" ? "时间冲突" : "开放待确认";
+        return `<div><b>D${Number(item.day) || 1}</b><span>${textOr(item.name, "地点待确认")}</span><em>${openingLabel}</em><i>${reservationLabel}</i></div>`;
+      }).join("")}</div>
+    </section>
+    <div class="manual-grid compact">
+      <section class="manual-card packing-card"><header><b>随身清单</b><span>通用</span></header><ul>${checklist.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></section>
+      <section class="manual-card assumptions-card"><header><b>规划边界</b><span>${assumptions.length || 1} 项</span></header>${assumptions.length ? `<ul>${assumptions.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : "<p>票价、排队时间和临时闭园不会在没有实时证据时写死；请以出发当天官方信息为准。</p>"}</section>
+    </div>
+  </section>`;
+}
+
 function renderPlan(data, publicView=false) {
   if (!data.plan) return;
   const plan = data.plan;
+  const days = list(plan.days);
   const narrative = object(plan.narrative);
   const profile = object(plan.trip_profile);
   const hotel = object(plan.hotel);
   const completeness = object(plan.completeness);
   const validationWarnings = list(object(plan.validation).warnings);
+  const globalWarnings = list(plan.warnings);
   const score = Math.max(0, Math.min(100, Number(completeness.score) || 0));
   const highlights = list(narrative.highlights);
   const runLabel = String(data.run_id || "published").slice(0, 10);
+  const paceLabel = ({relaxed:"松弛慢游",balanced:"松弛有序",packed:"行程充实"})[profile.pace] || textOr(profile.pace, "节奏待定");
+  const transportLabel = modeLabels[profile.transport_preference] || textOr(profile.transport_preference, "交通待定");
+  const hotelStatusLabel = ({confirmed:"已确认",recommended_area:"推荐住宿区域",unknown:"待确认"})[hotel.status] || textOr(hotel.status, "待确认");
   const actions = publicView
-    ? '<button class="plan-action" data-action="print">导出 PDF</button><a class="plan-action" href="/">生成我的行程</a>'
-    : '<button class="plan-action" data-action="share">分享行程</button><button class="plan-action" data-action="print">导出 PDF</button>';
+    ? '<button class="plan-action" data-action="image">保存长图</button><button class="plan-action" data-action="print">导出 PDF</button><a class="plan-action" href="/">生成我的行程</a>'
+    : '<button class="plan-action" data-action="share">分享行程</button><button class="plan-action" data-action="image">保存长图</button><button class="plan-action" data-action="print">导出 PDF</button>';
+  const dayNav = days.map((day) => `<a href="#day-${Number(day.day) || 1}" class="day-jump day-jump-${((Number(day.day) || 1) - 1) % 5 + 1}"><b>D${Number(day.day) || 1}</b><span>${textOr(day.theme, "城市探索")}</span></a>`).join("");
+  const rawWarnings = [
+    ...globalWarnings,
+    ...validationWarnings.map((warning) => warning.message || "开放、预约或交通信息请在出发前再次确认"),
+  ].map((warning) => String(warning || "").trim()).filter(Boolean);
+  const dateWarnings = rawWarnings.filter((warning) => /出发日期|天气/.test(warning));
+  const routeWarnings = rawWarnings.filter((warning) => /路线.*未核验|交通.*未核验/.test(warning));
+  const openingWarnings = rawWarnings.filter((warning) => /开放时间未知|开放状态.*未核验|开放.*待确认/.test(warning));
+  const groupedWarnings = rawWarnings.filter((warning) =>
+    !dateWarnings.includes(warning) && !routeWarnings.includes(warning) && !openingWarnings.includes(warning));
+  const allWarnings = [...new Set([...dateWarnings, ...groupedWarnings])];
+  if (openingWarnings.length) allWarnings.push(`${openingWarnings.length} 条开放或预约信息需要在出发前复核。`);
+  if (routeWarnings.length) allWarnings.push(`${routeWarnings.length} 段交通路线当前为保守估算，请以实时导航为准。`);
   resultPanel.innerHTML = `${publicView ? '<div class="public-notice">这是已发布行程的只读快照；开放时间、天气和交通请在出发前再次确认。</div>' : ""}
-    <header class="plan-hero">
-      <span class="kicker">${textOr(plan.city)} · ${list(plan.days).length} 天成品行程</span>
-      <h1>${textOr(plan.title, `${textOr(plan.city)}旅行计划`)}</h1>
-      <p>${textOr(plan.overview, narrative.summary || "行程总览待补充")}</p>
-      <div class="hero-meta">
-        <span>${textOr(profile.pace, "节奏待定")}</span>
-        <span>${textOr(profile.transport_preference, "交通待定")}</span>
-        <span>${textOr(profile.travelers, "同行人待定")}</span>
-        <span>run ${escapeHtml(runLabel)}</span>
+    <header class="plan-hero guide-cover">
+      <div class="cover-copy">
+        <span class="kicker">TOUR PASS · ${textOr(plan.city)} · ${days.length} DAYS</span>
+        <h1>${textOr(plan.title, `${textOr(plan.city)}旅行计划`)}</h1>
+        <p>${textOr(plan.overview, narrative.summary || "行程总览待补充")}</p>
+        <div class="hero-meta">
+          <span>${paceLabel}</span>
+          <span>${transportLabel}</span>
+          <span>${textOr(profile.travelers, "同行人待定")}</span>
+        </div>
+      </div>
+      <div class="guide-stamp" aria-label="行程完整度">
+        <strong>${score}</strong><span>READY</span><small>${days.length} 日路线</small>
       </div>
       <div class="plan-actions">${actions}</div>
     </header>
-    <div class="plan-body">
+    <div class="plan-body guide-sheet">
       ${renderTraceSummary()}
-      <div class="summary-grid">
-        <section class="surface narrative">
-          <div class="section-label"><span>体验叙事</span><span>旅行顾问方案</span></div>
-          <h2>${textOr(narrative.headline, "这趟旅行怎么走")}</h2>
-          <p>${textOr(narrative.summary, plan.overview || "叙事说明待补充")}</p>
-          <div class="tags">${highlights.map((item) => `<span class="tag">${escapeHtml(item)}</span>`).join("")}</div>
-        </section>
-        <section class="surface">
-          <div class="section-label"><span>行程完整度</span><span>非硬门禁</span></div>
-          <div class="score-ring" style="--score:${score}%"><div><b>${score}</b><small>/ 100</small></div></div>
-          <div class="score-copy">模型先完整表达，缺项在这里透明显示</div>
-        </section>
-      </div>
-      <section class="surface hotel-card">
-        <div class="hotel-icon">宿</div>
-        <div><div class="section-label"><span>住宿与每日锚点</span><span>${textOr(hotel.status)}</span></div><h3>${textOr(hotel.name)}</h3><p>${textOr(hotel.area)} · ${textOr(hotel.reason, "住宿选择理由待补充")}</p></div>
+      ${renderTripStats(plan, days, profile)}
+      <nav class="day-jumpbar" aria-label="按天查看行程">${dayNav}</nav>
+      <section class="guide-intro">
+        <div><span class="section-label">这趟怎么玩</span><h2>${textOr(narrative.headline, "一眼看懂这趟旅程")}</h2><p>${textOr(narrative.summary, plan.overview || "行程说明待补充")}</p></div>
+        <div class="guide-highlights">${highlights.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>
       </section>
-      ${list(plan.days).map(renderDay).join("")}
-      <div class="lower-grid">
-        ${renderComparison(object(plan.candidate_comparison))}
-        ${renderMap(object(plan.map))}
-      </div>
-      <div style="margin-top:14px">${renderQuality(completeness)}</div>
-      <div style="margin-top:14px">${renderReview(object(plan.review))}</div>
-      ${validationWarnings.length ? `<div style="margin-top:14px">${renderRisks(validationWarnings.map((warning) => ({level:"warning",title:warning.code === "OPENING_UNVERIFIED" ? "开放状态待确认" : "校验提示",detail:warning.message,source:"unknown"})))}</div>` : ""}
-      ${list(plan.warnings).length ? `<div style="margin-top:14px">${renderRisks(list(plan.warnings).map((warning) => ({level:"warning",title:"全局提醒",detail:warning})))}</div>` : ""}
+      <section class="stay-card">
+        <div class="stay-mark" aria-hidden="true">⌂</div>
+        <div><span>住宿据点 · ${hotelStatusLabel}</span><h3>${textOr(hotel.name)}</h3><p>${textOr(hotel.area)} · ${textOr(hotel.reason, "住宿选择理由待补充")}</p></div>
+      </section>
+      ${days.map(renderDay).join("")}
+      ${renderExecutionModules(plan)}
+      ${renderTravelManual(plan, days, hotel, profile)}
+      ${allWarnings.length ? `<section class="travel-notes"><header><b>出发前再看一眼</b><span>${allWarnings.length} 项</span></header><ul>${allWarnings.map((warning) => `<li>${escapeHtml(warning)}</li>`).join("")}</ul></section>` : ""}
+      <details class="guide-drawer">
+        <summary><span><b>规划依据与完整度</b><small>地图坐标、候选区域、质量检查和技术审查</small></span><i><span class="drawer-expand">展开</span><span class="drawer-collapse">收起</span></i></summary>
+        <div class="guide-drawer-body">
+          <div class="lower-grid">
+            ${renderComparison(object(plan.candidate_comparison))}
+            ${renderMap(object(plan.map))}
+          </div>
+          <div class="drawer-section">${renderEvidence(plan.evidence)}</div>
+          <div class="drawer-section">${renderQuality(completeness)}</div>
+          <div class="drawer-section">${renderReview(object(plan.review))}</div>
+          ${validationWarnings.length ? `<div class="drawer-section">${renderRisks(validationWarnings.map((warning) => ({level:"warning",title:warning.code === "OPENING_UNVERIFIED" ? "开放状态待确认" : "校验提示",detail:warning.message,source:"unknown"})))}</div>` : ""}
+        </div>
+      </details>
+      <footer class="guide-footer"><span>TOUR PASS · 行程快照</span><span>run ${escapeHtml(runLabel)}</span></footer>
     </div>`;
 }
 
@@ -562,11 +771,50 @@ async function consumeEventStream(response) {
   return result;
 }
 
+function parseDestinationPlan(value, fallback) {
+  const raw = String(value || "").trim();
+  const source = raw || String(fallback || "");
+  const parts = source.split(/[、，,;；→]/).map((item) => item.trim()).filter(Boolean);
+  if (parts.length < 2 && !raw) return [];
+  return parts.map((part) => {
+    const match = part.match(/^(.+?)(?:\s*[:：]?\s*(\d+)\s*天?)?$/);
+    const result = {name: String(match?.[1] || part).trim()};
+    if (match?.[2]) result.days = Number(match[2]);
+    return result;
+  }).filter((item) => item.name);
+}
+
+function addDays(dateValue, count) {
+  if (!dateValue) return null;
+  const value = new Date(`${dateValue}T12:00:00`);
+  value.setDate(value.getDate() + Math.max(Number(count) - 1, 0));
+  return value.toISOString().slice(0, 10);
+}
+
+function optionalNumber(value) {
+  const raw = String(value ?? "").trim();
+  return raw === "" ? null : Number(raw);
+}
+
+function endpointPeriod(time) {
+  if (!time) return "";
+  const hour = Number(String(time).slice(0, 2));
+  if (hour < 6 || hour >= 22) return "late_night";
+  if (hour < 12) return "morning";
+  if (hour < 18) return "afternoon";
+  return "evening";
+}
+
+
 function buildStructuredMessage() {
   const data = new FormData(tripForm);
   const city = String(data.get("destination") || "").trim();
-  const days = String(data.get("days") || "3");
-  const parts = [`请为我规划${city}${days}天行程`];
+  const days = optionalNumber(data.get("days"));
+  const parts = [
+    days
+      ? `请为我规划${city}${days}天行程`
+      : `请为我规划${city}行程，天数和目的地数量请按合理体验安排`
+  ];
   const optional = [
     ["start_date", "出发日期"],
     ["hotel_area", "住宿地点或区域"],
@@ -596,19 +844,70 @@ function buildStructuredMessage() {
 
 function buildStructuredRequest() {
   const data = new FormData(tripForm);
+  const destination = String(data.get("destination") || "").trim();
+  const days = optionalNumber(data.get("days"));
   const startDate = String(data.get("start_date") || "").trim();
+  const destinationPlan = String(data.get("destination_plan") || "").trim();
+  const arrivalTime = String(data.get("arrival_time") || "").trim();
+  const departureTime = String(data.get("departure_time") || "").trim();
+  const budgetMin = optionalNumber(data.get("budget_min"));
+  const budgetMax = optionalNumber(data.get("budget_max"));
+  const budgetPerPerson = optionalNumber(data.get("budget_per_person"));
+  const includesTransport = String(data.get("includes_major_transport") || "");
+  const rooms = optionalNumber(data.get("rooms"));
+  const budgetRange = [budgetMin, budgetMax, budgetPerPerson].some((value) => value !== null) || includesTransport
+    ? {
+        total_min: budgetMin,
+        total_max: budgetMax,
+        per_person: budgetPerPerson,
+        currency: "CNY",
+        includes_major_transport: includesTransport === "" ? null : includesTransport === "true"
+      }
+    : null;
   return {
-    destination: String(data.get("destination") || "").trim(),
-    days: Number(data.get("days") || 3),
-    date_range: {start: startDate || null, end: null},
+    destination,
+    destinations: parseDestinationPlan(destinationPlan, destination),
+    days,
+    nights: days === null ? null : Math.max(days - 1, 0),
+    date_range: {
+      start: startDate || null,
+      end: days === null ? null : addDays(startDate, days)
+    },
+    arrival: {
+      date: String(data.get("arrival_date") || "").trim() || startDate || null,
+      time: arrivalTime || null,
+      period: endpointPeriod(arrivalTime),
+      city: "",
+      station: String(data.get("arrival_station") || "").trim()
+    },
+    departure: {
+      date: String(data.get("departure_date") || "").trim() || (days === null ? null : addDays(startDate, days)),
+      time: departureTime || null,
+      period: endpointPeriod(departureTime),
+      city: "",
+      station: String(data.get("departure_station") || "").trim()
+    },
     hotel_area: String(data.get("hotel_area") || "").trim(),
+    hotel_preferences: String(data.get("hotel_preferences") || "").trim(),
     travellers: String(data.get("travelers") || "").trim(),
+    party: {
+      adults: Number(data.get("adults") || 0),
+      children_ages: splitValues(data.get("children_ages")).map(Number).filter(Number.isFinite),
+      seniors: Number(data.get("seniors") || 0),
+      rooms,
+      bed_requirement: String(data.get("bed_requirement") || "").trim()
+    },
     pace: String(data.get("pace") || "balanced"),
     transport_preference: String(data.get("transport") || "mixed"),
+    intercity_preferences: splitValues(data.get("intercity_preferences")),
     budget: String(data.get("budget") || "").trim(),
+    budget_range: budgetRange,
     must_visits: splitValues(data.get("must_visits")),
     notes: String(data.get("notes") || "").trim(),
     interests: data.getAll("interest").map(String),
+    dietary_requirements: splitValues(data.get("dietary_requirements")),
+    mobility_needs: splitValues(data.get("mobility_needs")),
+    booking_preferences: String(data.get("booking_preferences") || "").trim(),
     daily_window: {
       start: String(data.get("day_start") || "09:00"),
       end: String(data.get("day_end") || "20:00")
@@ -716,10 +1015,97 @@ async function loadPublicPage(slug) {
   document.title = `${payload.title} · Tour Pass`;
 }
 
+function collectPageCss() {
+  return Array.from(document.styleSheets).map((sheet) => {
+    try {
+      return Array.from(sheet.cssRules).map((rule) => rule.cssText).join("\n");
+    } catch {
+      return "";
+    }
+  }).join("\n");
+}
+
+async function exportPlanImage(trigger) {
+  const title = resultPanel.querySelector(".guide-cover h1")?.textContent?.trim() || "Tour-Pass-行程";
+  const width = window.matchMedia("(max-width: 760px)").matches ? 720 : 1080;
+  const exportRoot = document.createElement("div");
+  exportRoot.className = "trip-export-frame";
+  exportRoot.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+  Object.assign(exportRoot.style, {
+    position: "fixed",
+    left: "-20000px",
+    top: "0",
+    width: `${width}px`,
+    padding: "24px",
+    background: "#eaf0eb",
+    zIndex: "-1",
+  });
+  [resultPanel.querySelector(".guide-cover"), resultPanel.querySelector(".guide-sheet")]
+    .filter(Boolean)
+    .forEach((node) => exportRoot.append(node.cloneNode(true)));
+  exportRoot.querySelectorAll(".plan-actions,.run-trace,.day-jumpbar,.guide-drawer").forEach((node) => node.remove());
+  exportRoot.querySelectorAll("details").forEach((node) => { node.open = true; });
+  document.body.append(exportRoot);
+  const previousLabel = trigger?.textContent;
+  if (trigger) {
+    trigger.disabled = true;
+    trigger.textContent = "正在生成…";
+  }
+  try {
+    await document.fonts.ready;
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const height = Math.ceil(exportRoot.getBoundingClientRect().height);
+    const style = document.createElement("style");
+    style.textContent = collectPageCss();
+    exportRoot.prepend(style);
+    const renderRoot = exportRoot.cloneNode(true);
+    Object.assign(renderRoot.style, {position:"static", left:"auto", top:"auto", width:`${width}px`, zIndex:"auto"});
+    const markup = new XMLSerializer().serializeToString(renderRoot);
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><foreignObject width="100%" height="100%">${markup}</foreignObject></svg>`;
+    const svgDataUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+    const image = new Image();
+    image.decoding = "sync";
+    image.src = svgDataUrl;
+    await image.decode();
+    const scale = Math.max(1, Math.min(2, 30000 / height));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.round(width * scale);
+    canvas.height = Math.round(height * scale);
+    const context = canvas.getContext("2d");
+    if (!context) throw new Error("当前浏览器无法创建图片画布");
+    context.scale(scale, scale);
+    context.drawImage(image, 0, 0, width, height);
+    const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/png"));
+    if (!blob) throw new Error("浏览器未能生成 PNG");
+    const imageUrl = URL.createObjectURL(blob);
+    const download = document.createElement("a");
+    download.href = imageUrl;
+    download.download = `${title.replace(/[\\/:*?"<>|]/g, "-")}-长图.png`;
+    download.click();
+    setTimeout(() => URL.revokeObjectURL(imageUrl), 1000);
+    showToast(`高清长图已生成：${canvas.width} × ${canvas.height}`);
+  } finally {
+    exportRoot.remove();
+    if (trigger) {
+      trigger.disabled = false;
+      trigger.textContent = previousLabel;
+    }
+  }
+}
+
 resultPanel.addEventListener("click", async (event) => {
-  const action = event.target.closest("[data-action]")?.dataset.action;
+  const trigger = event.target.closest("[data-action]");
+  const action = trigger?.dataset.action;
   if (action === "print") {
     window.print();
+    return;
+  }
+  if (action === "image") {
+    try {
+      await exportPlanImage(trigger);
+    } catch (error) {
+      showToast(`长图生成失败：${error.message}`);
+    }
     return;
   }
   if (action === "share") {
@@ -750,6 +1136,11 @@ $("composer").addEventListener("submit", async (event) => {
 
 $("structured-tab").addEventListener("click", () => switchInputMode("structured"));
 $("conversation-tab").addEventListener("click", () => switchInputMode("conversation"));
+$("use-example").addEventListener("click", () => {
+  input.value = $("full-example").textContent.trim();
+  input.focus();
+});
+
 
 $("open-saved").addEventListener("click", async () => {
   if (send.disabled) return;
@@ -842,12 +1233,12 @@ $("auth-form").addEventListener("submit", async (event) => {
     if (location.pathname === "/explore") await openExplore();
     await refreshSavedSessions();
     if (sessionId) await loadSession(sessionId, false);
-    else switchInputMode("structured");
+    else switchInputMode("conversation");
   } catch (error) {
     sessionId = null;
     localStorage.removeItem("tour-pass-active-session");
     setSessionMode(false);
-    switchInputMode("structured");
+    switchInputMode("conversation");
     showToast(error.message || "页面初始化失败");
   }
 })();
