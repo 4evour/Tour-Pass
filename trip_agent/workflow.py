@@ -40,6 +40,18 @@ _PERIOD_ORDER = {
     "dinner": 4,
     "evening": 5,
 }
+_STOP_TYPE_ALIASES = {
+    "attraction": "visit",
+    "attractions": "visit",
+    "sightseeing": "visit",
+    "sight": "visit",
+    "poi": "visit",
+    "restaurant": "meal",
+    "dining": "meal",
+    "food": "meal",
+    "break": "free_time",
+    "rest": "free_time",
+}
 _VISIT_DURATION = {
     "quick_stop": 60,
     "standard": 90,
@@ -202,10 +214,20 @@ def repair_skeleton(
         for item in destination_requests
         for _ in range(max(0, int(item.get("days") or 0)))
     ]
-    raw_days = [
-        dict(item) for item in skeleton.get("days") or [] if isinstance(item, dict)
-    ]
     repairs: list[dict[str, Any]] = []
+    raw_days_value = skeleton.get("days")
+    raw_days = (
+        [dict(item) for item in raw_days_value if isinstance(item, dict)]
+        if isinstance(raw_days_value, list)
+        else []
+    )
+    if not isinstance(raw_days_value, list):
+        repairs.append(
+            {
+                "reason": "repair_invalid_days",
+                "value_type": type(raw_days_value).__name__,
+            }
+        )
 
     if len(raw_days) > requested_days:
         raw_days = raw_days[:requested_days]
@@ -254,6 +276,31 @@ def repair_skeleton(
             if not isinstance(raw_stop, dict):
                 continue
             stop = dict(raw_stop)
+            raw_type = _text(stop.get("type")).casefold()
+            if not raw_type:
+                period = _text(stop.get("period")).casefold()
+                name = _text(stop.get("name"))
+                canonical_type = (
+                    "meal"
+                    if period in {"breakfast", "lunch", "dinner"}
+                    else "free_time"
+                    if any(marker in name for marker in ("休息", "午休", "自由活动"))
+                    else "visit"
+                )
+            else:
+                canonical_type = _STOP_TYPE_ALIASES.get(raw_type, raw_type)
+            if canonical_type and canonical_type != raw_type:
+                stop["type"] = canonical_type
+                repairs.append(
+                    {
+                        "reason": "infer_stop_type"
+                        if not raw_type
+                        else "normalize_stop_type",
+                        "from": raw_type,
+                        "to": canonical_type,
+                        "name": _text(stop.get("name")),
+                    }
+                )
             if _text(stop.get("period")) in {"breakfast", "lunch", "dinner"}:
                 stop["type"] = "meal"
             required_by_user = stop.get("type") == "visit" and any(
@@ -358,7 +405,9 @@ def repair_skeleton(
 
     for must_visit in context.get("must_visits") or []:
         if any(
-            _matches(must_visit, stop.get("name"))
+            stop.get("type") == "visit"
+            and not stop.get("_generic_meal")
+            and _matches(must_visit, stop.get("name"))
             for day in raw_days
             for stop in day.get("stops") or []
         ):
@@ -928,6 +977,103 @@ def _route_instructions(route: dict[str, Any], mobility_needs: bool = False) -> 
             legs.append("电梯与台阶未核验，膝盖不适时可改用短途车，费用另查")
     legs.append("以上为本次地图查询参考，出发前复核运营与入口")
     return "；".join(legs)
+
+
+def _route_walking_distance(route: dict[str, Any] | None) -> int | None:
+    summary = (route or {}).get("summary")
+    if not isinstance(summary, dict):
+        return None
+    value = summary.get("walking_distance")
+    try:
+        distance = int(float(value))
+    except (TypeError, ValueError):
+        return None
+    return max(0, distance)
+
+
+def _timeline_summary(schedule: list[dict[str, Any]], hotel_name: str) -> str:
+    labels = {
+        "breakfast": "早餐",
+        "morning": "上午",
+        "lunch": "午餐",
+        "afternoon": "下午",
+        "dinner": "晚餐",
+        "evening": "晚上",
+    }
+    kinds = {"visit": "游览", "meal": "用餐", "free_time": "休息"}
+    grouped: dict[str, list[str]] = {}
+    order: list[str] = []
+    for item in schedule:
+        period = _text(item.get("period"), "当天")
+        if period not in grouped:
+            grouped[period] = []
+            order.append(period)
+        kind = kinds.get(_text(item.get("type")), "安排")
+        grouped[period].append(f"{kind}{_text(item.get('name'), '待确认地点')}")
+    if not grouped:
+        return f"当天以{hotel_name}为起终点，具体安排待补充。"
+    clauses = [
+        f"{labels.get(period, period)}：{'、'.join(grouped[period])}"
+        for period in order
+    ]
+    return "；".join(clauses) + f"。按上述时间轴执行，最终返回{hotel_name}。"
+
+
+def _day_effort(
+    schedule: list[dict[str, Any]], transfers: list[dict[str, Any]]
+) -> dict[str, Any]:
+    walking_values = [
+        int(item["walking_distance_meters"])
+        for item in transfers
+        if item.get("walking_distance_meters") is not None
+    ]
+    return {
+        "walking_distance_meters": sum(walking_values),
+        "walking_distance_known": len(walking_values),
+        "transfer_count": len(transfers),
+        "rest_minutes": sum(
+            int(item.get("duration_minutes") or 0)
+            for item in schedule
+            if item.get("type") == "free_time"
+        ),
+        "longest_visit_minutes": max(
+            (
+                int(item.get("duration_minutes") or 0)
+                for item in schedule
+                if item.get("type") == "visit"
+            ),
+            default=0,
+        ),
+    }
+
+
+def _mobility_summary(
+    raw_days: list[dict[str, Any]], has_mobility_needs: bool
+) -> dict[str, Any]:
+    efforts = [item.get("effort") or {} for item in raw_days]
+    walking = sum(int(item.get("walking_distance_meters") or 0) for item in efforts)
+    known = sum(int(item.get("walking_distance_known") or 0) for item in efforts)
+    transfers = sum(int(item.get("transfer_count") or 0) for item in efforts)
+    rest = sum(int(item.get("rest_minutes") or 0) for item in efforts)
+    longest_visit = max(
+        (int(item.get("longest_visit_minutes") or 0) for item in efforts), default=0
+    )
+    unknown = max(0, transfers - known)
+    status = "measured"
+    if has_mobility_needs and unknown:
+        status = "partial"
+    if has_mobility_needs and walking >= 1500:
+        status = "high"
+    return {
+        "walking_distance_meters": walking,
+        "walking_distance_known": known,
+        "walking_distance_unknown": unknown,
+        "transfer_count": transfers,
+        "rest_minutes": rest,
+        "longest_visit_minutes": longest_visit,
+        "status": status,
+        "threshold_meters": 1500 if has_mobility_needs else None,
+    }
 
 
 def _is_lodging_break(stop: dict[str, Any]) -> bool:
@@ -1912,6 +2058,7 @@ class ItineraryAssembler:
                             "end": _hhmm(transfer_end),
                             "duration_minutes": route_minutes,
                             "distance_meters": route_distance,
+                            "walking_distance_meters": _route_walking_distance(route),
                             "instructions": (
                                 _route_instructions(
                                     route, bool(context.get("mobility_needs"))
@@ -2180,6 +2327,7 @@ class ItineraryAssembler:
                         "end": _hhmm(transfer_end),
                         "duration_minutes": route_minutes,
                         "distance_meters": route_distance,
+                        "walking_distance_meters": _route_walking_distance(route),
                         "instructions": (
                             _route_instructions(
                                 route, bool(context.get("mobility_needs"))
@@ -2220,10 +2368,7 @@ class ItineraryAssembler:
                     "weekday": weekday,
                     "destination": day_destination,
                     "theme": theme,
-                    "summary": _text(day.get("summary"))
-                    or f"围绕{primary_area}安排"
-                    + "、".join(item["name"] for item in schedule)
-                    + "，兼顾游览节奏与交通衔接。",
+                    "summary": _timeline_summary(schedule, hotel_name),
                     "start_time": _hhmm(day_start),
                     "end_time": _hhmm(cursor),
                     "intercity_leg": intercity_leg,
@@ -2246,13 +2391,14 @@ class ItineraryAssembler:
                     },
                     "schedule": schedule,
                     "transfers": transfers,
+                    "effort": _day_effort(schedule, transfers),
                     "risks": [],
                     "fallback": {
                         "notes": fallback_note,
                         "late_drop_order": [
                             item["name"]
                             for item in reversed(schedule)
-                            if item.get("source") == "model_judgment"
+                            if item.get("type") == "visit" and item.get("optional")
                         ][:2],
                     },
                 }
@@ -2277,9 +2423,25 @@ class ItineraryAssembler:
             )
         if not start_date:
             warnings.append("未提供出发日期，天气和按日期开放状态未核验。")
+        mobility_summary = _mobility_summary(
+            raw_days, bool(context.get("mobility_needs"))
+        )
+        if context.get("mobility_needs") and mobility_summary["status"] == "high":
+            warnings.append(
+                "行动需求下，已核验接驳步行距离达到"
+                f"{mobility_summary['walking_distance_meters']}米，超过1500米提示线；"
+                "请优先比较短途车、无障碍入口和减少停留的方案。"
+            )
+        elif (
+            context.get("mobility_needs")
+            and mobility_summary["walking_distance_unknown"]
+        ):
+            warnings.append(
+                f"行动需求下仍有{mobility_summary['walking_distance_unknown']}段接驳的步行距离未核验。"
+            )
         title = _text(skeleton.get("title"), f"{city}{requested_days}日行程")
-        overview = _text(skeleton.get("overview")) or "；".join(
-            f"第{item['day']}天{item['theme']}" for item in raw_days
+        overview = "；".join(
+            f"第{item['day']}天：{item['summary']}" for item in raw_days
         )
         candidate_areas: list[dict[str, Any]] = []
         seen_areas: set[str] = set()
@@ -2652,6 +2814,7 @@ class ItineraryAssembler:
                 "budget": _text(context.get("budget")),
                 "assumptions": ["未明确的票价、预约和营业状态需在出发前复核。"],
             },
+            "mobility_summary": mobility_summary,
             "hotel": primary_hotel,
             "hotels": hotel_outputs,
             "hotel_options": hotel_option_outputs,

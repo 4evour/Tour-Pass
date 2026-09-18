@@ -141,6 +141,7 @@ class TripAgent:
         on_event: Callable[[dict[str, Any]], None] | None = None,
         owner: tuple[str, str] = ("guest", "local"),
         structured_request: dict[str, Any] | None = None,
+        model: str | None = None,
     ) -> ChatResponse:
         session_id = session_id or uuid.uuid4().hex
         run_id = uuid.uuid4().hex
@@ -158,12 +159,22 @@ class TripAgent:
         )
         started_at = time.perf_counter()
         events: list[dict[str, Any]] = []
+        event_index = 0
+        previous_event_id: str | None = None
 
         def emit_event(event: dict[str, Any]) -> None:
+            nonlocal event_index, previous_event_id
+            event_index += 1
+            event_id = f"{run_id}:{event_index}"
             enriched = {
                 **event,
+                "trace_id": run_id,
+                "event_id": event_id,
+                "event_index": event_index,
+                "parent_event_id": previous_event_id,
                 "elapsed_ms": round((time.perf_counter() - started_at) * 1000),
             }
+            previous_event_id = event_id
             events.append(enriched)
             log_event(
                 "planner_event",
@@ -202,7 +213,7 @@ class TripAgent:
             cache_material = (
                 SKELETON_PROMPT
                 + json.dumps(schema, ensure_ascii=False, sort_keys=True)
-                + str(getattr(self.llm, "model", ""))
+                + str(model or getattr(self.llm, "model", ""))
             )
             prompt_cache_key = (
                 "tour-pass-complete-v5-"
@@ -246,6 +257,7 @@ class TripAgent:
                 reasoning_effort=getattr(self.llm, "reasoning_effort", "medium"),
                 output_format=schema,
                 prompt_cache_key=prompt_cache_key,
+                model=model,
             )
             model_metrics = getattr(response, "metrics", {})
             try:

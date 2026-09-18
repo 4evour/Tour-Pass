@@ -292,6 +292,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
 
         llm = OpenAICompatibleLLM()
         llm.key = "test-key"
+        llm.wire_api = "responses"
         llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
         with self.assertRaises(httpx.ReadTimeout):
             await llm.ainvoke([{"role": "user", "content": "test"}])
@@ -346,6 +347,111 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             [event["milestone"] for event in progress],
             ["connected", "first_event", "first_text"],
         )
+
+    async def test_llm_normalizes_chat_completion_usage(self) -> None:
+        def handler(request: httpx.Request) -> httpx.Response:
+            self.assertEqual(request.url.path, "/chat/completions")
+            return httpx.Response(
+                200,
+                json={
+                    "choices": [
+                        {"message": {"role": "assistant", "content": '{"ok":true}'}}
+                    ],
+                    "usage": {
+                        "prompt_tokens": 120,
+                        "completion_tokens": 30,
+                        "total_tokens": 150,
+                        "prompt_tokens_details": {"cached_tokens": 80},
+                    },
+                },
+            )
+
+        llm = OpenAICompatibleLLM()
+        llm.key = "test-key"
+        llm.base_url = "https://api.deepseek.com"
+        llm.wire_api = "chat_completions"
+        llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        response = await llm.ainvoke([{"role": "user", "content": "test"}])
+        await llm.close()
+
+        self.assertEqual(response.metrics["usage"]["input_tokens"], 120)
+        self.assertEqual(response.metrics["usage"]["output_tokens"], 30)
+        self.assertEqual(response.metrics["usage"]["total_tokens"], 150)
+        self.assertEqual(
+            response.metrics["usage"]["input_tokens_details.cached_tokens"], 80
+        )
+
+    def test_repair_skeleton_normalizes_attraction_alias_for_required_visits(
+        self,
+    ) -> None:
+        skeleton = skeleton_plan()
+        skeleton["days"][0]["stops"][0]["type"] = "attraction"
+        context = build_planning_context(
+            None,
+            "请去长沙的岳麓山",
+            [],
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "must_visits": ["岳麓山"],
+            },
+        )
+
+        repaired, repairs = repair_skeleton(skeleton, context)
+
+        stop = next(
+            item for item in repaired["days"][0]["stops"] if item["name"] == "岳麓山"
+        )
+        self.assertEqual(stop["type"], "visit")
+        self.assertTrue(stop["_required_by_user"])
+        self.assertFalse(stop["optional"])
+        self.assertIn("normalize_stop_type", [item["reason"] for item in repairs])
+
+    def test_repair_skeleton_infers_missing_stop_type_as_required_visit(self) -> None:
+        skeleton = skeleton_plan()
+        skeleton["days"][0]["stops"][0].pop("type")
+        context = build_planning_context(
+            None,
+            "请去长沙的岳麓山",
+            [],
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "must_visits": ["岳麓山"],
+            },
+        )
+
+        repaired, repairs = repair_skeleton(skeleton, context)
+
+        stop = next(
+            item for item in repaired["days"][0]["stops"] if item["name"] == "岳麓山"
+        )
+        self.assertEqual(stop["type"], "visit")
+        self.assertTrue(stop["_required_by_user"])
+        self.assertFalse(stop["optional"])
+        self.assertIn("infer_stop_type", [item["reason"] for item in repairs])
+
+    def test_repair_skeleton_recovers_from_non_list_days(self) -> None:
+        skeleton = skeleton_plan()
+        skeleton["days"] = 1
+        context = build_planning_context(
+            None,
+            "请去长沙的岳麓山",
+            [],
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "must_visits": ["岳麓山"],
+            },
+        )
+
+        repaired, repairs = repair_skeleton(skeleton, context)
+
+        self.assertEqual(len(repaired["days"]), 1)
+        self.assertTrue(
+            any(item["name"] == "岳麓山" for item in repaired["days"][0]["stops"])
+        )
+        self.assertIn("repair_invalid_days", [item["reason"] for item in repairs])
 
     async def test_llm_hedges_slow_structured_response(self) -> None:
         request_count = 0
@@ -410,6 +516,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
 
         llm = OpenAICompatibleLLM()
         llm.key = "test-key"
+        llm.wire_api = "responses"
         llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
         response = await llm.ainvoke([{"role": "user", "content": "test"}])
         await llm.close()
@@ -438,6 +545,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
 
         llm = OpenAICompatibleLLM()
         llm.key = "test-key"
+        llm.wire_api = "responses"
         llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
         with patch("trip_agent.llm.asyncio.sleep", new=AsyncMock()):
             response = await llm.ainvoke([{"role": "user", "content": "test"}])
@@ -609,6 +717,50 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(any(destination == "回住宿区午休" for _, destination in pairs))
         self.assertTrue(any(origin == "回住宿区午休" for origin, _ in pairs))
         self.assertFalse(any("就近午餐" in origin for origin, _ in pairs))
+
+    async def test_final_timeline_rewrites_model_summary_and_reports_effort(
+        self,
+    ) -> None:
+        class WalkingAmap(FakeAmap):
+            async def route(self, city, origin, destination, mode="driving"):
+                result = await super().route(city, origin, destination, mode)
+                result["summary"] = {"walking_distance": "800"}
+                return result
+
+        skeleton = skeleton_plan()
+        skeleton["days"][0]["summary"] = "晚餐后直接返回住宿，模型摘要不应保留。"
+        llm = SkeletonLLM(skeleton)
+        response = await TripAgent(llm, amap=WalkingAmap()).run(
+            "请生成行程",
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "daily_window": {"start": "09:00", "end": "22:00"},
+                "mobility_needs": ["少走路"],
+            },
+        )
+        self.assertIsNotNone(response.plan)
+        day = response.plan["days"][0]
+        self.assertNotIn("晚餐后直接返回", day["summary"])
+        self.assertIn("上午", day["summary"])
+        self.assertIn("最终返回", day["summary"])
+        self.assertGreater(
+            response.plan["mobility_summary"]["walking_distance_meters"], 0
+        )
+        self.assertEqual(response.plan["mobility_summary"]["status"], "high")
+        self.assertTrue(
+            any("行动需求下" in warning for warning in response.plan["warnings"])
+        )
+
+    async def test_run_passes_explicit_model_to_planner(self) -> None:
+        llm = SkeletonLLM()
+        response = await TripAgent(llm, amap=FakeAmap()).run(
+            "请生成长沙行程",
+            structured_request={"destination": "长沙", "days": 1},
+            model="gpt-5.6-sol",
+        )
+        self.assertIsNotNone(response.plan)
+        self.assertEqual(llm.invocations[0]["model"], "gpt-5.6-sol")
 
     async def test_nearby_dinner_moves_to_area_before_meal_without_fake_poi(
         self,
@@ -3345,8 +3497,9 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
 
         self.assertTrue(response.plan)
         plan = response.plan
-        self.assertEqual(plan["overview"], skeleton["overview"])
-        self.assertEqual(plan["days"][0]["summary"], skeleton["days"][0]["summary"])
+        self.assertNotEqual(plan["overview"], skeleton["overview"])
+        self.assertIn("岳麓山", plan["days"][0]["summary"])
+        self.assertIn("最终返回", plan["days"][0]["summary"])
         visit = next(
             item
             for item in plan["days"][0]["schedule"]

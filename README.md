@@ -106,7 +106,7 @@ python -m trip_agent.app
 使用默认的长沙、青岛、重庆请求运行真实模型与 Provider 链路：
 
 ```bash
-python -m trip_agent.evaluate live --model gpt-5.6-luna
+python -m trip_agent.evaluate live --model deepseek-flash --wire-api chat_completions
 ```
 
 每次运行会在 `artifacts/trip-agent-eval/<UTC 时间>/` 保存请求、版本清单、完整模型输入输出、工具输入输出、运行事件、验证报告、最终行程、耗时、Token、缓存和汇总指标。该目录包含完整上下文，已加入 Git 忽略规则，不应公开上传。

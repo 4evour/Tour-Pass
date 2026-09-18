@@ -159,7 +159,9 @@ def _request_signature(
             "tool_choice",
             "tools",
             "prompt_cache_key",
+            "model",
         }
+        and (key != "model" or value is not None)
     }
     return {"messages": _json_copy(messages), "options": _json_copy(options)}
 
@@ -485,35 +487,19 @@ def _summarize(
     warnings = final_validation.get("warning_codes", [])
     llm_calls = recording["llm"]
     provider_calls = [*recording["amap"], *recording["weather"]]
-    input_tokens = sum(
-        int(
-            (call.get("response") or {})
-            .get("metrics", {})
-            .get("usage", {})
-            .get("input_tokens", 0)
+
+    def usage_value(call: dict[str, Any], key: str) -> int:
+        return int(
+            (
+                (call.get("response") or {}).get("metrics", {}).get("usage", {}) or {}
+            ).get(key, 0)
             or 0
         )
-        for call in llm_calls
-    )
-    output_tokens = sum(
-        int(
-            (call.get("response") or {})
-            .get("metrics", {})
-            .get("usage", {})
-            .get("output_tokens", 0)
-            or 0
-        )
-        for call in llm_calls
-    )
+
+    input_tokens = sum(usage_value(call, "input_tokens") for call in llm_calls)
+    output_tokens = sum(usage_value(call, "output_tokens") for call in llm_calls)
     cached_input_tokens = sum(
-        int(
-            (call.get("response") or {})
-            .get("metrics", {})
-            .get("usage", {})
-            .get("input_tokens_details.cached_tokens", 0)
-            or 0
-        )
-        for call in llm_calls
+        usage_value(call, "input_tokens_details.cached_tokens") for call in llm_calls
     )
     return {
         "success": response.plan is not None,
@@ -836,9 +822,11 @@ def _parser() -> argparse.ArgumentParser:
     live.add_argument("--env-file", default=".env")
     live.add_argument("--requests")
     live.add_argument("--output", default="artifacts/trip-agent-eval")
-    live.add_argument("--model", default="gpt-5.6-luna")
+    live.add_argument("--model", default="deepseek-flash")
     live.add_argument(
-        "--wire-api", choices=["responses", "chat_completions"], default="responses"
+        "--wire-api",
+        choices=["responses", "chat_completions"],
+        default="chat_completions",
     )
     live.add_argument("--reasoning-effort", default="low")
     live.add_argument("--memory-history-messages", type=int, default=4)

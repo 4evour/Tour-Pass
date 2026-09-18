@@ -116,6 +116,16 @@ async def health() -> dict:
     }
 
 
+@app.get("/api/llm/models")
+async def llm_models() -> dict[str, object]:
+    current = active_runtime()
+    return {
+        "default": current.llm.model,
+        "models": current.llm.models,
+        "custom_allowed": True,
+    }
+
+
 @app.get("/api/auth/session")
 async def auth_session(request: Request, response: Response) -> dict:
     identity, issued = resolve_identity(request)
@@ -249,6 +259,7 @@ async def chat(payload: ChatRequest, request: Request, response: Response) -> di
                 payload.message,
                 payload.session_id,
                 owner=identity.owner,
+                **({"model": payload.model} if payload.model else {}),
                 **(
                     {"structured_request": payload.trip.model_dump(mode="json")}
                     if payload.trip
@@ -298,6 +309,7 @@ async def stream_chat_events(
                         if payload.trip
                         else {}
                     ),
+                    **({"model": payload.model} if payload.model else {}),
                     **({} if owner == ("guest", "local") else {"owner": owner}),
                 ),
                 timeout=current.request_timeout_seconds,

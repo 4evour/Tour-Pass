@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 from datetime import date
+import re
 from typing import Any, Literal
 
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 
 class TripDateRange(BaseModel):
@@ -178,6 +179,17 @@ class ChatRequest(BaseModel):
     message: str = Field(default="", max_length=12000)
     trip: StructuredTripRequest | None = None
     session_id: str | None = Field(default=None, max_length=80)
+    model: str | None = Field(default=None, min_length=1, max_length=120)
+
+    @field_validator("model")
+    @classmethod
+    def validate_model(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        value = value.strip()
+        if not re.fullmatch(r"[A-Za-z0-9._:/-]+", value):
+            raise ValueError("model 只能包含字母、数字、点、下划线、冒号、斜杠或连字符")
+        return value
 
     @model_validator(mode="after")
     def require_input(self) -> "ChatRequest":

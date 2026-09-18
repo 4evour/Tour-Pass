@@ -29,6 +29,12 @@
           <span class="kicker">旅行顾问</span>
           <h1>先说想法，<br>一轮给你完整方案。</h1>
           <p>说出目的地即可开始；天数、路线和每天节奏可以交给模型判断，也可以随时展开详细填写。</p>
+          <div class="llm-picker" aria-label="模型设置">
+            <label for="llm-model">规划模型</label>
+            <select id="llm-model"><option value="deepseek-flash">DeepSeek Flash（推荐）</option></select>
+            <input id="custom-model" maxlength="120" placeholder="自定义模型 ID，例如 deepseek-v4-pro" autocomplete="off">
+            <small>可填写当前 LLM 服务支持的模型 ID</small>
+          </div>
         </div>
         <div class="input-mode" role="tablist" aria-label="行程输入方式">
           <button class="active" id="conversation-tab" type="button" role="tab" aria-selected="true">对话规划</button>

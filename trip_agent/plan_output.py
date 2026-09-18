@@ -229,6 +229,7 @@ def normalize_plan(
         "destinations": items(plan.get("destinations")),
         "party": mapping(plan.get("party")),
         "trip_profile": mapping(plan.get("trip_profile")),
+        "mobility_summary": mapping(plan.get("mobility_summary")),
         "hotel": hotel,
         "hotels": hotels,
         "hotel_options": items(plan.get("hotel_options")),
@@ -345,6 +346,7 @@ def normalize_day(
         },
         "schedule": schedule,
         "transfers": transfers,
+        "effort": mapping(day.get("effort")),
         "fallback": {
             "notes": text(mapping(day.get("fallback")).get("notes")),
             "late_drop_order": [
@@ -555,6 +557,16 @@ def normalize_transfer(
             else integer(transfer.get("distance_meters"))
             if estimated
             else 0
+        ),
+        "walking_distance_meters": (
+            integer(mapping(evidence.get("summary")).get("walking_distance"))
+            if evidence
+            and str(
+                mapping(evidence.get("summary")).get("walking_distance") or ""
+            ).isdigit()
+            else integer(transfer.get("walking_distance_meters"))
+            if transfer.get("walking_distance_meters") is not None
+            else None
         ),
         "instructions": text(transfer.get("instructions")),
         "source": "amap" if evidence else "estimate" if estimated else "unknown",
@@ -791,6 +803,7 @@ def add_traceability(plan: dict[str, Any]) -> None:
                     "mode": transfer.get("mode"),
                     "duration_minutes": transfer.get("duration_minutes"),
                     "distance_meters": transfer.get("distance_meters"),
+                    "walking_distance_meters": transfer.get("walking_distance_meters"),
                     "instructions": transfer.get("instructions"),
                     "source": transfer.get("source"),
                     "evidence_refs": list(transfer.get("evidence_refs") or []),

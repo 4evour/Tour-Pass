@@ -98,6 +98,7 @@ class HardValidator:
         days = plan.get("days") if isinstance(plan.get("days"), list) else []
         self._validate_request(plan, days, planning_context)
         self._validate_days(plan, days, planning_context)
+        self._validate_mobility_load(plan, planning_context)
         plan_hash = (
             "sha256:"
             + hashlib.sha256(
@@ -125,6 +126,40 @@ class HardValidator:
             "hard_failures": self._failures,
             "warnings": self._warnings,
         }
+
+    def _validate_mobility_load(
+        self, plan: dict[str, Any], context: dict[str, Any]
+    ) -> None:
+        if not context.get("mobility_needs"):
+            return
+        summary = plan.get("mobility_summary")
+        if not isinstance(summary, dict):
+            self._warnings.append(
+                _warning(
+                    "MOBILITY_LOAD_UNKNOWN",
+                    "$.mobility_summary",
+                    "用户提出行动需求，但行程没有提供接驳步行负荷统计",
+                )
+            )
+            return
+        walking = int(summary.get("walking_distance_meters") or 0)
+        unknown = int(summary.get("walking_distance_unknown") or 0)
+        if walking >= 1500:
+            self._warnings.append(
+                _warning(
+                    "MOBILITY_WALKING_LOAD",
+                    "$.mobility_summary.walking_distance_meters",
+                    f"行动需求下已核验接驳步行约{walking}米，达到1500米提示线；应比较短途车和更短入口路线",
+                )
+            )
+        if unknown:
+            self._warnings.append(
+                _warning(
+                    "MOBILITY_WALKING_UNKNOWN",
+                    "$.mobility_summary.walking_distance_unknown",
+                    f"仍有{unknown}段接驳缺少步行距离证据，不能据此承诺少走路",
+                )
+            )
 
     def _validate_request(
         self,

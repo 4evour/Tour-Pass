@@ -43,6 +43,17 @@ class OpenAICompatibleLLM:
         self.model = os.environ.get("TRIP_AGENT_MODEL") or os.environ.get(
             "DEEPSEEK_MODEL", "deepseek-chat"
         )
+        configured_models = os.environ.get("TRIP_AGENT_MODELS", "")
+        self.models = list(
+            dict.fromkeys(
+                [self.model]
+                + [
+                    item.strip()
+                    for item in configured_models.split(",")
+                    if item.strip()
+                ]
+            )
+        )
         wire_api = (
             os.environ.get("TRIP_AGENT_WIRE_API", "chat_completions")
             .strip()
@@ -96,6 +107,7 @@ class OpenAICompatibleLLM:
         self,
         messages: list[dict[str, Any]],
         *,
+        model: str | None = None,
         output_format: dict[str, Any] | None = None,
         tools: list[dict[str, Any]] | None = None,
         tool_choice: str | dict[str, Any] | None = None,
@@ -104,7 +116,7 @@ class OpenAICompatibleLLM:
         base_url = self.base_url.rstrip("/")
         if self.wire_api == "responses":
             payload: dict[str, Any] = {
-                "model": self.model,
+                "model": model or self.model,
                 "input": messages,
                 "max_output_tokens": self.max_output_tokens,
                 "stream": True,
@@ -120,23 +132,37 @@ class OpenAICompatibleLLM:
             if prompt_cache_key:
                 payload["prompt_cache_key"] = prompt_cache_key
             return f"{base_url}/responses", payload
-        response_format = (
-            {
+        # DeepSeek's chat endpoint supports JSON mode but does not accept the
+        # OpenAI json_schema wrapper. The schema remains in the system prompt,
+        # so JSON mode is sufficient for the parser and keeps this adapter
+        # compatible with both providers.
+        is_deepseek = "deepseek.com" in base_url or (model or self.model).startswith(
+            "deepseek-"
+        )
+        if output_format is not None and not is_deepseek:
+            response_format = {
                 "type": "json_schema",
                 "json_schema": {
                     key: value for key, value in output_format.items() if key != "type"
                 },
             }
-            if output_format is not None
-            else {"type": "json_object"}
-        )
+        else:
+            response_format = {"type": "json_object"}
         payload = {
-            "model": self.model,
+            "model": model or self.model,
             "max_tokens": self.max_output_tokens,
             "temperature": 0.2,
             "messages": self._chat_messages(messages),
             "response_format": response_format,
         }
+        if is_deepseek:
+            thinking = (
+                os.environ.get("TRIP_AGENT_DEEPSEEK_THINKING", "disabled")
+                .strip()
+                .lower()
+            )
+            if thinking in {"enabled", "disabled"}:
+                payload["thinking"] = {"type": thinking}
         if tools:
             payload["tools"] = [
                 {
@@ -245,10 +271,17 @@ class OpenAICompatibleLLM:
     @staticmethod
     def _usage_summary(usage: dict[str, Any]) -> dict[str, int]:
         summary: dict[str, int] = {}
-        for key in ("input_tokens", "output_tokens", "total_tokens"):
-            value = usage.get(key)
-            if isinstance(value, int):
-                summary[key] = value
+        aliases = {
+            "input_tokens": ("input_tokens", "prompt_tokens"),
+            "output_tokens": ("output_tokens", "completion_tokens"),
+            "total_tokens": ("total_tokens",),
+        }
+        for canonical, keys in aliases.items():
+            value = next(
+                (usage.get(key) for key in keys if usage.get(key) is not None), None
+            )
+            if isinstance(value, (int, float)):
+                summary[canonical] = int(value)
         for detail_name in ("input_tokens_details", "output_tokens_details"):
             details = usage.get(detail_name)
             if not isinstance(details, dict):
@@ -256,6 +289,16 @@ class OpenAICompatibleLLM:
             for key, value in details.items():
                 if isinstance(value, int):
                     summary[f"{detail_name}.{key}"] = value
+        prompt_details = usage.get("prompt_tokens_details")
+        if isinstance(prompt_details, dict):
+            for key, value in prompt_details.items():
+                if isinstance(value, int):
+                    summary[f"input_tokens_details.{key}"] = value
+        for key in ("prompt_cache_hit_tokens", "cached_tokens"):
+            value = usage.get(key)
+            if isinstance(value, int):
+                summary["input_tokens_details.cached_tokens"] = value
+                break
         return summary
 
     async def _stream_response(
@@ -476,6 +519,7 @@ class OpenAICompatibleLLM:
         tools: list[dict[str, Any]] | None = None,
         tool_choice: str | dict[str, Any] | None = None,
         prompt_cache_key: str | None = None,
+        model: str | None = None,
     ) -> Any:
         if not self.available:
             raise RuntimeError("TRIP_AGENT_LLM_KEY is not configured")
@@ -491,6 +535,7 @@ class OpenAICompatibleLLM:
         last_error: Exception | None = None
         endpoint, payload = self._request(
             messages,
+            model=model,
             output_format=output_format,
             tools=tools,
             tool_choice=tool_choice,
@@ -524,7 +569,7 @@ class OpenAICompatibleLLM:
         log_event(
             "llm_request_started",
             call_id=call_id,
-            model=self.model,
+            model=model or self.model,
             wire_api=self.wire_api,
             reasoning_effort=(
                 reasoning_effort
@@ -590,6 +635,7 @@ class OpenAICompatibleLLM:
                         ),
                         "output_chars": len(content),
                         "tool_call_count": len(tool_calls),
+                        "usage": self._usage_summary(body.get("usage") or {}),
                     }
                 metrics["invocation_total_ms"] = round(
                     (time.perf_counter() - request_started) * 1000

@@ -13,6 +13,27 @@ let sessionId = localStorage.getItem("tour-pass-active-session");
 let authState = null;
 let authMode = "login";
 let toastTimer = null;
+let selectedModel = localStorage.getItem("tour-pass-model") || "deepseek-flash";
+
+function activeModel() {
+  const custom = $("custom-model")?.value.trim();
+  return custom || $("llm-model")?.value || selectedModel;
+}
+
+async function loadModels() {
+  try {
+    const response = await apiFetch("/api/llm/models");
+    if (!response.ok) return;
+    const data = await response.json();
+    const select = $("llm-model");
+    const models = Array.isArray(data.models) ? data.models : [];
+    select.innerHTML = models.map((model) => `<option value="${escapeHtml(model)}">${escapeHtml(model)}</option>`).join("");
+    select.value = models.includes(selectedModel) ? selectedModel : (data.default || models[0] || selectedModel);
+    selectedModel = select.value;
+  } catch {
+    // Keep the built-in fallback if the model list endpoint is unavailable.
+  }
+}
 
 function cookieValue(name) {
   return document.cookie.split("; ").find((item) => item.startsWith(`${name}=`))?.split("=").slice(1).join("=") || "";
@@ -459,6 +480,7 @@ function renderDay(day) {
       </div>
     </header>
     <div class="day-route"><span>这一天怎么走</span><b>${routeNames || "路线待补充"}</b></div>
+    ${object(day.effort).transfer_count ? `<div class="day-effort"><span>行动负荷</span><b>${Number(day.effort.walking_distance_meters) ? `${(Number(day.effort.walking_distance_meters) / 1000).toFixed(1)} 公里接驳步行` : "接驳步行待核验"}</b><small>${Number(day.effort.rest_minutes) || 0} 分钟休息 · 最长游览 ${Number(day.effort.longest_visit_minutes) || 0} 分钟</small></div>` : ""}
     ${intercity.summary ? `<div class="intercity-callout"><b>跨城移动</b><span>${textOr(intercity.summary)}</span><small>${textOr(intercity.departure_hint, "出发时间待核验")} → ${textOr(intercity.arrival_hint, "抵达时间待核验")}${intercity.price ? ` · ${textOr(intercity.seat_type, "参考席别")} ${money(intercity.price)}` : ""}${intercity.status === "verified_schedule" ? " · 12306 时刻已核验" : ""}</small></div>` : ""}
     <div class="timeline">${timelineParts.join("") || "<p>时间轴待补充</p>"}</div>
     ${fallback.notes ? `<aside class="day-fallback"><b>晚点 / 雨天兜底</b><p>${textOr(fallback.notes)}</p>${list(fallback.late_drop_order).length ? `<small>优先删减 ${list(fallback.late_drop_order).length} 个可选项</small>` : ""}</aside>` : ""}
@@ -515,6 +537,22 @@ function renderTripStats(plan, days, profile) {
     <div><span>计划时段</span><b>${windows.length === 1 ? escapeHtml(windows[0]) : "按日查看"}</b><small>含已列交通与缓冲，非实时班次</small></div>
     <div><span>路线核验</span><b>${distanceMeters ? `${(distanceMeters / 1000).toFixed(1)} 公里` : "待核验"}</b><small>${transfers.length} 段 · 约 ${transferMinutes} 分钟</small></div>
     <div><span>预算偏好</span><b>${escapeHtml(String(budget))}</b><small>${budget === "未设置" ? "不生成虚假费用" : "按偏好规划"}</small></div>
+  </section>`;
+}
+
+function renderMobilitySummary(plan, profile) {
+  const mobility = object(plan.mobility_summary);
+  if (!list(profile.mobility_needs).length && !mobility.transfer_count) return "";
+  const distance = Number(mobility.walking_distance_meters) || 0;
+  const unknown = Number(mobility.walking_distance_unknown) || 0;
+  const rest = Number(mobility.rest_minutes) || 0;
+  const longest = Number(mobility.longest_visit_minutes) || 0;
+  const status = mobility.status === "high" ? "需要优先调整" : mobility.status === "partial" ? "部分未知" : "已测路线";
+  const detail = distance ? `${(distance / 1000).toFixed(1)} 公里` : "步行距离待核验";
+  return `<section class="mobility-strip ${mobility.status === "high" ? "high" : ""}" aria-label="行动负荷">
+    <div><b>行动负荷 · ${status}</b><p>${list(profile.mobility_needs).length ? escapeHtml(list(profile.mobility_needs).join("、")) : "按当前路线估算"}</p></div>
+    <dl><div><dt>接驳步行</dt><dd>${detail}</dd></div><div><dt>休息</dt><dd>${rest ? `${rest} 分钟` : "未单列"}</dd></div><div><dt>最长游览</dt><dd>${longest ? `${longest} 分钟` : "待定"}</dd></div></dl>
+    <small>${unknown ? `${unknown} 段步行距离未核验；` : "步行数据来自已列地图路线；"}景区内部、餐厅门口和实际酒店门口不在统计内。</small>
   </section>`;
 }
 
@@ -721,6 +759,7 @@ function renderPlan(data, publicView=false) {
     <div class="plan-body guide-sheet">
       ${renderTraceSummary()}
       ${renderTripStats(plan, days, profile)}
+      ${renderMobilitySummary(plan, profile)}
       <nav class="day-jumpbar" aria-label="按天查看行程">${dayNav}</nav>
       <section class="guide-intro">
         <div><span class="section-label">这趟怎么玩</span><h2>${textOr(narrative.headline, "一眼看懂这趟旅程")}</h2><p>${textOr(narrative.summary, plan.overview || "行程说明待补充")}</p></div>
@@ -944,7 +983,7 @@ async function submitPlanning(message, trip=null) {
     const response = await apiFetch("/chat/stream", {
       method: "POST",
       headers: {"Content-Type": "application/json", "Accept":"text/event-stream"},
-      body: JSON.stringify({message, trip, session_id: sessionId})
+      body: JSON.stringify({message, trip, session_id: sessionId, model: activeModel()})
     });
     const remaining = Number(response.headers.get("X-Query-Remaining"));
     if (authState && Number.isFinite(remaining)) {
@@ -1239,8 +1278,19 @@ $("auth-form").addEventListener("submit", async (event) => {
 });
 
 
+$("llm-model")?.addEventListener("change", (event) => {
+  selectedModel = event.target.value;
+  localStorage.setItem("tour-pass-model", selectedModel);
+  $("custom-model").value = "";
+});
+$("custom-model")?.addEventListener("change", (event) => {
+  const value = event.target.value.trim();
+  if (value) localStorage.setItem("tour-pass-model", value);
+});
+
 (async function bootstrap() {
   try {
+    await loadModels();
     const authResponse = await apiFetch("/api/auth/session");
     applyAuthState(await authResponse.json());
     const publicMatch = location.pathname.match(/^\/p\/([a-f0-9]{20})$/);
