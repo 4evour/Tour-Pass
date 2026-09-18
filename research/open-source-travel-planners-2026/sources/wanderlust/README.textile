@@ -1,0 +1,86 @@
+h1. Wanderlust
+
+I built the app as a way to help organize travel plans among multiple people.  It's pretty basic right now its just a board of destinations shared between people. You can check it out at "mywanderlust.co":http://mywanderlust.co.
+Here's an example trip I made:
+"http://mywanderlust.co/trips/c8b8d9b3444c2dce21fcf12063101b77a93c30f6/edit":http://mywanderlust.co/trips/c8b8d9b3444c2dce21fcf12063101b77a93c30f6/edit
+
+Here's my profile with multiple trips I want to go on:
+"http://mywanderlust.co/users/2":http://mywanderlust.co/users/2
+
+Please try to plan a trip with it and share the trip with people and tell me what would make the app more useful.  
+
+All feedback is appreciated.
+
+h2. Ruby on Rails
+
+This application requires:
+
+* Ruby version 1.9.3
+* Rails version 3.2.13
+
+Learn more about "Installing Rails":http://railsapps.github.io/installing-rails.html.
+
+h2. AngularJS
+
+This application uses "AngularJS":http://angularjs.org
+
+h2. Other Open Source
+
+https://github.com/FineLinePrototyping/angularjs-rails-resource
+https://github.com/angular-ui/bootstrap
+https://github.com/twbs/bootstrap
+
+h2. Database
+
+This application uses PostgreSQL with ActiveRecord.
+
+h2. Development
+
+* Template Engine: ERB
+* Testing Framework: RSpec and Factory Girl
+* Front-end Framework: Twitter Bootstrap (Sass)
+* Form Builder: SimpleForm
+* Authentication: Devise
+* Authorization: None
+
+h2. Email
+
+The application is configured to send email using a Mandrill account.
+
+h2. Getting Started
+
+Go to "mywanderlust.co":http://mywanderlust.co and try it out.
+
+h2. Documentation and Support
+
+This is the only documentation. Sorry.
+
+h4. Issues
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+h2. Similar Projects
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
+h2. Development setup
+* cp config/database.yml.sample config/database.yml
+* rake db:setup
+* rake db:migrate
+* rake db:seed
+* rake db:test:clone
+* rspec
+
+h2. Contributing
+
+If you make improvements to this application, please share with others.
+
+* Fork the project on GitHub.
+* Make your feature addition or bug fix.
+* Commit with Git.
+* Send the author a pull request.
+
+If you add functionality to this application, create an alternative implementation, or build an application that is similar, please contact me and I'll add a note to the README so that others can find your work.
+
+
+
