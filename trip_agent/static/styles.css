@@ -30,6 +30,7 @@ html{scroll-behavior:smooth}
 .guide-cover p{max-width:760px;margin:16px 0 0;color:#d8e8df;font-size:14px;line-height:1.8}
 .guide-cover .hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .guide-cover .hero-meta span{padding:7px 11px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.08);color:#f7fbf8;font-size:11px}
+.cover-overview{margin-top:16px}.cover-overview summary{cursor:pointer;font-size:13px;color:#d8e8df}.cover-overview summary:focus-visible{outline:2px solid #d8e8df;outline-offset:4px}
 .guide-stamp{align-self:start;display:grid;place-items:center;width:94px;aspect-ratio:1;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:rgba(255,255,255,.07);transform:rotate(4deg)}
 .guide-stamp strong{font-family:"Iowan Old Style","Songti SC","STSong",serif;font-size:32px;line-height:1}
 .guide-stamp span{margin-top:-10px;font-size:9px;font-weight:900;letter-spacing:.16em}
@@ -274,10 +275,18 @@ html{scroll-behavior:smooth}
 .guide-footer{padding-top:14px;font-size:10px}
 .trip-export-frame{box-sizing:border-box;font-family:"Microsoft YaHei UI","PingFang SC",sans-serif}
 .trip-export-frame .guide-cover,.trip-export-frame .guide-sheet{width:100%}
+.evidence-strip{padding:18px 26px;background:#eef3ed;border-bottom:1px solid #d6e0d7;color:#244e40}
+.evidence-strip b{font-size:15px}.evidence-strip p,.evidence-strip small{font-size:12px;line-height:1.7}
+.evidence-strip p{margin:5px 0}.evidence-strip ul{display:flex;flex-wrap:wrap;gap:10px 24px;margin:12px 0;padding:0;list-style:none}
+.evidence-strip li{font-size:13px}.evidence-strip strong{margin-left:8px;font-variant-numeric:tabular-nums}
+.stop-clock{font-weight:800;font-variant-numeric:tabular-nums}.stop-practical{font-size:12px!important;color:#62746b!important}
 
 
 @media(max-width:760px){
-  .guide-cover{padding:24px 17px 20px}.guide-cover h1{font-size:32px}.guide-cover p{font-size:13px}
+  .guide-cover{grid-template-columns:minmax(0,1fr);padding:24px 17px 20px}.guide-cover h1{font-size:32px}.guide-cover p{font-size:13px}
+  .guide-stamp{display:flex;gap:10px;width:auto;aspect-ratio:auto;justify-self:start;padding:7px 12px;border-radius:8px;transform:none}
+  .guide-stamp strong{font-size:21px}.guide-stamp span{margin:0;letter-spacing:0}.guide-stamp small{display:none}
+  .evidence-strip{padding:14px 17px}.evidence-strip ul{gap:8px 16px}
   .guide-sheet{padding:8px}
   .trip-statbar{grid-template-columns:repeat(2,minmax(0,1fr))}
   .trip-statbar>div{padding:11px 12px;border-top:1px solid rgba(255,255,255,.12)}

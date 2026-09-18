@@ -75,7 +75,7 @@ def _split_values(value: str) -> list[str]:
 _CONJUNCTION_PLACE_SUFFIX = (
     r"(?:博物馆|纪念馆|美术馆|大教堂|动物世界|欢乐世界|"
     r"风景区|景区|公园|古镇|古城|广场|故宫|乐园|"
-    r"[山湖海江河池塔寺宫园城镇村街巷岛洲馆祠坊桥湾滩岸])"
+    r"[山湖海江河池塔寺宫园城镇村街巷岛洲馆祠坊桥湾滩岸坝洞])"
 )
 
 
@@ -641,7 +641,9 @@ def build_planning_context(
 
         must_visit_groups = re.findall(
             r"(?:[\u4e00-\u9fff]{0,8})?必去(?:地点)?[：:\s]*"
-            r"([^；;。]{2,600}?)(?=[，,](?:想|希望|不|每天|每日|请)|[；;。]|$)",
+            r"([^；;。]{2,600}?)(?=[，,](?:想|希望|不|每天|每日|请|"
+            r"\d{1,2}[:：]|公共交通|公交|地铁|交通|同行|其中|少走|"
+            r"节奏|预算|住宿|住在|住|老人|儿童|孩子)|[；;。]|$)",
             message,
         )
         if must_visit_groups:
@@ -658,9 +660,24 @@ def build_planning_context(
         ):
             context["must_visits"] = _split_must_visits(wish_matches[-1])
 
+        for segment in re.split(r"[，,；;。\n]", message):
+            segment = segment.strip()
+            if re.search(r"不吃辣|不能吃辣|(?:食物|海鲜|花生|坚果).{0,8}过敏", segment):
+                context["dietary_requirements"] = list(
+                    dict.fromkeys([*context["dietary_requirements"], segment])
+                )
+            if re.search(
+                r"少走路|少步行|减少步行|膝盖.{0,8}(?:不|疼|痛)|"
+                r"行动不便|需要(?:午休|休息)|使用轮椅|推(?:婴儿车|轮椅)",
+                segment,
+            ):
+                context["mobility_needs"] = list(
+                    dict.fromkeys([*context["mobility_needs"], segment])
+                )
+
         window = re.search(
             r"(?:每日游玩时段[：:]\s*)?"
-            r"(\d{1,2}:\d{2}|不限)\s*至\s*(\d{1,2}:\d{2}|不限)",
+            r"(\d{1,2}:\d{2}|不限)\s*(?:至|到|—|-)\s*(\d{1,2}:\d{2}|不限)",
             message,
         )
         if window:

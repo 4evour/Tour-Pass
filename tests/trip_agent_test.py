@@ -2,7 +2,7 @@ from __future__ import annotations
 import asyncio
 import json
 
-from datetime import date
+from datetime import date, datetime
 import tempfile
 import unittest
 from unittest.mock import AsyncMock, patch
@@ -23,6 +23,7 @@ from trip_agent.context import (
     compact_repair_memory,
 )
 from trip_agent.contracts import ChatRequest, ChatResponse, StructuredTripRequest
+from trip_agent.evaluate import RecordingAmap, ReplayAmap
 from trip_agent.observability import close_logging, configure_logging, log_event
 from trip_agent.loop import TripAgent
 from trip_agent.llm import LLMServiceUnavailableError, OpenAICompatibleLLM
@@ -48,6 +49,8 @@ from trip_agent.workflow import (
     _closed_on_date,
     _matches,
     _select_place,
+    _route_instructions,
+    ItineraryAssembler,
     repair_skeleton,
 )
 
@@ -443,6 +446,370 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(response.content, '{"action":"ask"}')
         self.assertEqual(request_count, 3)
 
+    async def test_llm_retries_terminal_overload_without_hedging(self) -> None:
+        request_count = 0
+
+        def handler(_request: httpx.Request) -> httpx.Response:
+            nonlocal request_count
+            request_count += 1
+            event = (
+                {
+                    "type": "response.failed",
+                    "response": {
+                        "error": {
+                            "code": "server_error",
+                            "message": "Our servers are currently overloaded. Please try again later.",
+                        }
+                    },
+                }
+                if request_count == 1
+                else {"type": "response.output_text.done", "text": '{"ok":true}'}
+            )
+            return httpx.Response(
+                200, content=f"data: {json.dumps(event)}\n\n".encode()
+            )
+
+        llm = OpenAICompatibleLLM()
+        llm.key = "test-key"
+        llm.wire_api = "responses"
+        llm.hedge_delay_seconds = 0
+        llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        with patch("trip_agent.llm.asyncio.sleep", new=AsyncMock()):
+            response = await llm.ainvoke([{"role": "user", "content": "test"}])
+        await llm.close()
+        self.assertEqual(request_count, 2)
+        self.assertEqual(response.metrics["attempts"], 2)
+        self.assertEqual(response.content, '{"ok":true}')
+
+    async def test_llm_overload_retries_are_bounded(self) -> None:
+        request_count = 0
+
+        def handler(_request: httpx.Request) -> httpx.Response:
+            nonlocal request_count
+            request_count += 1
+            event = {"type": "error", "code": "server_error", "message": "overloaded"}
+            return httpx.Response(
+                200, content=f"data: {json.dumps(event)}\n\n".encode()
+            )
+
+        llm = OpenAICompatibleLLM()
+        llm.key = "test-key"
+        llm.wire_api = "responses"
+        llm.hedge_delay_seconds = 0
+        llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        with (
+            patch("trip_agent.llm.asyncio.sleep", new=AsyncMock()),
+            self.assertRaises(LLMServiceUnavailableError),
+        ):
+            await llm.ainvoke([{"role": "user", "content": "test"}])
+        await llm.close()
+        self.assertEqual(request_count, 3)
+
+    async def test_llm_retries_gateway_concurrency_limit(self) -> None:
+        calls = 0
+
+        def handler(_request: httpx.Request) -> httpx.Response:
+            nonlocal calls
+            calls += 1
+            event = (
+                {
+                    "type": "response.failed",
+                    "response": {
+                        "error": {
+                            "code": "gateway_concurrency_limit",
+                            "message": "Concurrency limit exceeded for account, please retry later",
+                        }
+                    },
+                }
+                if calls == 1
+                else {"type": "response.output_text.done", "text": '{"ok":true}'}
+            )
+            return httpx.Response(
+                200, content=f"data: {json.dumps(event)}\n\n".encode()
+            )
+
+        llm = OpenAICompatibleLLM()
+        llm.key = "test-key"
+        llm.wire_api = "responses"
+        llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        with patch("trip_agent.llm.asyncio.sleep", new=AsyncMock()):
+            response = await llm.ainvoke([{"role": "user", "content": "test"}])
+        await llm.close()
+        self.assertEqual(calls, 2)
+        self.assertEqual(response.content, '{"ok":true}')
+
+    def test_llm_allows_explicit_extended_timeout(self) -> None:
+        with patch.dict("os.environ", {"TRIP_AGENT_LLM_TIMEOUT_SECONDS": "600"}):
+            self.assertEqual(OpenAICompatibleLLM().timeout_seconds, 600)
+
+    def test_route_instructions_preserve_provider_stops_and_walking(self) -> None:
+        instructions = _route_instructions(
+            {
+                "summary": {
+                    "walking_distance": "889",
+                    "segments": [
+                        {
+                            "bus": {
+                                "buslines": [
+                                    {
+                                        "name": "轨道交通2号线",
+                                        "departure_stop": {"name": "李子坝"},
+                                        "arrival_stop": {"name": "临江门"},
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                }
+            },
+            mobility_needs=True,
+        )
+        for expected in (
+            "李子坝上车",
+            "轨道交通2号线",
+            "临江门",
+            "889米",
+            "不含景点内步行",
+            "电梯与台阶未核验",
+        ):
+            self.assertIn(expected, instructions)
+
+    async def test_lodging_rest_has_real_routes_and_keeps_its_label(self) -> None:
+        skeleton = skeleton_plan()
+        skeleton["days"][0]["stops"][1]["period"] = "evening"
+        skeleton["days"][0]["stops"].append(
+            {
+                "type": "free_time",
+                "name": "回住宿区午休",
+                "period": "afternoon",
+                "optional": False,
+                "visit_scale": "standard",
+                "search_query": None,
+            }
+        )
+        response = await TripAgent(SkeletonLLM(skeleton), amap=FakeAmap()).run(
+            "请生成行程",
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "daily_window": {"start": "09:00", "end": "22:00"},
+                "mobility_needs": ["需要午休"],
+            },
+        )
+        self.assertIsNotNone(response.plan)
+        day = response.plan["days"][0]
+        rest = next(item for item in day["schedule"] if item["type"] == "free_time")
+        self.assertEqual(rest["name"], "回住宿区午休")
+        self.assertEqual(rest["location"], response.plan["hotel"]["location"])
+        pairs = {
+            (item["from_name"], item["to_name"])
+            for item in day["transfers"]
+            if item["source"] == "amap"
+        }
+        self.assertTrue(any(destination == "回住宿区午休" for _, destination in pairs))
+        self.assertTrue(any(origin == "回住宿区午休" for origin, _ in pairs))
+        self.assertFalse(any("就近午餐" in origin for origin, _ in pairs))
+
+    async def test_nearby_dinner_moves_to_area_before_meal_without_fake_poi(
+        self,
+    ) -> None:
+        skeleton = skeleton_plan()
+        stops = skeleton["days"][0]["stops"]
+        stops[1]["period"] = "evening"
+        stops.append(
+            {
+                "type": "meal",
+                "name": "橘子洲附近晚餐",
+                "period": "dinner",
+                "search_query": "橘子洲附近晚餐",
+                "duration_minutes": 60,
+            }
+        )
+        response = await TripAgent(SkeletonLLM(skeleton), amap=FakeAmap()).run(
+            "请生成行程",
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "must_visits": ["橘子洲"],
+                "daily_window": {"start": "09:00", "end": "22:00"},
+            },
+        )
+        self.assertIsNotNone(response.plan)
+        day = response.plan["days"][0]
+        dinner = next(item for item in day["schedule"] if item["period"] == "dinner")
+        inbound = next(
+            item for item in day["transfers"] if item["to_name"] == "橘子洲景区"
+        )
+        self.assertLessEqual(inbound["end"], dinner["start"])
+        self.assertIsNone(dinner["place_id"])
+        self.assertIsNone(dinner["location"])
+        self.assertEqual(dinner["source"], "model_judgment")
+        self.assertIn("餐厅未确定", "".join(dinner["practical_tips"]))
+
+    async def test_verified_long_return_is_preserved_and_reserved(self) -> None:
+        class LongReturnAmap(FakeAmap):
+            async def route(self, city, origin, destination, mode="driving"):
+                result = await super().route(city, origin, destination, mode)
+                if destination == "112.977,28.196":
+                    result.update(duration_seconds=2400, distance_meters=4100)
+                return result
+
+        skeleton = skeleton_plan()
+        skeleton["days"][0]["stops"][1].update(
+            period="evening",
+            suggested_start="20:00",
+            duration_minutes=90,
+        )
+        response = await TripAgent(SkeletonLLM(skeleton), amap=LongReturnAmap()).run(
+            "请生成行程",
+            structured_request={
+                "destination": "长沙",
+                "days": 1,
+                "must_visits": ["橘子洲"],
+                "transport": "public_transit",
+                "daily_window": {"start": "09:00", "end": "21:30"},
+            },
+        )
+        self.assertIsNotNone(response.plan)
+        day = response.plan["days"][0]
+        returning = day["transfers"][-1]
+        self.assertEqual(returning["source"], "amap")
+        self.assertEqual(returning["duration_minutes"], 40)
+        self.assertEqual(returning["distance_meters"], 4100)
+        self.assertEqual(returning["start"], day["schedule"][-1]["end"])
+        self.assertLessEqual(returning["end"], "21:30")
+        self.assertGreaterEqual(day["schedule"][-1]["duration_minutes"], 30)
+
+    def test_return_conflict_keeps_endpoints_and_does_not_delete_rest(self) -> None:
+        lodging = {"id": "H", "name": "住宿区", "location": "112.97,28.19"}
+        scenic = {"id": "V", "name": "江边休息", "location": "112.96,28.18"}
+        skeleton = {
+            "hotel": {"name": "住宿区", "_resolved_place": lodging},
+            "days": [
+                {
+                    "day": 1,
+                    "stops": [
+                        {
+                            "name": "江边休息",
+                            "type": "free_time",
+                            "period": "evening",
+                            "suggested_start": "20:30",
+                            "duration_minutes": 30,
+                            "_resolved_place": scenic,
+                            "optional": False,
+                        }
+                    ],
+                }
+            ],
+        }
+        result = ItineraryAssembler(FakeAmap())._build_plan(
+            {
+                "destination": "长沙",
+                "days": 1,
+                "transport": "public_transit",
+                "daily_window": {"start": "20:00", "end": "21:00"},
+            },
+            skeleton,
+            {
+                (scenic["location"], lodging["location"], "transit"): {
+                    "duration_seconds": 2400,
+                    "distance_meters": 4100,
+                    "response_hash": "sha256:return",
+                }
+            },
+            None,
+            [],
+        )
+        day = result["days"][0]
+        self.assertEqual(day["schedule"][-1]["name"], "江边休息")
+        self.assertEqual(day["transfers"][-1]["from_location"], scenic["location"])
+        self.assertEqual(day["transfers"][-1]["duration_minutes"], 40)
+        self.assertGreater(day["end_time"], "21:00")
+
+    def test_verified_route_minutes_round_up_like_schedule(self) -> None:
+        route = {
+            "origin": "1,2",
+            "destination": "3,4",
+            "source": "amap",
+            "duration_seconds": 1519,
+            "response_hash": "sha256:route",
+        }
+        result = normalize_transfer(
+            {
+                "from_name": "A",
+                "to_name": "B",
+                "source": "amap",
+                "start": "10:45",
+                "end": "11:11",
+                "evidence_hash": "sha256:route",
+            },
+            [route],
+            [{"name": "A", "location": "1,2"}, {"name": "B", "location": "3,4"}],
+        )
+        self.assertEqual(result["duration_minutes"], 26)
+
+    async def test_llm_does_not_retry_permanent_stream_error(self) -> None:
+        request_count = 0
+
+        def handler(_request: httpx.Request) -> httpx.Response:
+            nonlocal request_count
+            request_count += 1
+            event = {
+                "type": "error",
+                "code": "insufficient_quota",
+                "message": "quota exhausted",
+            }
+            return httpx.Response(
+                200, content=f"data: {json.dumps(event)}\n\n".encode()
+            )
+
+        llm = OpenAICompatibleLLM()
+        llm.key = "test-key"
+        llm.wire_api = "responses"
+        llm.hedge_delay_seconds = 0
+        llm.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        with self.assertRaisesRegex(RuntimeError, "quota exhausted"):
+            await llm.ainvoke([{"role": "user", "content": "test"}])
+        await llm.close()
+        self.assertEqual(request_count, 1)
+
+    async def test_llm_cancellation_cleans_primary_before_hedge_starts(self) -> None:
+        started = asyncio.Event()
+        cancelled = asyncio.Event()
+
+        async def stream(*_args, **_kwargs):
+            started.set()
+            try:
+                await asyncio.Event().wait()
+            finally:
+                cancelled.set()
+
+        llm = OpenAICompatibleLLM()
+        llm.hedge_delay_seconds = 10
+        with patch.object(llm, "_stream_response", new=stream):
+            task = asyncio.create_task(llm._stream_response_hedged("url", {}, {}, None))
+            await started.wait()
+            task.cancel()
+            with self.assertRaises(asyncio.CancelledError):
+                await task
+        self.assertTrue(cancelled.is_set())
+
+    async def test_llm_retries_share_one_timeout_budget(self) -> None:
+        llm = OpenAICompatibleLLM()
+        llm.key = "test-key"
+        llm.wire_api = "responses"
+        llm.hedge_delay_seconds = 0
+        llm.timeout_seconds = 0.02
+
+        async def stream(*_args, **_kwargs):
+            raise httpx.ConnectError("gateway unavailable")
+
+        with patch.object(llm, "_stream_response", new=stream):
+            # Backoff consumes the single invocation budget; later attempts cannot reset it.
+            with self.assertRaises(TimeoutError):
+                await llm.ainvoke([{"role": "user", "content": "test"}])
+        await llm.close()
+
     async def test_llm_exhausted_transport_retries_raise_service_unavailable(
         self,
     ) -> None:
@@ -551,7 +918,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertTrue(response.plan)
         self.assertEqual(llm.call_count, 1)
         self.assertEqual(amap.search_calls, 3)
-        self.assertEqual(amap.route_calls, 1)
+        self.assertEqual(amap.route_calls, 3)
         self.assertEqual(llm.invocations[0]["reasoning_effort"], "medium")
         self.assertIn("prompt_cache_key", llm.invocations[0])
         self.assertNotIn("tools", llm.invocations[0])
@@ -887,8 +1254,8 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
 
         self.assertTrue(response.plan)
         self.assertEqual(amap.search_calls, 3)
-        self.assertEqual(amap.route_calls, 1)
-        self.assertEqual(amap.search_calls + amap.route_calls, 4)
+        self.assertEqual(amap.route_calls, 3)
+        self.assertEqual(amap.search_calls + amap.route_calls, 6)
 
     def test_provider_request_budget_is_capped_at_one_hundred(self) -> None:
         agent = TripAgent(
@@ -2022,6 +2389,107 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
 
         self.assertIsNone(selected)
 
+    def test_visit_selection_uses_provider_alias_and_excludes_hotel(self) -> None:
+        selected = _select_place(
+            {
+                "places": [
+                    {
+                        "id": "hotel",
+                        "name": "洪崖洞景区",
+                        "type": "住宿服务",
+                        "location": "106.58,29.56",
+                    },
+                    {
+                        "id": "poi",
+                        "name": "洪崖洞民俗风貌区",
+                        "alias": "重庆洪崖洞|洪崖洞",
+                        "type": "风景名胜",
+                        "location": "106.579,29.562",
+                    },
+                ]
+            },
+            name="洪崖洞景区",
+            query="洪崖洞",
+            stop_type="visit",
+        )
+        self.assertEqual(selected["id"], "poi")
+
+    def test_visit_selection_binds_viewing_platform_not_station_or_park(self) -> None:
+        selected = _select_place(
+            {
+                "places": [
+                    {
+                        "id": "station",
+                        "name": "李子坝",
+                        "type": "交通设施服务;地铁站",
+                        "location": "106.537,29.552",
+                    },
+                    {
+                        "id": "park",
+                        "name": "李子坝抗战遗址公园",
+                        "type": "风景名胜",
+                        "location": "106.53,29.55",
+                    },
+                    {
+                        "id": "platform",
+                        "name": "李子坝单轨穿楼观景平台",
+                        "type": "风景名胜",
+                        "location": "106.537,29.553",
+                    },
+                ]
+            },
+            name="李子坝轻轨站观景区域",
+            query="李子坝",
+            stop_type="visit",
+        )
+        self.assertEqual(selected["id"], "platform")
+
+    def test_place_selection_leaves_equal_alias_candidates_unresolved(self) -> None:
+        self.assertIsNone(
+            _select_place(
+                {
+                    "places": [
+                        {
+                            "id": str(index),
+                            "name": f"观景场所{index}",
+                            "alias": "山城观景台",
+                            "type": "风景名胜",
+                            "location": f"106.{index},29.5",
+                        }
+                        for index in (1, 2)
+                    ]
+                },
+                name="山城观景台",
+                query="山城观景台",
+                stop_type="visit",
+            )
+        )
+
+    def test_area_anchor_uses_landmark_not_an_arbitrary_hotel(self) -> None:
+        selected = _select_place(
+            {
+                "places": [
+                    {
+                        "id": "hotel",
+                        "name": "解放碑酒店",
+                        "type": "住宿服务",
+                        "location": "106.58,29.56",
+                    },
+                    {
+                        "id": "area",
+                        "name": "人民解放纪念碑",
+                        "alias": "解放碑",
+                        "type": "风景名胜",
+                        "location": "106.577,29.558",
+                    },
+                ]
+            },
+            name="解放碑住宿区",
+            query="解放碑",
+            stop_type="area",
+        )
+        self.assertEqual(selected["id"], "area")
+
     def test_hotel_selection_ignores_exact_named_transit_station(self) -> None:
         selected = _select_place(
             {
@@ -2248,6 +2716,88 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         )
         self.assertEqual(conversational["destination"], "广州")
         self.assertEqual(conversational["days"], 3)
+
+    def test_context_separates_required_places_from_comma_constraints(self) -> None:
+        context = build_planning_context(
+            None,
+            "请规划重庆1天行程，住解放碑住宿区，必去李子坝和洪崖洞，"
+            "10:00到21:00，公共交通为主，同行2位成人，"
+            "其中一位膝盖不太好，少走路，不吃辣。",
+        )
+        self.assertEqual(context["must_visits"], ["李子坝", "洪崖洞"])
+        self.assertEqual(context["daily_window"], {"start": "10:00", "end": "21:00"})
+        self.assertEqual(context["party"]["adults"], 2)
+        self.assertEqual(context["transport"], "public_transit")
+
+    def test_context_keeps_comma_separated_place_list(self) -> None:
+        for separator in ("，", ","):
+            with self.subTest(separator=separator):
+                context = build_planning_context(
+                    None,
+                    f"请规划长沙1天行程，必去岳麓山{separator}橘子洲"
+                    f"{separator}公共交通为主，少走路。",
+                )
+                self.assertEqual(context["must_visits"], ["岳麓山", "橘子洲"])
+
+    def test_context_extracts_explicit_mobility_and_diet_clauses(self) -> None:
+        context = build_planning_context(
+            None, "请规划重庆1天行程，同行2位成人，其中一位膝盖不太好，少走路，不吃辣。"
+        )
+        self.assertEqual(context["mobility_needs"], ["其中一位膝盖不太好", "少走路"])
+        self.assertEqual(context["dietary_requirements"], ["不吃辣"])
+
+    def test_skeleton_trimming_preserves_mobility_rest(self) -> None:
+        skeleton = skeleton_plan()
+        skeleton["days"][0]["stops"].extend(
+            [
+                {
+                    "type": "visit",
+                    "name": f"可选活动{index}",
+                    "period": "afternoon",
+                    "optional": True,
+                }
+                for index in range(6)
+            ]
+        )
+        skeleton["days"][0]["stops"].append(
+            {
+                "type": "free_time",
+                "name": "回住宿午休",
+                "period": "afternoon",
+                "optional": True,
+            }
+        )
+        repaired, _ = repair_skeleton(
+            skeleton,
+            {
+                "destination": "长沙",
+                "days": 1,
+                "pace": "relaxed",
+                "mobility_needs": ["少走路"],
+            },
+        )
+        rest = next(
+            stop
+            for stop in repaired["days"][0]["stops"]
+            if stop["name"] == "回住宿午休"
+        )
+        self.assertFalse(rest["optional"])
+
+    async def test_amap_region_resolution_is_recorded_and_replayed(self) -> None:
+        inner = SimpleNamespace(
+            resolve_search_city=AsyncMock(
+                return_value={"search_city": "500000", "level": "city"}
+            )
+        )
+        recording = RecordingAmap(inner)
+        result = await recording.resolve_search_city("重庆")
+        self.assertEqual(recording.calls[0]["method"], "resolve_search_city")
+        replay = ReplayAmap(recording.calls)
+        self.assertEqual(await replay.resolve_search_city("重庆"), result)
+        self.assertIsNone(getattr(ReplayAmap([]), "resolve_search_city", None))
+        self.assertIsNone(
+            getattr(RecordingAmap(FakeAmap()), "resolve_search_city", None)
+        )
 
     def test_context_parses_detailed_multi_city_request(self) -> None:
         context = build_planning_context(
@@ -2864,11 +3414,13 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             provider._load_query_path = load_query_path
             provider._client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
             provider.min_interval = 0
-            result = await provider.search_trains(
-                travel_date="2026-09-14",
-                from_station="昆明南",
-                to_station="大理",
-            )
+            with patch("trip_agent.providers.rail.datetime", wraps=datetime) as clock:
+                clock.now.return_value = datetime(2026, 9, 12)
+                result = await provider.search_trains(
+                    travel_date="2026-09-14",
+                    from_station="昆明南",
+                    to_station="大理",
+                )
             await provider.close()
 
             self.assertEqual(refreshes, [False, True])
@@ -2894,10 +3446,14 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             provider._load_query_path = load_query_path
             provider._client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
             provider.min_interval = 0
-            with self.assertRaisesRegex(
-                RuntimeError,
-                "12306 returned an unsuccessful timetable response",
+            with (
+                self.assertRaisesRegex(
+                    RuntimeError,
+                    "12306 returned an unsuccessful timetable response",
+                ),
+                patch("trip_agent.providers.rail.datetime", wraps=datetime) as clock,
             ):
+                clock.now.return_value = datetime(2026, 9, 12)
                 await provider.search_trains(
                     travel_date="2026-09-14",
                     from_station="昆明南",

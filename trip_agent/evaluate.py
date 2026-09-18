@@ -294,6 +294,19 @@ class RecordingAmap(RecordingProvider):
     def __init__(self, inner: AmapProvider) -> None:
         super().__init__(inner, "amap")
 
+    def __getattr__(self, name: str) -> Any:
+        if name == "resolve_search_city" and callable(getattr(self.inner, name, None)):
+            return self._resolve_search_city
+        raise AttributeError(name)
+
+    async def _resolve_search_city(self, destination: str) -> dict[str, Any]:
+        arguments = {"destination": destination}
+        return await self._call(
+            "resolve_search_city",
+            arguments,
+            lambda: self.inner.resolve_search_city(**arguments),
+        )
+
     async def search_places(
         self,
         city: str,
@@ -397,6 +410,17 @@ class ReplayProvider:
 class ReplayAmap(ReplayProvider):
     def __init__(self, calls: list[dict[str, Any]]) -> None:
         super().__init__(calls, "amap")
+
+    def __getattr__(self, name: str) -> Any:
+        # Old recordings did not exercise region resolution; retain that behavior.
+        if name == "resolve_search_city" and any(
+            call.get("method") == name for call in self.calls
+        ):
+            return self._resolve_search_city
+        raise AttributeError(name)
+
+    async def _resolve_search_city(self, destination: str) -> dict[str, Any]:
+        return await self._result("resolve_search_city", {"destination": destination})
 
     async def search_places(
         self,

@@ -379,7 +379,7 @@ function renderTransfer(transfer) {
   return `<div class="transfer route-hop">
     <span class="hop-symbol" aria-hidden="true">↳</span>
     <div class="hop-copy">
-      <div><b>${mode}</b><span>${duration} · ${distance}</span></div>
+      <div><b>${mode}</b><span>${textOr(transfer.start, "时间待定")}–${textOr(transfer.end, "待定")} · ${duration} · ${distance}</span></div>
       <p>${textOr(transfer.from_name)} → ${textOr(transfer.to_name)}</p>
       ${transfer.instructions ? `<small>${escapeHtml(transfer.instructions)}</small>` : ""}
     </div>
@@ -391,7 +391,7 @@ function renderScheduleItem(item) {
   const openingDetail = openingHours.length > 96 ? `${openingHours.slice(0, 96)}…` : openingHours;
   const openingClass = item.opening_match === "risk" ? "risk" : "ok";
   const type = String(item.type || "visit");
-  const typeLabel = type === "meal" ? "吃" : type === "hotel" ? "住" : type === "free" ? "闲" : "游";
+  const typeLabel = type === "meal" ? "吃" : type === "hotel" ? "住" : ["free", "free_time"].includes(type) ? "闲" : "游";
   const mapLink = item.location ? `<a class="map-link" href="https://uri.amap.com/marker?position=${encodeURIComponent(item.location)}&name=${encodeURIComponent(item.name)}" target="_blank" rel="noreferrer">地图 ↗</a>` : "";
   const rhythm = type === "visit" ? textOr(visitScaleLabels[item.visit_scale], "按现场节奏游览") : type === "meal" ? "按当天路线就近安排" : "";
   return `<div class="timeline-row stop-${escapeHtml(type)}">
@@ -402,8 +402,9 @@ function renderScheduleItem(item) {
         <div class="stop-copy">
           <div class="stop-heading"><h3>${textOr(item.name, "未命名活动")}</h3>${mapLink}</div>
           <p>${textOr(item.reason, "体验说明待补充")}</p>
-          ${rhythm ? `<div class="stop-facts"><span>${escapeHtml(rhythm)}</span></div>` : ""}
-          ${openingHours ? `<p class="stop-opening ${openingClass}" title="${escapeHtml(openingHours)}"><b>开放时间</b>${escapeHtml(openingDetail)}</p>` : ""}
+          <div class="stop-facts"><span class="stop-clock">${textOr(item.start, "时间待定")}–${textOr(item.end, "待定")}</span>${rhythm ? `<span>${escapeHtml(rhythm)}</span>` : ""}</div>
+          ${list(item.practical_tips).length ? `<p class="stop-practical">${list(item.practical_tips).map(escapeHtml).join("；")}</p>` : ""}
+          ${openingHours ? `<p class="stop-opening ${openingClass}" title="${escapeHtml(openingHours)}"><b>${item.opening_match === "unknown" ? "地图常规时间 · 当日待确认" : "开放时间"}</b>${escapeHtml(openingDetail)}</p>` : ""}
         </div>
       </div>
     </div>
@@ -417,7 +418,7 @@ function renderRisks(risks) {
 
 function renderDay(day) {
   const schedule = list(day.schedule);
-  const transfers = list(day.transfers);
+  const transfers = list(day.transfers).toSorted((left, right) => String(left.start || "").localeCompare(String(right.start || "")));
   const fallback = object(day.fallback);
   const intercity = object(day.intercity_leg);
   const usedTransfers = new Set();
@@ -429,12 +430,15 @@ function renderDay(day) {
       currentPeriod = period;
       timelineParts.push(`<div class="period-divider"><span>${textOr(periodLabels[period], "行程")}</span></div>`);
     }
-    const leadingIndex = transfers.findIndex((transfer, index) =>
-      !usedTransfers.has(index) && samePlace(transfer.to_name, item.name));
-    if (leadingIndex >= 0) {
-      timelineParts.push(renderTransfer(transfers[leadingIndex]));
-      usedTransfers.add(leadingIndex);
-    }
+    transfers.forEach((transfer, index) => {
+      const precedes = transfer.end && item.start
+        ? transfer.end <= item.start
+        : samePlace(transfer.to_name, item.name);
+      if (!usedTransfers.has(index) && precedes) {
+        timelineParts.push(renderTransfer(transfer));
+        usedTransfers.add(index);
+      }
+    });
     timelineParts.push(renderScheduleItem(item));
   });
   transfers.forEach((transfer, index) => {
@@ -489,7 +493,7 @@ function renderReview(review) {
 function renderTripStats(plan, days, profile) {
   const schedules = days.flatMap((day) => list(day.schedule));
   const transfers = days.flatMap((day) => list(day.transfers));
-  const visitCount = schedules.filter((item) => item.type !== "meal" && item.type !== "hotel").length;
+  const visitCount = schedules.filter((item) => item.type === "visit").length;
   const mealCount = schedules.filter((item) => item.type === "meal").length;
   const transferMinutes = transfers.reduce((total, item) => total + (Number(item.duration_minutes) || 0), 0);
   const distanceMeters = transfers.reduce((total, item) => total + (Number(item.distance_meters) || 0), 0);
@@ -504,10 +508,11 @@ function renderTripStats(plan, days, profile) {
     || (budgetRange.per_person ? `人均 ¥${Number(budgetRange.per_person).toLocaleString("zh-CN")}` : "")
     || (budgetRange.total_max ? `总计 ¥${Number(budgetRange.total_max).toLocaleString("zh-CN")}` : "")
     || "未设置";
+  const windows = [...new Set(days.map(day => day.start_time && day.end_time ? `${day.start_time}–${day.end_time}` : "时间待定"))];
   return `<section class="trip-statbar" aria-label="行程关键数据">
     <div><span>日期 / 天数</span><b>${dateLabel}</b><small>${days.length} 天</small></div>
     <div><span>行程规模</span><b>${visitCount} 个游览点</b><small>${mealCount} 次用餐安排</small></div>
-    <div><span>时间表达</span><b>上午 · 下午 · 晚上</b><small>仅固定班次保留时刻</small></div>
+    <div><span>计划时段</span><b>${windows.length === 1 ? escapeHtml(windows[0]) : "按日查看"}</b><small>含已列交通与缓冲，非实时班次</small></div>
     <div><span>路线核验</span><b>${distanceMeters ? `${(distanceMeters / 1000).toFixed(1)} 公里` : "待核验"}</b><small>${transfers.length} 段 · 约 ${transferMinutes} 分钟</small></div>
     <div><span>预算偏好</span><b>${escapeHtml(String(budget))}</b><small>${budget === "未设置" ? "不生成虚假费用" : "按偏好规划"}</small></div>
   </section>`;
@@ -630,7 +635,7 @@ function renderTravelManual(plan, days, hotel, profile) {
         <header><b>住宿与交通</b><span>${verifiedRoutes}/${transfers.length} 段已核验</span></header>
         <h3>${textOr(hotel.name, "住宿区域待确认")}</h3>
         <p>${textOr(hotel.address || hotel.area, "住宿地址待确认")}</p>
-        <dl><div><dt>主要交通</dt><dd>${textOr(modeLabels[profile.transport_preference], "待确认")}</dd></div><div><dt>实时路线</dt><dd>${verifiedRoutes} 段</dd></div><div><dt>保守估算</dt><dd>${estimatedRoutes} 段</dd></div></dl>
+        <dl><div><dt>主要交通</dt><dd>${textOr(modeLabels[profile.transport_preference], "待确认")}</dd></div><div><dt>地图查询路线</dt><dd>${verifiedRoutes} 段</dd></div><div><dt>保守估算</dt><dd>${estimatedRoutes} 段</dd></div></dl>
         ${hotelMap}
       </section>
       ${renderWeather(plan.weather)}
@@ -667,6 +672,14 @@ function renderPlan(data, publicView=false) {
   const paceLabel = ({relaxed:"松弛慢游",balanced:"松弛有序",intensive:"行程充实",packed:"行程充实"})[profile.pace] || textOr(profile.pace, "节奏待定");
   const transportLabel = modeLabels[profile.transport_preference] || textOr(profile.transport_preference, "交通待定");
   const hotelStatusLabel = ({confirmed:"已确认",recommended_area:"推荐住宿区域",unknown:"待确认"})[hotel.status] || textOr(hotel.status, "待确认");
+  const requestedParty = object(object(plan.planning_context).party);
+  const travelerLabel = profile.travelers && profile.travelers !== "未指定" ? profile.travelers
+    : [requestedParty.adults ? `${requestedParty.adults} 位成人` : "", requestedParty.children ? `${requestedParty.children} 位儿童` : ""].filter(Boolean).join(" · ") || "同行人待定";
+  const visits = days.flatMap(day => list(day.schedule)).filter(item => item.type === "visit");
+  const routes = days.flatMap(day => list(day.transfers));
+  const locatedVisits = visits.filter(item => item.place_id && item.location && list(item.evidence_refs).length).length;
+  const checkedRoutes = routes.filter(item => item.source === "amap" && list(item.evidence_refs).length).length;
+  const pendingBookings = list(plan.booking_tasks).filter(item => item.status === "needs_verification").length;
   const actions = publicView
     ? '<button class="plan-action" data-action="image">保存长图</button><button class="plan-action" data-action="print">导出 PDF</button><a class="plan-action" href="/">生成我的行程</a>'
     : '<button class="plan-action" data-action="share">分享行程</button><button class="plan-action" data-action="image">保存长图</button><button class="plan-action" data-action="print">导出 PDF</button>';
@@ -682,24 +695,29 @@ function renderPlan(data, publicView=false) {
     !dateWarnings.includes(warning) && !routeWarnings.includes(warning) && !openingWarnings.includes(warning));
   const allWarnings = [...new Set([...dateWarnings, ...groupedWarnings])];
   if (openingWarnings.length) allWarnings.push(`${openingWarnings.length} 条开放或预约信息需要在出发前复核。`);
-  if (routeWarnings.length) allWarnings.push(`${routeWarnings.length} 段交通路线当前为保守估算，请以实时导航为准。`);
+  if (routeWarnings.length) allWarnings.push(`${routeWarnings.length} 处交通衔接尚未核验，包含餐厅位置未定的接驳；出发前请重新导航。`);
   resultPanel.innerHTML = `${publicView ? '<div class="public-notice">这是已发布行程的只读快照；开放时间、天气和交通请在出发前再次确认。</div>' : ""}
     <header class="plan-hero guide-cover">
       <div class="cover-copy">
         <span class="kicker">TOUR PASS · ${textOr(plan.city)} · ${days.length} DAYS</span>
         <h1>${textOr(plan.title, `${textOr(plan.city)}旅行计划`)}</h1>
-        <p>${textOr(plan.overview, narrative.summary || "行程总览待补充")}</p>
+        <details class="cover-overview"><summary>路线说明与规划假设</summary><p>${textOr(plan.overview, narrative.summary || "行程总览待补充")}</p></details>
         <div class="hero-meta">
           <span>${paceLabel}</span>
           <span>${transportLabel}</span>
-          <span>${textOr(profile.travelers, "同行人待定")}</span>
+          <span>${textOr(travelerLabel)}</span>
         </div>
       </div>
       <div class="guide-stamp" aria-label="行程完整度">
-        <strong>${score}</strong><span>READY</span><small>${days.length} 日路线</small>
+        <strong>${score}</strong><span>完整度</span><small>${days.length} 日路线</small>
       </div>
       <div class="plan-actions">${actions}</div>
     </header>
+    <section class="evidence-strip" aria-label="本次核验范围">
+      <div><b>已生成 · 出发前仍需确认</b><p>地点坐标与路线查询不代表开放、预约或无障碍条件已确认。完整度分数只反映信息结构。</p></div>
+      <ul><li>景点定位 <strong>${locatedVisits}/${visits.length}</strong></li><li>已列交通有地图证据 <strong>${checkedRoutes}/${routes.length}</strong></li><li>预约待确认 <strong>${pendingBookings}</strong></li></ul>
+      <small>餐厅与酒店未确定时，区域接驳还需复核；天气以具体出行日期为准。</small>
+    </section>
     <div class="plan-body guide-sheet">
       ${renderTraceSummary()}
       ${renderTripStats(plan, days, profile)}
@@ -1040,7 +1058,7 @@ async function exportPlanImage(trigger) {
     background: "#eaf0eb",
     zIndex: "-1",
   });
-  [resultPanel.querySelector(".guide-cover"), resultPanel.querySelector(".guide-sheet")]
+  [resultPanel.querySelector(".guide-cover"), resultPanel.querySelector(".evidence-strip"), resultPanel.querySelector(".guide-sheet")]
     .filter(Boolean)
     .forEach((node) => exportRoot.append(node.cloneNode(true)));
   exportRoot.querySelectorAll(".plan-actions,.run-trace,.day-jumpbar,.guide-drawer").forEach((node) => node.remove());

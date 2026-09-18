@@ -256,7 +256,7 @@ def repair_skeleton(
             stop = dict(raw_stop)
             if _text(stop.get("period")) in {"breakfast", "lunch", "dinner"}:
                 stop["type"] = "meal"
-            required_by_user = any(
+            required_by_user = stop.get("type") == "visit" and any(
                 _matches(stop.get("name"), must_visit)
                 for must_visit in context.get("must_visits") or []
             )
@@ -292,9 +292,16 @@ def repair_skeleton(
                 30, min(int(stop.get("duration_minutes") or default_duration), 540)
             )
             stop["_required_by_user"] = required_by_user
+            mobility_rest = bool(context.get("mobility_needs")) and (
+                stop.get("type") == "free_time"
+                and any(
+                    marker in _text(stop.get("name")) + _text(stop.get("reason"))
+                    for marker in ("休息", "午休")
+                )
+            )
             stop["optional"] = (
                 False
-                if required_by_user or stop.get("type") == "meal"
+                if required_by_user or stop.get("type") == "meal" or mobility_rest
                 else bool(stop.get("optional", True))
             )
             unique_stops.append(stop)
@@ -652,6 +659,39 @@ def repair_skeleton(
     return repaired, repairs
 
 
+def _visit_identity(value: Any) -> str:
+    """Remove presentation suffixes, retaining geographical qualifiers and venue type."""
+    name = _text(value)
+    name = re.sub(r"\s*官方$", "", name).strip()
+    name = re.sub(
+        r"(?:轻轨站观景(?:区域|区)?|单轨穿楼观景平台|"
+        r"外部观景(?:与吊脚楼街区)?|夜景(?:短暂停留|观景点)?|"
+        r"民俗风貌区|景区)$",
+        "",
+        name,
+    ).strip()
+    return _key(name)
+
+
+def _place_names(place: dict[str, Any]) -> list[str]:
+    aliases = place.get("alias")
+    if isinstance(aliases, str):
+        aliases = re.split(r"[|;；、]", aliases)
+    return [
+        _text(place.get("name")),
+        *[_text(alias) for alias in aliases or [] if isinstance(alias, str)],
+    ]
+
+
+def _area_anchor_query(hotel: dict[str, Any]) -> str:
+    match = re.fullmatch(
+        r"(.{2,24}?)(?:住宿区(?:域)?|酒店区域)", _text(hotel.get("name"))
+    )
+    if not match or re.search(r"[、，,—/]|(?:或者|附近)", match.group(1)):
+        return ""
+    return match.group(1)
+
+
 def _score_place(
     place: dict[str, Any],
     name: str,
@@ -674,6 +714,14 @@ def _score_place(
         requested_query in canonical or canonical in requested_query
     ):
         score += 35
+    if canonical and canonical != requested_name and canonical in requested_name:
+        score += 10
+    if stop_type in {"visit", "area"}:
+        identities = {_visit_identity(name), _visit_identity(query)} - {""}
+        if identities.intersection(
+            _visit_identity(value) for value in _place_names(place)
+        ):
+            score += 80
     is_food = "餐饮服务" in place_type
     if stop_type == "meal":
         score += 25 if is_food else -40
@@ -699,6 +747,11 @@ def _score_place(
         ):
             score -= 60
     place_area = _key(place.get("area") or place.get("adname"))
+    if stop_type == "area":
+        if canonical == requested_query + "商圈":
+            score += 100
+        elif canonical == requested_query + "片区":
+            score += 60
     requested_area = _key(area_hint)
     if requested_area and place_area:
         if requested_area in place_area or place_area in requested_area:
@@ -718,6 +771,7 @@ def _select_place(
 ) -> dict[str, Any] | None:
     places = (result or {}).get("places") or []
     candidates = []
+    requested_area = _key(area_hint)
     for item in places:
         if not isinstance(item, dict):
             continue
@@ -727,21 +781,66 @@ def _select_place(
         ):
             continue
         place_type = _text(item.get("type"))
+        selected_area = _key(item.get("area") or item.get("adname"))
+        if (
+            requested_area
+            and selected_area
+            and not (requested_area in selected_area or selected_area in requested_area)
+        ):
+            continue
+        if not item.get("id") or not item.get("location"):
+            continue
         if stop_type == "hotel" and place_type and "住宿服务" not in place_type:
             continue
         if stop_type == "meal" and place_type and "餐饮服务" not in place_type:
             continue
-        if stop_type == "visit" and "交通设施服务" in place_type:
+        if stop_type == "visit" and any(
+            marker in place_type for marker in ("交通设施服务", "地名地址信息")
+        ):
+            continue
+        if stop_type in {"visit", "area"} and any(
+            marker in place_type for marker in ("住宿服务", "餐饮服务", "生活服务")
+        ):
+            continue
+        if stop_type == "area" and not any(
+            marker in place_type
+            for marker in ("风景名胜", "地名地址", "交通设施", "购物服务")
+        ):
+            continue
+        canonical = _key(item.get("name"))
+        relevant = any(
+            requested and (requested in canonical or canonical in requested)
+            for requested in (_key(name), _key(query))
+        )
+        if stop_type in {"visit", "area"}:
+            identities = {_visit_identity(name), _visit_identity(query)} - {""}
+            relevant = relevant or bool(
+                identities.intersection(
+                    _visit_identity(value) for value in _place_names(item)
+                )
+            )
+        if stop_type in {"visit", "meal", "area"} and not relevant:
             continue
         candidates.append(item)
     if not candidates:
         return None
-    selected = max(
+    ranked = sorted(
         candidates,
         key=lambda item: _score_place(
             item, name, query, stop_type, area_hint=area_hint
         ),
+        reverse=True,
     )
+    selected = ranked[0]
+    if (
+        len(ranked) > 1
+        and ranked[0].get("id") != ranked[1].get("id")
+        and (
+            _score_place(ranked[0], name, query, stop_type, area_hint)
+            == _score_place(ranked[1], name, query, stop_type, area_hint)
+        )
+    ):
+        return None
     canonical = _key(selected.get("name"))
     requested_name = _key(name)
     requested_query = _key(query)
@@ -755,7 +854,7 @@ def _select_place(
         return None
     if stop_type == "visit" and "交通设施服务" in place_type:
         return None
-    if stop_type in {"visit", "meal"} and not lexically_relevant:
+    if stop_type == "meal" and not lexically_relevant:
         return None
     requested_area = _key(area_hint)
     selected_area = _key(selected.get("area") or selected.get("adname"))
@@ -801,6 +900,45 @@ def _estimate_route(origin: str, destination: str, mode: str) -> tuple[int, int]
     else:
         minutes = max(12, 8 + math.ceil(distance / 220))
     return minutes, distance
+
+
+def _route_instructions(route: dict[str, Any], mobility_needs: bool = False) -> str:
+    summary = route.get("summary")
+    summary = summary if isinstance(summary, dict) else {}
+    legs = []
+    for segment in summary.get("segments") or []:
+        if not isinstance(segment, dict):
+            continue
+        bus = segment.get("bus")
+        lines = bus.get("buslines") or [] if isinstance(bus, dict) else []
+        if not lines or not isinstance(lines[0], dict):
+            continue
+        line = lines[0]
+        departure = line.get("departure_stop") or {}
+        arrival = line.get("arrival_stop") or {}
+        if isinstance(departure, dict) and isinstance(arrival, dict):
+            legs.append(
+                f"{_text(departure.get('name'))}上车，乘{_text(line.get('name'))}"
+                f"至{_text(arrival.get('name'))}"
+            )
+    walking = summary.get("walking_distance")
+    if str(walking or "").isdigit():
+        legs.append(f"地图接驳步行约{int(walking)}米（不含景点内步行）")
+        if mobility_needs and int(walking) > 0:
+            legs.append("电梯与台阶未核验，膝盖不适时可改用短途车，费用另查")
+    legs.append("以上为本次地图查询参考，出发前复核运营与入口")
+    return "；".join(legs)
+
+
+def _is_lodging_break(stop: dict[str, Any]) -> bool:
+    name = _text(stop.get("name"))
+    return bool(
+        stop.get("type") == "free_time"
+        and "或" not in name
+        and re.search(
+            r"(?:返回|回到|回).*(?:住宿|酒店)|(?:住宿区|酒店|房间).*(?:休息|午休)", name
+        )
+    )
 
 
 class ItineraryAssembler:
@@ -1017,13 +1155,15 @@ class ItineraryAssembler:
             hotel for hotel in skeleton.get("hotels") or [] if isinstance(hotel, dict)
         ]
         for hotel in hotels:
-            hotel_query = _text(hotel.get("search_query"))
+            area_query = _area_anchor_query(hotel)
+            hotel_query = area_query or _text(hotel.get("search_query"))
+            hotel["_area_anchor"] = bool(area_query)
             hotel_city = _text(hotel.get("destination"), provider_city)
             if len(day_destinations) == 1:
                 hotel_city = provider_city
             if hotel_query:
                 query_specs.setdefault((hotel_city, hotel_query), []).append(
-                    ("hotel", hotel)
+                    ("area" if area_query else "hotel", hotel)
                 )
             if region_area_hint:
                 hotel["_area_hint"] = region_area_hint
@@ -1059,6 +1199,15 @@ class ItineraryAssembler:
                     continue
                 if _text(stop.get("type")) == "visit":
                     query = re.sub(r"(?:正门|[东南西北]门)$", "", query).strip()
+                    query = _visit_identity(query) or query
+                    required_queries = [
+                        _text(required)
+                        for required in context.get("must_visits") or []
+                        if len(_key(required)) >= 2
+                        and _key(required) in _key(stop.get("name"))
+                    ]
+                    if len(required_queries) == 1:
+                        query = required_queries[0]
                 if query:
                     query_specs.setdefault((day_city, query), []).append(
                         (_text(stop.get("type")), stop)
@@ -1133,7 +1282,7 @@ class ItineraryAssembler:
             query_specs,
             key=lambda query_key: (
                 0
-                if any(kind == "hotel" for kind, _ in query_specs[query_key])
+                if any(kind in {"hotel", "area"} for kind, _ in query_specs[query_key])
                 else 1
                 if any(
                     not target.get("optional") for _, target in query_specs[query_key]
@@ -1309,6 +1458,16 @@ class ItineraryAssembler:
                 if target_name_key:
                     known_places[target_name_key] = selected
                 target["_resolved_place"] = selected
+                if stop_type == "area":
+                    target["reason"] = (
+                        _text(target.get("reason"))
+                        + f" 路线以{_text(selected.get('name'))}作为区域参考点；"
+                        "实际酒店未确定，门到门接驳需重新核对。"
+                    )
+                    skeleton.setdefault("warnings", []).append(
+                        f"{_text(target.get('name'))}使用区域参考点计算交通，"
+                        "不代表已选定或预订具体酒店。"
+                    )
 
         start_date = _text(context.get("start_date"))
         if start_date:
@@ -1359,11 +1518,35 @@ class ItineraryAssembler:
                 ),
                 hotels[0],
             )
+            for stop in day.get("stops") or []:
+                if _is_lodging_break(stop) and day_hotel.get("_resolved_place"):
+                    stop["_resolved_place"] = day_hotel["_resolved_place"]
+                    known_places[_key(stop.get("name"))] = day_hotel["_resolved_place"]
+            ordered_stops = sorted(
+                day.get("stops") or [],
+                key=lambda item: _PERIOD_ORDER.get(_text(item.get("period")), 5),
+            )
+            if ordered_stops:
+                last = ordered_stops[-1]
+                if (
+                    _is_lodging_break(last)
+                    and last.get("_resolved_place")
+                    and "返回" in _text(last.get("name"))
+                    and not any(
+                        marker in _text(last.get("name")) for marker in ("休息", "午休")
+                    )
+                ):
+                    # The closing transfer already returns to the lodging anchor.
+                    ordered_stops.pop()
+            day["stops"] = ordered_stops
             physical = [
                 stop
-                for stop in day.get("stops") or []
+                for stop in sorted(
+                    day.get("stops") or [],
+                    key=lambda item: _PERIOD_ORDER.get(_text(item.get("period")), 5),
+                )
                 if isinstance(stop, dict)
-                and stop.get("type") in {"visit", "meal"}
+                and stop.get("type") in {"visit", "meal", "free_time"}
                 and _text((stop.get("_resolved_place") or {}).get("location"))
                 and not (stop.get("_unresolved") and stop.get("optional"))
                 and not stop.get("_opening_closed")
@@ -1635,9 +1818,46 @@ class ItineraryAssembler:
                         if period == "lunch"
                         else "用餐"
                     )
-                    resolved_name = f"{primary_area}就近{meal_label}"
+                    requested_meal = _text(stop.get("name"))
+                    resolved_name = (
+                        requested_meal
+                        if re.search(
+                            r"(?:附近|就近|周边|住宿区).*(?:早餐|早午餐|午餐|晚餐)",
+                            requested_meal,
+                        )
+                        else f"{primary_area}就近{meal_label}"
+                    )
+                elif stop_type == "free_time":
+                    resolved_name = _text(stop.get("name"))
                 else:
                     resolved_name = _text(evidence.get("name"), _text(stop.get("name")))
+                route_target_name = resolved_name
+                meal_anchor_note = ""
+                if generic_meal and re.search(r"附近|周边|就近", resolved_name):
+                    # A nearby meal is not a verified restaurant. Move to the next
+                    # explicitly named sightseeing area before eating, while keeping
+                    # the meal's own POI and coordinates unknown.
+                    next_stop = next(
+                        (
+                            item
+                            for item in day_stops[stop_index + 1 :]
+                            if (item.get("_resolved_place") or {}).get("location")
+                            and not item.get("_opening_closed")
+                        ),
+                        {},
+                    )
+                    next_place = next_stop.get("_resolved_place") or {}
+                    if next_stop.get("type") == "visit" and any(
+                        len(_key(_visit_identity(name))) >= 2
+                        and _key(_visit_identity(name)) in _key(resolved_name)
+                        for name in _place_names(next_place)
+                    ):
+                        location = _text(next_place.get("location"))
+                        route_target_name = _text(next_place.get("name"))
+                        meal_anchor_note = (
+                            f"先前往{route_target_name}所在片区再就近用餐；"
+                            "餐厅未确定，餐厅门口接驳与不辣菜品仍需确认。"
+                        )
                 evidence_area = _text(evidence.get("area"))
                 if evidence_area:
                     area_counts[evidence_area] = area_counts.get(evidence_area, 0) + 1
@@ -1662,11 +1882,9 @@ class ItineraryAssembler:
                         if route
                         else 0
                     )
-                    if route and route_minutes <= max(
-                        estimated_minutes + 15, estimated_minutes * 2
-                    ):
+                    if route:
                         route_source = "amap"
-                        route_distance = 0
+                        route_distance = int(route.get("distance_meters") or 0)
                     else:
                         route = None
                         route_minutes = estimated_minutes
@@ -1686,7 +1904,7 @@ class ItineraryAssembler:
                     transfers.append(
                         {
                             "from_name": previous_name,
-                            "to_name": resolved_name,
+                            "to_name": route_target_name,
                             "from_location": previous_location,
                             "to_location": location,
                             "mode": mode,
@@ -1695,7 +1913,9 @@ class ItineraryAssembler:
                             "duration_minutes": route_minutes,
                             "distance_meters": route_distance,
                             "instructions": (
-                                "已按实时路线结果预留通勤与换乘缓冲。"
+                                _route_instructions(
+                                    route, bool(context.get("mobility_needs"))
+                                )
                                 if route
                                 else "基于两点距离保守估算；出发前请用实时导航复核。"
                             ),
@@ -1820,7 +2040,7 @@ class ItineraryAssembler:
                         "name": resolved_name,
                         "area": evidence_area or None,
                         "address": _text(evidence.get("address")) or None,
-                        "location": location or None,
+                        "location": _text(evidence.get("location")) or None,
                         "reason": _text(stop.get("reason"))
                         or (
                             f"在{evidence_area or primary_area}就近安排用餐，减少跨区折返。"
@@ -1841,10 +2061,7 @@ class ItineraryAssembler:
                         },
                         "source": (
                             "user"
-                            if any(
-                                _matches(stop.get("name"), item)
-                                for item in context.get("must_visits") or []
-                            )
+                            if stop.get("_required_by_user")
                             else "model_judgment"
                         ),
                         "evidence_fetched_at": evidence.get("fetched_at"),
@@ -1852,7 +2069,10 @@ class ItineraryAssembler:
                         "optional": bool(stop.get("optional", True)),
                         "required_by_user": bool(stop.get("_required_by_user")),
                         "visit_scale": _text(stop.get("visit_scale"), "standard"),
-                        "practical_tips": [
+                        "practical_tips": (
+                            [meal_anchor_note] if meal_anchor_note else []
+                        )
+                        + [
                             _text(stop.get("practical_tip"))
                             or (
                                 "热门时段可能排队，建议提前取号或预约。"
@@ -1897,10 +2117,9 @@ class ItineraryAssembler:
                     }
                 )
                 cursor = end
-                if stop_type in {"visit", "meal"}:
-                    previous_name = resolved_name
-                    if location:
-                        previous_location = location
+                if stop_type in {"visit", "meal", "free_time"} and location:
+                    previous_name = route_target_name
+                    previous_location = location
 
             if (
                 previous_location
@@ -1919,11 +2138,9 @@ class ItineraryAssembler:
                     if route
                     else 0
                 )
-                if route and route_minutes <= max(
-                    estimated_minutes + 15, estimated_minutes * 2
-                ):
+                if route:
                     route_source = "amap"
-                    route_distance = 0
+                    route_distance = int(route.get("distance_meters") or 0)
                 else:
                     route = None
                     route_minutes = estimated_minutes
@@ -1946,25 +2163,10 @@ class ItineraryAssembler:
                             last["duration_minutes"] = last_duration - reduction
                             cursor -= reduction
                             overrun -= reduction
-                        elif last.get("source") == "model_judgment":
-                            schedule.pop()
-                            cursor = (
-                                _clock(schedule[-1].get("end"), day_start)
-                                if schedule
-                                else day_start
-                            )
-                            previous_name = (
-                                _text(schedule[-1].get("name"), hotel_name)
-                                if schedule
-                                else hotel_name
-                            )
-                            previous_location = (
-                                _text(schedule[-1].get("location"), hotel_location)
-                                if schedule
-                                else hotel_location
-                            )
-                            overrun = max(0, cursor - latest_return_start)
                         else:
+                            # Removing the last stop would invalidate its inbound
+                            # route and the already selected return evidence. Keep
+                            # the actual chain and let validation report a conflict.
                             break
                 transfer_end = cursor + route_minutes
                 transfers.append(
@@ -1979,7 +2181,9 @@ class ItineraryAssembler:
                         "duration_minutes": route_minutes,
                         "distance_meters": route_distance,
                         "instructions": (
-                            "已按实时路线结果预留返程与换乘缓冲。"
+                            _route_instructions(
+                                route, bool(context.get("mobility_needs"))
+                            )
                             if route
                             else "基于两点距离保守估算返程；出发前请用实时导航复核。"
                         ),
@@ -2021,7 +2225,7 @@ class ItineraryAssembler:
                     + "、".join(item["name"] for item in schedule)
                     + "，兼顾游览节奏与交通衔接。",
                     "start_time": _hhmm(day_start),
-                    "end_time": _hhmm(min(cursor, day_maximum_end)),
+                    "end_time": _hhmm(cursor),
                     "intercity_leg": intercity_leg,
                     "start_anchor": {
                         "name": hotel_name,

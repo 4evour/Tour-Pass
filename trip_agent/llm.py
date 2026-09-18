@@ -18,6 +18,15 @@ class LLMServiceUnavailableError(RuntimeError):
     """Raised after transient model transport failures exhaust retries."""
 
 
+class LLMStreamError(RuntimeError):
+    """Terminal upstream event, with explicit retry semantics."""
+
+    def __init__(self, code: str, message: str, retryable: bool) -> None:
+        super().__init__(f"LLM stream failed: {message or code}")
+        self.code = code
+        self.retryable = retryable
+
+
 class OpenAICompatibleLLM:
     requires_decision_wrapper = True
     supports_tool_calls = True
@@ -62,15 +71,15 @@ class OpenAICompatibleLLM:
         self.hedge_delay_seconds = max(
             0.0,
             min(
-                float(os.environ.get("TRIP_AGENT_LLM_HEDGE_DELAY_SECONDS", "1.5")),
+                float(os.environ.get("TRIP_AGENT_LLM_HEDGE_DELAY_SECONDS", "0")),
                 10.0,
             ),
         )
         self.timeout_seconds = max(
             15.0,
             min(
-                float(os.environ.get("TRIP_AGENT_LLM_TIMEOUT_SECONDS", "120")),
-                120.0,
+                float(os.environ.get("TRIP_AGENT_LLM_TIMEOUT_SECONDS", "300")),
+                600.0,
             ),
         )
         self.client: httpx.AsyncClient | None = None
@@ -350,13 +359,28 @@ class OpenAICompatibleLLM:
                             error = (
                                 response_body.get("error")
                                 if isinstance(response_body, dict)
-                                else {}
+                                else event
                             )
                         message = (
                             error.get("message") if isinstance(error, dict) else None
                         )
-                        raise RuntimeError(
-                            f"LLM stream failed: {message or event_type}"
+                        error = error if isinstance(error, dict) else {}
+                        code = str(error.get("code") or error.get("type") or event_type)
+                        retryable = code in {
+                            "server_error",
+                            "overloaded_error",
+                            "rate_limit_exceeded",
+                            "gateway_concurrency_limit",
+                            "stream_read_error",
+                        } or any(
+                            marker in str(message or "").lower()
+                            for marker in (
+                                "servers are currently overloaded",
+                                "stream_read_error",
+                            )
+                        )
+                        raise LLMStreamError(
+                            code, str(message or event_type), retryable
                         )
         except httpx.TransportError as exc:
             if received_event:
@@ -398,26 +422,27 @@ class OpenAICompatibleLLM:
                 on_progress=on_progress,
             )
         )
+        pending: set[asyncio.Task[Any]] = {primary}
         try:
-            result = await asyncio.wait_for(
-                asyncio.shield(primary), timeout=self.hedge_delay_seconds
-            )
-            result[2]["provider_request_count"] = 1
-            return result
-        except TimeoutError:
-            pass
+            try:
+                result = await asyncio.wait_for(
+                    asyncio.shield(primary), timeout=self.hedge_delay_seconds
+                )
+                result[2]["provider_request_count"] = 1
+                return result
+            except TimeoutError:
+                pass
 
-        hedge = asyncio.create_task(
-            self._stream_response(
-                endpoint,
-                headers,
-                payload,
-                on_progress=None,
+            hedge = asyncio.create_task(
+                self._stream_response(
+                    endpoint,
+                    headers,
+                    payload,
+                    on_progress=None,
+                )
             )
-        )
-        pending: set[asyncio.Task[Any]] = {primary, hedge}
-        first_error: BaseException | None = None
-        try:
+            pending.add(hedge)
+            first_error: BaseException | None = None
             while pending:
                 done, pending = await asyncio.wait(
                     pending, return_when=asyncio.FIRST_COMPLETED
@@ -425,7 +450,7 @@ class OpenAICompatibleLLM:
                 for completed in done:
                     try:
                         result = completed.result()
-                    except BaseException as exc:
+                    except Exception as exc:
                         first_error = first_error or exc
                         continue
                     result[2]["provider_request_count"] = 2
@@ -520,7 +545,12 @@ class OpenAICompatibleLLM:
         for attempt in range(max_attempts):
             try:
                 if self.wire_api == "responses":
-                    async with asyncio.timeout(self.timeout_seconds):
+                    remaining_seconds = self.timeout_seconds - (
+                        time.perf_counter() - request_started
+                    )
+                    if remaining_seconds <= 0:
+                        raise TimeoutError("LLM request timeout budget exhausted")
+                    async with asyncio.timeout(remaining_seconds):
                         if output_format and self.hedge_delay_seconds > 0:
                             (
                                 content,
@@ -539,6 +569,7 @@ class OpenAICompatibleLLM:
                                 payload,
                                 on_progress=on_progress,
                             )
+                            metrics["provider_request_count"] = 1
                 else:
                     response = await self.client.post(
                         endpoint,
@@ -560,6 +591,10 @@ class OpenAICompatibleLLM:
                         "output_chars": len(content),
                         "tool_call_count": len(tool_calls),
                     }
+                metrics["invocation_total_ms"] = round(
+                    (time.perf_counter() - request_started) * 1000
+                )
+                metrics["attempts"] = attempt + 1
                 log_event(
                     "llm_request_finished",
                     call_id=call_id,
@@ -595,6 +630,19 @@ class OpenAICompatibleLLM:
                 raise
             except httpx.TransportError as exc:
                 last_error = exc
+            except LLMStreamError as exc:
+                if not exc.retryable:
+                    log_event(
+                        "llm_request_failed",
+                        call_id=call_id,
+                        attempt=attempt + 1,
+                        error_type=type(exc).__name__,
+                        upstream_code=exc.code,
+                        total_ms=round((time.perf_counter() - request_started) * 1000),
+                        **trace_fields,
+                    )
+                    raise
+                last_error = exc
             except RuntimeError as exc:
                 if not any(
                     marker in str(exc)
@@ -624,15 +672,33 @@ class OpenAICompatibleLLM:
                 )
                 raise
 
+            remaining_seconds = self.timeout_seconds - (
+                time.perf_counter() - request_started
+            )
+            if remaining_seconds <= 0:
+                timeout_error = TimeoutError(
+                    f"LLM request exceeded {self.timeout_seconds:.2f}s timeout"
+                )
+                log_event(
+                    "llm_request_failed",
+                    call_id=call_id,
+                    attempt=attempt + 1,
+                    error_type=type(timeout_error).__name__,
+                    total_ms=round((time.perf_counter() - request_started) * 1000),
+                    **trace_fields,
+                )
+                raise timeout_error from last_error
+
             if attempt + 1 < max_attempts:
                 log_event(
                     "llm_request_retry",
                     call_id=call_id,
                     attempt=attempt + 1,
                     error_type=type(last_error).__name__,
+                    upstream_code=getattr(last_error, "code", None),
                     **trace_fields,
                 )
-                await asyncio.sleep(0.5 * (attempt + 1))
+                await asyncio.sleep(min(0.5 * (attempt + 1), remaining_seconds))
 
         error = LLMServiceUnavailableError(
             f"LLM request failed after retries: {last_error}"

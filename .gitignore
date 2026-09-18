@@ -20,6 +20,8 @@ trip_agent/trips.sqlite-*
 trip_agent/logs/
 artifacts/
 *.log
+output/
+.playwright-cli/
 
 # Editors and OS
 .vscode/

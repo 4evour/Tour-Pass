@@ -35,8 +35,8 @@ class TripRuntime:
         self.request_timeout_seconds = max(
             15.0,
             min(
-                float(os.environ.get("TRIP_AGENT_RUN_TIMEOUT_SECONDS", "180")),
-                180.0,
+                float(os.environ.get("TRIP_AGENT_RUN_TIMEOUT_SECONDS", "420")),
+                900.0,
             ),
         )
         memory_policy = MemoryPolicy(

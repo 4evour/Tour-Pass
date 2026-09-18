@@ -412,7 +412,11 @@ def normalize_schedule_item(
         "end": end,
         "duration_minutes": interval_minutes(start, end, value.get("duration_minutes")),
         "place_id": text(canonical_id) or None,
-        "name": text(evidence.get("name") or value.get("name")),
+        "name": text(
+            value.get("name")
+            if item_type == "free_time"
+            else evidence.get("name") or value.get("name")
+        ),
         "reason": text(value.get("reason")),
         "opening_hours": verified_opening or None,
         "opening_match": opening_match,
@@ -539,7 +543,7 @@ def normalize_transfer(
         "start": text(transfer.get("start")),
         "end": text(transfer.get("end")),
         "duration_minutes": (
-            round(integer(evidence.get("duration_seconds")) / 60)
+            (integer(evidence.get("duration_seconds")) + 59) // 60
             if evidence
             else integer(transfer.get("duration_minutes"))
             if estimated
