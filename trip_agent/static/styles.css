@@ -237,6 +237,7 @@ html{scroll-behavior:smooth}
 .stop-opening b{flex:none;color:#31594a;font-size:11px}
 .stop-opening.ok{border-left-color:#5d9b79}.stop-opening.risk{border-left-color:#c58745;background:#fff8ea}
 .guide-triptych{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:10px}
+.guide-triptych.without-reminder{grid-template-columns:repeat(2,minmax(0,1fr))}
 .guide-triptych>div{display:grid;gap:4px;padding:8px 9px;border:1px solid #e1e9e2;border-radius:8px;background:#f8fbf8}
 .guide-triptych b{color:#386a55;font-size:10px;letter-spacing:.08em}
 .guide-triptych span{color:#62736b;font-size:11px;line-height:1.55}

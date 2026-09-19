@@ -2299,6 +2299,14 @@ class ItineraryAssembler:
                     stop_type == "visit"
                     and not _looks_like_transport_hub(resolved_name)
                 )
+                practical_tips = []
+                if meal_anchor_note:
+                    practical_tips.append(meal_anchor_note)
+                practical_tip = _text(stop.get("practical_tip"))
+                if practical_tip:
+                    practical_tips.append(practical_tip)
+                elif reservation_note:
+                    practical_tips.append(reservation_note)
                 schedule.append(
                     {
                         "period": period,
@@ -2339,17 +2347,7 @@ class ItineraryAssembler:
                         "optional": bool(stop.get("optional", True)),
                         "required_by_user": bool(stop.get("_required_by_user")),
                         "visit_scale": _text(stop.get("visit_scale"), "standard"),
-                        "practical_tips": (
-                            [meal_anchor_note] if meal_anchor_note else []
-                        )
-                        + [
-                            _text(stop.get("practical_tip"))
-                            or (
-                                "热门时段可能排队，建议提前取号或预约。"
-                                if stop_type == "meal"
-                                else "建议按当天开放、预约和人流情况调整停留时间。"
-                            )
-                        ],
+                        "practical_tips": practical_tips,
                         "alternatives": (
                             [
                                 {

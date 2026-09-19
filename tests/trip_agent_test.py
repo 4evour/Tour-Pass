@@ -970,6 +970,25 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(dinner["source"], "model_judgment")
         self.assertIn("餐厅未确定", "".join(dinner["practical_tips"]))
 
+    async def test_visit_without_specific_tip_does_not_get_generic_reminder(
+        self,
+    ) -> None:
+        skeleton = skeleton_plan()
+        for stop in skeleton["days"][0]["stops"]:
+            stop.pop("practical_tip", None)
+
+        response = await TripAgent(SkeletonLLM(skeleton), amap=FakeAmap()).run(
+            "请生成行程", structured_request={"destination": "长沙", "days": 1}
+        )
+
+        visits = [
+            item
+            for item in response.plan["days"][0]["schedule"]
+            if item["type"] == "visit"
+        ]
+        self.assertTrue(visits)
+        self.assertTrue(all(not item["practical_tips"] for item in visits))
+
     async def test_verified_long_return_is_preserved_and_reserved(self) -> None:
         class LongReturnAmap(FakeAmap):
             async def route(self, city, origin, destination, mode="driving"):

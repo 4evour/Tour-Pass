@@ -474,7 +474,9 @@ function renderScheduleItem(item) {
   const sentences = String(item.reason || "").split(/[。！？!?]+/).map((part) => part.trim()).filter(Boolean);
   const highlight = guide.highlight || sentences[0] || "这站值得留出一段完整时间。";
   const how = guide.how || sentences.slice(1).join("；") || rhythm || "按现场状态慢慢逛，不必追求全部打卡。";
-  const reminder = guide.reminder || list(item.practical_tips)[0] || "开放、预约和现场排队情况以出发当天为准。";
+  const reminder = [guide.reminder, ...list(item.practical_tips)]
+    .map((value) => String(value || "").trim())
+    .find((value) => value && !/热门时段.*排队.*取号或预约|建议按当天开放、预约和人流情况|开放、预约和现场排队情况以出发当天为准|出发前确认开放和预约要求/.test(value)) || "";
   const verified = item.source === "amap" && item.place_id && item.location;
   const factLabel = verified ? "地点已定位" : "地点待核验";
   const factClass = verified ? "verified" : "pending";
@@ -486,10 +488,10 @@ function renderScheduleItem(item) {
         <div class="stop-copy">
           <div class="stop-heading"><h3>${textOr(item.name, "未命名活动")}</h3>${mapLink}</div>
           <p class="stop-reason">${textOr(item.reason, "体验说明待补充")}</p>
-          <div class="guide-triptych" aria-label="导游说明">
+          <div class="guide-triptych${reminder ? "" : " without-reminder"}" aria-label="导游说明">
             <div><b>看点</b><span>${escapeHtml(highlight)}</span></div>
             <div><b>玩法</b><span>${escapeHtml(how)}</span></div>
-            <div><b>提醒</b><span>${escapeHtml(reminder)}</span></div>
+            ${reminder ? `<div><b>提醒</b><span>${escapeHtml(reminder)}</span></div>` : ""}
           </div>
           <div class="stop-facts"><span class="stop-clock">${textOr(item.start, "时间待定")}–${textOr(item.end, "待定")}</span>${rhythm ? `<span>${escapeHtml(rhythm)}</span>` : ""}</div>
           <div class="fact-statuses"><span class="fact-status ${factClass}">${factLabel}</span><span class="fact-status ${item.opening_match === "matched" ? "verified" : "pending"}">${item.opening_match === "matched" ? "时段已匹配" : "开放待确认"}</span></div>
