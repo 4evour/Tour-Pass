@@ -41,6 +41,8 @@ day.summary 用一至两句自然语言做当天的导游 briefing：说清今�
 修改既有行程时只改变用户要求的部分，但仍一次输出完整替代方案。
 """
 
+COMPACT_RETRY_PROMPT = """上一条结构化输出没有完整结束，通常是因为输出太长。现在重新输出同一个 JSON Schema，必须压缩到短小但完整：保留用户指定的全部天数、必去地点、抵返时间和住宿要求；每天最多 4 个 stop（包含餐食和休息），每个 stop 的 reason 只写一句不超过 45 个汉字，day.summary 不超过 80 个汉字，overview 不超过 100 个汉字；highlights、tradeoffs、budget_notes、safety_notes、transport_notes 各最多 3 项，hotels 每个过夜城市只保留 1 项。不要重复解释同一内容，不输出 Markdown 或 JSON 之外的文字，不要省略 Schema 要求的键；没有内容的数组用 []，没有内容的字符串用空字符串，允许为空的字段用 null。宁可用片区和待核验说明，也不要编造事实。"""
+
 
 class TripAgent:
     def __init__(
@@ -254,14 +256,21 @@ class TripAgent:
                     "detail": "一次生成完整旅行方案",
                 }
             )
+            trace = {
+                "run_id": run_id,
+                "session_id": session_id,
+                "stage": "complete_plan",
+            }
+
+            def parse_skeleton(content: str) -> dict[str, Any]:
+                parsed = json.loads(content)
+                if not isinstance(parsed, dict):
+                    raise ValueError("完整方案输出必须是 JSON 对象")
+                return parsed
+
             response = await self.llm.ainvoke(
                 model_messages,
-                trace={
-                    "run_id": run_id,
-                    "session_id": session_id,
-                    "stage": "complete_plan",
-                    "step": 1,
-                },
+                trace={**trace, "step": 1},
                 on_progress=emit_event,
                 reasoning_effort=getattr(self.llm, "reasoning_effort", "medium"),
                 output_format=schema,
@@ -269,11 +278,9 @@ class TripAgent:
                 model=model,
             )
             model_metrics = getattr(response, "metrics", {})
+            used_compact_retry = False
             try:
-                parsed = json.loads(response.content)
-                if not isinstance(parsed, dict):
-                    raise ValueError("完整方案输出必须是 JSON 对象")
-                skeleton = parsed
+                skeleton = parse_skeleton(response.content)
             except (json.JSONDecodeError, ValueError) as exc:
                 emit_event(
                     {
@@ -285,12 +292,53 @@ class TripAgent:
                         "model_metrics": model_metrics,
                     }
                 )
-                raise RuntimeError("模型未返回有效的完整旅行方案") from exc
+                emit_event(
+                    {
+                        "type": "model_retry",
+                        "phase": "complete_plan",
+                        "step": 2,
+                        "reason": "structured_output_truncated",
+                        "detail": "第一次输出过长，正在用紧凑格式重新生成",
+                    }
+                )
+                used_compact_retry = True
+                compact_messages = [
+                    {
+                        "role": "system",
+                        "content": SKELETON_PROMPT + "\n\n" + COMPACT_RETRY_PROMPT,
+                    },
+                    model_messages[1],
+                ]
+                retry_response = await self.llm.ainvoke(
+                    compact_messages,
+                    trace={**trace, "step": 2},
+                    on_progress=emit_event,
+                    reasoning_effort=getattr(self.llm, "reasoning_effort", "medium"),
+                    output_format=schema,
+                    prompt_cache_key=prompt_cache_key + "-compact",
+                    model=model,
+                )
+                retry_metrics = getattr(retry_response, "metrics", {})
+                try:
+                    skeleton = parse_skeleton(retry_response.content)
+                except (json.JSONDecodeError, ValueError) as retry_exc:
+                    emit_event(
+                        {
+                            "type": "model_finished",
+                            "phase": "complete_plan",
+                            "step": 2,
+                            "error": "invalid_structured_output",
+                            "message": str(retry_exc),
+                            "model_metrics": retry_metrics,
+                        }
+                    )
+                    raise RuntimeError("模型未返回有效的完整旅行方案") from retry_exc
+                model_metrics = retry_metrics
             emit_event(
                 {
                     "type": "model_finished",
                     "phase": "complete_plan",
-                    "step": 1,
+                    "step": 2 if used_compact_retry else 1,
                     "tool_calls": [],
                     "model_metrics": model_metrics,
                 }

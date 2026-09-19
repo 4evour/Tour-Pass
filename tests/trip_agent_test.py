@@ -137,8 +137,11 @@ class SkeletonLLM:
     reasoning_effort = "medium"
     model = "fake-model"
 
-    def __init__(self, skeleton: dict | None = None) -> None:
+    def __init__(
+        self, skeleton: dict | None = None, contents: list[str] | None = None
+    ) -> None:
         self.skeleton = skeleton or skeleton_plan()
+        self.contents = contents or []
         self.call_count = 0
         self.messages: list[list[dict]] = []
         self.invocations: list[dict] = []
@@ -147,8 +150,13 @@ class SkeletonLLM:
         self.call_count += 1
         self.messages.append(list(messages))
         self.invocations.append(dict(kwargs))
+        content = (
+            self.contents[self.call_count - 1]
+            if self.call_count <= len(self.contents)
+            else json.dumps(self.skeleton, ensure_ascii=False)
+        )
         return SimpleNamespace(
-            content=json.dumps(self.skeleton, ensure_ascii=False),
+            content=content,
             tool_calls=[],
             metrics={
                 "usage": {
@@ -3613,6 +3621,29 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             "days"
         ]
         self.assertIn("根据用户需求选择合理天数", days_schema["description"])
+
+    async def test_truncated_structured_output_retries_with_compact_prompt(
+        self,
+    ) -> None:
+        skeleton = skeleton_plan("长沙", 1)
+        llm = SkeletonLLM(
+            skeleton,
+            contents=[
+                '{"title":"长沙行程被截断',
+                json.dumps(skeleton, ensure_ascii=False),
+            ],
+        )
+
+        response = await TripAgent(llm, amap=FakeAmap()).run("我想去长沙旅行")
+
+        self.assertTrue(response.plan)
+        self.assertEqual(llm.call_count, 2)
+        self.assertTrue(
+            any(event["type"] == "model_retry" for event in response.events)
+        )
+        self.assertNotEqual(
+            llm.messages[0][0]["content"], llm.messages[1][0]["content"]
+        )
 
     async def test_complete_model_judgment_survives_fact_enrichment(self) -> None:
         skeleton = skeleton_plan()
