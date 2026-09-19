@@ -55,6 +55,8 @@ from trip_agent.validation import HardValidator, _matches_key
 from trip_agent.workflow import (
     _closed_on_date,
     _matches,
+    _narrative_highlights,
+    _narrative_overview,
     _select_place,
     _route_instructions,
     ItineraryAssembler,
@@ -3060,6 +3062,28 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
                     f"{separator}公共交通为主，少走路。",
                 )
                 self.assertEqual(context["must_visits"], ["岳麓山", "橘子洲"])
+
+    def test_route_narrative_does_not_repeat_daily_timeline(self) -> None:
+        days = [
+            {
+                "destination": "天津",
+                "theme": "城市人文",
+                "summary": "早餐：用餐天津就近早餐；晚上：休息天津站附近酒店办理入住。",
+            },
+            {
+                "destination": "济南",
+                "theme": "泉水与老城",
+                "summary": "午餐：用餐济南就近午餐；晚上：休息济南站附近酒店办理入住。",
+            },
+        ]
+        overview = _narrative_overview(days)
+        highlights = _narrative_highlights(
+            {"highlights": [days[0]["summary"], "济南泉水与老城"]}, days
+        )
+
+        self.assertIn("天津1天，随后济南1天", overview)
+        self.assertNotIn("早餐", overview)
+        self.assertEqual(highlights, ["济南泉水与老城"])
 
     def test_context_extracts_explicit_mobility_and_diet_clauses(self) -> None:
         context = build_planning_context(

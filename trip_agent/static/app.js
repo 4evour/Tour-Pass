@@ -93,6 +93,47 @@ const samePlace = (left, right) => {
   return Boolean(a && b && (a === b || a.includes(b) || b.includes(a)));
 };
 
+function compactNarrative(plan, narrative, days) {
+  const routeRuns = [];
+  days.forEach((day) => {
+    const destination = String(day.destination || plan.city || "当地").trim();
+    const previous = routeRuns[routeRuns.length - 1];
+    if (previous && previous.name === destination) previous.days += 1;
+    else routeRuns.push({name: destination, days: 1});
+  });
+  const route = routeRuns.length
+    ? routeRuns.map((item) => `${item.name}${item.days}天`).join("，随后")
+    : `${String(plan.city || "当地").trim()}路线`;
+  const themes = [...new Set(days.map((day) => String(day.theme || "").trim()).filter(Boolean))];
+  const summaryFallback = `这是一条${route}的路线，${themes.length ? `主线围绕${themes.slice(0, 2).join("、")}展开；` : ""}${routeRuns.length > 1 ? "换城日和返程日留出缓冲。" : "每天围绕相邻片区推进，留出用餐和休息时间。"}`;
+  const sourceSummary = String(narrative.summary || "").trim();
+  const repeatedDays = (sourceSummary.match(/第\d+天/g) || []).length > 1;
+  const noisySummary = /早餐|午餐|晚餐|按上述时间轴|最终返回|办理入住/.test(sourceSummary)
+    || repeatedDays || sourceSummary.length > 220;
+  const summary = sourceSummary && !noisySummary ? sourceSummary : summaryFallback;
+  const highlights = list(narrative.highlights)
+    .map((item) => String(item || "").trim().replace(/[；;。]+$/, ""))
+    .filter((item) => item && item.length <= 56)
+    .filter((item) => !/早餐|午餐|晚餐|晚上|按上述时间轴|最终返回|办理入住/.test(item));
+  const compactHighlights = [...new Set(highlights)].slice(0, 4);
+  if (compactHighlights.length) return {summary, highlights: compactHighlights};
+  const derived = [];
+  days.forEach((day) => {
+    const destination = String(day.destination || plan.city || "当地").trim();
+    const theme = String(day.theme || "").trim();
+    const label = theme ? `${destination} · ${theme}` : destination;
+    if (!derived.includes(label)) derived.push(label);
+  });
+  days.forEach((day) => {
+    const leg = object(day.intercity_leg);
+    if (leg.from && leg.to) {
+      const label = `换城：${leg.from} → ${leg.to}`;
+      if (!derived.includes(label)) derived.push(label);
+    }
+  });
+  return {summary, highlights: derived.slice(0, 4)};
+}
+
 function addMessage(kind, text) {
   const element = document.createElement("div");
   element.className = `message ${kind}`;
@@ -747,13 +788,14 @@ function renderPlan(data, publicView=false) {
   const plan = data.plan;
   const days = list(plan.days);
   const narrative = object(plan.narrative);
+  const narrativeView = compactNarrative(plan, narrative, days);
   const profile = object(plan.trip_profile);
   const hotel = object(plan.hotel);
   const completeness = object(plan.completeness);
   const validationWarnings = list(object(plan.validation).warnings);
   const globalWarnings = list(plan.warnings);
   const score = Math.max(0, Math.min(100, Number(completeness.score) || 0));
-  const highlights = list(narrative.highlights);
+  const highlights = narrativeView.highlights;
   const runLabel = String(data.run_id || "published").slice(0, 10);
   const paceLabel = ({relaxed:"松弛慢游",balanced:"松弛有序",intensive:"行程充实",packed:"行程充实"})[profile.pace] || textOr(profile.pace, "节奏待定");
   const transportLabel = modeLabels[profile.transport_preference] || textOr(profile.transport_preference, "交通待定");
@@ -787,7 +829,7 @@ function renderPlan(data, publicView=false) {
       <div class="cover-copy">
         <span class="kicker">TOUR PASS · ${textOr(plan.city)} · ${days.length} DAYS</span>
         <h1>${textOr(plan.title, `${textOr(plan.city)}旅行计划`)}</h1>
-        <details class="cover-overview"><summary>路线说明与规划假设</summary><p>${textOr(plan.overview, narrative.summary || "行程总览待补充")}</p></details>
+        <details class="cover-overview"><summary>路线说明与规划假设</summary><p>${textOr(narrativeView.summary, "行程总览待补充")}</p></details>
         <div class="hero-meta">
           <span>${paceLabel}</span>
           <span>${transportLabel}</span>
@@ -813,7 +855,7 @@ function renderPlan(data, publicView=false) {
       ${renderMobilitySummary(plan, profile)}
       <nav class="day-jumpbar" aria-label="按天查看行程">${dayNav}</nav>
       <section class="guide-intro">
-        <div><span class="section-label">这趟怎么玩</span><h2>${textOr(narrative.headline, "一眼看懂这趟旅程")}</h2><p>${textOr(narrative.summary, plan.overview || "行程说明待补充")}</p></div>
+        <div><span class="section-label">这趟怎么玩</span><h2>${textOr(narrative.headline, "一眼看懂这趟旅程")}</h2><p>${textOr(narrativeView.summary, "行程说明待补充")}</p></div>
         <div class="guide-highlights">${highlights.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}</div>
       </section>
       <section class="stay-card">

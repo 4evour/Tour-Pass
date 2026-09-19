@@ -1019,6 +1019,64 @@ def _timeline_summary(schedule: list[dict[str, Any]], hotel_name: str) -> str:
     return "；".join(clauses) + f"。按上述时间轴执行，最终返回{hotel_name}。"
 
 
+def _route_runs(raw_days: list[dict[str, Any]]) -> list[tuple[str, int]]:
+    runs: list[tuple[str, int]] = []
+    for day in raw_days:
+        destination = _text(day.get("destination"), "当地")
+        if runs and runs[-1][0] == destination:
+            runs[-1] = (destination, runs[-1][1] + 1)
+        else:
+            runs.append((destination, 1))
+    return runs
+
+
+def _narrative_overview(raw_days: list[dict[str, Any]]) -> str:
+    """Keep the route introduction short; day summaries belong to day cards."""
+    if not raw_days:
+        return "行程按相邻片区安排，具体节奏待补充。"
+    runs = _route_runs(raw_days)
+    route = "，随后".join(
+        f"{destination}{days}天" for destination, days in runs
+    )
+    themes = list(dict.fromkeys(
+        _text(day.get("theme")) for day in raw_days if _text(day.get("theme"))
+    ))
+    theme_hint = f"主线围绕{'、'.join(themes[:2])}展开；" if themes else ""
+    buffer_hint = "换城日和返程日留出缓冲。" if len(runs) > 1 else "每天围绕相邻片区推进，留出用餐和休息时间。"
+    return f"这是一条{route}的路线，{theme_hint}{buffer_hint}"
+
+
+def _narrative_highlights(
+    skeleton: dict[str, Any], raw_days: list[dict[str, Any]]
+) -> list[str]:
+    """Prefer concise model highlights and derive safe labels for legacy output."""
+    highlights: list[str] = []
+    for value in skeleton.get("highlights") or []:
+        item = _text(value).strip("；;。 ")
+        if not item or len(item) > 56:
+            continue
+        if re.search(r"早餐|午餐|晚餐|晚上|按上述时间轴|最终返回|办理入住", item):
+            continue
+        if item not in highlights:
+            highlights.append(item)
+    if highlights:
+        return highlights[:4]
+    derived: list[str] = []
+    for day in raw_days:
+        destination = _text(day.get("destination"), "当地")
+        theme = _text(day.get("theme"))
+        label = f"{destination} · {theme}" if theme else destination
+        if label not in derived:
+            derived.append(label)
+    for day in raw_days:
+        leg = day.get("intercity_leg") or {}
+        if _text(leg.get("from")) and _text(leg.get("to")):
+            label = f"换城：{_text(leg['from'])} → {_text(leg['to'])}"
+            if label not in derived:
+                derived.append(label)
+    return derived[:4]
+
+
 def _day_effort(
     schedule: list[dict[str, Any]], transfers: list[dict[str, Any]]
 ) -> dict[str, Any]:
@@ -2505,9 +2563,7 @@ class ItineraryAssembler:
                 f"行动需求下仍有{mobility_summary['walking_distance_unknown']}段接驳的步行距离未核验。"
             )
         title = _text(skeleton.get("title"), f"{city}{requested_days}日行程")
-        overview = "；".join(
-            f"第{item['day']}天：{item['summary']}" for item in raw_days
-        )
+        overview = _narrative_overview(raw_days)
         candidate_areas: list[dict[str, Any]] = []
         seen_areas: set[str] = set()
         for item in raw_days:
@@ -2963,12 +3019,7 @@ class ItineraryAssembler:
             "narrative": {
                 "headline": title,
                 "summary": overview,
-                "highlights": [
-                    _text(item)
-                    for item in skeleton.get("highlights") or []
-                    if _text(item)
-                ]
-                or [item["summary"] for item in raw_days],
+                "highlights": _narrative_highlights(skeleton, raw_days),
                 "tradeoffs": [
                     _text(item)
                     for item in skeleton.get("tradeoffs") or []
