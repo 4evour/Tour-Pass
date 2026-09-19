@@ -3104,6 +3104,19 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertNotIn("早餐", overview)
         self.assertEqual(highlights, ["济南泉水与老城"])
 
+    async def test_scalar_transport_notes_are_kept_as_one_note(self) -> None:
+        skeleton = skeleton_plan()
+        skeleton["transport_notes"] = "天津和济南市区都以地铁加打车为主，景点之间距离不远。"
+
+        response = await TripAgent(SkeletonLLM(skeleton), amap=FakeAmap()).run(
+            "请生成行程", structured_request={"destination": "天津", "days": 1}
+        )
+
+        self.assertEqual(
+            response.plan["transport_options"]["local_strategy"]["notes"],
+            [skeleton["transport_notes"]],
+        )
+
     def test_context_extracts_explicit_mobility_and_diet_clauses(self) -> None:
         context = build_planning_context(
             None, "请规划重庆1天行程，同行2位成人，其中一位膝盖不太好，少走路，不吃辣。"

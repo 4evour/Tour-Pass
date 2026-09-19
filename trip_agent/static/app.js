@@ -666,6 +666,9 @@ function renderExecutionModules(plan) {
     ...list(safety.special_population_notes),
   ];
   const selectedMode = localStrategy.selected || object(plan.trip_profile).transport_preference;
+  const transportNotes = Array.isArray(localStrategy.notes)
+    ? localStrategy.notes
+    : localStrategy.notes ? [localStrategy.notes] : [];
   return `<section class="decision-modules">
     <header class="manual-title"><div><span>DECISIONS & ACTIONS</span><h2>选择、费用与待办</h2></div><p>把可比较选项、未核实信息和出发前动作拆开呈现。</p></header>
     <div class="decision-grid">
@@ -680,7 +683,7 @@ function renderExecutionModules(plan) {
       </section>
       <section class="decision-card module-transport">
         <header><b>交通选项</b><span>${local.length} 段市内 · ${intercity.length} 段城际</span></header>
-        <p class="module-lead">市内偏好：${textOr(modeLabels[selectedMode], "待确认")}；${textOr(list(localStrategy.notes).join("；"), "逐段耗时以日程中的地图路线为准。")}</p>
+        <p class="module-lead">市内偏好：${textOr(modeLabels[selectedMode], "待确认")}；${textOr(transportNotes.join("；"), "逐段耗时以日程中的地图路线为准。")}</p>
         <div class="choice-list compact">${intercity.map((item) => `<article>
           <div><strong>D${item.day} ${textOr(item.from)} → ${textOr(item.to)}</strong><i>${textOr(modeLabels[item.mode], textOr(item.mode, "待选"))}</i></div>
           <p>${textOr(item.train_code, "班次待核验")} · ${textOr(item.departure_hint, "出发时段待核验")} → ${textOr(item.arrival_hint, "抵达时段待核验")}</p>

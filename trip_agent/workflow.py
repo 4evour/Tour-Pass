@@ -64,6 +64,14 @@ def _text(value: Any, fallback: str = "") -> str:
     return str(value or fallback).strip()
 
 
+def _items(value: Any) -> list[Any]:
+    if isinstance(value, (list, tuple)):
+        return list(value)
+    if value is None or value == "":
+        return []
+    return [value]
+
+
 def _key(value: Any) -> str:
     return re.sub(r"[\s·（）()\-—]", "", _text(value)).casefold()
 
@@ -1051,7 +1059,7 @@ def _narrative_highlights(
 ) -> list[str]:
     """Prefer concise model highlights and derive safe labels for legacy output."""
     highlights: list[str] = []
-    for value in skeleton.get("highlights") or []:
+    for value in _items(skeleton.get("highlights")):
         item = _text(value).strip("；;。 ")
         if not item or len(item) > 56:
             continue
@@ -2534,7 +2542,7 @@ class ItineraryAssembler:
             except ValueError:
                 pass
         warnings = [
-            _text(item) for item in skeleton.get("warnings") or [] if _text(item)
+            _text(item) for item in _items(skeleton.get("warnings")) if _text(item)
         ]
         if unresolved:
             warnings.append(
@@ -2737,10 +2745,10 @@ class ItineraryAssembler:
             None,
         )
         transport_notes = [
-            _text(item) for item in skeleton.get("transport_notes") or [] if _text(item)
+            _text(item) for item in _items(skeleton.get("transport_notes")) if _text(item)
         ]
         budget_notes = [
-            _text(item) for item in skeleton.get("budget_notes") or [] if _text(item)
+            _text(item) for item in _items(skeleton.get("budget_notes")) if _text(item)
         ]
         if verified_rail:
             rail_date = _text(
@@ -2857,7 +2865,7 @@ class ItineraryAssembler:
         if budget_ceiling is not None:
             model_categories = [
                 item
-                for item in skeleton.get("budget_allocation") or []
+                for item in _items(skeleton.get("budget_allocation"))
                 if isinstance(item, dict)
                 and _text(item.get("label"))
                 and int(item.get("percentage") or 0) > 0
@@ -2985,7 +2993,7 @@ class ItineraryAssembler:
             "safety": {
                 "destination_alerts": [
                     _text(item)
-                    for item in skeleton.get("safety_notes") or []
+                    for item in _items(skeleton.get("safety_notes"))
                     if _text(item)
                 ],
                 "medical": [],
@@ -3009,7 +3017,7 @@ class ItineraryAssembler:
             "map": {
                 "route_overview": "；".join(
                     _text(item)
-                    for item in skeleton.get("transport_notes") or []
+                    for item in _items(skeleton.get("transport_notes"))
                     if _text(item)
                 )
                 or "每日按当晚住宿锚点与相邻片区组织；跨城段需另行核对班次，以实时导航为准。"
@@ -3020,7 +3028,7 @@ class ItineraryAssembler:
                 "highlights": _narrative_highlights(skeleton, raw_days),
                 "tradeoffs": [
                     _text(item)
-                    for item in skeleton.get("tradeoffs") or []
+                    for item in _items(skeleton.get("tradeoffs"))
                     if _text(item)
                 ]
                 or [
