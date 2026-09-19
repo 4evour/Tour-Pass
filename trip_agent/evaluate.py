@@ -473,6 +473,200 @@ class ReplayWeather(ReplayProvider):
         return await self._result("forecast", {"city": city, "days": days})
 
 
+def _quality_metrics(plan: dict[str, Any] | None) -> dict[str, Any]:
+    if not isinstance(plan, dict):
+        return {
+            "schedule_item_count": 0,
+            "verified_entity_count": 0,
+            "entity_binding_rate": 0.0,
+            "route_count": 0,
+            "verified_route_count": 0,
+            "route_evidence_rate": 0.0,
+            "must_visit_count": 0,
+            "must_visit_covered": 0,
+            "must_visit_coverage_rate": 0.0,
+            "opening_checked_count": 0,
+            "opening_verification_rate": 0.0,
+            "unresolved_schedule_item_count": 0,
+            "unknown_walking_segments": 0,
+            "guide_explanation_coverage": 0.0,
+            "first_step_available": False,
+        }
+
+    def key(value: Any) -> str:
+        return "".join(
+            character
+            for character in str(value or "").casefold()
+            if character.isalnum()
+        )
+
+    days = [item for item in plan.get("days") or [] if isinstance(item, dict)]
+    schedule = [
+        item
+        for day in days
+        for item in day.get("schedule") or []
+        if isinstance(item, dict)
+    ]
+    physical = [item for item in schedule if item.get("type") in {"visit", "meal"}]
+    verified_entities = [
+        item
+        for item in physical
+        if item.get("source") == "amap"
+        and item.get("place_id")
+        and item.get("location")
+    ]
+    unresolved = [
+        item
+        for item in physical
+        if not (
+            item.get("source") == "amap"
+            and item.get("place_id")
+            and item.get("location")
+        )
+    ]
+    transfers = [
+        transfer
+        for day in days
+        for transfer in day.get("transfers") or []
+        if isinstance(transfer, dict)
+    ]
+    verified_routes = [
+        item
+        for item in transfers
+        if item.get("source") == "amap"
+        and item.get("evidence_refs")
+        and int(item.get("duration_minutes") or 0) > 0
+    ]
+    context = plan.get("planning_context")
+    context = context if isinstance(context, dict) else {}
+    must_visits = [item for item in context.get("must_visits") or [] if str(item)]
+    visit_names = [
+        key(item.get("name")) for item in schedule if item.get("type") == "visit"
+    ]
+    must_visit_covered = sum(
+        any(key(required) in name or name in key(required) for name in visit_names)
+        for required in must_visits
+    )
+    opening_checked = [
+        item for item in physical if item.get("opening_match") in {"matched", "risk"}
+    ]
+    mobility_summary = plan.get("mobility_summary")
+    mobility_summary = mobility_summary if isinstance(mobility_summary, dict) else {}
+    guide_ready = [
+        item
+        for item in physical
+        if str(item.get("reason") or "").strip()
+        and (
+            item.get("practical_tips") or str(item.get("reason") or "").count("。") >= 1
+        )
+    ]
+    first_day = days[0] if days else {}
+    first_step_available = bool(
+        next(
+            (
+                item
+                for item in first_day.get("schedule") or []
+                if isinstance(item, dict) and str(item.get("name") or "").strip()
+            ),
+            None,
+        )
+    )
+    return {
+        "schedule_item_count": len(physical),
+        "verified_entity_count": len(verified_entities),
+        "entity_binding_rate": round(len(verified_entities) / len(physical), 4)
+        if physical
+        else 0.0,
+        "route_count": len(transfers),
+        "verified_route_count": len(verified_routes),
+        "route_evidence_rate": round(len(verified_routes) / len(transfers), 4)
+        if transfers
+        else 0.0,
+        "must_visit_count": len(must_visits),
+        "must_visit_covered": must_visit_covered,
+        "must_visit_coverage_rate": round(must_visit_covered / len(must_visits), 4)
+        if must_visits
+        else 1.0,
+        "opening_checked_count": len(opening_checked),
+        "opening_verification_rate": round(len(opening_checked) / len(physical), 4)
+        if physical
+        else 0.0,
+        "unresolved_schedule_item_count": len(unresolved),
+        "unknown_walking_segments": int(
+            mobility_summary.get("walking_distance_unknown") or 0
+        ),
+        "guide_explanation_coverage": round(len(guide_ready) / len(physical), 4)
+        if physical
+        else 0.0,
+        "first_step_available": first_step_available,
+    }
+
+
+def _percentile(values: list[int], percentile: float) -> int | None:
+    if not values:
+        return None
+    ordered = sorted(values)
+    index = min(len(ordered) - 1, max(0, int(round((len(ordered) - 1) * percentile))))
+    return ordered[index]
+
+
+def _trace_metrics(
+    events: list[dict[str, Any]], recording: dict[str, Any]
+) -> dict[str, Any]:
+    """Summarize the deterministic trace without pretending it is a full DAG."""
+    durations = [int(event.get("elapsed_ms") or 0) for event in events]
+    provider_calls = [
+        call for name in ("amap", "weather") for call in recording.get(name, [])
+    ]
+    provider_latencies = [int(call.get("elapsed_ms") or 0) for call in provider_calls]
+    stage_pairs = {
+        "model": ("model_started", "model_finished"),
+        "validation": ("plan_validation_started", "plan_validation_finished"),
+    }
+    stage_elapsed: dict[str, int] = {}
+    for name, (start_type, finish_type) in stage_pairs.items():
+        start = next(
+            (event for event in events if event.get("type") == start_type), None
+        )
+        finish = next(
+            (event for event in events if event.get("type") == finish_type), None
+        )
+        if start and finish:
+            stage_elapsed[name] = max(
+                0,
+                int(finish.get("elapsed_ms") or 0) - int(start.get("elapsed_ms") or 0),
+            )
+    return {
+        "trace_wall_clock_ms": max(durations) if durations else 0,
+        "stage_elapsed_ms": stage_elapsed,
+        "provider_latency_p50_ms": _percentile(provider_latencies, 0.50),
+        "provider_latency_p95_ms": _percentile(provider_latencies, 0.95),
+        "provider_error_rate": round(
+            sum(bool(call.get("error")) for call in provider_calls)
+            / len(provider_calls),
+            4,
+        )
+        if provider_calls
+        else 0.0,
+        "provider_cache_hit_rate": round(
+            sum(
+                bool((call.get("result") or {}).get("cache_hit"))
+                for call in provider_calls
+            )
+            / len(provider_calls),
+            4,
+        )
+        if provider_calls
+        else 0.0,
+        "event_type_counts": {
+            event_type: sum(event.get("type") == event_type for event in events)
+            for event_type in sorted(
+                {event.get("type") for event in events if event.get("type")}
+            )
+        },
+    }
+
+
 def _summarize(
     response: Any,
     recording: dict[str, Any],
@@ -501,6 +695,38 @@ def _summarize(
     cached_input_tokens = sum(
         usage_value(call, "input_tokens_details.cached_tokens") for call in llm_calls
     )
+    repair_events = [
+        event for event in events if event.get("type") == "plan_repair_applied"
+    ]
+    repair_reasons: dict[str, int] = {}
+    for event in repair_events:
+        for repair in event.get("repairs") or []:
+            if not isinstance(repair, dict):
+                continue
+            reason = str(repair.get("reason") or "unknown")
+            repair_reasons[reason] = repair_reasons.get(reason, 0) + 1
+    required_stop_repairs = repair_reasons.get("add_required_stop", 0)
+    tool_started = [event for event in events if event.get("type") == "tool_started"]
+    tool_finished = [event for event in events if event.get("type") == "tool_finished"]
+    tool_errors = [event for event in tool_finished if event.get("error")]
+    quality_metrics = _quality_metrics(response.plan)
+    trace_metrics = _trace_metrics(events, recording)
+    started_call_ids = [str(event.get("call_id") or "") for event in tool_started]
+    finished_call_ids = [str(event.get("call_id") or "") for event in tool_finished]
+    tool_call_lifecycle_complete = bool(
+        tool_started
+        and all(started_call_ids)
+        and all(finished_call_ids)
+        and len(started_call_ids) == len(finished_call_ids)
+        and set(started_call_ids) == set(finished_call_ids)
+    )
+    event_indexes = [event.get("event_index") for event in events]
+    event_trace_complete = bool(
+        events
+        and all(event.get("trace_id") == events[0].get("trace_id") for event in events)
+        and event_indexes == list(range(1, len(events) + 1))
+        and len({event.get("event_id") for event in events}) == len(events)
+    )
     return {
         "success": response.plan is not None,
         "elapsed_ms": elapsed_ms,
@@ -521,6 +747,18 @@ def _summarize(
         "provider_cache_hits": sum(
             bool((call.get("result") or {}).get("cache_hit")) for call in provider_calls
         ),
+        "repair_count": sum(repair_reasons.values()),
+        "repair_reasons": dict(sorted(repair_reasons.items())),
+        "required_stop_repairs": required_stop_repairs,
+        "tool_started": len(tool_started),
+        "tool_finished": len(tool_finished),
+        "tool_errors": len(tool_errors),
+        "tool_cache_hits": sum(bool(event.get("cache_hit")) for event in tool_finished),
+        "tool_pair_gap": len(tool_started) - len(tool_finished),
+        "tool_call_lifecycle_complete": tool_call_lifecycle_complete,
+        "event_trace_complete": event_trace_complete,
+        **quality_metrics,
+        **trace_metrics,
         "submit_attempts": len(validations),
         "hard_failure_history": hard_history,
         "final_hard_pass": bool(final_validation.get("passed")),
@@ -537,6 +775,15 @@ def _summarize(
 
 def _aggregate(summaries: list[dict[str, Any]]) -> dict[str, Any]:
     successes = [item for item in summaries if item["success"]]
+    repair_reasons: dict[str, int] = {}
+    for item in summaries:
+        for reason, count in (item.get("repair_reasons") or {}).items():
+            repair_reasons[reason] = repair_reasons.get(reason, 0) + int(count)
+
+    def average_metric(name: str) -> float | None:
+        values = [item.get(name) for item in successes if item.get(name) is not None]
+        return round(sum(values) / len(values), 4) if values else None
+
     return {
         "run_count": len(summaries),
         "success_count": len(successes),
@@ -558,6 +805,50 @@ def _aggregate(summaries: list[dict[str, Any]]) -> dict[str, Any]:
             item["non_cached_input_tokens"] for item in summaries
         ),
         "total_provider_calls": sum(item["provider_calls"] for item in summaries),
+        "total_repairs": sum(item.get("repair_count", 0) for item in summaries),
+        "total_required_stop_repairs": sum(
+            item.get("required_stop_repairs", 0) for item in summaries
+        ),
+        "repair_reasons": dict(sorted(repair_reasons.items())),
+        "total_tool_started": sum(item.get("tool_started", 0) for item in summaries),
+        "total_tool_finished": sum(item.get("tool_finished", 0) for item in summaries),
+        "total_tool_errors": sum(item.get("tool_errors", 0) for item in summaries),
+        "total_tool_cache_hits": sum(
+            item.get("tool_cache_hits", 0) for item in summaries
+        ),
+        "tool_pair_gap": sum(item.get("tool_pair_gap", 0) for item in summaries),
+        "tool_call_lifecycle_complete_rate": (
+            round(
+                sum(
+                    bool(item.get("tool_call_lifecycle_complete")) for item in summaries
+                )
+                / len(summaries),
+                4,
+            )
+            if summaries
+            else 0
+        ),
+        "average_entity_binding_rate": average_metric("entity_binding_rate"),
+        "average_route_evidence_rate": average_metric("route_evidence_rate"),
+        "average_must_visit_coverage_rate": average_metric("must_visit_coverage_rate"),
+        "average_opening_verification_rate": average_metric(
+            "opening_verification_rate"
+        ),
+        "total_unresolved_schedule_items": sum(
+            item.get("unresolved_schedule_item_count", 0) for item in summaries
+        ),
+        "total_unknown_walking_segments": sum(
+            item.get("unknown_walking_segments", 0) for item in summaries
+        ),
+        "event_trace_complete_rate": (
+            round(
+                sum(bool(item.get("event_trace_complete")) for item in summaries)
+                / len(summaries),
+                4,
+            )
+            if summaries
+            else 0
+        ),
         "average_completeness_score": (
             round(
                 sum(
@@ -571,6 +862,33 @@ def _aggregate(summaries: list[dict[str, Any]]) -> dict[str, Any]:
             if any(item["completeness_score"] is not None for item in successes)
             else None
         ),
+        "average_guide_explanation_coverage": average_metric(
+            "guide_explanation_coverage"
+        ),
+        "first_step_available_rate": round(
+            sum(bool(item.get("first_step_available")) for item in successes)
+            / len(successes),
+            4,
+        )
+        if successes
+        else 0,
+        "provider_latency_p50_ms": _percentile(
+            [
+                int(item["provider_latency_p50_ms"])
+                for item in successes
+                if item.get("provider_latency_p50_ms") is not None
+            ],
+            0.50,
+        ),
+        "provider_latency_p95_ms": _percentile(
+            [
+                int(item["provider_latency_p95_ms"])
+                for item in successes
+                if item.get("provider_latency_p95_ms") is not None
+            ],
+            0.95,
+        ),
+        "average_provider_error_rate": average_metric("provider_error_rate"),
         "failure_codes": sorted(
             {
                 code

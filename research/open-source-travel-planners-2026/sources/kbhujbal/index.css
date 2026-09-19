@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Markdown styles inside itinerary */
+.itinerary-content h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+}
+.itinerary-content h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #334155;
+}
+.itinerary-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #475569;
+}
+.itinerary-content p {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+.itinerary-content ul,
+.itinerary-content ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.itinerary-content li {
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+.itinerary-content strong {
+  font-weight: 600;
+  color: #1e293b;
+}
+.itinerary-content hr {
+  margin: 1rem 0;
+  border-color: #e2e8f0;
+}
+.itinerary-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+.itinerary-content th,
+.itinerary-content td {
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.itinerary-content th {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+
+/* Pulse animation for active agent */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+

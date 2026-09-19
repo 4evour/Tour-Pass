@@ -15,6 +15,7 @@ from fastapi.staticfiles import StaticFiles
 from .auth import Identity, IssuedSession
 from .contracts import (
     ChatRequest,
+    FeedbackRequest,
     LoginRequest,
     RegisterRequest,
     SessionDetailResponse,
@@ -131,6 +132,24 @@ async def auth_session(request: Request, response: Response) -> dict:
     identity, issued = resolve_identity(request)
     attach_issued(response, issued)
     return identity_payload(identity)
+
+
+@app.post("/api/feedback", status_code=202)
+async def feedback(payload: FeedbackRequest, request: Request) -> dict[str, str]:
+    """Record a user outcome signal for product evaluation without exposing traces."""
+    current = active_runtime()
+    current.auth.require_csrf(request)
+    identity, _ = resolve_identity(request)
+    log_event(
+        "product_feedback",
+        kind=payload.kind,
+        run_id=payload.run_id,
+        session_id=payload.session_id,
+        detail=payload.detail,
+        event_name=payload.event_name,
+        owner_type=identity.kind,
+    )
+    return {"status": "accepted"}
 
 
 @app.post("/api/auth/register", status_code=201)

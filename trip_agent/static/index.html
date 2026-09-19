@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Tour Pass · 行程工作台</title>
-  <link rel="stylesheet" href="/static/styles.css?v=20260917-1">
+  <title>Tour Pass · 一键旅行计划</title>
+  <link rel="stylesheet" href="/static/styles.css?v=20260919-2">
 </head>
 <body>
   <main class="shell">
     <header class="topbar">
       <a class="brand" href="/" aria-label="Tour Pass 首页">
         <span class="brand-mark">TP</span>
-        <span><b>TOUR PASS</b><small>行程工作台</small></span>
+        <span><b>TOUR PASS</b><small>一键旅行计划</small></span>
       </a>
       <div class="top-actions">
         <div class="top-status"><i></i> 地点 · 路线 · 按日期查天气</div>
@@ -24,11 +24,15 @@
     </header>
 
     <section class="workspace">
-      <aside class="assistant-panel">
+      <aside class="assistant-panel" id="assistant-panel">
+        <button class="panel-toggle" id="toggle-panel" type="button" aria-expanded="true" aria-controls="assistant-panel" aria-label="收起规划面板" title="收起规划面板">
+          <span class="panel-toggle-icon" id="panel-toggle-icon" aria-hidden="true">‹</span>
+          <span class="panel-toggle-text" id="panel-toggle-text">收起规划面板</span>
+        </button>
         <div class="assistant-head">
           <span class="kicker">旅行顾问</span>
-          <h1>先说想法，<br>一轮给你完整方案。</h1>
-          <p>说出目的地即可开始；天数、路线和每天节奏可以交给模型判断，也可以随时展开详细填写。</p>
+          <h1>说一个目的地，<br>给你一版能照着走的行程。</h1>
+          <p>没有特殊要求时，默认按第一次到访的热门路线安排。想更细地控制节奏、预算或同行人，再展开补充即可。</p>
           <div class="llm-picker" aria-label="模型设置">
             <label for="llm-model">规划模型</label>
             <select id="llm-model"><option value="deepseek-flash">DeepSeek Flash（推荐）</option></select>
@@ -117,7 +121,7 @@
         </div>
         <div class="input-pane conversation-pane" id="conversation-pane">
           <div class="messages" id="messages" aria-live="polite">
-            <div class="message assistant">告诉我想去哪里，以及你最在意什么。没有确定天数也没关系，我会判断合理范围并一次给出完整方案。</div>
+            <div class="message assistant">告诉我想去哪里就可以开始。没有特殊要求时，我会按第一次到访的热门主路线，直接给你一版能照着走的行程。</div>
           </div>
           <details class="prompt-example">
             <summary><span>完整需求示例</span><small>多城市 · 抵返 · 同行人 · 预算</small></summary>
@@ -141,7 +145,7 @@
           <div>
             <span class="kicker">等待目的地</span>
             <h2>一份能照着走的行程，<br>不只是一串景点名称。</h2>
-            <p>生成后，这里会完整呈现逐日路线、建议时段、交通、住宿、餐饮、预算、备选方案，以及仍需出发前核实的信息。</p>
+            <p>生成后先看第一天和整条路线；交通、住宿、餐饮和出发前核对项会随行程一起整理好。</p>
           </div>
         </div>
       </section>
@@ -180,6 +184,6 @@
     </form>
   </dialog>
   <div class="toast" id="toast" role="status" hidden></div>
-  <script src="/static/app.js?v=20260917-1" defer></script>
+  <script src="/static/app.js?v=20260919-2" defer></script>
 </body>
 </html>

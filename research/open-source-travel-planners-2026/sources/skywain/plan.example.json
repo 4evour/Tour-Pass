@@ -1,0 +1,136 @@
+{
+ "_readme": "Runnable schema example — copy it to plan.geo.json, replace everything, keep the shape. The .geo stem matters: geocode then edits the file in place, so check/links/kml/render all read one file. The same file feeds scripts/route_tools.py (days[].stops) and scripts/render_plan.py (everything else). INVARIANT: days[].stops mirrors that day's anchors + modelled strolls in visit order — the maps and the walking total are computed from it. Two stops deliberately ship without lat/lon so `check` reports them and exits 2 until you run `geocode`; that is the intended first step, not a defect. All prices, hours and links are PLACEHOLDERS: never ship them unverified. tz: optional IANA zone — top-level default, days[].tz overrides; a plan that crosses zones stamps tz on every day before sun --write. lang: top-level \"zh\"|\"en\" — always write it; absent silently defaults to zh, wrong for every en plan. Every renderer and route_tools sun read it (--lang overrides); prefs has no lang field.",
+ "_readme_prefs": "prefs = what Phase 0 (Intake) learned or assumed, written down once so Phases 2-6 and any later replan read one place instead of re-asking. Enums: theme ∈ illustrated|clay|noir|glass|journal|zine|splash|portal (default illustrated) · pictures ∈ native|key|stock (the picture-capability check: own generator | themes/.auth_header | built-in stock kit) · travel_style ∈ public|self-drive|group-tour|mixed · scenery ⊂ nature|city|beach|forest|lake|mountain · pace = anchors per day (2/3/4) · lodging and budget are free text · notes = every inferred value, so the assumptions block at checkpoint (a) can be written from this one object. Every renderer IGNORES prefs (it is not in theme_common.PLAN_SHAPE) — the block is for the planning agent, not for the page.",
+ "trip": "Example trip — 2 days",
+ "lang": "zh",
+ "tz": "Asia/Tokyo",
+ "prefs": {
+  "theme": "illustrated",
+  "pictures": "stock",
+  "travel_style": "public",
+  "lodging": "hotel · mid-range, refundable",
+  "scenery": ["city", "nature"],
+  "pace": 3,
+  "budget": "mid",
+  "notes": "assumed origin PVG (zh request, no origin given)"
+ },
+ "meta": {
+  "dates": "2026-10-05 → 2026-10-07",
+  "party": "1 adult",
+  "route": "City A → City B",
+  "budget_total": "PLACEHOLDER",
+  "fx": "1 CNY = 23.73 JPY (ECB via frankfurter.dev, 2026-07-31)",
+  "generated": "2026-08-01",
+  "self_check": "自检: 发现并修复 N 处"
+ },
+ "decisions": [
+  "One line per decision you made on the traveller's behalf — each one vetoable"
+ ],
+ "checklist": [
+  {"item": "Travel-clinic consult (vaccines / prophylaxis per the health page)",
+   "deadline": "departure minus 4-6 weeks (NOW if inside 6 weeks) · PLACEHOLDER date",
+   "note": "PLACEHOLDER — agenda: the page's 'recommended for most / some travellers' rows + activity tags; the plan never doses"},
+  {"item": "Timed-entry ticket X", "deadline": "opens 10th of prior month",
+   "price": "PLACEHOLDER", "link": "https://example.org/tickets",
+   "note": "sells out same day"},
+  {"item": "T-14 re-check: hours + fees of every anchor, advisory level, visa rule",
+   "deadline": "T-14 · PLACEHOLDER date",
+   "note": "PLACEHOLDER — the anchors and legs[] numbers this T-14 row covers"},
+  {"item": "T-7 re-check: forecast for every base, re-apply weather rule 10",
+   "deadline": "T-7 · PLACEHOLDER date",
+   "note": "PLACEHOLDER — the bases whose forecast this T-7 row re-runs"},
+  {"item": "T-3 re-check: strikes / closures on the route, forecast, tickets in wallet",
+   "deadline": "T-3 · PLACEHOLDER date", "note": "PLACEHOLDER — one line per moving day: operator + transit-notice URL"},
+  {"item": "T-1: eSIM live + home-number SMS, copies, cash per brief.money, cards unblocked",
+   "deadline": "T-1 · PLACEHOLDER date", "note": "PLACEHOLDER — eSIM provider · cash figure from brief.money · cards to unblock"}
+ ],
+ "legs": [
+  {"type": "international flight", "date": "2026-10-05", "carrier": "PLACEHOLDER",
+   "from": "AAA", "to": "BBB", "dep": "18:20", "arr": "next day 13:40",
+   "price": "PLACEHOLDER", "bags": "23 kg included",
+   "link": "https://www.google.com/travel/flights", "backup": "second-best option"}
+ ],
+ "days": [
+  {"date": "2026-10-05", "tz": "Asia/Tokyo", "city": "Kyoto", "label": "East Kyoto",
+   "sun": "天亮 05:28 · ☀ 05:53 / 🌇 17:38 · JST · sunrise-sunset.org",
+   "walking_km": {"total": 5.4,
+                  "how": "on foot 1.7 ×1.3 + 散步 1.5 + 馆内 ~1.7"},
+   "ribbon": "Anchor 1 →步行10′→ Anchor 2 →步行8′→ lunch →巴士25′→ Anchor 3 →步行→ stroll",
+   "day_map": "PLACEHOLDER — the DAY CHAIN url from route_tools links",
+   "rain_alt": "indoor alternative — closure-checked for THIS date",
+   "late_cut": "running >1 h late → cut the stroll, then Anchor 2",
+   "timeline": [
+    {"t": "08:00-09:15", "what": "Anchor 1", "kind": "anchor", "price": "PLACEHOLDER",
+     "note": "opens 06:00, first hour is empty", "tag": "opener"},
+    {"t": "09:15-09:45", "what": "步行 Anchor 1→Anchor 2 0.7 km · 10分(+缓冲)",
+     "kind": "hop", "verify": "est",
+     "link": "PLACEHOLDER — per-hop url from route_tools links"},
+    {"t": "09:45-10:45", "what": "Anchor 2", "kind": "anchor", "price": "PLACEHOLDER",
+     "note": "last entry 17:00"},
+    {"t": "10:45-11:00", "what": "步行 Anchor 2→lunch area 0.5 km · 8分", "kind": "hop",
+     "verify": "est", "link": "PLACEHOLDER"},
+    {"t": "11:00-12:15", "what": "lunch · food area, not a named restaurant",
+     "kind": "meal", "tag": "swap→second food area"},
+    {"t": "12:15-13:00",
+     "what": "巴士 203(往銀閣寺道) ~25分 ¥230 · 祇園→銀閣寺道 · 下车步行8分",
+     "kind": "hop", "verify": "est", "link": "PLACEHOLDER"},
+    {"t": "13:00-14:30", "what": "Anchor 3", "kind": "anchor", "price": "PLACEHOLDER"},
+    {"t": "14:30-14:40", "what": "步行 Anchor 3→stroll start 0.6 km · 10分",
+     "kind": "hop", "verify": "est", "link": "PLACEHOLDER"},
+    {"t": "14:40-15:40", "what": "stroll ~1.5 km — modelled as a stop so it counts",
+     "kind": "free", "tag": "skippable"}
+   ],
+   "stops": [
+    {"name": "Anchor 1", "query": "Kiyomizu-dera, Kyoto, Japan",
+     "lat": 34.994303, "lon": 135.784439},
+    {"name": "Anchor 2", "query": "Kodai-ji, Kyoto, Japan"},
+    {"name": "lunch area", "query": "八坂神社, 京都市東山区"},
+    {"name": "Anchor 3", "lat": 35.0269, "lon": 135.7984, "mode": "transit"},
+    {"name": "stroll midpoint", "lat": 35.0227, "lon": 135.7949}
+   ]},
+  {"date": "2026-10-06", "city": "Kyoto → Osaka", "label": "移动日",
+   "travel_day": true,
+   "late_cut": "bags not stored → drop the single anchor",
+   "timeline": [
+    {"t": "08:00-09:00",
+     "what": "checkout · bags to station lockers (fallback: hotel storage + loop back)",
+     "kind": "free", "note": "large lockers gone by mid-morning in peak season",
+     "tag": "pinned"},
+    {"t": "09:15-11:31", "what": "特急/新干线 (往…方向) · A→B · 出口N", "kind": "hop",
+     "verify": "verified", "note": "verified timetable keeps its exact minutes",
+     "link": "PLACEHOLDER"},
+    {"t": "15:00", "what": "check-in — a move day carries ≤2 anchors only if bags are handled before the first; otherwise 1",
+     "kind": "free", "tag": "pinned"}
+   ],
+   "stops": []}
+ ],
+ "hotels": [
+  {"base": "Kyoto 3 nights", "area": "neighborhood name",
+   "why": "on the line you actually use · safe after dark · flat pavement for luggage",
+   "options": [
+    {"name": "Property 1", "band": "PLACEHOLDER/night",
+     "link": "https://www.booking.com/searchresults.html?ss=Kyoto&checkin=2026-10-05&checkout=2026-10-08"}
+   ]}
+ ],
+ "budget": [
+  {"cat": "flights", "per_person": "PLACEHOLDER", "total": "PLACEHOLDER",
+   "note": "as of 2026-08-01"},
+  {"cat": "buffer (10-15%)", "per_person": "PLACEHOLDER", "total": "PLACEHOLDER",
+   "note": "FX drift + price moves"}
+ ],
+ "brief": {
+  "visa": "type · fee · processing days · passport-validity rule",
+  "emergency": "six lines: local police / ambulance / fire · home consular hotline · nearest mission per base · insurer assistance line + policy no. · lost-passport steps · 24h ER + pharmacy per base — every number as-of",
+  "safety": "line 0 advisory level · source · as-of, then six lines: named scams · pickpocket hotspots · taxi rule · after-dark avoid list per base · what to do when it happens · legal red lines",
+  "health": "five lines from one CDC / TravelHealthPro page: vaccines + consult date · vector-borne season · water and food · rabies · notice level + as-of",
+  "holidays": "collisions from date.nager.at + local festivals",
+  "weather": "temps · rain odds · daylight · mode (forecast / normals) + as-of",
+  "money": "five lines: refuse DCC · card FX fee → buffer · ATM fee and cap · cash number · which cards and wallets work (+ origin block)",
+  "connectivity": "eSIM ballpark · plug type · digital-safety line",
+  "insurance": "cover floor · exclusions matched by activity name · assistance hotline"
+ },
+ "unverified": [
+  "everything that survived two searches unverified goes here, visibly"
+ ]
+}
+

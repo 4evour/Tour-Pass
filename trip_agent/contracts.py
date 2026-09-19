@@ -217,6 +217,16 @@ class LoginRequest(BaseModel):
     password: str = Field(min_length=1, max_length=128)
 
 
+class FeedbackRequest(BaseModel):
+    """Small product-signal payload; technical trace fields stay server-side."""
+
+    kind: Literal["direct_use", "needs_changes", "inaccurate", "helpful", "event"]
+    run_id: str = Field(min_length=1, max_length=80)
+    session_id: str | None = Field(default=None, max_length=80)
+    detail: str = Field(default="", max_length=500)
+    event_name: str | None = Field(default=None, max_length=80)
+
+
 class StoredMessage(BaseModel):
     role: Literal["user", "assistant"]
     content: str

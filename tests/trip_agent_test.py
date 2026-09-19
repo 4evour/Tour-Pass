@@ -23,7 +23,14 @@ from trip_agent.context import (
     compact_repair_memory,
 )
 from trip_agent.contracts import ChatRequest, ChatResponse, StructuredTripRequest
-from trip_agent.evaluate import RecordingAmap, ReplayAmap
+from trip_agent.evaluate import (
+    RecordingAmap,
+    ReplayAmap,
+    _aggregate,
+    _quality_metrics,
+    _summarize,
+    _trace_metrics,
+)
 from trip_agent.observability import close_logging, configure_logging, log_event
 from trip_agent.loop import TripAgent
 from trip_agent.llm import LLMServiceUnavailableError, OpenAICompatibleLLM
@@ -256,6 +263,161 @@ def single_place_plan(title: str = "岳麓山慢游") -> dict:
 
 
 class TripAgentTests(unittest.IsolatedAsyncioTestCase):
+    def test_quality_metrics_separate_evidence_and_constraint_coverage(self) -> None:
+        metrics = _quality_metrics(
+            {
+                "planning_context": {"must_visits": ["岳麓山", "橘子洲"]},
+                "mobility_summary": {"walking_distance_unknown": 1},
+                "days": [
+                    {
+                        "schedule": [
+                            {
+                                "type": "visit",
+                                "name": "岳麓山南门",
+                                "source": "amap",
+                                "place_id": "poi-1",
+                                "location": "112,28",
+                                "opening_match": "matched",
+                                "reason": "先看山脚古迹，再按体力慢慢上行。",
+                            },
+                            {
+                                "type": "visit",
+                                "name": "橘子洲",
+                                "source": "model_judgment",
+                                "opening_match": "unknown",
+                            },
+                            {
+                                "type": "meal",
+                                "name": "就近午餐",
+                                "source": "model_judgment",
+                                "opening_match": "unknown",
+                            },
+                        ],
+                        "transfers": [
+                            {
+                                "source": "amap",
+                                "evidence_refs": ["route-1"],
+                                "duration_minutes": 20,
+                            },
+                            {"source": "estimate", "duration_minutes": 15},
+                        ],
+                    }
+                ],
+            }
+        )
+
+        self.assertEqual(metrics["schedule_item_count"], 3)
+        self.assertEqual(metrics["verified_entity_count"], 1)
+        self.assertAlmostEqual(metrics["entity_binding_rate"], 1 / 3, places=4)
+        self.assertEqual(metrics["verified_route_count"], 1)
+        self.assertEqual(metrics["route_count"], 2)
+        self.assertEqual(metrics["must_visit_covered"], 2)
+        self.assertEqual(metrics["opening_checked_count"], 1)
+        self.assertEqual(metrics["unknown_walking_segments"], 1)
+        self.assertAlmostEqual(metrics["guide_explanation_coverage"], 1 / 3, places=4)
+        self.assertTrue(metrics["first_step_available"])
+
+    def test_trace_metrics_reports_provider_latency_and_stage_duration(self) -> None:
+        metrics = _trace_metrics(
+            [
+                {"type": "model_started", "elapsed_ms": 10},
+                {"type": "model_finished", "elapsed_ms": 110},
+                {"type": "plan_validation_started", "elapsed_ms": 115},
+                {"type": "plan_validation_finished", "elapsed_ms": 130},
+            ],
+            {
+                "amap": [
+                    {"elapsed_ms": 30, "result": {"cache_hit": True}},
+                    {"elapsed_ms": 90, "error": "timeout"},
+                ],
+                "weather": [],
+            },
+        )
+
+        self.assertEqual(metrics["trace_wall_clock_ms"], 130)
+        self.assertEqual(metrics["stage_elapsed_ms"], {"model": 100, "validation": 15})
+        self.assertEqual(metrics["provider_latency_p50_ms"], 30)
+        self.assertEqual(metrics["provider_latency_p95_ms"], 90)
+        self.assertEqual(metrics["provider_error_rate"], 0.5)
+        self.assertEqual(metrics["provider_cache_hit_rate"], 0.5)
+
+    def test_evaluation_summary_tracks_repairs_tools_and_trace_integrity(self) -> None:
+        events = [
+            {
+                "type": "run_started",
+                "trace_id": "trace-1",
+                "event_id": "trace-1:1",
+                "event_index": 1,
+            },
+            {
+                "type": "plan_repair_applied",
+                "repairs": [
+                    {"reason": "normalize_stop_type"},
+                    {"reason": "normalize_stop_type"},
+                    {"reason": "repair_invalid_days"},
+                ],
+                "trace_id": "trace-1",
+                "event_id": "trace-1:2",
+                "event_index": 2,
+            },
+            {
+                "type": "tool_started",
+                "tool": "search_places",
+                "call_id": "search_places:1",
+                "trace_id": "trace-1",
+                "event_id": "trace-1:3",
+                "event_index": 3,
+            },
+            {
+                "type": "tool_finished",
+                "tool": "search_places",
+                "call_id": "search_places:1",
+                "cache_hit": True,
+                "trace_id": "trace-1",
+                "event_id": "trace-1:4",
+                "event_index": 4,
+            },
+            {
+                "type": "tool_started",
+                "tool": "route",
+                "call_id": "route:2",
+                "trace_id": "trace-1",
+                "event_id": "trace-1:5",
+                "event_index": 5,
+            },
+            {
+                "type": "tool_finished",
+                "tool": "route",
+                "call_id": "route:2",
+                "error": "provider unavailable",
+                "trace_id": "trace-1",
+                "event_id": "trace-1:6",
+                "event_index": 6,
+            },
+        ]
+        response = SimpleNamespace(
+            events=events,
+            plan={"completeness": {"score": 80}},
+            reply="完成",
+        )
+        summary = _summarize(response, {"llm": [], "amap": [], "weather": []}, 12)
+        aggregate = _aggregate([summary])
+
+        self.assertEqual(summary["repair_count"], 3)
+        self.assertEqual(summary["required_stop_repairs"], 0)
+        self.assertEqual(summary["repair_reasons"]["normalize_stop_type"], 2)
+        self.assertEqual(summary["tool_started"], 2)
+        self.assertEqual(summary["tool_finished"], 2)
+        self.assertEqual(summary["tool_errors"], 1)
+        self.assertEqual(summary["tool_cache_hits"], 1)
+        self.assertEqual(summary["tool_pair_gap"], 0)
+        self.assertTrue(summary["tool_call_lifecycle_complete"])
+        self.assertTrue(summary["event_trace_complete"])
+        self.assertEqual(aggregate["total_repairs"], 3)
+        self.assertEqual(aggregate["total_required_stop_repairs"], 0)
+        self.assertEqual(aggregate["total_tool_errors"], 1)
+        self.assertEqual(aggregate["event_trace_complete_rate"], 1.0)
+
     async def test_llm_retries_transient_transport_failure(self) -> None:
         request_count = 0
 

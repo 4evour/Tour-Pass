@@ -7,8 +7,11 @@ const statusEl = $("status");
 const savedDrawer = $("saved-drawer");
 const savedList = $("saved-list");
 const tripForm = $("trip-form");
+const workspace = document.querySelector(".workspace");
+const assistantPanel = $("assistant-panel");
+const panelToggle = $("toggle-panel");
 const emptyResultMarkup = resultPanel.innerHTML;
-const welcomeMessage = "告诉我想去哪里，以及你最在意什么。没有确定天数也没关系，我会判断合理范围并一次给出完整方案。";
+const welcomeMessage = "告诉我想去哪里就可以开始。没有特殊要求时，我会按第一次到访的热门主路线，直接给你一版能照着走的行程。";
 let sessionId = localStorage.getItem("tour-pass-active-session");
 let authState = null;
 let authMode = "login";
@@ -44,6 +47,18 @@ async function apiFetch(url, options={}) {
   const method = String(options.method || "GET").toUpperCase();
   if (!["GET", "HEAD", "OPTIONS"].includes(method)) headers.set("X-CSRF-Token", cookieValue("tp_csrf"));
   return fetch(url, {...options, headers, credentials:"same-origin"});
+}
+
+function setPlanningPanelCollapsed(collapsed) {
+  const value = Boolean(collapsed);
+  workspace.classList.toggle("panel-collapsed", value);
+  assistantPanel.classList.toggle("collapsed", value);
+  panelToggle.setAttribute("aria-expanded", String(!value));
+  panelToggle.setAttribute("aria-label", value ? "展开规划面板" : "收起规划面板");
+  panelToggle.title = value ? "展开规划面板" : "收起规划面板";
+  $("panel-toggle-icon").textContent = value ? "›" : "‹";
+  $("panel-toggle-text").textContent = value ? "展开规划面板" : "收起规划面板";
+  localStorage.setItem("tour-pass-panel-collapsed", String(value));
 }
 
 function showToast(message) {
@@ -195,12 +210,10 @@ function startNewTrip() {
 }
 
 const progressStages = [
-  ["接收需求", "建立本次规划运行记录"],
-  ["设计查询", "模型选择下一批事实核验任务"],
-  ["核验地点与天气", "确认地点实体、开放信息与天气"],
-  ["核验逐段交通", "查询活动之间及住宿闭环路线"],
-  ["生成完整行程", "基于已核验证据编排每天时间轴"],
-  ["结构检查", "解析结果并检查完整度"]
+  ["整理需求", "确认目的地、天数和需要照顾的事项"],
+  ["找地点和路线", "查找代表性景点、住宿区域和可行的交通"],
+  ["排好每天顺序", "把同片区的安排串成一条顺路路线"],
+  ["检查能否走通", "检查时间、路线和出发前需要确认的事项"]
 ];
 
 const progressState = {
@@ -236,9 +249,9 @@ function eventCopy(event) {
   if (event.type === "session_restored") return ["已恢复原行程上下文", `${event.previous_title || event.previous_city || "已保存行程"} · ${event.message_count || 0} 条历史消息`];
   if (event.type === "model_started") {
     const labels = {
-      skeleton: "正在生成轻量行程骨架"
+      skeleton: "正在排出一版主路线"
     };
-    return [labels[event.phase] || "模型正在规划", event.detail || "正在读取结构化约束"];
+    return [labels[event.phase] || "正在安排路线", "根据目的地、天数和已填写的要求整理顺序"];
   }
   if (event.type === "model_finished") {
     if (event.error) return ["模型结构化输出无效", event.message || event.error];
@@ -265,8 +278,8 @@ function eventCopy(event) {
   if (event.type === "model_retry") return ["模型输出需要重试", `第 ${event.attempt || "?"} 次生成 · ${event.reason || "格式错误"}`];
   if (event.type === "tool_started") {
     return [
-      `正在调用${toolLabel(event.tool)}`,
-      describeTool(event.tool, object(event.arguments))
+      event.tool === "route" ? "正在核对路上要花多久" : event.tool === "weather" ? "正在看出发日天气" : "正在确认地点信息",
+      event.tool === "route" ? "检查景点之间和住宿往返是否顺路" : event.tool === "weather" ? "把天气和穿着提醒补进行程" : "确认名称、位置和可用的地图信息"
     ];
   }
   if (event.type === "tool_finished") {
@@ -296,9 +309,9 @@ function eventCopy(event) {
 function stageFor(event) {
   if (event.type === "run_started") return 0;
   if (event.type === "model_started") return 1;
-  if (event.type === "tool_started") return event.tool === "route" ? 3 : 2;
-  if (event.type === "plan_ready") return 5;
-  if (["plan_repair_applied", "plan_validation_started", "plan_validation_finished", "persistence_started", "persistence_finished"].includes(event.type)) return 5;
+  if (event.type === "tool_started") return event.tool === "route" ? 2 : 1;
+  if (event.type === "plan_ready") return 4;
+  if (["plan_repair_applied", "plan_validation_started", "plan_validation_finished", "persistence_started", "persistence_finished"].includes(event.type)) return 3;
   if (event.type === "run_finished" && event.success) return progressStages.length;
   return progressState.activeStage;
 }
@@ -316,26 +329,27 @@ function eventRows() {
 
 function progressStats() {
   const modelCalls = progressState.events.filter((event) => event.type === "model_started").length;
-  const toolCalls = progressState.events
-    .filter((event) => event.type === "tool_started").length;
+  const toolEvents = progressState.events.filter((event) => event.type === "tool_started");
+  const placeChecks = toolEvents.filter((event) => ["search_places", "search_area"].includes(event.tool)).length;
+  const routeChecks = toolEvents.filter((event) => event.tool === "route").length;
   const lastEvent = progressState.events.at(-1);
   const elapsed = lastEvent?.type === "run_finished"
     ? lastEvent.elapsed_ms
     : Date.now() - progressState.startedAt;
-  return {modelCalls, toolCalls, elapsed};
+  return {modelCalls, placeChecks, routeChecks, elapsed};
 }
 
 function renderProgress() {
   const stats = progressStats();
   resultPanel.innerHTML = `<section class="progress-board" aria-live="polite">
     <header class="progress-hero">
-      <div><span class="kicker">LIVE PLANNING TRACE</span><h2>${progressState.failed ? "规划在当前步骤停止" : "正在把想法变成可执行路线"}</h2><p>这里只展示系统动作、工具调用和确定性结果，不展示模型内部推理。</p></div>
+      <div><span class="kicker">TOUR PASS</span><h2>${progressState.failed ? "这次规划停在了一个步骤" : "正在为你排好一趟顺路的旅行"}</h2><p>你只需要等结果；地点、路线和时间会在后台逐项核对。</p></div>
       <div class="elapsed"><span>已运行</span><b>${formatDuration(stats.elapsed)}</b></div>
     </header>
     <div class="progress-metrics">
-      <div><span>模型轮次</span><b>${stats.modelCalls}</b></div>
-      <div><span>事实查询</span><b>${stats.toolCalls}</b></div>
-      <div><span>进度事件</span><b>${progressState.events.length}</b></div>
+      <div><span>已查地点</span><b>${stats.placeChecks}</b></div>
+      <div><span>已核路线</span><b>${stats.routeChecks}</b></div>
+      <div><span>运行时间</span><b>${formatDuration(stats.elapsed)}</b></div>
     </div>
     <div class="progress-grid">
       <section class="stage-panel">
@@ -346,9 +360,9 @@ function renderProgress() {
         }).join("")}</div>
       </section>
       <section class="activity-panel">
-        <div class="section-label"><span>当前工作</span><span>${progressState.failed ? "ERROR" : "LIVE"}</span></div>
+        <div class="section-label"><span>现在进行到</span><span>${progressState.failed ? "需要处理" : "进行中"}</span></div>
         <div class="current-work ${progressState.failed ? "failed" : ""}"><i></i><div><h3>${escapeHtml(progressState.currentTitle)}</h3><p>${escapeHtml(progressState.currentDetail)}</p></div></div>
-        <div class="trace-list">${eventRows() || '<p class="trace-empty">等待第一个运行事件…</p>'}</div>
+        <details class="progress-details"><summary>查看后台核验进度</summary><div class="trace-list">${eventRows() || '<p class="trace-empty">等待第一个运行事件…</p>'}</div></details>
       </section>
     </div>
   </section>`;
@@ -387,7 +401,7 @@ function renderTraceSummary() {
   if (!progressState.events.length) return "";
   const stats = progressStats();
   return `<details class="run-trace">
-    <summary><span>查看完整生成轨迹</span><b>${formatDuration(stats.elapsed)} · ${stats.modelCalls} 轮模型 · ${stats.toolCalls} 次事实查询</b></summary>
+    <summary><span>查看完整生成轨迹</span><b>${formatDuration(stats.elapsed)} · ${stats.modelCalls} 次规划 · ${stats.placeChecks + stats.routeChecks} 次核验</b></summary>
     <div class="trace-list">${eventRows()}</div>
   </details>`;
 }
@@ -415,6 +429,14 @@ function renderScheduleItem(item) {
   const typeLabel = type === "meal" ? "吃" : type === "hotel" ? "住" : ["free", "free_time"].includes(type) ? "闲" : "游";
   const mapLink = item.location ? `<a class="map-link" href="https://uri.amap.com/marker?position=${encodeURIComponent(item.location)}&name=${encodeURIComponent(item.name)}" target="_blank" rel="noreferrer">地图 ↗</a>` : "";
   const rhythm = type === "visit" ? textOr(visitScaleLabels[item.visit_scale], "按现场节奏游览") : type === "meal" ? "按当天路线就近安排" : "";
+  const guide = object(item.guide);
+  const sentences = String(item.reason || "").split(/[。！？!?]+/).map((part) => part.trim()).filter(Boolean);
+  const highlight = guide.highlight || sentences[0] || "这站值得留出一段完整时间。";
+  const how = guide.how || sentences.slice(1).join("；") || rhythm || "按现场状态慢慢逛，不必追求全部打卡。";
+  const reminder = guide.reminder || list(item.practical_tips)[0] || "开放、预约和现场排队情况以出发当天为准。";
+  const verified = item.source === "amap" && item.place_id && item.location;
+  const factLabel = verified ? "地点已定位" : "地点待核验";
+  const factClass = verified ? "verified" : "pending";
   return `<div class="timeline-row stop-${escapeHtml(type)}">
     <div class="route-axis"><i class="route-dot"></i></div>
     <div class="stop-content">
@@ -422,8 +444,14 @@ function renderScheduleItem(item) {
         <span class="stop-kind">${typeLabel}</span>
         <div class="stop-copy">
           <div class="stop-heading"><h3>${textOr(item.name, "未命名活动")}</h3>${mapLink}</div>
-          <p>${textOr(item.reason, "体验说明待补充")}</p>
+          <p class="stop-reason">${textOr(item.reason, "体验说明待补充")}</p>
+          <div class="guide-triptych" aria-label="导游说明">
+            <div><b>看点</b><span>${escapeHtml(highlight)}</span></div>
+            <div><b>玩法</b><span>${escapeHtml(how)}</span></div>
+            <div><b>提醒</b><span>${escapeHtml(reminder)}</span></div>
+          </div>
           <div class="stop-facts"><span class="stop-clock">${textOr(item.start, "时间待定")}–${textOr(item.end, "待定")}</span>${rhythm ? `<span>${escapeHtml(rhythm)}</span>` : ""}</div>
+          <div class="fact-statuses"><span class="fact-status ${factClass}">${factLabel}</span><span class="fact-status ${item.opening_match === "matched" ? "verified" : "pending"}">${item.opening_match === "matched" ? "时段已匹配" : "开放待确认"}</span></div>
           ${list(item.practical_tips).length ? `<p class="stop-practical">${list(item.practical_tips).map(escapeHtml).join("；")}</p>` : ""}
           ${openingHours ? `<p class="stop-opening ${openingClass}" title="${escapeHtml(openingHours)}"><b>${item.opening_match === "unknown" ? "地图常规时间 · 当日待确认" : "开放时间"}</b>${escapeHtml(openingDetail)}</p>` : ""}
         </div>
@@ -694,6 +722,26 @@ function renderTravelManual(plan, days, hotel, profile) {
   </section>`;
 }
 
+function renderFeedback(runId) {
+  if (!runId || runId === "published") return "";
+  return `<section class="feedback-card" data-feedback-run="${escapeHtml(runId)}" aria-label="行程反馈">
+    <div><span class="section-label">帮我们校准下一版</span><h2>这份行程现在能直接照着走吗？</h2><p>只记录这一版的结果，不会公开你的行程内容。</p></div>
+    <div class="feedback-actions"><button type="button" data-feedback="direct_use">可以，直接照着走</button><button type="button" data-feedback="needs_changes">需要再调整</button><button type="button" data-feedback="inaccurate">有信息不准确</button></div>
+  </section>`;
+}
+
+function renderQuickStart(days) {
+  const firstDay = object(days[0]);
+  const firstVisit = list(firstDay.schedule).find((item) => item.type === "visit") || list(firstDay.schedule)[0];
+  if (!firstDay.day && !firstVisit) return "";
+  const firstName = firstVisit?.name || "当天第一站";
+  const firstTime = firstVisit?.start && firstVisit?.end ? `${firstVisit.start}–${firstVisit.end}` : "按当天节奏出发";
+  return `<section class="quick-start" aria-label="从这里开始">
+    <div><span class="section-label">从这里开始</span><h2>先照着第一天走，其他天按需调整</h2><p>D${Number(firstDay.day) || 1} · ${textOr(firstDay.theme, "城市探索")} · ${escapeHtml(firstName)} · ${escapeHtml(firstTime)}</p></div>
+    <a class="quick-start-link" href="#day-${Number(firstDay.day) || 1}">查看第一天 <span aria-hidden="true">↓</span></a>
+  </section>`;
+}
+
 function renderPlan(data, publicView=false) {
   if (!data.plan) return;
   const plan = data.plan;
@@ -751,11 +799,14 @@ function renderPlan(data, publicView=false) {
       </div>
       <div class="plan-actions">${actions}</div>
     </header>
-    <section class="evidence-strip" aria-label="本次核验范围">
-      <div><b>已生成 · 出发前仍需确认</b><p>地点坐标与路线查询不代表开放、预约或无障碍条件已确认。完整度分数只反映信息结构。</p></div>
-      <ul><li>景点定位 <strong>${locatedVisits}/${visits.length}</strong></li><li>已列交通有地图证据 <strong>${checkedRoutes}/${routes.length}</strong></li><li>预约待确认 <strong>${pendingBookings}</strong></li></ul>
-      <small>餐厅与酒店未确定时，区域接驳还需复核；天气以具体出行日期为准。</small>
-    </section>
+    ${renderQuickStart(days)}
+    <details class="evidence-drawer">
+      <summary><b>核验状态</b><span>地点 ${locatedVisits}/${visits.length} · 路线 ${checkedRoutes}/${routes.length} · 待确认 ${pendingBookings}</span></summary>
+      <section class="evidence-strip" aria-label="本次核验范围">
+        <div><b>已生成 · 出发前仍需确认</b><p>地点坐标与路线查询不代表开放、预约或无障碍条件已确认。完整度分数只反映信息结构。</p></div>
+        <small>餐厅与酒店未确定时，区域接驳还需复核；天气以具体出行日期为准。</small>
+      </section>
+    </details>
     <div class="plan-body guide-sheet">
       ${renderTraceSummary()}
       ${renderTripStats(plan, days, profile)}
@@ -772,6 +823,7 @@ function renderPlan(data, publicView=false) {
       ${days.map(renderDay).join("")}
       ${renderExecutionModules(plan)}
       ${renderTravelManual(plan, days, hotel, profile)}
+      ${renderFeedback(data.run_id)}
       ${allWarnings.length ? `<section class="travel-notes"><header><b>出发前再看一眼</b><span>${allWarnings.length} 项</span></header><ul>${allWarnings.map((warning) => `<li>${escapeHtml(warning)}</li>`).join("")}</ul></section>` : ""}
       <details class="guide-drawer">
         <summary><span><b>规划依据与完整度</b><small>地图坐标、候选区域、质量检查和技术审查</small></span><i><span class="drawer-expand">展开</span><span class="drawer-collapse">收起</span></i></summary>
@@ -1151,6 +1203,25 @@ async function exportPlanImage(trigger) {
 }
 
 resultPanel.addEventListener("click", async (event) => {
+  const feedback = event.target.closest("[data-feedback]");
+  if (feedback) {
+    const buttons = resultPanel.querySelectorAll("[data-feedback]");
+    buttons.forEach((button) => { button.disabled = true; });
+    try {
+      const response = await apiFetch("/api/feedback", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({
+        kind: feedback.dataset.feedback,
+        run_id: resultPanel.querySelector("[data-feedback-run]")?.dataset.feedbackRun || "unknown",
+        session_id: sessionId,
+      })});
+      if (!response.ok) throw new Error("反馈暂时未送达");
+      feedback.classList.add("selected");
+      showToast("收到，这会帮助我们改进行程建议");
+    } catch (error) {
+      buttons.forEach((button) => { button.disabled = false; });
+      showToast(error.message);
+    }
+    return;
+  }
   const trigger = event.target.closest("[data-action]");
   const action = trigger?.dataset.action;
   if (action === "print") {
@@ -1287,6 +1358,11 @@ $("custom-model")?.addEventListener("change", (event) => {
   const value = event.target.value.trim();
   if (value) localStorage.setItem("tour-pass-model", value);
 });
+
+panelToggle.addEventListener("click", () => {
+  setPlanningPanelCollapsed(!assistantPanel.classList.contains("collapsed"));
+});
+setPlanningPanelCollapsed(localStorage.getItem("tour-pass-panel-collapsed") === "true");
 
 (async function bootstrap() {
   try {

@@ -1099,6 +1099,11 @@ class ItineraryAssembler:
         self.weather = weather
         self.rail = rail
         self.max_provider_calls = max(1, max_provider_calls)
+        self._tool_call_sequence = 0
+
+    def _next_tool_call_id(self, tool: str) -> str:
+        self._tool_call_sequence += 1
+        return f"{tool}:{self._tool_call_sequence}"
 
     async def _search(
         self,
@@ -1106,11 +1111,14 @@ class ItineraryAssembler:
         query: str,
         emit: EventEmitter,
     ) -> tuple[tuple[str, str], dict[str, Any] | None]:
+        call_id = self._next_tool_call_id("search_places")
+        arguments = {"city": city, "keywords": query}
         emit(
             {
                 "type": "tool_started",
                 "tool": "search_places",
-                "arguments": {"city": city, "keywords": query},
+                "call_id": call_id,
+                "arguments": arguments,
             }
         )
         started = asyncio.get_running_loop().time()
@@ -1120,6 +1128,8 @@ class ItineraryAssembler:
                 {
                     "type": "tool_finished",
                     "tool": "search_places",
+                    "call_id": call_id,
+                    "arguments": arguments,
                     "cache_hit": bool(result.get("cache_hit")),
                     "tool_elapsed_ms": round(
                         (asyncio.get_running_loop().time() - started) * 1000
@@ -1134,6 +1144,8 @@ class ItineraryAssembler:
                 {
                     "type": "tool_finished",
                     "tool": "search_places",
+                    "call_id": call_id,
+                    "arguments": arguments,
                     "error": error,
                     "tool_elapsed_ms": round(
                         (asyncio.get_running_loop().time() - started) * 1000
@@ -1151,11 +1163,19 @@ class ItineraryAssembler:
         emit: EventEmitter,
     ) -> tuple[tuple[str, str, str], dict[str, Any] | None]:
         key = (origin, destination, mode)
+        call_id = self._next_tool_call_id("route")
+        arguments = {
+            "city": city,
+            "origin": origin,
+            "destination": destination,
+            "mode": mode,
+        }
         emit(
             {
                 "type": "tool_started",
                 "tool": "route",
-                "arguments": {"city": city, "mode": mode},
+                "call_id": call_id,
+                "arguments": arguments,
             }
         )
         started = asyncio.get_running_loop().time()
@@ -1167,6 +1187,8 @@ class ItineraryAssembler:
                 {
                     "type": "tool_finished",
                     "tool": "route",
+                    "call_id": call_id,
+                    "arguments": arguments,
                     "cache_hit": bool((result or {}).get("cache_hit")),
                     "tool_elapsed_ms": round(
                         (asyncio.get_running_loop().time() - started) * 1000
@@ -1180,6 +1202,8 @@ class ItineraryAssembler:
                 {
                     "type": "tool_finished",
                     "tool": "route",
+                    "call_id": call_id,
+                    "arguments": arguments,
                     "error": str(exc),
                     "tool_elapsed_ms": round(
                         (asyncio.get_running_loop().time() - started) * 1000
@@ -1193,6 +1217,7 @@ class ItineraryAssembler:
         day_index: int,
         params: dict[str, Any],
         emit: EventEmitter,
+        call_id: str,
     ) -> tuple[int, dict[str, Any] | None]:
         started = asyncio.get_running_loop().time()
         try:
@@ -1201,6 +1226,12 @@ class ItineraryAssembler:
                 {
                     "type": "tool_finished",
                     "tool": "rail_timetable",
+                    "call_id": call_id,
+                    "arguments": {
+                        "date": params["travel_date"],
+                        "from": params["from_station"],
+                        "to": params["to_station"],
+                    },
                     "cache_hit": bool(result.get("cache_hit")),
                     "tool_elapsed_ms": round(
                         (asyncio.get_running_loop().time() - started) * 1000
@@ -1214,6 +1245,12 @@ class ItineraryAssembler:
                 {
                     "type": "tool_finished",
                     "tool": "rail_timetable",
+                    "call_id": call_id,
+                    "arguments": {
+                        "date": params["travel_date"],
+                        "from": params["from_station"],
+                        "to": params["to_station"],
+                    },
                     "error": str(exc),
                     "tool_elapsed_ms": round(
                         (asyncio.get_running_loop().time() - started) * 1000
@@ -1233,6 +1270,7 @@ class ItineraryAssembler:
         list[dict[str, Any]],
         dict[str, Any] | None,
     ]:
+        self._tool_call_sequence = 0
         city = _text(context.get("destination"))
         skeleton, repairs = repair_skeleton(skeleton, context)
         if context.get("days") in (None, ""):
@@ -1260,11 +1298,14 @@ class ItineraryAssembler:
         resolve_search_city = getattr(self.amap, "resolve_search_city", None)
         if callable(resolve_search_city) and len(day_destinations) == 1:
             region_slots = 1
+            region_call_id = self._next_tool_call_id("resolve_region")
+            region_arguments = {"destination": provider_city}
             emit(
                 {
                     "type": "tool_started",
                     "tool": "resolve_region",
-                    "arguments": {"destination": provider_city},
+                    "call_id": region_call_id,
+                    "arguments": region_arguments,
                 }
             )
             started = asyncio.get_running_loop().time()
@@ -1277,6 +1318,8 @@ class ItineraryAssembler:
                     {
                         "type": "tool_finished",
                         "tool": "resolve_region",
+                        "call_id": region_call_id,
+                        "arguments": region_arguments,
                         "cache_hit": bool(region.get("cache_hit")),
                         "tool_elapsed_ms": round(
                             (asyncio.get_running_loop().time() - started) * 1000
@@ -1289,6 +1332,8 @@ class ItineraryAssembler:
                     {
                         "type": "tool_finished",
                         "tool": "resolve_region",
+                        "call_id": region_call_id,
+                        "arguments": region_arguments,
                         "error": str(exc),
                         "tool_elapsed_ms": round(
                             (asyncio.get_running_loop().time() - started) * 1000
@@ -1359,7 +1404,7 @@ class ItineraryAssembler:
                         (_text(stop.get("type")), stop)
                     )
 
-        weather_specs: list[tuple[str, int]] = []
+        weather_specs: list[tuple[str, int, str]] = []
         if context.get("start_date") and self.weather is not None:
             for destination in day_destinations:
                 destination_days = sum(
@@ -1367,15 +1412,20 @@ class ItineraryAssembler:
                     for day in skeleton.get("days") or []
                     if isinstance(day, dict)
                 )
-                weather_specs.append((destination, min(max(destination_days, 1), 7)))
+                weather_call_id = self._next_tool_call_id("weather")
+                weather_arguments = {"city": destination}
+                weather_specs.append(
+                    (destination, min(max(destination_days, 1), 7), weather_call_id)
+                )
                 emit(
                     {
                         "type": "tool_started",
                         "tool": "weather",
-                        "arguments": {"city": destination},
+                        "call_id": weather_call_id,
+                        "arguments": weather_arguments,
                     }
                 )
-        rail_specs: list[tuple[int, dict[str, Any]]] = []
+        rail_specs: list[tuple[int, dict[str, Any], str]] = []
         rail_available = bool(
             self.rail is not None and getattr(self.rail, "available", False)
         )
@@ -1412,11 +1462,13 @@ class ItineraryAssembler:
                         ),
                         "limit": 3,
                     }
-                    rail_specs.append((day_index, params))
+                    rail_call_id = self._next_tool_call_id("rail_timetable")
+                    rail_specs.append((day_index, params, rail_call_id))
                     emit(
                         {
                             "type": "tool_started",
                             "tool": "rail_timetable",
+                            "call_id": rail_call_id,
                             "arguments": {
                                 "date": params["travel_date"],
                                 "from": origin,
@@ -1451,10 +1503,11 @@ class ItineraryAssembler:
         ]
         weather_jobs = [
             self.weather.forecast(destination, days)
-            for destination, days in weather_specs
+            for destination, days, _ in weather_specs
         ]
         rail_jobs = [
-            self._rail(day_index, params, emit) for day_index, params in rail_specs
+            self._rail(day_index, params, emit, call_id)
+            for day_index, params, call_id in rail_specs
         ]
         gathered = await asyncio.gather(
             *search_jobs,
@@ -1471,15 +1524,27 @@ class ItineraryAssembler:
         weather_results: list[tuple[str, dict[str, Any]]] = []
         weather_start = len(search_jobs)
         weather_end = weather_start + len(weather_jobs)
-        for (destination, _), result in zip(
+        for (destination, _, call_id), result in zip(
             weather_specs, gathered[weather_start:weather_end]
         ):
+            if isinstance(result, Exception):
+                emit(
+                    {
+                        "type": "tool_finished",
+                        "tool": "weather",
+                        "call_id": call_id,
+                        "arguments": {"city": destination},
+                        "error": str(result),
+                    }
+                )
+                continue
             if isinstance(result, dict):
                 weather_results.append((destination, result))
                 emit(
                     {
                         "type": "tool_finished",
                         "tool": "weather",
+                        "call_id": call_id,
                         "arguments": {"city": destination},
                         "cache_hit": bool(result.get("cache_hit")),
                         "response_hash": result.get("response_hash", ""),

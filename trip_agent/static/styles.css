@@ -236,6 +236,13 @@ html{scroll-behavior:smooth}
 .stop-opening{display:flex;gap:8px;margin:8px 0 0!important;padding:7px 9px;border-left:2px solid #9ab7a8;background:#f3f7f3;color:#5b6d64!important;font-size:11px!important;line-height:1.6!important}
 .stop-opening b{flex:none;color:#31594a;font-size:11px}
 .stop-opening.ok{border-left-color:#5d9b79}.stop-opening.risk{border-left-color:#c58745;background:#fff8ea}
+.guide-triptych{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:10px}
+.guide-triptych>div{display:grid;gap:4px;padding:8px 9px;border:1px solid #e1e9e2;border-radius:8px;background:#f8fbf8}
+.guide-triptych b{color:#386a55;font-size:10px;letter-spacing:.08em}
+.guide-triptych span{color:#62736b;font-size:11px;line-height:1.55}
+.fact-statuses{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.fact-status{padding:4px 7px;border-radius:999px;font-size:10px;font-weight:800}
+.fact-status.verified{color:#2f7557;background:#e7f5ec}.fact-status.pending{color:#87662e;background:#fff5dc}
 .guide-day .route-hop{grid-template-columns:28px minmax(0,1fr);gap:9px;margin:0 0 4px 29px;padding:9px 11px;border:0;border-radius:8px;background:#f5f8f5}
 .hop-symbol{width:28px;height:28px;font-size:14px}.hop-copy b{font-size:13px}.hop-copy span,.hop-copy p,.hop-copy small{font-size:12px}
 .day-alerts{margin:0 18px 16px;padding:12px 14px;border:1px solid #ead6a7;border-radius:12px;background:#fff8e4;color:#675425}
@@ -276,11 +283,27 @@ html{scroll-behavior:smooth}
 .guide-footer{padding-top:14px;font-size:10px}
 .trip-export-frame{box-sizing:border-box;font-family:"Microsoft YaHei UI","PingFang SC",sans-serif}
 .trip-export-frame .guide-cover,.trip-export-frame .guide-sheet{width:100%}
-.evidence-strip{padding:18px 26px;background:#eef3ed;border-bottom:1px solid #d6e0d7;color:#244e40}
+.quick-start{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 14px;padding:20px 24px;border:1px solid #b9d8c8;border-radius:16px;background:#eff8f3;color:#173f31}
+.quick-start .section-label{margin:0 0 7px;color:#4a806a}
+.quick-start h2{margin:0 0 5px;font:700 22px/1.25 "STSong","Songti SC",serif}
+.quick-start p{margin:0;color:#527064;font-size:12px;line-height:1.6}
+.quick-start-link{flex:none;padding:10px 13px;border-radius:10px;color:#fff;background:#1769aa;font-size:11px;font-weight:800;text-decoration:none}
+.quick-start-link span{margin-left:5px}
+.evidence-drawer{margin:0 0 14px;border:1px solid #d6e0d7;border-radius:14px;background:#eef3ed;color:#244e40;overflow:hidden}
+.evidence-drawer>summary{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:13px 18px;cursor:pointer;list-style:none;font-size:12px}
+.evidence-drawer>summary::-webkit-details-marker{display:none}
+.evidence-drawer>summary span{color:#527064;font-size:10px}
+.evidence-strip{padding:2px 20px 16px}
 .evidence-strip b{font-size:15px}.evidence-strip p,.evidence-strip small{font-size:12px;line-height:1.7}
 .evidence-strip p{margin:5px 0}.evidence-strip ul{display:flex;flex-wrap:wrap;gap:10px 24px;margin:12px 0;padding:0;list-style:none}
 .evidence-strip li{font-size:13px}.evidence-strip strong{margin-left:8px;font-variant-numeric:tabular-nums}
+.progress-details{margin-top:16px;border-top:1px solid var(--line)}
+.progress-details summary{padding:12px 0;cursor:pointer;color:#527064;font-size:10px;font-weight:800}
+.progress-details .trace-list{padding-top:5px}
 .stop-clock{font-weight:800;font-variant-numeric:tabular-nums}.stop-practical{font-size:12px!important;color:#62746b!important}
+.feedback-card{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:16px 0;padding:18px 20px;border:1px solid #c8ddd0;border-radius:15px;background:#eff8f3}
+.feedback-card h2{margin:3px 0 4px;font:700 20px/1.25 "Iowan Old Style","Songti SC","STSong",serif;color:#173f31}
+.feedback-card p{margin:0;color:#5e776c;font-size:12px}.feedback-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px}.feedback-actions button{padding:9px 11px;border:1px solid #b9d3c6;border-radius:8px;background:#fff;color:#225540;font-size:11px;font-weight:800}.feedback-actions button:hover,.feedback-actions button.selected{border-color:#267253;background:#dff2e7}.feedback-actions button:disabled{opacity:.6}
 
 
 @media(max-width:760px){
@@ -314,6 +337,7 @@ html{scroll-behavior:smooth}
   .reservation-list>div{grid-template-columns:30px minmax(0,1fr);gap:7px;padding:11px 2px}
   .reservation-list em,.reservation-list i{grid-column:2;text-align:left}
   .travel-notes ul{grid-template-columns:1fr}
+  .guide-triptych{grid-template-columns:1fr}.feedback-card{display:block;padding:16px}.feedback-actions{justify-content:flex-start;margin-top:12px}
 }
 
 @media print{
@@ -383,3 +407,15 @@ html{scroll-behavior:smooth}
 @media print{.advanced-input{display:none}.decision-grid{grid-template-columns:1fr 1fr}.decision-card{break-inside:avoid}.evidence-list>a,.evidence-list>div{break-inside:avoid}}
 
 .llm-picker{margin-top:16px;display:grid;gap:7px}.llm-picker label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#c4d0cb}.llm-picker select,.llm-picker input{width:100%;padding:9px 10px;border:1px solid #486057;border-radius:8px;background:#20342d;color:#fff}.llm-picker small{color:#9fb2aa;font-size:11px}
+@media(max-width:760px){.quick-start{display:block;padding:17px 18px}.quick-start h2{font-size:19px}.quick-start-link{display:inline-block;margin-top:13px}.evidence-drawer>summary{display:block}.evidence-drawer>summary span{display:block;margin-top:5px}}
+.panel-toggle{position:absolute;top:14px;right:14px;z-index:4;display:flex;align-items:center;gap:6px;padding:7px 9px;border:1px solid rgba(255,255,255,.22);border-radius:8px;color:#d8e8e1;background:rgba(20,35,30,.8);font-size:10px;font-weight:800;backdrop-filter:blur(8px)}
+.panel-toggle:hover{color:#fff;background:#1e4d3e}
+.panel-toggle-icon{font-size:18px;line-height:.7}
+.workspace.panel-collapsed{grid-template-columns:54px minmax(0,1fr)}
+.assistant-panel.collapsed{height:64px;min-height:64px;overflow:visible}
+.assistant-panel.collapsed> :not(.panel-toggle){display:none}
+.assistant-panel.collapsed .panel-toggle{inset:0;right:auto;width:54px;height:64px;justify-content:center;padding:0;border:0;border-radius:22px;background:var(--ink);font-size:0}
+.assistant-panel.collapsed .panel-toggle-icon{font-size:27px}
+.assistant-panel.collapsed .panel-toggle-text{display:none}
+@media(max-width:1050px){.workspace.panel-collapsed{grid-template-columns:54px minmax(0,1fr)}}
+@media(max-width:760px){.workspace.panel-collapsed{grid-template-columns:1fr}.assistant-panel.collapsed{position:sticky;top:10px;z-index:12;width:100%;height:58px;min-height:58px}.assistant-panel.collapsed .panel-toggle{width:100%;height:58px;border-radius:14px}.assistant-panel.collapsed .panel-toggle-text{display:inline;font-size:11px}.assistant-panel.collapsed .panel-toggle-icon{font-size:22px}}

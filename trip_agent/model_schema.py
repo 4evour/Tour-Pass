@@ -58,7 +58,7 @@ def itinerary_skeleton_output_format(
             ),
             "visit_scale": _string("quick_stop", "standard", "half_day", "full_day"),
             "reason": _described_string(
-                "用一句自然语言说明这里具体能看什么、怎么玩或吃什么，不写抽象推荐话术。"
+                "用一至两句亲切、具体的导游式说明：先说这里具体能看什么、最值得体验什么或尝什么，再说建议怎么逛、怎么安排节奏或需要注意什么；不写抽象推荐话术。"
             ),
             "optional": _boolean(),
         }
@@ -78,7 +78,7 @@ def itinerary_skeleton_output_format(
             "destination": _string(),
             "theme": _string(),
             "summary": _described_string(
-                "用一至两句自然语言串起当天上午、下午、晚上、三餐和路线，并说明主动取舍；景点不得使用分钟级到离时间。"
+                "用一至两句像导游行前 briefing 的自然语言串起当天主线、上午下午晚上、三餐、休息、路线和主动取舍；说明为什么这样安排，景点不得使用分钟级到离时间。"
             ),
             "primary_area": _string(),
             "overnight_area": _string(),
@@ -116,7 +116,9 @@ def itinerary_skeleton_output_format(
         "schema": _object(
             {
                 "title": _string(),
-                "overview": _string(),
+                "overview": _described_string(
+                    "用一至三句亲切的行前总览告诉用户这趟旅行的节奏、主线和最值得期待的体验；先给结论，再补充必要的取舍。"
+                ),
                 "highlights": _array(_string()),
                 "tradeoffs": _array(_string()),
                 "budget_notes": _array(
