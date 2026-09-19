@@ -652,6 +652,11 @@ function renderExecutionModules(plan) {
   const safety = object(plan.safety);
   const unknowns = list(plan.unknowns);
   const categoryRows = list(budget.categories);
+  const diningDays = new Set(dining.map((item) => item.day).filter(Boolean)).size;
+  const diningPeriods = [...new Set(dining.map((item) => periodLabels[item.period]).filter(Boolean))];
+  const diningStrategy = dining.length
+    ? `${diningDays || "多"} 天餐饮已按${diningPeriods.join("、") || "当天节奏"}整理：早餐靠近住宿，午晚餐优先跟随当天游览片区。具体店铺、排队和营业状态出发前再确认。`
+    : "当前没有形成餐饮安排；可按当天游览片区就近解决。";
   const safetyItems = [
     ...list(safety.destination_alerts),
     ...list(safety.medical),
@@ -684,10 +689,11 @@ function renderExecutionModules(plan) {
       </section>
       <section class="decision-card module-dining">
         <header><b>餐饮选项</b><span>${dining.length} 餐</span></header>
-        <div class="task-list">${dining.map((item) => `<div>
+        <p class="dining-summary">${escapeHtml(diningStrategy)}</p>
+        ${dining.length ? `<details class="dining-details"><summary><span>查看每日餐饮建议</span><b>${dining.length} 餐</b></summary><div class="task-list">${dining.map((item) => `<div>
           <b>D${item.day} · ${textOr(periodLabels[item.period], "用餐")}</b>
           <span><strong>${textOr(item.name, "餐厅待确认")}</strong><small>${textOr(item.description, "当天按路线和口味就近选择。")}</small>${item.area ? `<em>${textOr(item.area)}</em>` : ""}${list(item.alternatives).length ? `<em>备选：${list(item.alternatives).map((alt) => textOr(alt.name)).join("、")}</em>` : ""}</span>
-        </div>`).join("") || "<p>餐饮点待补充</p>"}</div>
+        </div>`).join("")}</div></details>` : ""}
       </section>
       <section class="decision-card module-bookings">
         <header><b>预订与核对清单</b><span>${bookings.length} 项</span></header>

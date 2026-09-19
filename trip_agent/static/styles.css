@@ -378,6 +378,13 @@ html{scroll-behavior:smooth}
 .task-list>div span strong{font-size:13px}
 .task-list>div span small,.task-list>div span em{margin-top:4px;color:var(--muted);font-size:11px;line-height:1.6;font-style:normal}
 .task-list i.urgent{color:#9a3d28;background:var(--warning-soft)}
+.dining-summary{margin:0;color:var(--muted);font-size:12px;line-height:1.75}
+.dining-details{margin-top:13px!important;padding-top:0!important;border-top:0!important}
+.dining-details>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 10px;border:1px solid #dfe8e2;border-radius:9px;background:#f6faf7;color:#35624f;cursor:pointer;list-style:none;font-size:11px;font-weight:800}
+.dining-details>summary::-webkit-details-marker{display:none}
+.dining-details>summary b{color:var(--muted);font:800 10px/1.3 ui-monospace,monospace}
+.dining-details[open]{padding-top:10px!important;border-top:1px solid var(--line)!important}
+.dining-details[open]>summary{margin-bottom:2px;background:#edf6f0}
 .budget-total{display:grid;grid-template-columns:1fr auto;gap:5px 12px;padding:12px;border-radius:11px;background:#14231e;color:#fff}
 .budget-total span,.budget-total small{color:#b8c7c1;font-size:10px}
 .budget-total strong{font:800 20px/1 ui-monospace,monospace}
