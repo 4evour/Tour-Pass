@@ -79,6 +79,11 @@ const visitScaleLabels = {quick_stop:"顺路短停",standard:"留出一段完整
 const modeLabels = {walking:"步行",transit:"公共交通",public_transit:"公共交通",driving:"驾车",taxi:"打车",mixed:"混合交通",unknown:"待确认"};
 const sourceLabels = {amap:"高德数据",qweather:"和风天气数据",user:"用户确认",model_judgment:"规划建议",unknown:"待核验"};
 const list = (value) => Array.isArray(value) ? value : [];
+const textList = (value) => {
+  const values = Array.isArray(value) ? value : value ? [value] : [];
+  const strings = values.map((item) => String(item ?? "").trim()).filter(Boolean);
+  return strings.length >= 4 && strings.every((item) => item.length === 1) ? [strings.join("")] : strings;
+};
 const splitValues = (value) => String(value || "")
   .split(/[、，,；;\n]+/)
   .map((item) => item.trim())
@@ -666,9 +671,7 @@ function renderExecutionModules(plan) {
     ...list(safety.special_population_notes),
   ];
   const selectedMode = localStrategy.selected || object(plan.trip_profile).transport_preference;
-  const transportNotes = Array.isArray(localStrategy.notes)
-    ? localStrategy.notes
-    : localStrategy.notes ? [localStrategy.notes] : [];
+  const transportNotes = textList(localStrategy.notes);
   return `<section class="decision-modules">
     <header class="manual-title"><div><span>DECISIONS & ACTIONS</span><h2>选择、费用与待办</h2></div><p>把可比较选项、未核实信息和出发前动作拆开呈现。</p></header>
     <div class="decision-grid">
@@ -708,7 +711,7 @@ function renderExecutionModules(plan) {
         <header><b>预算分配</b><span>${textOr(budget.coverage, "未估算")}</span></header>
         <div class="budget-total"><span>用户预算上限</span><strong>${money(object(budget.user_limit).total_max || budget.planning_ceiling, budget.currency)}</strong><small>不是实时价格报价</small></div>
         <div class="budget-bars">${categoryRows.map((item) => `<div><span>${textOr(item.label)}</span><b>${money(item.planning_cap, budget.currency)}</b></div>`).join("") || "<p>未提供金额，无法可靠拆分预算。</p>"}</div>
-        <ul>${list(budget.assumptions).map((item) => `<li>${escapeHtml(String(item))}</li>`).join("")}</ul>
+        <ul>${textList(budget.assumptions).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
       </section>
       <section class="decision-card module-safety">
         <header><b>安全与特殊人群</b><span>${textOr(safety.source_status, "unavailable")}</span></header>
@@ -737,7 +740,7 @@ function renderTravelManual(plan, days, hotel, profile) {
   const verifiedRoutes = transfers.filter((item) => item.source === "amap").length;
   const estimatedRoutes = transfers.length - verifiedRoutes;
   const hotelMap = hotel.location ? `<a href="https://uri.amap.com/marker?position=${encodeURIComponent(hotel.location)}&name=${encodeURIComponent(hotel.name)}" target="_blank" rel="noreferrer">打开住宿地图 ↗</a>` : "";
-  const assumptions = list(profile.assumptions).slice(0, 4);
+  const assumptions = textList(profile.assumptions).slice(0, 4);
   const checklist = [
     "身份证件、优惠证件与同行人联系方式",
     "酒店、门票和交通订单的离线截图",

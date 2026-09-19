@@ -34,6 +34,16 @@ def items(value: Any) -> list[Any]:
     return value if isinstance(value, list) else []
 
 
+def text_items(value: Any) -> list[str]:
+    values = items(value)
+    if isinstance(value, str):
+        return [value.strip()] if value.strip() else []
+    normalized = [text(item) for item in values if text(item)]
+    if len(normalized) >= 4 and all(len(item) == 1 for item in normalized):
+        return ["".join(normalized)]
+    return normalized
+
+
 def normalize_anchor(
     value: Any,
     fallback: str,
@@ -214,6 +224,12 @@ def normalize_plan(
         )
         for index, day in enumerate(items(plan["days"]), 1)
     ]
+    transport_options = dict(mapping(plan.get("transport_options")))
+    local_strategy = dict(mapping(transport_options.get("local_strategy")))
+    local_strategy["notes"] = text_items(local_strategy.get("notes"))
+    transport_options["local_strategy"] = local_strategy
+    budget = dict(mapping(plan.get("budget")))
+    budget["assumptions"] = text_items(budget.get("assumptions"))
     result = {
         "schema_version": integer(plan.get("schema_version"), 2),
         "city": text(plan.get("city")),
@@ -233,10 +249,10 @@ def normalize_plan(
         "hotel": hotel,
         "hotels": hotels,
         "hotel_options": items(plan.get("hotel_options")),
-        "transport_options": mapping(plan.get("transport_options")),
+        "transport_options": transport_options,
         "dining_options": items(plan.get("dining_options")),
         "booking_tasks": items(plan.get("booking_tasks")),
-        "budget": mapping(plan.get("budget")),
+        "budget": budget,
         "safety": mapping(plan.get("safety")),
         "candidate_comparison": normalize_comparison(plan.get("candidate_comparison")),
         "days": days,

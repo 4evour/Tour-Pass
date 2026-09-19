@@ -40,6 +40,7 @@ from trip_agent.plan_output import (
     normalize_risk,
     normalize_schedule_item,
     normalize_transfer,
+    text_items,
 )
 from trip_agent.providers.amap import AmapProvider
 from trip_agent.providers.rail import (
@@ -3103,6 +3104,11 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertIn("天津1天，随后济南1天", overview)
         self.assertNotIn("早餐", overview)
         self.assertEqual(highlights, ["济南泉水与老城"])
+
+    def test_text_items_repairs_legacy_character_array(self) -> None:
+        value = "整体花费主要在火车票、住宿和餐饮上。"
+
+        self.assertEqual(text_items(list(value)), [value])
 
     async def test_scalar_transport_notes_are_kept_as_one_note(self) -> None:
         skeleton = skeleton_plan()
