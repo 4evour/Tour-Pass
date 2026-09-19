@@ -3227,6 +3227,54 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             {"per_person": 4500, "currency": "CNY"},
         )
 
+    def test_context_extracts_fixed_ticket_times_from_notes(self) -> None:
+        context = build_planning_context(
+            None,
+            "天津到济南的票：2026年9月14日 G123，天津站08:20发车，济南站10:30到站。",
+        )
+
+        self.assertEqual(
+            context["ticket_facts"],
+            [
+                {
+                    "date": "2026-09-14",
+                    "from": "天津",
+                    "to": "济南",
+                    "departure_time": "08:20",
+                    "arrival_time": "10:30",
+                    "train_code": "G123",
+                }
+            ],
+        )
+
+    def test_repair_skeleton_applies_fixed_ticket_times_to_city_leg(self) -> None:
+        skeleton = skeleton_plan("天津、济南", 2)
+        skeleton["days"][0]["destination"] = "天津"
+        skeleton["days"][1]["destination"] = "济南"
+        repaired, _ = repair_skeleton(
+            skeleton,
+            {
+                "destination": "天津、济南",
+                "days": 2,
+                "ticket_facts": [
+                    {
+                        "from": "天津",
+                        "to": "济南",
+                        "departure_time": "08:20",
+                        "arrival_time": "10:30",
+                    }
+                ],
+            },
+        )
+
+        self.assertEqual(repaired["days"][1]["intercity_leg"]["mode"], "rail")
+        self.assertEqual(
+            repaired["days"][1]["intercity_leg"]["departure_hint"], "08:20"
+        )
+        self.assertEqual(
+            repaired["days"][1]["intercity_leg"]["arrival_hint"], "10:30"
+        )
+
     def test_memory_policy_compacts_history_and_previous_plan(self) -> None:
         policy = MemoryPolicy(
             history_messages=2,

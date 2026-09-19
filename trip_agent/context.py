@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 from copy import deepcopy
 from dataclasses import dataclass
@@ -70,6 +71,54 @@ def _text(value: Any) -> str:
 
 def _split_values(value: str) -> list[str]:
     return [item.strip() for item in re.split(r"[、,，/]+", value) if item.strip()]
+
+
+def _ticket_facts(message: str) -> list[dict[str, str]]:
+    """Extract user-supplied train legs so the model does not have to infer them."""
+    facts: list[dict[str, str]] = []
+    route_pattern = re.compile(
+        r"(?P<from>[\u4e00-\u9fffA-Za-z·]{2,12})(?:站|车站)?\s*"
+        r"(?:到|至|->|—>)\s*"
+        r"(?P<to>[\u4e00-\u9fffA-Za-z·]{2,12})(?:站|车站)?"
+    )
+    time_pattern = re.compile(r"(?<!\d)(\d{1,2}):(\d{2})(?!\d)")
+    train_pattern = re.compile(r"\b([GDCZTKYS]\d{1,5})\b", re.IGNORECASE)
+    date_pattern = re.compile(r"(?:(\d{4})年)?(\d{1,2})月(\d{1,2})日")
+    for segment in re.split(r"[；;。\n]", message):
+        routes = list(route_pattern.finditer(segment))
+        for route_index, route in enumerate(routes):
+            window_end = (
+                routes[route_index + 1].start()
+                if route_index + 1 < len(routes)
+                else len(segment)
+            )
+            times = time_pattern.findall(segment[route.start() : window_end])
+            if len(times) < 2:
+                continue
+            from_name = re.sub(
+                r"(?:的?(?:车票|车次|票))$", "", route.group("from")
+            ).strip()
+            to_name = re.sub(
+                r"(?:的?(?:车票|车次|票))$", "", route.group("to")
+            ).strip()
+            value: dict[str, str] = {
+                "from": from_name,
+                "to": to_name,
+                "departure_time": f"{int(times[0][0]):02d}:{times[0][1]}",
+                "arrival_time": f"{int(times[1][0]):02d}:{times[1][1]}",
+            }
+            train = train_pattern.search(segment[max(0, route.start() - 20) : window_end])
+            if train:
+                value["train_code"] = train.group(1).upper()
+            date_match = date_pattern.search(segment)
+            if date_match:
+                year = date_match.group(1)
+                value["date"] = (
+                    f"{year + '-' if year else ''}{int(date_match.group(2)):02d}-"
+                    f"{int(date_match.group(3)):02d}"
+                )
+            facts.append(value)
+    return facts
 
 
 _CONJUNCTION_PLACE_SUFFIX = (
@@ -159,6 +208,7 @@ def compact_planning_context(context: dict[str, Any]) -> dict[str, Any]:
         "start_date",
         "arrival",
         "departure",
+        "ticket_facts",
         "hotel_area",
         "hotel_preferences",
         "travelers",
@@ -431,6 +481,7 @@ def _derive_from_plan(plan: dict[str, Any] | None) -> dict[str, Any]:
         "start_date": _text((plan.get("date_range") or {}).get("start")),
         "arrival": deepcopy(plan.get("arrival") or {}),
         "departure": deepcopy(plan.get("departure") or {}),
+        "ticket_facts": deepcopy(plan.get("ticket_facts") or []),
         "hotel_area": _text(hotel.get("name") or hotel.get("area")),
         "hotel_preferences": "",
         "travelers": _text(profile.get("travelers")),
@@ -470,6 +521,7 @@ def build_planning_context(
         "freeform_requests",
     ):
         context.setdefault(key, [])
+    context.setdefault("ticket_facts", [])
     previous_revision = int(context.get("revision") or 0)
     if not previous_revision and history:
         previous_revision = sum(item.get("role") == "user" for item in history)
@@ -740,8 +792,8 @@ def build_planning_context(
             context["party"] = party
 
         endpoint_markers = {
-            "arrival": ("抵达", "到达", "落地"),
-            "departure": ("返程", "离开", "返回"),
+            "arrival": ("抵达", "到达", "落地", "到站"),
+            "departure": ("返程", "离开", "返回", "离站", "发车", "开车"),
         }
         for kind, markers in endpoint_markers.items():
             marker_pattern = "|".join(markers)
@@ -758,6 +810,16 @@ def build_planning_context(
             endpoint = dict(context.get(kind) or {})
             endpoint["time"] = f"{int(match.group(1)):02d}:{match.group(2)}"
             context[kind] = endpoint
+        ticket_facts = _ticket_facts(message)
+        if ticket_facts:
+            existing_facts = context.get("ticket_facts") or []
+            context["ticket_facts"] = list(
+                {
+                    json.dumps(item, ensure_ascii=False, sort_keys=True): item
+                    for item in [*existing_facts, *ticket_facts]
+                    if isinstance(item, dict)
+                }.values()
+            )[-12:]
 
     if not previous_plan:
         for historical in history or []:
@@ -791,6 +853,9 @@ def build_planning_context(
                 ),
                 "arrival": deepcopy(structured_request.get("arrival") or {}),
                 "departure": deepcopy(structured_request.get("departure") or {}),
+                "ticket_facts": deepcopy(
+                    structured_request.get("ticket_facts") or context.get("ticket_facts") or []
+                ),
                 "hotel_area": _text(structured_request.get("hotel_area")),
                 "hotel_preferences": _text(structured_request.get("hotel_preferences")),
                 "travelers": _text(
@@ -828,6 +893,9 @@ def build_planning_context(
                 },
             }
         )
+        note_facts = _ticket_facts(context.get("notes", ""))
+        if note_facts:
+            context["ticket_facts"] = note_facts
     raw_destinations = [
         item
         for item in context.get("destinations") or []

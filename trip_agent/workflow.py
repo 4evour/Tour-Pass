@@ -379,11 +379,15 @@ def repair_skeleton(
             )
         day["stops"] = unique_stops
 
-    if len(allocated_destinations) >= len(raw_days):
+    if raw_days:
         default_intercity_mode = preferred_intercity_mode()
         for day_index in range(1, len(raw_days)):
-            previous_destination = allocated_destinations[day_index - 1]
-            current_destination = allocated_destinations[day_index]
+            if len(allocated_destinations) >= len(raw_days):
+                previous_destination = allocated_destinations[day_index - 1]
+                current_destination = allocated_destinations[day_index]
+            else:
+                previous_destination = destination_name(raw_days[day_index - 1]) or city
+                current_destination = destination_name(raw_days[day_index]) or city
             if _matches(previous_destination, current_destination):
                 continue
             day = raw_days[day_index]
@@ -400,6 +404,34 @@ def repair_skeleton(
                 "departure_hint": existing_leg.get("departure_hint"),
                 "arrival_hint": existing_leg.get("arrival_hint"),
             }
+            ticket = next(
+                (
+                    item
+                    for item in _items(context.get("ticket_facts"))
+                    if isinstance(item, dict)
+                    and _matches(item.get("from"), repaired_leg["from"])
+                    and _matches(item.get("to"), repaired_leg["to"])
+                ),
+                None,
+            )
+            if ticket:
+                repaired_leg.update(
+                    {
+                        "mode": "rail",
+                        "departure_hint": _text(ticket.get("departure_time"))
+                        or repaired_leg["departure_hint"],
+                        "arrival_hint": _text(ticket.get("arrival_time"))
+                        or repaired_leg["arrival_hint"],
+                    }
+                )
+                repairs.append(
+                    {
+                        "reason": "apply_user_ticket_times",
+                        "day": day_index + 1,
+                        "from": repaired_leg["from"],
+                        "to": repaired_leg["to"],
+                    }
+                )
             if repaired_leg != existing_leg:
                 day["intercity_leg"] = repaired_leg
                 repairs.append(
