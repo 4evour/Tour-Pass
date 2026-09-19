@@ -75,8 +75,8 @@ class OpenAICompatibleLLM:
         self.max_output_tokens = max(
             1024,
             min(
-                int(os.environ.get("TRIP_AGENT_MAX_OUTPUT_TOKENS", "4096")),
-                4096,
+                int(os.environ.get("TRIP_AGENT_MAX_OUTPUT_TOKENS", "8192")),
+                8192,
             ),
         )
         self.hedge_delay_seconds = max(

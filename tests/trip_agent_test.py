@@ -424,7 +424,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         def handler(request: httpx.Request) -> httpx.Response:
             nonlocal request_count
             request_count += 1
-            self.assertEqual(json.loads(request.content)["max_tokens"], 4096)
+            self.assertEqual(json.loads(request.content)["max_tokens"], 8192)
             if request_count == 1:
                 raise httpx.RemoteProtocolError(
                     "incomplete chunked read", request=request
@@ -470,7 +470,7 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             payload = json.loads(request.content)
             self.assertEqual(payload["model"], "gpt-5.6-luna")
             self.assertEqual(payload["input"], messages)
-            self.assertEqual(payload["max_output_tokens"], 4096)
+            self.assertEqual(payload["max_output_tokens"], 8192)
             self.assertEqual(payload["reasoning"], {"effort": "high"})
             self.assertTrue(payload["stream"])
             self.assertFalse(payload["store"])

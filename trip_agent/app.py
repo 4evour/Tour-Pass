@@ -381,7 +381,11 @@ async def stream_chat_events(
                     "error",
                     StreamErrorDetail(
                         code="planning_failed",
-                        message=f"规划未完成：{type(exc).__name__}",
+                        message=(
+                            "模型返回内容不完整，请稍后重试。"
+                            if isinstance(exc, RuntimeError)
+                            else "规划未完成，请稍后重试。"
+                        ),
                     ),
                 )
             )
