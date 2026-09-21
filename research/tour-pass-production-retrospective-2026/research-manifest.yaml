@@ -1,0 +1,9 @@
+topic: tour-pass-production-retrospective-2026
+stage: research
+research_date: 2026-09-20
+commit: 92389b47f58819ffdf6b1180457bf53579afecdc
+claim_ledger: claim-ledger.md
+status: complete
+open_questions: open-questions.md
+baseline_prompt: baseline-prompt.md
+baseline_run_report: baseline-run-report.md
