@@ -103,7 +103,7 @@ python -m trip_agent.app
 
 ## 真实链路评估与确定性重放
 
-使用默认的长沙、青岛、重庆请求运行真实模型与 Provider 链路：
+使用默认的长沙、青岛、重庆请求运行真实模型与 Provider 链路。遇到铁路换城段时，评测会像生产运行时一样调用 12306，并把高德、天气和铁路请求统一录制：
 
 ```bash
 python -m trip_agent.evaluate live --model deepseek-flash --wire-api chat_completions

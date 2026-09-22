@@ -25,7 +25,9 @@ from trip_agent.context import (
 from trip_agent.contracts import ChatRequest, ChatResponse, StructuredTripRequest
 from trip_agent.evaluate import (
     RecordingAmap,
+    RecordingRail,
     ReplayAmap,
+    ReplayRail,
     _aggregate,
     _quality_metrics,
     _summarize,
@@ -342,15 +344,18 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
                     {"elapsed_ms": 90, "error": "timeout"},
                 ],
                 "weather": [],
+                "rail": [
+                    {"elapsed_ms": 60, "result": {"cache_hit": False}},
+                ],
             },
         )
 
         self.assertEqual(metrics["trace_wall_clock_ms"], 130)
         self.assertEqual(metrics["stage_elapsed_ms"], {"model": 100, "validation": 15})
-        self.assertEqual(metrics["provider_latency_p50_ms"], 30)
+        self.assertEqual(metrics["provider_latency_p50_ms"], 60)
         self.assertEqual(metrics["provider_latency_p95_ms"], 90)
-        self.assertEqual(metrics["provider_error_rate"], 0.5)
-        self.assertEqual(metrics["provider_cache_hit_rate"], 0.5)
+        self.assertAlmostEqual(metrics["provider_error_rate"], 1 / 3, places=4)
+        self.assertAlmostEqual(metrics["provider_cache_hit_rate"], 1 / 3, places=4)
 
     def test_evaluation_summary_tracks_repairs_tools_and_trace_integrity(self) -> None:
         events = [
@@ -411,7 +416,16 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
             plan={"completeness": {"score": 80}},
             reply="完成",
         )
-        summary = _summarize(response, {"llm": [], "amap": [], "weather": []}, 12)
+        summary = _summarize(
+            response,
+            {
+                "llm": [],
+                "amap": [],
+                "weather": [],
+                "rail": [{"elapsed_ms": 8, "result": {"cache_hit": False}}],
+            },
+            12,
+        )
         aggregate = _aggregate([summary])
 
         self.assertEqual(summary["repair_count"], 3)
@@ -424,6 +438,8 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(summary["tool_pair_gap"], 0)
         self.assertTrue(summary["tool_call_lifecycle_complete"])
         self.assertTrue(summary["event_trace_complete"])
+        self.assertEqual(summary["provider_calls"], 1)
+        self.assertEqual(summary["provider_elapsed_ms"], 8)
         self.assertEqual(aggregate["total_repairs"], 3)
         self.assertEqual(aggregate["total_required_stop_repairs"], 0)
         self.assertEqual(aggregate["total_tool_errors"], 1)
@@ -3182,6 +3198,35 @@ class TripAgentTests(unittest.IsolatedAsyncioTestCase):
         self.assertIsNone(
             getattr(RecordingAmap(FakeAmap()), "resolve_search_city", None)
         )
+
+    async def test_rail_search_is_recorded_and_replayed(self) -> None:
+        expected = {
+            "provider": "rail12306",
+            "available": True,
+            "trains": [{"train_code": "G123"}],
+        }
+        inner = SimpleNamespace(
+            available=True,
+            search_trains=AsyncMock(return_value=expected),
+        )
+        recording = RecordingRail(inner)
+        arguments = {
+            "travel_date": "2026-10-03",
+            "from_station": "天津",
+            "to_station": "济南",
+            "preferred_departure": "10:00",
+            "limit": 3,
+        }
+
+        result = await recording.search_trains(**arguments)
+
+        self.assertEqual(result, expected)
+        self.assertEqual(recording.calls[0]["provider"], "rail")
+        self.assertEqual(recording.calls[0]["method"], "search_trains")
+        self.assertEqual(recording.calls[0]["arguments"], arguments)
+        replay = ReplayRail(recording.calls)
+        self.assertEqual(await replay.search_trains(**arguments), expected)
+        self.assertEqual(replay.cursor, 1)
 
     def test_context_parses_detailed_multi_city_request(self) -> None:
         context = build_planning_context(

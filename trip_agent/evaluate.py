@@ -22,6 +22,7 @@ from .loop import SKELETON_PROMPT, TripAgent
 from .model_schema import itinerary_skeleton_output_format
 from .observability import close_logging, configure_logging
 from .providers.amap import AmapProvider
+from .providers.rail import Rail12306Provider
 from .providers.weather import WeatherProvider
 from .store import TripStore
 
@@ -377,6 +378,33 @@ class RecordingWeather(RecordingProvider):
         )
 
 
+class RecordingRail(RecordingProvider):
+    def __init__(self, inner: Rail12306Provider) -> None:
+        super().__init__(inner, "rail")
+
+    async def search_trains(
+        self,
+        *,
+        travel_date: str,
+        from_station: str,
+        to_station: str,
+        preferred_departure: str | None = None,
+        limit: int = 5,
+    ) -> dict[str, Any]:
+        arguments = {
+            "travel_date": travel_date,
+            "from_station": from_station,
+            "to_station": to_station,
+            "preferred_departure": preferred_departure,
+            "limit": limit,
+        }
+        return await self._call(
+            "search_trains",
+            arguments,
+            lambda: self.inner.search_trains(**arguments),
+        )
+
+
 class ReplayProvider:
     def __init__(self, calls: list[dict[str, Any]], name: str) -> None:
         self.calls = calls
@@ -471,6 +499,31 @@ class ReplayWeather(ReplayProvider):
 
     async def forecast(self, city: str, days: int = 3) -> dict[str, Any]:
         return await self._result("forecast", {"city": city, "days": days})
+
+
+class ReplayRail(ReplayProvider):
+    def __init__(self, calls: list[dict[str, Any]]) -> None:
+        super().__init__(calls, "rail")
+
+    async def search_trains(
+        self,
+        *,
+        travel_date: str,
+        from_station: str,
+        to_station: str,
+        preferred_departure: str | None = None,
+        limit: int = 5,
+    ) -> dict[str, Any]:
+        return await self._result(
+            "search_trains",
+            {
+                "travel_date": travel_date,
+                "from_station": from_station,
+                "to_station": to_station,
+                "preferred_departure": preferred_departure,
+                "limit": limit,
+            },
+        )
 
 
 def _quality_metrics(plan: dict[str, Any] | None) -> dict[str, Any]:
@@ -616,7 +669,7 @@ def _trace_metrics(
     """Summarize the deterministic trace without pretending it is a full DAG."""
     durations = [int(event.get("elapsed_ms") or 0) for event in events]
     provider_calls = [
-        call for name in ("amap", "weather") for call in recording.get(name, [])
+        call for name in ("amap", "weather", "rail") for call in recording.get(name, [])
     ]
     provider_latencies = [int(call.get("elapsed_ms") or 0) for call in provider_calls]
     stage_pairs = {
@@ -680,7 +733,9 @@ def _summarize(
     hard_history = [event.get("hard_failure_codes", []) for event in validations]
     warnings = final_validation.get("warning_codes", [])
     llm_calls = recording["llm"]
-    provider_calls = [*recording["amap"], *recording["weather"]]
+    provider_calls = [
+        call for name in ("amap", "weather", "rail") for call in recording.get(name, [])
+    ]
 
     def usage_value(call: dict[str, Any], key: str) -> int:
         return int(
@@ -966,6 +1021,8 @@ def _manifest(
                 or os.environ.get("QWEATHER_API_KEY")
                 or os.environ.get("HEFENG_WEATHER_KEY")
             ),
+            "rail": os.environ.get("TRIP_AGENT_RAIL_ENABLED", "true").lower()
+            not in {"0", "false", "no"},
         },
     }
 
@@ -1008,8 +1065,10 @@ async def _live(args: argparse.Namespace) -> int:
         run_dir.mkdir(parents=True)
         cache = ProviderCache(output_root / "provider-cache.sqlite")
         amap_inner = AmapProvider(cache)
+        rail_inner = Rail12306Provider(cache)
         weather_inner = WeatherProvider(cache, amap=amap_inner)
         amap = RecordingAmap(amap_inner)
+        rail = RecordingRail(rail_inner)
         weather = RecordingWeather(weather_inner)
         llm_inner = OpenAICompatibleLLM()
         llm_inner.model = args.model
@@ -1021,6 +1080,7 @@ async def _live(args: argparse.Namespace) -> int:
             llm=llm,
             amap=amap,
             weather=weather,
+            rail=rail,
             store=store,
             memory_policy=MemoryPolicy(**manifest["memory_policy"]),
             max_provider_calls=manifest["max_provider_calls"],
@@ -1039,12 +1099,14 @@ async def _live(args: argparse.Namespace) -> int:
         finally:
             elapsed_ms = round((time.perf_counter() - started_at) * 1000)
             await agent.close()
+            await rail.close()
             await llm.close()
             store.close()
         recording = {
             "llm": llm.calls,
             "amap": amap.calls,
             "weather": weather.calls,
+            "rail": rail.calls,
         }
         response_payload = {
             "session_id": response.session_id,
@@ -1096,11 +1158,13 @@ async def _replay(args: argparse.Namespace) -> int:
     )
     amap = ReplayAmap(recording["amap"])
     weather = ReplayWeather(recording["weather"])
+    rail = ReplayRail(recording["rail"]) if "rail" in recording else None
     memory_policy = MemoryPolicy(**manifest.get("memory_policy", {}))
     agent = TripAgent(
         llm=llm,
         amap=amap,
         weather=weather,
+        rail=rail,
         memory_policy=memory_policy,
         max_provider_calls=int(manifest.get("max_provider_calls", 100)),
     )
@@ -1112,6 +1176,8 @@ async def _replay(args: argparse.Namespace) -> int:
         ),
     )
     await agent.close()
+    if rail is not None:
+        await rail.close()
     await llm.close()
     actual_hash = _json_hash({"reply": response.reply, "plan": response.plan})
     expected_hash = _json_hash({"reply": expected["reply"], "plan": expected["plan"]})
@@ -1120,6 +1186,8 @@ async def _replay(args: argparse.Namespace) -> int:
         "amap": amap.cursor == len(amap.calls),
         "weather": weather.cursor == len(weather.calls),
     }
+    if rail is not None:
+        fully_consumed["rail"] = rail.cursor == len(rail.calls)
     result = {
         "matched": actual_hash == expected_hash and all(fully_consumed.values()),
         "expected_hash": expected_hash,
